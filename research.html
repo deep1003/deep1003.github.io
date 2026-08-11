@@ -70,9 +70,19 @@
         interact — where delivery robots, autonomous vehicles, and humanoids meet real pavements, crowds,
         and weather — and works towards a Korea-specific evaluation standard for urban deployment.
       </p>
+      <p>
+        The analytical layer treats the taxonomy as a complex system rather than a tree. The corpus of
+        1,660 active L4 risks is represented as a weighted semantic network, from which 50 overlapping L3
+        communities emerge. That representation makes it possible to ask which risks act as hubs, which
+        semantic pathways connect distant failure modes, and how those structures behave at city scale.
+      </p>
       <p class="small muted">
         This is where the taxonomy work becomes operational: a structured risk map is only useful if it
         survives contact with the street.
+      </p>
+      <p class="links">
+        <a href="https://deep1003.github.io/RAI-Risk-Taxonomy-2.0/risk-taxonomy-space.html">AI risk semantic space</a> ·
+        <a href="https://senseable.mit.edu/">MIT Senseable City Lab</a>
       </p>
     </div>
 
@@ -83,24 +93,38 @@
       <p class="entry-meta">Project lead · KT Frontier AI Lab, with Korea University (Prof. Buru Chang's group) · 2025–2026</p>
       <p>
         Agentic RAG systems resist classic poisoning because they retrieve and reason iteratively,
-        discarding weakly relevant documents. We show this robustness is thinner than it looks.
-        <em>KidnapRAG</em> is a black-box sequential attack that hijacks the agent's multi-step reasoning
-        chain using three role-specific poisoned documents — Bait, Chain-Link, and Mal-Ins — which attract
-        initial retrieval, redirect query reformulation, and inject attacker-controlled evidence. The project
-        delivers benchmark datasets, an open-source toolkit, and a registered patent, and feeds directly into
-        defences for deployed B2B RAG services.
+        discarding weakly relevant documents. This programme shows that robustness is thinner than it
+        looks, and then builds the instrument to measure exactly how thin. It has produced two outputs so
+        far — an attack and a benchmark — alongside a registered Korean patent and defences for deployed
+        B2B RAG services.
       </p>
-      <p>
-        The follow-on work, <em>ARS-Bench</em>, turns that single attack into systematic evaluation. Most
-        RAG security benchmarks score only the final response, which says little about where an attack
-        enters or how it propagates. ARS-Bench instead measures the whole lifecycle across five
-        security-critical dimensions — document ingestion, retrieval, reasoning, final response, and
-        efficiency — so vulnerabilities can be localised and defences assessed where they actually act.
+
+      <p class="sub-title">KidnapRAG — the attack</p>
+      <p class="sub-body">
+        A black-box sequential attack that hijacks an agent's multi-step reasoning chain using three
+        role-specific poisoned documents: <em>Bait</em> attracts initial retrieval, <em>Chain-Link</em>
+        redirects query reformulation, and <em>Mal-Ins</em> injects attacker-controlled evidence. It
+        requires no access to system prompts, reasoning traces, retrievers, or model parameters — only the
+        ability to publish externally retrievable documents.
       </p>
-      <p class="links">
-        <a href="https://arxiv.org/abs/2607.00422">arXiv:2607.00422</a> ·
+      <p class="links sub-links">
+        <a href="https://arxiv.org/abs/2607.00422">Preprint (arXiv:2607.00422)</a> ·
         <a href="https://github.com/chanwoochoi316/KidnapRAG">Code</a> ·
-        <a href="https://openreview.net/pdf?id=WqFariaANi">ARS-Bench paper</a>
+        <a href="https://arxiv.org/pdf/2607.00422">PDF</a>
+      </p>
+
+      <p class="sub-title">ARS-Bench — the benchmark</p>
+      <p class="sub-body">
+        Most RAG security benchmarks score only the final response, which says little about where an attack
+        enters or how it propagates. ARS-Bench measures the entire attack lifecycle — from adversarial
+        document ingestion to final response generation — across five security-critical dimensions:
+        document ingestion, retrieval, reasoning, final response, and efficiency. Tracing effects through
+        the lifecycle enables systematic comparison of attack behaviour, fine-grained diagnosis of
+        vulnerabilities, and targeted assessment of defences.
+      </p>
+      <p class="links sub-links">
+        <a href="https://openreview.net/pdf?id=WqFariaANi">Paper (ACL ARR, Aug 2026)</a>
+        <span class="muted">· Benchmark and project resources released with the paper</span>
       </p>
     </div>
 
@@ -127,20 +151,6 @@
         <a href="https://deep1003.github.io/RAI-Risk-Taxonomy-2.0/">Live site</a> ·
         <a href="https://github.com/deep1003/RAI-Risk-Taxonomy-2.0">Repository</a> ·
         <a href="https://deep1003.github.io/RAI-Risk-Taxonomy-2.0/reports/pdf/rai_risk_taxonomy_technical_report_2_0_en.pdf">Technical report</a>
-      </p>
-    </div>
-
-    <div class="entry">
-      <p class="entry-title">AI risk semantic space</p>
-      <p class="entry-meta">With <a href="https://senseable.mit.edu/">MIT Senseable City Lab</a></p>
-      <p>
-        A complex-systems view of the same corpus: 1,660 active L4 risks represented as a weighted
-        semantic network, from which 50 overlapping L3 communities emerge. Treating a taxonomy as a
-        network rather than a tree makes it possible to ask which risks act as hubs, which semantic
-        pathways connect distant failure modes, and how those structures behave at city scale.
-      </p>
-      <p class="links">
-        <a href="https://deep1003.github.io/RAI-Risk-Taxonomy-2.0/risk-taxonomy-space.html">Project site</a>
       </p>
     </div>
 

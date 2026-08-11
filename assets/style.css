@@ -158,6 +158,26 @@ a:hover { text-decoration: underline; }
 .entry .links { font-size: 13.5px; }
 .entry .links a { margin-right: 4px; }
 
+/* nested sub-items within an entry (e.g. two outputs of one project) */
+.sub-title {
+  margin: 14px 0 4px !important;
+  padding-left: 12px;
+  border-left: 2px solid var(--accent);
+  font-weight: 650;
+  font-size: 14.5px;
+}
+.sub-body {
+  margin: 0 0 5px !important;
+  padding-left: 12px;
+  border-left: 2px solid var(--rule);
+  font-size: 14.5px;
+}
+.sub-links {
+  padding-left: 12px;
+  border-left: 2px solid var(--rule);
+  margin: 0 0 4px !important;
+}
+
 .tag {
   display: inline-block;
   font-size: 11.5px;
