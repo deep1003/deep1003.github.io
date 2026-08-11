@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Youngsam Chun</title>
+<meta name="description" content="Research on AI safety, red-teaming of agentic RAG systems, Physical AI risk taxonomy, and value alignment of LLM evaluators.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">Youngsam Chun</span>
+    <a class="nav" href="index.html">About</a>
+    <a class="nav active" href="research.html">Research</a>
+    <a class="nav" href="publications.html">Publications</a>
+    <a class="nav" href="cv.html">CV</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <aside class="sidebar">
+    <img class="avatar" src="assets/profile.jpg" alt="Youngsam Chun">
+    <h1>Youngsam Chun</h1>
+    <p class="role">Responsible AI Researcher</p>
+    <p class="org">Responsible AI Department,<br>Frontier AI Lab, KT Corporation</p>
+
+    <div class="side-h">Contact</div>
+    <ul class="side-list">
+      <li>Seoul, Republic of Korea</li>
+      <li><a href="mailto:deep1003@snu.ac.kr">deep1003@snu.ac.kr</a></li>
+      <li><a href="mailto:ys.chun@kt.com">ys.chun@kt.com</a></li>
+    </ul>
+
+    <div class="side-h">Profiles</div>
+    <ul class="side-list">
+      <li><a href="https://scholar.google.com/citations?user=ArLnfX4AAAAJ&amp;hl=en">Google Scholar</a></li>
+      <li><a href="https://orcid.org/0000-0002-6877-6230">ORCID</a></li>
+      <li><a href="https://github.com/deep1003">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/youngsam-chun-06363b17a/">LinkedIn</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h2>Research</h2>
+
+    <p class="lead">
+      I study how AI systems fail quietly — when a model looks well behaved on aggregate metrics while
+      its reasoning has been hijacked, its values misaligned with the community it serves, or its actions
+      unsafe in the physical world. My work builds the measurements that surface those failures.
+    </p>
+
+    <h3>AI safety and red-teaming</h3>
+
+    <div class="entry">
+      <p class="entry-title">Red-teaming and defence of retrieval-augmented generation systems</p>
+      <p class="entry-meta">Project lead · KT Frontier AI Lab, with Korea University (Prof. Buru Chang's group) · 2025–2026</p>
+      <p>
+        Agentic RAG systems resist classic poisoning because they retrieve and reason iteratively,
+        discarding weakly relevant documents. We show this robustness is thinner than it looks.
+        <em>KidnapRAG</em> is a black-box sequential attack that hijacks the agent's multi-step reasoning
+        chain using three role-specific poisoned documents — Bait, Chain-Link, and Mal-Ins — which attract
+        initial retrieval, redirect query reformulation, and inject attacker-controlled evidence. The project
+        delivers benchmark datasets, an open-source toolkit, and a registered patent, and feeds directly into
+        defences for deployed B2B RAG services.
+      </p>
+      <p class="links">
+        <a href="https://arxiv.org/abs/2607.00422">arXiv:2607.00422</a> ·
+        <a href="https://github.com/chanwoochoi316/KidnapRAG">Code</a>
+      </p>
+    </div>
+
+    <h3>Governance and risk taxonomy</h3>
+
+    <div class="entry">
+      <p class="entry-title">Physical AI risk taxonomy</p>
+      <p class="entry-meta">Project lead · KT R&amp;D Center · 2026–present</p>
+      <p>
+        A structured evidence map of risks that arise when AI perceives, decides, and acts in the physical
+        world — embodied AI, humanoids, robots, drones, autonomous vehicles, and cyber-physical systems.
+        The public release contains 182 L4 risk cards organised under system, interaction, and societal
+        safety, each with bilingual definitions, evidence justifications, linked references, curation data,
+        and audit logs. The aim is a taxonomy that is auditable rather than merely descriptive: every card
+        traces back to the evidence that put it there.
+      </p>
+      <p class="links">
+        <a href="https://deep1003.github.io/Physical-AI-Risk-Taxonomy/">Live site</a> ·
+        <a href="https://github.com/deep1003/Physical-AI-Risk-Taxonomy">Repository</a>
+      </p>
+    </div>
+
+    <div class="entry">
+      <p class="entry-title">AI Topic Space: policy, science, and technology in the Korean AI knowledge ecosystem</p>
+      <p class="entry-meta">Principal investigator · joint study with STEPI and KDI · 2025–present</p>
+      <p>
+        An interactive semantic map of AI topics across policy reports, academic papers, and patents, built
+        on a four-level topic hierarchy. It supports reference-space exploration and relative topic-gap
+        analysis across five-year periods, making it possible to ask where national policy discourse lags
+        the research and patent frontier — and where it leads.
+      </p>
+      <p class="links">
+        <a href="https://deep1003.github.io/AI_Topic_Space.github.io/">Live site</a> ·
+        <a href="https://github.com/deep1003/AI_Topic_Space.github.io">Repository</a> ·
+        <a href="https://huggingface.co/datasets/deep1003/ai-topic-space-korea">Dataset</a>
+      </p>
+    </div>
+
+    <h3>Value alignment and evaluation</h3>
+
+    <div class="entry">
+      <p class="entry-title">Moral orientation and calibration in LLM judges</p>
+      <p class="entry-meta">ICML 2026 Pluralistic Alignment Workshop</p>
+      <p>
+        Disagreement between a human annotator and an LLM evaluator is usually reported as a single
+        agreement score, which hides what actually went wrong. I decompose it into two separable
+        quantities: <em>moral orientation</em> — which values a judge weights — and <em>moral calibration</em>
+        — how strongly it applies them. In human annotators the two are coupled; in judge LLMs they come
+        apart. That separation is what makes silent misalignment measurable.
+      </p>
+      <p class="links">
+        <a href="https://openreview.net/pdf?id=k28Yb68dkG">Paper</a> ·
+        <a href="https://github.com/deep1003/moral-orientation-calibration">Code</a>
+      </p>
+    </div>
+
+    <div class="entry">
+      <p class="entry-title">Contextual value alignment through genre-based aesthetic judgment</p>
+      <p class="entry-meta">With Isa Weisha Wang, Institute for Ethics in AI, TU Munich · manuscript in preparation</p>
+      <p>
+        Where do LLM evaluators diverge from human interpretive communities, and is that divergence
+        universal or context-dependent? Using film genres as measurable cultural contexts, this framework
+        distinguishes universal from context-dependent value dimensions and locates human–AI gaps through
+        a sign-flip test and a subspace-resolved orientation and calibration audit.
+      </p>
+    </div>
+
+    <h3>Innovation measurement</h3>
+
+    <p class="small">
+      My earlier work measures how AI capability accumulates across nations and firms, using patent
+      analytics, economic complexity, and knowledge-network methods. That quantitative training underpins
+      how I now measure risk and alignment at scale: the same embedding, clustering, and network machinery
+      that maps a technology space also maps a risk space.
+      See <a href="publications.html">Publications</a> for the journal record.
+    </p>
+
+    <footer>
+      © 2026 Youngsam Chun ·
+      <a href="https://orcid.org/0000-0002-6877-6230">ORCID 0000-0002-6877-6230</a>
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>
