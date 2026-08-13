@@ -231,13 +231,17 @@ footer {
   .brand { width: 100%; margin-bottom: 4px; }
 }
 
-/* Nature-style figure */
-figure.fig { margin: 18px 0 22px; padding: 0; }
+/* Nature-style figure — fills the text column */
+figure.fig { margin: 18px 0 22px; padding: 0; max-width: 100%; }
 figure.fig img {
   display: block; width: 100%; height: auto;
   border: 1px solid var(--rule); border-radius: 2px; background: #fff;
 }
 figure.fig figcaption {
-  font-size: 13px; line-height: 1.55; color: var(--ink-soft); margin-top: 8px;
+  font-size: 12px; line-height: 1.5; color: var(--ink-faint); margin-top: 6px;
 }
-figure.fig figcaption b { color: var(--ink); font-weight: 700; }
+figure.fig figcaption b { color: var(--ink-soft); font-weight: 700; }
+
+@media (max-width: 820px) {
+  figure.fig { max-width: 100%; }
+}
