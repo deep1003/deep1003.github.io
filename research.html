@@ -160,18 +160,6 @@
         <a href="https://github.com/deep1003/RAI-Risk-Taxonomy-2.0">Repository</a> ·
         <a href="https://deep1003.github.io/RAI-Risk-Taxonomy-2.0/reports/pdf/rai_risk_taxonomy_technical_report_2_0_en.pdf">Technical report</a>
       </p>
-      <figure class="fig">
-        <img src="assets/figures/figA_mit_replication.png"
-             alt="Percolation transitions replicated on the MIT AI Risk Repository">
-        <figcaption><b>Figure 2 | Where a risk taxonomy's granularity comes from.</b> Two transitions in
-        semantic space, replicated on the MIT AI Risk Repository (database v4, 74 frameworks) with no
-        parameter retuned. <b>a</b>, Pooled mean pairwise similarity breaks at &tau;<sub>1</sub> = 0.806
-        &plusmn; 0.004, where similarity chaining sets in; the per-cluster minimum collapses at
-        &tau;<sub>2</sub> = 0.629 &plusmn; 0.009. Means over 100 subsample replicates, 95% bands.
-        <b>b</b>, Each consolidation step lowers the crossing boundary &tau;*<sub>t</sub> and the
-        inventory size, taking 1,810 entries to 727 in five steps. The threshold is measured, not
-        chosen.</figcaption>
-      </figure>
     </div>
 
     <div class="entry">
@@ -202,13 +190,25 @@
       <figure class="fig">
         <img src="assets/figures/fig-percolation.svg"
              alt="A single merge threshold chains four cards into one cluster; the stepwise flow keeps them apart">
-        <figcaption><b>Figure 3 | Why granularity has to be measured.</b> <b>a</b>, One threshold applied
+        <figcaption><b>Figure 2 | Why granularity has to be measured.</b> <b>a</b>, One threshold applied
         to the whole inventory lets similarity chain: at &tau; = 0.70, a and d land in the same cluster
         through b and c, although their own similarity is 0.50. Any leaf count read off this collapse is
         an editorial choice. <b>b</b>, The stepwise flow instead re-derives a crossing boundary at each
         step on the contracted graph — &tau;*<sub>1</sub> = 0.8333 separates {a, b} from {c, d}, and
         &tau;*<sub>2</sub> = 0.6998 keeps their representatives apart — so the weak 0.50 link never
         survives.</figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="assets/figures/figA_mit_replication.png"
+             alt="Percolation transitions replicated on the MIT AI Risk Repository">
+        <figcaption><b>Figure 3 | The same transitions on an independent inventory.</b> The pipeline
+        rerun on the MIT AI Risk Repository (database v4, 74 frameworks) with no parameter retuned.
+        <b>a</b>, Pooled mean pairwise similarity breaks at &tau;<sub>1</sub> = 0.806 &plusmn; 0.004,
+        where similarity chaining sets in; the per-cluster minimum collapses at &tau;<sub>2</sub> =
+        0.629 &plusmn; 0.009. Means over 100 subsample replicates, 95% bands. <b>b</b>, Each
+        consolidation step lowers the crossing boundary &tau;*<sub>t</sub> and the inventory size,
+        taking 1,810 entries to 727 in five steps. Granularity is a property of the inventory, not of
+        the embedding scale.</figcaption>
       </figure>
     </div>
 
@@ -383,6 +383,17 @@
         programme, <em>Policy-Gap Visualisation</em> at the STEPI session on inclusiveness and
         policy-agenda gaps, Korean Association for Policy Studies Summer Conference (14 Aug 2026).
       </p>
+      <figure class="fig">
+        <img src="assets/figures/fig-policy-gap.png"
+             alt="UMAP map of Korean AI policy topics showing relative shortfalls against the reference space">
+        <figcaption><b>Figure 5 | Where Korean AI policy discourse falls short.</b> Policy L3 topics on
+        the reference UMAP layout, 2022–2026, graded by relative shortfall
+        <em>r</em> = normalised Korea activation share ÷ normalised reference activation share. Hollow
+        circles mark absolute gaps where Korea carries no mass at all; crimson marks strong shortfalls
+        (<em>r</em> &lt; 0.25). The strongly underrepresented regions are not peripheral — they include
+        the alignment problem, democratic oversight, surveillance capitalism, gender bias, and the
+        hard-law/soft-law question, which is the evidence behind the policy-gap talks.</figcaption>
+      </figure>
     </div>
 
     <div class="entry">
