@@ -230,3 +230,14 @@ footer {
   .topbar-inner { padding: 12px 22px; gap: 18px; }
   .brand { width: 100%; margin-bottom: 4px; }
 }
+
+/* Nature-style figure */
+figure.fig { margin: 18px 0 22px; padding: 0; }
+figure.fig img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--rule); border-radius: 2px; background: #fff;
+}
+figure.fig figcaption {
+  font-size: 13px; line-height: 1.55; color: var(--ink-soft); margin-top: 8px;
+}
+figure.fig figcaption b { color: var(--ink); font-weight: 700; }
