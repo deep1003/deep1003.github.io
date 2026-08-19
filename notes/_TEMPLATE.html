@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- ===================================================================
+     연구 노트 템플릿
+     ===================================================================
+     새 노트를 추가하는 절차 (3단계, 빌드 도구 불필요)
+
+     1. 이 파일이 있는 notes/ 아래에 폴더를 하나 만듭니다.
+        이름 규칙:  YYYY-MM-DD-짧은-영문-슬러그
+        예)         notes/2026-09-10-rum-nn-review/
+
+     2. 이 파일을 그 폴더에 index.html 로 복사한 뒤,
+        아래 [[ ]] 로 표시된 자리만 채웁니다.
+        그림이 있으면 같은 폴더에 images/ 를 만들어 넣고
+        <img src="images/fig1.png"> 처럼 상대경로로 참조합니다.
+
+     3. notes/index.html 의 <ul class="note-list"> 맨 위에
+        항목 한 덩어리를 복사해 붙이고 제목·날짜·요약을 고칩니다.
+        연도가 바뀌면 <h2 class="year-h">2027</h2> 를 새로 추가합니다.
+
+     주의사항
+     - 본문은 반드시 <article class="note-body"> 안에 둡니다.
+       본문 스타일(제목, 수식 블록, 인용, 표, 그림 캡션)은 모두
+       assets/notes.css 에 .note-body 로 한정되어 있습니다.
+     - 수식을 쓰지 않는 노트는 아래 MathJax <script> 두 줄을 지웁니다.
+     - 저장소 루트에 .nojekyll 이 있으므로 이 사이트는 Jekyll 을 쓰지
+       않습니다. HTML 을 그대로 올리면 그대로 서비스됩니다.
+     - kind 라벨은 Seminar / Review / Proposal / Note 중에서 씁니다.
+     =================================================================== -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[[문서 제목]] — Research Notes — Youngsam Chun</title>
+<meta name="description" content="[[검색 결과에 노출될 2~3문장 요약]]">
+<link rel="stylesheet" href="../../assets/style.css?v=4">
+<link rel="stylesheet" href="../../assets/notes.css?v=1">
+<!-- 수식을 쓰지 않으면 아래 두 블록을 삭제하세요 -->
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\(', '\)']], displayMath: [['$$', '$$']], tags: 'none' },
+    svg: { fontCache: 'global' },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">Youngsam Chun</span>
+    <a class="nav" href="../../index.html">About</a>
+    <a class="nav" href="../../research.html">Research</a>
+    <a class="nav active" href="../../notes/">Notes</a>
+    <a class="nav" href="../../publications.html">Publications</a>
+    <a class="nav" href="../../cv.html">CV</a>
+  </div>
+</nav>
+
+<div class="note-wrap">
+
+  <p class="note-back"><a href="../">&larr; Research notes</a></p>
+
+  <header class="note-head">
+    <span class="note-kind">[[Seminar | Review | Proposal | Note]]</span>
+    <h1>[[문서 제목]]</h1>
+    <p class="note-meta">
+      <span>[[YYYY-MM-DD]]</span>
+      <span>[[발제자 / 저자]]</span>
+      <span>[[주제 분류]]</span>
+    </p>
+  </header>
+
+  <p class="note-abstract">
+    [[3~5문장 요약. 무엇을 다루고, 어떤 관점에서 보며, 무엇을 결론으로 삼는지.]]
+  </p>
+
+  <article class="note-body">
+
+    <!-- ── 목차 (선택) ─────────────────────────────────────── -->
+    <nav class="toc">
+      <b>목차</b><br>
+      <a href="#sec-1">1장 제목</a> ·
+      <a href="#refs">References</a>
+    </nav>
+
+    <!-- ── 본문 ────────────────────────────────────────────── -->
+    <h2 id="sec-1">1. 장 제목</h2>
+    <p>본문 문단.</p>
+
+    <!-- 강조 상자 3종 -->
+    <div class="paperbox">발제 대상 논문의 서지사항을 넣는 상자.</div>
+    <div class="assume"><b>가정 정리</b><ol><li>항목</li></ol></div>
+    <div class="exbox"><span class="tt">예시 제목</span>쉬운 설명을 넣는 상자.</div>
+    <div class="notebox">주의사항이나 보조 설명 상자.</div>
+
+    <!-- 번호가 붙는 논리 단계 -->
+    <ol class="steps"><li><b>단계 제목.</b> 설명.</li></ol>
+
+    <!-- 수식: 원 논문의 식 번호를 유지 -->
+    <div class="eq">$$V_{nj} = \beta_{nj} x_{nj} + \varepsilon_{nj} \tag{1}$$</div>
+
+    <!-- 그림: images/ 아래 파일을 상대경로로 -->
+    <figure>
+      <img src="images/fig1.png" alt="[[대체 텍스트]]">
+      <figcaption><b>Fig. 1.</b> [[캡션]] (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+    </figure>
+
+    <!-- 비교표 -->
+    <table class="cmp">
+      <tr><th>구분</th><th>A</th><th>B</th></tr>
+      <tr><td>항목</td><td>내용</td><td>내용</td></tr>
+    </table>
+
+    <!-- ── 참고문헌 ────────────────────────────────────────── -->
+    <h2 id="refs">References</h2>
+    <ol class="refs">
+      <li id="ref-1">저자 (연도). 제목. <i>저널명</i>, 권(호), 페이지. <a href="https://doi.org/...">doi:...</a></li>
+    </ol>
+
+    <div class="notebox">
+      <b>문헌 검증 원칙.</b> 저널명·권·논문번호·DOI를 출판사 또는 색인 기록에서 확인한 문헌만
+      수록한다. 게재 확인이 되지 않은 프리프린트는 그 사실을 명시한다.
+    </div>
+
+  </article>
+
+  <footer>
+    &copy; 2026 Youngsam Chun ·
+    <a href="https://orcid.org/0000-0002-6877-6230">ORCID 0000-0002-6877-6230</a>
+  </footer>
+
+</div>
+
+</body>
+</html>

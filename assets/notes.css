@@ -1,0 +1,175 @@
+/* ===============================================================
+   Research notes — layout + scoped document theme
+   notes/<slug>/index.html 에서만 사용합니다.
+   문서 본문 스타일은 모두 .note-body 아래로 한정되어 있으므로
+   사이트 전역 스타일(assets/style.css)과 충돌하지 않습니다.
+   =============================================================== */
+
+/* ---------- 노트 전용 넓은 단일 컬럼 ---------- */
+.note-wrap {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 34px 28px 90px;
+}
+.note-back {
+  font-size: 13.5px;
+  color: var(--ink-faint, #767676);
+  margin: 0 0 22px;
+}
+.note-back a { color: var(--ink-soft, #4a4a4a); }
+.note-head {
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 18px;
+  margin-bottom: 8px;
+}
+.note-kind {
+  display: inline-block;
+  font-size: 11.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: #ededed;
+  color: #3a3a3a;
+  padding: 3px 9px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+.note-head h1 {
+  font-size: 27px;
+  line-height: 1.32;
+  margin: 0 0 10px;
+  letter-spacing: -.4px;
+  color: #1a1a1a;
+}
+.note-meta {
+  font-size: 13.5px;
+  color: #5c5c5c;
+  margin: 0;
+}
+.note-meta span + span::before { content: " · "; color: #b0b0b0; }
+.note-abstract {
+  font-size: 15px;
+  color: #3a3a3a;
+  background: #f6f6f6;
+  border-left: 4px solid #4a4a4a;
+  padding: 14px 18px;
+  margin: 22px 0 4px;
+  line-height: 1.72;
+}
+
+/* ---------- 아카이브 목록 ---------- */
+.note-list { margin: 0; padding: 0; list-style: none; }
+.note-list > li {
+  border-bottom: 1px solid var(--rule, #e3e3e3);
+  padding: 18px 0;
+}
+.note-list > li:last-child { border-bottom: none; }
+.note-list .nl-kind {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  background: #f1f1f1;
+  color: #767676;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: 2px;
+}
+.note-list .nl-title { font-weight: 650; font-size: 16px; }
+.note-list .nl-meta { font-size: 13px; color: #767676; margin: 4px 0 6px; }
+.note-list .nl-desc { font-size: 14.5px; color: #3a3a3a; margin: 0 0 6px; }
+.note-list .nl-topics { font-size: 12.5px; color: #767676; }
+.note-list .nl-topics em { font-style: normal; background: #f4f4f4; padding: 2px 7px;
+  border-radius: 3px; margin-right: 5px; color: #4a4a4a; }
+.year-h {
+  font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+  color: #767676; border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 5px; margin: 34px 0 4px;
+}
+.year-h:first-of-type { margin-top: 18px; }
+
+@media (max-width: 720px) {
+  .note-wrap { padding: 24px 18px 70px; }
+  .note-head h1 { font-size: 22px; }
+}
+
+/* ===============================================================
+   이하: 문서 본문 테마 (.note-body 로 스코프됨)
+   =============================================================== */
+
+.note-body {
+    --ink: #1a1a1a; --sub: #5c5c5c; --accent: #333333; --accent2: #555555;
+    --line: #d4d4d4; --bg: #fafafa; --card: #ffffff; --cite: #333333;
+  }
+.note-body * { box-sizing: border-box; }
+.note-body { font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+         color: var(--ink); background: var(--bg); margin: 0; line-height: 1.85; }
+.note-body .wrap { max-width: 920px; margin: 0 auto; padding: 48px 28px 90px; }
+.note-body header.doc { border-bottom: 3px solid var(--accent); padding-bottom: 22px; margin-bottom: 36px; }
+.note-body header.doc h1 { font-size: 1.85rem; margin: 0 0 8px; letter-spacing: -0.5px; }
+.note-body header.doc .meta { color: var(--sub); font-size: 0.95rem; }
+.note-body h2 { font-size: 1.45rem; color: var(--accent); border-left: 6px solid var(--accent);
+       padding-left: 14px; margin: 54px 0 18px; letter-spacing: -0.4px; }
+.note-body h3 { font-size: 1.15rem; margin: 36px 0 12px; color: var(--ink); }
+.note-body h4 { font-size: 1.02rem; margin: 26px 0 8px; color: var(--sub); }
+.note-body p { margin: 10px 0 14px; }
+.note-body .part { display: inline-block; background: var(--accent); color: #fff; font-size: 0.8rem;
+          padding: 2px 10px; border-radius: 3px; margin-right: 8px; vertical-align: middle; }
+.note-body .paperbox { background: #f1f1f1; border: 1px solid #c9c9c9; border-radius: 8px;
+              padding: 14px 18px; margin: 18px 0; font-size: 0.95rem; }
+.note-body .notebox { background: #f7f7f7; border: 1px solid #cccccc; border-left: 4px solid #767676;
+             border-radius: 8px; padding: 12px 18px; margin: 18px 0; font-size: 0.93rem; }
+.note-body .eq { margin: 14px 0; overflow-x: auto; }
+.note-body .eqrow { display: flex; align-items: center; gap: 10px; }
+.note-body .eqrow .tagn { color: var(--sub); font-size: 0.9rem; white-space: nowrap; }
+.note-body figure { margin: 26px 0; text-align: center; }
+.note-body figure img { max-width: 100%; border: 1px solid var(--line); border-radius: 6px;
+               background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.note-body figure.narrow img { max-width: 78%; }
+.note-body figcaption { font-size: 0.88rem; color: var(--sub); margin-top: 8px; }
+.note-body a.cite { color: var(--cite); text-decoration: none; font-weight: 600; font-size: 0.85em;
+           vertical-align: super; }
+.note-body a.cite:hover { text-decoration: underline; }
+.note-body table.cmp { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.93rem; }
+.note-body table.cmp th { background: var(--accent); color: #fff; padding: 9px 12px; text-align: left; }
+.note-body table.cmp td { border: 1px solid var(--line); padding: 9px 12px; vertical-align: top; background: var(--card); }
+.note-body table.cmp tr td:first-child { font-weight: 600; white-space: nowrap; background: #f2f2f2; }
+.note-body ol.refs { padding-left: 1.6em; font-size: 0.93rem; }
+.note-body ol.refs li { margin-bottom: 10px; }
+.note-body .kw { font-weight: 700; color: var(--ink); background: #ededed; padding: 0 4px; border-radius: 3px; }
+.note-body .lim { color: #1a1a1a; font-weight: 700; border-bottom: 1px dotted #8a8a8a; }
+.note-body abbr.ab { border-bottom: 1px dotted #9a9a9a; text-decoration: none; cursor: help; }
+.note-body ul { margin: 8px 0 14px; }
+.note-body li { margin: 4px 0; }
+.note-body hr.sep { border: 0; border-top: 1px dashed var(--line); margin: 44px 0; }
+.note-body .exbox { background: #ffffff; border: 1px solid #c9c9c9; border-left: 5px solid #4a4a4a;
+           border-radius: 6px; padding: 16px 20px; margin: 20px 0; font-size: 0.95rem; }
+.note-body .exbox .tt { display: block; font-weight: 700; color: #1a1a1a; margin-bottom: 6px;
+               letter-spacing: -0.2px; }
+.note-body .assume { background: #f4f4f4; border: 1px solid #cdcdcd; border-radius: 6px;
+            padding: 16px 20px; margin: 20px 0; font-size: 0.95rem; }
+.note-body .assume ol { margin: 8px 0 0; padding-left: 1.4em; }
+.note-body .steps { counter-reset: st; list-style: none; padding-left: 0; }
+.note-body .steps > li { position: relative; padding-left: 44px; margin: 16px 0; }
+.note-body .steps > li::before { counter-increment: st; content: counter(st);
+      position: absolute; left: 0; top: 2px; width: 28px; height: 28px; line-height: 28px;
+      text-align: center; background: #3a3a3a; color: #fff; border-radius: 50%;
+      font-size: 0.85rem; font-weight: 700; }
+.note-body .toc { background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+         padding: 18px 24px; font-size: 0.94rem; }
+.note-body .toc a { color: var(--accent); text-decoration: none; }
+.note-body .toc a:hover { text-decoration: underline; }
+
+/* ---------- 사이트 안에 얹을 때의 보정 ----------
+   원본 문서는 독립 HTML 이라 body 배경/여백을 갖고 있었습니다.
+   사이트 페이지 안에 들어올 때는 배경을 투명하게 하고
+   본문 폭은 .note-wrap 이 관리하도록 넘깁니다. */
+.note-body { background: transparent; }
+.note-body .wrap { max-width: none; padding: 0; }
+.note-body h2:first-of-type { margin-top: 34px; }
+.note-body .toc { margin-top: 26px; }
+.note-body a { color: #1a1a1a; text-decoration: underline; text-underline-offset: 2px; }
+.note-body a:hover { color: #000; }
+.note-body a.cite { text-decoration: none; }
+.note-body a.cite:hover { text-decoration: underline; }
+.note-body ol.refs a { word-break: break-all; }
