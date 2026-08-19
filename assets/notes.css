@@ -1,11 +1,11 @@
 /* ===============================================================
-   Research notes — layout + scoped document theme
-   notes/<slug>/index.html 에서만 사용합니다.
-   문서 본문 스타일은 모두 .note-body 아래로 한정되어 있으므로
-   사이트 전역 스타일(assets/style.css)과 충돌하지 않습니다.
+   Research notes — layout plus a scoped document theme.
+   Used only by notes/<slug>/index.html and notes/index.html.
+   Every rule for the document body is scoped under .note-body, so it
+   cannot collide with the site-wide styles in assets/style.css.
    =============================================================== */
 
-/* ---------- 노트 전용 넓은 단일 컬럼 ---------- */
+/* ---------- wide single column, used only by notes ---------- */
 .note-wrap {
   max-width: 940px;
   margin: 0 auto;
@@ -56,7 +56,7 @@
   line-height: 1.72;
 }
 
-/* ---------- 아카이브 목록 ---------- */
+/* ---------- archive index list ---------- */
 .note-list { margin: 0; padding: 0; list-style: none; }
 .note-list > li {
   border-bottom: 1px solid var(--rule, #e3e3e3);
@@ -94,7 +94,7 @@
 }
 
 /* ===============================================================
-   이하: 문서 본문 테마 (.note-body 로 스코프됨)
+   Below: the document body theme, scoped under .note-body
    =============================================================== */
 
 .note-body {
@@ -160,10 +160,11 @@
 .note-body .toc a { color: var(--accent); text-decoration: none; }
 .note-body .toc a:hover { text-decoration: underline; }
 
-/* ---------- 사이트 안에 얹을 때의 보정 ----------
-   원본 문서는 독립 HTML 이라 body 배경/여백을 갖고 있었습니다.
-   사이트 페이지 안에 들어올 때는 배경을 투명하게 하고
-   본문 폭은 .note-wrap 이 관리하도록 넘깁니다. */
+/* ---------- adjustments for embedding in the site ----------
+   The document was authored as a standalone HTML file and therefore
+   carried its own body background and margins. Inside a site page the
+   background is made transparent and the column width is handed over
+   to .note-wrap. */
 .note-body { background: transparent; }
 .note-body .wrap { max-width: none; padding: 0; }
 .note-body h2:first-of-type { margin-top: 34px; }

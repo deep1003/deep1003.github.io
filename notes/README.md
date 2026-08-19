@@ -1,81 +1,87 @@
-# Research notes — 추가 및 관리 방법
+# Research notes — how to add and maintain an entry
 
-이 폴더는 세미나 발제, 논문 리뷰, 방법론 노트를 시간순으로 쌓아 두는 아카이브입니다.
-저장소 루트에 `.nojekyll` 이 있으므로 **빌드 도구 없이 HTML 을 그대로 올리면 그대로 서비스**됩니다.
+This folder is a chronological archive of seminar presentations, paper reviews and
+methodological notes. Because `.nojekyll` sits at the repository root, **there is no build
+step: HTML committed here is served exactly as written.**
 
-## 폴더 구조
+## Folder layout
 
 ```
 notes/
-├── index.html                      아카이브 목록 (연도별)
-├── _TEMPLATE.html                  새 노트 템플릿 — 복사해서 사용
-├── README.md                       이 문서
-└── YYYY-MM-DD-slug/                노트 하나 = 폴더 하나
+├── index.html                      archive index, grouped by year
+├── _TEMPLATE.html                  template for a new note — copy this
+├── README.md                       this file
+└── YYYY-MM-DD-slug/                one note = one folder
     ├── index.html
-    └── images/                     그림·표 이미지 (선택)
+    └── images/                     figures and tables (optional)
 ```
 
-`assets/notes.css` 가 이 섹션 전용 스타일이며, 본문 서식은 모두 `.note-body`
-아래로 한정되어 있어 사이트 전역 스타일(`assets/style.css`)과 충돌하지 않습니다.
+`assets/notes.css` holds the styles for this section. Every rule for the document body is
+scoped under `.note-body`, so it cannot collide with the site-wide `assets/style.css`.
 
-## 새 노트를 추가하는 3단계
+## Adding a note in three steps
 
-**1. 폴더 만들기**
+**1. Create the folder**
 
 ```
 notes/2026-09-10-rum-nn-review/
 ```
 
-이름 규칙은 `YYYY-MM-DD-짧은-영문-슬러그` 입니다. 날짜가 앞에 오므로
-폴더 목록이 자동으로 시간순 정렬되고, URL 이 그대로 영구 링크가 됩니다.
+The naming rule is `YYYY-MM-DD-short-english-slug`. Because the date leads, folders sort
+chronologically on their own and the URL doubles as a permanent link.
 
-**2. 템플릿 복사 후 내용 채우기**
+**2. Copy the template and fill it in**
 
 ```
 cp notes/_TEMPLATE.html notes/2026-09-10-rum-nn-review/index.html
 ```
 
-템플릿의 `[[ ]]` 표시된 자리만 채웁니다. 그림이 있으면 같은 폴더에 `images/`
-를 만들고 `<img src="images/fig1.png">` 처럼 상대경로로 참조합니다.
+Replace only the placeholders marked `[[ ]]`. If the note has figures, create an `images/`
+folder alongside `index.html` and reference them relatively: `<img src="images/fig1.png">`.
 
-**3. 목록에 한 줄 추가**
+**3. Add one line to the index**
 
-`notes/index.html` 의 `<ul class="note-list">` 맨 위에 항목 한 덩어리를 복사해
-붙이고 제목·날짜·요약·주제 태그를 고칩니다. 연도가 바뀌면
-`<h2 class="year-h">2027</h2>` 를 새로 추가합니다.
+Paste an `<li>` block at the top of the `<ul class="note-list">` in `notes/index.html` and
+edit the title, date, summary and topic tags. When the year changes, add a new
+`<h2 class="year-h">2027</h2>` heading.
 
-그리고 `git add . && git commit && git push` 하면 1~2분 뒤 반영됩니다.
+Then `git add . && git commit && git push`. The change appears in a minute or two.
 
-## 본문에서 쓸 수 있는 서식
+## Formatting available in the body
 
-| 클래스 | 용도 |
+| Class | Purpose |
 |---|---|
-| `.paperbox` | 발제 대상 논문의 서지사항 |
-| `.assume` | 모형의 가정을 번호 목록으로 정리 |
-| `.exbox` | 쉬운 예시·비유 (`<span class="tt">` 로 소제목) |
-| `.notebox` | 주의사항, 보조 설명 |
-| `ol.steps` | 번호 원형 배지가 붙는 논리 전개 |
-| `.eq` | 수식 블록 (MathJax, 원 논문의 식 번호 유지) |
-| `table.cmp` | 비교표 |
-| `figure` + `figcaption` | 그림과 캡션 |
-| `a.cite` | 본문 인용 위첨자 → `ol.refs` 의 `id="ref-n"` 로 연결 |
+| `.paperbox` | Bibliographic details of the paper under discussion |
+| `.assume` | The model's assumptions as a numbered list |
+| `.exbox` | Worked examples and analogies (`<span class="tt">` for the sub-heading) |
+| `.notebox` | Caveats and supplementary remarks |
+| `ol.steps` | An argument in numbered steps, with circular badges |
+| `.eq` | Equation block (MathJax; keep the original paper's equation numbers) |
+| `table.cmp` | Comparison table |
+| `figure` + `figcaption` | Figure with caption |
+| `a.cite` | In-text citation superscript, linked to `id="ref-n"` in `ol.refs` |
 
-## 작성 원칙
+## Writing conventions
 
-- **인용.** 모든 수식과 주장에는 출처를 단다. 본문 인용은 `<a class="cite" href="#ref-1">[1]</a>`
-  형태로 달고 문서 끝 `References` 의 `<li id="ref-1">` 와 연결한다.
-- **문헌 검증.** 저널명·권·논문번호·DOI 를 출판사 또는 색인 기록에서 확인한 문헌만 싣는다.
-  확인되지 않으면 인용하지 않는다. 프리프린트를 부득이 인용할 때는 그 사실을 명시한다.
-- **색상.** 본문은 흑백·그레이·짙은 그레이만 사용한다. 원 논문에서 가져온 그림의
-  고유 색상은 그대로 둔다.
-- **약어.** 처음 등장하는 자리에서 원어와 우리말 뜻을 함께 밝히고, 이후에는 약어만 쓴다.
-- **저작권.** 원 논문의 그림·표를 인용할 때는 캡션에 출처를 명시한다. 원본 PDF 등
-  배포권이 없는 파일은 저장소에 커밋하지 않는다(`.gitignore` 참고).
+- **Citation.** Every equation and every claim carries a source. In-text citations take the form
+  `<a class="cite" href="#ref-1">[1]</a>` and link to `<li id="ref-1">` in the References list.
+- **Verifying references.** Cite only works whose journal, volume, article number and DOI have
+  been confirmed against publisher or index records. If it cannot be confirmed, do not cite it.
+  Where a preprint must be cited, say so explicitly.
+- **Colour.** The body uses black, grey and dark grey only. Figures taken from source papers keep
+  their original colours.
+- **Abbreviations.** Spell out at first use, in the original language together with the meaning;
+  use the short form thereafter.
+- **Attribution.** When a note records a seminar given by someone else, credit the presenter in
+  the header, in the archive entry and in the closing paragraph.
+- **Copyright.** When reproducing a figure or table from a paper, cite the source in the caption.
+  Files you have no right to redistribute — original PDFs, for instance — are not committed; see
+  `.gitignore`.
 
-## 로컬에서 미리 보기
+## Previewing locally
 
-빌드가 필요 없으므로 브라우저로 파일을 직접 열어도 되고, 상대경로를 정확히
-확인하려면 간단한 서버를 띄우면 됩니다.
+No build is required, so opening the file in a browser works. To check relative paths exactly,
+serve the repository root:
 
 ```
 python3 -m http.server 4000

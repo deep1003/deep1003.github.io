@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>신경망 기반 선호계수 추정 — Research Notes — Youngsam Chun</title>
-<meta name="description" content="MDN-Logit과 MAPL: 이산선택모형의 관측·비관측 선호 이질성을 신경망으로 분해하는 두 접근에 대한 세미나 발제 정리. 수식 유도, 실험 결과, 최근 문헌 검토와 연구 제안을 포함합니다.">
+<title>Estimating Preference Coefficients with Neural Networks — Research Notes — Youngsam Chun</title>
+<meta name="description" content="MDN-Logit and MAPL: two neural approaches to decomposing observed and unobserved taste heterogeneity in discrete choice models. Seminar note with full derivations, reported results, a 2023-2026 literature review, and a research proposal.">
 <link rel="stylesheet" href="../../assets/style.css?v=4">
-<link rel="stylesheet" href="../../assets/notes.css?v=1">
+<link rel="stylesheet" href="../../assets/notes.css?v=2">
 <script>
   window.MathJax = {
     tex: { inlineMath: [['\\(', '\\)']], displayMath: [['$$', '$$']], tags: 'none' },
@@ -35,582 +35,1044 @@
 
   <header class="note-head">
     <span class="note-kind">Seminar</span>
-    <h1>해석가능한 머신러닝 모형:<br>신경망 기반 선호계수 추정</h1>
+    <h1>Interpretable Machine Learning Models:<br>Estimating Preference Coefficients with Neural Networks</h1>
     <p class="note-meta">
-      <span>2026-08-19</span>
-      <span>발제 조명지</span>
-      <span>선택행동 모형 · 해석가능 머신러닝</span>
+      <span>19 August 2026</span>
+      <span>Presented by <a href="https://www.linkedin.com/in/myongjicho715/">Myongji Cho</a>, Ph.D. candidate, TEMEP, Seoul National University</span>
+      <span>Discrete choice modelling · Interpretable ML</span>
     </p>
   </header>
 
   <p class="note-abstract">
-    이산선택모형에서 개인 간 선호 이질성을 어떻게 복원할 것인가를 다룬다. 관측 특성에 조건부한
-    <b>선호계수의 혼합분포</b>를 추정하는 MDN-Logit과, 속성계수 대신 <b>대안별 총합 선호분포</b>를
-    직접 추정하는 MAPL을 비교하고, 두 접근이 "가정을 어디에 두는가"에서 갈라진다는 관점에서
-    최근 3년간의 문헌 지형 안에 위치시킨 뒤 후속 연구를 제안한다.
+    How should the heterogeneity of individual preferences be recovered when preferences are never
+    directly observed? This note examines two neural approaches that answer the question differently.
+    <b>MDN-Logit</b> estimates a mixture distribution over attribute coefficients conditioned on
+    individual characteristics; <b>MAPL</b> abandons attribute-level coefficients altogether and
+    estimates the distribution of aggregate preference for each alternative. Read together, they show
+    that no model eliminates distributional assumptions — it only relocates them — which turns the
+    <i>location</i> of the assumption into an empirical question about the stability of policy
+    indicators such as the value of travel time. The note closes by placing both papers within the
+    2023–2026 literature and proposing a line of follow-up work.
   </p>
 
   <article class="note-body">
+
 <nav class="toc">
-  <b>목차</b><br>
-  <a href="#sec-motive">Motivation — 왜 이 문제인가</a> ·
-  <a href="#sec-purpose">연구 목적</a> ·
-  <a href="#part1">Part I. MDN-Logit: 개인 특성에 조건부한 선호계수 혼합분포의 추정</a> ·
-  <a href="#part2">Part II. MAPL: 대안별 총합 선호분포의 직접 추정</a> ·
-  <a href="#part3">Part III. 종합 비교와 연구 제안</a> ·
+  <b>Contents</b><br>
+  <a href="#sec-motive">Motivation — why this problem</a> ·
+  <a href="#sec-purpose">Research objectives</a> ·
+  <a href="#part1">Part I. MDN-Logit: conditional mixture distributions over preference coefficients</a> ·
+  <a href="#part2">Part II. MAPL: direct estimation of aggregate preference distributions</a> ·
+  <a href="#part3">Part III. Synthesis and research proposal</a> ·
   <a href="#refs">References</a>
 </nav>
 
-<h2 id="sec-motive">Motivation — 왜 이 문제인가</h2>
+<h2 id="sec-motive">Motivation — Why This Problem</h2>
 
-<h3>1. 근원적 질문: 같은 선택지 앞에서 사람들은 왜 다르게 결정하는가</h3>
+<h3>1. The underlying question: why do people facing identical options decide differently?</h3>
 
-<p>아침 8시, 같은 아파트에서 같은 회사로 향하는 두 사람이 있다. 한 사람은 30분 걸리는 지하철을, 다른 사람은 50분 걸리지만 앉아서 갈 수 있는 버스를 택한다. 요금도, 거리도, 날씨도 같다. 표준적인 선택모형은 이 차이를 <b>오차항</b>으로 처리한다. 그러나 이 차이는 잡음이 아니라, 관측되지 않았을 뿐 <b>구조를 가진 정보</b>다.</p>
+<p>At eight in the morning, two people leave the same apartment building for the same office. One takes
+the thirty-minute subway; the other takes the fifty-minute bus because a seat is guaranteed. The fare,
+the distance and the weather are identical. A standard choice model absorbs this difference into an
+<b>error term</b>. But the difference is not noise. It is information that happens to be unobserved,
+and it has structure.</p>
 
-<p>사람마다 선택이 달라지는 이유는 최소한 세 층위에서 발생한다.</p>
+<p>Differences in choice arise on at least three levels.</p>
 
 <ul>
-  <li><b>인간의 본원적 속성.</b> 시간·돈·안전·편안함에 부여하는 가치는 생물학적 조건(체력, 연령, 건강), 생애주기(육아, 간병, 은퇴), 심리적 성향(위험회피, 손실회피, 습관 의존)에 따라 달라진다. 같은 1시간이라도 회복이 느린 사람에게는 더 비싸다.</li>
-  <li><b>행동 양태의 상황 의존성.</b> 동일인이라도 출근길과 주말 여행에서 시간의 가치를 다르게 평가한다. 사람은 절대적 효용이 아니라 <b>준거점</b> 대비 이득·손실로 판단하는 경향이 있으며, 최근 연구는 이 준거점 자체가 개인·대안별로 다르게 형성됨을 실증한다<a class="cite" href="#ref-24">[24]</a>.</li>
-  <li><b>사회경제 시스템의 구조.</b> 소득분포, 고용형태, 주거입지, 인프라 접근성은 계층적으로 불균등하다. 시급제 노동자에게 지각 20분은 임금의 직접 손실이지만 재량근무자에게는 그렇지 않다. 즉 <b>제도가 개인의 시간·비용 제약을 서로 다르게 만든다.</b> 선호의 차이는 취향의 문제만이 아니라 제약구조의 반영이다.</li>
+  <li><b>Intrinsic human attributes.</b> The value a person places on time, money, safety and comfort
+  depends on biological condition (physical stamina, age, health), life stage (childcare, caregiving,
+  retirement) and psychological disposition (risk aversion, loss aversion, reliance on habit). The same
+  hour is more expensive for someone who recovers slowly.</li>
+  <li><b>Situational dependence of behaviour.</b> The same individual values time differently on a
+  commute and on a weekend trip. People evaluate outcomes not in absolute utility but as gains and
+  losses relative to a <b>reference point</b>, and recent work shows that the reference point itself is
+  formed differently across individuals and alternatives<a class="cite" href="#ref-24">[24]</a>.</li>
+  <li><b>The structure of the socio-economic system.</b> Income distribution, employment type,
+  residential location and infrastructure access are stratified and unequal. For an hourly worker, being
+  twenty minutes late is a direct wage loss; for a salaried worker with discretion over hours, it is not.
+  <b>Institutions make the time and money constraints of individuals differ from one another.</b>
+  Differences in preference are not only a matter of taste; they are a reflection of constraint
+  structures.</li>
 </ul>
 
 <div class="exbox">
-<span class="tt">관측되는 것과 관측되지 않는 것</span>
-설문으로 얻는 것은 연령·소득·성별 정도다. 그러나 실제 선택을 좌우하는 것은 오늘의 컨디션, 하원 시간이 정해진 아이, 직장의 유연근무 허용도, 지난주에 겪은 지연 경험 같은 것들이다. 앞의 것을 <b>체계적(관측) 이질성</b>, 뒤의 것을 <b>무작위(비관측) 이질성</b>이라 부른다. 문제는 두 번째 층이 사라지지 않는다는 점이다. 아무리 변수를 늘려도 남는다.
+<span class="tt">What is observed and what is not</span>
+A survey delivers age, income and gender. What actually governs the choice is today's physical
+condition, a child who must be collected at a fixed hour, how much flexibility the employer allows, a
+delay experienced last week. The first group is called <b>systematic (observed) heterogeneity</b>; the
+second, <b>random (unobserved) heterogeneity</b>. The difficulty is that the second layer never
+disappears. However many covariates are added, a residual remains.
 </div>
 
-<p>여기에 이 분야의 근본적 난점이 겹친다. <b>우리는 선호를 직접 관측할 수 없다.</b> 자료에 남는 것은 "무엇을 골랐는가"라는 결과뿐이고, 그 결과로부터 "왜 골랐는가"를 역추론해야 한다. 개인의 시간가치는 자로 잰 값이 아니라, 선택의 패턴에서 복원해야 하는 <b>잠재량</b>이다. 그래서 이 분야의 모든 방법론적 논쟁은 결국 하나의 질문으로 수렴한다 — <span class="kw">관측되지 않는 선호의 분포를 무엇을 가정하고 복원할 것인가.</span></p>
+<p>A more fundamental obstacle compounds this. <b>Preferences cannot be observed directly.</b> What the
+data record is the outcome — what was chosen — and from that outcome the reason must be inferred in
+reverse. An individual's value of time is not a quantity read off an instrument but a <b>latent
+quantity</b> that must be recovered from patterns of choice. Every methodological debate in this field
+therefore converges on a single question: <span class="kw">under what assumption should the
+distribution of unobserved preferences be recovered?</span></p>
 
-<h3>2. 왜 방법론을 새로 바꿔 실험해야 하는가: 기존 연구의 한계</h3>
+<h3>2. Why the methodology must be changed and tested</h3>
 
-<p>방법론 교체의 필요성은 취향의 문제가 아니라 다음 다섯 단계의 논리에서 도출된다.</p>
+<p>The case for changing methods is not a matter of taste. It follows from five steps.</p>
 
 <ol class="steps">
-  <li><b>정책은 평균이 아니라 분포를 요구한다.</b> 혼잡통행료, 요금 인상, 신규 노선 도입의 편익과 부담은 인구 전체에 고르게 퍼지지 않는다. 평균 시간가치 하나로는 "누가 얼마나 손해를 보는가"라는 형평성 질문에 답할 수 없다. 더욱이 최근 연구는 지불의사(WTP)를 계수의 비율로 계산하는 관행 자체가 분포의 적률(moment)이 존재하지 않는 경우 심각한 오류를 낳는다는 점을 정리했다<a class="cite" href="#ref-22">[22]</a>. 즉 <b>분포를 제대로 다루지 못하면 정책지표 자체가 신뢰할 수 없다.</b></li>
+  <li><b>Policy requires distributions, not averages.</b> The benefits and burdens of congestion
+  charging, fare increases and new services are not spread evenly across a population. A single average
+  value of time cannot answer the equity question of who loses and by how much. More pointedly, recent
+  work has shown that the customary practice of computing willingness to pay (WTP) as a ratio of
+  coefficients produces serious errors when the moments of the resulting distribution do not
+  exist<a class="cite" href="#ref-22">[22]</a>. <b>If the distribution is handled badly, the policy
+  indicator itself becomes untrustworthy.</b></li>
 
-  <li><b>그러나 혼합로짓(MXL)은 그 분포를 '가정'한다.</b> 정규분포를 가정하는 순간 선호는 단봉·대칭으로 강제된다. 실증 연구는 여러 표명선호 자료에서 WTP 분포가 <b>다봉형</b>으로 나타나며, 바람직하지 않은 속성에 대해 음(−)이 아닌 WTP를 갖는 집단도 실재하므로 부호제약을 기계적으로 부과해서는 안 된다고 보고한다<a class="cite" href="#ref-25">[25]</a>. 이에 따라 비정규·왜도·다봉을 수용하는 변환기반 유연분포<a class="cite" href="#ref-20">[20]</a><a class="cite" href="#ref-21">[21]</a>, 분포 가정을 아예 두지 않는 비모수·분포자유 추정<a class="cite" href="#ref-19">[19]</a><a class="cite" href="#ref-23">[23]</a>이 잇달아 제안되어 왔다. 이 흐름 자체가 <b>기존 분포 가정이 실증적으로 기각되고 있다는 증거</b>다.</li>
+  <li><b>Yet mixed logit (MXL) <i>assumes</i> that distribution.</b> The moment normality is assumed,
+  preferences are forced to be unimodal and symmetric. Empirical work reports that across several
+  stated-preference datasets the WTP distribution is <b>multimodal</b>, and that groups with a
+  non-negative WTP for undesirable attributes genuinely exist, so sign constraints should not be imposed
+  mechanically<a class="cite" href="#ref-25">[25]</a>. This has prompted a stream of
+  transformation-based flexible distributions accommodating non-normality, skewness and
+  multimodality<a class="cite" href="#ref-20">[20]</a><a class="cite" href="#ref-21">[21]</a>, and of
+  nonparametric or distribution-free estimators that dispense with the assumption
+  entirely<a class="cite" href="#ref-19">[19]</a><a class="cite" href="#ref-23">[23]</a>. The stream
+  itself is <b>evidence that the conventional distributional assumption is being empirically
+  rejected.</b></li>
 
-  <li><b>잠재계층모형은 다른 곳에서 가정을 지불한다.</b> 분포 형태를 가정하지 않는 대신 계층 수를 사전에 정하고, 계층 <i>내부</i>는 동질적이라고 본다. 실제로는 같은 계층 안에서도 이질성이 남으며, 계층 모형의 통계적 추론(분산 추정) 자체도 최근에야 정교화되고 있다<a class="cite" href="#ref-27">[27]</a>.</li>
+  <li><b>Latent class models pay for the assumption elsewhere.</b> In exchange for not assuming a
+  distributional shape, they fix the number of classes in advance and treat preferences as homogeneous
+  <i>within</i> a class. In practice heterogeneity persists inside classes, and even the statistical
+  inference of these models — the asymptotic variance — has only recently been put on firmer
+  ground<a class="cite" href="#ref-27">[27]</a>.</li>
 
-  <li><b>신경망은 예측을 개선했지만 해석을 잃었다.</b> 데이터 주도 선택모형은 예측력을 높이지만 오지정 문제를 해결하지 못하며 신뢰할 수 없는 행태적 해석을 산출한다는 지적이 정면으로 제기되었고, 이를 완화하기 위해 단조성 제약을 구조적으로 부과하는 격자망 기반 모형<a class="cite" href="#ref-15">[15]</a>, 계수 해석가능성을 유지하는 임베딩 구조<a class="cite" href="#ref-14">[14]</a>, 무작위효용극대화(RUM)와의 정합성을 보장하는 신경망 추정기<a class="cite" href="#ref-17">[17]</a> 등이 제안되었다. 그러나 이들 대부분은 여전히 <b>체계적 이질성의 유연화</b>에 초점이 있고, 동일 특성 집단 내부의 무작위 이질성은 잔차로 흡수하거나 점추정으로 처리한다<a class="cite" href="#ref-16">[16]</a><a class="cite" href="#ref-18">[18]</a>.</li>
+  <li><b>Neural networks improved prediction but lost interpretation.</b> The objection has been raised
+  directly: data-driven choice models raise predictive accuracy without resolving misspecification and
+  yield untrustworthy behavioural interpretations. Responses include lattice-network models that impose
+  monotonicity structurally<a class="cite" href="#ref-15">[15]</a>, embedding architectures that preserve
+  coefficient interpretability<a class="cite" href="#ref-14">[14]</a>, and neural estimators that
+  guarantee consistency with random utility maximisation<a class="cite" href="#ref-17">[17]</a>. Most of
+  these, however, still concentrate on <b>making systematic heterogeneity flexible</b>, absorbing
+  within-group random heterogeneity into a residual layer or reducing it to a point
+  estimate<a class="cite" href="#ref-16">[16]</a><a class="cite" href="#ref-18">[18]</a>.</li>
 
-  <li><b>따라서 문제는 '가정을 없애는 것'이 아니라 '가정을 어디에 둘 것인가'다.</b> 어떤 모형도 무가정으로는 잠재 선호를 복원할 수 없다. MXL은 속성계수의 분포형태에, 잠재계층은 계층 수와 계층 내 동질성에, 신경망은 함수형태와 정규화에 가정을 둔다. <b>가정의 총량은 보존되고 위치만 이동한다.</b> 그렇다면 실증적으로 물어야 할 질문은 하나다 — <span class="kw">가정을 어느 위치에 두었을 때 VOT·탄력성 같은 정책지표가 가장 안정적으로 복원되는가?</span> 이 질문은 이론만으로 답할 수 없고, 참값을 아는 합성자료와 실제자료를 함께 쓰는 <b>실험</b>으로만 답할 수 있다. 이것이 방법론을 바꿔 실험해야 하는 근거다.</li>
+  <li><b>The problem is therefore not to remove assumptions but to decide where to put them.</b> No model
+  recovers latent preferences without assumption. MXL places its assumption on the shape of the
+  coefficient distribution; latent class models on the number of classes and within-class homogeneity;
+  neural models on functional form and regularisation. <b>The total quantity of assumption is conserved;
+  only its position moves.</b> The empirical question is then singular:
+  <span class="kw">at which position does the assumption yield the most stable recovery of policy
+  indicators such as the value of time and elasticities?</span> That question cannot be settled by
+  theory alone. It requires <b>experiments</b> that combine synthetic data with known ground truth and
+  real data. This is the case for changing the method and testing it.</li>
 </ol>
 
-<h3>3. 착안한 근원적 아이디어</h3>
+<h3>3. The core idea</h3>
 
-<p>아이디어는 한 문장으로 요약된다. <span class="kw">개인의 선호를 하나의 숫자로 예측하지 말고, 그 사람이 속한 조건에서 선호가 어떤 모양으로 퍼져 있는지를 통째로 예측하자.</span> 그리고 그 퍼짐의 모양 자체를, 관측된 선택 결과만으로 학습하자.</p>
+<p>The idea reduces to one sentence. <span class="kw">Do not predict an individual's preference as a
+single number; predict the entire shape in which preference is dispersed within that individual's
+condition.</span> And learn that shape from observed choice outcomes alone.</p>
 
 <div class="exbox">
-<span class="tt">비유: 교실에서 키를 재지 않고 키의 분포를 알아내기</span>
-한 교실 학생들의 키를 알고 싶다고 하자. 각 접근은 이렇게 답한다.
+<span class="tt">An analogy: learning the distribution of heights without measuring anyone</span>
+Suppose we want to know the heights of the students in a classroom. Each approach answers differently.
 <ul style="margin-top:10px">
-  <li><b>MNL</b> — "이 반의 평균 키는 165cm입니다." 한 개의 숫자.</li>
-  <li><b>MXL</b> — "키는 정규분포입니다. 평균 165, 표준편차 8." 실제로 남학생·여학생 두 봉우리가 있어도 하나의 넓은 종 모양으로 뭉갠다.</li>
-  <li><b>TasteNet</b> — "성별과 학년을 알려주면 그 조합의 키를 맞히겠습니다. 2학년 남학생이면 172cm." 정확도는 올라가지만, <i>같은 2학년 남학생끼리의 차이는 사라진다.</i></li>
-  <li><b>MDN-Logit</b> — "2학년 남학생이면, 키가 168 근처에 큰 봉우리 하나와 178 근처에 작은 봉우리 하나로 퍼져 있습니다." 조건별로 <b>분포 전체</b>를 출력한다.</li>
+  <li><b>MNL</b> — "The average height in this class is 165 cm." One number.</li>
+  <li><b>MXL</b> — "Height is normally distributed: mean 165, standard deviation 8." Even if there are
+  in fact two peaks, one for each sex, they are flattened into a single broad bell.</li>
+  <li><b>TasteNet</b> — "Tell me sex and year and I will predict the height: for a second-year boy,
+  172 cm." Accuracy improves, but it is still <i>one value</i>, and the differences among second-year
+  boys vanish.</li>
+  <li><b>MDN-Logit</b> — "For a second-year boy, height is dispersed with a large peak near 168 and a
+  smaller one near 178." For each condition it outputs an <b>entire distribution</b>.</li>
 </ul>
-<p style="margin-top:12px">그런데 결정적 반전이 있다. <b>우리는 학생의 키를 한 번도 잰 적이 없다.</b> 가진 자료는 "이 학생이 높은 선반의 물건을 집었는가 / 사다리를 가져왔는가"라는 <i>선택의 기록</i>뿐이다. 키가 클수록 선반에 손이 닿을 확률이 높다는 관계만 알 뿐이다. 그러므로 우리는 <b>선택 기록만으로 키 분포를 역추정</b>해야 한다. 이것이 MDN-Logit이 표준적인 혼합밀도신경망의 학습방식(관측된 목표값의 우도 최대화)을 쓸 수 없고, 분포를 선택모형 안에 넣어 <b>동시추정</b>해야 하는 이유다.</p>
+<p style="margin-top:12px">There is a decisive twist. <b>We have never measured anyone's height.</b> All
+we hold is a record of <i>choices</i> — whether the student reached for the object on the high shelf or
+fetched a ladder — together with the knowledge that taller students are more likely to reach. We must
+therefore <b>recover the height distribution from choice records alone.</b> This is why MDN-Logit cannot
+use the standard training objective of a mixture density network, which maximises the likelihood of an
+observed target, and must instead embed the distribution inside the choice model and estimate both
+<b>jointly</b>.</p>
 </div>
 
 <div class="exbox">
-<span class="tt">두 번째 착안: 무엇을 이질적이라고 볼 것인가</span>
-같은 교실 문제를 다르게 풀 수도 있다. "키, 팔 길이, 점프력을 각각 따로 추정하지 말고, <b>선반에 손이 닿는 능력</b> 자체가 어떻게 분포하는지를 바로 추정하자." 구성요소를 분해하지 않으므로 각 요소의 분포를 잘못 가정할 위험이 사라지지만, 대신 "팔이 길어서인지 점프력이 좋아서인지"는 말할 수 없게 된다. 이것이 MAPL의 발상이며, 두 논문은 <b>이질성을 모델링하는 단위</b>를 어디에 둘 것인가에서 갈라진다.
+<span class="tt">A second idea: what should be treated as heterogeneous?</span>
+The same classroom problem admits a different solution. "Do not estimate height, arm length and jumping
+ability separately; estimate directly how the <b>ability to reach the shelf</b> is distributed." Because
+the quantity is never decomposed into components, the risk of misspecifying each component's
+distribution disappears — but so does the ability to say whether it was the long arms or the jump. This
+is the intuition behind MAPL, and it is on the <b>unit at which heterogeneity is modelled</b> that the
+two papers diverge.
 </div>
 
-<h3>4. 이 연구 제안의 기여</h3>
+<h3>4. Contribution of the proposed research</h3>
 
-<p>위 논리에서 기여점은 다음과 같이 도출된다.</p>
+<p>From the argument above, the contributions follow.</p>
 
 <ol class="steps">
-  <li><b>성능 개선의 원인을 분해한다.</b> 신경망 결합 선택모형이 기존 모형보다 잘 맞을 때, 그것이 <i>계수의 이질성</i>을 잘 잡아서인지 <i>효용함수의 비선형성</i>을 잘 잡아서인지 지금까지는 구분되지 않았다. 계수분포를 추정하는 구조(MDN-Logit)와 함수형태를 유연화하는 구조(잔차 신경망)를 한 모형 안에서 분리 배치하고 비교하면, 개선의 출처를 실증적으로 분해할 수 있다.</li>
+  <li><b>Decomposing the source of improvement.</b> When a neural-embedded choice model outperforms
+  conventional models, it has so far been impossible to say whether the gain came from capturing
+  <i>coefficient heterogeneity</i> or from capturing <i>non-linearity in the utility function</i>. Placing
+  the structure that estimates coefficient distributions (MDN-Logit) and the structure that flexibilises
+  functional form (a residual network) separately within one model, and comparing them, allows the source
+  of the gain to be decomposed empirically.</li>
 
-  <li><b>정책지표를 분포로 보고하는 방식을 제시한다.</b> 평균 VOT 하나가 아니라 시간·비용 한계효용의 분포, 계수 부호별 비율, VOT가 정의되는 집단의 비율과 분포, 부호가 달라지는 집단의 특성을 함께 제시한다. 이는 WTP 추정의 적률 문제<a class="cite" href="#ref-22">[22]</a>와 분포 꼬리가 가치평가를 좌우한다는 최근 결과<a class="cite" href="#ref-26">[26]</a>에 대한 실무적 대응이며, 형평성 분석의 근거를 제공한다.</li>
+  <li><b>Reporting policy indicators as distributions.</b> Instead of a single mean value of time, report
+  the distribution of the marginal utilities of time and cost, the share of each coefficient sign, the
+  proportion and distribution of the population for whom the value of time is defined, and the
+  characteristics of the group whose sign reverses. This is a practical response to the moment problem in
+  WTP estimation<a class="cite" href="#ref-22">[22]</a> and to recent evidence that the tail of the
+  distribution drives valuation<a class="cite" href="#ref-26">[26]</a>, and it supplies the basis for
+  equity analysis.</li>
 
-  <li><b>부호제약을 '제거 규칙'에서 '진단 정보'로 재정의한다.</b> 기존 관행은 경제이론에 반하는 양(+)의 시간·비용 계수를 제약으로 봉쇄하거나 사후에 버린다. 그러나 다봉·비대칭 선호의 실증 증거<a class="cite" href="#ref-25">[25]</a>를 고려하면, 그러한 계수는 특정 집단의 실제 선호이거나 누락변수·모형 오지정의 신호일 수 있다. 이를 별도 집단으로 분리 보고하면 <b>모형 진단 도구</b>가 된다.</li>
+  <li><b>Redefining sign constraints from a deletion rule into diagnostic information.</b> Conventional
+  practice blocks positive time and cost coefficients by constraint, or discards them after the fact.
+  Given the empirical evidence for multimodal and asymmetric preferences<a class="cite" href="#ref-25">[25]</a>,
+  such coefficients may be the genuine preference of a particular group, or a signal of omitted variables
+  or misspecification. Reporting them as a separate group turns them into a <b>model-diagnostic
+  tool</b>.</li>
 
-  <li><b>가정의 위치에 대한 벤치마크를 만든다.</b> MAPL처럼 부호·함수형태를 강하게 가정하지 않는 모형을 비교기준으로 두면, 구조적 모형의 결론이 얼마나 가정에 의존하는지 정량적으로 점검할 수 있다. 이는 개별 모형의 성능 경쟁을 넘어 <b>가정 민감도 분석</b>의 틀을 제공한다.</li>
+  <li><b>Establishing a benchmark for the location of assumptions.</b> Using a model that does not impose
+  strong assumptions on sign or functional form — MAPL — as the comparison baseline makes it possible to
+  quantify how far the conclusions of a structural model depend on its assumptions. This moves beyond a
+  contest between individual models toward a framework for <b>assumption-sensitivity analysis</b>.</li>
 
-  <li><b>해석가능성과 불확실성 정량화를 함께 확보한다.</b> 예측 정확도만 높은 블랙박스가 아니라, 누구의 선호가 어떻게 분포하며 그 추정이 얼마나 불확실한지를 함께 제시하는 모형은 공공정책 의사결정에 필요한 최소 요건이다. 이는 해석가능한 머신러닝이 지향해야 할 방향과도 부합한다<a class="cite" href="#ref-15">[15]</a>.</li>
+  <li><b>Securing interpretability and uncertainty quantification together.</b> A model that reports whose
+  preferences are distributed how, and how uncertain that estimate is — rather than a black box with high
+  accuracy — is a minimum requirement for public-policy decision making. This aligns with the direction
+  interpretable machine learning should take<a class="cite" href="#ref-15">[15]</a>.</li>
 </ol>
 
-<p>이상의 문제의식을 바탕으로, 이하에서는 서로 다른 위치에 가정을 둔 두 대표 연구를 차례로 분석한다.</p>
+<p>With this framing in place, the two representative studies — which locate their assumptions
+differently — are analysed in turn.</p>
 
 <hr class="sep">
 
-<h2 id="sec-purpose">연구 목적</h2>
-<p>본 세미나의 목적은 무작위효용모형(random utility model)의 해석가능한 선호계수 구조를 유지한 채, 신경망 기반 랜덤계수모형에서 <span class="kw">관측 이질성(systematic heterogeneity)</span>과 <span class="kw">비관측 이질성(random heterogeneity)</span>을 유연하게 추정하는 방법을 검토하는 것이다. 구체적으로는 다음 세 가지를 지향한다.</p>
+<h2 id="sec-purpose">Research Objectives</h2>
+<p>The purpose of this seminar is to examine how <span class="kw">observed (systematic)</span> and
+<span class="kw">unobserved (random) heterogeneity</span> can be flexibly estimated in neural
+random-coefficient models while preserving the interpretable preference-coefficient structure of the
+random utility model. Three aims follow.</p>
 <ul>
-  <li>평균계수에 국한되지 않고 선호 양극화, 계수분포, 지불의사(Willingness to Pay, WTP) 분위수 등 <b>분포적 관심량</b>에 대한 신뢰할 수 있는 추론 방법을 개발한다.</li>
-  <li>유연한 예측력과 함께 정책분석에 필요한 <b>행동적 해석 및 불확실성 평가</b>를 확보한다.</li>
-  <li>이를 위해 신경망을 이산선택모형(Discrete Choice Model, DCM)에 결합한 두 편의 최신 연구, <b>MDN-Logit</b>(Mixture Density Network-embedded Logit, 혼합밀도신경망 결합 로짓모형)<a class="cite" href="#ref-1">[1]</a>과 <b>MAPL</b>(Mixed Aggregate Preference Logit, 혼합 총합선호 로짓모형)<a class="cite" href="#ref-2">[2]</a>을 비교·분석한다.</li>
+  <li>Develop reliable inference for <b>distributional quantities</b> — preference polarisation, the
+  coefficient distribution, quantiles of willingness to pay (WTP) — rather than for the mean coefficient
+  alone.</li>
+  <li>Secure, alongside flexible predictive power, the <b>behavioural interpretation and uncertainty
+  assessment</b> that policy analysis requires.</li>
+  <li>To that end, compare two recent studies that embed neural networks in discrete choice models
+  (DCM): <b>MDN-Logit</b> (Mixture Density Network-embedded Logit)<a class="cite" href="#ref-1">[1]</a>
+  and <b>MAPL</b> (Mixed Aggregate Preference Logit)<a class="cite" href="#ref-2">[2]</a>.</li>
 </ul>
 
 <div class="notebox">
-<b>약어 표기 원칙.</b> 본 문서의 모든 약어는 처음 등장하는 자리에서 원어와 우리말 뜻을 함께 밝히고, 이후에는 약어만 사용한다. 문서 전반에서 반복되는 핵심 약어는 다음과 같다: DCM(이산선택모형), MNL(다항로짓), MXL(혼합로짓), LML(로짓-혼합로짓), MDN(혼합밀도신경망), MAPL(혼합 총합선호 로짓), VOT(시간가치), VOWT(대기시간가치), WTP(지불의사).
+<b>Convention on abbreviations.</b> Every abbreviation is spelled out at first use and used in short form
+thereafter. The recurring ones are: DCM (discrete choice model), MNL (multinomial logit), MXL (mixed
+logit), LML (logit-mixed logit), MDN (mixture density network), MAPL (mixed aggregate preference logit),
+VOT (value of time), VOWT (value of waiting time), WTP (willingness to pay).
 </div>
 
 <hr class="sep">
 
-<h2 id="part1"><span class="part">Part I</span> MDN-Logit: 개인 특성에 조건부한 선호계수 혼합분포의 추정</h2>
+<h2 id="part1"><span class="part">Part I</span> MDN-Logit: Conditional Mixture Distributions over Preference Coefficients</h2>
 
 <div class="paperbox">
   Li, X., Feng, T., Rasouli, S., Jia, P., &amp; Kuang, H. (2026). Decomposing random taste heterogeneity in discrete choice modeling: A mixture density network-embedded logit model. <i>Transportation Research Part E: Logistics and Transportation Review</i>, 212, 104940. <a class="cite" href="#ref-1">[1]</a>
 </div>
 
-<h3>0. 핵심 가정과 아이디어</h3>
+<h3>0. Core assumptions and idea</h3>
 
 <div class="assume">
-<b>MDN-Logit이 세우는 가장 기본적인 가정</b>
+<b>The most basic assumptions MDN-Logit makes</b>
 <ol>
-  <li><b>사람은 무작위효용을 극대화한다.</b> 효용은 관측 가능한 체계적 부분과 관측 불가능한 오차항으로 나뉘고, 오차항은 극값분포를 따른다. 즉 로짓의 틀 자체는 유지한다.</li>
-  <li><b>효용은 선호계수와 속성의 선형·가법적 결합이다.</b> \(V = \beta\,x\) 구조는 바꾸지 않는다. 유연화하는 것은 \(x\)의 함수형태가 아니라 <b>\(\beta\)의 분포</b>다.</li>
-  <li><b>선호계수는 개인 특성에 조건부한 확률변수다.</b> 같은 인구사회학적 특성 \(z_n\)을 가진 사람들도 하나의 \(\beta\)를 공유하지 않고, \(z_n\)이 결정하는 <b>하나의 분포</b>에서 각자 값을 뽑는다.</li>
-  <li><b>그 조건부 분포는 유한개 정규분포의 혼합으로 근사할 수 있다.</b> 봉우리 개수 \(K\)는 정하지만, 각 봉우리의 위치·폭·비중은 자료가 정한다.</li>
-  <li><b>계산 가능성을 위해 계수들은 조건부 독립이다.</b> 공분산행렬을 대각행렬로 두어 속성 간 상관은 모델링하지 않는다.</li>
-  <li><b>경제이론은 제약으로 주입한다.</b> 시간·비용의 평균계수는 음수여야 한다는 부호제약을 분포의 평균에 부과한다.</li>
+  <li><b>People maximise random utility.</b> Utility splits into an observable systematic part and an
+  unobservable error term, and the error follows an extreme value distribution. The logit framework
+  itself is retained.</li>
+  <li><b>Utility is a linear, additive combination of preference coefficients and attributes.</b> The
+  structure \(V = \beta x\) is not changed. What is made flexible is not the functional form in \(x\)
+  but <b>the distribution of \(\beta\)</b>.</li>
+  <li><b>Preference coefficients are random variables conditional on individual characteristics.</b>
+  People sharing the same socio-demographic vector \(z_n\) do not share a single \(\beta\); each draws a
+  value from <b>a distribution</b> that \(z_n\) determines.</li>
+  <li><b>That conditional distribution can be approximated by a finite mixture of normals.</b> The
+  number of components \(K\) is fixed, but the location, spread and weight of each component are
+  determined by the data.</li>
+  <li><b>Coefficients are conditionally independent, for tractability.</b> The covariance matrix is set
+  diagonal, so correlation across attributes is not modelled.</li>
+  <li><b>Economic theory enters as a constraint.</b> A sign constraint requiring the mean coefficients of
+  time and cost to be negative is imposed on the mean of the distribution.</li>
 </ol>
 </div>
 
 <div class="exbox">
-<span class="tt">쉬운 예시: 두 개의 '30대·중소득·남성' 집단</span>
-설문에 30대·중소득·남성이 200명 있다고 하자. 이 중 절반은 재량근무자이고 절반은 교대근무자인데, 설문에는 근무형태 문항이 없다. 따라서 자료상 두 집단은 <b>완전히 동일하다.</b>
+<span class="tt">A concrete example: two hidden groups inside "male, thirties, middle income"</span>
+Suppose a survey contains 200 men in their thirties on middle incomes. Half work on discretionary hours
+and half on shifts, but the survey never asked about work schedule. In the data the two groups are
+therefore <b>indistinguishable</b>.
 <ul style="margin-top:10px">
-  <li>MNL은 이 200명에게 하나의 시간계수를 준다 → 시간가치 1.2 CHF/분.</li>
-  <li>TasteNet은 "30대·중소득·남성"이라는 조건을 읽고 더 정교한 값을 주지만, 여전히 <b>하나의 값</b>이다 → 1.35 CHF/분.</li>
-  <li>MDN-Logit은 같은 조건에서 "0.8 근처에 비중 0.5의 봉우리, 2.1 근처에 비중 0.5의 봉우리"를 출력한다. 근무형태를 묻지 않았는데도, <b>선택 패턴이 두 갈래로 갈렸다는 사실만으로</b> 집단 내부에 두 유형이 있음을 드러낸다.</li>
+  <li>MNL assigns all 200 a single time coefficient → a value of time of 1.2 CHF/min.</li>
+  <li>TasteNet reads the condition "male, thirties, middle income" and returns a more refined figure, but
+  still <b>one value</b> → 1.35 CHF/min.</li>
+  <li>MDN-Logit returns, for the same condition, "a component with weight 0.5 near 0.8 and another with
+  weight 0.5 near 2.1". Although work schedule was never asked, <b>the mere fact that choice patterns
+  split into two branches</b> reveals that two types exist inside the group.</li>
 </ul>
-<p style="margin-top:12px">정책적 함의가 달라진다. 평균 1.35로 계산하면 "요금을 올려도 대부분 감내한다"는 결론이 나오지만, 실제로는 시간가치 0.8인 절반이 요금 인상에 훨씬 취약하다. <b>평균은 존재하지 않는 중간의 사람을 만들어낸다.</b></p>
+<p style="margin-top:12px">The policy implication changes. Computing with the mean of 1.35 suggests that
+most people can absorb a fare increase; in fact the half with a value of time of 0.8 are far more
+exposed. <b>An average manufactures a person in the middle who does not exist.</b></p>
 </div>
 
 <div class="exbox">
-<span class="tt">핵심 아이디어를 한 줄로</span>
-신경망의 출력층을 <b>"선호계수 하나"가 아니라 "선호계수 분포의 설계도(가중치·평균·표준편차)"</b>로 바꾼다. 그리고 그 분포에서 계수를 뽑아 효용을 계산하고 선택확률을 만든 다음, 실제 선택과 맞춰가며 <b>분포의 설계도 자체를 역방향으로 학습</b>한다. 난수 추출이 미분을 끊는 문제는 재매개변수화와 Gumbel-Softmax로 잇는다.
+<span class="tt">The core idea in one line</span>
+Replace the output layer of the neural network: instead of <b>"one preference coefficient"</b>, output
+<b>"the blueprint of a preference-coefficient distribution — weights, means and standard deviations"</b>.
+Then draw coefficients from that distribution, compute utilities and choice probabilities, and
+<b>learn the blueprint backwards</b> by matching the observed choices. The discontinuity that random
+sampling introduces into differentiation is repaired with the reparameterisation trick and
+Gumbel-Softmax.
 </div>
 
-<h3>1. 연구 배경과 문제의식</h3>
-<p>교통 및 물류 선택에서 비용, 이동시간, 신뢰성 등에 대한 민감도(taste)는 개인·기업마다 다르며, 같은 인구사회학적 특성을 가진 집단 안에서도 관측되지 않는 차이로 선택이 달라질 수 있다. 이러한 선호 이질성을 충분히 반영하지 못하면 수요예측, 대체효과, 시간가치(Value of Time, VOT) 추정이 왜곡되어 정책 및 자원배분의 정확성이 낮아진다<a class="cite" href="#ref-1">[1]</a>.</p>
+<h3>1. Background and problem statement</h3>
+<p>In transport and logistics choices, sensitivity — taste — with respect to cost, travel time and
+reliability differs across individuals and firms, and choices differ even within a group sharing the same
+socio-demographic characteristics because of unobserved differences. Failing to capture this heterogeneity
+distorts demand forecasts, substitution effects and estimates of the value of time (VOT), which in turn
+lowers the accuracy of policy and resource allocation<a class="cite" href="#ref-1">[1]</a>.</p>
 
-<p>기존 접근은 각각 뚜렷한 한계를 지닌다.</p>
+<p>Existing approaches each carry a distinct limitation.</p>
 <ul>
-  <li><b>혼합로짓</b>(Mixed Logit, MXL)<a class="cite" href="#ref-4">[4]</a>은 연속 확률분포를 통해 비관측 이질성을 포착하지만 정규·로그정규 등 분포 형태를 사전에 정해야 하므로, 실제 선호분포가 비대칭·다봉형일 때 <span class="lim">오지정(misspecification) 위험</span>이 있다. 로짓-혼합로짓(Logit-Mixed Logit, LML)<a class="cite" href="#ref-7">[7]</a> 등 더 유연한 모수적 분포도 제안되었으나 분포 범위 설정과 계산비용 문제가 남는다.</li>
-  <li><b>잠재계층모형</b>(latent class model)<a class="cite" href="#ref-6">[6]</a>은 분포 가정 없이 이질성을 구분하지만, 계층 수가 고정되고 계층 내부의 선호를 동질적으로 본다. 최근에는 태도 지표를 신경망 임베딩으로 표현해 계층 구분을 유연화하려는 시도<a class="cite" href="#ref-28">[28]</a>와, 계층 모형의 점근분산 추정을 정교화하는 연구<a class="cite" href="#ref-27">[27]</a>가 이어지고 있으나 계층 내 동질성 가정 자체는 유지된다.</li>
-  <li><b>신경망 기반 선택모형</b>(TasteNet 등)<a class="cite" href="#ref-10">[10]</a>은 인구사회학적 특성과 선호 간의 비선형 관계, 즉 관측 가능한 체계적 이질성은 잘 포착하지만, 동일 집단 내부의 무작위적 이질성은 대체로 <span class="lim">하나의 점추정치</span>로 처리한다. 또한 일반적인 심층신경망(Deep Neural Network, DNN)은 예측력은 높지만 블랙박스 특성 때문에 행태적 해석과 정책지표 산출에 한계가 있다.</li>
+  <li><b>Mixed logit (MXL)</b><a class="cite" href="#ref-4">[4]</a> captures unobserved heterogeneity
+  through a continuous probability distribution, but the shape of that distribution — normal, lognormal —
+  must be fixed in advance, creating a <span class="lim">risk of misspecification</span> when the true
+  preference distribution is asymmetric or multimodal. More flexible parametric alternatives such as
+  logit-mixed logit (LML)<a class="cite" href="#ref-7">[7]</a> have been proposed, but the specification
+  of the distributional support and the computational cost remain.</li>
+  <li><b>Latent class models</b><a class="cite" href="#ref-6">[6]</a> distinguish heterogeneity without a
+  distributional assumption, but the number of classes is fixed and preferences within a class are
+  treated as homogeneous. Recent work has sought to flexibilise class formation by representing
+  attitudinal indicators through neural embeddings<a class="cite" href="#ref-28">[28]</a> and to refine
+  the asymptotic variance of these models<a class="cite" href="#ref-27">[27]</a>, but the within-class
+  homogeneity assumption itself remains.</li>
+  <li><b>Neural-embedded choice models</b> such as TasteNet<a class="cite" href="#ref-10">[10]</a> capture
+  the non-linear relation between socio-demographic characteristics and preferences — that is, observable
+  systematic heterogeneity — well, but reduce within-group random heterogeneity to
+  <span class="lim">a single point estimate</span>. General deep neural networks (DNN), meanwhile, predict
+  well but their black-box character limits behavioural interpretation and the derivation of policy
+  indicators.</li>
 </ul>
 
-<p>요약하면, 기존 DCM은 무작위 이질성을 다루지만 분포 가정이 경직적이고, 기존 신경망 모형은 체계적 이질성을 유연하게 다루지만 무작위 이질성 표현이 부족하다. 이 진단은 이후의 후속 연구에서도 반복 확인된다. 격자망으로 단조성을 구조적으로 보장한 모형은 예측력을 크게 잃지 않으면서 해석가능성을 확보했지만 계수는 여전히 조건부 점추정이며<a class="cite" href="#ref-15">[15]</a>, 잔차 신경망 계열은 이질성을 잔차층에 흡수시켜 명시적 분포로 드러내지 않는다<a class="cite" href="#ref-16">[16]</a><a class="cite" href="#ref-18">[18]</a>. RUM 정합성을 유지하며 오차항 분포를 일반화한 신경망 추정기<a class="cite" href="#ref-17">[17]</a>는 오차 쪽의 가정을 완화한 것으로, 계수 쪽 이질성을 다루는 본 논문과 상보적이다. 이에 저자들은 혼합밀도신경망(Mixture Density Network, MDN)<a class="cite" href="#ref-9">[9]</a>을 로짓모형에 결합한 <span class="kw">MDN-Logit</span>을 제안한다. 핵심은 개인별 선호계수를 하나의 값으로 예측하는 데 그치지 않고, 인구사회학적 특성에 조건부한 <b>선호계수의 전체 혼합분포</b>를 추정하여 두 종류의 이질성을 하나의 틀에서 분해하는 것이다<a class="cite" href="#ref-1">[1]</a>.</p>
+<p>In summary, conventional DCMs address random heterogeneity but with rigid distributional assumptions,
+while existing neural models treat systematic heterogeneity flexibly but represent random heterogeneity
+poorly. Subsequent work confirms this diagnosis repeatedly. Lattice-network models that structurally
+guarantee monotonicity secure interpretability with little loss of predictive power, yet their
+coefficients remain conditional point estimates<a class="cite" href="#ref-15">[15]</a>; residual-network
+families absorb heterogeneity into a residual layer rather than exposing it as an explicit
+distribution<a class="cite" href="#ref-16">[16]</a><a class="cite" href="#ref-18">[18]</a>. A neural
+estimator that generalises the error distribution while preserving consistency with random utility
+maximisation<a class="cite" href="#ref-17">[17]</a> relaxes the assumption on the error side, and is
+therefore complementary to the present paper, which works on the coefficient side.</p>
 
-<h3>2. 방법론</h3>
+<p>The authors accordingly propose <span class="kw">MDN-Logit</span>, which embeds a mixture density
+network (MDN)<a class="cite" href="#ref-9">[9]</a> in a logit model. The key is that rather than
+predicting an individual preference coefficient as a single value, it estimates the <b>entire conditional
+mixture distribution</b> of preference coefficients, thereby decomposing the two kinds of heterogeneity
+within one framework<a class="cite" href="#ref-1">[1]</a>.</p>
 
-<h4>2.1 표기</h4>
+<h3>2. Methodology</h3>
+
+<h4>2.1 Notation</h4>
 <ul>
-  <li>개인 \(n = 1,\cdots,N\), 대안 \(j = 1,\cdots,J\), 효용함수의 속성 \(i = 1,\cdots,I\), MDN 혼합성분 \(k = 1,\cdots,K\)</li>
-  <li>\(y_{nj}\): 개인 \(n\)이 대안 \(j\)를 선택했는지의 지시변수, \(x_{nj}\): 대안 \(j\)의 속성 벡터, \(z_n\): 개인 \(n\)의 인구사회학적 특성 벡터</li>
-  <li>\(R\): 몬테카를로 시뮬레이션 추출 횟수, \(L\): 신경망 은닉층 수</li>
+  <li>Individuals \(n = 1,\cdots,N\); alternatives \(j = 1,\cdots,J\); attributes in the utility function
+  \(i = 1,\cdots,I\); MDN mixture components \(k = 1,\cdots,K\)</li>
+  <li>\(y_{nj}\): indicator of whether individual \(n\) chose alternative \(j\); \(x_{nj}\): attribute
+  vector of alternative \(j\); \(z_n\): socio-demographic vector of individual \(n\)</li>
+  <li>\(R\): number of Monte Carlo draws; \(L\): number of hidden layers</li>
 </ul>
 
-<h4>2.2 출발점: TasteNet — 선호계수를 개인 특성의 함수로</h4>
-<p>전통적 DCM의 선형 효용함수는 개인특성과 대안속성 간의 복잡한 고차 상호작용을 충분히 포착하지 못할 수 있다. TasteNet<a class="cite" href="#ref-10">[10]</a>은 DNN을 DCM 안에 넣어, 선호계수 \(\beta_{nj}\)를 고정모수가 아니라 개인 특성 \(z_n\)의 함수로 둔다.</p>
+<h4>2.2 Point of departure: TasteNet — coefficients as functions of individual characteristics</h4>
+<p>The linear utility function of a conventional DCM may fail to capture complex higher-order interactions
+between individual characteristics and alternative attributes. TasteNet<a class="cite" href="#ref-10">[10]</a>
+embeds a DNN inside the DCM and treats the preference coefficient \(\beta_{nj}\) not as a fixed parameter
+but as a function of individual characteristics \(z_n\).</p>
 <div class="eq">$$\boldsymbol{\beta}_{nj} = g^{(L)}\circ g^{(L-1)}\cdots\circ g^{(2)}\circ\, \phi\!\left(\boldsymbol{w}^{(1)}\boldsymbol{z}_n + \boldsymbol{b}^{(1)}\right) \tag{6}$$</div>
-<p>여기서 \(g^{(l)}(\cdot)\)은 \(l\)번째 은닉층의 변환함수, \(w^{(l)}, b^{(l)}\)은 각 층의 가중치와 편향, \(\phi(\cdot)\)는 활성화함수이다. \(t^{(0)}=z_n\)으로 두고 은닉층은 이전 층의 출력을 순차적으로 변환한다. 신경망이 예측한 선호계수는 다항로짓(Multinomial Logit, MNL) 효용함수에 직접 투입된다. 식 (7)의 \(ASC_j\)는 대안별 상수항(Alternative Specific Constant, ASC)이다.</p>
+<p>Here \(g^{(l)}(\cdot)\) is the transformation of hidden layer \(l\), \(w^{(l)}, b^{(l)}\) are its weights
+and biases, and \(\phi(\cdot)\) is the activation function. Setting \(t^{(0)}=z_n\), each hidden layer
+transforms the output of the previous one in sequence. The coefficients predicted by the network are fed
+directly into the utility function of a multinomial logit (MNL) model; \(ASC_j\) in equation (7) is the
+alternative-specific constant (ASC).</p>
 <div class="eq">$$V_{nj} = \boldsymbol{\beta}_{nj}\boldsymbol{x}_{nj} + ASC_j \tag{7}$$</div>
-<p>학습은 관측된 선택을 설명하는 음의 로그우도(Negative Log-Likelihood, NLL)를 최소화하는 방식으로 이뤄지며, 과적합 방지를 위한 정규화항이 추가될 수 있다<a class="cite" href="#ref-10">[10]</a>.</p>
+<p>Training minimises the negative log-likelihood (NLL) of the observed choices, to which a regularisation
+term may be added to prevent overfitting<a class="cite" href="#ref-10">[10]</a>.</p>
 <div class="eq">$$LOSS_{TasteNet} = -\sum_{n=1}^{N}\sum_{j=1}^{J} y_{nj}\log P_{nj}(\boldsymbol{\beta}_{nj}) \tag{8}$$</div>
-<p>TasteNet은 개인 특성에 따른 비선형 선호관계와 체계적 이질성을 포착하지만, 특정 \(z_n\)을 가진 개인에게 <span class="lim">하나의 결정론적 \(\beta_{nj}\)</span>만 예측한다. 따라서 관측 특성으로 설명되지 않는 동일 특성 집단 내부의 무작위 이질성은 명시적으로 모델링하지 못한다 — 이것이 본 논문이 지적하는 출발점이다<a class="cite" href="#ref-1">[1]</a>.</p>
+<p>TasteNet captures complex non-linear preference relations and systematic heterogeneity, but for an
+individual with a given \(z_n\) it predicts only <span class="lim">a single deterministic
+\(\beta_{nj}\)</span>. Random heterogeneity that observed characteristics do not explain — within an
+individual, or within a group sharing the same characteristics — is therefore not modelled explicitly.
+That is the point of departure for the present paper<a class="cite" href="#ref-1">[1]</a>.</p>
 
-<h4>2.3 혼합밀도신경망(MDN)</h4>
-<p>MDN은 DNN과 가우시안 혼합모형(Gaussian Mixture Model, GMM)을 결합한 모형이다<a class="cite" href="#ref-9">[9]</a>. 일반적인 신경망이 입력 \(z_n\)에 대해 하나의 예측값만 출력한다면, MDN은 입력에 조건부한 목표변수 \(s\)의 확률분포 전체를 출력한다. 조건부 밀도는 \(K\)개 정규분포의 혼합으로 표현된다.</p>
+<h4>2.3 Mixture density networks</h4>
+<p>An MDN combines a DNN with a Gaussian mixture model (GMM)<a class="cite" href="#ref-9">[9]</a>. Where an
+ordinary network outputs a single prediction for input \(z_n\), an MDN outputs the full conditional
+probability distribution of a target variable \(s\). The conditional density is expressed as a mixture of
+\(K\) normals.</p>
 <div class="eq">$$\Phi(s\,|\,\boldsymbol{z}_n) = \sum_{k=1}^{K}\pi_k(\boldsymbol{z}_n)\,\mathcal{N}\!\left(s\,|\,\mu_k(\boldsymbol{z}_n), \Sigma_k(\boldsymbol{z}_n)\right), \qquad \sum_{k=1}^{K}\pi_k(\boldsymbol{z}_n)=1 \tag{9}$$</div>
-<p>\(\pi_k, \mu_k, \Sigma_k\)는 각각 \(k\)번째 혼합성분의 가중치·평균·공분산행렬이며, 본 논문에서는 목표변수 \(s\)가 개인별 무작위 선호계수 \(\beta_{nj}\)에 해당한다.</p>
+<p>\(\pi_k, \mu_k, \Sigma_k\) are the weight, mean and covariance matrix of component \(k\). In this paper
+the target \(s\) corresponds to the individual random preference coefficient \(\beta_{nj}\).</p>
 
 <figure class="narrow">
-  <img src="images/fig1_mdn.png" alt="Mixture density network 구조도">
-  <figcaption><b>Fig. 1.</b> Mixture density network (원 논문 <a class="cite" href="#ref-1">[1]</a>의 Fig. 1). 입력층에 개인 특성이 들어가 세 개의 은닉층을 거치고, 출력층은 \(K=2\) 예시에서 혼합가중치·평균·표준편차 여섯 값을 출력한다. 최종 산출물은 단일 정규분포가 아닌, 여러 봉우리를 가질 수 있는 혼합분포다.</figcaption>
+  <img src="images/fig1_mdn.png" alt="Structure of a mixture density network">
+  <figcaption><b>Fig. 1.</b> Mixture density network (Fig. 1 of the original paper <a class="cite" href="#ref-1">[1]</a>). Individual characteristics enter the input layer and pass through three hidden layers; for \(K=2\) the output layer produces six values — the mixture weights, means and standard deviations. The final object is not a single normal but a mixture that may have several peaks.</figcaption>
 </figure>
 
-<p>마지막 은닉층의 출력벡터 \(t^{(L)}\)는 가중치·평균·표준편차에 대응하는 세 부분벡터 \(t^{\pi}, t^{\mu}, t^{\sigma}\)로 나뉜다. 혼합가중치의 합은 1이어야 하므로 softmax를, 표준편차는 양수여야 하므로 지수변환을 적용하고, 평균은 별도 변환 없이 사용한다.</p>
+<p>The output vector of the last hidden layer, \(t^{(L)}\), is partitioned into three sub-vectors
+\(t^{\pi}, t^{\mu}, t^{\sigma}\). Because the mixture weights must sum to one, a softmax is applied;
+because standard deviations must be positive, an exponential transform is applied; the means are used
+without transformation.</p>
 <div class="eq">$$\pi_k = \frac{\exp(t^{\pi}_k)}{\sum_{k'=1}^{K}\exp(t^{\pi}_{k'})} \tag{10}$$</div>
 <div class="eq">$$\mu_k = t^{\mu}_k \tag{11}$$</div>
 <div class="eq">$$\sigma_k = \exp(t^{\sigma}_k) \tag{12}$$</div>
-<p>일반적인 MDN은 관측된 목표변수 \(s_n\)이 혼합분포에서 나올 우도를 최대화한다(NLL 형태)<a class="cite" href="#ref-9">[9]</a>.</p>
+<p>A standard MDN maximises the likelihood that the observed target \(s_n\) arises from the mixture, in NLL
+form<a class="cite" href="#ref-9">[9]</a>.</p>
 <div class="eq">$$NLL = -\sum_{n=1}^{N}\ln\!\left\{\sum_{k=1}^{K}\pi_k(\boldsymbol{z}_n)\,\mathcal{N}\!\left(s_n\,|\,\mu_k(\boldsymbol{z}_n),\Sigma_k(\boldsymbol{z}_n)\right)\right\} \tag{13}$$</div>
-<p>그러나 선택문제에서는 개인별 실제 선호계수 \(\beta_{nj}\)가 <b>관측되지 않으므로</b> 식 (13)을 최소화하는 표준 MDN 방식은 적용할 수 없다. 이 때문에 저자들은 MDN이 예측한 혼합분포를 선택모형 안에 직접 넣고, 선택결과로부터 분포모수를 추정하는 MDN-Logit을 제안한다<a class="cite" href="#ref-1">[1]</a>.</p>
+<p>In a choice setting, however, the individual preference coefficient \(\beta_{nj}\) is
+<b>never observed</b>, so equation (13) cannot be minimised. This is why the authors embed the
+MDN-predicted mixture directly inside the choice model and estimate the distributional parameters from
+choice outcomes — the MDN-Logit model<a class="cite" href="#ref-1">[1]</a>.</p>
 
-<h4>2.4 MDN-Logit 모형</h4>
-<p>표준 MXL은 선호계수 \(\beta\)가 사전에 정한 단일 확률분포에서 추출된다고 가정하여 무작위 이질성을 반영한다<a class="cite" href="#ref-4">[4]</a>. 반면 TasteNet은 체계적 이질성을 유연하게 포착하지만 출력이 하나의 점추정치에서 끝난다<a class="cite" href="#ref-10">[10]</a>. MDN-Logit은 신경망 출력층을 단일 선호계수가 아니라 <b>선호계수 혼합분포의 전체 모수</b>로 설정하여 두 한계를 동시에 극복한다.</p>
+<h4>2.4 The MDN-Logit model</h4>
+<p>Standard MXL reflects random heterogeneity by assuming that coefficients are drawn from a single
+pre-specified distribution<a class="cite" href="#ref-4">[4]</a>. TasteNet captures systematic heterogeneity
+flexibly but terminates in a point estimate<a class="cite" href="#ref-10">[10]</a>. MDN-Logit overcomes both
+limitations by setting the network's output layer to <b>the full parameters of a mixture distribution over
+preference coefficients</b> rather than to a single coefficient.</p>
 
 <figure>
-  <img src="images/fig2_mdnlogit_arch.png" alt="MDN-Logit 아키텍처">
-  <figcaption><b>Fig. 2.</b> MDN-Logit architecture (원 논문 <a class="cite" href="#ref-1">[1]</a>의 Fig. 2). 입력층(개인 특성 \(z_n\)) → 공유 은닉층(공통 잠재특성 추출) → 대안·속성별 층(혼합분포의 \(\pi,\mu,\sigma\) 출력) → 조건부 선호분포 구성 → 계수 추출·효용 계산 → 선택확률. 선호분포 학습과 선택우도 추정이 분리되지 않고 동시에 이루어진다.</figcaption>
+  <img src="images/fig2_mdnlogit_arch.png" alt="MDN-Logit architecture">
+  <figcaption><b>Fig. 2.</b> MDN-Logit architecture (Fig. 2 of the original paper <a class="cite" href="#ref-1">[1]</a>). Input layer (individual characteristics \(z_n\)) → shared hidden layers extracting common latent patterns → alternative- and attribute-specific layers producing the weights, means and standard deviations → construction of the conditional coefficient distribution → sampling of coefficients and computation of utility → choice probability. Learning the preference distribution and estimating the choice likelihood are not separated; they occur jointly.</figcaption>
 </figure>
 
-<p><b>이질적 속성과 동질적 속성의 구분.</b> 모형의 유연성과 간결성 간 균형을 위해, 설명변수를 이질성이 큰 속성(\(x^{MDN}_{nj}\))과 상대적으로 안정적인 속성(\(x^{MNL}_{nj}\))으로 구분한다. 모든 속성의 계수를 무작위로 둘 필요 없이, 이질성이 중요한 속성에만 MDN을 적용한다.</p>
+<p><b>Separating heterogeneous from homogeneous attributes.</b> To balance flexibility against parsimony,
+explanatory variables are divided into those with substantial heterogeneity (\(x^{MDN}_{nj}\)) and those
+that are relatively stable (\(x^{MNL}_{nj}\)). Rather than making every coefficient random, the MDN is
+applied only where heterogeneity matters.</p>
 <div class="eq">$$V_{nj} = \boldsymbol{\beta}^{MDN}_{nj}\boldsymbol{x}^{MDN}_{nj} + \boldsymbol{\beta}^{MNL}_{j}\boldsymbol{x}^{MNL}_{nj} + \varepsilon_{nj} \tag{14}$$</div>
-<p><b>조건부 선호계수 분포.</b> 계산 가능성을 위해 공분산행렬 \(\Sigma_k\)를 대각행렬로 설정하면, \(z_n\)이 주어졌을 때 선호계수 벡터의 각 원소는 조건부 독립이며, 대안 \(j\)·속성 \(i\)·개인 \(n\)의 계수에 대한 주변분포는 \(K\)개 정규분포의 가중혼합으로 표현된다.</p>
+<p><b>The conditional coefficient distribution.</b> Setting the covariance matrix \(\Sigma_k\) to be diagonal
+for tractability, the elements of the coefficient vector are conditionally independent given \(z_n\), and
+the marginal distribution of the coefficient for alternative \(j\), attribute \(i\) and individual \(n\) is
+a weighted mixture of \(K\) normals.</p>
 <div class="eq">$$p\!\left(\beta^{MDN}_{inj}\,|\,\boldsymbol{z}_n\right) = \sum_{k=1}^{K}\pi^{k}_{inj}(\boldsymbol{z}_n)\,\mathcal{N}\!\left(\mu^{k}_{inj}(\boldsymbol{z}_n),\, \sigma^{k\,2}_{inj}(\boldsymbol{z}_n)\right) \tag{15}$$</div>
-<p><b>다중과업(multi-task) 신경망 구조.</b> 공유 은닉층이 개인 특성으로부터 공통 잠재특성을 학습하고, 그 결과를 각 속성·대안별 과업층에 전달한다.</p>
+<p><b>A multi-task architecture.</b> Shared hidden layers learn common latent features from individual
+characteristics and pass them to attribute- and alternative-specific task layers.</p>
 <div class="eq">$$\boldsymbol{t}^{(L)} = g^{(L)}\circ g^{(L-1)}\cdots g^{(1)}(\boldsymbol{z}_n) \tag{16}$$</div>
-<p>이후 각 대안·속성·혼합성분에 대해 가중치·평균·표준편차의 원시 출력값을 생성한다.</p>
+<p>Raw outputs for the weight, mean and standard deviation are then produced for each alternative,
+attribute and component.</p>
 <div class="eq">$$\eta^{(\pi)}_{inj,k} = \boldsymbol{w}^{(\pi)}_{ij,k}\boldsymbol{t}^{(L)}_n + \boldsymbol{b}^{(\pi)}_{ij,k} \tag{17}$$</div>
 <div class="eq">$$\eta^{(\mu)}_{inj,k} = \boldsymbol{w}^{(\mu)}_{ij,k}\boldsymbol{t}^{(L)}_n + \boldsymbol{b}^{(\mu)}_{ij,k} \tag{18}$$</div>
 <div class="eq">$$\eta^{(\sigma)}_{inj,k} = \boldsymbol{w}^{(\sigma)}_{ij,k}\boldsymbol{t}^{(L)}_n + \boldsymbol{b}^{(\sigma)}_{ij,k} \tag{19}$$</div>
-<p><b>분포모수 변환과 경제이론적 제약.</b> 혼합가중치에는 softmax, 표준편차에는 지수함수를 적용한다.</p>
+<p><b>Transformations and the economic constraint.</b> Softmax is applied to the mixture weights and an
+exponential to the standard deviations.</p>
 <div class="eq">$$\pi^{k}_{inj}(\boldsymbol{z}_n) = \frac{\exp\!\left(\eta^{(\pi)}_{inj,k}\right)}{\sum_{k'=1}^{K}\exp\!\left(\eta^{(\pi)}_{inj,k'}\right)} \tag{20}$$</div>
 <div class="eq">$$\sigma^{k}_{inj}(\boldsymbol{z}_n) = \exp\!\left(\eta^{(\sigma)}_{inj,k}\right) \tag{21}$$</div>
-<p>DNN의 블랙박스 문제를 완화하고 경제적으로 타당한 계수를 얻기 위해, 평균계수에는 부호 제약을 부여한다. 예컨대 비용과 이동시간의 한계효용은 음수라는 경제이론을 반영할 수 있으며, 이 제약은 미분가능하므로 역전파 기반 학습을 막지 않는다.</p>
+<p>To mitigate the black-box problem of DNNs and obtain economically sensible coefficients, a sign
+constraint is imposed on the mean — reflecting, for instance, the theoretical requirement that the marginal
+utilities of cost and travel time be negative. The constraint is differentiable and so does not obstruct
+backpropagation.</p>
 <div class="eq">$$\mu^{k}_{inj}(\boldsymbol{z}_n) = \Theta\!\left(\eta^{(\mu)}_{inj,k}\right) = \begin{cases} \exp\!\left(\eta^{(\mu)}_{inj,k}\right) & \text{for positive constraints}\\[2pt] -\exp\!\left(\eta^{(\mu)}_{inj,k}\right) & \text{for negative constraints}\\[2pt] \eta^{(\mu)}_{inj,k} & \text{if unconstrained} \end{cases} \tag{22}$$</div>
 
-<h4>2.5 추정: 시뮬레이션 선택확률과 동시추정</h4>
-<p>MDN이 만든 혼합분포에서 무작위 선호계수를 \(R\)회 추출하고, 각 추출에서 로짓 선택확률을 계산한 뒤 평균한다(simulated choice probability)<a class="cite" href="#ref-5">[5]</a>.</p>
+<h4>2.5 Estimation: simulated choice probabilities and joint estimation</h4>
+<p>Random preference coefficients are drawn \(R\) times from the mixture produced by the MDN; a logit choice
+probability is computed for each draw and the results are averaged — the simulated choice
+probability<a class="cite" href="#ref-5">[5]</a>.</p>
 <div class="eq">$$\widehat{P}_{nj}\!\left(y_{nj};\boldsymbol{w},\boldsymbol{b}\right) = \frac{1}{R}\sum_{r=1}^{R}\frac{e^{\widehat{V}_{r,nj}}}{\sum_{j'=1}^{J}e^{\widehat{V}_{r,nj'}}} \tag{23}$$</div>
-<p>\(r\)번째 추출에서의 효용은 \(\widehat{V}_{r,nj} = \widehat{\boldsymbol{\beta}}^{MDN}_{r,nj}\boldsymbol{x}^{MDN}_{nj} + \boldsymbol{\beta}^{MNL}_{j}\boldsymbol{x}^{MNL}_{nj} + \varepsilon_{nj}\)이며, \(\widehat{\boldsymbol{\beta}}^{MDN}_{r,nj}\)는 서로 다른 혼합분포에서 한 번씩 추출된 계수들로 구성된 벡터다. 모형은 시뮬레이션 선택확률을 이용한 NLL에 정규화항(\(L_1\) 노름 또는 \(L_2\) 노름)을 더해 최소화하며, \(\lambda\)는 정규화 강도다.</p>
+<p>The utility at draw \(r\) is \(\widehat{V}_{r,nj} = \widehat{\boldsymbol{\beta}}^{MDN}_{r,nj}\boldsymbol{x}^{MDN}_{nj} + \boldsymbol{\beta}^{MNL}_{j}\boldsymbol{x}^{MNL}_{nj} + \varepsilon_{nj}\),
+where \(\widehat{\boldsymbol{\beta}}^{MDN}_{r,nj}\) is the vector of coefficients drawn once from each
+mixture. The model minimises the NLL built from the simulated choice probabilities plus a regularisation
+term (\(L_1\) or \(L_2\) norm), with \(\lambda\) the regularisation strength.</p>
 <div class="eq">$$\min_{\boldsymbol{w},\boldsymbol{b}} E\!\left(y_{nj};\boldsymbol{w},\boldsymbol{b}\right) = \min_{\boldsymbol{w},\boldsymbol{b}} -\sum_{n=1}^{N}\sum_{j=1}^{J}y_{nj}\ln\widehat{P}_{nj}\!\left(y_{nj};\boldsymbol{w},\boldsymbol{b}\right) + \lambda\!\left(\lVert\boldsymbol{w}\rVert + \lVert\boldsymbol{b}\rVert\right) \tag{24}$$</div>
 
-<p><b>난수추출과 역전파의 문제.</b> 식 (24)를 최소화하려면 신경망 가중치 \(w\)와 편향 \(b\)에 대한 기울기를 계산해야 하지만, 혼합분포에서의 확률적 추출은 불연속성을 만들어 일반적인 역전파를 방해한다. 저자들은 이를 <b>재매개변수화(reparameterization)</b><a class="cite" href="#ref-12">[12]</a>와 <b>Gumbel-Softmax</b><a class="cite" href="#ref-11">[11]</a>로 해결한다.</p>
+<p><b>Random sampling and the backpropagation problem.</b> Minimising equation (24) requires gradients with
+respect to the network weights \(w\) and biases \(b\), but stochastic sampling from a mixture introduces a
+discontinuity that obstructs ordinary backpropagation. The authors resolve this with the
+<b>reparameterisation trick</b><a class="cite" href="#ref-12">[12]</a> and
+<b>Gumbel-Softmax</b><a class="cite" href="#ref-11">[11]</a>.</p>
 
-<p><i>(i) 정규분포 성분 내 추출 — 재매개변수화.</i> \(k\)번째 정규성분에서 추출한 계수는 표준정규 난수 \(\xi^{k}_{r,inj}\sim N(0,1)\)을 이용해 다음과 같이 표현된다. 난수성이 \(\xi\)에만 존재하므로 \(\mu\)와 \(\sigma\)에 대한 기울기를 역전파할 수 있다<a class="cite" href="#ref-12">[12]</a>.</p>
+<p><i>(i) Sampling within a normal component — reparameterisation.</i> The coefficient drawn from component
+\(k\) is written using a standard normal variate \(\xi^{k}_{r,inj}\sim N(0,1)\). Randomness resides only in
+\(\xi\), so gradients with respect to \(\mu\) and \(\sigma\) can be
+backpropagated<a class="cite" href="#ref-12">[12]</a>.</p>
 <div class="eq">$$\widehat{\beta}^{k,MDN}_{r,inj} = \mu^{k}_{inj} + \sigma^{k}_{inj}\cdot\xi^{k}_{r,inj} \tag{25}$$</div>
 
-<p><i>(ii) 혼합성분 선택 — Gumbel-Softmax.</i> 혼합정규분포의 표준적 추출은 ① \(K\)개 성분 각각에서 후보값을 추출하고 ② 혼합가중치 \(\pi\)에 따라 하나의 성분을 이산적으로 선택하는 두 단계인데, 두 번째 단계의 이산 선택은 미분 불가능하다. 이를 연속적으로 근사하기 위해 Gumbel-Softmax를 적용한다<a class="cite" href="#ref-11">[11]</a>.</p>
+<p><i>(ii) Selecting a component — Gumbel-Softmax.</i> Standard sampling from a normal mixture has two steps:
+draw a candidate from each of the \(K\) components, then select one component discretely according to the
+weights \(\pi\). The second step is not differentiable. Gumbel-Softmax provides a continuous
+approximation<a class="cite" href="#ref-11">[11]</a>.</p>
 <div class="eq">$$\widetilde{\pi}^{k}_{r,inj} = \frac{\exp\!\left(\left(\log(\pi^{k}_{inj}) + G^{k}_{r}\right)/\tau\right)}{\sum_{m=1}^{K}\exp\!\left(\left(\log(\pi^{m}_{inj}) + G^{m}_{r}\right)/\tau\right)}, \quad k = 1,2,\cdots,K \tag{26}$$</div>
-<p>여기서 \(G^{k}_{r} = -\log(-\log(u_k)),\; u_k\sim U(0,1)\)은 서로 독립인 Gumbel 난수이고, \(\tau\)는 온도 하이퍼파라미터다. \(\tau\to 0\)이면 실제의 이산적 성분선택에 가까워지지만, 학습 과정에서는 연속적 근사를 사용하므로 혼합가중치에 대한 기울기를 계산할 수 있다.</p>
+<p>Here \(G^{k}_{r} = -\log(-\log(u_k)),\; u_k\sim U(0,1)\) are independent Gumbel variates and \(\tau\) is a
+temperature hyperparameter. As \(\tau\to 0\) the approximation approaches genuine discrete selection; during
+training the continuous form permits gradients with respect to the mixture weights.</p>
 
-<p><i>(iii) 최종 선호계수.</i> 각 성분의 재매개변수화된 후보계수를 Gumbel-Softmax 가중치로 결합하면 최종 추출 선호계수는 완전히 미분가능해진다.</p>
+<p><i>(iii) The final preference coefficient.</i> Combining the reparameterised candidates with the
+Gumbel-Softmax weights yields a fully differentiable draw.</p>
 <div class="eq">$$\widehat{\beta}^{MDN}_{r,inj} = \sum_{k=1}^{K}\widetilde{\pi}^{k}_{inj}\cdot\widehat{\beta}^{k,MDN}_{r,inj} = \sum_{k=1}^{K}\widetilde{\pi}^{k}_{inj}\left(\mu^{k}_{inj} + \sigma^{k}_{inj}\cdot\xi^{k}_{r,inj}\right) \tag{27}$$</div>
 
-<p><i>(iv) 혼합분포 모수에 대한 기울기.</i> 시뮬레이션 로그우도(Simulated Log-Likelihood, SLL)의 혼합가중치·평균·표준편차에 대한 기울기는 각각 다음과 같다.</p>
+<p><i>(iv) Gradients with respect to the mixture parameters.</i> The gradients of the simulated log-likelihood
+(SLL) with respect to the weights, means and standard deviations are as follows.</p>
 <div class="eq">$$\frac{\partial SLL}{\partial \pi^{k}_{inj}} = \sum_{r=1}^{R}\frac{\partial SLL}{\partial \widehat{\beta}^{MDN}_{r,inj}}\cdot\frac{\partial \widehat{\beta}^{MDN}_{r,inj}}{\partial \widetilde{\pi}^{k}_{r,inj}}\cdot\frac{\partial \widetilde{\pi}^{k}_{r,inj}}{\partial \pi^{k}_{inj}} \tag{28}$$</div>
 <div class="eq">$$\frac{\partial SLL}{\partial \mu^{k}_{inj}} = \sum_{r=1}^{R}\frac{\partial SLL}{\partial \widehat{\beta}^{MDN}_{r,inj}}\cdot\frac{\partial \widehat{\beta}^{MDN}_{r,inj}}{\partial \mu^{k}_{inj}} = \sum_{r=1}^{R}\frac{\partial SLL}{\partial \widehat{\beta}^{MDN}_{r,inj}}\cdot\widetilde{\pi}^{k}_{r,inj} \tag{29}$$</div>
 <div class="eq">$$\frac{\partial SLL}{\partial \sigma^{k}_{inj}} = \sum_{r=1}^{R}\frac{\partial SLL}{\partial \widehat{\beta}^{MDN}_{r,inj}}\cdot\frac{\partial \widehat{\beta}^{MDN}_{r,inj}}{\partial \sigma^{k}_{inj}} = \sum_{r=1}^{R}\frac{\partial SLL}{\partial \widehat{\beta}^{MDN}_{r,inj}}\cdot\left(\widetilde{\pi}^{k}_{r,inj}\cdot\xi^{k}_{r,inj}\right) \tag{30}$$</div>
-<p>\(\pi^{k}_{inj}, \mu^{k}_{inj}, \sigma^{k}_{inj}\)는 모두 신경망 가중치 \(w\)·편향 \(b\)의 함수이므로, 최종 기울기는 세 분포모수 경로의 기울기를 모두 합산하여 계산한다.</p>
+<p>Since \(\pi^{k}_{inj}, \mu^{k}_{inj}, \sigma^{k}_{inj}\) are all functions of the network weights \(w\) and
+biases \(b\), the final gradients aggregate the contributions along all three parameter paths.</p>
 <div class="eq">$$\frac{\partial SLL}{\partial \boldsymbol{w}} = \sum_{i,n,j,k}\left(\frac{\partial SLL}{\partial \pi^{k}_{inj}}\cdot\frac{\partial \pi^{k}_{inj}}{\partial \boldsymbol{w}} + \frac{\partial SLL}{\partial \mu^{k}_{inj}}\cdot\frac{\partial \mu^{k}_{inj}}{\partial \boldsymbol{w}} + \frac{\partial SLL}{\partial \sigma^{k}_{inj}}\cdot\frac{\partial \sigma^{k}_{inj}}{\partial \boldsymbol{w}}\right) \tag{31}$$</div>
 <div class="eq">$$\frac{\partial SLL}{\partial \boldsymbol{b}} = \sum_{i,n,j,k}\left(\frac{\partial SLL}{\partial \pi^{k}_{inj}}\cdot\frac{\partial \pi^{k}_{inj}}{\partial \boldsymbol{b}} + \frac{\partial SLL}{\partial \mu^{k}_{inj}}\cdot\frac{\partial \mu^{k}_{inj}}{\partial \boldsymbol{b}} + \frac{\partial SLL}{\partial \sigma^{k}_{inj}}\cdot\frac{\partial \sigma^{k}_{inj}}{\partial \boldsymbol{b}}\right) \tag{32}$$</div>
-<p>이로써 선택결과 → 선택확률 → 추출 선호계수 → 혼합분포 모수 → 신경망 파라미터로 이어지는 전체 경로가 미분 가능해지며, 선택자료만으로도 개인 특성에 조건부한 선호계수 분포를 동시추정할 수 있다<a class="cite" href="#ref-1">[1]</a>.</p>
+<p>The entire path — from choice outcome to choice probability, to sampled coefficient, to mixture parameters,
+to network parameters — is thus differentiable, and the conditional distribution of preference coefficients
+can be estimated jointly from choice data alone<a class="cite" href="#ref-1">[1]</a>.</p>
 
-<h3>3. 합성자료 실험</h3>
+<h3>3. Synthetic data experiment</h3>
 
-<h4>3.1 자료 생성 과정</h4>
-<p>인구사회학적 특성과 무작위 선호분포를 함께 갖는 이항선택자료를 생성한다. 개인 특성은 연령(age), 소득(income), 성별(gender)의 세 범주형 변수로 구성하고, 선택대안은 대중교통(Public Transport, PT)과 승용차(CAR)이며 각 대안에는 여행비용(Travel Cost, TC), 여행시간(Travel Time, TT), 대기시간(Waiting Time, WT) 속성이 포함된다. 대중교통 상수항은 0, 승용차 상수항은 −0.1로 설정하고, 비용계수의 참값을 −1로 고정하여 시간·대기시간 계수를 바로 VOT와 대기시간가치(Value of Waiting Time, VOWT)로 해석할 수 있게 설계했다<a class="cite" href="#ref-1">[1]</a>.</p>
-<p>여행시간과 대기시간의 선호계수는 각각 3개 정규성분 혼합분포에서 생성하되, 혼합가중치 \(\pi\)·평균 \(\mu\)·표준편차 \(\sigma\)가 개인 특성 및 연령×소득 상호작용에 따라 달라지도록 설계했다. 여행시간 계수 \(\beta_{TT}\)의 자료생성식은 다음과 같다.</p>
+<h4>3.1 Data generating process</h4>
+<p>Binary choice data are generated with both socio-demographic characteristics and a random preference
+distribution. Individual characteristics comprise three categorical variables — age, income and gender. The
+alternatives are public transport (PT) and car (CAR), each with travel cost (TC), travel time (TT) and
+waiting time (WT). The PT constant is set to 0 and the CAR constant to −0.1, and the true cost coefficient
+is fixed at −1 so that the time and waiting-time coefficients can be read directly as the value of time
+(VOT) and the value of waiting time (VOWT)<a class="cite" href="#ref-1">[1]</a>.</p>
+<p>The coefficients on travel time and waiting time are each generated from a mixture of three normal
+components, with the weights \(\pi\), means \(\mu\) and standard deviations \(\sigma\) designed to vary with
+individual characteristics and an age × income interaction. For the travel-time coefficient
+\(\beta_{TT}\):</p>
 <div class="eq">$$\pi^{k}_{TTn} = \pi^{k}_{TT}\cdot\exp\!\left(\pi^{k}_{TT} + 0.1\,age_n + 0.2\,income_n + 0.05\,gender_n + 0.1\,income_n\,age_n\right) \tag{33}$$</div>
 <div class="eq">$$\mu^{k}_{TTn} = -\exp\!\left(\mu^{k}_{TT} + 0.2\,age_n + 0.1\,income_n + 0.3\,gender_n + 0.1\,income_n\,age_n\right) \tag{34}$$</div>
 <div class="eq">$$\sigma^{k}_{TTn} = 0.15\tanh\!\left(\sigma^{k}_{TT} + 0.1\,age_n + 0.02\,income_n + 0.1\,gender_n + 0.1\,income_n\,age_n\right) \tag{35}$$</div>
-<p>대기시간 계수 \(\beta_{WT}\)도 같은 구조로 생성한다.</p>
+<p>The waiting-time coefficient \(\beta_{WT}\) is generated with the same structure.</p>
 <div class="eq">$$\pi^{k}_{WTn} = \pi^{k}_{WT}\cdot\exp\!\left(\pi^{k}_{WT} + 0.3\,age_n + 0.2\,income_n + 0.1\,gender_n + 0.15\,income_n\,age_n\right) \tag{36}$$</div>
 <div class="eq">$$\mu^{k}_{WTn} = -\exp\!\left(\mu^{k}_{WT} + 0.4\,age_n + 0.2\,income_n + 0.1\,gender_n + 0.05\,income_n\,age_n\right) \tag{37}$$</div>
 <div class="eq">$$\sigma^{k}_{WTn} = 0.2\tanh\!\left(\sigma^{k}_{WT} + 0.15\,age_n + 0.1\,income_n + 0.2\,gender_n + 0.3\,income_n\,age_n\right) \tag{38}$$</div>
-<p>개인 \(n\)의 시간·대기시간 계수는 각각 \(\sum_{k=1}^{K}\pi^{k}_{TTn}\mathcal{N}(\mu^{k}_{TTn}, \sigma^{k\,2}_{TTn})\)과 \(\sum_{k=1}^{K}\pi^{k}_{WTn}\mathcal{N}(\mu^{k}_{WTn}, \sigma^{k\,2}_{WTn})\)에서 독립적으로 추출된다. 이 설계의 요지는 단순히 평균이 다른 집단을 만드는 것이 아니라, 개인 특성에 따라 분포의 비중·위치·퍼짐 자체가 달라지는 <b>다봉형 선호분포</b>를 의도적으로 만든 것이다. 추출된 계수로 효용을 생성하고(오차항은 극값분포 가정), 전체 12,000개 관측치를 학습 8,400(70%) / 검증 1,800(15%) / 검정 1,800(15%)으로 나눈다.</p>
+<p>The time and waiting-time coefficients of individual \(n\) are drawn independently from
+\(\sum_{k=1}^{K}\pi^{k}_{TTn}\mathcal{N}(\mu^{k}_{TTn}, \sigma^{k\,2}_{TTn})\) and
+\(\sum_{k=1}^{K}\pi^{k}_{WTn}\mathcal{N}(\mu^{k}_{WTn}, \sigma^{k\,2}_{WTn})\). The point of the design is
+not merely to create groups with different means, but deliberately to create <b>multimodal preference
+distributions</b> whose weight, location and spread all shift with individual characteristics. Utilities are
+generated from the drawn coefficients, the error term is assumed extreme value, and 12,000 observations are
+split into 8,400 training (70%), 1,800 validation (15%) and 1,800 test (15%).</p>
 <div class="eq">$$V_{PTn} = -TC_{PTn} + \beta_{TTn}TT_{PTn} + \beta_{WTn}WT_{PTn} \tag{39}$$</div>
 <div class="eq">$$V_{CARn} = -TC_{CARn} + \beta_{TTn}TT_{CARn} + \beta_{WTn}WT_{CARn} + ASC_{CAR} \tag{40}$$</div>
 
-<h4>3.2 비교모형</h4>
+<h4>3.2 Benchmark models</h4>
 <ul>
-  <li><b>MNL</b>: 인구사회학적 특성에 따른 체계적 이질성만 반영하는 기준모형</li>
-  <li><b>MXL</b><a class="cite" href="#ref-4">[4]</a>: 체계적 이질성에 더해 정규분포 기반 무작위 이질성을 반영</li>
-  <li><b>LML</b><a class="cite" href="#ref-7">[7]</a>: 보다 유연한 모수적 분포를 사용하는 비교모형</li>
-  <li><b>TasteNet</b><a class="cite" href="#ref-10">[10]</a>: 개인 특성에 따른 비선형 선호계수의 점추정 모형</li>
-  <li><b>MDN-Logit</b><a class="cite" href="#ref-1">[1]</a>: 개인 특성에 조건부한 선호계수 분포 전체를 추정하는 제안모형</li>
+  <li><b>MNL</b>: baseline reflecting only systematic heterogeneity through socio-demographic characteristics</li>
+  <li><b>MXL</b><a class="cite" href="#ref-4">[4]</a>: adds normally distributed random heterogeneity</li>
+  <li><b>LML</b><a class="cite" href="#ref-7">[7]</a>: a more flexible parametric mixing distribution</li>
+  <li><b>TasteNet</b><a class="cite" href="#ref-10">[10]</a>: non-linear point estimation of coefficients from individual characteristics</li>
+  <li><b>MDN-Logit</b><a class="cite" href="#ref-1">[1]</a>: the proposed model, estimating the full conditional coefficient distribution</li>
 </ul>
-<p>대중교통의 특정 속성계수를 예시로 한 MNL 설정은 식 (41)과 같고, MXL은 여기에 개인별 정규오차를 더한다(식 42). 즉 MNL은 개인 특성에 따라 계수의 평균만 바뀌며, MXL은 그 주변의 정규적 변동을 추가한다.</p>
+<p>Taking a particular public-transport attribute coefficient as an example, the MNL specification is
+equation (41); MXL adds an individual normal error (equation 42). MNL therefore shifts only the mean of the
+coefficient with individual characteristics, while MXL adds normal variation around it.</p>
 <div class="eq">$$\beta^{MNL}_{PTn} = \beta_{PT} + \beta_{PT1}\,age + \beta_{PT2}\,income + \beta_{PT3}\,gender \tag{41}$$</div>
 <div class="eq">$$\beta^{MXL}_{PTn} = \beta_{PT} + \beta_{PT1}\,age + \beta_{PT2}\,income + \beta_{PT3}\,gender + \sigma_{PT}\,\xi_n,\quad \xi_n\sim\mathcal{N}(0,1) \tag{42}$$</div>
-<p>MDN-Logit과 TasteNet의 학습 설정: 합성자료에서는 은닉층 1개로 충분하다고 판단하고, 은닉노드 수는 {10, 20, 40, 60, 80, 100}, 혼합성분 수는 {1, 3, 5}에서 탐색했다. \(L_1, L_2\) 정규화 강도도 함께 탐색하고 활성화함수는 정류선형유닛(Rectified Linear Unit, ReLU)을 사용했다. 시간·대기시간 계수는 경제이론상 음수여야 하므로 분포 평균에 \(-\exp(\mu)\) 형태의 음수 제약을 부여했다.</p>
+<p>For MDN-Logit and TasteNet, a single hidden layer was judged sufficient on synthetic data. The number of
+hidden nodes was searched over {10, 20, 40, 60, 80, 100} and the number of mixture components over
+{1, 3, 5}. The \(L_1\) and \(L_2\) regularisation strengths were searched jointly, and the rectified linear
+unit (ReLU) was used as the activation. Because the time and waiting-time coefficients must be negative on
+theoretical grounds, a negative constraint of the form \(-\exp(\mu)\) was imposed on the distributional
+means.</p>
 
-<h4>3.3 예측 성능</h4>
+<h4>3.3 Predictive performance</h4>
 <figure>
-  <img src="images/table5_prediction_synthetic.png" alt="Table 5. 합성자료 예측 결과">
-  <figcaption><b>Table 5.</b> Prediction results for synthetic data (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/table5_prediction_synthetic.png" alt="Table 5. Prediction results on synthetic data">
+  <figcaption><b>Table 5.</b> Prediction results for synthetic data (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
-<p>두 신경망 모형(TasteNet, MDN-Logit)은 MNL·MXL·LML보다 예측성능이 높으며, 특히 검증자료에서 MDN-Logit은 TasteNet보다 정확도가 1.8%p 높다. 이는 단순히 개인 특성별 평균계수를 유연하게 예측하는 것보다, <b>집단 내부 선호분포를 함께 추정하는 것</b>이 선택행동을 더 잘 설명한다는 결과다.</p>
+<p>Both neural models (TasteNet, MDN-Logit) outperform MNL, MXL and LML, and on the validation set MDN-Logit
+exceeds TasteNet in accuracy by 1.8 percentage points. Estimating the <b>within-group preference
+distribution</b> therefore explains choice behaviour better than flexibly predicting a group-specific mean
+coefficient.</p>
 
-<h4>3.4 분포모수 복원</h4>
-<p>합성자료의 세 인구사회학적 변수 조합은 총 16개이며, 조합마다 \(\beta_{TT}, \beta_{WT}\)에 대한 혼합분포가 하나씩 존재한다. MDN-Logit은 시간계수와 대기시간계수 각각에 대해 16개의 조건부 혼합분포를 추정하며, 참값을 알고 있으므로 추정된 \(\pi, \mu, \sigma\)가 실제 분포모수와 얼마나 가까운지 직접 평가할 수 있다.</p>
+<h4>3.4 Recovery of the distributional parameters</h4>
+<p>The three socio-demographic variables yield sixteen combinations in total, and each combination has its
+own mixture distribution for \(\beta_{TT}\) and \(\beta_{WT}\). MDN-Logit therefore estimates sixteen
+conditional mixtures for each of the time and waiting-time coefficients. Because the true values are known,
+the estimated \(\pi, \mu, \sigma\) can be compared directly with the true parameters.</p>
 <figure>
-  <img src="images/table6_estimated_params.png" alt="Table 6. MDN-Logit 추정 모수">
-  <figcaption><b>Table 6.</b> Estimated parameters of the MDN-Logit model in the synthetic dataset (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/table6_estimated_params.png" alt="Table 6. Estimated parameters of MDN-Logit">
+  <figcaption><b>Table 6.</b> Estimated parameters of the MDN-Logit model in the synthetic dataset (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
 <ul>
-  <li>혼합가중치 \(\pi\)와 표준편차 \(\sigma\)의 평균제곱근오차(Root Mean Square Error, RMSE)는 약 0.0311–0.1295로 비교적 낮다.</li>
-  <li>평균 \(\mu\)의 RMSE는 약 0.3–0.4로 다소 크다. 예컨대 시간계수의 두 번째 혼합성분에서 \(\pi\)의 평균은 추정치와 참값이 모두 0.2632로 일치하는 반면, 세 번째 혼합성분 평균 \(\mu\)의 최소값은 추정치 −2.855, 참값 −1.391로 차이가 난다.</li>
-  <li>저자들은 신경망 기반 하이브리드 모형의 학습편의 때문에 일부 분포모수, 특히 성분별 평균에서 편차가 발생할 수 있다고 해석하면서도, 전체적으로는 서로 다른 집단의 선호분포를 구분·복원할 수 있다고 평가한다.</li>
+  <li>The root mean square error (RMSE) of the mixture weights \(\pi\) and standard deviations \(\sigma\) is
+  relatively low, roughly 0.0311–0.1295.</li>
+  <li>The RMSE of the means \(\mu\) is somewhat larger, roughly 0.3–0.4. For the second mixture component of
+  the time coefficient, for example, the mean of \(\pi\) is 0.2632 for both estimate and truth, whereas for
+  the third component the minimum of \(\mu\) is −2.855 against a true value of −1.391.</li>
+  <li>The authors attribute the deviation in some parameters — particularly component means — to the learning
+  bias of neural hybrid models, while judging that the model recovers and distinguishes the preference
+  distributions of different groups overall.</li>
 </ul>
 
-<h4>3.5 선호분포의 복원과 해석</h4>
+<h4>3.5 Recovery and interpretation of the preference distribution</h4>
 <figure>
-  <img src="images/fig3_taste_dist_synthetic.png" alt="Fig 3. 합성자료 선호분포 비교">
-  <figcaption><b>Fig. 3.</b> Estimated results of \(\beta_{TT}\) and \(\beta_{WT}\) on the synthetic dataset vs. ground truth (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/fig3_taste_dist_synthetic.png" alt="Fig. 3. Preference distributions on synthetic data">
+  <figcaption><b>Fig. 3.</b> Estimated results of \(\beta_{TT}\) and \(\beta_{WT}\) on the synthetic dataset vs. ground truth (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
 <ul>
-  <li>참값의 \(\beta_{TT}\)는 대략 −4.5, −3, −2, −1.5, −0.5 부근에 여러 봉우리를 가진 복잡한 다봉형 분포다.</li>
-  <li>MXL은 하나의 정규분포를 전제하므로 이 다봉구조를 하나의 넓은 종모양 곡선으로 평탄화한다.</li>
-  <li>TasteNet은 집단별 선호계수를 하나의 점으로만 산출하므로 매우 좁은 스파이크 형태만 보인다.</li>
-  <li>MDN-Logit은 참 분포의 여러 봉우리와 범위를 상당 부분 복원하며, 특히 \(\beta_{WT}\)에서 약 −8 부근의 극단적 선호계수도 포착한다.</li>
+  <li>The true \(\beta_{TT}\) is a complex multimodal distribution with peaks near −4.5, −3, −2, −1.5 and −0.5.</li>
+  <li>MXL, premised on a single normal, flattens this structure into one broad bell curve.</li>
+  <li>TasteNet, producing a single point per group, shows only very narrow spikes.</li>
+  <li>MDN-Logit recovers much of the multi-peaked structure and range of the true distribution, including an
+  extreme coefficient near −8 in \(\beta_{WT}\).</li>
 </ul>
-<p>즉, MDN-Logit의 장점은 예측정확도가 높다는 데 그치지 않고, <b>실제의 복잡한 선호분포 형태를 회복</b>한다는 데 있다. 이 결과는 실제 표명선호 자료에서 WTP 분포가 흔히 다봉형으로 나타난다는 실증 보고<a class="cite" href="#ref-25">[25]</a> 및 비정규·왜도 분포를 허용해야 한다는 최근의 방법론적 흐름<a class="cite" href="#ref-20">[20]</a><a class="cite" href="#ref-21">[21]</a>과 정합적이다.</p>
+<p>The advantage of MDN-Logit therefore lies not only in predictive accuracy but in <b>recovering the shape of
+the true, complex preference distribution</b>. This is consistent with empirical reports that WTP
+distributions in stated-preference data are frequently multimodal<a class="cite" href="#ref-25">[25]</a> and
+with the recent methodological turn toward non-normal and skewed
+distributions<a class="cite" href="#ref-20">[20]</a><a class="cite" href="#ref-21">[21]</a>.</p>
 
 <figure>
-  <img src="images/fig4_vot_vowt_synthetic.png" alt="Fig 4. VOT/VOWT 분포">
-  <figcaption><b>Fig. 4.</b> Estimated results of VOT and VOWT on the synthetic dataset vs. ground truth (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/fig4_vot_vowt_synthetic.png" alt="Fig. 4. VOT and VOWT distributions">
+  <figcaption><b>Fig. 4.</b> Estimated results of VOT and VOWT on the synthetic dataset vs. ground truth (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
-<p>합성자료에서는 비용계수가 −1로 고정되어 있으므로 시간·대기시간 계수의 음수가 각각 VOT와 VOWT에 대응한다. VOWT에서는 MDN-Logit이 참 분포의 다봉형 구조를 비교적 정확하게 재현한다. 반면 VOT에서는 참 분포가 다섯 개의 봉우리를 가지는 데 비해 MDN-Logit은 세 개의 뚜렷한 봉우리만 포착한다 — 전체 범위와 주요 분포구조는 회복하지만, 세부 봉우리의 수와 위치에는 일부 편의가 남는다.</p>
+<p>Because the cost coefficient is fixed at −1 in the synthetic data, the negatives of the time and
+waiting-time coefficients correspond to VOT and VOWT. For VOWT, MDN-Logit reproduces the multimodal structure
+of the true distribution fairly accurately. For VOT, however, the true distribution has five peaks while
+MDN-Logit captures only three distinct ones: the overall range and principal structure are recovered, but
+some bias remains in the number and location of the finer peaks.</p>
 
 <figure>
-  <img src="images/fig5_vot_vowt_groups.png" alt="Fig 5. 인구집단별 VOT/VOWT 상자그림">
-  <figcaption><b>Fig. 5.</b> Estimated results of VOT and VOWT for demographic groups in the synthetic dataset (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/fig5_vot_vowt_groups.png" alt="Fig. 5. VOT and VOWT box plots by demographic group">
+  <figcaption><b>Fig. 5.</b> Estimated results of VOT and VOWT for demographic groups in the synthetic dataset (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
-<p>저자들은 MDN-Logit이 집단 간 평균 차이뿐 아니라 각 집단 내부의 무작위 이질성까지 회복하는지 보기 위해 집단별 상자그림을 제시한다. MDN-Logit은 집단별 VOT·VOWT의 평균적 순서와 전반적 추세를 참값과 유사하게 복원하고(체계적 이질성 포착), 하나의 집단 안에서도 상자폭이 존재하므로 TasteNet의 집단별 점추정과 달리 집단 내부 무작위 이질성을 표현한다. 다만 집단 내부 분포범위는 일부 왜곡되므로, 개별 집단의 분포를 과도하게 정밀하게 해석해서는 안 된다.</p>
+<p>To assess whether MDN-Logit recovers not only between-group mean differences but also within-group random
+heterogeneity, the authors present box plots by group. MDN-Logit reproduces the ordering and overall trend of
+group-level VOT and VOWT in line with the truth — evidence that it captures systematic heterogeneity — and
+because a box has width even within a single group, it represents within-group random heterogeneity, unlike
+TasteNet's group-level point estimates. The within-group range is nevertheless distorted in places, so the
+distribution of any individual group should not be interpreted too precisely.</p>
 
-<h3>4. 실제자료 적용: Swissmetro</h3>
-<p>실증분석에는 스위스메트로(Swissmetro, SM) 표명선호(Stated Preference, SP) 자료<a class="cite" href="#ref-13">[13]</a>를 사용한다. 세 교통수단(기차 TRAIN, 스위스메트로 SM, 승용차 CAR)의 효용함수는 다음과 같이 설정하고, MDN-Logit은 비용·시간 계수의 혼합분포를 학습하며 상대적으로 안정적인 계수, 즉 운행간격(Headway, HE)과 좌석 구성(SEATS) 계수는 MNL의 고정계수로 처리한다.</p>
+<h3>4. Application to real data: Swissmetro</h3>
+<p>The empirical application uses the Swissmetro (SM) stated preference (SP)
+dataset<a class="cite" href="#ref-13">[13]</a>. The utility functions for the three modes — train (TRAIN),
+Swissmetro (SM) and car (CAR) — are specified as follows. MDN-Logit learns mixture distributions for the cost
+and time coefficients, while the relatively stable coefficients on headway (HE) and seat configuration
+(SEATS) are treated as fixed MNL coefficients.</p>
 <div class="eq">$$V_{train} = ASC_{train} + \beta^{MDN}_{TT\text{-}train}x_{TT\text{-}train} + \beta^{MDN}_{TC\text{-}train}x_{TC\text{-}train} + \beta^{MNL}_{HE\text{-}train}x_{HE\text{-}train} \tag{43}$$</div>
 <div class="eq">$$V_{sm} = \beta^{MDN}_{TT\text{-}sm}x_{TT\text{-}sm} + \beta^{MDN}_{TC\text{-}sm}x_{TC\text{-}sm} + \beta^{MNL}_{HE\text{-}sm}x_{HE\text{-}sm} + \beta^{MNL}_{SEATS\text{-}sm}x_{SEATS\text{-}sm} \tag{44}$$</div>
 <div class="eq">$$V_{car} = ASC_{car} + \beta^{MDN}_{TT\text{-}car}x_{TT\text{-}car} + \beta^{MDN}_{TC\text{-}car}x_{TC\text{-}car} \tag{45}$$</div>
-<p>대안 가용성을 반영한 선택확률은 식 (46)과 같다. \(av_j\)는 대안 \(j\)가 선택가능하면 1, 아니면 0인 변수다.</p>
+<p>Choice probabilities incorporate alternative availability, where \(av_j\) equals 1 if alternative \(j\) is
+available and 0 otherwise.</p>
 <div class="eq">$$P_j = \frac{e^{V_j\cdot av_j}}{\sum_{j'}e^{V_{j'}\cdot av_{j'}}},\qquad j = train, sm, car \tag{46}$$</div>
-<p>비교모형에서 MNL은 개인 특성의 1차 상호작용을 통해 체계적 이질성만 반영하고(식 47), MXL은 여기에 정규분포 무작위항을 추가한다(식 48). TasteNet도 식 (43)–(45)와 동일한 효용함수 구조로 비교한다.</p>
+<p>Among the benchmarks, MNL reflects only systematic heterogeneity through first-order interactions with
+individual characteristics (equation 47), and MXL adds a normal random term (equation 48). TasteNet uses the
+same utility structure as equations (43)–(45).</p>
 <div class="eq">$$\beta_{inj} = \beta_{i,j} + \psi_{inj}\boldsymbol{z}_n \tag{47}$$</div>
 <div class="eq">$$\beta_{inj} = \beta_{i,j} + \psi_{inj}\boldsymbol{z}_n + \sigma_{i,j}\xi_n,\quad \xi_n\sim\mathcal{N}(0,1) \tag{48}$$</div>
-<p>MDN-Logit은 높은 차원의 하이퍼파라미터 공간에서 무작위 탐색(random search)을 수행한다. \(q\)번째 조합 \(h^q\)에 대해 손실함수를 최소화하고(식 49), 전체 탐색 중 검증오차가 가장 작은 조합을 최적 조합으로 선택한다(식 50).</p>
+<p>MDN-Logit performs a random search over a high-dimensional hyperparameter space. For the \(q\)-th
+combination \(h^q\) the loss is minimised (equation 49), and the combination with the smallest validation
+error is selected (equation 50).</p>
 <div class="eq">$$\min_{\boldsymbol{w},\boldsymbol{b}} E\!\left(y_{nj};\boldsymbol{w},\boldsymbol{b},\boldsymbol{h}^q\right) = \min_{\boldsymbol{w},\boldsymbol{b}} -\sum_{n=1}^{N}\sum_{j=1}^{J}y_{nj}\ln\widehat{P}_{nj}\!\left(y_{nj};\boldsymbol{w},\boldsymbol{b},\boldsymbol{h}^q\right) + \lambda\!\left(\lVert\boldsymbol{w}\rVert + \lVert\boldsymbol{b}\rVert\right) \tag{49}$$</div>
 <div class="eq">$$\boldsymbol{h}^{*} = \operatorname*{argmin}_{\boldsymbol{h}^q} E\!\left(y_{nj};\boldsymbol{w},\boldsymbol{b},\boldsymbol{h}^q\right),\quad q = 1,2,\cdots,Q \tag{50}$$</div>
 
-<h4>4.1 예측 결과</h4>
-<p>인구사회학적 특성의 조합에 따라 총 529개 집단이 식별되며, 이는 각 집단에 대해 서로 다른 조건부 선호 혼합분포를 출력한다는 뜻이다. 쿨백-라이블러 발산(Kullback-Leibler divergence, KL divergence)으로 집단 간 혼합분포의 유사성을 확인한 결과 집단별 분포에는 유의미한 차이가 나타났다. 가장 큰 다섯 집단의 표본수는 450, 252, 180, 180, 126명으로 전체 표본의 약 11.1%를 차지한다.</p>
+<h4>4.1 Predictive results</h4>
+<p>The combinations of socio-demographic characteristics identify 529 groups in total, meaning that a distinct
+conditional preference mixture is produced for each. Kullback-Leibler divergence (KL divergence) confirms
+significant differences between the group-level distributions. The five largest groups contain 450, 252, 180,
+180 and 126 respondents, together about 11.1% of the sample.</p>
 <figure>
-  <img src="images/fig6_prediction_accuracy.png" alt="Fig 6. 예측 정확도">
-  <figcaption><b>Fig. 6.</b> Prediction accuracy results (원 논문 <a class="cite" href="#ref-1">[1]</a>). 첫 다섯 개 극단적 하이퍼파라미터 조합을 제외하면, MDN-Logit이 TasteNet보다 일관되게 높은 정확도를 보인다.</figcaption>
+  <img src="images/fig6_prediction_accuracy.png" alt="Fig. 6. Prediction accuracy">
+  <figcaption><b>Fig. 6.</b> Prediction accuracy results (original paper <a class="cite" href="#ref-1">[1]</a>). Excluding the first five extreme hyperparameter combinations, MDN-Logit is consistently more accurate than TasteNet.</figcaption>
 </figure>
-<p>적합도 지표로는 맥파든(McFadden)의 의사결정계수 \(\rho^2\)<a class="cite" href="#ref-3">[3]</a>, F1 점수(정밀도 Precision와 재현율 Recall의 조화평균), 아카이케 정보기준(Akaike Information Criterion, AIC), 베이즈 정보기준(Bayesian Information Criterion, BIC)을 사용한다. \(LL(\widehat{\beta})\)는 추정모형의 로그우도, \(LL(0)\)은 모든 계수가 0인 기준모형의 로그우도, \(M\)은 추정모수 수, \(N\)은 관측치 수다.</p>
+<p>Goodness of fit is assessed with McFadden's pseudo \(\rho^2\)<a class="cite" href="#ref-3">[3]</a>, the F1
+score (the harmonic mean of precision and recall), the Akaike information criterion (AIC) and the Bayesian
+information criterion (BIC). \(LL(\widehat{\beta})\) is the log-likelihood of the estimated model, \(LL(0)\)
+that of the null model, \(M\) the number of estimated parameters and \(N\) the number of observations.</p>
 <div class="eq">$$\rho^2 = 1 - \frac{LL(\widehat{\beta})}{LL(0)} \tag{51}$$</div>
 <div class="eq">$$F1 = 2\cdot\frac{Precision \cdot Recall}{Precision + Recall} \tag{52}$$</div>
 <div class="eq">$$AIC = 2M - 2LL(\widehat{\beta}) \tag{53}$$</div>
 <div class="eq">$$BIC = M\ln(N) - 2LL(\widehat{\beta}) \tag{54}$$</div>
-<div class="notebox">논문은 신경망의 가중치·편향 수가 전통적 선택모형의 계수 수보다 매우 많으므로, 신경망과 MNL/MXL 간 AIC·BIC를 직접 비교하는 것은 적절하지 않다고 지적한다.</div>
+<div class="notebox">The paper notes that because the number of network weights and biases far exceeds the number of coefficients in a conventional choice model, comparing AIC and BIC directly between neural models and MNL/MXL is not appropriate.</div>
 <figure>
-  <img src="images/table9_goodness_of_fit.png" alt="Table 9. 적합도 비교">
-  <figcaption><b>Table 9.</b> Goodness of fit comparison among four models (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/table9_goodness_of_fit.png" alt="Table 9. Goodness of fit comparison">
+  <figcaption><b>Table 9.</b> Goodness of fit comparison among four models (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
-<p>실제자료에서도 단일 점추정보다 조건부 혼합분포가 개인 간·집단 내 이질성을 더 잘 반영함을 확인할 수 있다.</p>
+<p>On real data too, a conditional mixture distribution reflects between- and within-group heterogeneity
+better than a single point estimate.</p>
 
-<h4>4.2 추정된 선호분포와 해석</h4>
+<h4>4.2 Estimated preference distributions</h4>
 <figure>
-  <img src="images/table10_best_model_params.png" alt="Table 10. 최적 모형의 모수">
-  <figcaption><b>Table 10.</b> Statistical results of the parameters of the best model in MDN-Logit (원 논문 <a class="cite" href="#ref-1">[1]</a>). 초기화·라벨 스위칭에 대한 강건성 확인을 위해 모형을 20회 재학습했다.</figcaption>
+  <img src="images/table10_best_model_params.png" alt="Table 10. Parameters of the best model">
+  <figcaption><b>Table 10.</b> Statistical results of the parameters of the best model in MDN-Logit (original paper <a class="cite" href="#ref-1">[1]</a>). The model was retrained 20 times to check robustness to initialisation and label switching.</figcaption>
 </figure>
-<p>비용·시간계수의 범위가 대안별로 크게 다르며, 이는 선호 이질성이 대안별로도 다를 수 있음을 보여준다. MDN-Logit이 MXL보다 더 넓은 이질성을 포착함은 MNL·MXL 추정결과(Table 11, 12)와의 비교에서 확인할 수 있다.</p>
+<p>The ranges of the cost and time coefficients differ markedly across alternatives, indicating that preference
+heterogeneity itself may be alternative-specific. That MDN-Logit captures wider heterogeneity than MXL is
+visible in comparison with the MNL and MXL estimates in Tables 11 and 12.</p>
 <figure>
-  <img src="images/table11_mnl_params.png" alt="Table 11. MNL 모수">
-  <figcaption><b>Table 11.</b> Estimated parameters of the MNL model (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
-</figure>
-<figure>
-  <img src="images/table12_mxl_params.png" alt="Table 12. MXL 모수">
-  <figcaption><b>Table 12.</b> Estimated parameters of the MXL model (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/table11_mnl_params.png" alt="Table 11. MNL parameters">
+  <figcaption><b>Table 11.</b> Estimated parameters of the MNL model (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
 <figure>
-  <img src="images/table13_largest_group.png" alt="Table 13. 최대 집단의 혼합분포 모수">
-  <figcaption><b>Table 13.</b> Mixture distribution parameters of the largest group in MDN-Logit (원 논문 <a class="cite" href="#ref-1">[1]</a>). 529개 집단으로 세분화한 뒤에는 같은 집단 내부에 남는 이질성이 전체적으로 크지 않으나, 스위스메트로(SM)와 승용차(CAR)의 시간계수에는 일부 잔여 이질성이 남아 있다.</figcaption>
+  <img src="images/table12_mxl_params.png" alt="Table 12. MXL parameters">
+  <figcaption><b>Table 12.</b> Estimated parameters of the MXL model (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
 <figure>
-  <img src="images/fig7_taste_dist_swissmetro.png" alt="Fig 7. 선호분포 비교">
-  <figcaption><b>Fig. 7.</b> Taste distributions of MDN-Logit and TasteNet models (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/table13_largest_group.png" alt="Table 13. Mixture parameters of the largest group">
+  <figcaption><b>Table 13.</b> Mixture distribution parameters of the largest group in MDN-Logit (original paper <a class="cite" href="#ref-1">[1]</a>). After segmentation into 529 groups the heterogeneity remaining within a group is generally small, although some residual heterogeneity persists in the time coefficients for Swissmetro (SM) and car (CAR).</figcaption>
 </figure>
-<p>MDN-Logit의 분포가 TasteNet보다 넓고 복잡한데, 이는 MDN-Logit이 개인 특성으로 설명되지 않는 확률적 이질성을 추가로 포착하기 때문이다. 다만 기차(TRAIN) 비용계수 약 −22.5 부근의 봉우리처럼 극단값이 일부 존재하므로 꼬리 부분은 신중하게 해석할 필요가 있다.</p>
 <figure>
-  <img src="images/fig8_largest_group_dist.png" alt="Fig 8. 최대 집단의 선호분포">
-  <figcaption><b>Fig. 8.</b> Taste distributions of the largest group in MDN-Logit (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/fig7_taste_dist_swissmetro.png" alt="Fig. 7. Comparison of taste distributions">
+  <figcaption><b>Fig. 7.</b> Taste distributions of MDN-Logit and TasteNet models (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
-<p>세 대안의 비용계수는 집단 내부에서 거의 하나의 값에 집중되는 반면, SM과 CAR의 시간계수는 상대적으로 넓은 분포를 보여, 같은 인구사회학적 특성 안에서도 시간 민감도의 잔여 차이가 있음을 보여준다.</p>
+<p>The MDN-Logit distributions are wider and more complex than TasteNet's, because MDN-Logit additionally
+captures stochastic heterogeneity that individual characteristics do not explain. Some extreme values do occur
+— such as the peak near −22.5 in the train cost coefficient — so the tails require cautious interpretation.</p>
+<figure>
+  <img src="images/fig8_largest_group_dist.png" alt="Fig. 8. Preference distributions of the largest group">
+  <figcaption><b>Fig. 8.</b> Taste distributions of the largest group in MDN-Logit (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+</figure>
+<p>The cost coefficients of all three alternatives concentrate on nearly a single value within the group,
+whereas the time coefficients for SM and CAR show comparatively wide distributions — evidence of residual
+differences in time sensitivity even within identical socio-demographic characteristics.</p>
 
-<h4>4.3 시간가치(VOT)와 탄력성</h4>
-<p>표본수가 가장 큰 다섯 집단(450, 252, 180, 180, 126명)을 선택하여 각 집단의 분포에서 VOT를 10,000회 추출해 VOT 분포를 계산한다.</p>
+<h4>4.3 Value of time and elasticities</h4>
+<p>For the five largest groups (450, 252, 180, 180 and 126 respondents), VOT was drawn 10,000 times from each
+group's distribution to construct the VOT distribution.</p>
 <figure>
-  <img src="images/fig9_vot_top5.png" alt="Fig 9. 상위 5개 집단의 VOT">
-  <figcaption><b>Fig. 9.</b> VOT among the top 5 groups in MDN-Logit (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/fig9_vot_top5.png" alt="Fig. 9. VOT among the top five groups">
+  <figcaption><b>Fig. 9.</b> VOT among the top 5 groups in MDN-Logit (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
 <ul>
-  <li>TRAIN의 집단 내 VOT는 대체로 특정 값에 집중되지만, Group 3은 약 1.3–1.4 스위스프랑(Swiss Franc, CHF)/분의 범위를 보인다.</li>
-  <li>SM과 CAR에서는 더 큰 집단 내 이질성이 나타난다: Group 4의 SM VOT는 약 2.1–2.3 CHF/분, CAR VOT는 약 4.8–5.0 CHF/분.</li>
+  <li>Within-group VOT for TRAIN concentrates largely on specific values, although Group 3 spans roughly
+  1.3–1.4 Swiss francs (CHF) per minute.</li>
+  <li>SM and CAR show greater within-group heterogeneity: Group 4's SM VOT spans roughly 2.1–2.3 CHF/min and
+  its CAR VOT roughly 4.8–5.0 CHF/min.</li>
 </ul>
 <figure>
-  <img src="images/fig10_avg_vot.png" alt="Fig 10. 전체 평균 VOT">
-  <figcaption><b>Fig. 10.</b> Average VOT of the total dataset in MDN-Logit (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/fig10_avg_vot.png" alt="Fig. 10. Average VOT across the dataset">
+  <figcaption><b>Fig. 10.</b> Average VOT of the total dataset in MDN-Logit (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
-<p>모든 집단에서 VOT를 10,000회 생성한 뒤 집단별 평균 VOT의 분포를 히스토그램으로 나타내면, TRAIN과 SM의 평균 VOT는 주로 0.1–1.5 CHF/분, CAR는 주로 1.2–5 CHF/분에 분포하며 더 넓고 긴 오른쪽 꼬리를 보인다. 긴 꼬리는 극단적 인구집단에서의 추정편의일 가능성이 있으므로, 정책해석 시 과도한 해석은 피해야 한다. 다만 꼬리를 단순히 잘라내는 것도 정답은 아니다. 분포의 꼬리 형태가 통행시간 신뢰성 가치평가를 실질적으로 좌우한다는 최근 결과<a class="cite" href="#ref-26">[26]</a>를 고려하면, 꼬리는 <b>제거 대상이 아니라 별도 보고 대상</b>으로 다루는 편이 타당하다. 또한 WTP를 계수의 비율로 계산할 때 분포에 따라 적률이 존재하지 않을 수 있으므로, 평균 VOT를 제시할 때는 산출방식과 불확실성 측도를 함께 명시해야 한다<a class="cite" href="#ref-22">[22]</a>.</p>
+<p>Drawing VOT 10,000 times for every group and plotting the distribution of group means, the average VOT for
+TRAIN and SM lies mainly between 0.1 and 1.5 CHF/min, while CAR lies mainly between 1.2 and 5 CHF/min with a
+wider and longer right tail. Long tails may reflect estimation bias in extreme demographic groups, so
+over-interpretation should be avoided in policy analysis. Simply truncating the tail is not the answer either:
+given recent evidence that the shape of the tail materially affects the valuation of travel-time
+reliability<a class="cite" href="#ref-26">[26]</a>, tails are better treated as <b>objects of separate
+reporting than as material for deletion</b>. Moreover, because the moments of a ratio-based WTP may not exist
+under some distributions, any reported mean VOT should be accompanied by an explicit statement of how it was
+computed and of its uncertainty measure<a class="cite" href="#ref-22">[22]</a>.</p>
 <figure>
-  <img src="images/table14_elasticities.png" alt="Table 14. 탄력성">
-  <figcaption><b>Table 14.</b> Elasticities of three alternatives with respect to travel time and travel cost (원 논문 <a class="cite" href="#ref-1">[1]</a>).</figcaption>
+  <img src="images/table14_elasticities.png" alt="Table 14. Elasticities">
+  <figcaption><b>Table 14.</b> Elasticities of three alternatives with respect to travel time and travel cost (original paper <a class="cite" href="#ref-1">[1]</a>).</figcaption>
 </figure>
-<p>모든 모형에서 자기탄력성은 음수, 교차탄력성은 양수로, 시간·비용이 증가하면 해당 수단 선택확률은 감소하고 다른 수단 선택확률은 증가한다는 직관과 일치한다.</p>
+<p>Across all models own-elasticities are negative and cross-elasticities positive, consistent with the
+intuition that increases in time or cost reduce the choice probability of that mode and raise that of the
+others.</p>
 
 <hr class="sep">
 
-<h2 id="part2"><span class="part">Part II</span> MAPL: 대안별 총합 선호분포의 직접 추정</h2>
+<h2 id="part2"><span class="part">Part II</span> MAPL: Direct Estimation of Aggregate Preference Distributions</h2>
 
 <div class="paperbox">
   Forsythe, C. R., Arteaga, C., &amp; Helveston, J. P. (2024). The Mixed Aggregate Preference Logit Model: A Machine Learning Approach to Modeling Unobserved Heterogeneity in Discrete Choice Analysis. <i>arXiv preprint</i> arXiv:2402.00184. <a class="cite" href="#ref-2">[2]</a>
 </div>
 
-<h3>0. 핵심 가정과 아이디어</h3>
+<h3>0. Core assumptions and idea</h3>
 
 <div class="assume">
-<b>MAPL이 세우는 가장 기본적인 가정</b>
+<b>The most basic assumptions MAPL makes</b>
 <ol>
-  <li><b>각 대안에 대해 연속적으로 분포하는 잠재적 선호량이 존재한다.</b> 이 값이 사람마다 다르고, 그 차이가 선택의 이질성을 만든다.</li>
-  <li><b>그 잠재 선호량이 무엇인지는 미리 못 박지 않는다.</b> 효용으로 해석해도 되고 후회(regret)로 해석해도 된다. 그래서 저자들은 "utility" 대신 포괄적인 "preference"라는 용어를 쓴다.</li>
-  <li><b>효용이 속성계수의 선형합이라고 가정하지 않는다.</b> 관측 입력에서 선호분포의 모수로 가는 경로를 신경망이 통째로 학습하므로, 상호작용·비선형성을 사전에 명시할 필요가 없다.</li>
-  <li><b>대신 대안별 총합 선호의 분포형태는 가정해야 한다.</b> 정규분포, 정규혼합, 반모수 분포 중 하나를 고른다. 즉 <span class="kw">가정이 사라진 것이 아니라 '속성 단위'에서 '대안 단위'로 이동했다.</span></li>
-  <li><b>선호값을 선택확률로 바꾸는 연결함수(예: 로짓)는 연구자가 지정한다.</b> 이 부분은 자동으로 결정되지 않는다.</li>
-  <li><b>기본 설정에서 각 대안의 총합 선호는 단변량 확률변수다.</b> 대안 간 상관은 기본 모형에서 다루지 않는다.</li>
+  <li><b>For each alternative there exists a continuously distributed latent preference.</b> Its value
+  differs across people, and that difference generates the heterogeneity of choice.</li>
+  <li><b>What that latent quantity <i>is</i> is left open.</b> It may be interpreted as utility or as regret.
+  For this reason the authors use the broader term "preference" rather than "utility".</li>
+  <li><b>Utility is not assumed to be a linear combination of attribute coefficients.</b> A neural network
+  learns the whole mapping from observed inputs to the parameters of the preference distribution, so
+  interactions and non-linearities need not be specified in advance.</li>
+  <li><b>The shape of the aggregate preference distribution must instead be assumed.</b> One chooses among
+  normal, normal mixture, or semi-parametric families. That is,
+  <span class="kw">the assumption has not disappeared; it has moved from the attribute level to the
+  alternative level.</span></li>
+  <li><b>The link function mapping preference to choice probability — logit, for instance — is specified by
+  the analyst.</b> This part is not determined automatically.</li>
+  <li><b>In the baseline specification the aggregate preference for each alternative is univariate.</b>
+  Correlation across alternatives is not addressed in the base model.</li>
 </ol>
 </div>
 
 <div class="exbox">
-<span class="tt">쉬운 예시: 커피를 고르는 두 가지 설명 방식</span>
-카페에서 A(비싸고 빠름)와 B(싸고 느림) 중 하나를 고르는 상황을 생각하자.
+<span class="tt">A concrete example: two ways to explain a coffee choice</span>
+Consider choosing between A (expensive, fast) and B (cheap, slow) in a café.
 <ul style="margin-top:10px">
-  <li><b>혼합로짓의 설명</b> — "이 사람의 <i>가격 민감도</i>는 −0.8, <i>대기시간 민감도</i>는 −0.3입니다. 각 민감도는 인구 전체에서 정규분포를 따릅니다. 두 민감도에 가격과 시간을 곱해 더하면 A의 매력도가 나옵니다." → 부품(속성계수)별로 분포를 가정하고 조립한다.</li>
-  <li><b>MAPL의 설명</b> — "가격 4,500원, 대기 2분이라는 조건에서 <i>A라는 선택지 자체에 대한 끌림</i>이 인구 안에서 평균 1.2, 퍼짐 0.6으로 분포합니다." → 부품으로 나누지 않고 <b>완성품의 분포</b>를 바로 예측한다.</li>
+  <li><b>The mixed logit account</b> — "This person's <i>price sensitivity</i> is −0.8 and their
+  <i>waiting-time sensitivity</i> is −0.3. Each sensitivity is normally distributed in the population.
+  Multiply price and time by these sensitivities and add to obtain the appeal of A." Distributions are
+  assumed component by component and then assembled.</li>
+  <li><b>The MAPL account</b> — "Given a price of 4,500 won and a two-minute wait, the <i>appeal of option A
+  itself</i> is distributed in the population with mean 1.2 and spread 0.6." No decomposition into
+  components; the distribution of the <b>finished product</b> is predicted directly.</li>
 </ul>
-<p style="margin-top:12px"><b>무엇을 얻고 무엇을 잃는가.</b> 얻는 것은 강건성이다. 가격과 시간이 곱해져 작용하든(상호작용), 가격이 제곱으로 작용하든(비선형), MAPL은 그 형태를 몰라도 결과 분포를 맞출 수 있다. 잃는 것은 해석이다. "이 사람은 <i>가격</i>에 민감해서 B를 골랐다"고 말할 수 없고, 따라서 시간가치나 지불의사를 계수 수준에서 곧바로 뽑아내기 어렵다.</p>
+<p style="margin-top:12px"><b>What is gained and what is lost.</b> What is gained is robustness. Whether
+price and time act multiplicatively (interaction) or price enters quadratically (non-linearity), MAPL can
+match the resulting distribution without knowing the form. What is lost is interpretation. One cannot say
+"this person chose B because they are sensitive to <i>price</i>", and consequently the value of time or
+willingness to pay cannot be extracted directly at the coefficient level.</p>
 </div>
 
 <div class="exbox">
-<span class="tt">핵심 아이디어를 한 줄로</span>
-"어떤 <b>속성</b>의 계수가 어떤 분포를 따르는가"를 묻는 대신, "관측 정보가 주어졌을 때 각 <b>대안</b>에 대한 총합 선호가 어떤 분포를 갖는가"를 묻는다. 신경망은 선택확률을 직접 예측하는 것이 아니라 <b>그 분포의 모수를 예측</b>하고, 분포에서 뽑은 선호값을 로짓으로 넘겨 시뮬레이션 우도를 만든다.
+<span class="tt">The core idea in one line</span>
+Instead of asking "what distribution does the coefficient on a given <b>attribute</b> follow?", ask "given
+the observed information, what distribution does the aggregate preference for each <b>alternative</b>
+have?" The network does not predict choice probabilities directly; it <b>predicts the parameters of that
+distribution</b>, and preference values drawn from it are passed through a logit link to form a simulated
+likelihood.
 </div>
 
-<h3>1. 문제의식: 이론적 유연성과 실무적 제약의 괴리</h3>
-<p>혼합로짓(MXL)은 무작위계수 로짓(random-parameters logit 또는 random-coefficients logit)이라고도 불리며, 무작위효용극대화(Random Utility Maximization, RUM)에서 도출되는 거의 모든 이산선택 확률을 근사할 수 있다는 점에서 이론상 매우 강력한 모형이다<a class="cite" href="#ref-4">[4]</a>. 그러나 실제 적용에서는 "어떤 혼합분포를 사용할 것인가"에 대한 기준을 제공하지 못하므로, 연구자는 다음과 같은 가정을 스스로 해야 한다.</p>
+<h3>1. Problem statement: the gap between theoretical flexibility and practical constraint</h3>
+<p>Mixed logit (MXL) — also called random-parameters or random-coefficients logit — is theoretically powerful
+in that it can approximate almost any discrete choice probability derived from random utility maximisation
+(RUM)<a class="cite" href="#ref-4">[4]</a>. In application, however, it offers no criterion for choosing the
+mixing distribution, so the analyst must supply assumptions of the following kind.</p>
 <ul>
-  <li>속성별 이질성 분포가 서로 독립적이다.</li>
-  <li>계수분포가 정규분포 또는 로그정규분포를 따른다.</li>
-  <li>일부 속성은 모든 사람에게 동일한 계수를 가진다.</li>
-  <li>효용함수가 속성계수의 선형합으로 구성된다.</li>
+  <li>The heterogeneity distributions of different attributes are mutually independent.</li>
+  <li>The coefficient distribution is normal or lognormal.</li>
+  <li>Some attributes carry the same coefficient for everyone.</li>
+  <li>Utility is a linear combination of attribute coefficients.</li>
 </ul>
-<p>또한 추정 소프트웨어가 지원하는 분포형태가 제한적이어서, 연구자의 선택이 이론이나 자료보다 소프트웨어 제약에 좌우될 수 있다. 그 결과 MXL은 이론상 유연한 모형이지만, 실제 연구에서는 효용함수와 이질성 분포의 <span class="lim">오지정 위험</span>을 안고 사용되는 경우가 많다<a class="cite" href="#ref-2">[2]</a>.</p>
+<p>Furthermore, the distributional forms supported by available estimation software are limited, so the
+analyst's choice can be driven by software constraints rather than by theory or data. The result is that MXL,
+flexible in principle, is in practice often used while carrying a <span class="lim">risk of misspecification</span>
+in both the utility function and the heterogeneity distribution<a class="cite" href="#ref-2">[2]</a>.</p>
 
-<h3>2. MAPL의 관점 전환</h3>
-<p>MAPL은 개별 속성계수의 분포를 직접 가정하는 대신, 모형의 입력값으로부터 <b>대안별 총합 선호(aggregate preference)</b>의 분포모수를 직접 예측한다. 여기서 총합 선호는 모든 사람의 평균선호가 아니라, 한 개인이 특정 대안의 관측가능한 요소들로부터 형성하는 잠재적 선호를 뜻한다.</p>
+<h3>2. The shift of perspective in MAPL</h3>
+<p>Rather than assuming distributions for individual attribute coefficients, MAPL predicts directly, from the
+model's inputs, the distributional parameters of the <b>aggregate preference</b> for each alternative. Here
+aggregate preference is not the population's average preference but the latent preference a single individual
+forms from the observable elements of a particular alternative.</p>
 <ul>
-  <li>기존 MXL: 속성별 변수 → 속성별 계수 분포 → 선형 효용 → 선택 확률</li>
-  <li>MAPL: 모형 입력값 → 대안별 총합 선호분포의 모수 → 선호값 시뮬레이션 → 선택확률</li>
+  <li>Conventional MXL: attribute variables → attribute-specific coefficient distributions → linear utility →
+  choice probability</li>
+  <li>MAPL: model inputs → parameters of the alternative-specific aggregate preference distribution →
+  simulation of preference values → choice probability</li>
 </ul>
 <figure>
-  <img src="images/mapl_fig1_concept.png" alt="MAPL 개념도">
-  <figcaption><b>Figure 1.</b> Conceptual diagram comparing how heterogeneity is modeled in MAPL versus mixed logit models (원 논문 <a class="cite" href="#ref-2">[2]</a>). MXL은 속성별 혼합분포의 모수를 추정하는 반면, MAPL은 모형 입력을 대안별 총합 선호 이질성 분포의 모수에 직접 연결한다.</figcaption>
+  <img src="images/mapl_fig1_concept.png" alt="MAPL conceptual diagram">
+  <figcaption><b>Figure 1.</b> Conceptual diagram comparing how heterogeneity is modeled in MAPL versus mixed logit models (original paper <a class="cite" href="#ref-2">[2]</a>). MXL estimates the parameters of feature-specific mixing distributions, whereas MAPL relates model inputs directly to the parameters of alternative-specific distributions of aggregate preference heterogeneity.</figcaption>
 </figure>
-<p><b>MAPL이 완화하는 가정.</b> 첫째, MXL은 비용·시간 등 각 속성의 무작위계수가 어떤 분포를 따르는지 정해야 하지만, MAPL은 속성별 분포 대신 대안별 총합 선호의 분포를 직접 모델링하므로 특정 속성계수의 정규성·독립성·동질성을 미리 강하게 가정할 필요가 줄어든다. 둘째, MXL은 보통 선형-모수 효용함수를 전제하지만, MAPL은 효용극대화뿐 아니라 후회최소화(regret minimization) 등 다른 의사결정 패러다임도 수용할 수 있도록 설계되었다 — 저자들이 "utility"보다 일반적인 "preference"라는 용어를 사용하는 이유다. 다만 어떤 선호개념과 선택확률 연결함수를 사용할지는 여전히 연구자가 제도적 지식과 실증근거를 바탕으로 선택해야 한다<a class="cite" href="#ref-2">[2]</a>.</p>
+<p><b>The assumptions MAPL relaxes.</b> First, MXL must specify what distribution the random coefficient of
+each attribute — cost, time — follows, whereas MAPL models the distribution of aggregate preference per
+alternative and so has less need to assume normality, independence or homogeneity for any particular
+coefficient. Second, MXL typically presumes a linear-in-parameters utility function, whereas MAPL is designed
+to accommodate decision paradigms other than utility maximisation, such as regret minimisation — which is why
+the authors prefer "preference" to "utility". Which notion of preference and which link function to use
+nevertheless remains a choice the analyst must make on the basis of domain knowledge and
+evidence<a class="cite" href="#ref-2">[2]</a>.</p>
 
-<h3>3. 모형 구조</h3>
-<p>MAPL을 설정하려면 세 가지를 결정해야 한다: ① 선택 선호 프레임워크(choice preference framework), ② 총합 선호분포의 형태(aggregate preference distribution specification), ③ 분포모수 추정기(preference distribution parameter estimator).</p>
+<h3>3. Model structure</h3>
+<p>Specifying a MAPL model requires three decisions: (i) the choice preference framework, (ii) the aggregate
+preference distribution specification, and (iii) the preference distribution parameter estimator.</p>
 <figure>
-  <img src="images/mapl_fig2_framework.png" alt="MAPL 모델 프레임워크">
-  <figcaption><b>Figure 2.</b> MAPL model framework (원 논문 <a class="cite" href="#ref-2">[2]</a>). \(K\)개의 대안 속성 \(x_k\)를 신경망에 입력하면 선호분포를 규정하는 \(M\)개의 분포모수 \(\theta_m\)이 출력되고, 예측된 모수로부터 각 대안의 총합 선호분포를 생성하여 \(R\)회 시뮬레이션한 뒤 로짓 연결함수로 선택확률을 계산하고 SLL을 구성한다. 즉 신경망은 선택확률을 바로 예측하는 것이 아니라 선호분포의 모수를 학습한다.</figcaption>
+  <img src="images/mapl_fig2_framework.png" alt="MAPL model framework">
+  <figcaption><b>Figure 2.</b> MAPL model framework (original paper <a class="cite" href="#ref-2">[2]</a>). The \(K\) alternative attributes \(x_k\) enter the network, which outputs the \(M\) distributional parameters \(\theta_m\) defining the preference distribution; aggregate preference distributions are generated from the predicted parameters, simulated \(R\) times, passed through a logit link, and averaged to form the simulated log-likelihood (SLL). The network predicts the parameters of the preference distribution, not the choice probability itself.</figcaption>
 </figure>
-<p><b>총합 선호분포의 가정.</b> MAPL에서도 이질성 분포에 대한 가정은 필요하다. 단, 속성별 계수의 분포가 아니라 대안별 총합 선호의 분포를 가정한다: \(v_{ijt}\sim\Psi(\theta_{ijt})\). 여기서 \(\Psi\)는 분포형태, \(\theta_{ijt}\)는 그 모수다. 정규분포를 가정하면 총합 선호가 단봉형·대칭적으로 분포한다고 보는 것이고, 정규혼합분포를 사용하면 서로 다른 선호를 가진 유한한 하위집단이 존재한다고 보는 것이다. 이 밖에 로그정규분포, 삼각분포, 비모수·반모수 분포 등 적분이 유한하게 정의되는 모수화 가능한 분포라면 적용할 수 있으며, 본 논문의 시뮬레이션에서는 Fosgerau &amp; Mabit의 반모수 분포<a class="cite" href="#ref-8">[8]</a>를 사용한다. 분포형태의 경직성을 완화하려는 이러한 시도는 MAPL에 국한되지 않는다. 변환기반 비정규 확률계수 프로빗<a class="cite" href="#ref-20">[20]</a>과 변환기반 유연 오차구조<a class="cite" href="#ref-21">[21]</a>는 왜도·다봉을 수용하는 모수적 경로를, 개인모수 로짓의 분포자유 추정<a class="cite" href="#ref-23">[23]</a>과 시장점유 자료 기반 비모수 혼합로짓<a class="cite" href="#ref-19">[19]</a>은 분포 가정을 제거하는 경로를 각각 대표한다. 즉 MAPL의 유연성은 이질성 가정을 제거한다기보다, <b>속성 단위의 가정을 대안별 총합 선호 단위의 가정으로 이동</b>시키는 데 있다.</p>
-<p><b>분포모수 추정기.</b> 추정기는 관측 입력값을 총합 선호분포의 모수로 연결한다: \(X\to\theta(X)\). 관계가 단순하면 선형회귀를, 복잡하거나 비선형이면 신경망을 사용할 수 있으며(본 논문은 신경망 사용), 스칼라값을 예측할 수 있는 어떤 추정기든 활용할 수 있다.</p>
+<p><b>Assuming the aggregate preference distribution.</b> MAPL still requires an assumption about the
+heterogeneity distribution — but about the aggregate preference of each alternative,
+\(v_{ijt}\sim\Psi(\theta_{ijt})\), rather than about attribute coefficients. Here \(\Psi\) is the
+distributional family and \(\theta_{ijt}\) its parameters. Assuming normality means viewing aggregate
+preference as unimodal and symmetric in the population; using a normal mixture means positing a finite number
+of subpopulations with distinct preferences. Lognormal, triangular, and non- or semi-parametric families are
+equally admissible provided the integral is finitely defined and the family is parameterisable; the paper's
+simulations use the semi-parametric distribution of Fosgerau and Mabit<a class="cite" href="#ref-8">[8]</a>.
+Attempts to loosen distributional rigidity are of course not confined to MAPL: transformation-based non-normal
+random-coefficient probit models<a class="cite" href="#ref-20">[20]</a> and transformation-based flexible error
+structures<a class="cite" href="#ref-21">[21]</a> represent the parametric route, while distribution-free
+estimation of individual-parameter logit<a class="cite" href="#ref-23">[23]</a> and nonparametric mixed logit
+from market-share data<a class="cite" href="#ref-19">[19]</a> represent the route that removes the assumption.
+The flexibility of MAPL therefore consists less in eliminating the heterogeneity assumption than in
+<b>moving it from the attribute unit to the alternative-level aggregate preference unit</b>.</p>
+<p><b>The parameter estimator.</b> The estimator links observed inputs to the parameters of the aggregate
+preference distribution, \(X\to\theta(X)\). If the relation is simple a linear regression will serve; if it is
+complex or non-linear a neural network can be used, as in this paper. Any estimator capable of predicting a
+scalar can in principle be employed.</p>
 
-<h4>수리적 표현</h4>
-<p>개인 \(i\)가 선택과제 \(t\)에서 대안 \(j\)를 선택하는 결과를 \(y_{ijt}\in[0,1]\)로 표시하고, \(x_{ijt}\in\mathbb{R}^k\)는 대안 속성·개인 특성 등 \(k\)개 설명변수의 입력벡터, \(\beta\in\mathbb{R}^m\)은 추정할 모수벡터다. 함수 \(G\)는 입력 \(X\)와 모수 \(\beta\)로 각 관측치의 선호분포 모수를 생성하며(\(G(\beta,X)\)), 이 분포모수들이 대안별 총합 선호의 분포를 정의한다: \(v\sim\Psi(G(\beta,X))\). 연결함수 \(h(v)\)는 선호값을 조건부 선택확률로 바꾸며, 로짓 연결함수를 사용하면 각 시뮬레이션 선호값에 대해 로짓 선택확률을 계산한다. 이질성을 반영한 최종 선택확률은 선호분포 전체에 대해 평균낸 값이다.</p>
+<h4>Mathematical representation</h4>
+<p>Let \(y_{ijt}\in[0,1]\) denote the outcome of individual \(i\) choosing alternative \(j\) in choice task
+\(t\); \(x_{ijt}\in\mathbb{R}^k\) is the input vector of \(k\) explanatory variables — alternative attributes,
+individual characteristics — and \(\beta\in\mathbb{R}^m\) the parameter vector to be estimated. The function
+\(G\) generates the distributional parameters for each observation from inputs \(X\) and parameters \(\beta\),
+namely \(G(\beta,X)\), and these define the distribution of alternative-specific aggregate preference,
+\(v\sim\Psi(G(\beta,X))\). The link function \(h(v)\) converts a preference value into a conditional choice
+probability; with a logit link, a logit choice probability is computed for each simulated preference value.
+The final choice probability, reflecting heterogeneity, is the average over the whole preference
+distribution.</p>
 <div class="eq">$$\bar{\mathbf{p}}(\boldsymbol{\beta},\mathbf{X}) = \int \mathbf{h}(\boldsymbol{\nu})\, f(\boldsymbol{\nu},\boldsymbol{\beta},\mathbf{X})\, d\boldsymbol{\nu} \tag{M1}$$</div>
-<p>\(f(\nu,\beta,X)\)는 \(\Psi(G(\beta,X))\)에 대응하는 확률밀도함수다. 식 (M1)은 MXL에서 무작위계수에 대해 적분하는 것<a class="cite" href="#ref-4">[4]</a>과 유사하지만, MAPL은 속성별 계수 벡터가 아니라 대안별 총합 선호 \(\nu\)에 대해 적분한다는 차이가 있다. 추정은 관측된 선택 \(y\)와 예측선택확률의 차이를 최소화하며, 적합도 함수 \(d(\cdot)\)로는 NLL이나 KL divergence를 쓸 수 있다.</p>
+<p>where \(f(\nu,\beta,X)\) is the density corresponding to \(\Psi(G(\beta,X))\). Equation (M1) resembles the
+integration over random coefficients in MXL<a class="cite" href="#ref-4">[4]</a>, with the difference that MAPL
+integrates over the alternative-level aggregate preference \(\nu\) rather than over a vector of attribute
+coefficients. Estimation minimises the discrepancy between observed choices \(y\) and predicted choice
+probabilities, where the goodness-of-fit function \(d(\cdot)\) may be the NLL or the KL divergence.</p>
 <div class="eq">$$\min_{\boldsymbol{\beta}}\; d\!\left(\mathbf{y}, \hat{\mathbf{p}}^{*}(\boldsymbol{\beta},\mathbf{X})\right) \tag{M2}$$</div>
-<p>정리하면 MAPL은 \(X \to G(\beta,X) \to \Psi(G(\beta,X)) \to h(v) \to \bar{p}\)의 세 층으로 구성되며, 차별점은 "이질성을 더 많이 넣는 것"이 아니라 <b>이질성을 모델링하는 단위를 속성계수에서 대안별 총합 선호로 바꾸는 것</b>이다.</p>
+<p>In summary, MAPL consists of three layers,
+\(X \to G(\beta,X) \to \Psi(G(\beta,X)) \to h(v) \to \bar{p}\), and its distinguishing feature is not that it
+"adds more heterogeneity" but that it <b>changes the unit at which heterogeneity is modelled from attribute
+coefficients to alternative-level aggregate preference</b>.</p>
 
-<h3>4. 시뮬레이션 실험</h3>
-<p>MXL은 효용함수와 이질성 분포를 정확히 가정하면 잘 작동하지만, 실제 분석에서는 효용함수가 선형인지, 속성 간 상호작용·비선형성이 있는지, 무작위계수가 독립인지 상관되어 있는지를 사전에 알 수 없다. 저자들은 서로 다른 네 가지 자료생성과정(Data Generating Process, DGP)을 만들고, 여러 모형이 참 로그우도를 얼마나 잘 복원하는지 비교한다. 모든 DGP는 무작위효용모형 \(u_{ijt} = v_{ijt} + \varepsilon_{ijt}\)을 따르며(\(\varepsilon_{ijt}\)는 검벨(Gumbel) 오차항), 고정계수 \(\beta_0\) 하나와 무작위계수 \(\beta_1, \beta_2\) 두 개를 설정한다.</p>
+<h3>4. Simulation experiment</h3>
+<p>MXL performs well when the utility function and the heterogeneity distribution are assumed correctly, but in
+practice one cannot know in advance whether utility is linear, whether attributes interact, whether
+non-linearities are present, or whether random coefficients are independent or correlated. The authors
+therefore construct four distinct data generating processes (DGPs) and compare how well various models recover
+the true log-likelihood. All DGPs follow a random utility model \(u_{ijt} = v_{ijt} + \varepsilon_{ijt}\), with
+\(\varepsilon_{ijt}\) a Gumbel error, one fixed coefficient \(\beta_0\) and two random coefficients
+\(\beta_1, \beta_2\).</p>
 <figure class="narrow">
-  <img src="images/mapl_table1_dgp.png" alt="MAPL Table 1. DGP 요약">
-  <figcaption><b>Table 1.</b> Summary of data generating processes (DGPs) used in simulation experiment (원 논문 <a class="cite" href="#ref-2">[2]</a>): 독립 정규분포, 상관 정규분포, 상호작용 포함, 비선형항 포함의 네 시나리오.</figcaption>
+  <img src="images/mapl_table1_dgp.png" alt="MAPL Table 1. Summary of DGPs">
+  <figcaption><b>Table 1.</b> Summary of data generating processes (DGPs) used in the simulation experiment (original paper <a class="cite" href="#ref-2">[2]</a>): independent normals, correlated normals, independent normals with interaction, and independent normals with a non-linear term.</figcaption>
 </figure>
-<p><b>설정.</b> 모든 대안 속성 \(x\)는 \([-1,1]\) 균등분포에서 생성하고, 개인 10,000명이 각각 세 대안 중 하나를 10회 선택하며, 각 선택확률은 로짓 확률을 1,000회 시뮬레이션해 평균낸 값으로 생성한다. 비교모형은 MNL, 독립 정규분포 MXL, 단순 신경망(Simple Neural Network, Simple NN), 심층 신경망(Deep Neural Network, Deep NN), 정규분포 MAPL, Fosgerau-Mabit 반모수 분포<a class="cite" href="#ref-8">[8]</a> MAPL이다. MAPL 신경망은 은닉층 2개(각 64노드), 정규화층과 드롭아웃(dropout)층 추가, 대안별 입력은 독립 변환하되 모든 대안에 동일한 가중치를 적용한다. 각 DGP·모형 조합을 20회 반복하고 자료는 80/20으로 학습·검정 분할, 학습손실은 NLL, 각 학습은 2,000 에폭(epoch, 전체 학습자료를 한 번 통과하는 단위) 수행한다.</p>
-<p><b>성능지표.</b> 각 모형의 추정 로그우도와 참 로그우도의 차이를 백분율로 계산한다. 참 로그우도는 해당 DGP의 실제 효용구조와 이질성 분포를 정확히 알고 추정한 MXL의 로그우도이며, 오차가 0%에 가까울수록 참 DGP를 잘 복원한 모형이다.</p>
+<p><b>Setup.</b> All alternative attributes \(x\) are drawn from a uniform distribution on \([-1,1]\); 10,000
+individuals each choose once among three alternatives on ten occasions; each choice probability is generated by
+averaging 1,000 simulated logit probabilities. The comparison models are MNL, MXL with independent normals, a
+simple neural network (Simple NN), a deep neural network (Deep NN), MAPL with a normal distribution, and MAPL
+with the Fosgerau-Mabit semi-parametric distribution<a class="cite" href="#ref-8">[8]</a>. The MAPL network has
+two hidden layers of 64 nodes each, with a normalisation layer and a dropout layer after each; inputs are
+transformed independently by alternative but the same network weights apply to all alternatives. Each
+DGP-model combination is repeated 20 times, the data are split 80/20 into training and test sets, the training
+loss is the NLL, and each run lasts 2,000 epochs.</p>
+<p><b>Performance measure.</b> The percentage difference between each model's estimated log-likelihood and the
+true log-likelihood, the latter being the log-likelihood of an MXL estimated with exact knowledge of the DGP's
+utility structure and heterogeneity distribution. An error closer to 0% means better recovery of the true
+DGP.</p>
 <figure>
-  <img src="images/mapl_fig_results.png" alt="MAPL 시뮬레이션 결과">
-  <figcaption><b>Figure 3.</b> Percent difference between estimated log-likelihood of select models and that of the true data-generating mixed logit model (원 논문 <a class="cite" href="#ref-2">[2]</a>).</figcaption>
+  <img src="images/mapl_fig_results.png" alt="MAPL simulation results">
+  <figcaption><b>Figure 3.</b> Percent difference between the estimated log-likelihood of selected models and that of the true data-generating mixed logit model (original paper <a class="cite" href="#ref-2">[2]</a>).</figcaption>
 </figure>
-<p><b>핵심 결과.</b></p>
+<p><b>Principal findings.</b></p>
 <ul>
-  <li><b>MNL과 일반 신경망의 한계</b>: MNL은 비관측 이질성을 반영하지 못하므로 효용함수 형태를 맞게 설정해도 약 9%의 오차를 보이고, 상호작용·비선형성을 누락하면 오차가 20% 이상으로 커진다. Simple NN과 Deep NN은 효용함수의 상호작용·비선형성에는 비교적 강건하지만, 비관측 이질성을 명시적으로 모델링하지 않으므로 이질성 오지정 문제가 사실상 필연적으로 발생한다.</li>
-  <li><b>정확히 명세된 MXL의 성능</b>: 독립 정규분포 MXL은 참 DGP가 독립 정규분포일 때 0% 오차를 보인다 — 참 모형을 정확히 알고 있다면 MXL이 가장 잘 작동한다. 흥미롭게도 참 계수들이 상관되어 있어도 독립 정규분포 MXL은 비교적 잘 작동한다. 그러나 효용함수의 상호작용항·비선형항을 누락하면 오차가 크게 증가한다. 즉 이 실험에서 MXL의 더 큰 취약점은 계수 간 상관의 누락보다 <b>효용함수 형태의 오지정</b>이다.</li>
-  <li><b>MAPL의 성능</b>: 정규분포 MAPL은 네 DGP 모두에서 오차가 4%를 넘지 않고, Fosgerau-Mabit 반모수 분포 MAPL은 모든 반복에서 오차가 1% 미만이다. MAPL은 속성별 계수분포나 효용함수의 상호작용·비선형성을 미리 명시하지 않아도 네 DGP에 모두 안정적으로 적용된다. 다만 신경망 기반 모형이므로 표본크기에 영향을 받으며, 소표본에서는 성능과 안정성이 저하될 수 있다.</li>
+  <li><b>The limits of MNL and generic neural networks.</b> Because MNL cannot reflect unobserved heterogeneity,
+  it shows an error of about 9% even when the utility function is correctly specified, and the error exceeds 20%
+  once interactions or non-linearities are omitted. Simple NN and Deep NN are comparatively robust to
+  interactions and non-linearities in utility, but because they do not model unobserved heterogeneity
+  explicitly, misspecification of heterogeneity is effectively unavoidable.</li>
+  <li><b>The performance of correctly specified MXL.</b> Independent-normal MXL shows 0% error when the true DGP
+  is independent normal — if the true model is known exactly, MXL performs best. Interestingly, independent-normal
+  MXL still performs reasonably well when the true coefficients are correlated. Once interaction or non-linear
+  terms are omitted from the utility function, however, the error rises sharply. In this experiment, in other
+  words, MXL's greater vulnerability is <b>misspecification of the utility function</b> rather than neglected
+  correlation between coefficients.</li>
+  <li><b>The performance of MAPL.</b> Normal MAPL keeps the error below 4% across all four DGPs, and
+  Fosgerau-Mabit semi-parametric MAPL stays under 1% in every replication. MAPL applies stably to all four DGPs
+  without specifying attribute-level coefficient distributions or the interactions and non-linearities of the
+  utility function in advance. Being a neural model, however, it is sensitive to sample size, and performance and
+  stability may deteriorate in small samples.</li>
 </ul>
 
-<h3>5. 결론과 한계</h3>
-<p><b>실무적 의미.</b> MAPL과 전통적 MXL의 성능을 비교하면, 기존 모형의 효용함수 또는 이질성 분포 가정이 잘못되었는지를 진단하는 도구로 활용할 수 있다.</p>
-<p><b>한계.</b> ① 신경망 기반이므로 충분한 표본이 필요하다. ② 현재 모형은 대안별 선호분포에 초점을 두므로, 대안 간 상관으로 나타나는 모든 형태의 이질성을 포착하지 못할 수 있다. ③ 예측력은 높지만, 추정된 분포를 경제적·행태적으로 해석하는 방법은 아직 충분히 정립되지 않았다.</p>
-<p><b>향후 연구.</b> MAPL로부터 WTP·탄력성·한계효과 등 경제적 관심량을 복원하는 해석방법 개발, MAPL이 전통적 선택모형을 정확히 복원할 수 있는 조건의 이론적 규명, 신경망 학습의 계산효율 개선, 동태적 선택·준거의존성 등 복잡한 행태경제학적 현상으로의 확장이 제시된다<a class="cite" href="#ref-2">[2]</a>.</p>
+<h3>5. Conclusions and limitations</h3>
+<p><b>Practical implication.</b> Comparing MAPL with conventional MXL can serve to diagnose whether the utility
+function or heterogeneity assumptions of an existing model are wrong.</p>
+<p><b>Limitations.</b> (i) As a neural model it requires an adequate sample. (ii) The current model focuses on
+alternative-specific preference distributions and so may not capture forms of heterogeneity that manifest as
+correlation across alternatives. (iii) Predictive power is high, but methods for interpreting the estimated
+distributions economically and behaviourally are not yet established.</p>
+<p><b>Future work.</b> The authors propose developing methods to recover economic quantities of interest such as
+WTP, elasticities and marginal effects from MAPL; establishing theoretically the conditions under which MAPL
+exactly recovers conventional choice models; improving computational efficiency; and extending to more complex
+behavioural phenomena such as dynamic choice and reference dependence<a class="cite" href="#ref-2">[2]</a>.</p>
 
 <hr class="sep">
 
-<h2 id="part3"><span class="part">Part III</span> 종합 비교와 연구 제안</h2>
+<h2 id="part3"><span class="part">Part III</span> Synthesis and Research Proposal</h2>
 
-<h3>1. 두 논문의 종합 비교</h3>
-<p>두 논문은 모두 신경망을 활용해 이산선택모형의 비관측 선호 이질성을 유연하게 추정하려는 연구이지만, 문제 설정과 이질성 모델링의 단위가 다르다.</p>
+<h3>1. Comparing the two papers</h3>
+<p>Both papers use neural networks to estimate unobserved preference heterogeneity in discrete choice models
+flexibly, but they differ in problem framing and in the unit at which heterogeneity is modelled.</p>
 <ul>
-  <li><b>MDN-Logit</b><a class="cite" href="#ref-1">[1]</a>은 "같은 인구사회학적 특성을 가진 사람들 안에서도 시간·비용 민감도가 왜 다른가?"를 다룬다. 개인 특성에 조건부한 속성별 계수분포를 추정해, 관측 가능한 이질성과 잔여 무작위 이질성을 분해한다.</li>
-  <li><b>MAPL</b><a class="cite" href="#ref-2">[2]</a>은 "시간계수는 정규분포이고 효용은 선형이라는 기존 가정이 틀리면 어떻게 되는가?"를 다룬다. 속성별 계수 대신 대안별 총합 선호분포를 직접 추정해, 계수분포와 효용함수 오지정에 덜 의존하려 한다.</li>
+  <li><b>MDN-Logit</b><a class="cite" href="#ref-1">[1]</a> asks: why do people with identical socio-demographic
+  characteristics differ in their sensitivity to time and cost? It estimates attribute-specific coefficient
+  distributions conditional on individual characteristics, decomposing observable heterogeneity from residual
+  random heterogeneity.</li>
+  <li><b>MAPL</b><a class="cite" href="#ref-2">[2]</a> asks: what happens when the conventional assumptions —
+  that the time coefficient is normal and that utility is linear — are wrong? It estimates alternative-level
+  aggregate preference distributions instead of attribute coefficients, reducing dependence on the
+  specification of coefficient distributions and functional form.</li>
 </ul>
 
 <table class="cmp">
   <tr><th></th><th>MDN-Logit <a class="cite" href="#ref-1" style="color:#dcdcdc">[1]</a></th><th>MAPL <a class="cite" href="#ref-2" style="color:#dcdcdc">[2]</a></th></tr>
-  <tr><td>이질성 모델링 단위</td><td>속성별 선호계수의 조건부 혼합분포</td><td>대안별 총합 선호의 분포</td></tr>
-  <tr><td>방법론적 특징</td><td>시간·비용계수 자체를 추정하므로 어떤 집단이 시간·비용에 민감한지 해석 가능. 다만 효용은 여전히 계수와 속성의 선형·가법적 결합 구조를 유지</td><td>계수를 별도로 추정하지 않고, 관측변수가 만들어내는 대안별 잠재 선호 \(v_j\)의 분포를 모델링. 속성별 계수분포·효용함수 형태를 잘못 가정할 위험은 줄지만, 계수·VOT·WTP를 직접 해석하기 어려움</td></tr>
-  <tr><td>제공하는 증거</td><td>합성자료·Swissmetro 등에서 다봉형 선호분포를 복원하고 MNL·MXL·TasteNet보다 높은 예측성능. VOT와 탄력성을 산출해 정책분석에 연결</td><td>네 가지 DGP 검증에서, 참 효용함수를 정확히 알면 MXL이 최선이지만 상호작용·비선형성 누락 시 MXL 성능이 크게 저하. MAPL은 이런 오지정 상황에서 비교적 안정적</td></tr>
-  <tr><td>취약점</td><td>계수 해석은 가능하나 효용함수 구조의 오지정에 취약할 수 있음</td><td>효용함수 오지정에 강건하지만 정책지표를 계수 수준으로 복원하는 방법이 약함</td></tr>
+  <tr><td>Unit of heterogeneity</td><td>Conditional mixture distribution over attribute coefficients</td><td>Distribution of aggregate preference per alternative</td></tr>
+  <tr><td>Methodological character</td><td>Estimates the time and cost coefficients themselves, so it can be said which group is sensitive to time or to cost. Utility nevertheless retains a linear, additive structure of coefficients and attributes.</td><td>Does not estimate coefficients separately; models the distribution of the latent preference \(v_j\) that observed variables generate for each alternative. The risk of misspecifying coefficient distributions and functional form falls, but coefficients, VOT and WTP are hard to interpret directly.</td></tr>
+  <tr><td>Evidence provided</td><td>Recovers multimodal preference distributions on synthetic data, Swissmetro and freight choice data, with higher predictive performance than MNL, MXL and TasteNet. Derives VOT and elasticities, connecting to policy analysis.</td><td>Validated on four synthetic DGPs. When the true utility function is known exactly, MXL is best; once interactions or non-linearities are omitted, MXL degrades sharply. MAPL remains comparatively stable under such misspecification.</td></tr>
+  <tr><td>Weakness</td><td>Coefficients are interpretable, but the model is vulnerable to misspecification of the utility structure.</td><td>Robust to misspecification of the utility function, but weak in recovering policy indicators at the coefficient level.</td></tr>
 </table>
 
-<p><b>연구 공백.</b> 따라서 후속 연구는 MAPL 수준의 함수형태 유연성과 MDN-Logit 수준의 계수·VOT 해석가능성을 어떻게 결합할 수 있는가를 과제로 설정할 수 있다.</p>
+<p><b>The research gap.</b> Follow-up work can therefore be framed around a single question: how can the
+functional-form flexibility of MAPL be combined with the coefficient- and VOT-level interpretability of
+MDN-Logit?</p>
 
-<h3>2. 최근 연구 지형에서의 위치</h3>
+<h3>2. Position within the recent research landscape</h3>
 
-<p>2023년 이후의 관련 연구들은 "가정을 어디에 둘 것인가"라는 축 위에서 서로 다른 지점을 점유한다. 두 발제 논문을 이 지형 안에 놓으면 연구 공백이 더 분명해진다.</p>
+<p>Studies since 2023 occupy different positions along the axis of "where the assumption is placed". Locating
+the two seminar papers within that landscape makes the gap sharper.</p>
 
 <table class="cmp">
-  <tr><th>완화 대상</th><th>대표 연구</th><th>남는 가정</th></tr>
+  <tr><th>What is relaxed</th><th>Representative work</th><th>What remains assumed</th></tr>
   <tr>
-    <td>오차항 분포</td>
-    <td>RUM 정합 신경망 추정기(RUM-NN)<a class="cite" href="#ref-17" style="color:#333">[17]</a></td>
-    <td>효용의 함수형태, 계수 이질성 구조</td>
+    <td>Error distribution</td>
+    <td>RUM-consistent neural estimator (RUM-NN)<a class="cite" href="#ref-17" style="color:#333">[17]</a></td>
+    <td>Functional form of utility; structure of coefficient heterogeneity</td>
   </tr>
   <tr>
-    <td>효용의 함수형태</td>
-    <td>격자망 기반 부분단조 모형<a class="cite" href="#ref-15" style="color:#333">[15]</a>, 임베딩 결합 모형<a class="cite" href="#ref-14" style="color:#333">[14]</a>, 잔차 신경망 계열<a class="cite" href="#ref-16" style="color:#333">[16]</a><a class="cite" href="#ref-18" style="color:#333">[18]</a></td>
-    <td>무작위 이질성은 잔차·점추정으로 흡수</td>
+    <td>Functional form of utility</td>
+    <td>Lattice-network partially monotonic models<a class="cite" href="#ref-15" style="color:#333">[15]</a>, embedding-based models<a class="cite" href="#ref-14" style="color:#333">[14]</a>, residual-network family<a class="cite" href="#ref-16" style="color:#333">[16]</a><a class="cite" href="#ref-18" style="color:#333">[18]</a></td>
+    <td>Random heterogeneity absorbed into residuals or point estimates</td>
   </tr>
   <tr>
-    <td>계수분포의 형태</td>
-    <td>변환기반 비정규 확률계수<a class="cite" href="#ref-20" style="color:#333">[20]</a><a class="cite" href="#ref-21" style="color:#333">[21]</a>, 분포자유·비모수 추정<a class="cite" href="#ref-19" style="color:#333">[19]</a><a class="cite" href="#ref-23" style="color:#333">[23]</a></td>
-    <td>효용의 선형·가법 구조</td>
+    <td>Shape of the coefficient distribution</td>
+    <td>Transformation-based non-normal random coefficients<a class="cite" href="#ref-20" style="color:#333">[20]</a><a class="cite" href="#ref-21" style="color:#333">[21]</a>, distribution-free and nonparametric estimation<a class="cite" href="#ref-19" style="color:#333">[19]</a><a class="cite" href="#ref-23" style="color:#333">[23]</a></td>
+    <td>Linear, additive utility structure</td>
   </tr>
   <tr>
-    <td>계수분포 + 개인 조건부화</td>
+    <td>Coefficient distribution + conditioning on the individual</td>
     <td><b>MDN-Logit</b><a class="cite" href="#ref-1" style="color:#333">[1]</a></td>
-    <td>효용의 선형·가법 구조, 성분 수 \(K\), 계수 간 조건부 독립, 부호제약</td>
+    <td>Linear additive utility, number of components \(K\), conditional independence across coefficients, sign constraints</td>
   </tr>
   <tr>
-    <td>이질성의 모델링 단위 자체</td>
+    <td>The unit of heterogeneity itself</td>
     <td><b>MAPL</b><a class="cite" href="#ref-2" style="color:#333">[2]</a></td>
-    <td>대안별 총합 선호의 분포형태, 연결함수, 대안 간 독립</td>
+    <td>Shape of the alternative-level preference distribution, link function, independence across alternatives</td>
   </tr>
   <tr>
-    <td>준거점(참조 효용)</td>
-    <td>준거의존 신경망 결합 모형<a class="cite" href="#ref-24" style="color:#333">[24]</a></td>
-    <td>준거의존 효용의 함수형태</td>
+    <td>The reference point</td>
+    <td>Reference-dependent neural choice model<a class="cite" href="#ref-24" style="color:#333">[24]</a></td>
+    <td>Functional form of reference-dependent utility</td>
   </tr>
 </table>
 
-<p>표에서 드러나듯, <b>효용의 함수형태를 유연화한 연구군</b>과 <b>계수분포를 유연화한 연구군</b>은 거의 만나지 않는다. MDN-Logit은 후자를 개인 조건부 혼합분포로 끌어올렸지만 선형·가법 효용을 유지하고, 격자망·잔차망 계열은 전자를 해결했지만 이질성을 분포로 드러내지 않는다. MAPL은 두 가정을 동시에 완화하는 대신 계수 수준 해석을 포기한다. <span class="kw">세 요구(함수형태 유연성, 분포 유연성, 계수 해석가능성)를 동시에 만족하는 모형은 아직 제시되지 않았다.</span> 이것이 본 연구 제안이 겨냥하는 지점이다.</p>
+<p>As the table shows, the body of work that <b>flexibilises the functional form of utility</b> and the body
+that <b>flexibilises the coefficient distribution</b> barely meet. MDN-Logit raises the latter to a conditional
+mixture distribution but retains linear additive utility; lattice and residual networks solve the former but do
+not expose heterogeneity as a distribution. MAPL relaxes both assumptions at once, at the price of abandoning
+coefficient-level interpretation. <span class="kw">No model yet satisfies all three requirements
+simultaneously: flexibility of functional form, flexibility of distribution, and interpretability of
+coefficients.</span> That is the target of the present proposal.</p>
 
-<h3>3. 연구 제안</h3>
-<p>MDN이 개인 특성에 조건부한 속성별 계수분포를 추정하고, 잔차 신경망이 비선형성·상호작용을 포착하는 구조를 제안한다.</p>
+<h3>3. Research proposal</h3>
+<p>The proposed architecture has an MDN estimate attribute-specific coefficient distributions conditional on
+individual characteristics, while a residual network captures non-linearity and interactions.</p>
 <div class="eq">$$U_{nj} = \beta^{\mathsf{T}}_{nj}x_{nj} + r_{\theta}(x_{nj}, z_n) + \varepsilon_{nj}$$</div>
-<p>\(\beta_{nj}\)와 \(r_{\theta}(\cdot)\) 모두 부호제약 없이 자료에서 추정한다. 이때 시간·비용의 양(+) 계수는 무조건 비합리적인 결과로 제거하지 않고, 특정 집단의 실제 선호, 속성 간 상호작용, 누락변수 또는 모형 오지정 가능성을 점검하는 진단정보로 해석한다. 이는 바람직하지 않은 속성에 대해서도 양의 지불의사가 관측될 수 있으므로 부호제약을 기계적으로 부과하지 말아야 한다는 실증적 권고<a class="cite" href="#ref-25">[25]</a>와, 단조성을 <i>선택된 속성에 한해</i> 구조적으로 부과하는 부분단조 접근<a class="cite" href="#ref-15">[15]</a>의 문제의식을 잇는다.</p>
-<p><b>정책지표의 해석.</b> VOT는 계수의 단순 비율이 아니라 전체 효용함수의 국소 한계효과로 계산한다.</p>
+<p>Both \(\beta_{nj}\) and \(r_{\theta}(\cdot)\) are estimated from data without sign constraints. Positive
+coefficients on time or cost are not removed as automatically irrational; they are read as diagnostic
+information indicating the genuine preference of a particular group, an interaction between attributes, an
+omitted variable, or model misspecification. This follows the empirical recommendation that sign constraints
+should not be imposed mechanically because positive WTP can be observed even for undesirable
+attributes<a class="cite" href="#ref-25">[25]</a>, and continues the logic of partially monotonic approaches
+that impose monotonicity structurally <i>only on selected attributes</i><a class="cite" href="#ref-15">[15]</a>.</p>
+
+<p><b>Interpreting policy indicators.</b> The value of time is computed not as a simple ratio of coefficients but
+as the local marginal effect of the full utility function.</p>
 <div class="eq">$$VOT_{nj} = -\frac{\partial U_{nj}/\partial TT_{nj}}{\partial U_{nj}/\partial TC_{nj}}$$</div>
-<p>비용의 한계효용이 0에 가깝거나 양수인 관측치는 VOT를 기계적으로 계산하지 않고 별도 집단으로 보고한다. 따라서 평균 VOT 하나보다 시간·비용 한계효용의 분포, 계수 부호별 비율, VOT가 정의되는 집단의 비율과 분포, 부호가 달라지는 집단의 특성을 함께 제시하는 방식이 적절하다. 이는 WTP 지표와 그 불확실성 측도의 산출방식을 명시할 것을 요구하는 최근의 정리<a class="cite" href="#ref-22">[22]</a> 및 분포 꼬리의 정책적 중요성<a class="cite" href="#ref-26">[26]</a>에 대한 실무적 대응이다.</p>
-<p><b>검증 전략.</b> MDN-Logit과 제안모형의 비교를 통해 성능 개선이 계수 이질성 때문인지 비선형 효용구조 때문인지 분해하고, MAPL은 부호·함수형태를 강하게 가정하지 않는 비교기준으로 두어 구조적 모형의 결과가 얼마나 가정에 의존하는지 점검한다.</p>
+<p>Observations whose marginal utility of cost is near zero or positive are not put through a mechanical VOT
+calculation but reported as a separate group. Rather than a single mean VOT, the following are reported
+together: the distribution of the marginal utilities of time and cost; the share of each coefficient sign; the
+proportion and distribution of the population for whom VOT is defined; and the characteristics of the group
+whose sign reverses. This responds directly to the requirement that the computation and uncertainty measure of
+WTP indicators be stated explicitly<a class="cite" href="#ref-22">[22]</a> and to the policy significance of
+distributional tails<a class="cite" href="#ref-26">[26]</a>.</p>
+
+<p><b>Validation strategy.</b> Comparing MDN-Logit with the proposed model decomposes whether performance gains
+arise from coefficient heterogeneity or from non-linear utility structure. MAPL, which imposes no strong
+assumptions on sign or functional form, serves as the comparison baseline against which the dependence of the
+structural model's conclusions on its assumptions can be assessed.</p>
 
 <hr class="sep">
 
@@ -631,7 +1093,7 @@
   <li id="ref-13">Bierlaire, M., Axhausen, K., &amp; Abay, G. (2001). The acceptance of modal innovation: The case of Swissmetro. In <i>Proceedings of the 1st Swiss Transport Research Conference</i>. Ascona, Switzerland.</li>
 </ol>
 
-<h4>최근 3년간(2023–2026) 관련 문헌</h4>
+<h4>Recent literature, 2023–2026</h4>
 <ol class="refs" start="14">
   <li id="ref-14">Arkoudi, I., Krueger, R., Azevedo, C. L., &amp; Pereira, F. C. (2023). Combining discrete choice models and neural networks through embeddings: Formulation, interpretability and performance. <i>Transportation Research Part B: Methodological</i>, 175, 102783. <a href="https://doi.org/10.1016/j.trb.2023.102783">doi:10.1016/j.trb.2023.102783</a></li>
   <li id="ref-15">Kim, E.-J., &amp; Bansal, P. (2024). A new flexible and partially monotonic discrete choice model. <i>Transportation Research Part B: Methodological</i>, 183, 102947. <a href="https://doi.org/10.1016/j.trb.2024.102947">doi:10.1016/j.trb.2024.102947</a></li>
@@ -651,11 +1113,23 @@
 </ol>
 
 <div class="notebox">
-<b>문헌 검증 원칙.</b> 위 [14]–[28]은 모두 2023년 이후 동료심사 학술지에 게재된 논문으로, 저널명·권·논문번호·DOI를 출판사 또는 색인 기록에서 확인한 것만 수록하였다. 게재 여부가 확인되지 않은 프리프린트는 인용하지 않았다. 다만 [2](MAPL)는 본 세미나의 발제 대상이므로 프리프린트임을 명시하여 유지하였다.
+<b>Verification policy for references.</b> Items [14]–[28] are all peer-reviewed journal articles published
+since 2023, and only those whose journal, volume, article number and DOI could be confirmed against publisher
+or index records are included. Preprints whose publication status could not be confirmed are not cited. Item
+[2] (MAPL) is retained as a preprint because it is one of the two papers presented in this seminar, and its
+preprint status is stated explicitly.
 </div>
 
-<p style="color:var(--sub); font-size:0.85rem; margin-top:40px;">본 문서는 2026. 08. 19. 세미나 자료(조명지)를 재구성한 것이며, 모든 그림과 표는 세미나 자료에 수록된 원 논문 <a class="cite" href="#ref-1">[1]</a><a class="cite" href="#ref-2">[2]</a>의 이미지를 그대로 사용하였다. 수식 번호는 원 논문의 번호를 따른다(MAPL의 식은 M1, M2로 구분 표기).</p>
-  </article>
+<p style="color:var(--sub); font-size:0.85rem; margin-top:40px;">
+This note reorganises a seminar presented on 19 August 2026 by
+<a href="https://www.linkedin.com/in/myongjicho715/">Myongji Cho</a> (Ph.D. candidate, Technology Management,
+Economics and Policy Program, Seoul National University). All figures and tables are reproduced from the
+original papers <a class="cite" href="#ref-1">[1]</a><a class="cite" href="#ref-2">[2]</a> as presented in the
+seminar material, with the source cited in each caption. Equation numbers follow those of the original papers;
+equations from the MAPL paper are labelled M1 and M2 to distinguish them.
+</p>
+
+</article>
 
   <footer>
     &copy; 2026 Youngsam Chun ·
