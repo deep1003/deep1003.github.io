@@ -45,7 +45,21 @@ Paste an `<li>` block at the top of the `<ul class="note-list">` in `notes/index
 edit the title, date, summary and topic tags. When the year changes, add a new
 `<h2 class="year-h">2027</h2>` heading.
 
-Then `git add . && git commit && git push`. The change appears in a minute or two.
+Then publish:
+
+```
+./publish.sh "Add note on RUM-NN"
+```
+
+`publish.sh` sits at the repository root. It stages everything, shows you the file list
+and diff summary, refuses to commit oversized files or anything that looks like a
+credential, commits, pushes, and then polls the live site until the deployed bytes match
+what you committed — GitHub Pages takes a minute or two to rebuild and its CDN caches
+the old copy for a while longer, so an unchanged page immediately after a push is normal.
+
+Omit the message and it writes one for you (`Add research note: rum nn review`).
+Useful flags: `-n` dry run, `-y` skip the confirmation prompt, `--no-verify` push
+without waiting.
 
 ## Formatting available in the body
 
