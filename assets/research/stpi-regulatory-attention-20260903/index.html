@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>STPI regulatory-attention figures and data</title>
+  <style>
+    :root{--blue:#4472c4;--navy:#17365d;--line:#d9d9d9;--muted:#666}
+    body{font-family:Arial,Helvetica,sans-serif;max-width:1120px;margin:42px auto;padding:0 24px;color:#111;line-height:1.5}
+    h1,h2{color:var(--blue)} h1{border-bottom:3px solid var(--blue);padding-bottom:12px}
+    .meta,.note{color:var(--muted)} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(430px,1fr));gap:28px}
+    figure{margin:0;border-top:1px solid var(--line);padding-top:15px} img{width:100%;height:auto} figcaption{font-weight:bold;color:var(--navy)}
+    a{color:#1162d4} code{background:#f2f2f2;padding:2px 4px} li{margin:.35rem 0}
+  </style>
+</head>
+<body>
+  <h1>Science-Technology-Policy Interface in AI regulatory attention</h1>
+  <p class="meta">Derived-data snapshot: 3 September 2026</p>
+  <p>Slide-ready OECD-tone figures. PNG files are high-resolution; PDF and SVG files are vector formats.</p>
+  <div class="grid">
+    <figure><a href="figures/F01_STPI_semantic_evolution_OECD.png"><img src="figures/F01_STPI_semantic_evolution_OECD.png" alt="STPI semantic evolution"></a><figcaption>1. STPI semantic evolution</figcaption></figure>
+    <figure><a href="figures/F02_policy_share_change_2020-21_2025-26_OECD.png"><img src="figures/F02_policy_share_change_2020-21_2025-26_OECD.png" alt="Policy topic-share change"></a><figcaption>2. Policy-share change, 2020-21 to 2025-26</figcaption></figure>
+    <figure><a href="figures/F03_policy_activity_trends_groups_OECD.png"><img src="figures/F03_policy_activity_trends_groups_OECD.png" alt="Policy activity trends"></a><figcaption>3. Country and group policy-activity trends</figcaption></figure>
+    <figure><a href="figures/F04_stp_volume_trends_OECD.png"><img src="figures/F04_stp_volume_trends_OECD.png" alt="STP source-record trends"></a><figcaption>4. Science, technology and policy source-record trends</figcaption></figure>
+    <figure><a href="figures/F05_korea_gap_change_OECD.png"><img src="figures/F05_korea_gap_change_OECD.png" alt="Korea relative-gap change"></a><figcaption>5. Korea's changing relative policy gaps</figcaption></figure>
+  </div>
+  <h2>Derived data</h2>
+  <ul>
+    <li><a href="data/stpi_semantic_topic_coordinates.csv">Semantic topic coordinates</a></li>
+    <li><a href="data/stpi_semantic_centroid_trajectories.csv">STPI centroid trajectories</a></li>
+    <li><a href="data/period_change_l2_2020-21_vs_2025-26.csv">L2 period changes</a></li>
+    <li><a href="data/annual_policy_activity_by_country.csv">Annual policy activity by country</a></li>
+    <li><a href="data/annual_policy_activity_group_means.csv">Annual group means</a></li>
+    <li><a href="data/korea_l3_gap_change_2020-21_vs_2025-26.csv">Korea L3 gap changes</a></li>
+    <li><a href="data/stp_document_volume_index_2020-2024.csv">STP document-volume index</a></li>
+    <li><a href="data/group_coverage.csv">Group coverage and members</a></li>
+  </ul>
+  <h2>Methods and code</h2>
+  <p><a href="README.md">Methodology and source notes</a> · <a href="code/make_stpi_oecd_deck_figures.py">Reproduction script</a></p>
+  <p class="note"><strong>Important:</strong> OECD, G20 and EU-member values are unweighted averages among the countries observable in this research panel. They are not official institutional aggregates. The 2026 policy observation is partial; recent patent data are right-truncated.</p>
+</body>
+</html>
