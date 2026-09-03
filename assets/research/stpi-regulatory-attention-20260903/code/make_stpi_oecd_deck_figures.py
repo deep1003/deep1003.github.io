@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib import font_manager
 import numpy as np
 import pandas as pd
-from sklearn.decomposition import PCA
+from adjustText import adjust_text
 
 ROOT = Path("/Users/deep1003/data4/topic_space")
 PROJECT = ROOT / "manuscript_update_20260903"
@@ -20,6 +20,22 @@ OUT = PROJECT / "figures_stpi_oecd"
 DERIVED = PROJECT / "data_stpi_oecd"
 OUT.mkdir(parents=True, exist_ok=True)
 DERIVED.mkdir(parents=True, exist_ok=True)
+
+# Canonical topic labels and ordering used by the 3 August final STPI report.
+# The 20 EDU/LABOR branch anchors in the extended 495-row working file are
+# intentionally excluded from the 475-topic core policy reference space.
+STPI_REPORT_ROOT = Path(
+    "/Users/deep1003/data3/kim_jongrip_ai_stpi_full_datasets_share_20260630"
+)
+TOPIC_MASTER = (
+    STPI_REPORT_ROOT
+    / "06_interactive_topic_space/github_pages_data/l0_l1_l2_l3_dictionary_for_appendix.csv"
+)
+UMAP_MASTER = (
+    STPI_REPORT_ROOT
+    / "05_analysis_statistics_and_figures/25_m3_cross_domain_gap_v3/02_data_outputs/"
+      "m3_reference_l3_common_2d_coordinates_v3.csv"
+)
 
 # OECD report-chart palette matched to the supplied reference figures.
 MIDNIGHT = "#08306B"
@@ -49,6 +65,7 @@ NAME_TO_ISO = {
     "European Union":"EU", "Chinese Taipei":"TW",
 }
 DISPLAY = {"US":"United States", "CN":"China", "KR":"Korea", "JP":"Japan"}
+COUNTRY_COLOURS = {"US":MIDNIGHT, "CN":POLICY_RED, "KR":SCIENCE_BLUE, "JP":CYAN, "OECD observed":ORANGE}
 
 OECD = {"US","KR","GB","AU","DE","CA","FR","JP","IT","NL","TR"}
 EU_MEMBERS = {"DE","FR","IT","NL"}
@@ -112,6 +129,35 @@ def report_legend(ax, **kwargs):
     legend = ax.legend(frameon=True, facecolor=PLOT_GREY, edgecolor=PLOT_GREY,
                        framealpha=1, borderpad=.8, **kwargs)
     return legend
+
+
+def initial_upper(value: object) -> str:
+    text = str(value).strip()
+    return text[:1].upper() + text[1:] if text else text
+
+
+def load_policy_master() -> pd.DataFrame:
+    master = pd.read_csv(TOPIC_MASTER, low_memory=False)
+    policy = master.loc[
+        master["L3_id"].astype(str).str.startswith("POLICY-REF-"),
+        ["L3_id", "L0", "L1", "L2", "L3", "Korean_label", "Definition"],
+    ].copy()
+    if len(policy) != 475 or policy["L2"].nunique() != 23 or policy["L3_id"].duplicated().any():
+        raise ValueError("The final-report policy master must contain 475 unique L3 topics in 23 L2 groups.")
+    policy.insert(0, "policy_order", np.arange(1, len(policy) + 1))
+    policy.to_csv(DERIVED / "policy_l2_l3_master_final_report_order.csv", index=False)
+    return policy
+
+
+def align_panel_to_policy_master(panel: pd.DataFrame, policy: pd.DataFrame) -> pd.DataFrame:
+    aligned = panel[panel["l3_id"].isin(policy["L3_id"])].copy()
+    names = policy.set_index("L3_id")[["policy_order", "L2", "L3"]]
+    aligned = aligned.drop(columns=[c for c in ["l2_label", "l3_label"] if c in aligned])
+    aligned = aligned.join(names, on="l3_id")
+    aligned = aligned.rename(columns={"L2": "l2_label", "L3": "l3_label"})
+    aligned["l3_label"] = aligned["l3_label"].map(initial_upper)
+    aligned = aligned.sort_values(["policy_order", "jurisdiction", "year"], kind="stable")
+    return aligned
 
 
 def period_profiles(panel: pd.DataFrame):
@@ -244,56 +290,106 @@ def make_stp_volume_trends():
 
 def make_semantic_evolution(panel: pd.DataFrame):
     rel=ROOT/"relatedness/nb_out"
-    vs=np.load(rel/"arrays/V_sci.npy"); vt=np.load(rel/"arrays/V_tec.npy"); vp=np.load(rel/"arrays/V_pol.npy")
-    ds=pd.read_csv(rel/"tables/dict_science.csv"); dt=pd.read_csv(rel/"tables/dict_technology.csv"); dp=pd.read_csv(rel/"tables/dict_policy.csv").iloc[:len(vp)]
+    ds=pd.read_csv(rel/"tables/dict_science.csv"); dt=pd.read_csv(rel/"tables/dict_technology.csv")
+    umap=pd.read_csv(UMAP_MASTER)
+    hierarchy=pd.read_csv(TOPIC_MASTER,low_memory=False)[["L3_id","L1","L2","L3"]]
+    umap=(umap.drop(columns=["l3_final_l1","l3_final_l2","l3_label_draft"])
+          .merge(hierarchy,left_on="domain_reference_id",right_on="L3_id",how="left",validate="one_to_one")
+          .rename(columns={"L1":"l3_final_l1","L2":"l3_final_l2","L3":"l3_label_draft"}))
+    umap["layer"]=np.select(
+        [umap.l3_final_l1.eq("AI science and research"),
+         umap.l3_final_l1.eq("AI technology and invention"),
+         umap.l3_final_l1.eq("AI policy and governance")],
+        ["Science","Technology","Policy"], default="Unknown")
+    if (umap.layer == "Unknown").any() or len(umap) != 1938:
+        raise ValueError("Unexpected final-report UMAP master structure.")
     hwre=re.compile(r"semiconductor|chip|chiplet|processor|\bgpu\b|\btpu\b|\bnpu\b|accelerat|memory|wafer|fabricat|packaging|circuit|fpga|asic|hardware|silicon|photonic|transistor|system[- ]on[- ]chip|interconnect|neuromorphic|analog comput|in-memory|graphics processing",re.I)
-    hw=((dt.L3.astype(str).str.contains(hwre)|dt.Definition.astype(str).str.contains(hwre)) & ~dt.L3.astype(str).eq("Long short-term memory") & ~dt.L3.astype(str).isin({"hardware-aware model optimization","Hardware-aware neural architecture search","AI-assisted chip design","GPU resource scheduling"})).to_numpy()
-    X=np.vstack([vs,vt,vp]).astype(float); X-=X.mean(axis=0); X/=np.clip(np.linalg.norm(X,axis=1,keepdims=True),1e-9,None)
-    xy=PCA(2,random_state=0).fit_transform(X)
-    ns,nt=len(vs),len(vt); xs=xy[:ns]; xt=xy[ns:ns+nt]; xp=xy[ns+nt:]
-    coords=pd.concat([
-        pd.DataFrame({"layer":"Science","topic_id":ds.iloc[:ns,0].astype(str),"label":ds.iloc[:ns].get("L3",ds.iloc[:ns,0]).astype(str),"x":xs[:,0],"y":xs[:,1]}),
-        pd.DataFrame({"layer":np.where(hw,"Technology: hardware","Technology: software"),"topic_id":dt.iloc[:nt,0].astype(str),"label":dt.L3.astype(str),"x":xt[:,0],"y":xt[:,1]}),
-        pd.DataFrame({"layer":"Policy","topic_id":dp.L3_id.astype(str),"label":dp.L3.astype(str),"x":xp[:,0],"y":xp[:,1]}),
-    ],ignore_index=True)
+    umap["is_hardware"]=(
+        umap.layer.eq("Technology")
+        & (umap.l3_label_draft.astype(str).str.contains(hwre)
+           | umap.l3_final_l2.astype(str).str.contains(hwre))
+        & ~umap.l3_label_draft.astype(str).eq("Long short-term memory")
+        & ~umap.l3_label_draft.astype(str).isin({"hardware-aware model optimization","Hardware-aware neural architecture search","AI-assisted chip design","GPU resource scheduling"})
+    )
+    coords=umap.rename(columns={"domain_reference_id":"topic_id","l3_label_draft":"label"})[
+        ["layer","topic_id","label","l3_final_l2","x","y","is_hardware"]]
     coords.to_csv(DERIVED/"stpi_semantic_topic_coordinates.csv",index=False)
     cm=np.load(rel/"arrays/capability_mass.npz")
-    weights={"Science":cm["sci"].sum(axis=1),"Technology":cm["tec"].sum(axis=1)}
-    pids=list(dp.L3_id.astype(str)); ppos={t:i for i,t in enumerate(pids)}
-    pw=[]
-    for lo,hi in [(2021,2022),(2023,2024),(2025,2026)]:
-        q=panel[panel.year.between(lo,hi)].groupby("l3_id").activity_mass.sum()
-        pw.append(np.array([q.get(t,0) for t in pids]))
-    weights["Policy"]=np.stack(pw)
     periods=["2021-22","2023-24","2025-26"]
     trajectories=[]
-    for layer,pts,w in [("Science",xs,weights["Science"]),("Technology",xt,weights["Technology"]),("Policy",xp,weights["Policy"])]:
+    dictionaries={"Science":ds,"Technology":dt}
+    arrays={"Science":cm["sci"].sum(axis=1),"Technology":cm["tec"].sum(axis=1)}
+    for layer in ["Science","Technology","Policy"]:
+        pts=coords[coords.layer.eq(layer)].copy()
         for k,period in enumerate(periods):
-            den=w[k].sum(); centroid=(w[k][:,None]*pts).sum(axis=0)/den
+            if layer == "Policy":
+                lo,hi=[(2021,2022),(2023,2024),(2025,2026)][k]
+                mass=panel[panel.year.between(lo,hi)].groupby("l3_id").activity_mass.sum()
+            else:
+                d=dictionaries[layer]
+                mass=pd.Series(arrays[layer][k],index=d.L3_id.astype(str)).groupby(level=0).sum()
+            w=pts.topic_id.map(mass).fillna(0).to_numpy()
+            den=w.sum()
+            centroid=(w[:,None]*pts[["x","y"]].to_numpy()).sum(axis=0)/den
             trajectories.append({"layer":layer,"period":period,"x":centroid[0],"y":centroid[1]})
     traj=pd.DataFrame(trajectories);traj.to_csv(DERIVED/"stpi_semantic_centroid_trajectories.csv",index=False)
     fig,ax=plt.subplots(figsize=(13.333,7.5));fig.subplots_adjust(left=.07,right=.94,top=.81,bottom=.16)
-    ax.scatter(xs[:,0],xs[:,1],s=10,color=SCIENCE_BLUE,alpha=.24,label="Science topics")
-    ax.scatter(xt[~hw,0],xt[~hw,1],s=10,color=TECH_GREEN,alpha=.18,label="Technology: software/models")
-    ax.scatter(xt[hw,0],xt[hw,1],s=24,color="#7AAE35",alpha=.85,label="Technology: hardware")
-    ax.scatter(xp[:,0],xp[:,1],s=12,color=POLICY_RED,alpha=.24,label="Policy topics")
-    label_offsets = {
-        ("Science","2021-22"):(7,-13), ("Science","2025-26"):(7,8),
-        ("Technology","2021-22"):(7,10), ("Technology","2025-26"):(7,-15),
-        ("Policy","2021-22"):(7,-14), ("Policy","2025-26"):(7,8),
+    sci=coords[coords.layer.eq("Science")];tech=coords[coords.layer.eq("Technology")]
+    pol=coords[coords.layer.eq("Policy")];soft=tech[~tech.is_hardware];hard=tech[tech.is_hardware]
+    ax.scatter(sci.x,sci.y,s=22,color=SCIENCE_BLUE,alpha=.72,edgecolor="#174A78",linewidth=.32,label="Science")
+    ax.scatter(soft.x,soft.y,s=22,color=TECH_GREEN,alpha=.70,edgecolor="#145C34",linewidth=.32,label="Technology")
+    ax.scatter(hard.x,hard.y,s=42,color="#70A83B",alpha=.94,edgecolor="#315F1D",linewidth=.65,label="AI hardware")
+    ax.scatter(pol.x,pol.y,s=24,color=POLICY_RED,alpha=.75,edgecolor="#8C3440",linewidth=.38,label="Policy")
+
+    representative = {
+        "Policy": [
+            "AI, rights, and biometrics",
+            "Risk-based AI regulation and oversight",
+            "Responsible AI and compliance",
+        ],
+        "Science": [
+            "Optimization, inference, and evaluation methods",
+            "Cognitive science and philosophy of mind",
+            "Machine learning methods and tasks",
+        ],
+        "Technology": [
+            "Machine learning and model training techniques",
+            "Computer vision and image understanding",
+            "Language and summarization technologies",
+            "AI hardware and accelerators",
+        ],
     }
-    for layer,colour in [("Science",SCIENCE_BLUE),("Technology",TECH_GREEN),("Policy",POLICY_RED)]:
-        q=traj[traj.layer.eq(layer)]
-        ax.plot(q.x,q.y,color=colour,lw=3,marker="o",ms=8,zorder=5)
-        ax.annotate("", xy=(q.x.iloc[-1],q.y.iloc[-1]), xytext=(q.x.iloc[-2],q.y.iloc[-2]), arrowprops=dict(arrowstyle="->",color=colour,lw=2))
-        for row in q.itertuples():
-            if row.period == "2023-24": continue
-            off=label_offsets[(layer,row.period)]
-            ax.annotate(f"{layer} {row.period}",(row.x,row.y),xytext=off,textcoords="offset points",fontsize=9,color=colour,fontweight="bold")
-    ax.set_xlabel("Semantic dimension 1");ax.set_ylabel("Semantic dimension 2");clean(ax,"both")
-    report_legend(ax,ncol=2,loc="lower right",fontsize=10)
-    title(fig,"1","The science-technology-policy interface is co-evolving, but not converging mechanically","Joint semantic space of 1,943 L3 topics and global period centroids")
-    footer(fig,"Dots are topic embeddings projected by PCA; paths are activity-weighted global centroids. Distances are descriptive semantic proximity, not causal effects. Hardware is a strict 25-topic subset.")
+    short = {
+        "AI, rights, and biometrics":"AI rights and biometrics",
+        "Risk-based AI regulation and oversight":"Risk-based AI regulation",
+        "Responsible AI and compliance":"Responsible AI and compliance",
+        "Optimization, inference, and evaluation methods":"Optimisation and evaluation",
+        "Cognitive science and philosophy of mind":"Cognitive science",
+        "Machine learning methods and tasks":"Machine learning methods",
+        "Machine learning and model training techniques":"Model training technologies",
+        "Computer vision and image understanding":"Computer vision",
+        "Language and summarization technologies":"Language technologies",
+        "AI hardware and accelerators":"AI hardware and accelerators",
+    }
+    colour_by_layer={"Policy":POLICY_RED,"Science":SCIENCE_BLUE,"Technology":TECH_GREEN}
+    texts=[]; label_rows=[]
+    for layer,topics in representative.items():
+        for topic in topics:
+            q=coords[(coords.layer.eq(layer)) & (coords.l3_final_l2.eq(topic))]
+            if q.empty: continue
+            x,y=q[["x","y"]].median()
+            label_rows.append({"layer":layer,"l2_label":topic,"x":x,"y":y,"n_l3":len(q)})
+            texts.append(ax.text(x,y,short[topic],fontsize=8.6,fontweight="bold",
+                                 color=colour_by_layer[layer],zorder=8,
+                                 bbox=dict(boxstyle="round,pad=.24",facecolor=WHITE,
+                                           edgecolor=colour_by_layer[layer],linewidth=.75,alpha=.92)))
+    adjust_text(texts,ax=ax,expand=(1.12,1.22),force_text=(.35,.50),force_static=(.12,.18),
+                arrowprops=dict(arrowstyle="-",color="#666666",lw=.55,alpha=.8))
+    pd.DataFrame(label_rows).to_csv(DERIVED/"stpi_umap_representative_l2_labels.csv",index=False)
+    ax.set_xlabel("UMAP dimension 1");ax.set_ylabel("UMAP dimension 2");clean(ax,"both")
+    report_legend(ax,ncol=4,loc="lower right",fontsize=9.5)
+    title(fig,"1","Science, technology and policy occupy distinct but connected semantic regions","Final-report UMAP reference space, 1,938 L3 topics")
+    footer(fig,"Nodes use the UMAP coordinates frozen for the 3 August final STPI report (Policy 475; Science 874; Technology 589). Labels identify selected high-coverage L2 topic families. Two-dimensional proximity is descriptive and is not used for statistical inference.")
     save(fig,"F01_STPI_semantic_evolution_OECD")
 
 
@@ -311,27 +407,115 @@ def make_korea_gap_change(panel: pd.DataFrame):
     w=gap.pivot(index="l3_id",columns="period",values="gap_pp").dropna()
     w["change"]=w["2025-26"]-w["2020-21"]
     keep=pd.concat([w.change.nlargest(6),w.change.nsmallest(6)]).index
-    chart=w.loc[keep].sort_values("change");chart["l3_label"]=labels.reindex(chart.index);chart.to_csv(DERIVED/"korea_l3_gap_change_2020-21_vs_2025-26.csv")
+    chart=w.loc[keep].sort_values("change")
+    chart["l3_label_master"]=labels.reindex(chart.index).map(initial_upper)
+    chart["l3_label"]=chart["l3_label_master"]
+    chart.to_csv(DERIVED/"korea_l3_gap_change_2020-21_vs_2025-26.csv")
     fig,ax=plt.subplots(figsize=(13.333,7.5));fig.subplots_adjust(left=.30,right=.93,top=.81,bottom=.16)
-    y=np.arange(len(chart));ax.hlines(y,chart["2020-21"],chart["2025-26"],color=LIGHT_GREY,lw=3)
-    ax.scatter(chart["2020-21"],y,s=55,marker="D",facecolor=LIGHT_BLUE,edgecolor=WHITE,lw=.7,label="2020-21",zorder=3)
-    ax.scatter(chart["2025-26"],y,s=55,color=MIDNIGHT,edgecolor=WHITE,lw=.7,label="2025-26",zorder=3)
+    y=np.arange(len(chart),dtype=float)
+    for yi,x0,x1 in zip(y,chart["2020-21"].to_numpy(),chart["2025-26"].to_numpy()):
+        ax.plot([x0,x1],[yi,yi],color=LIGHT_GREY,lw=4.2,solid_capstyle="butt",zorder=1)
+    ax.scatter(chart["2020-21"].to_numpy(),y,s=105,marker="D",facecolor=LIGHT_BLUE,
+               edgecolor=WHITE,lw=1.1,label="2020-21",zorder=4)
+    ax.scatter(chart["2025-26"].to_numpy(),y,s=92,marker="o",color=MIDNIGHT,
+               edgecolor=WHITE,lw=1.1,label="2025-26",zorder=4)
     ax.axvline(0,color="#333333",lw=1);ax.set_yticks(y,chart.l3_label);ax.set_xlabel("Korea gap: leave-one-out reference minus Korea (percentage points)")
-    clean(ax,"x");report_legend(ax,ncol=2,loc="lower right")
+    clean(ax,"x");report_legend(ax,ncol=2,loc="upper right")
     title(fig,"5","Korea's relative policy gaps changed direction across topics","Largest L3 gap changes, 2020-21 to 2025-26")
     footer(fig,"Positive values indicate a thinner Korean share than the period-specific leave-one-out reference. Results are sensitive to the small 2020-21 Korean corpus; 2026 is partial.")
     save(fig,"F05_korea_gap_change_OECD")
 
 
+def annual_domain_series():
+    science=(pd.read_csv(ROOT/"relatedness/build/papers_country_field_year_v2.csv.gz",usecols=["country","year","count"])
+             .groupby(["country","year"],as_index=False)["count"].sum().rename(columns={"country":"iso","count":"activity"}))
+    technology=(pd.read_csv(ROOT/"relatedness/build/patents_country_tech_year.csv.gz",usecols=["country","year","count"])
+                .groupby(["country","year"],as_index=False)["count"].sum().rename(columns={"country":"iso","count":"activity"}))
+    raw=pd.read_csv(ROOT/"event_attention_rebuild/outputs/ai_events_country_panel_raw_20260903.csv",low_memory=False)
+    capped=raw.groupby(["intervention_id","jurisdiction","year"],as_index=False).scope_weight.first()
+    capped["iso"]=capped.jurisdiction.map(NAME_TO_ISO)
+    policy=(capped.groupby(["iso","year"],as_index=False).scope_weight.sum()
+            .rename(columns={"scope_weight":"activity"}))
+    return {"Science":science,"Technology":technology,"Policy":policy}
+
+
+def fixed_oecd_mean(frame: pd.DataFrame, years: range) -> pd.DataFrame:
+    fixed=sorted(OECD & set(frame.iso.dropna()))
+    grid=pd.MultiIndex.from_product([fixed,years],names=["iso","year"]).to_frame(index=False)
+    x=grid.merge(frame,on=["iso","year"],how="left").fillna({"activity":0})
+    q=x.groupby("year",as_index=False).activity.mean();q["iso"]="OECD observed"
+    return q
+
+
+def complete_domain_grid(frame: pd.DataFrame, years: range, countries: list[str]) -> pd.DataFrame:
+    grid=pd.MultiIndex.from_product([countries,years],names=["iso","year"]).to_frame(index=False)
+    return grid.merge(frame,on=["iso","year"],how="left").fillna({"activity":0})
+
+
+def make_domain_country_trends():
+    series=annual_domain_series()
+    windows={"Science":range(2015,2022),"Technology":range(2015,2022),"Policy":range(2020,2027)}
+    accents={"Science":SCIENCE_BLUE,"Technology":TECH_GREEN,"Policy":POLICY_RED}
+    units={"Science":"Fractional AI publication count","Technology":"Fractional AI patent count","Policy":"Effective intervention-year activity"}
+    stems={"Science":"F07_science_country_trends_OECD","Technology":"F08_technology_country_trends_OECD","Policy":"F09_policy_country_trends_OECD"}
+    comparison=sorted({"US","CN","KR","JP","GB","AU","BR","DE","SA","CA","FR","SG","AR","IN","IT","VN","PH","NL","TR","TH"})
+    combined={}
+    for domain,frame in series.items():
+        years=windows[domain]
+        grid=complete_domain_grid(frame,years,comparison)
+        oecd=fixed_oecd_mean(frame,years)
+        export=pd.concat([grid,oecd],ignore_index=True);export["domain"]=domain
+        export.to_csv(DERIVED/f"annual_{domain.lower()}_activity_selected_countries.csv",index=False)
+        combined[domain]=export
+        fig,ax=plt.subplots(figsize=(13.333,7.5));fig.subplots_adjust(left=.09,right=.88,top=.80,bottom=.17)
+        for iso,q in grid.groupby("iso"):
+            ax.plot(q.year,q.activity,color="#B9B9B9",lw=1,alpha=.65)
+        for iso in ["US","CN","KR","JP"]:
+            q=grid[grid.iso.eq(iso)];ax.plot(q.year,q.activity,color=COUNTRY_COLOURS[iso],lw=2.8)
+            ax.text(max(years)+.08,q.activity.iloc[-1],DISPLAY[iso],color=COUNTRY_COLOURS[iso],va="center",fontweight="bold")
+        ax.plot(oecd.year,oecd.activity,color=COUNTRY_COLOURS["OECD observed"],lw=3.0)
+        ax.text(max(years)+.08,oecd.activity.iloc[-1],"OECD",color=COUNTRY_COLOURS["OECD observed"],va="center",fontweight="bold")
+        ax.set_xlim(min(years),max(years)+.75);ax.set_xticks(list(years));ax.set_ylabel(units[domain]);clean(ax,"y")
+        title(fig,{"Science":"7","Technology":"8","Policy":"9"}[domain],f"{domain} activity across selected countries",f"Annual activity, {min(years)}-{max(years)}")
+        caveat="Grey lines show the other countries in the fixed comparison panel. OECD is the unweighted mean of 11 observed members."
+        if domain=="Technology": caveat += " The window ends in 2021 to avoid severe recent-patent right truncation."
+        if domain=="Policy": caveat += " The 2026 value is annualised from events observed through 3 September."
+        footer(fig,caveat);save(fig,stems[domain])
+
+    fig,axes=plt.subplots(1,3,figsize=(13.333,7.5));fig.subplots_adjust(left=.06,right=.96,top=.78,bottom=.18,wspace=.20)
+    for ax,domain in zip(axes,["Science","Technology","Policy"]):
+        q=combined[domain].copy();years=windows[domain]
+        for iso,g in q.groupby("iso"):
+            base=float(g.loc[g.year.eq(min(years)),"activity"].iloc[0])
+            g=g.copy();g["index"]=100*g.activity/base if base>0 else np.nan
+            if iso in COUNTRY_COLOURS:
+                ax.plot(g.year,g["index"],color=COUNTRY_COLOURS[iso],lw=2.5)
+            elif iso in comparison:
+                ax.plot(g.year,g["index"],color="#B9B9B9",lw=.9,alpha=.58)
+        ax.axhline(100,color="#777777",lw=.8,ls="--")
+        ax.set_title(domain,loc="left",fontsize=16,color=accents[domain])
+        ax.set_xticks([min(years),min(years)+2,min(years)+4,max(years)])
+        ax.set_ylabel("Index (first year = 100)" if domain=="Science" else "")
+        clean(ax,"y")
+    handles=[plt.Line2D([0],[0],color=COUNTRY_COLOURS[k],lw=3,label=DISPLAY.get(k,"OECD")) for k in ["US","CN","KR","JP","OECD observed"]]
+    legend=fig.legend(handles=handles,loc="upper center",bbox_to_anchor=(.53,.835),ncol=5,frameon=True,facecolor=PLOT_GREY,edgecolor=PLOT_GREY)
+    title(fig,"6","Science and technology precede the observed policy acceleration","Lag-aligned analytical windows: capability activity, 2015-21; regulatory-policy activity, 2020-26")
+    footer(fig,"All panels are indexed to their first displayed year. Science and technology use the five-year precursor window required by the lag design; policy begins when event coverage becomes usable. OECD is a fixed 11-country observed mean. 2026 policy is annualised.")
+    save(fig,"F06_STP_country_trends_lag_aligned_OECD")
+
+
 def main():
     configure()
     panel=pd.read_parquet(DATA/"regulatory_policy_activity_country_year_l3.parquet")
+    policy_master=load_policy_master()
+    panel=align_panel_to_policy_master(panel,policy_master)
     make_semantic_evolution(panel)
     make_period_change(panel)
     make_policy_trends()
     make_stp_volume_trends()
     make_korea_gap_change(panel)
-    print(f"Created 15 figure files in {OUT}")
+    make_domain_country_trends()
+    print(f"Created 27 figure files in {OUT}")
     print(f"Created derived data in {DERIVED}")
 
 
