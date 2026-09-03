@@ -29,7 +29,10 @@ LIGHT_BLUE = "#7EA6D6"
 CYAN = "#00A6C8"
 ORANGE = "#F05A00"
 PALE_BLUE = "#D8E6F3"
-GREEN = "#6FAE45"
+POLICY_RED = "#C95662"
+SCIENCE_BLUE = "#2F6FAD"
+TECH_GREEN = "#25864B"
+GREEN = TECH_GREEN
 RED = "#C9474D"
 GREY = "#8C8C8C"
 LIGHT_GREY = "#CFCFCF"
@@ -48,13 +51,12 @@ NAME_TO_ISO = {
 DISPLAY = {"US":"United States", "CN":"China", "KR":"Korea", "JP":"Japan"}
 
 OECD = {"US","KR","GB","AU","DE","CA","FR","JP","IT","NL","TR"}
-G20 = {"AR","AU","BR","CA","CN","DE","FR","GB","IN","IT","JP","KR","SA","TR","US"}
 EU_MEMBERS = {"DE","FR","IT","NL"}
-GROUPS = {"OECD observed":"OECD", "G20 observed":"G20", "EU members observed":"EU"}
-MEMBERS = {"OECD observed": OECD, "G20 observed": G20, "EU members observed": EU_MEMBERS}
-HIGHLIGHTS = ["OECD observed", "G20 observed", "EU members observed", "US", "CN", "JP", "KR"]
+GROUPS = {"OECD observed":"OECD", "EU members observed":"EU"}
+MEMBERS = {"OECD observed": OECD, "EU members observed": EU_MEMBERS}
+HIGHLIGHTS = ["OECD observed", "EU members observed", "US", "CN", "JP", "KR"]
 COLOURS = {
-    "OECD observed": ORANGE, "G20 observed": CYAN, "EU members observed": LIGHT_BLUE,
+    "OECD observed": ORANGE, "EU members observed": LIGHT_BLUE,
     "US": MIDNIGHT, "CN": RED, "JP": OCEAN, "KR": OECD_BLUE,
 }
 
@@ -162,7 +164,7 @@ def make_period_change(panel: pd.DataFrame):
     y = np.arange(len(chart))
     ax.hlines(y, chart.p10, chart.p90, color=LIGHT_GREY, linewidth=6, zorder=1, label="Country p10-p90")
     offsets = np.linspace(-.24, .24, len(HIGHLIGHTS))
-    markers = {"OECD observed":"o", "G20 observed":"s", "EU members observed":"D", "US":"o", "CN":"o", "JP":"o", "KR":"o"}
+    markers = {"OECD observed":"s", "EU members observed":"D", "US":"o", "CN":"o", "JP":"o", "KR":"o"}
     for off, key in zip(offsets, HIGHLIGHTS):
         ax.scatter(chart[key], y+off, s=48 if key in GROUPS else 36, marker=markers[key],
                    color=COLOURS[key], edgecolor=WHITE, linewidth=.5, label=DISPLAY.get(key, key), zorder=3)
@@ -207,7 +209,7 @@ def make_policy_trends():
         ax1.text(2026.08,q.display_activity.iloc[-1],DISPLAY[iso],color=COLOURS[iso],va="center",fontsize=10,fontweight="bold")
     for group,q in groups.groupby("series"):
         ax2.plot(q.year,q.display_activity,color=COLOURS[group],lw=2.7,label=group)
-        label_offset = {"OECD observed":2.0, "G20 observed":-1.8, "EU members observed":0.0}[group]
+        label_offset = {"OECD observed":1.2, "EU members observed":0.0}[group]
         ax2.text(2026.08,q.display_activity.iloc[-1]+label_offset,group.replace(" observed",""),color=COLOURS[group],va="center",fontsize=10,fontweight="bold")
     for ax,panel_title in zip([ax1,ax2],["A. Selected countries","B. Observed group means"]):
         ax.set_title(panel_title,loc="left",fontsize=14,color="#111111")
@@ -227,7 +229,7 @@ def make_stp_volume_trends():
     for col in ["papers","patents","policy_events"]: d[col+"_index"]=100*d[col]/d.loc[d.year.eq(2020),col].iloc[0]
     d.to_csv(DERIVED/"stp_document_volume_index_2020-2024.csv",index=False)
     fig,ax=plt.subplots(figsize=(13.333,7.5));fig.subplots_adjust(left=.09,right=.92,top=.80,bottom=.17)
-    specs=[("papers_index","Science publications",LIGHT_BLUE),("patents_index","Technology patents",MIDNIGHT),("policy_events_index","Regulatory-policy events",ORANGE)]
+    specs=[("papers_index","Science publications",SCIENCE_BLUE),("patents_index","Technology patents",TECH_GREEN),("policy_events_index","Regulatory-policy events",POLICY_RED)]
     for col,label,colour in specs:
         ax.plot(d.year,d[col],marker="o",ms=6,lw=3,color=colour,label=label)
         ax.text(d.year.iloc[-1]+.08,d[col].iloc[-1],label,color=colour,va="center",fontweight="bold")
@@ -271,16 +273,16 @@ def make_semantic_evolution(panel: pd.DataFrame):
             trajectories.append({"layer":layer,"period":period,"x":centroid[0],"y":centroid[1]})
     traj=pd.DataFrame(trajectories);traj.to_csv(DERIVED/"stpi_semantic_centroid_trajectories.csv",index=False)
     fig,ax=plt.subplots(figsize=(13.333,7.5));fig.subplots_adjust(left=.07,right=.94,top=.81,bottom=.16)
-    ax.scatter(xs[:,0],xs[:,1],s=10,color=CYAN,alpha=.24,label="Science topics")
-    ax.scatter(xt[~hw,0],xt[~hw,1],s=10,color=MIDNIGHT,alpha=.18,label="Technology: software/models")
-    ax.scatter(xt[hw,0],xt[hw,1],s=24,color=ORANGE,alpha=.80,label="Technology: hardware")
-    ax.scatter(xp[:,0],xp[:,1],s=12,color=LIGHT_BLUE,alpha=.28,label="Policy topics")
+    ax.scatter(xs[:,0],xs[:,1],s=10,color=SCIENCE_BLUE,alpha=.24,label="Science topics")
+    ax.scatter(xt[~hw,0],xt[~hw,1],s=10,color=TECH_GREEN,alpha=.18,label="Technology: software/models")
+    ax.scatter(xt[hw,0],xt[hw,1],s=24,color="#7AAE35",alpha=.85,label="Technology: hardware")
+    ax.scatter(xp[:,0],xp[:,1],s=12,color=POLICY_RED,alpha=.24,label="Policy topics")
     label_offsets = {
         ("Science","2021-22"):(7,-13), ("Science","2025-26"):(7,8),
         ("Technology","2021-22"):(7,10), ("Technology","2025-26"):(7,-15),
         ("Policy","2021-22"):(7,-14), ("Policy","2025-26"):(7,8),
     }
-    for layer,colour in [("Science",CYAN),("Technology",MIDNIGHT),("Policy",OECD_BLUE)]:
+    for layer,colour in [("Science",SCIENCE_BLUE),("Technology",TECH_GREEN),("Policy",POLICY_RED)]:
         q=traj[traj.layer.eq(layer)]
         ax.plot(q.x,q.y,color=colour,lw=3,marker="o",ms=8,zorder=5)
         ax.annotate("", xy=(q.x.iloc[-1],q.y.iloc[-1]), xytext=(q.x.iloc[-2],q.y.iloc[-2]), arrowprops=dict(arrowstyle="->",color=colour,lw=2))
