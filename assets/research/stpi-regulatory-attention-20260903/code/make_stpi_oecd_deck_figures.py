@@ -21,16 +21,20 @@ DERIVED = PROJECT / "data_stpi_oecd"
 OUT.mkdir(parents=True, exist_ok=True)
 DERIVED.mkdir(parents=True, exist_ok=True)
 
-MIDNIGHT = "#17365D"
-OECD_BLUE = "#4472C4"
-OCEAN = "#2E75B6"
-LIGHT_BLUE = "#9DC3E6"
-PALE_BLUE = "#D9EAF7"
-GREEN = "#70AD47"
-RED = "#C94C4C"
-GREY = "#898989"
-LIGHT_GREY = "#D9D9D9"
-GRID = "#E7E7E7"
+# OECD report-chart palette matched to the supplied reference figures.
+MIDNIGHT = "#08306B"
+OECD_BLUE = "#0B3B75"
+OCEAN = "#0877B9"
+LIGHT_BLUE = "#7EA6D6"
+CYAN = "#00A6C8"
+ORANGE = "#F05A00"
+PALE_BLUE = "#D8E6F3"
+GREEN = "#6FAE45"
+RED = "#C9474D"
+GREY = "#8C8C8C"
+LIGHT_GREY = "#CFCFCF"
+PLOT_GREY = "#EFEFEF"
+GRID = "#FFFFFF"
 WHITE = "#FFFFFF"
 
 NAME_TO_ISO = {
@@ -50,8 +54,8 @@ GROUPS = {"OECD observed":"OECD", "G20 observed":"G20", "EU members observed":"E
 MEMBERS = {"OECD observed": OECD, "G20 observed": G20, "EU members observed": EU_MEMBERS}
 HIGHLIGHTS = ["OECD observed", "G20 observed", "EU members observed", "US", "CN", "JP", "KR"]
 COLOURS = {
-    "OECD observed": MIDNIGHT, "G20 observed": OCEAN, "EU members observed": LIGHT_BLUE,
-    "US": "#244062", "CN": RED, "JP": GREEN, "KR": OECD_BLUE,
+    "OECD observed": ORANGE, "G20 observed": CYAN, "EU members observed": LIGHT_BLUE,
+    "US": MIDNIGHT, "CN": RED, "JP": OCEAN, "KR": OECD_BLUE,
 }
 
 
@@ -68,7 +72,7 @@ def configure() -> None:
     font = next((x for x in ["Arial", "Noto Sans", "Helvetica", "DejaVu Sans"] if x in installed), "DejaVu Sans")
     plt.rcParams.update({
         "font.family": font, "font.size": 12, "axes.titlesize": 19,
-        "axes.titleweight": "bold", "axes.titlecolor": OECD_BLUE,
+        "axes.titleweight": "bold", "axes.titlecolor": MIDNIGHT,
         "axes.labelsize": 12, "text.color": "#111111", "axes.edgecolor": "#333333",
         "figure.facecolor": WHITE, "axes.facecolor": WHITE, "savefig.facecolor": WHITE,
         "pdf.fonttype": 42, "svg.fonttype": "none",
@@ -76,20 +80,21 @@ def configure() -> None:
 
 
 def clean(ax, grid="y"):
+    ax.set_facecolor(PLOT_GREY)
     ax.spines[["top", "right"]].set_visible(False)
-    ax.grid(axis=grid, color=GRID, linewidth=0.8)
+    ax.grid(axis=grid, color=GRID, linewidth=1.0)
     ax.set_axisbelow(True)
     ax.tick_params(length=0)
 
 
 def title(fig, number: str, main: str, subtitle: str):
     fig.text(0.045, 0.955, f"Figure {number}. {main}", ha="left", va="top",
-             fontsize=20, fontweight="bold", color=OECD_BLUE)
+             fontsize=20, fontweight="bold", color=MIDNIGHT)
     fig.text(0.045, 0.905, subtitle, ha="left", va="top", fontsize=12.5, color="#111111")
 
 
 def footer(fig, note: str):
-    fig.text(0.045, 0.052, f"Note: {note}", ha="left", va="bottom", fontsize=8.5)
+    fig.text(0.045, 0.052, f"Notes: {note}", ha="left", va="bottom", fontsize=8.5)
     fig.text(0.045, 0.024,
              "Source: Digital Policy Alert, PATSTAT and Web of Science; author's calculations. Data and code: https://deep1003.github.io/assets/research/stpi-regulatory-attention-20260903/",
              ha="left", va="bottom", fontsize=8.5)
@@ -99,6 +104,12 @@ def save(fig, stem):
     for ext, kw in [("png", {"dpi": 360}), ("pdf", {}), ("svg", {})]:
         fig.savefig(OUT / f"{stem}.{ext}", bbox_inches="tight", pad_inches=0.12, **kw)
     plt.close(fig)
+
+
+def report_legend(ax, **kwargs):
+    legend = ax.legend(frameon=True, facecolor=PLOT_GREY, edgecolor=PLOT_GREY,
+                       framealpha=1, borderpad=.8, **kwargs)
+    return legend
 
 
 def period_profiles(panel: pd.DataFrame):
@@ -159,7 +170,7 @@ def make_period_change(panel: pd.DataFrame):
     ax.set_yticks(y, chart.l2_label)
     ax.set_xlabel("Change in share of regulatory-policy activity (percentage points)")
     clean(ax, "x")
-    ax.legend(frameon=False, ncol=4, fontsize=9.5, loc="lower right")
+    report_legend(ax, ncol=4, fontsize=9.3, loc="lower right")
     title(fig, "2", "Policy attention shifted unevenly after the generative-AI turn",
           "Change in L2 topic shares, 2020-21 to 2025-26")
     footer(fig, "Grey bars show the 10th-90th percentile range across countries observed in both periods. Group values are unweighted means of fixed observed members. 2026 is partial through 3 September.")
@@ -189,7 +200,7 @@ def make_policy_trends():
     fig,(ax1,ax2)=plt.subplots(1,2,figsize=(13.333,7.5),sharey=False)
     fig.subplots_adjust(left=.07,right=.95,top=.81,bottom=.16,wspace=.23)
     for iso,q in annual.groupby("iso"):
-        ax1.plot(q.year,q.display_activity,color=LIGHT_GREY,lw=1,alpha=.7)
+        ax1.plot(q.year,q.display_activity,color="#B7B7B7",lw=1,alpha=.62)
     for iso in ["US","CN","JP","KR"]:
         q=annual[annual.iso.eq(iso)]
         ax1.plot(q.year,q.display_activity,color=COLOURS[iso],lw=2.5)
@@ -216,11 +227,11 @@ def make_stp_volume_trends():
     for col in ["papers","patents","policy_events"]: d[col+"_index"]=100*d[col]/d.loc[d.year.eq(2020),col].iloc[0]
     d.to_csv(DERIVED/"stp_document_volume_index_2020-2024.csv",index=False)
     fig,ax=plt.subplots(figsize=(13.333,7.5));fig.subplots_adjust(left=.09,right=.92,top=.80,bottom=.17)
-    specs=[("papers_index","Science publications",GREEN),("patents_index","Technology patents",MIDNIGHT),("policy_events_index","Regulatory-policy events",OECD_BLUE)]
+    specs=[("papers_index","Science publications",LIGHT_BLUE),("patents_index","Technology patents",MIDNIGHT),("policy_events_index","Regulatory-policy events",ORANGE)]
     for col,label,colour in specs:
         ax.plot(d.year,d[col],marker="o",ms=6,lw=3,color=colour,label=label)
         ax.text(d.year.iloc[-1]+.08,d[col].iloc[-1],label,color=colour,va="center",fontweight="bold")
-    ax.axvspan(2022, 2024.9, color=LIGHT_GREY, alpha=.22, zorder=0)
+    ax.axvspan(2022, 2024.9, color="#D8D8D8", alpha=.45, zorder=0)
     ax.text(2023.45, 1610, "Patent counts increasingly incomplete", ha="center", va="top", fontsize=10, color=GREY)
     ax.axhline(100,color=GREY,lw=.8,ls="--");ax.set_xlim(2020,2024.9);ax.set_xticks(range(2020,2025));ax.set_ylabel("Index (2020 = 100)")
     clean(ax,"y")
@@ -260,16 +271,16 @@ def make_semantic_evolution(panel: pd.DataFrame):
             trajectories.append({"layer":layer,"period":period,"x":centroid[0],"y":centroid[1]})
     traj=pd.DataFrame(trajectories);traj.to_csv(DERIVED/"stpi_semantic_centroid_trajectories.csv",index=False)
     fig,ax=plt.subplots(figsize=(13.333,7.5));fig.subplots_adjust(left=.07,right=.94,top=.81,bottom=.16)
-    ax.scatter(xs[:,0],xs[:,1],s=10,color=GREEN,alpha=.23,label="Science topics")
+    ax.scatter(xs[:,0],xs[:,1],s=10,color=CYAN,alpha=.24,label="Science topics")
     ax.scatter(xt[~hw,0],xt[~hw,1],s=10,color=MIDNIGHT,alpha=.18,label="Technology: software/models")
-    ax.scatter(xt[hw,0],xt[hw,1],s=24,color=RED,alpha=.75,label="Technology: hardware")
-    ax.scatter(xp[:,0],xp[:,1],s=12,color=OECD_BLUE,alpha=.20,label="Policy topics")
+    ax.scatter(xt[hw,0],xt[hw,1],s=24,color=ORANGE,alpha=.80,label="Technology: hardware")
+    ax.scatter(xp[:,0],xp[:,1],s=12,color=LIGHT_BLUE,alpha=.28,label="Policy topics")
     label_offsets = {
         ("Science","2021-22"):(7,-13), ("Science","2025-26"):(7,8),
         ("Technology","2021-22"):(7,10), ("Technology","2025-26"):(7,-15),
         ("Policy","2021-22"):(7,-14), ("Policy","2025-26"):(7,8),
     }
-    for layer,colour in [("Science",GREEN),("Technology",MIDNIGHT),("Policy",OECD_BLUE)]:
+    for layer,colour in [("Science",CYAN),("Technology",MIDNIGHT),("Policy",OECD_BLUE)]:
         q=traj[traj.layer.eq(layer)]
         ax.plot(q.x,q.y,color=colour,lw=3,marker="o",ms=8,zorder=5)
         ax.annotate("", xy=(q.x.iloc[-1],q.y.iloc[-1]), xytext=(q.x.iloc[-2],q.y.iloc[-2]), arrowprops=dict(arrowstyle="->",color=colour,lw=2))
@@ -278,7 +289,7 @@ def make_semantic_evolution(panel: pd.DataFrame):
             off=label_offsets[(layer,row.period)]
             ax.annotate(f"{layer} {row.period}",(row.x,row.y),xytext=off,textcoords="offset points",fontsize=9,color=colour,fontweight="bold")
     ax.set_xlabel("Semantic dimension 1");ax.set_ylabel("Semantic dimension 2");clean(ax,"both")
-    ax.legend(frameon=False,ncol=2,loc="lower right",fontsize=10)
+    report_legend(ax,ncol=2,loc="lower right",fontsize=10)
     title(fig,"1","The science-technology-policy interface is co-evolving, but not converging mechanically","Joint semantic space of 1,943 L3 topics and global period centroids")
     footer(fig,"Dots are topic embeddings projected by PCA; paths are activity-weighted global centroids. Distances are descriptive semantic proximity, not causal effects. Hardware is a strict 25-topic subset.")
     save(fig,"F01_STPI_semantic_evolution_OECD")
@@ -301,10 +312,10 @@ def make_korea_gap_change(panel: pd.DataFrame):
     chart=w.loc[keep].sort_values("change");chart["l3_label"]=labels.reindex(chart.index);chart.to_csv(DERIVED/"korea_l3_gap_change_2020-21_vs_2025-26.csv")
     fig,ax=plt.subplots(figsize=(13.333,7.5));fig.subplots_adjust(left=.30,right=.93,top=.81,bottom=.16)
     y=np.arange(len(chart));ax.hlines(y,chart["2020-21"],chart["2025-26"],color=LIGHT_GREY,lw=3)
-    ax.scatter(chart["2020-21"],y,s=55,facecolor=WHITE,edgecolor=LIGHT_BLUE,lw=2,label="2020-21",zorder=3)
-    ax.scatter(chart["2025-26"],y,s=55,color=OECD_BLUE,label="2025-26",zorder=3)
+    ax.scatter(chart["2020-21"],y,s=55,marker="D",facecolor=LIGHT_BLUE,edgecolor=WHITE,lw=.7,label="2020-21",zorder=3)
+    ax.scatter(chart["2025-26"],y,s=55,color=MIDNIGHT,edgecolor=WHITE,lw=.7,label="2025-26",zorder=3)
     ax.axvline(0,color="#333333",lw=1);ax.set_yticks(y,chart.l3_label);ax.set_xlabel("Korea gap: leave-one-out reference minus Korea (percentage points)")
-    clean(ax,"x");ax.legend(frameon=False,ncol=2,loc="lower right")
+    clean(ax,"x");report_legend(ax,ncol=2,loc="lower right")
     title(fig,"5","Korea's relative policy gaps changed direction across topics","Largest L3 gap changes, 2020-21 to 2025-26")
     footer(fig,"Positive values indicate a thinner Korean share than the period-specific leave-one-out reference. Results are sensitive to the small 2020-21 Korean corpus; 2026 is partial.")
     save(fig,"F05_korea_gap_change_OECD")
