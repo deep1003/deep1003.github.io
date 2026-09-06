@@ -6,6 +6,7 @@
 <title>Education — Youngsam Chun</title>
 <meta name="description" content="Teaching materials for Introduction to Business Analytics (TIM51001), Graduate School of Technology and Innovation Management, UNIST.">
 <link rel="stylesheet" href="assets/style.css?v=4">
+<link rel="stylesheet" href="assets/ai-data-collection/guide.css">
 </head>
 <body>
 
@@ -151,6 +152,140 @@
       <p class="sub-body">There is no required textbook. Lecture materials are provided before each class, and a list of recommended references is shared during the semester. Suggested reading: <em>Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow</em> (Géron, O'Reilly, 3rd ed., 2023).</p>
       <p class="sub-body">The class of 2 October is cancelled and rescheduled as a make-up class on 9 October. The weekly schedule and topics are otherwise subject to change depending on class progress and university policy.</p>
     </div>
+
+    <section id="data-collection" class="collection-guide" aria-labelledby="collection-title">
+      <h3 id="collection-title">Data Collection and Analysis</h3>
+      <p>Collecting artificial intelligence research papers and patents with Codex. These two tutorials end with downloaded records and a collection log. Statistical analysis and full-text acquisition are outside their scope.</p>
+      <p class="muted">Prepared 6 September 2026. Interface examples are identified individually below. Account entitlements, database editions and export limits may differ.</p>
+      <p><a href="#wos-collection">1. Web of Science papers</a> · <a href="#patstat-collection">2. EPO PATSTAT patents</a></p>
+
+      <section id="wos-collection" aria-labelledby="wos-title">
+        <h4 id="wos-title">1. Collect AI papers from Web of Science</h4>
+        <h5>Establish access and create an account</h5>
+        <p>Open <a href="https://www.webofscience.com/">Web of Science</a> through your university library's database link. Off campus, follow the library's authorised remote-access procedure. Check that <strong>Web of Science Core Collection</strong> is available. A free personal profile does not provide a subscription to the research database.</p>
+        <p>Select <strong>Register</strong>, enter your email address, name and password, complete the verification step, and activate the account using the email link. Sign in to save searches. Complete passwords and account verification yourself before asking Codex to work in the browser. See <a href="https://webofscience.zendesk.com/hc/en-us/articles/20011617329425-Registering-and-Signing-in-to-the-Web-of-Science">Clarivate's registration instructions</a>.</p>
+        <figure class="fig"><a href="assets/ai-data-collection/wos-register.png"><img loading="lazy" src="assets/ai-data-collection/wos-register.png" alt="Web of Science registration form with email, password and name fields"></a><figcaption><strong>W1. Registration.</strong> Official Clarivate help screenshot, retrieved 6 September 2026. Activate your personal account, then verify institutional access separately. <a href="https://webofscience.zendesk.com/hc/en-us/articles/20011617329425-Registering-and-Signing-in-to-the-Web-of-Science">Source</a>.</figcaption></figure>
+
+        <h5>Derive keywords from previous research</h5>
+        <p>Start with <a href="https://link.springer.com/article/10.1007/s11192-021-03868-4">Liu, Shapira and Yue (2021), <em>Tracking developments in artificial intelligence research</em></a>. Their approach combines benchmark papers, keyword refinement and a subject-category search. Read the methods and keyword tables before asking Codex to draft a query. The short teaching example below is not a reproduction of their validated strategy.</p>
+        <ol>
+          <li>Define your scope. For this exercise, collect AI-related papers published in 2020–2025. Decide whether applications of AI are included and whether conference papers belong in the corpus.</li>
+          <li>Extract candidate terms from two or three relevant studies. Record each term, its source DOI or URL, table or page, and your reason for including it.</li>
+          <li>Group synonyms with <code>OR</code>. Use <code>AND</code> only to restrict the AI set to another concept. Avoid the unqualified abbreviation <code>AI</code>, which has unrelated meanings.</li>
+          <li>Check a small set of known relevant papers and screen 30–50 retrieved titles and abstracts. Record missed papers and false positives; revise the query before the full export.</li>
+        </ol>
+        <div class="guide-table"><table><thead><tr><th>Concept group</th><th>Candidate terms</th><th>How to document the choice</th></tr></thead><tbody>
+          <tr><td>Core AI</td><td>artificial intelligence</td><td>Use the seed concept discussed by Liu et al.; record the exact source location.</td></tr>
+          <tr><td>Learning methods</td><td>machine learning, deep learning, neural network, support vector machine</td><td>Check definitions and variants against the studies you read.</td></tr>
+          <tr><td>Functional scope</td><td>natural language processing, computer vision</td><td>Decide whether the whole function or only learning-based work belongs in your study.</td></tr>
+          <tr><td>Optional recent extension</td><td>generative AI, large language model</td><td>Add only with a newer supporting study. Label this as an extension, not a term set taken from a 2021 paper.</td></tr>
+        </tbody></table></div>
+        <p>Ask Codex to organise the evidence before generating syntax:</p>
+        <pre><code>Read the methods and search-term tables in the papers I provide.
+Create a keyword register with term, synonym, source DOI/URL,
+page/table and inclusion rationale. Flag ambiguous terms.
+Do not invent citations or attribute new terms to older studies.
+Using only the terms I approve, draft a Web of Science Core
+Collection query for AI papers published in 2020–2025.</code></pre>
+
+        <h5>Build and check the search expression</h5>
+        <p>Open <strong>Advanced Search → Query Builder</strong>. A manageable starter query is shown below. <code>TS</code> searches Topic fields, including title, abstract, author keywords and Keywords Plus; <code>PY</code> sets publication years. Keep the selected citation indexes and document types in your log. AI conference coverage depends on the subscribed indexes. Consult the <a href="https://webofscience.zendesk.com/hc/en-us/articles/20130361503249-Advanced-Search-Query-Builder">Query Builder documentation</a> for field tags and search behaviour.</p>
+        <pre><code>TS=("artificial intelligence" OR "machine learning"
+    OR "deep learning" OR "neural network*"
+    OR "support vector machine*"
+    OR "natural language processing" OR "computer vision")
+AND PY=(2020-2025)</code></pre>
+        <p>For an initial export, change the year range to one year. Expand only after the query and export fields are checked. The example favours clarity over exhaustive coverage; it is a candidate search definition, not a complete census of AI research.</p>
+        <figure class="fig"><a href="assets/ai-data-collection/wos-query.png"><img loading="lazy" src="assets/ai-data-collection/wos-query.png" alt="Web of Science Core Collection Query Builder and field-tag controls"></a><figcaption><strong>W2. Query Builder.</strong> Official Clarivate help screenshot. Select Core Collection, paste the approved expression, and record the Exact Search setting. <a href="https://webofscience.zendesk.com/hc/en-us/articles/20130361503249-Advanced-Search-Query-Builder">Source</a>.</figcaption></figure>
+
+        <h5>Use Codex to collect and check export batches</h5>
+        <p>Here, browser-assisted collection means asking Codex to operate the search and export controls in an authorised session. Confirm with your library that automation is permitted for your intended volume. Use the provider's export facility where available; a metadata export does not download article PDFs.</p>
+        <p>From the results page, choose <strong>Export</strong> and a format such as plain text or tab-delimited text. Select the fullest record fields available, including cited references if required and licensed. Export one small batch first. Confirm that accession identifiers, titles, abstracts and keywords are present. Use the limit shown in your export dialogue rather than assuming a fixed batch size. Clarivate notes that <strong>Fast 5000</strong> includes fewer fields. <a href="https://webofscience.zendesk.com/hc/en-us/articles/20135124532113-Search-Results">Export documentation</a>.</p>
+        <figure class="fig"><a href="assets/ai-data-collection/wos-results.png"><img loading="lazy" src="assets/ai-data-collection/wos-results.png" alt="Web of Science results page showing filters and the Export menu"></a><figcaption><strong>W3. Results and Export.</strong> Official Clarivate help screenshot. The illustrated search concerns wastewater, not AI; it shows where to inspect filters and begin exporting. Use your own AI query and record count. <a href="https://webofscience.zendesk.com/hc/en-us/articles/20135124532113-Search-Results">Source</a>.</figcaption></figure>
+        <pre><code>Use my authorised Web of Science browser session. I have checked
+that this collection is permitted by my institution's licence.
+Run the approved AI query and record the query, indexes, filters,
+search date, result count and export fields in collection_log.json.
+Export one small batch first and check that it contains the required
+fields. Then export non-overlapping ranges within the displayed
+limit, one at a time, to data/wos/raw/ with numbered filenames.
+Keep the downloaded files unchanged. Track each completed range,
+row count and file checksum so a failed run can resume safely.
+Report missing identifiers, duplicate accession IDs and any gap
+between the result count and the exported unique records.
+Stop on a login challenge, access denial or download restriction.
+Do not bypass limits, extract credentials or scrape publisher PDFs.</code></pre>
+        <p>Finish with unchanged export files, the final search expression, the keyword register and the collection log. Compare unique Web of Science accession IDs with the recorded search total. DOI is a useful secondary identifier but can be absent. Investigate gaps before calling the collection complete.</p>
+      </section>
+
+      <section id="patstat-collection" aria-labelledby="patstat-title">
+        <h4 id="patstat-title">2. Collect AI patents from EPO PATSTAT</h4>
+        <h5>Create access and select the database edition</h5>
+        <p>Start at the <a href="https://www.epo.org/en/about-us/observatory-patents-and-technology/observatory-tools/patstat">EPO PATSTAT page</a>. This tutorial uses <strong>PATSTAT Online</strong>, the subscription-based SQL interface. The EPO also offers PATSTAT through its free Technology Intelligence Platform (TIP), which has a different workflow.</p>
+        <p>For a first exercise, follow <a href="https://data.epo.org/access-control/patstatsubscription.jsp">Free trial</a>, complete the registration details and verification yourself, and follow the access instructions you receive. Select PATSTAT Global and record the edition displayed in the session. Trial access has export restrictions; a registered account alone should not be treated as unrestricted access.</p>
+        <figure class="fig"><a href="assets/ai-data-collection/patstat-register.png"><img loading="lazy" src="assets/ai-data-collection/patstat-register.png" alt="Public EPO PATSTAT Online trial registration page"></a><figcaption><strong>P1. Trial access.</strong> Public EPO page captured on 6 September 2026 before any details were entered. The form continues below the visible area. <a href="https://data.epo.org/access-control/patstatsubscription.jsp">Open registration</a>.</figcaption></figure>
+
+        <h5>Translate a literature-based definition into patent criteria</h5>
+        <p>Use <a href="https://www.wipo.int/publications/en/details.jsp?id=4396&amp;plang=EN"><em>WIPO Technology Trends 2019: Artificial Intelligence</em></a> and its search methodology as a starting reference. WIPO distinguishes AI techniques, functional applications and application fields, and combines keywords with classification information. Maintain a patent-specific keyword register rather than copying a paper query unchanged.</p>
+        <p>In that register, distinguish phrases searched in titles or abstracts from IPC/CPC codes. Verify any code against the classification scheme and database edition. For example, a <code>G06N</code> classification search can supply an additional candidate set, but it is neither equivalent to all AI patents nor necessarily restricted to your definition. Document whether you use keywords alone, keywords <code>OR</code> codes, or keywords <code>AND</code> codes. These produce different populations.</p>
+        <p>The SQL below is an English title/abstract keyword pilot. It does not implement WIPO's full search strategy. Patent metadata coverage varies, and missing English text can exclude relevant applications. Choose filing year deliberately; it differs from priority year and publication year. Recent filing cohorts may be incomplete because publication and indexing take time.</p>
+
+        <h5>Write and run a bounded SQL query</h5>
+        <p>Open <strong>Search → Expert</strong>. In <code>tls201_appln</code>, <code>appln_id</code> identifies the application and <code>docdb_family_id</code> links related applications. Titles are in <code>tls202_appln_title</code> and abstracts in <code>tls203_appln_abstr</code>. Check these fields in the <a href="https://www.epo.org/en/about-us/observatory-patents-and-technology/observatory-tools/patstat/documentation-and-coverage">catalogue for your edition</a>.</p>
+        <pre><code>SELECT TOP 100
+    a.appln_id,
+    a.docdb_family_id,
+    a.appln_auth,
+    a.appln_nr,
+    a.appln_filing_date,
+    a.appln_filing_year,
+    t.appln_title,
+    b.appln_abstract
+FROM tls201_appln AS a
+LEFT JOIN tls202_appln_title AS t
+    ON t.appln_id = a.appln_id
+    AND t.appln_title_lg = 'en'
+LEFT JOIN tls203_appln_abstr AS b
+    ON b.appln_id = a.appln_id
+    AND b.appln_abstract_lg = 'en'
+WHERE a.appln_filing_year = 2020
+  AND (
+    LOWER(t.appln_title) LIKE '%artificial intelligence%'
+    OR LOWER(b.appln_abstract) LIKE '%artificial intelligence%'
+    OR LOWER(t.appln_title) LIKE '%machine learning%'
+    OR LOWER(b.appln_abstract) LIKE '%machine learning%'
+    OR LOWER(t.appln_title) LIKE '%deep learning%'
+    OR LOWER(b.appln_abstract) LIKE '%deep learning%'
+    OR LOWER(t.appln_title) LIKE '%neural network%'
+    OR LOWER(b.appln_abstract) LIKE '%neural network%'
+  )
+ORDER BY a.appln_id;</code></pre>
+        <p><code>TOP 100</code> is a preview, not the full corpus and not a random sample. <code>LIKE '%...%'</code> matches a character sequence; unlike a bibliographic search engine, it does not expand linguistic variants. Repeat approved terms for both title and abstract. A left join retains applications when one text field is missing.</p>
+        <p>The <a href="https://link.epo.org/web/business/patstat/en-patstat-online-user-manual.pdf">PATSTAT Online manual</a> specifies that queries must start with <code>SELECT</code>. Its April 2025 revision removes support for <code>CONTAINS</code> and <code>FREETEXT</code>. This example therefore uses <code>LIKE</code>. It has not been executed against an authenticated PATSTAT session for this guide; first validate it against your edition. If a query exceeds the server cost limit, narrow the date interval or retrieve fields in smaller stages rather than repeating the same expensive query.</p>
+        <figure class="fig"><a href="assets/ai-data-collection/patstat-query.png"><img loading="lazy" src="assets/ai-data-collection/patstat-query.png" alt="PATSTAT manual page 23 showing Expert Search tables, SQL editor, messages and query history"></a><figcaption><strong>P2. Expert Search.</strong> Page 23 of the EPO user manual, captured from the PDF. Its embedded screen uses the 2018 Spring edition; it illustrates the editor layout, not the current edition or an AI result. Paste your query in Query and read Messages after execution. <a href="https://link.epo.org/web/business/patstat/en-patstat-online-user-manual.pdf#page=23">Source</a>.</figcaption></figure>
+
+        <h5>Collect the result table with Codex</h5>
+        <p>Inspect the returned titles and abstracts before extending the pilot. To collect the full chosen interval, remove <code>TOP 100</code> only after splitting the scope into manageable, non-overlapping date intervals. Save each SQL file with its export. Preserve <code>appln_id</code> and <code>docdb_family_id</code>; multiple applications may belong to the same family. Filing authority is not the applicant's country.</p>
+        <p>In the Table window, use <strong>Download → Prepare download</strong>, choose the result table, and retrieve the prepared file from the download manager. Check the limits displayed for your account. Do not confuse a result-table export with a PATSTAT subset export. The <a href="https://link.epo.org/web/business/patstat/en-patstat-online-user-manual.pdf#page=60">manual's download section</a> distinguishes these routes.</p>
+        <figure class="fig"><a href="assets/ai-data-collection/patstat-export.png"><img loading="lazy" src="assets/ai-data-collection/patstat-export.png" alt="PATSTAT manual page 60 showing Prepare download and export formats"></a><figcaption><strong>P3. Download.</strong> Page 60 of the EPO user manual, captured from the PDF. Select the result-table route for the rows produced by your SQL. Published manual limits are contextual; the current service and your account determine what is available. <a href="https://link.epo.org/web/business/patstat/en-patstat-online-user-manual.pdf#page=60">Source</a>.</figcaption></figure>
+        <pre><code>Use my authorised PATSTAT Online browser session. Read the approved
+keyword register and the data catalogue for the selected edition.
+Generate SELECT-first SQL for the English title/abstract pilot above.
+Do not use CONTAINS, FREETEXT or a leading WITH clause.
+Run the 100-row pilot and check the fields and sample relevance.
+After the pilot, prepare bounded date intervals for the approved
+scope and use the supported result-table download controls.
+Save SQL and unchanged exports under data/patstat/raw/.
+Log edition, query, filing-date interval, query result count,
+downloaded row count, completion status and file checksum.
+Reconcile the completed intervals and unique appln_id values.
+Preserve family IDs without collapsing families at collection time.
+On a cost-limit error, narrow the query before retrying.
+Stop on authentication challenges or access/export restrictions.
+Never infer success solely from clicking the download button.</code></pre>
+        <p>Finish with the approved patent keyword register, SQL files, downloaded result tables and a collection log. Verify file contents, identifiers and row counts. Keep empty abstracts as missing values and preserve the raw exports before any later cleaning.</p>
+      </section>
+    </section>
 
     <h3>Questions</h3>
     <p>

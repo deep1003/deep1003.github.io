@@ -1,0 +1,16 @@
+.collection-guide { scroll-margin-top: 110px; }
+.collection-guide section { scroll-margin-top: 110px; }
+.collection-guide h4 { font-size: 20px; line-height: 1.4; margin: 32px 0 16px; letter-spacing: 0; }
+.collection-guide h5 { font-size: 16px; line-height: 1.45; margin: 24px 0 10px; letter-spacing: 0; }
+.collection-guide p, .collection-guide li { font-size: 15px; }
+.collection-guide li { margin-bottom: 9px; }
+.collection-guide pre { max-width: 100%; overflow-x: auto; padding: 18px; background: #f3f5f6; border-left: 3px solid #526657; font-size: 13px; line-height: 1.65; tab-size: 4; }
+.collection-guide pre code { white-space: pre; }
+.collection-guide code { overflow-wrap: anywhere; }
+.collection-guide .guide-table { overflow-x: auto; }
+.collection-guide table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.collection-guide th, .collection-guide td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid #e3e3e3; }
+.collection-guide th { font-weight: 650; }
+.collection-guide img { width: 100%; height: auto; }
+.collection-guide figcaption { color: #535353; }
+@media(max-width: 600px) { .collection-guide pre { padding: 12px; font-size: 12px; } .collection-guide table { min-width: 480px; } }
