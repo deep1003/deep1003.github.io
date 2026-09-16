@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policy Commons RIS Collection Method | Youngsam Chun</title>
+<meta name="description" content="A reproducible method for collecting government AI policy records from Policy Commons through its authenticated RIS export service.">
+<link rel="stylesheet" href="../assets/style.css?v=4">
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">Youngsam Chun</span>
+    <a class="nav" href="../index.html">About</a>
+    <a class="nav active" href="../research.html">Research</a>
+    <a class="nav" href="../notes/">Notes</a>
+    <a class="nav" href="../publications.html">Publications</a>
+    <a class="nav" href="../education.html">Education</a>
+    <a class="nav" href="../cv.html">CV</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <aside class="sidebar">
+    <img class="avatar" src="../assets/profile.jpg" alt="Youngsam Chun">
+    <h1>Youngsam Chun</h1>
+    <p class="role">Responsible AI Researcher</p>
+    <p class="org">Responsible AI Department,<br>Frontier AI Lab, KT Corporation</p>
+
+    <div class="side-h">On this page</div>
+    <ul class="side-list">
+      <li><a href="#scope">Scope</a></li>
+      <li><a href="#workflow">Collection workflow</a></li>
+      <li><a href="#validation">Validation</a></li>
+      <li><a href="#provenance">Provenance and recovery</a></li>
+      <li><a href="#limitations">Limitations</a></li>
+    </ul>
+
+    <div class="side-h">Resources</div>
+    <ul class="side-list">
+      <li><a href="https://github.com/deep1003/ai-stpi-policy-gap-analysis/tree/main/code/policycommons_background_api_20260916">Collection code</a></li>
+      <li><a href="../research.html">Research overview</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h2>Policy Commons government AI policy collection</h2>
+
+    <p class="lead">
+      This page documents the reproducible collection method used to retrieve government AI policy
+      records from Policy Commons on 16 September 2026. The method preserves the search contract,
+      provider identifiers, page boundaries, retrieval time, validation results and recovery state.
+    </p>
+
+    <p class="small muted">
+      Method status: operational collection pipeline. Search counts describe the database at the time
+      of collection and may change as Policy Commons updates its holdings.
+    </p>
+
+    <h3 id="scope">Scope and search contract</h3>
+
+    <div class="entry">
+      <p>
+        The collection targets government publications that match the logical query
+        <code>AI AND system AND policy</code>. It uses the World Governments module
+        (<code>POCO_POGO</code>), limits the content to publications, selects the Policy Commons
+        <code>Document</code> artefact type and the <code>Government</code> publisher type, requests
+        100 results per page, and sorts records by date with the newest first.
+      </p>
+      <p>
+        Years are processed separately so that every batch remains below the provider's practical
+        result limit and can be audited against its year-specific search count. Pages are collected
+        in ascending order within each year. The dated counts and starting pages used in the active
+        run are stored in the public configuration file.
+      </p>
+      <p class="links">
+        <a href="https://github.com/deep1003/ai-stpi-policy-gap-analysis/blob/main/code/policycommons_background_api_20260916/config.example.json">Search configuration</a>
+      </p>
+    </div>
+
+    <h3 id="workflow">Authenticated collection workflow</h3>
+
+    <div class="entry">
+      <ol class="plain">
+        <li>The collector opens the required year and page in an existing, authenticated Chrome tab.</li>
+        <li>It reads the internal Policy Commons artefact identifiers from the rendered search results and removes duplicate identifiers within the page.</li>
+        <li>Inside the authenticated tab, it submits those identifiers to <code>/api/export/many/</code> and requests RIS output using the active CSRF token.</li>
+        <li>Policy Commons returns a short-lived signed export address. Python downloads the RIS payload from that address and does not retain the address or authentication token.</li>
+        <li>The validated payload is saved as one file per year and page, followed by a manifest record and a restart checkpoint.</li>
+      </ol>
+      <p>
+        This hybrid design is necessary because direct, unauthenticated requests to the search
+        endpoint returned HTTP 403, while export requests made inside the logged-in browser session
+        succeeded. Authentication remains in Chrome; the collector never serialises cookies,
+        passwords or CSRF tokens.
+      </p>
+    </div>
+
+    <h3 id="validation">Validation before a page is accepted</h3>
+
+    <div class="entry">
+      <p>
+        Each RIS file must contain at least one record, and its opening <code>TY  -</code> markers must
+        equal its closing <code>ER  -</code> markers. A response containing more RIS records than the
+        number of requested identifiers, an empty response, or mismatched record boundaries is rejected.
+        Failed pages are retried up to four times with increasing delays.
+      </p>
+      <p>
+        Policy Commons occasionally returns fewer RIS records than the number of unique identifiers
+        submitted to the export service. The collector preserves these valid records and writes the
+        difference to <code>export_omission_count</code>. This turns a silent provider-side omission
+        into an explicit recovery target rather than discarding the whole page.
+      </p>
+    </div>
+
+    <h3 id="provenance">Provenance, checkpoints and recovery</h3>
+
+    <div class="entry">
+      <p>
+        Every year has a line-delimited manifest. Each successful page records the UTC retrieval time,
+        year, page number, RIS record count, requested internal identifiers, query address and export
+        omission count. A separate state file identifies the latest successful page, while the log
+        records successes, retries and terminal failures.
+      </p>
+      <p>
+        Re-running the same command is safe. Before making a request, the collector checks whether the
+        intended page file already exists and passes the RIS boundary test. Valid pages are skipped;
+        missing or invalid pages are collected again. This supports interruption and recovery without
+        overwriting verified output.
+      </p>
+      <p class="links">
+        <a href="https://github.com/deep1003/ai-stpi-policy-gap-analysis/blob/main/code/policycommons_background_api_20260916/collector.py">Collector source</a> ·
+        <a href="https://github.com/deep1003/ai-stpi-policy-gap-analysis/tree/main/code/policycommons_background_api_20260916">Reproducibility package</a>
+      </p>
+    </div>
+
+    <h3 id="limitations">Interpretation and limitations</h3>
+
+    <div class="entry">
+      <p>
+        The search filters improve precision but do not establish that every retrieved item is a
+        national policy report. Organisation type, issuing body, jurisdiction and document function
+        must still be classified after collection. International organisations should remain separate
+        from national portfolios, and local or regional government publications should retain their
+        administrative level.
+      </p>
+      <p>
+        Database coverage, metadata and result counts can change. Reproduction therefore requires the
+        recorded configuration, retrieval date and manifests. RIS files are not published in the GitHub
+        repository because access and redistribution remain subject to the user's Policy Commons licence.
+      </p>
+    </div>
+
+    <p class="small">
+      Citation: Chun, Y. (2026). <em>Policy Commons government AI policy collection: authenticated RIS
+      export, validation and recovery method</em>. Method note for the AI Knowledge Ecosystem and Policy
+      Agenda Gaps project.
+    </p>
+
+    <footer>
+      © 2026 Youngsam Chun ·
+      <a href="https://orcid.org/0000-0002-6877-6230">ORCID 0000-0002-6877-6230</a>
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>
