@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policy Commons RIS Data Dictionary - Youngsam Chun</title>
+<meta name="description" content="A field-level data dictionary and ten-file audit sample from the Policy Commons artificial intelligence collection.">
+<link rel="stylesheet" href="assets/style.css?v=4">
+<style>
+  .dictionary-wrap { max-width: 1180px; margin: 0 auto; padding: 42px 28px 80px; }
+  .dictionary-wrap h1 { font-size: 28px; line-height: 1.25; margin: 0 0 8px; }
+  .dictionary-wrap h2 { font-size: 19px; margin: 34px 0 12px; padding-bottom: 7px; border-bottom: 1px solid var(--rule); }
+  .dictionary-wrap p { margin: 0 0 13px; }
+  .scope { color: var(--ink-soft); max-width: 900px; }
+  .notice { background: var(--accent-dim); border-left: 4px solid var(--accent); padding: 13px 16px; margin: 20px 0; }
+  .metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 18px 0; }
+  .metric { border: 1px solid var(--rule); padding: 13px 14px; border-radius: 3px; }
+  .metric b { display: block; font-size: 21px; color: var(--accent); }
+  .metric span { color: var(--ink-faint); font-size: 12px; }
+  .table-scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 3px; }
+  table.audit { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.4; }
+  table.audit th { background: #f6f7f9; color: var(--ink-soft); text-align: left; font-size: 11px; letter-spacing: .4px; text-transform: uppercase; }
+  table.audit th, table.audit td { padding: 9px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  table.audit tr:last-child td { border-bottom: 0; }
+  table.audit code { white-space: nowrap; font-size: 12px; }
+  .example { min-width: 260px; max-width: 420px; overflow-wrap: anywhere; }
+  .definition { min-width: 220px; }
+  .path { overflow-wrap: anywhere; color: var(--ink-soft); }
+  .status-good { color: #246b3c; font-weight: 650; }
+  .status-low { color: #965d00; font-weight: 650; }
+  .foot { margin-top: 30px; font-size: 13px; color: var(--ink-faint); }
+  @media (max-width: 760px) {
+    .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .dictionary-wrap { padding: 28px 18px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">Youngsam Chun</span>
+    <a class="nav" href="index.html">About</a>
+    <a class="nav active" href="research.html">Research</a>
+    <a class="nav" href="notes/">Notes</a>
+    <a class="nav" href="publications.html">Publications</a>
+    <a class="nav" href="education.html">Education</a>
+    <a class="nav" href="cv.html">CV</a>
+  </div>
+</nav>
+
+<main class="dictionary-wrap">
+  <p class="small"><a href="research.html">Research</a> / Data documentation</p>
+  <h1>Policy Commons RIS Data Dictionary</h1>
+  <p class="scope">
+    Field definitions and a reproducible ten-file audit sample from the Global Think Tanks module of the
+    Policy Commons collection. The search query was <code>artificial intelligence</code>, the publication
+    year was 2021, and the sample was drawn from the files available at the audit snapshot.
+  </p>
+
+  <div class="notice">
+    <strong>Interpretation.</strong> This page documents the RIS export as observed. It does not claim that
+    the 2021 collection is complete. Field presence is calculated across 847 records contained in ten RIS
+    files. Repeated identifiers are retained here because deduplication occurs after corpus collection.
+  </div>
+
+  <div class="metric-grid">
+    <div class="metric"><b>10</b><span>sampled RIS files</span></div>
+    <div class="metric"><b>847</b><span>sampled records</span></div>
+    <div class="metric"><b>84.7</b><span>mean records per file</span></div>
+    <div class="metric"><b>2021</b><span>publication-year partition</span></div>
+  </div>
+
+  <h2>Sampling design</h2>
+  <p>
+    Ten files were selected without replacement using Python's deterministic pseudorandom generator with
+    seed <code>20260919</code>. The sampling frame contained 318 valid RIS files at the snapshot. The
+    individual files contained between 38 and 100 records, with a median of 94.5 records. All 847 sampled
+    records had the RIS type <code>WEB</code>.
+  </p>
+
+  <div class="table-scroll">
+    <table class="audit">
+      <thead><tr><th>Sample ID</th><th>Partition and page</th><th>Records</th><th>Bytes</th><th>RIS type</th></tr></thead>
+      <tbody>
+        <tr><td>S01</td><td class="path">document_Document_title_partition_ad_495dd4f6b3/page_0010.ris</td><td>94</td><td>141,313</td><td>WEB</td></tr>
+        <tr><td>S02</td><td class="path">document_Document_title_partition_an_ce0ee381b7/page_0074.ris</td><td>90</td><td>131,563</td><td>WEB</td></tr>
+        <tr><td>S03</td><td class="path">document_Document_title_partition_ag_63d41f995d/page_0009.ris</td><td>49</td><td>67,071</td><td>WEB</td></tr>
+        <tr><td>S04</td><td class="path">document_Document_title_partition_an_ce0ee381b7/page_0068.ris</td><td>95</td><td>139,193</td><td>WEB</td></tr>
+        <tr><td>S05</td><td class="path">document_Document_title_partition_an_ce0ee381b7/page_0100.ris</td><td>38</td><td>47,066</td><td>WEB</td></tr>
+        <tr><td>S06</td><td class="path">document_Document_title_partition_c_cb60e6a699/page_0025.ris</td><td>99</td><td>137,107</td><td>WEB</td></tr>
+        <tr><td>S07</td><td class="path">document_Document_title_partition_an_ce0ee381b7/page_0038.ris</td><td>99</td><td>139,808</td><td>WEB</td></tr>
+        <tr><td>S08</td><td class="path">document_Document_title_partition_ac_3d9877f503/page_0009.ris</td><td>97</td><td>134,338</td><td>WEB</td></tr>
+        <tr><td>S09</td><td class="path">document_Document_title_partition_ac_3d9877f503/page_0013.ris</td><td>86</td><td>121,989</td><td>WEB</td></tr>
+        <tr><td>S10</td><td class="path">document_Document_title_partition_ar_92c7b12f7e/page_0006.ris</td><td>100</td><td>143,737</td><td>WEB</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Attribute dictionary</h2>
+  <p>
+    Attribute IDs are the two-character tags used in the RIS export. Definitions for standard RIS fields
+    follow their conventional use. The <code>C1</code> to <code>C8</code> fields are provider-supplied
+    metadata slots whose meaning depends on the source record, so their definitions describe observed use
+    rather than a universal schema.
+  </p>
+
+  <div class="table-scroll">
+    <table class="audit">
+      <thead>
+        <tr><th>Attribute ID</th><th>Name</th><th>Definition</th><th>Observed example</th><th>Presence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>TY</code></td><td>Reference type</td><td class="definition">The RIS record class assigned by the export.</td><td class="example"><code>WEB</code></td><td class="status-good">100.0%</td></tr>
+        <tr><td><code>TI</code></td><td>Title</td><td class="definition">The main title of the policy document or web resource.</td><td class="example">WIPO GREEN Year in Review 2020</td><td class="status-good">100.0%</td></tr>
+        <tr><td><code>AB</code></td><td>Abstract</td><td class="definition">A descriptive summary of the document's content.</td><td class="example">The WIPO GREEN Year in Review 2020 highlights the organization's efforts to accelerate green technology innovation and dissemination.</td><td class="status-good">100.0%</td></tr>
+        <tr><td><code>PY</code></td><td>Publication year</td><td class="definition">The year assigned to the publication record.</td><td class="example"><code>2021</code></td><td class="status-good">100.0%</td></tr>
+        <tr><td><code>DA</code></td><td>Publication date</td><td class="definition">A more specific publication or disclosure date when supplied.</td><td class="example"><code>2021-10-21</code></td><td>88.8%</td></tr>
+        <tr><td><code>AU</code></td><td>Author or contributor</td><td class="definition">A named person or organisation credited as an author or contributor. The field may repeat.</td><td class="example">World Intellectual Property Organization (WIPO)</td><td class="status-low">57.4%</td></tr>
+        <tr><td><code>PB</code></td><td>Publisher</td><td class="definition">The organisation responsible for issuing the document.</td><td class="example">World Bank Group</td><td class="status-good">99.9%</td></tr>
+        <tr><td><code>CY</code></td><td>Place published</td><td class="definition">The country or place of publication as exported.</td><td class="example">Switzerland</td><td class="status-low">28.1%</td></tr>
+        <tr><td><code>PP</code></td><td>Publication place</td><td class="definition">A second publication-place field retained by the provider export.</td><td class="example">France</td><td class="status-low">28.1%</td></tr>
+        <tr><td><code>LA</code></td><td>Language</td><td class="definition">One or more language codes describing available document versions.</td><td class="example"><code>es; ar; fr; en; ru; zh</code></td><td class="status-good">98.1%</td></tr>
+        <tr><td><code>KW</code></td><td>Keyword</td><td class="definition">A controlled or source-supplied topical term. The field may repeat.</td><td class="example">green technology</td><td class="status-good">99.2%</td></tr>
+        <tr><td><code>DO</code></td><td>Digital object identifier</td><td class="definition">A DOI or DOI-form URL when the source has one.</td><td class="example"><code>https://doi.org/10.1787/f1bd58b0-en</code></td><td class="status-low">1.8%</td></tr>
+        <tr><td><code>ID</code></td><td>Persistent record identifier</td><td class="definition">The provider's persistent identifier, commonly expressed as a Handle-style value.</td><td class="example"><code>20.500.12592/90q6nk</code></td><td class="status-good">100.0%</td></tr>
+        <tr><td><code>UR</code></td><td>Policy Commons record URL</td><td class="definition">The public URL of the metadata or artifact page in Policy Commons.</td><td class="example"><code>https://policycommons.net/artifacts/1729929/wipo-green/</code></td><td class="status-good">100.0%</td></tr>
+        <tr><td><code>LK</code></td><td>Resolver link</td><td class="definition">A resolver URL associated with the persistent record identifier.</td><td class="example"><code>https://coilink.org/20.500.12592/90q6nk</code></td><td class="status-good">100.0%</td></tr>
+        <tr><td><code>DB</code></td><td>Database</td><td class="definition">The source database named in the RIS export.</td><td class="example">Policy Commons</td><td class="status-good">100.0%</td></tr>
+        <tr><td><code>T2</code></td><td>Secondary title or genre</td><td class="definition">An optional secondary title, series label, or report genre supplied by the source.</td><td class="example">Policy Brief</td><td class="status-low">0.6%</td></tr>
+        <tr><td><code>TT</code></td><td>Alternate title</td><td class="definition">An optional translated, alternate, or provider-supplied title string.</td><td class="example">Shaping Value Creation in a Connected Way</td><td class="status-low">2.4%</td></tr>
+        <tr><td><code>C1</code></td><td>Custom metadata 1</td><td class="definition">The first provider-specific metadata statement, often page count or disclosure date.</td><td class="example">Pages: 24</td><td class="status-good">97.8%</td></tr>
+        <tr><td><code>C2</code></td><td>Custom metadata 2</td><td class="definition">The second provider-specific metadata statement, such as volume or ISSN.</td><td class="example">ISSN: 22223843 (online)</td><td class="status-low">8.6%</td></tr>
+        <tr><td><code>C3</code></td><td>Custom metadata 3</td><td class="definition">The third provider-specific metadata statement, such as volume count or ISBN.</td><td class="example">ISBN: 9789264716353 (PDF)</td><td class="status-low">8.3%</td></tr>
+        <tr><td><code>C4</code></td><td>Custom metadata 4</td><td class="definition">The fourth provider-specific metadata statement, such as disclosure status or document symbol.</td><td class="example">Disclosure Status: Disclosed</td><td class="status-low">7.3%</td></tr>
+        <tr><td><code>C5</code></td><td>Custom metadata 5</td><td class="definition">The fifth provider-specific metadata statement, such as source document name or access information.</td><td class="example">Doc Name: Disclosable Restructuring Paper - MN: SMART Government - P130891</td><td class="status-low">6.0%</td></tr>
+        <tr><td><code>C6</code></td><td>Custom metadata 6</td><td class="definition">The sixth provider-specific metadata statement, such as a related project identifier or page count.</td><td class="example">Rel Proj ID: MN-Smart Government -- P130891</td><td class="status-low">3.9%</td></tr>
+        <tr><td><code>C7</code></td><td>Custom metadata 7</td><td class="definition">The seventh provider-specific metadata statement, such as an originating unit or report number.</td><td class="example">Originating Unit: Digital Dev - Global/EAP (IDD05)</td><td class="status-low">2.2%</td></tr>
+        <tr><td><code>C8</code></td><td>Custom metadata 8</td><td class="definition">The eighth provider-specific metadata statement, such as an owning unit or meeting record.</td><td class="example">Meeting record: A/75/PV.56</td><td class="status-low">1.1%</td></tr>
+        <tr><td><code>ER</code></td><td>End of record</td><td class="definition">A structural RIS delimiter marking the end of each record. It is not an analytical variable.</td><td class="example"><code>ER  -</code></td><td class="status-good">100.0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Observed quality indicators</h2>
+  <div class="table-scroll">
+    <table class="audit">
+      <thead><tr><th>Check</th><th>Result</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>Title completeness</td><td>847 / 847</td><td>Every sampled record has a non-empty title.</td></tr>
+        <tr><td>Abstract completeness</td><td>847 / 847</td><td>Every sampled record has a non-empty abstract.</td></tr>
+        <tr><td>Publisher completeness</td><td>846 / 847</td><td>Publisher-based country inference is feasible for nearly all sampled records.</td></tr>
+        <tr><td>Exact repeated ID</td><td>8 groups, 12 excess rows</td><td>Collection partitions can contain repeated records. Deduplication is required after collection.</td></tr>
+        <tr><td>Exact repeated ID, title, and abstract</td><td>8 groups, 12 excess rows</td><td>The repeated identifiers are exact record-level duplicates in this sample.</td></tr>
+        <tr><td>Missing author</td><td>361 / 847</td><td>Author is not a reliable mandatory field for policy-document filtering.</td></tr>
+        <tr><td>Missing publication place</td><td>609 / 847</td><td>Country inference should prioritise publisher and issuer information rather than place alone.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="foot">
+    Snapshot date: 19 September 2026. Module: Global Think Tanks (<code>POCO_ALL</code>).
+    Query: <code>artificial intelligence</code>. Publication year: 2021. This is a documentation sample,
+    not a substantive estimate of the full Policy Commons corpus.
+  </p>
+
+  <footer>
+    © 2026 Youngsam Chun · <a href="research.html">Return to Research</a>
+  </footer>
+</main>
+</body>
+</html>
