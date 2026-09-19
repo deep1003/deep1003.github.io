@@ -64,9 +64,10 @@
   <main class="content">
     <h2>Policy Commons data curation workflow</h2>
     <p class="lead">A numbered, provenance-preserving workflow for cleaning locally collected Policy Commons records before integration into the iCloud master.</p>
-    <p class="small muted">Method status: version 2.1, independently reviewed and revised, 19 September 2026. Raw inputs remain immutable; every merge, inference, exclusion and release decision is recorded.</p>
+    <p class="small muted">Method status: version 2.2, 19 September 2026. The previously reviewed protocol is retained below. This revision documents the executed rules and their limitations; it does not claim a new independent review or that every protocol requirement has been implemented.</p>
 
     <h2 id="workflow-overview">Workflow overview</h2>
+    <p><strong>Read the protocol and implementation separately.</strong> The numbered sections specify the intended curation standard. The <a href="#implementation-snapshot">implementation snapshot</a> records what the current scripts actually executed, the resulting counts and outstanding work. Protocol validation targets are not measured accuracy claims.</p>
     <div class="entry">
       <table class="method-table">
         <thead><tr><th>Step</th><th>Operation</th><th>Exit artefact</th></tr></thead>
@@ -88,6 +89,64 @@
       <p><strong>Stage ledger.</strong> Every step records its input snapshot, code commit, configuration, parser, rule and model versions, start and end times, input and output counts, accepted, excluded, quarantined and unresolved counts, reason-code distribution, reviewer actions and checksum-linked outputs. Counts must reconcile before the next step begins.</p>
       <p><strong>State transitions.</strong> Append-only state histories cover source batches, source observations, match candidates, canonical records and releases. Each transition stores run ID, method version, timestamp, actor or reviewer, evidence and the prior state. Reruns never mutate an earlier decision in place.</p>
     </div>
+    <h2 id="implementation-snapshot">Executed workflow and current results</h2>
+    <div class="entry">
+      <p>The current sequence is source-observation deduplication, broad AI screening in titles, abstracts and keywords, removal of clear non-AI meanings, extraction of separate country signals, and distinct-country whole counting. These figures describe the current local corpus and its derived release, not all records available on Policy Commons.</p>
+      <table class="method-table">
+        <thead><tr><th>Stage</th><th>Records or pairs</th><th>Interpretation</th></tr></thead>
+        <tbody>
+          <tr><td>Source observations</td><td>406,029</td><td>Collected occurrences before document-level deduplication</td></tr>
+          <tr><td>Canonical records</td><td>300,555</td><td>Output of the implemented identity grouping</td></tr>
+          <tr><td>Broad AI keyword matches</td><td>84,868</td><td>Positive terms in title, abstract or keywords</td></tr>
+          <tr><td>Clear non-AI meanings excluded</td><td>430</td><td>422 biological neural-network cases, 6 non-AI LLM cases and 2 non-AI GPT cases</td></tr>
+          <tr><td>Retained AI candidates</td><td>84,438</td><td>Includes 1,126 cases flagged for further review</td></tr>
+          <tr><td>Documents with at least one country signal</td><td>40,058</td><td>Not equivalent to verified issuing countries</td></tr>
+          <tr><td>Documents without a country signal</td><td>44,380</td><td>Unresolved and retained</td></tr>
+          <tr><td>Distinct document-country interest pairs</td><td>44,038</td><td>Union of country evidence types, each pair weighted 1</td></tr>
+          <tr><td>Documents linked to multiple countries</td><td>3,662</td><td>78 countries represented across the union</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Implemented duplicate resolution</h3>
+      <p>The script selects an identity key in this order: Policy Commons identifier, DOI, normalised URL, then a hash of normalised title, publisher, year and language. It groups by the selected namespace and key. Conflicting normalised titles within an identifier, DOI or URL group are split. The anchor is selected by completeness of title, abstract, year, publisher and URL, followed by secondary metadata completeness and abstract length. Missing fields are filled from the same group and their source observations are recorded.</p>
+      <p><strong>Implementation limits.</strong> This is not exhaustive cross-identifier entity resolution. It does not establish that all translations, revisions or repository copies have been identified. The fallback composite key is used for grouping in the current script, whereas the stricter protocol below requires review of weak matches. The full compatibility checks and 99.9% precision target below have not been demonstrated for this release.</p>
+
+      <h3>Implemented broad AI screening</h3>
+      <p>A supported expression in the title produces <code>core_ai</code>; a match in the abstract or keywords produces <code>substantive_ai</code>. Both are retained. These labels describe lexical evidence, not a validated assessment of substantive relevance. Ambiguous abbreviations without a supported expression produce <code>unresolved_ai</code>.</p>
+      <table class="method-table">
+        <thead><tr><th>Term group</th><th>Implemented examples</th></tr></thead>
+        <tbody>
+          <tr><td>AI and multilingual equivalents</td><td>artificial intelligence; 인공지능; 人工智能; 人工智慧; 人工知能; French, Spanish, Portuguese, Italian, German, Russian and Arabic equivalents</td></tr>
+          <tr><td>Learning and neural methods</td><td>machine learning; deep learning; neural network(s); reinforcement learning; 기계학습; 딥러닝; 机器学习; 機械学習</td></tr>
+          <tr><td>Applications and earlier terminology</td><td>natural language processing; computer vision; algorithmic decision-making; 지능형</td></tr>
+          <tr><td>Generative models</td><td>generative AI; large language model(s); foundation model(s); LLM(s); GPT and numeric variants</td></tr>
+          <tr><td>Policy and governance</td><td>AI governance, risk(s), system(s), policy/policies, ethics, regulation, safety, technology/technologies, laws, strategies, standards, oversight, accountability, assurance and alignment</td></tr>
+          <tr><td>Responsible AI</td><td>responsible AI; trustworthy AI; ethical AI; safe AI</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Historical vocabulary remains incomplete.</strong> The current dictionary includes 지능형, 기계학습, machine learning and neural network, but does not explicitly include 머신러닝, 머시러닝, 기계 학습, 전문가 시스템, expert system, knowledge-based system or intelligent system. These are proposed expansion candidates requiring contextual checks, especially for earlier decades. The 84,438 count does not include a rerun with this expanded dictionary. Recovering omissions requires rescreening the 300,555-record canonical corpus where recoverable, not just the retained subset. No assumption is made that one terminology uniformly characterised the 1990s.</p>
+      <p><strong>Non-AI meanings.</strong> Exclusion requires strong alternative-meaning evidence without explicit computational AI evidence. Biological neural-network exclusions require biological context in the title and no computational signal. Non-AI LLM and GPT expansions are also checked. Avian influenza and air-quality mentions alone do not trigger exclusion because AI may be applied in these domains. Of the retained records, 1,050 biological/computational ambiguity cases and 76 air-context ambiguity cases remain flagged for review.</p>
+
+      <h3>Implemented country inference and separation</h3>
+      <table class="method-table">
+        <thead><tr><th>Attribution type</th><th>Current evidence rule</th><th>Interpretation</th></tr></thead>
+        <tbody>
+          <tr><td><code>issuer_country</code></td><td>Existing issuer-country values and country aliases in issuer or publisher names; selected subnational names map to the United States, Canada or Australia</td><td>Inherited or inferred issuing-country evidence, with provenance and confidence</td></tr>
+          <tr><td><code>target_country</code></td><td>Country aliases in the title; if absent, abstract matches are accepted only when one or two countries occur</td><td>Candidate subject country, not verified policy jurisdiction</td></tr>
+          <tr><td><code>publication_country</code></td><td>Country aliases in publication-place metadata</td><td>Place of publication</td></tr>
+          <tr><td><code>author_affiliation_country</code></td><td>Country aliases in available affiliation fields</td><td>Affiliation evidence, which is sparse</td></tr>
+          <tr><td><code>language_country_signal</code></td><td>A language lookup yields exactly one candidate country across mapped codes</td><td>Heuristic signal; shared languages do not establish national origin</td></tr>
+        </tbody>
+      </table>
+      <p>For international organisations, EU bodies and multinational issuers, the script uses country aliases in the issuer name, or a local-office marker corroborated by publication place, to propose a local issuing-country link. This heuristic does not verify the legal entity, co-issuing role or local-office authorship. Country and regional names may be ambiguous and require review. Language and subject-country evidence do not overwrite <code>issuer_country</code>.</p>
+      <p>Each typed link stores the document identifier, attribution type, country code, whole-count value, method, confidence and evidence field/value. The unique key is <code>(record_id, attribution_type, jurisdiction_code)</code>. A second view combines evidence types into one <code>(record_id, interest_country)</code> row with value 1. A document linked to Korea and the United States contributes 1 to each; repeated evidence for Korea still contributes only 1.</p>
+      <p><strong>Analytical use.</strong> The 40,058 documents labelled <code>resolved</code> have at least one signal of any type. The 44,038 union pairs measure broad country relatedness, not verified national publication output. Use issuer links for issuing-country analysis and report target, publication-place, affiliation and language evidence separately or as sensitivity variants. Rule-based confidence labels are not calibrated probabilities. Documents linked to 20 or more countries require specific review before analytical use.</p>
+
+      <h3>Reproducibility and pending work</h3>
+      <p>The executed scripts are <code>build_local_master.py</code>, <code>audit_ai_false_positives.py</code> and <code>build_all_country_attribution.py</code>. The country outputs are stored in <code>analysis/workflow_compliant_policy_release_20260919/release_v5_all_country_attribution</code>, with a summary JSON and SHA-256 manifest. These are project-relative paths, not public data downloads. Checks on identifiers, counts and whole-count weights establish structural consistency, not classification accuracy.</p>
+      <p>Pending work comprises historical and multilingual dictionary expansion, review of ambiguous AI meanings, cross-identifier duplicate audits, checks of ambiguous institution and place names, and independent validation of country attribution. This documentation update does not rerun classification or change the underlying data.</p>
+    </div>
+
     <h2 id="inventory">1. Freeze and inventory the local collection</h2>
     <div class="entry">
       <p>Begin with every Policy Commons RIS, CSV, JSON, JSONL, database and archive stored locally, particularly under <code>/Users/deep1003/Downloads</code>. Resolve symbolic links and cloud-backed aliases before counting so the same physical file is not inventoried twice.</p>
