@@ -1,555 +1,67 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Policy Commons Data Curation Methods | Youngsam Chun</title>
-<meta name="description" content="Methods for issuer-country attribution, duplicate resolution and AI relevance classification in the Policy Commons corpus.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policy Commons Curation Protocol | Youngsam Chun</title>
+<meta name="description" content="Reproducible specification for duplicate resolution, historical AI screening and country attribution of Policy Commons documents.">
 <link rel="stylesheet" href="../assets/style.css?v=4">
-<style>
-  .method-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-  .method-table th, .method-table td { padding: 0.65rem 0.75rem; border-bottom: 1px solid #d9d9d9; text-align: left; vertical-align: top; }
-  .method-table th { font-weight: 650; background: #f7f7f7; }
-  .method-table code { white-space: nowrap; }
-  .table-scroll { overflow-x: auto; margin: 0.75rem 0; }
-  .sample-table { min-width: 1120px; font-size: 0.86rem; }
-  details { margin-top: 1rem; }
-  details summary { cursor: pointer; font-weight: 650; }
-  @media (max-width: 720px) { .method-table { font-size: 0.9rem; } .method-table th, .method-table td { padding: 0.5rem; } }
-</style>
-</head>
-<body>
-<nav class="topbar">
-  <div class="topbar-inner">
-    <span class="brand">Youngsam Chun</span>
-    <a class="nav" href="../index.html">About</a>
-    <a class="nav active" href="../research.html">Research</a>
-    <a class="nav" href="../notes/">Notes</a>
-    <a class="nav" href="../publications.html">Publications</a>
-    <a class="nav" href="../education.html">Education</a>
-    <a class="nav" href="../cv.html">CV</a>
-  </div>
-</nav>
-<div class="wrap">
-  <aside class="sidebar">
-    <img class="avatar" src="../assets/profile.jpg" alt="Youngsam Chun">
-    <h1>Youngsam Chun</h1>
-    <p class="role">Responsible AI Researcher</p>
-    <p class="org">Responsible AI Department,<br>Frontier AI Lab, KT Corporation</p>
-    <div class="side-h">Workflow</div>
-    <ul class="side-list">
-      <li><a href="#workflow-overview">Overview</a></li>
-      <li><a href="#inventory">1. Inventory</a></li>
-      <li><a href="#contamination">2. Contamination gate</a></li>
-      <li><a href="#source-observations">3. Parse and normalise</a></li>
-      <li><a href="#deduplication">4. Identity and duplicates</a></li>
-      <li><a href="#evidence-enrichment">5. Enrich evidence</a></li>
-      <li><a href="#ai-relevance">6. AI relevance</a></li>
-      <li><a href="#policy-document-filter">7. Form and genre</a></li>
-      <li><a href="#country-attribution">8. Institutions and countries</a></li>
-      <li><a href="#policy-eligibility">9. Policy eligibility</a></li>
-      <li><a href="#local-master">10. Local master</a></li>
-      <li><a href="#icloud-reconciliation">11. iCloud reconciliation</a></li>
-      <li><a href="#release">12. Release</a></li>
-      <li><a href="#sample-validation">Appendix A</a></li>
-      <li><a href="#references">References</a></li>
-    </ul>
-    <div class="side-h">Resources</div>
-    <ul class="side-list">
-      <li><a href="policycommons-ris-collection.html">Collection method</a></li>
-      <li><a href="https://deep1003.github.io/policy-commons-ris-data-dictionary.html">RIS data dictionary</a></li>
-      <li><a href="../research.html">Research overview</a></li>
-    </ul>
-  </aside>
-  <main class="content">
-    <h2>Policy Commons data curation workflow</h2>
-    <p class="lead">A numbered, provenance-preserving workflow for cleaning locally collected Policy Commons records before integration into the iCloud master.</p>
-    <p class="small muted">Method status: version 2.2, 19 September 2026. The previously reviewed protocol is retained below. This revision documents the executed rules and their limitations; it does not claim a new independent review or that every protocol requirement has been implemented.</p>
+<style>.method-table{width:100%;border-collapse:collapse;margin:1rem 0}.method-table th,.method-table td{padding:.65rem;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}.method-table th{background:#f7f7f7}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f7f7f7;padding:1rem}section{margin-bottom:2rem}.status{border-left:4px solid #ad791c;background:#fff9eb;padding:1rem}code{overflow-wrap:anywhere}li{margin-bottom:.4rem}@media(max-width:720px){.method-table{font-size:.85rem}.method-table td,.method-table th{padding:.4rem}}</style>
+</head><body>
+<nav class="topbar"><div class="topbar-inner"><span class="brand">Youngsam Chun</span><a class="nav" href="../index.html">About</a><a class="nav active" href="../research.html">Research</a><a class="nav" href="../publications.html">Publications</a></div></nav>
+<div class="wrap"><aside class="sidebar"><img class="avatar" src="../assets/profile.jpg" alt="Youngsam Chun"><h1>Youngsam Chun</h1><p class="role">Responsible AI Researcher</p>
+<ul class="side-list"><li><a href="#workflow-overview">Overview</a></li><li><a href="#inventory">1. Freeze inputs</a></li><li><a href="#source-observations">2. Parse and check</a></li><li><a href="#deduplication">3. Resolve duplicates</a></li><li><a href="#ai-relevance">4. Screen AI relevance</a></li><li><a href="#policy-document-filter">5. Classify document form</a></li><li><a href="#country-attribution">6. Attribute countries</a></li><li><a href="#policy-eligibility">7. Build analysis views</a></li><li><a href="#release">8. Validate and release</a></li><li><a href="#implementation-snapshot">Existing results</a></li><li><a href="#references">Review and resources</a></li></ul></aside>
+<main class="content"><h2>Policy Commons curation protocol</h2><p class="lead">Duplicate resolution, broad AI relevance screening and country attribution for country-level research.</p><p class="small muted">Version 3.0 · 19 September 2026</p>
+<p class="status"><strong>Implementation status.</strong> This specification incorporates two independent AI-agent reviews of the previous code. It has not yet been executed against the corpus. Existing counts are provisional results of earlier rules. The reviews were code and method assessments, not human peer review or original-document accuracy validation.</p>
 
-    <h2 id="workflow-overview">Workflow overview</h2>
-    <p><strong>Read the protocol and implementation separately.</strong> The numbered sections specify the intended curation standard. The <a href="#implementation-snapshot">implementation snapshot</a> records what the current scripts actually executed, the resulting counts and outstanding work. Protocol validation targets are not measured accuracy claims.</p>
-    <div class="entry">
-      <table class="method-table">
-        <thead><tr><th>Step</th><th>Operation</th><th>Exit artefact</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Freeze and inventory local inputs</td><td>Immutable local snapshot and manifests</td></tr>
-          <tr><td>2</td><td>Apply the contamination gate</td><td>Validated batches and quarantine</td></tr>
-          <tr><td>3</td><td>Parse, normalise and preserve provenance</td><td>Source-observation layer</td></tr>
-          <tr><td>4</td><td>Resolve document identity, versions and duplicates</td><td>Canonical document versions and typed relations</td></tr>
-          <tr><td>5</td><td>Enrich missing evidence-bearing metadata</td><td>Versioned evidence-completion layer</td></tr>
-          <tr><td>6</td><td>Classify AI / Non-AI relevance</td><td>AI relevance labels and evidence</td></tr>
-          <tr><td>7</td><td>Determine document form and genre</td><td>Document, paper, patent and unresolved routes</td></tr>
-          <tr><td>8</td><td>Resolve institutions, roles and country concepts</td><td>Institution and country link tables</td></tr>
-          <tr><td>9</td><td>Determine policy eligibility and analytical fields</td><td>Policy labels, year and jurisdiction fields</td></tr>
-          <tr><td>10</td><td>Build and validate the local master</td><td>Frozen local release checkpoint</td></tr>
-          <tr><td>11</td><td>Freeze, process and reconcile iCloud</td><td>Integrated staging snapshot and crosswalk</td></tr>
-          <tr><td>12</td><td>Approve and release the integrated master</td><td>Audited release package</td></tr>
-        </tbody>
-      </table>
-      <p><strong>Stage ledger.</strong> Every step records its input snapshot, code commit, configuration, parser, rule and model versions, start and end times, input and output counts, accepted, excluded, quarantined and unresolved counts, reason-code distribution, reviewer actions and checksum-linked outputs. Counts must reconcile before the next step begins.</p>
-      <p><strong>State transitions.</strong> Append-only state histories cover source batches, source observations, match candidates, canonical records and releases. Each transition stores run ID, method version, timestamp, actor or reviewer, evidence and the prior state. Reruns never mutate an earlier decision in place.</p>
-    </div>
-    <h2 id="implementation-snapshot">Executed workflow and current results</h2>
-    <div class="entry">
-      <p>The current sequence is source-observation deduplication, broad AI screening in titles, abstracts and keywords, removal of clear non-AI meanings, extraction of separate country signals, and distinct-country whole counting. These figures describe the current local corpus and its derived release, not all records available on Policy Commons.</p>
-      <table class="method-table">
-        <thead><tr><th>Stage</th><th>Records or pairs</th><th>Interpretation</th></tr></thead>
-        <tbody>
-          <tr><td>Source observations</td><td>406,029</td><td>Collected occurrences before document-level deduplication</td></tr>
-          <tr><td>Canonical records</td><td>300,555</td><td>Output of the implemented identity grouping</td></tr>
-          <tr><td>Broad AI keyword matches</td><td>84,868</td><td>Positive terms in title, abstract or keywords</td></tr>
-          <tr><td>Clear non-AI meanings excluded</td><td>430</td><td>422 biological neural-network cases, 6 non-AI LLM cases and 2 non-AI GPT cases</td></tr>
-          <tr><td>Retained AI candidates</td><td>84,438</td><td>Includes 1,126 cases flagged for further review</td></tr>
-          <tr><td>Documents with at least one country signal</td><td>40,058</td><td>Not equivalent to verified issuing countries</td></tr>
-          <tr><td>Documents without a country signal</td><td>44,380</td><td>Unresolved and retained</td></tr>
-          <tr><td>Distinct document-country interest pairs</td><td>44,038</td><td>Union of country evidence types, each pair weighted 1</td></tr>
-          <tr><td>Documents linked to multiple countries</td><td>3,662</td><td>78 countries represented across the union</td></tr>
-        </tbody>
-      </table>
+<section id="workflow-overview"><h2>Scope and execution order</h2><p>The analytical unit is a document version. A downloaded occurrence is a source observation. AI relevance, document form, institutional role and country relationship are separate classification axes. National and subnational bodies, public research institutes and qualifying private issuers may contribute to country-level analysis.</p>
+<ol><li>Freeze inputs and configuration.</li><li>Parse, normalise and check contamination.</li><li>Resolve duplicates and select canonical metadata.</li><li>Screen historical and multilingual AI relevance.</li><li>Classify document form and genre.</li><li>Resolve institutions and country relationships.</li><li>Construct explicit analysis views using whole counting.</li><li>Validate, reconcile local and iCloud data, and release a new version.</li></ol>
+<p>Process local inputs first, freeze that result, then process additional iCloud observations with the same configuration. Resolve aliases before inventorying because local and cloud paths may refer to the same file. Every stage writes new outputs, decisions and reconciled counts. Analytical exclusion does not require physical deletion.</p></section>
 
-      <h3>Implemented duplicate resolution</h3>
-      <p>The script selects an identity key in this order: Policy Commons identifier, DOI, normalised URL, then a hash of normalised title, publisher, year and language. It groups by the selected namespace and key. Conflicting normalised titles within an identifier, DOI or URL group are split. The anchor is selected by completeness of title, abstract, year, publisher and URL, followed by secondary metadata completeness and abstract length. Missing fields are filled from the same group and their source observations are recorded.</p>
-      <p><strong>Implementation limits.</strong> This is not exhaustive cross-identifier entity resolution. It does not establish that all translations, revisions or repository copies have been identified. The fallback composite key is used for grouping in the current script, whereas the stricter protocol below requires review of weak matches. The full compatibility checks and 99.9% precision target below have not been demonstrated for this release.</p>
+<section id="inventory"><h2>1. Freeze inputs and configuration</h2><p>Create <code>input_manifest.csv</code> containing file ID, original and real paths, SHA-256, size, format, collection query/category, retrieval time and hydration status. Process identical file hashes once while preserving all paths and collection memberships. Unread cloud placeholders are incomplete inputs.</p>
+<p>Freeze <code>run_config.json</code> with the following values and package the actual lookup tables alongside it.</p>
+<pre>run_id; protocol_version=3.0; input_manifest_sha256;
+code_commit; environment_lock_sha256; normalisation_version;
+ai_dictionary_sha256; country_aliases_sha256;
+institution_authority_sha256; analytical_year_scope=[1990,2026];
+validation_seed=20260919; validation_sampling_plan;
+acceptance_thresholds_by_analysis; country_counting=whole_count</pre>
+<p>The analytical year scope does not remove older documents from the source archive. Record missing dates and out-of-scope dates explicitly.</p></section>
 
-      <h3>Implemented broad AI screening</h3>
-      <p>A supported expression in the title produces <code>core_ai</code>; a match in the abstract or keywords produces <code>substantive_ai</code>. Both are retained. These labels describe lexical evidence, not a validated assessment of substantive relevance. Ambiguous abbreviations without a supported expression produce <code>unresolved_ai</code>.</p>
-      <table class="method-table">
-        <thead><tr><th>Term group</th><th>Implemented examples</th></tr></thead>
-        <tbody>
-          <tr><td>AI and multilingual equivalents</td><td>artificial intelligence; 인공지능; 人工智能; 人工智慧; 人工知能; French, Spanish, Portuguese, Italian, German, Russian and Arabic equivalents</td></tr>
-          <tr><td>Learning and neural methods</td><td>machine learning; deep learning; neural network(s); reinforcement learning; 기계학습; 딥러닝; 机器学习; 機械学習</td></tr>
-          <tr><td>Applications and earlier terminology</td><td>natural language processing; computer vision; algorithmic decision-making; 지능형</td></tr>
-          <tr><td>Generative models</td><td>generative AI; large language model(s); foundation model(s); LLM(s); GPT and numeric variants</td></tr>
-          <tr><td>Policy and governance</td><td>AI governance, risk(s), system(s), policy/policies, ethics, regulation, safety, technology/technologies, laws, strategies, standards, oversight, accountability, assurance and alignment</td></tr>
-          <tr><td>Responsible AI</td><td>responsible AI; trustworthy AI; ethical AI; safe AI</td></tr>
-        </tbody>
-      </table>
-      <p><strong>Historical vocabulary remains incomplete.</strong> The current dictionary includes 지능형, 기계학습, machine learning and neural network, but does not explicitly include 머신러닝, 머시러닝, 기계 학습, 전문가 시스템, expert system, knowledge-based system or intelligent system. These are proposed expansion candidates requiring contextual checks, especially for earlier decades. The 84,438 count does not include a rerun with this expanded dictionary. Recovering omissions requires rescreening the 300,555-record canonical corpus where recoverable, not just the retained subset. No assumption is made that one terminology uniformly characterised the 1990s.</p>
-      <p><strong>Non-AI meanings.</strong> Exclusion requires strong alternative-meaning evidence without explicit computational AI evidence. Biological neural-network exclusions require biological context in the title and no computational signal. Non-AI LLM and GPT expansions are also checked. Avian influenza and air-quality mentions alone do not trigger exclusion because AI may be applied in these domains. Of the retained records, 1,050 biological/computational ambiguity cases and 76 air-context ambiguity cases remain flagged for review.</p>
+<section id="source-observations"><span id="contamination"></span><h2>2. Parse, normalise and check contamination</h2><p>Derive an immutable observation ID from file hash and record ordinal. Preserve raw records and repeated fields. Extract identifiers, title, abstract or summary, keywords, publisher, authors, affiliations, language, genre, dates and URLs. Distinguish provider-generated summaries from original abstracts.</p>
+<table class="method-table"><thead><tr><th>Field</th><th>Rule</th></tr></thead><tbody><tr><td>Text</td><td>Preserve raw text; create Unicode NFKC and whitespace-normalised matching values. Record OCR uncertainty.</td></tr><tr><td>Identifiers</td><td>Extract every available namespaced ID independently. Normalise DOI prefixes and case; record syntax and resolution status separately.</td></tr><tr><td>URLs</td><td>Normalise scheme and hostname case. Preserve case-sensitive paths and identifying query parameters. Remove only explicitly listed tracking parameters.</td></tr><tr><td>Dates</td><td>Prefer publication date/year and verified primary dates. Never silently use retrieval or secondary dates. Store date type and evidence.</td></tr><tr><td>Missing year</td><td>Consult the original publication imprint or publisher page. A year mentioned in the title/body is only a candidate. Otherwise retain unresolved.</td></tr></tbody></table>
+<p>Check record boundaries and malformed fields, then check whether ID, title, abstract and issuer belong together. Valid RIS syntax does not establish semantic consistency. A confirmed shifted-field or mismatched-abstract pattern quarantines the affected batch until diagnosed and corrected.</p><p><strong>Outputs</strong> Source observations, parsing errors, batch-quality decisions and quarantine records. Every source occurrence receives a disposition.</p></section>
 
-      <h3>Implemented country inference and separation</h3>
-      <table class="method-table">
-        <thead><tr><th>Attribution type</th><th>Current evidence rule</th><th>Interpretation</th></tr></thead>
-        <tbody>
-          <tr><td><code>issuer_country</code></td><td>Existing issuer-country values and country aliases in issuer or publisher names; selected subnational names map to the United States, Canada or Australia</td><td>Inherited or inferred issuing-country evidence, with provenance and confidence</td></tr>
-          <tr><td><code>target_country</code></td><td>Country aliases in the title; if absent, abstract matches are accepted only when one or two countries occur</td><td>Candidate subject country, not verified policy jurisdiction</td></tr>
-          <tr><td><code>publication_country</code></td><td>Country aliases in publication-place metadata</td><td>Place of publication</td></tr>
-          <tr><td><code>author_affiliation_country</code></td><td>Country aliases in available affiliation fields</td><td>Affiliation evidence, which is sparse</td></tr>
-          <tr><td><code>language_country_signal</code></td><td>A language lookup yields exactly one candidate country across mapped codes</td><td>Heuristic signal; shared languages do not establish national origin</td></tr>
-        </tbody>
-      </table>
-      <p>For international organisations, EU bodies and multinational issuers, the script uses country aliases in the issuer name, or a local-office marker corroborated by publication place, to propose a local issuing-country link. This heuristic does not verify the legal entity, co-issuing role or local-office authorship. Country and regional names may be ambiguous and require review. Language and subject-country evidence do not overwrite <code>issuer_country</code>.</p>
-      <p>Each typed link stores the document identifier, attribution type, country code, whole-count value, method, confidence and evidence field/value. The unique key is <code>(record_id, attribution_type, jurisdiction_code)</code>. A second view combines evidence types into one <code>(record_id, interest_country)</code> row with value 1. A document linked to Korea and the United States contributes 1 to each; repeated evidence for Korea still contributes only 1.</p>
-      <p><strong>Analytical use.</strong> The 40,058 documents labelled <code>resolved</code> have at least one signal of any type. The 44,038 union pairs measure broad country relatedness, not verified national publication output. Use issuer links for issuing-country analysis and report target, publication-place, affiliation and language evidence separately or as sensitivity variants. Rule-based confidence labels are not calibrated probabilities. Documents linked to 20 or more countries require specific review before analytical use.</p>
+<section id="deduplication"><h2>3. Resolve duplicates and select metadata</h2><ol><li>Extract all PC IDs, DOIs and canonical URLs from all relevant fields. An unusable populated ID must not prevent extraction from another field.</li><li>Create candidate pairs using shared namespaced identifiers. Title, publisher, year and language similarities generate review candidates only.</li><li>Before merging, check title, issuer, language, publication date type, edition/revision and available abstract/content. Substantive conflicts block automatic merging. Missing values are not evidence of compatibility.</li><li>Merge only the same document version. Keep translations, substantive revisions and annual editions separate with typed relations. Check every member of a proposed cluster; transitive links do not override conflicts.</li><li>Rank canonical anchors by structural validity and core metadata completeness, followed by secondary completeness and a stable observation-ID tie-breaker. Abstract length alone does not establish quality.</li><li>Fill missing fields only from accepted same-version records. Preserve conflicting non-empty values and the source of every selected field.</li></ol>
+<p><strong>Outputs</strong> Canonical records, record-source links, match decisions, field provenance, document relations and prior-to-current ID crosswalks. Each accepted observation maps to one canonical record per release.</p><p><strong>Checks</strong> Different editions remain separate; tracking-only URL changes may match; different document-identifying parameters remain distinct; compatible DOI-only and PC-ID records sharing a DOI become candidates. Evaluate both false merges and residual duplicates.</p></section>
 
-      <h3>Reproducibility and pending work</h3>
-      <p>The executed scripts are <code>build_local_master.py</code>, <code>audit_ai_false_positives.py</code> and <code>build_all_country_attribution.py</code>. The country outputs are stored in <code>analysis/workflow_compliant_policy_release_20260919/release_v5_all_country_attribution</code>, with a summary JSON and SHA-256 manifest. These are project-relative paths, not public data downloads. Checks on identifiers, counts and whole-count weights establish structural consistency, not classification accuracy.</p>
-      <p>Pending work comprises historical and multilingual dictionary expansion, review of ambiguous AI meanings, cross-identifier duplicate audits, checks of ambiguous institution and place names, and independent validation of country attribution. This documentation update does not rerun classification or change the underlying data.</p>
-    </div>
+<section id="ai-relevance"><span id="evidence-enrichment"></span><h2>4. Screen historical and multilingual AI relevance</h2><p>Screen title, abstract/summary and keywords. Enrich insufficient records from original documents where available and record the evidence. Collection-query membership is not an AI label.</p><p>Use one versioned dictionary for inclusion and protection against erroneous exclusion. Each entry records language, term, spelling/spacing/hyphenation variants, ambiguity class, context rule and rule ID. Preserve all matched spans and fields; do not classify from a truncated earlier match list.</p>
+<table class="method-table"><thead><tr><th>Class</th><th>Examples</th><th>Treatment</th></tr></thead><tbody><tr><td>Explicit AI and methods</td><td>artificial intelligence; machine learning; deep learning; artificial neural network; reinforcement learning; natural language processing; computer vision; generative AI; large language model; 인공지능; 기계학습; 머신러닝; 人工智能; 人工智慧; 人工知能</td><td>Retain contextual AI, application, governance or impact evidence. Mark incidental mentions separately.</td></tr><tr><td>AI policy</td><td>AI governance, risk, system, policy, ethics, regulation, safety, technology, strategy, standards; responsible/trustworthy AI</td><td>Retain when the AI meaning is established.</td></tr><tr><td>Historical or ambiguous</td><td>expert system; knowledge-based system; machine intelligence; intelligent system; 전문가 시스템; 지능형; neural network; LLM; GPT; ML; 머시러닝</td><td>Generate candidates requiring computational, learning, inference, knowledge-representation or explicit AI context.</td></tr><tr><td>Alternative meanings</td><td>avian influenza; biological neural networks; Master of Laws; general-purpose technology; medical GPT</td><td>Exclude only when the alternative meaning is established and no independent AI evidence remains.</td></tr></tbody></table>
+<p>Expand historical and multilingual expressions explicitly, including OCR line breaks and spacing variants. Do not assume one vocabulary characterises an entire decade. Rescreen the full recoverable canonical population, including previously excluded records, when the dictionary changes.</p><p>Store <code>ai_relevance = confirmed | candidate | non_ai | insufficient_evidence</code> and <code>evidence_scope = central | application | incidental | unclear</code>. Broad screening retains confirmed and candidate documents. A keyword in the title alone does not establish centrality.</p><p>Reassess the previous 430 exclusions using the unified dictionary and source evidence. Retain ambiguous cases for adjudication. Report recovered historical documents and changes to retained and excluded sets.</p></section>
 
-    <h2 id="inventory">1. Freeze and inventory the local collection</h2>
-    <div class="entry">
-      <p>Begin with every Policy Commons RIS, CSV, JSON, JSONL, database and archive stored locally, particularly under <code>/Users/deep1003/Downloads</code>. Resolve symbolic links and cloud-backed aliases before counting so the same physical file is not inventoried twice.</p>
-      <ol class="plain">
-        <li>Record path, real path, file type, byte size, modification time, SHA-256, hydration status, record count, query, module, page, year partition and collection category.</li>
-        <li>Assign each raw occurrence the immutable key <code>(source_file_sha256, source_record_ordinal)</code>.</li>
-        <li>Retain raw bytes or a raw-record hash, parsed-record hash and normalised-content fingerprint.</li>
-        <li>Freeze a read-only snapshot before any parsing, matching or exclusion begins.</li>
-      </ol>
-      <p><strong>Outputs.</strong> <code>local_file_manifest</code>, <code>local_file_integrity_report</code>, <code>local_collection_category_registry</code> and a snapshot manifest with run ID and timestamps.</p>
-    </div>
+<section id="policy-document-filter"><h2>5. Classify document form and genre</h2><p>Store content form, genre and institution type separately. A university can issue a policy report; a government portal can host a journal article.</p><ul><li>Exclude standalone audio, video, images and tables from the document-analysis view. Scanned reports remain documents despite poor OCR.</li><li>Route clearly identified scholarly papers and patents separately using publication/identifier evidence.</li><li>Exclude logistical meeting notices, agendas and attendance lists. Retain substantive decisions, recommendations or policy reports produced through meetings.</li><li>Preserve uncertain genres with reason codes.</li></ul><p>Country inference may cover all AI candidates. Apply genre eligibility again when constructing the analytical view so excluded genres do not re-enter through a country link.</p></section>
 
-    <h2 id="contamination">2. Validate parsing and contamination</h2>
-    <div class="entry">
-      <p>Structural and record-pair integrity must pass before records can be linked or classified.</p>
-      <ol class="plain">
-        <li>Validate RIS <code>TY</code>/<code>ER</code> boundaries, encoding, empty records, truncation and unexpected field drift.</li>
-        <li>Check repeated IDs for conflicting titles, abstracts, typed dates, publishers and URLs.</li>
-        <li>Detect title-abstract shifts by comparing adjacent records in original export order.</li>
-        <li>Flag identical long abstracts attached to unrelated IDs and identical titles with materially incompatible abstracts.</li>
-        <li>Validate a reproducible stratified sample against Policy Commons pages or original publisher documents.</li>
-      </ol>
-      <p>A confirmed sequential shift, repeated abstract mismatch, parser-truncation pattern or export-order corruption quarantines the entire source batch. Release from quarantine requires reparse, frozen-sample revalidation, reviewer identity, evidence, parser version and result. No quarantined observation enters matching, enrichment or classification.</p>
-      <p><strong>Outputs.</strong> <code>source_batch_quarantine</code>, <code>record_integrity_flags</code>, accepted-batch registry and contamination audit report.</p>
-    </div>
+<section id="country-attribution"><span id="algorithm"></span><h2>6. Resolve institutions and country relationships</h2><p>Identify issuer/co-issuer, publisher, contractor, commissioning/adopting body, author affiliation and host/repository roles. Resolve exact entities and publication-time jurisdictions where evidence permits. The institution authority table records aliases, type, jurisdiction, parent entity, validity dates, source and review status.</p>
+<table class="method-table"><thead><tr><th>Concept</th><th>Required evidence</th></tr></thead><tbody><tr><td><code>issuer_country</code></td><td>Issuing/co-issuing entity and its jurisdiction. Publication place, language and title mentions alone are insufficient.</td></tr><tr><td><code>target_country</code></td><td>The country is a substantive policy or issue subject, not merely an example or name occurrence.</td></tr><tr><td><code>publication_country</code></td><td>Publication-place metadata with provenance.</td></tr><tr><td><code>author_affiliation_country</code></td><td>Identified author-affiliation relationship and institution jurisdiction.</td></tr><tr><td><code>language_country_signal</code></td><td>Indirect language-derived candidate jurisdictions, potentially multiple.</td></tr><tr><td><code>policy_jurisdiction</code></td><td>Verified governmental commission, adoption or territorial applicability.</td></tr></tbody></table>
+<ol><li>Audit inherited values. A country inferred through <code>place_metadata</code> remains publication country and cannot automatically become issuer country. Preserve the original inference chain.</li><li>Extract country/subnational mentions as candidates. Prefer longest matching entities, suppress overlapping aliases and resolve ambiguous names through context. Otherwise retain uncertainty.</li><li>Determine each candidate's relationship to the document or institution. Store country mentions before confirming target-country links. One or two mentions do not prove policy relevance.</li><li>Use language to prioritise investigation and corroborate evidence. Shared languages yield multiple candidates. Unsupported language codes must not be ignored to create false certainty. Translation alone creates no baseline country attribution.</li><li>Retain every evidence reference, relationship, method, rule version and review status. Do not take the maximum confidence across unrelated evidence types.</li></ol>
+<span id="private"></span><h3>International and multinational issuers</h3><p>Attribute OECD and other global publications to the organisation, not its headquarters country. A verified local-office issuer can receive a national issuer link. A headquarters report substantively about a country may receive a target-country link. “Country programme” in a title does not prove local issuance.</p><p>For KPMG, BCG, Deloitte and similar firms, resolve the actual national legal entity or issuing office. A brand, headquarters address or language is insufficient. A government commission creates separate policy-jurisdiction evidence without converting a contractor into a government issuer.</p><span id="codes"></span><p>Use ISO alpha-3 codes under a frozen territorial convention. Preserve international actors separately, for example XIG, XEU and XMN. Unresolved and “multiple” flags are not country rows.</p><p><strong>Required counterexamples</strong> North Korea must not map to South Korea; Northern Ireland must not additionally map to Ireland; New Mexico must not additionally map to Mexico; Victoria, British Columbia must not imply Australia; American Indian must not imply India. A French translation of a Canadian report creates no French issuer link. Swiss publication place with an unknown issuer leaves issuer country unresolved.</p></section>
 
-    <h2 id="source-observations">3. Parse, normalise and preserve provenance</h2>
-    <div class="entry">
-      <p>Parsing creates a source-observation layer rather than a prematurely merged master. Raw values are never overwritten.</p>
-      <ol class="plain">
-        <li>Parse fields into namespaced observed values while preserving original strings and order.</li>
-        <li>Apply versioned normalisers for identifiers, URLs, Unicode text, organisations, languages and typed dates.</li>
-        <li>Store one row per parsed occurrence in <code>source_observation</code> and one row per value in field-level provenance.</li>
-        <li>Represent missing, malformed, conflicting and unavailable values with explicit reason codes.</li>
-        <li>Retain every discovery route in <code>source_collection_route</code>, keyed to <code>source_observation_id</code>; canonical category views are derived from these occurrence-level records.</li>
-      </ol>
-      <p><strong>Outputs.</strong> <code>source_observation</code>, raw and normalised field tables, <code>source_collection_route</code>, parser report and normaliser-version manifest.</p>
-    </div>
+<section id="policy-eligibility"><span id="rule"></span><h2>7. Build analysis views and whole counts</h2><table class="method-table"><thead><tr><th>View</th><th>Rule</th></tr></thead><tbody><tr><td>AI candidates</td><td>Confirmed/candidate AI with all uncertainty and genre labels.</td></tr><tr><td>National issuing activity</td><td>Eligible form/genre and confirmed national issuing relationship, including qualifying public and private issuers.</td></tr><tr><td>Country-specific issues</td><td>Eligible form/genre and confirmed substantive target-country or policy-jurisdiction relationship, including relevant international reports.</td></tr><tr><td>Broad country interest</td><td>Union of qualifying issuer, target and policy-jurisdiction links. Retain relationship types and report components separately.</td></tr><tr><td>Exploratory country candidates</td><td>Unconfirmed links and language, publication-place or affiliation signals. Report separately from baseline.</td></tr></tbody></table>
+<p>Institutional classes include central government, parliament/regulator, subnational government, public research, private research/think tank, other private issuer, international organisation and unresolved. These classes support comparison and do not substitute for relevance evidence.</p><pre>typed links: UNIQUE(record_id, attribution_type, jurisdiction_code)
+analysis view: filter AI, form/genre, relationship and review status
+              distinct(record_id, jurisdiction_code)
+              attribution = 1</pre><p>One qualifying document linked to Korea and the United States contributes one to each. Two Korean issuers still contribute one to Korea. Use no percentage shares. Multilingual does not mean multinational. Report unique document counts and document-country counts separately.</p></section>
 
-    <h2 id="deduplication">4. Resolve document identity, versions and duplicates</h2>
-    <div class="entry">
-      <p>The analytical deduplication unit is a document version: the same intellectual content in the same language, edition and revision. Each parsed export row is a <code>source_observation</code>. Provider IDs and hosting URLs identify observations or platform items; they do not by themselves define the analytical entity. Verified publisher and repository copies of the same version may share one <code>canonical_record</code>, while translations, abridgements, revised editions and substantive updates remain separate records connected by typed relations. Raw downloads are immutable and are not deleted by this procedure.</p>
+<section id="release"><span id="local-master"></span><span id="icloud-reconciliation"></span><span id="reporting"></span><h2>8. Validate, reconcile and release</h2><ol><li>Pass fixed counterexample tests for identifiers, edition compatibility, alternative AI meanings, geographical ambiguity, global issuers and whole counting.</li><li>Freeze a validation sample before tuning. Include retained and excluded records and duplicate candidates, stratified by period, language, institution, rule and missingness. Save the sampling frame, seed, inclusion probabilities and IDs. Oversample rare historical/ambiguous cases and use sampling weights for population estimates.</li><li>Use two independent coders, source evidence and adjudication. Label AI-assisted reviews explicitly. Review all 430 prior exclusions.</li><li>Report duplicate false merges and residual duplicates, AI precision/recall, issuer and target accuracy/coverage, unresolved rates and coder disagreement, with 95% confidence intervals. Recall requires examining excluded records too. Checksum agreement does not measure accuracy.</li><li>Freeze acceptance thresholds appropriate to each analysis before validation. Unvalidated rules remain candidate rules. A quality target is not an achieved result.</li><li>Freeze the local master, process additional iCloud observations using the same rules, then reconcile through the same duplicate procedure while retaining all collection memberships.</li><li>Write a new versioned release with stage counts, change log, unresolved issues, permitted views and checksums.</li></ol>
+<span id="data"></span><h3>Minimum release package</h3><pre>run_config.json; environment.lock; input_manifest.csv
+versioned dictionaries and institution authority table
+canonical_records.parquet; record_source_links.parquet
+field_provenance.parquet; match_decisions.parquet
+document_relations.parquet; record_id_crosswalk.parquet
+country_evidence.parquet; document_country_links.parquet
+analysis_membership.parquet; validation_sample.csv
+validation_decisions.csv; validation_report.json
+stage_counts.csv; CHANGELOG.md; SHA256SUMS.txt</pre><p>Canonical records retain ID, year/date provenance, title, abstract/summary, keywords, language, publisher, authors, affiliations, URLs and classification labels. Evidence tables preserve full source references, rules and statuses. Require unique IDs, valid foreign keys, unique typed links, weights equal to one and a disposition for every observation.</p><p>Reproduction requires frozen inputs, executable code, dictionaries, authority tables and an environment lock. This page is a reproducible-process specification; it is not an executable data package.</p></section>
 
-      <h3>Precondition: contamination gate</h3>
-      <p>Records are not merged until title, abstract, typed dates, publisher and URL are shown to belong together. Repeated identifiers with conflicting content, shifted title-abstract pairs, truncated RIS records and systematic export-order errors are quarantined before entity resolution. A confirmed sequential shift, repeated mismatched long abstract, parser-truncation pattern or export-order corruption quarantines the entire source batch. No observation from that batch may enter matching, field completion or AI classification until it is reparsed and a frozen validation sample passes. Quarantine release records the evidence, reviewer, parser version and revalidation result.</p>
+<section id="implementation-snapshot"><h2>Existing results and migration</h2><p>These counts belong to the earlier implementation and are not outputs of version 3.0.</p><table class="method-table"><thead><tr><th>Earlier stage</th><th>Count</th></tr></thead><tbody><tr><td>Source observations</td><td>406,029</td></tr><tr><td>Canonical groups under prior rules</td><td>300,555</td></tr><tr><td>Broad AI keyword matches</td><td>84,868</td></tr><tr><td>Alternative-meaning exclusions requiring review</td><td>430</td></tr><tr><td>Retained AI candidates</td><td>84,438</td></tr><tr><td>Documents with any country signal</td><td>40,058</td></tr><tr><td>Documents with no country signal</td><td>44,380</td></tr><tr><td>Unfiltered document-country signal union</td><td>44,038</td></tr></tbody></table><p>Earlier rules selected one priority identifier, lacked full edition compatibility checks, used incomplete historical vocabulary, inherited some publication-place values as issuer countries and combined language with other country signals. The union is exploratory, not verified national output.</p><p>Migration order: verify source recoverability; audit duplicate conflicts; correct inherited country provenance and geographical rules; review exclusions; rescreen the full recoverable population with the expanded dictionary; construct separate views; validate and release. Preserve previous masters and never claim recovery of unavailable records.</p><p>The earlier scripts <code>build_local_master.py</code>, <code>audit_ai_false_positives.py</code> and <code>build_all_country_attribution.py</code> require revision before they implement version 3.0. The previous country output is <code>analysis/workflow_compliant_policy_release_20260919/release_v5_all_country_attribution</code>.</p></section>
 
-      <h3>Identity hierarchy</h3>
-      <table class="method-table">
-        <thead><tr><th>Priority</th><th>Evidence</th><th>Decision rule</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Policy Commons artifact ID and file ID</td><td>Namespace-qualified keys only. No single ID authorises a merge. Title and issuer compatibility must pass and language, edition, revision, typed dates and content must not contradict.</td></tr>
-          <tr><td>2</td><td>Canonical Policy Commons URL</td><td>Automatic merge requires a normalised canonical URL plus compatible core metadata. Redirects to collection pages, reused URLs and incompatible content are hard vetoes.</td></tr>
-          <tr><td>3</td><td>DOI, ISBN, report number or official publisher URL</td><td>Require registry-valid identifiers plus issuer, language, edition and document compatibility. Bare ISBNs and report numbers are not globally unique.</td></tr>
-          <tr><td>4</td><td>Normalised title, publisher, year, language and compatible abstract</td><td>Create a review candidate. Weak or fuzzy metadata alone never triggers an automatic merge.</td></tr>
-        </tbody>
-      </table>
-      <p><strong>Hard vetoes.</strong> A reused or cross-namespace ID, incompatible title or abstract, different language or edition, substantive revision, conflicting date type, or URL resolving to a collection page blocks automatic merging and creates an <code>id_conflict</code> or quarantine record.</p>
-
-      <h3>What is and is not a duplicate</h3>
-      <table class="method-table">
-        <thead><tr><th>Relationship</th><th>Treatment</th></tr></thead>
-        <tbody>
-          <tr><td>Same manifestation collected through different searches, modules or pages</td><td>One canonical record, with all collection memberships retained.</td></tr>
-          <tr><td>Same record with complementary non-conflicting metadata</td><td>One canonical record; missing fields may be completed through field-level provenance.</td></tr>
-          <tr><td>Translation, revised edition, updated report, abridgement or supplement</td><td>Separate <code>record_id</code> values linked by a typed <code>work_relation</code>; no automatic transitive equivalence cluster.</td></tr>
-          <tr><td>Same title but different publisher, year, abstract or document</td><td>Not merged automatically. Place in the conflict or review table.</td></tr>
-          <tr><td>Repository copy and original publisher record</td><td>Collapse only when checksum or verified bibliographic and content evidence establishes the identical language, edition and revision. Otherwise keep separate for review.</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Canonical record and field survivorship</h3>
-      <p>The canonical anchor is ranked by structural validity, valid identifiers and URL, completeness of title, abstract, typed dates and publisher, richer secondary metadata, and preference for direct source metadata over generated summaries. A newer retrieval is only a tie-breaker. Field completion occurs only after identity is accepted. Values are never borrowed from translations, revisions, work-cluster relatives or merely similar candidates. Conflicting non-empty values remain explicit alternatives. Each selected field stores its source observation, original value, normaliser version, rule, decision status and conflict flag.</p>
-
-      <h3>Versioned normalisation</h3>
-      <p>Normalisers are frozen and versioned. DOI processing lower-cases and removes resolver prefixes after registry validation. URL processing normalises scheme and host case, removes fragments and tracking parameters, preserves content-bearing parameters and stores redirect targets with retrieval time. Titles use Unicode NFKC, controlled whitespace and punctuation handling, and language-aware rules. ISBN checksum, edition compatibility and organisation authority IDs are validated. Binary SHA-256 is strong mirror evidence; extracted-text hashes and similarity measures generate candidates only because OCR and templates can distort them.</p>
-
-      <h3>Required outputs and tests</h3>
-      <ul class="plain">
-        <li><code>canonical_record</code>: one accepted manifestation per <code>record_id</code>.</li>
-        <li><code>record_source_link</code>: every raw occurrence linked to its canonical record.</li>
-        <li><code>duplicate_record_map</code>: source record, canonical record, match rule, evidence and review status.</li>
-        <li><code>work_relation</code>: typed <code>translation_of</code>, <code>revision_of</code>, <code>abridgement_of</code>, <code>supplement_to</code> and <code>mirror_of</code> relations with evidence and review status.</li>
-        <li><code>field_survivorship</code>: selected and conflicting values with field-level provenance.</li>
-        <li><code>id_conflict</code>, <code>match_candidate</code>, <code>match_decision</code> and <code>source_batch_quarantine</code>: reversible evidence for blocked and accepted decisions.</li>
-      </ul>
-      <p>Each candidate follows a deterministic state machine: <code>candidate</code> to <code>auto_accept</code>, <code>review_pending</code>, <code>accepted</code>, <code>rejected</code> or <code>conflict_quarantine</code>. A source observation maps to at most one canonical record per method version; mappings cannot self-link and reruns with the same snapshot and configuration must be identical.</p>
-      <p>Validation reports pairwise precision, recall and F1, cluster-level over-merges and under-merges, false-merge severity, rule-specific results and 95% confidence intervals by language, period, issuer and missingness. The frozen test set is never used for tuning. Automatic merging requires at least 99.9% precision with its numerator, denominator and confidence interval reported; an inadequately sized test leaves that rule in review-only mode. Ambiguous pairs are independently coded by two blinded reviewers and adjudicated. Deduplication therefore produces a reversible analytical view, not destructive deletion.</p>
-    </div>
-
-
-    <h2 id="evidence-enrichment">5. Enrich missing evidence-bearing metadata</h2>
-    <div class="entry">
-      <p>Recover missing title, abstract, language, identifiers, issuer candidates, publisher and original-document links only from accepted source observations, official pages or original documents. Enrichment fills evidence needed by later classifiers but never assigns AI relevance, genre or policy labels.</p>
-      <ol class="plain">
-        <li>Retain observed, normalised, inferred and manually verified values separately.</li>
-        <li>Store source observation, evidence URL, access time, extraction method, confidence and missingness reason for every completed value.</li>
-        <li>Never overwrite conflicting non-empty values or borrow fields from translations, revisions or similar documents.</li>
-        <li>If new evidence changes an identity decision, start a new method-version rerun from Step 4 instead of retroactively mutating the earlier run.</li>
-      </ol>
-      <p><strong>Exit gate.</strong> Required classification fields have evidence-tier and missingness codes; conflicts and unsupported fields remain explicit. Output is a versioned enrichment layer linked to, not replacing, source observations.</p>
-    </div>
-    <h2 id="ai-relevance">6. Classify AI / Non-AI relevance</h2>
-    <div class="entry">
-      <p>AI relevance and policy eligibility are independent axes. AI relevance uses only evidence about whether AI is substantively discussed; it must not use issuer type, policy genre or the presence of recommendations as model features. A technical paper can be centrally about AI but policy-ineligible, while a government report can be policy-eligible but non-AI. Inclusion in the primary country-policy master requires an AI label of core or substantive, an eligible policy label, and a separately resolved issuer jurisdiction.</p>
-
-      <h3>Evidence used</h3>
-      <p>Classification uses the title, abstract or summary, controlled keywords and available full text, with language-aware normalisation. Evidence follows this order: original full text, original publisher abstract or summary, Policy Commons generated summary, controlled keywords, then retrieval query. Generated or AI-enriched metadata is flagged and cannot be the sole basis for inclusion or exclusion. Every decision retains the supporting span, source rank, field-level language, translation status, OCR quality, rule or model version, score, threshold, reason code and review status.</p>
-
-      <h3>Evidence-completeness tiers</h3>
-      <table class="method-table">
-        <thead><tr><th>Tier</th><th>Available evidence</th><th>Permitted automation</th></tr></thead>
-        <tbody>
-          <tr><td><code>E0</code></td><td>No usable title, summary or full text</td><td>Always <code>unresolved</code>.</td></tr>
-          <tr><td><code>E1</code></td><td>Usable title only</td><td>High-precision positive routing only; ambiguous cases remain unresolved. Publisher keywords alone cannot justify non-AI exclusion.</td></tr>
-          <tr><td><code>E2</code></td><td>Title plus usable abstract or summary</td><td>Rule and calibrated model classification, subject to conflict checks.</td></tr>
-          <tr><td><code>E3</code></td><td>Usable original full text</td><td>Full classification with auditable evidence spans.</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Five-class relevance codebook</h3>
-      <table class="method-table">
-        <thead><tr><th>Label</th><th>Operational criterion</th><th>Master-corpus treatment</th></tr></thead>
-        <tbody>
-          <tr><td><code>core_ai_policy</code></td><td>Legacy label meaning that AI is the central subject. The label name does not establish policy eligibility.</td><td>Include in the AI master; apply the separate policy-eligibility gate.</td></tr>
-          <tr><td><code>substantive_ai_component</code></td><td>AI is a material analytical or policy component and removing it would substantially change the document's purpose or conclusions.</td><td>Include in the AI master with a component flag.</td></tr>
-          <tr><td><code>incidental_ai_mention</code></td><td>AI appears only as an example, short contextual reference, generic technology list or peripheral tool.</td><td>Exclude from the primary AI master; retain in an auxiliary review dataset.</td></tr>
-          <tr><td><code>non_ai</code></td><td>No substantive AI subject is present, or the apparent match is caused by ambiguity, metadata contamination or retrieval noise.</td><td>Exclude from the analytical AI master; retain in the frozen exclusion table.</td></tr>
-          <tr><td><code>unresolved</code></td><td>Evidence is missing, contradictory, OCR-damaged, multilingual and ambiguous, or near a decision threshold.</td><td>Manual review. Never treat as automatically non-AI.</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Ordered decision tree</h3>
-      <ol class="plain">
-        <li>If usable evidence is insufficient, contradictory or OCR-damaged, assign <code>unresolved</code>.</li>
-        <li>If adequate inspected evidence affirmatively shows no genuine AI discussion, assign <code>non_ai</code>.</li>
-        <li>If AI appears only as an example, generic list item, peripheral tool or isolated reference, assign <code>incidental_ai_mention</code>.</li>
-        <li>If at least one substantive section or recurring analysis concerns AI but the wider document remains about another subject, assign <code>substantive_ai_component</code>.</li>
-        <li>Assign <code>core_ai_policy</code> only when the declared purpose and main questions, findings or conclusions centrally concern AI.</li>
-      </ol>
-      <p>Decision precedence is <code>unresolved</code>, <code>non_ai</code>, <code>incidental_ai_mention</code>, <code>substantive_ai_component</code>, then <code>core_ai_policy</code>. Removing the AI passages is used as an operational counterfactual: if a main question, finding, conclusion or substantive section would materially change, the record is substantive or core rather than incidental.</p>
-
-      <h3>Positive and negative decision rules</h3>
-      <table class="method-table">
-        <thead><tr><th>Evidence pattern</th><th>Default interpretation</th></tr></thead>
-        <tbody>
-          <tr><td>Artificial intelligence, machine learning, deep learning, neural networks, generative AI, foundation models or named AI systems discussed as the document's subject</td><td>Positive evidence, provided the surrounding text confirms substantive treatment.</td></tr>
-          <tr><td>AI governance, ethics, regulation, standards, assurance, safety, risk, labour, education, capability, environment or public administration</td><td>Positive AI evidence when AI-specific analysis is present, but policy eligibility is decided separately.</td></tr>
-          <tr><td>Off-the-shelf AI used only as a tool in otherwise unrelated domain research</td><td>Usually <code>incidental_ai_mention</code>. Method-comparison or algorithm-performance research may be core or substantive AI while still being policy-ineligible.</td></tr>
-          <tr><td>Ambiguous abbreviations, organisation names, product names, author names, OCR errors or keyword-only matches unsupported by title and abstract</td><td><code>non_ai</code> only when adequate inspected evidence rejects AI relevance; otherwise <code>unresolved</code>.</td></tr>
-          <tr><td>Generic digitisation, automation, algorithms, robotics or data analysis without an explicit and substantive AI connection</td><td>Not sufficient for AI inclusion.</td></tr>
-          <tr><td>Missing or very short abstract but an authoritative AI-specific title, full text or publisher classification</td><td>Do not exclude automatically; route to full-text or manual review.</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Multilingual and historical controls</h3>
-      <p>Language and script are detected by field. Rules retain original and translated evidence and handle Unicode normalisation, CJK segmentation, Arabic and Persian morphology, transliteration and code-switching. Unsupported language-model combinations and low-quality machine translations are unresolved. Controlled lexicons are language- and version-specific and include false friends. Time-versioned terminology covers expert systems, knowledge-based systems, machine intelligence, cybernetics and early neural-network language when context establishes AI; generic algorithms, automation, robotics and data processing are never equated with AI automatically.</p>
-
-      <h3>Decision pipeline</h3>
-      <ol class="plain">
-        <li>Run multilingual high-precision inclusion and exclusion rules.</li>
-        <li>Evaluate title-abstract-keyword consistency and reject contaminated field pairings.</li>
-        <li>Apply a versioned and calibrated semantic classifier only to records whose evidence tier permits it.</li>
-        <li>Route abbreviation ambiguity, missing abstracts, conflicting evidence and boundary scores to manual review.</li>
-        <li>Apply the document-genre and policy-eligibility gate separately after AI relevance is assigned.</li>
-        <li>Freeze exclusion evidence before any deletion-candidate manifest is created.</li>
-      </ol>
-
-      <h3>Validation and release gate</h3>
-      <p>All training, development and frozen-test partitions are separated at <code>work_cluster_id</code> level, including duplicate, translation, edition and revision families. Thresholds are fixed before the frozen test. Performance is reported by class, language and script, period, evidence tier and document genre, with sampling-weighted estimates, work-cluster metrics, macro and worst-group results, and 95% confidence intervals. Reviewers are blinded to query, source label and model prediction; they complete calibration batches, independent coding and third-party adjudication, with per-class agreement and Krippendorff's alpha reported.</p>
-      <p>Automatic exclusion is permitted only when the lower bound of the pre-specified one-sided 95% confidence interval for precision among predicted <code>non_ai</code> records is at least 99.5%, and recall for central AI-subject records is at least 98%. Failure in any required stratum blocks automation. Passing these gates creates deletion candidates only; physical deletion still requires a frozen manifest, checksums, an independent exclusion audit, a successful restore test and explicit approval. Retrieval recall is measured separately against an external country-year-language benchmark of known AI strategies, laws and reports.</p>
-
-      <h3>Separate policy-eligibility axis</h3>
-      <p><code>policy_eligibility_label</code> uses <code>eligible_national_policy</code>, <code>eligible_subnational_policy</code>, <code>eligible_igo_policy</code>, <code>government_linked_auxiliary</code>, <code>non_policy</code> and <code>unresolved</code>. This decision uses document genre, issuer role, governmental relationship and policy function only after AI relevance has been assigned. Raw audit proportions from stratified samples are not reported as corpus composition without sampling weights and confidence intervals.</p>
-    </div>
-
-    <h2 id="policy-document-filter">7. Determine document form and genre</h2>
-    <div class="entry">
-      <p>This stage classifies physical information objects and document genre; it does not determine final policy eligibility. It excludes records that are confidently scholarly papers or patent documents from the derived policy-report corpus. It does not physically delete source files. Confirmed papers and patents are retained in separate AI-paper and AI-patent auxiliary corpora with their identifiers, metadata and collection provenance.</p>
-
-      <h3>Independent classification axes</h3>
-      <p>Before paper and patent separation, classify each object as a substantive document, non-document artefact, fragment or unresolved. Audio, video, images, isolated tables, folders, routine event notices and similar artefacts do not enter the policy-document corpus. Policy Commons artifact type alone is insufficient; scanned and OCR-poor official reports remain document candidates.</p>
-      <p><code>document_genre_normalised</code> and <code>policy_eligibility_label</code> are decided separately. A document can have scholarly features but still be an official government-commissioned or adopted policy output. Conversely, a document hosted by a government or university is not automatically a policy report. Institution type alone never determines document genre.</p>
-
-      <h3>Required genre labels</h3>
-      <table class="method-table">
-        <thead><tr><th>Label</th><th>Definition</th><th>Policy-corpus treatment</th></tr></thead>
-        <tbody>
-          <tr><td><code>policy_document</code></td><td>Report, policy brief, strategy, legislation, regulation, guideline, standard, consultation, official evaluation or comparable policy output.</td><td>Retain, subject to AI relevance and issuer eligibility.</td></tr>
-          <tr><td><code>scholarly_article</code></td><td>Journal article, conference paper, proceedings contribution, preprint, thesis chapter or research manuscript whose primary function is scholarly communication.</td><td>Exclude from the policy master and retain in the AI-paper corpus.</td></tr>
-          <tr><td><code>patent_document</code></td><td>Patent application, granted patent, utility model or patent-family publication issued through an intellectual-property office.</td><td>Exclude from the policy master and retain in the AI-patent corpus.</td></tr>
-          <tr><td><code>government_linked_research</code></td><td>Research output formally commissioned, co-issued, adopted or published as an official government evidence product.</td><td>Retain in a separate government-linked policy-evidence corpus pending policy-function review.</td></tr>
-          <tr><td><code>hybrid_or_ambiguous</code></td><td>Working paper, institutional research report, standards document, official conference report or mixed-format output whose function is unclear.</td><td>Manual review. Never exclude automatically.</td></tr>
-          <tr><td><code>unresolved_genre</code></td><td>Insufficient, contradictory, truncated or OCR-damaged genre evidence.</td><td>Manual review and metadata enrichment.</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Evidence for a scholarly paper</h3>
-      <p>Automatic paper classification requires mutually consistent structured and content evidence. Strong signals include a journal or proceedings title, volume, issue, article pagination or article number, manuscript type, conference-paper metadata, scholarly DOI registration and an abstract organised around research questions, methods, results and discussion. A DOI, university publisher, research institute or the word “paper” alone is insufficient because official reports and working papers can share these features.</p>
-      <table class="method-table">
-        <thead><tr><th>Evidence combination</th><th>Decision</th></tr></thead>
-        <tbody>
-          <tr><td>Journal or proceedings metadata plus compatible article content</td><td>High-confidence <code>scholarly_article</code>.</td></tr>
-          <tr><td>Preprint server or repository record plus manuscript structure and scholarly identifier</td><td><code>scholarly_article</code>, while retaining the repository as host rather than issuer.</td></tr>
-          <tr><td>Government working paper or commissioned study with scholarly structure</td><td>Do not remove automatically; assess formal policy function and government relationship.</td></tr>
-          <tr><td>Conference programme, event report or policy roundtable summary</td><td>Not a conference paper unless the individual scholarly contribution is the record itself.</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Evidence for a patent document</h3>
-      <p>Patent classification uses jurisdiction-qualified publication identifiers and patent-specific metadata. Strong evidence includes a validated publication number such as WO, EP, US, KR, CN or JP with the appropriate number format, application and priority dates, applicants or assignees, inventors, claims, IPC or CPC classifications, patent-office provenance and patent-family links. A report discussing patents, a patent-landscape analysis, an innovation strategy or a document containing a patent number is not itself a patent.</p>
-      <table class="method-table">
-        <thead><tr><th>Evidence combination</th><th>Decision</th></tr></thead>
-        <tbody>
-          <tr><td>Validated patent publication number plus claims or patent-office metadata</td><td>High-confidence <code>patent_document</code>.</td></tr>
-          <tr><td>Patent-office URL plus applicant, inventor and IPC/CPC fields</td><td>High-confidence <code>patent_document</code>.</td></tr>
-          <tr><td>Patent number mentioned only in title, abstract, references or report body</td><td>Not sufficient. Classify the enclosing document by its own function.</td></tr>
-          <tr><td>Patent statistics, landscape report, examination guideline or IP policy document</td><td>Potential <code>policy_document</code> or research report, not a patent record.</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Ordered decision procedure</h3>
-      <ol class="plain">
-        <li>Verify that title, abstract, identifiers, publisher and URL passed the contamination and deduplication gates.</li>
-        <li>Extract genre evidence from raw artifact type, bibliographic fields, identifiers, original document, publisher page and full text.</li>
-        <li>Test patent evidence first because patent identifiers and claims are highly structured.</li>
-        <li>Test scholarly-paper evidence using both bibliographic structure and document purpose.</li>
-        <li>Check for formal government commissioning, co-issuance, adoption or official policy function before excluding a research-shaped document.</li>
-        <li>Assign ambiguous or conflicting cases to review rather than forcing paper, patent or policy status.</li>
-        <li>Route confirmed papers and patents to separate auxiliary corpora while preserving every source observation and exclusion reason.</li>
-      </ol>
-
-      <h3>Exclusion and audit controls</h3>
-      <p>Each decision stores raw and normalised genre, rule ID, evidence fields and spans, identifier validation result, source URL, government relationship, model version, reviewer status and reason code. Automatic exclusion requires two compatible evidence families, such as structured bibliographic metadata plus document-content evidence. Title keywords, Policy Commons artifact type, publisher name or URL pattern alone cannot trigger exclusion.</p>
-      <p>Paper and patent exclusions are evaluated separately on a stratified frozen test set. Automatic removal from the policy master is permitted only when the lower bound of the pre-specified one-sided 95% confidence interval for precision in the relevant exclusion class is at least 99.5%. Failure for either papers or patents places that rule in review-only mode. “Removal” means exclusion from the derived policy corpus; physical deletion remains prohibited until the manifest, checksum, quarantine, restore-test and approval gates are satisfied.</p>
-    </div>
-
-    <h2 id="country-attribution">8. Resolve institutions, roles and country concepts</h2>
-    <p>An expert-reviewed method for identifying the countries and non-country actors that issue AI policy documents, using distinct-country whole counting.</p>
-
-    <h3 id="rule">Counting rule</h3>
-    <div class="entry">
-      <p>Each document is attributed once to every distinct represented country of an eligible issuing institution. Multiple institutions from the same country still contribute one attribution for that country. No fractional weights or percentages are used.</p>
-      <table class="method-table">
-        <thead><tr><th>Issuing institutions</th><th>Attribution</th></tr></thead>
-        <tbody>
-          <tr><td>Two Korean public institutions</td><td><code>KOR = 1</code></td></tr>
-          <tr><td>Two Korean and one United States public institution</td><td><code>KOR = 1</code>, <code>USA = 1</code></td></tr>
-          <tr><td>Korean government and OECD</td><td><code>KOR = 1</code>, <code>XIG = 1</code></td></tr>
-        </tbody>
-      </table>
-      <p>Country totals are non-additive. A jointly issued document can appear once in more than one country, so the sum across countries can exceed the number of unique documents.</p>
-    </div>
-
-    <h3 id="algorithm">Attribution algorithm</h3>
-    <div class="entry">
-      <ol class="plain">
-        <li>Extract candidate organisations from publisher, organisation-valued author, provider fields, the Policy Commons detail page and the original document.</li>
-        <li>Separate issuer, publisher, distributor, repository, archive, host, commissioning body and adopting government.</li>
-        <li>Resolve each issuer against a versioned institution authority table, including its exact legal entity and status at publication.</li>
-        <li>Classify its role as sole issuer, co-issuer, commissioned contractor, adopting body, publisher only, host only or unresolved.</li>
-        <li>Create one country-attribution row for every distinct eligible issuer jurisdiction.</li>
-        <li>Apply <code>UNIQUE(record_id, attribution_type, jurisdiction_code)</code> so multiple issuers from one country are counted once.</li>
-        <li>Assign policy jurisdiction separately. Commissioning or adoption does not convert a private contractor into a government issuer.</li>
-      </ol>
-      <p>Publication country, issuer country, target country, author-affiliation country and policy jurisdiction remain separate variables. Raw <code>CY</code>, <code>PP</code>, <code>PB</code> and <code>AU</code> values are preserved as evidence.</p>
-    </div>
-
-    <h3 id="codes">Code system</h3>
-    <div class="entry">
-      <table class="method-table">
-        <thead><tr><th>Code</th><th>Meaning</th><th>Treatment</th></tr></thead>
-        <tbody>
-          <tr><td><code>KOR</code>, <code>USA</code>, <code>CHN</code></td><td>ISO alpha-3 issuer jurisdiction</td><td>Country attribution</td></tr>
-          <tr><td><code>XIG</code></td><td>Intergovernmental organisation</td><td>Separate international category</td></tr>
-          <tr><td><code>XEU</code></td><td>European Union institution</td><td>Separate supranational category</td></tr>
-          <tr><td><code>XIN</code></td><td>Non-state international organisation or research institute</td><td>Separate international category</td></tr>
-          <tr><td><code>XMN</code></td><td>Global multinational private issuer</td><td>Separate private category</td></tr>
-          <tr><td><code>XUN</code></td><td>Unresolved issuer jurisdiction</td><td>Manual review</td></tr>
-        </tbody>
-      </table>
-      <p><code>XMU</code> is not an attribution code. It may appear only as a legacy display flag corresponding to <code>is_multi_country = true</code>. Actual country rows remain the source of truth.</p>
-    </div>
-
-    <h3 id="private">KPMG, BCG and Deloitte</h3>
-    <div class="entry">
-      <ul class="plain">
-        <li>KPMG International, global BCG and Deloitte Global receive <code>XMN</code> and remain in the non-government policy-discourse corpus.</li>
-        <li>An explicitly identified country entity, such as KPMG Korea, may receive <code>KOR</code>, but remains a private country office and is not a primary government-policy source.</li>
-        <li>Formal government co-issuance attributes the document to the government jurisdiction while preserving the private co-issuer.</li>
-        <li>Government commissioning or adoption creates a policy jurisdiction and government-linked status without relabelling the private firm as government.</li>
-        <li>A report that merely analyses Korea receives <code>target_country = KOR</code>, not a Korean issuer attribution.</li>
-      </ul>
-    </div>
-
-    <h3 id="data">Normalised data model</h3>
-    <div class="entry">
-      <p>The source of truth is a document-country link table, not a semicolon-separated country cell. <code>CTRY</code> is populated as a scalar only when exactly one eligible jurisdiction exists. Multi-country analysis uses one <code>document_country_link</code> row per distinct eligible jurisdiction; <code>XMU</code> is never stored as an attribution row or country value.</p>
-      <p>Its core fields are <code>record_id</code>, <code>attribution_type</code>, <code>jurisdiction_code</code>, <code>attribution = 1</code>, inference method, evidence source, confidence, review status and decision version.</p>
-      <p>Separate document-institution links retain institution identity, issuer role and government relationship. The document table stores <code>is_multi_country</code>, <code>issuer_country_count</code> and <code>attribution_method_version</code>.</p>
-    </div>
-
-    <h3 id="reporting">Reporting and quality assurance</h3>
-    <div class="entry">
-      <p>Reports must show unique documents, country-attribution rows, multi-country documents, IGO records, EU records, multinational-private records and unresolved records separately. Before panel regression, country rows are aggregated to the intended country by topic by period grain.</p>
-      <p><strong>Required table note.</strong> Counts use distinct-country whole counting. Jointly issued documents may appear once in more than one country; multiple issuers from the same country are counted once. Country totals therefore do not sum to the number of unique documents.</p>
-      <p>Automated checks reject duplicate document-country keys, reject <code>XMU</code> as an attribution row, prevent non-country codes from entering ISO-country totals, and prevent publication place or policy target from being copied into issuer jurisdiction.</p>
-    </div>
-
-
-    <h2 id="policy-eligibility">9. Determine policy eligibility and analytical year/country fields</h2>
-    <div class="entry">
-      <p>Policy eligibility is decided only after AI relevance, document genre, issuer role, governmental relationship and policy function are resolved. A failure on one axis is never silently converted into failure on another.</p>
-      <table class="method-table">
-        <thead><tr><th>Condition</th><th>Destination</th></tr></thead>
-        <tbody>
-          <tr><td>AI-relevant, eligible policy function, eligible national or subnational public issuer</td><td><code>national_policy_primary</code></td></tr>
-          <tr><td>AI-relevant policy document issued by an IGO</td><td><code>international_igo</code></td></tr>
-          <tr><td>AI-relevant research formally commissioned, co-issued or adopted by government</td><td><code>government_linked</code></td></tr>
-          <tr><td>AI-relevant private, nonprofit or independent policy discourse</td><td><code>non_government_policy_discourse</code></td></tr>
-          <tr><td>AI-relevant scholarly paper or patent document</td><td>AI-paper or AI-patent auxiliary corpus</td></tr>
-          <tr><td>Non-AI or unresolved on any required axis</td><td>Approved exclusion candidate or unresolved review dataset</td></tr>
-        </tbody>
-      </table>
-      <p><strong>Primary country-policy master inclusion rule.</strong> Accepted source integrity + resolved canonical identity + <code>core_ai_policy</code> or <code>substantive_ai_component</code> + eligible document form + eligible policy function + resolved issuer or policy-jurisdiction relationship.</p>
-      <h3>Analytical dates and countries</h3>
-      <p>Derive <code>year_best</code>, issuer-country links and policy jurisdiction only after identity, genre and institutional relationships are stable. Publication, enactment, effective, copyright, update and indexed dates remain typed fields. Evidence priority is source publication date, official publisher or original document, copyright/report date, provider indexed date, then documented inference.</p>
-      <p>Country concepts remain separate: issuer country, target country, author-affiliation country and policy jurisdiction. Scalar <code>CTRY</code> is used only for a single eligible jurisdiction; multi-country attribution is represented by link-table rows.</p>
-    </div>
-
-    <h2 id="local-master">10. Build and validate the local master</h2>
-    <div class="entry">
-      <p>Build the local master in a new staging directory. Do not modify raw files or overwrite a prior release. Validate identity, AI relevance, genre, policy eligibility, institutions, countries and years separately on frozen test data grouped by document-version family.</p>
-      <ul class="plain">
-        <li>Reconcile raw observations, parse quarantine, linked observations, canonical anchors, duplicate links, accepted records, exclusions, unresolved records and conflict quarantine.</li>
-        <li>Validate primary keys, foreign keys, cardinalities, idempotent reruns and checksum equality.</li>
-        <li>Report rule-specific performance, agreement and confidence intervals by language, period, issuer, evidence tier and genre.</li>
-        <li>Freeze a local release ID, manifests, checksums, code/configuration hashes and validation report before any iCloud integration.</li>
-      </ul>
-      <p><strong>Retrieval-recall gate.</strong> Coverage is tested against a benchmark constructed independently of Policy Commons search results and stratified by country, language, period, institution type and policy genre. A failed stratum triggers documented supplementary retrieval, a new frozen input snapshot and rerunning of affected stages. Recall is not generalised beyond benchmarked strata.</p>
-    </div>
-
-    <h2 id="icloud-reconciliation">11. Freeze, process and reconcile the iCloud collection</h2>
-    <div class="entry">
-      <ol class="plain">
-        <li>Inventory iCloud inputs independently, recording storage location, cloud provider, physical-file identity or content hash, hydration status and snapshot membership.</li>
-        <li>Do not hydrate or process cloud-only inputs during Step 1; cloud processing begins only here.</li>
-        <li>Apply Steps 2 to 9 to iCloud observations with the same frozen code, identifiers, normalisers and rule versions.</li>
-        <li>Preserve the approved local release ID and reconcile into a new integrated snapshot rather than mutating the local master.</li>
-        <li>Produce a crosswalk and counts for local-only, iCloud-only, matched, enriched, conflicted and unresolved records.</li>
-      </ol>
-      <p>Identical copied files and filesystem aliases are distinguished: file occurrences retain paths and storage context, while unique byte objects are identified by content hash. The integrated staging snapshot is immutable and must pass the same gates as the local release.</p>
-    </div>
-
-    <h2 id="release">12. Approve and release the integrated master</h2>
-    <div class="entry">
-      <p>The final release is promoted atomically only after all stage ledgers reconcile and required thresholds pass. The release manifest records run and snapshot IDs, code commit, environment lock, parser/configuration/rule/model hashes, input-manifest hash, timestamps, random seed and reviewer-codebook version.</p>
-      <p><strong>Release package.</strong> Canonical master, source observations and collection routes, field survivorship, duplicate and typed work relations, institution and country links, policy labels, paper and patent auxiliary corpora, non-AI and non-document exclusions, unresolved and quarantine tables, validation reports, checksums and reconciliation crosswalk.</p>
-      <p><strong>Optional post-release deletion.</strong> Raw-source retention is the default. Physical deletion is a separate operation after publication and requires an approved deletion manifest, exact path and SHA-256, reconciled counts, recoverable quarantine, successful restore test, completed cloud synchronisation and a final path/size/time/hash recheck. Any change aborts deletion.</p>
-    </div>
-
-
-    <h3 id="sample-validation">Appendix A. Exploratory single-publisher coding stress test</h3>
-    <div class="entry">
-      <p>This convenience sample is an exploratory stress test of publisher-field coding. It is not a validation sample, does not estimate corpus composition or country prevalence, and cannot measure multi-issuer recall because RIS commonly exposes only one publisher field. It reuses a previously generated 100-record sample from a reported 35,838-record neural-network RIS frame. The present script does not reproduce the original sampling step; seed <code>20260915</code> is retained only as provenance metadata. The detail page was visited for all 100 records; <em>Published in</em> was displayed for 99 and absent for one. This heterogeneous stress test does not estimate the composition, country distribution or quality of the final AI policy-report corpus.</p>
-      <table class="method-table"><thead><tr><th>Measure</th><th>Records</th><th>Share</th></tr></thead><tbody><tr><td>Unique sampled documents</td><td>100</td><td>100.0%</td></tr><tr><td>Provisional ISO3 coding coverage</td><td>88</td><td>88.0%</td></tr><tr><td>Separate non-country actor codes</td><td>3</td><td>3.0%</td></tr><tr><td>Unresolved issuer jurisdiction</td><td>9</td><td>9.0%</td></tr><tr><td>Multi-country status assessable from RIS</td><td>0</td><td>0.0% (not observable)</td></tr><tr><td>Manual review required</td><td>9</td><td>9.0%</td></tr></tbody></table>
-      <h4>Institution type</h4>
-      <table class="method-table"><thead><tr><th>Classification</th><th>Records</th><th>Share</th></tr></thead><tbody><tr><td>Professional association/nonprofit</td><td>37</td><td>37.0%</td></tr><tr><td>Higher education</td><td>20</td><td>20.0%</td></tr><tr><td>Public research institution</td><td>14</td><td>14.0%</td></tr><tr><td>Government/public authority</td><td>10</td><td>10.0%</td></tr><tr><td>Repository/platform</td><td>7</td><td>7.0%</td></tr><tr><td>Private corporation/platform</td><td>4</td><td>4.0%</td></tr><tr><td>International research organisation</td><td>2</td><td>2.0%</td></tr><tr><td>Hospital/health provider</td><td>2</td><td>2.0%</td></tr><tr><td>EU repository/information service</td><td>1</td><td>1.0%</td></tr><tr><td>Intergovernmental organisation</td><td>1</td><td>1.0%</td></tr><tr><td>Unknown</td><td>1</td><td>1.0%</td></tr><tr><td>Other nonprofit/project</td><td>1</td><td>1.0%</td></tr></tbody></table>
-      <h4>Source-screening tier, before policy eligibility review</h4>
-      <table class="method-table"><thead><tr><th>Tier</th><th>Records</th><th>Share</th></tr></thead><tbody><tr><td>auxiliary non government</td><td>58</td><td>58.0%</td></tr><tr><td>public research source scope</td><td>14</td><td>14.0%</td></tr><tr><td>government source scope</td><td>10</td><td>10.0%</td></tr><tr><td>exclude host or repository</td><td>8</td><td>8.0%</td></tr><tr><td>auxiliary private</td><td>4</td><td>4.0%</td></tr><tr><td>auxiliary international</td><td>2</td><td>2.0%</td></tr><tr><td>conditional public guidance only</td><td>2</td><td>2.0%</td></tr><tr><td>international separate</td><td>1</td><td>1.0%</td></tr><tr><td>manual review</td><td>1</td><td>1.0%</td></tr></tbody></table>
-      <h4>Issuer-jurisdiction code</h4>
-      <table class="method-table"><thead><tr><th>CTRY</th><th>Records</th><th>Share</th></tr></thead><tbody><tr><td>USA</td><td>43</td><td>43.0%</td></tr><tr><td>FRA</td><td>17</td><td>17.0%</td></tr><tr><td>XUN</td><td>9</td><td>9.0%</td></tr><tr><td>CHE</td><td>3</td><td>3.0%</td></tr><tr><td>DEU</td><td>3</td><td>3.0%</td></tr><tr><td>GBR</td><td>3</td><td>3.0%</td></tr><tr><td>MYS</td><td>2</td><td>2.0%</td></tr><tr><td>ESP</td><td>2</td><td>2.0%</td></tr><tr><td>XIN</td><td>2</td><td>2.0%</td></tr><tr><td>ROU</td><td>2</td><td>2.0%</td></tr><tr><td>AUS</td><td>2</td><td>2.0%</td></tr><tr><td>CHN</td><td>1</td><td>1.0%</td></tr><tr><td>EGY</td><td>1</td><td>1.0%</td></tr><tr><td>SVN</td><td>1</td><td>1.0%</td></tr><tr><td>BEL</td><td>1</td><td>1.0%</td></tr><tr><td>CAN</td><td>1</td><td>1.0%</td></tr><tr><td>BGR</td><td>1</td><td>1.0%</td></tr><tr><td>ZAF</td><td>1</td><td>1.0%</td></tr><tr><td>XIG</td><td>1</td><td>1.0%</td></tr><tr><td>NLD</td><td>1</td><td>1.0%</td></tr><tr><td>IND</td><td>1</td><td>1.0%</td></tr><tr><td>SWE</td><td>1</td><td>1.0%</td></tr><tr><td>BOL</td><td>1</td><td>1.0%</td></tr></tbody></table>
-      <h4>Rule-based evidence tier</h4>
-      <table class="method-table"><thead><tr><th>Evidence tier</th><th>Records</th><th>Share</th></tr></thead><tbody><tr><td>tier 1 page supported</td><td>64</td><td>64.0%</td></tr><tr><td>tier 2 institution plus page</td><td>24</td><td>24.0%</td></tr><tr><td>tier 0 unresolved</td><td>9</td><td>9.0%</td></tr><tr><td>tier 2 actor identity</td><td>2</td><td>2.0%</td></tr><tr><td>tier 3 verified actor</td><td>1</td><td>1.0%</td></tr></tbody></table>
-      <p><strong>Interpretation.</strong> An ISO3 code was provisionally assigned to 88 records, 3 received a separate non-country actor code, and 9 remained unresolved. This is coding coverage, not validated accuracy. All 100 documents remain pending the title, abstract, artefact-type and original-document policy-eligibility gate.</p>
-      <p><strong>Co-issuance limitation.</strong> Multi-country status is not assessable because the RIS export exposes one <code>PB</code> field. Zero means not observable, not absent. This audit tests only single-publisher coding; distinct-country whole counting for co-issuers remains untested.</p>
-      <p><strong>Evidence limitation.</strong> <em>Published in</em> is supporting publisher-location metadata, not an independent gold standard. Repository hosts were assigned <code>XUN</code> until the original issuer is recovered. Evidence tiers describe rule strength, not estimated probabilities of correctness. ISO3 assignments require authority-table or original-document confirmation before country-level regression.</p>
-      <p class="small muted"><strong>Provenance.</strong> Source sample SHA-256 <code>346cf97987ca3e533d595d5eb78c65e69c371bd9bde5cef78030930534c4b4ee</code>; classified CSV SHA-256 <code>dab27aa700489f9c7e176ea78a9e6b8af5a6779aac549b5a37ac881a8c24cfb9</code>; Python/pandas execution environment recorded at build time. Independent double-coding: 0 records. Sampling frame and seed are inherited provenance and were not regenerated by this script.</p>
-      <p><a href="data/policycommons-country-attribution-sample-100.csv">Download the classified 100-record sample (CSV)</a></p>
-      <details>
-        <summary>View all 100 classified records</summary>
-        <div class="table-scroll">
-          <table class="method-table sample-table"><thead><tr><th>Record ID</th><th>Title</th><th>Year</th><th>Publisher field</th><th>Institution type</th><th>CTRY</th><th>Evidence tier</th></tr></thead><tbody><tr><td>20.500.12592/08f6cm</td><td>Soil Moisture Retrieval from C-Band SAR Data Enhanced by L-Band Soil Roughness Inte...</td><td>2023</td><td>Institut national de recherche pour l’agriculture, l’alimentation et l’environnement</td><td>Public research institution</td><td>FRA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/1500fnv</td><td>357. Can an Industrial Giant Become a Tech Darling?</td><td>2018</td><td>Freakonomics</td><td>Private corporation/platform</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/16dpcwp</td><td>Findings of the Third Shared Task on Multimodal Machine Translation</td><td>2018</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/178lyfj</td><td>Blue Skies Ahead: Sustainable Innovation Powered by the SESAR Joint Undertaking</td><td>2024</td><td>Community Research and Development Information Service</td><td>EU repository/information service</td><td>XUN</td><td>tier_0_unresolved</td></tr><tr><td>20.500.12592/18jkp1h</td><td>Efficient Technical Term Translation: A Knowledge Distillation Approach</td><td>2024</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/1dzhtvp</td><td>A Go/No-Go Decision-Making Model Based on Risk and Multi-Criteria Techniques for Pr...</td><td>2025</td><td>IMT Mines Albi-Carmaux</td><td>Higher education</td><td>FRA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/1g6cr81</td><td>Towards Fast, Accurate and Stable 3D Dense Face Alignment</td><td>2020</td><td>European Computer Vision Association</td><td>Professional association/nonprofit</td><td>CHE</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/1lg2xcc</td><td>Reduced-Order Aeroelastic Modeling for Slender Missiles</td><td>2017</td><td>Chinese Society of Theoretical and Applied Mechanics</td><td>Professional association/nonprofit</td><td>CHN</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/1n8jvkh</td><td>Correlation of Soil Erodibility with Satellite Data in Desertification Areas of Sen...</td><td>2017</td><td>Université de La Réunion</td><td>Higher education</td><td>FRA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/1vywfv9</td><td>A Framework for Interpreting Knowledge, Attitude and Practices in Poisoning Inciden...</td><td>2021</td><td>Center for Fundamental and Liberal Education, University Malaysia of Terengganu</td><td>Higher education</td><td>MYS</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/1wgd963</td><td>ISMRM Workshop on Neurofluids: Anatomy, Physiology &amp; Imaging</td><td>2022</td><td>International Society for Magnetic Resonance in Medicine</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/1xsgjgd</td><td>Multispectral Texture Characterization for Computer-Aided Prostate Cancer Diagnosis</td><td>2025</td><td>Aix-Marseille Université</td><td>Higher education</td><td>FRA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/20kqgzv</td><td>Prospects for future precision measurements of Higgs properties at HL-LHC</td><td>2015</td><td>Max Planck Institute for Nuclear Physics</td><td>Public research institution</td><td>DEU</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/22uqz63</td><td>Pathophysiological Study of Central Sleep Apnea in Adults Without Heart Failure</td><td>2019</td><td>TEL - Thèses en ligne</td><td>Repository/platform</td><td>XUN</td><td>tier_0_unresolved</td></tr><tr><td>20.500.12592/2nccncq</td><td>Two competing improvements of PID controllers: A comparison</td><td>2018</td><td>École Polytechnique</td><td>Higher education</td><td>FRA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/2ng13l4</td><td>Enabling Real-Time Conversations with Minimal Training Costs</td><td>2025</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/2p9vdzf</td><td>PROTECTOR: AIO Phase 3 Trial of Neoadjuvant Chemotherapy for Resectable Colon Cancer</td><td>2022</td><td>AIO Studien gGmbH</td><td>Private corporation/platform</td><td>DEU</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/2pv1z5w</td><td>Unsupervised Stance Detection for Social Media Discussions: A Generic Baseline</td><td>2024</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/2tbgh97</td><td>Estado de Información No Financiera 2023</td><td>2024</td><td>B. Braun (Spain)</td><td>Private corporation/platform</td><td>ESP</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/2u2bgy3</td><td>Gender Roles in Greeting Card Messages: A Quantitative Analysis and Visualization Tool</td><td>2022</td><td>Wilton E. Scott Institute for Energy Innovation</td><td>Higher education</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/2whcpd3</td><td>SimplifyUR: Unsupervised Lexical Text Simplification for Urdu</td><td>2020</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/2xbrbr1</td><td>Weak Reward Model Transforms Generative Models into Robust Causal Event Extraction ...</td><td>2024</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/2z2w5p8</td><td>Stimulus-Sensitive Hyaluronic Acid Hydrogels for Osteoarthritis Joint Inflammation ...</td><td>2021</td><td>Spanish National Research Council</td><td>Public research institution</td><td>ESP</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/30tk860</td><td>Parametric Cost Estimating of Sterile Buildings Using Artificial Neural Network and...</td><td>2015</td><td>Arab Academy for Science, Technology and Maritime Transport</td><td>Higher education</td><td>EGY</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/31jcdfq</td><td>Remote Sensing and Modeling of Cyanobacteria Dynamics in Reservoirs</td><td>2021</td><td>PASTEL - Thèses en ligne de ParisTech</td><td>Repository/platform</td><td>XUN</td><td>tier_0_unresolved</td></tr><tr><td>20.500.12592/34yrrcy</td><td>Lepton Flavour Universality Violating B Decays in Trees</td><td>2025</td><td>IN2P3 - Institut national de physique nucléaire et de physique des particules</td><td>Public research institution</td><td>FRA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/35d0lpd</td><td>Techbriefs... Electronic Components and Circuits,electronic Systenms,physical,... N...</td><td>2022</td><td>National Aeronautics and Space Administration</td><td>Government/public authority</td><td>USA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/36rgjtb</td><td>Multivariable Robust Regulation of Alkalinities in Continuous Anaerobic Digestion P...</td><td>2021</td><td>Institut national de recherche pour l’agriculture, l’alimentation et l’environnement</td><td>Public research institution</td><td>FRA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/38c2h8s</td><td>Cell Neogenesis in the Postnatal Hypothalamus and its Role in Reproductive Function</td><td>2017</td><td>TEL - Thèses en ligne</td><td>Repository/platform</td><td>XUN</td><td>tier_0_unresolved</td></tr><tr><td>20.500.12592/394456m</td><td>Slovenia: Success in Combating COVID-19 and Embracing New Opportunities</td><td>2020</td><td>Government of Slovenia</td><td>Government/public authority</td><td>SVN</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/3dgdnm8</td><td>Particle Identification with the ATLAS Electromagnetic Calorimeter</td><td>2025</td><td>IN2P3 - Institut national de physique nucléaire et de physique des particules</td><td>Public research institution</td><td>FRA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/3gqse4v</td><td>Understanding Causation through Correlations and Linear Response Theory</td><td>2020</td><td>American Physical Society</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/3gt8mrf</td><td>Role of the Actomyosin Cytoskeleton on the Synaptic Effects of the Type-1 Cannabino...</td><td>2025</td><td>PASTEL - Thèses en ligne de ParisTech</td><td>Repository/platform</td><td>XUN</td><td>tier_0_unresolved</td></tr><tr><td>20.500.12592/3hmb87n</td><td>Dystonia Europe News - Autumn 2015</td><td>2016</td><td>Dystonia Europe</td><td>Professional association/nonprofit</td><td>BEL</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/3k288z</td><td>Copyright Law and AI-Generated Works in Canada</td><td>2018</td><td>Canadian Bar Association</td><td>Professional association/nonprofit</td><td>CAN</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/3lhb5h5</td><td>Abstractive Multi-document Summarization by Partial Tree Extraction, Recombination ...</td><td>2017</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/3n1sfy3</td><td>A Rapid Method for 3D Urban Morphology Detection Using Open-Source Data</td><td>2019</td><td>International Institute for Applied Systems Analysis</td><td>International research organisation</td><td>XIN</td><td>tier_2_actor_identity</td></tr><tr><td>20.500.12592/3n2t9bs</td><td>Master&#x27;s Program: Bulgarian as a Foreign Language</td><td>2025</td><td>South-West University &quot;Neofit Rilski&quot;</td><td>Higher education</td><td>BGR</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/3nvcg1f</td><td>South African Patent Journal - November 2021</td><td>2021</td><td>Companies and Intellectual Property Commission</td><td>Government/public authority</td><td>ZAF</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/3qs9149</td><td>SNR-Selection-Based Data Augmentation for Dysarthric Speech Recognition</td><td>2023</td><td>National Institute for Research &amp; Development in Informatics</td><td>Public research institution</td><td>ROU</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/3rsd3mc</td><td>Combining Fixation and Lateral Masking Training Enhances Perceptual Learning in Mac...</td><td>2025</td><td>CNRS - Centre national de la recherche scientifique</td><td>Public research institution</td><td>FRA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/3xxrvsg</td><td>Cross-Lingual Cross-Target Stance Detection with Dual Knowledge Distillation Framework</td><td>2023</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/417o41n</td><td>Non-Hermitian Quasi-Localization and Ring Attractor Neural Networks</td><td>2019</td><td>American Physical Society</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/4776r8m</td><td>Emergency Department and Patient Flow: Current Awareness Bulletin - October 2019</td><td>2019</td><td>Royal United Hospital</td><td>Hospital/health provider</td><td>GBR</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/47t57hm</td><td>Modeler: Classes and Methods for Training and Using Binary Prediction Models</td><td>2025</td><td>Massachusetts Institute of Technology</td><td>Higher education</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/4b0mq3n</td><td>WFUBMC Participating Faculty Members: Research Faculty</td><td>2019</td><td>Wake Forest Baptist Medical Center</td><td>Hospital/health provider</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/4d5kl09</td><td>Neural Network Technologies for Space Imagery Processing</td><td>2019</td><td>World Intellectual Property Organization</td><td>Intergovernmental organisation</td><td>XIG</td><td>tier_3_verified_actor</td></tr><tr><td>20.500.12592/4f6w50p</td><td>What Does This Word Mean? Explaining Contextualized Embeddings with Natural Languag...</td><td>2019</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/4gpg4q1</td><td>ReasonBERT: Pre-trained to Reason with Distant Supervision</td><td>2021</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/4hx25gy</td><td>Probing Internal Representations of Multi-Word Verbs in Large Language Models</td><td>2025</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/4sqgq2t</td><td>Towards Making a Dependency Parser See: Leveraging Eye-Tracking Data with Multi-Tas...</td><td>2019</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/4t0pu7r</td><td>Performance Transfer for Animating Virtual Characters Through Play and Acting</td><td>2019</td><td>TEL - Thèses en ligne</td><td>Repository/platform</td><td>XUN</td><td>tier_0_unresolved</td></tr><tr><td>20.500.12592/4z85h2m</td><td>YOLOv6: A Single-Stage Object Detection Framework for Industrial Applications</td><td>2022</td><td>Unknown</td><td>Unknown</td><td>XUN</td><td>tier_0_unresolved</td></tr><tr><td>20.500.12592/502krvd</td><td>Emittance Preservation via Matching in Plasma Wakefield Acceleration</td><td>2019</td><td>American Physical Society</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/502vb8m</td><td>Major amputations in type 2 diabetes between 2001 and 2015 in Spain: regional diffe...</td><td>2021</td><td>Research Square</td><td>Private corporation/platform</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/55h828b</td><td>Tracking Meets LoRA: Faster Training, Larger Model, Stronger Performance</td><td>2024</td><td>European Computer Vision Association</td><td>Professional association/nonprofit</td><td>CHE</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/56ppjam</td><td>Surrogate Light Curve Models for Kilonovae with Wind Ejecta Outflows and Parameter ...</td><td>2023</td><td>American Physical Society</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/58yigc4</td><td>Heterozygous Variants in Leptin-Melanocortin Pathway Genes and Severe Obesity</td><td>2021</td><td>Sorbonne University</td><td>Higher education</td><td>FRA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/5k3kzqn</td><td>The stimulated brain: A psychological perspective on deep brain stimulation for tre...</td><td>2015</td><td>University of Amsterdam</td><td>Higher education</td><td>NLD</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/5l9wp1n</td><td>Dual Adversarial Network: Supplementary Material for Real Noise Removal and Noise G...</td><td>2020</td><td>European Computer Vision Association</td><td>Professional association/nonprofit</td><td>CHE</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/5m2qr9t</td><td>SlovakSum: A Large-Scale Slovak Summarization Dataset</td><td>2024</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/5qdvz4</td><td>Stochastic Path-Integral Formalism for Continuous Quantum Measurement</td><td>2015</td><td>American Physical Society</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/5vlqdz6</td><td>Visualizing Children&#x27;s Stories in a Virtual World: Lessons Learned</td><td>2016</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/5x96vp8</td><td>AICTE Regulations for Faculty Appointment in Technical Institutions, 2017</td><td>2017</td><td>Government of India</td><td>Government/public authority</td><td>IND</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/5y81xk5</td><td>Traffic Signal Control Enhancement Using Connected Vehicle Data</td><td>2019</td><td>United States Department of Transportation</td><td>Government/public authority</td><td>USA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/5zg0o7i</td><td>Computational Modeling of Seizure Dynamics in Coupled Neuronal Networks</td><td>2015</td><td>Aix-Marseille Université</td><td>Higher education</td><td>FRA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/5znblh7</td><td>Improving BERT with Syntax-aware Local Attention</td><td>2021</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/5zr2mfx</td><td>Pulsating Heat Pipe Modeling: A Review of Physical Principles and State-of-the-Art</td><td>2025</td><td>CEA - Commissariat à l’énergie atomique et aux énergies alternatives</td><td>Public research institution</td><td>FRA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/601vpt9</td><td>radiant.model: Business Analytics using R and Shiny</td><td>2025</td><td>Commonwealth Scientific and Industrial Research Organisation</td><td>Public research institution</td><td>AUS</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/60nsdts</td><td>Supplementary Material: Deep Material-Aware Cross-Spectral Stereo Matching</td><td>2018</td><td>Wilton E. Scott Institute for Energy Innovation</td><td>Higher education</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/60qljfd</td><td>Stephen Wan&#x27;s Publications</td><td>2018</td><td>Commonwealth Scientific and Industrial Research Organisation</td><td>Public research institution</td><td>AUS</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/63nst41</td><td>Variational Estimation of Wet Tropospheric Correction for Space Altimetry</td><td>2018</td><td>TEL - Thèses en ligne</td><td>Repository/platform</td><td>XUN</td><td>tier_0_unresolved</td></tr><tr><td>20.500.12592/63r80lv</td><td>Constrained Decoding for Technical Term Retention in English-Hindi Machine Translation</td><td>2021</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/662npsm</td><td>Opinion-based Relational Pivoting for Cross-domain Aspect Term Extraction</td><td>2022</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/6jf8ybw</td><td>Performance of the ATLAS Electromagnetic Calorimeter End-Cap Module 0</td><td>2025</td><td>IN2P3 - Institut national de physique nucléaire et de physique des particules</td><td>Public research institution</td><td>FRA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/6jrln6t</td><td>FIŞA DE VERIFICARE A ÎNDEPLINIRII STANDARDELOR MINIMALE</td><td>2018</td><td>Polytechnic University of Bucharest</td><td>Higher education</td><td>ROU</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/6jznxr1</td><td>Understanding Adverse Childhood Experiences and Building Self-Healing Communities</td><td>2017</td><td>State of Maryland</td><td>Government/public authority</td><td>USA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/6lg1vdy</td><td>Fe-MFI Zeolite Catalyst for Water Pollutant Abatement via Heterogeneous Electro-Fen...</td><td>2025</td><td>Université de Montpellier</td><td>Higher education</td><td>FRA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/77xj3v7</td><td>Bankrate Posts AI-Generated Article, Deletes It When We Point Out It&#x27;s Full of Errors</td><td>2023</td><td>AI Incidence Database</td><td>Other nonprofit/project</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/7brtfcf</td><td>Annotating Reflections for Health Behavior Change Therapy</td><td>2018</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/7y7hkv5</td><td>A Comparative Study of Algorithms for Data Classification</td><td>2021</td><td>State of North Dakota</td><td>Government/public authority</td><td>USA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/7yr01vh</td><td>Yellowish-Orange Pigments from Microorganisms: A Review</td><td>2025</td><td>Université de La Réunion</td><td>Higher education</td><td>FRA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/84n0vmr</td><td>1e: Basic Literacy Training - Reading Comprehension</td><td>2025</td><td>State of California</td><td>Government/public authority</td><td>USA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/86n826d</td><td>Neural Disambiguation of Causal Lexical Markers Based on Context</td><td>2017</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/8mbf4k4</td><td>KM-BART: Knowledge Enhanced Multimodal BART for Visual Commonsense Generation</td><td>2021</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/8ppxy08</td><td>Performance of the SUBSTOR-Potato Model Across Contrasting Growing Conditions</td><td>2016</td><td>International Institute for Applied Systems Analysis</td><td>International research organisation</td><td>XIN</td><td>tier_2_actor_identity</td></tr><tr><td>20.500.12592/8vphndw</td><td>JPred4: JNet training (v.2.3.1) details</td><td>2015</td><td>Center for Energy, Petroleum and Mineral Law and Policy</td><td>Higher education</td><td>GBR</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/8vy3hry</td><td>Research on Recognition of the Separation and Reunion Phenomena of Words in Chinese</td><td>2021</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/95wq7lv</td><td>Climate-Related Regulations and Financial Markets: A Meta-Analytic Literature Review</td><td>2024</td><td>Research@Lincoln</td><td>Repository/platform</td><td>XUN</td><td>tier_0_unresolved</td></tr><tr><td>20.500.12592/97cdj8j</td><td>Glial P2Y1 Receptors Mediate Cognitive Deficits After Stroke in Rodents</td><td>2025</td><td>Inserm - Institut national de la santé et de la recherche médicale</td><td>Public research institution</td><td>FRA</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/9d8zbbc</td><td>Hydrological Modeling with Neural Networks</td><td>2020</td><td>Helmholtz-Zentrum für Umweltforschung</td><td>Public research institution</td><td>DEU</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/9m1z64m</td><td>Adversarial Learning with Contextual Embeddings for Zero-resource Cross-lingual Cla...</td><td>2019</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/9vw4mc</td><td>RFP: Clinical Research Coordinator for Creative Forces Military Healing Arts Network</td><td>2019</td><td>Americans for the Arts</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/bw1mlt6</td><td>Ghassane Benmir, Aditya Mori, Josselin Roman and Romano Tarsia</td><td>2025</td><td>The Grantham Research Institute on Climate Change and the Environment</td><td>Higher education</td><td>GBR</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/d03mmxx</td><td>NER and POS when Nothing Is Capitalized</td><td>2019</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/dp8696f</td><td>CHLOROPHYLL-A ESTIMATION AND RELATIONSHIP ANALYSIS WITH SEA SURFACE TEMPERATURE AND...</td><td>2022</td><td>Center for Fundamental and Liberal Education, University Malaysia of Terengganu</td><td>Higher education</td><td>MYS</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/fxn618</td><td>Data Usage and Data Needs for Risk Modeling and Analysis in Sweden</td><td>2022</td><td>Swedish Civil Contingencies Agency</td><td>Government/public authority</td><td>SWE</td><td>tier_2_institution_plus_page</td></tr><tr><td>20.500.12592/ks4d9qq</td><td>Automated Speech Tools for Processing Restricted-Access Corpora in Language Revival</td><td>2022</td><td>Association for Computational Linguistics</td><td>Professional association/nonprofit</td><td>USA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/wh17s0j</td><td>A PRE Loop at the dac Locus Restricts Enhancer–Promoter Communication</td><td>2024</td><td>Université de Montpellier</td><td>Higher education</td><td>FRA</td><td>tier_1_page_supported</td></tr><tr><td>20.500.12592/x06tnhb</td><td>Bolivian Payment System Oversight Report - 2015</td><td>2016</td><td>Banco Central de Bolivia</td><td>Government/public authority</td><td>BOL</td><td>tier_2_institution_plus_page</td></tr></tbody></table>
-        </div>
-      </details>
-    </div>
-
-    <h3 id="references">Methodological basis and review</h3>
-    <div class="entry">
-      <p>Independent expert reviews covered country attribution, entity resolution, bibliographic deduplication, provenance engineering, statistical reproducibility, multilingual information retrieval and AI-policy corpus construction. The resulting method separates source observations from document versions, treats automated merges as reversible decisions, separates AI relevance from policy eligibility, and requires rule-specific independent validation before automated merging or exclusion.</p>
-      <ul class="plain">
-        <li><a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2015/10/oecd-science-technology-and-industry-scoreboard-2015_g1g583b7/sti_scoreboard-2015-en.pdf">OECD Science, Technology and Industry Scoreboard 2015</a></li>
-        <li><a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2013/11/world-social-science-report-2013_g1g32ae1/9789264203419-en.pdf">World Social Science Report 2013</a></li>
-        <li><a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2015/10/frascati-manual-2015_g1g57dcb/9789264239012-en.pdf">OECD Frascati Manual 2015</a></li>
-        <li><a href="https://cordis.europa.eu/about">CORDIS: public repository and EU research information service</a></li>
-        <li><a href="https://repository.lincoln.ac.uk/">Research@Lincoln institutional repository</a></li>
-        <li><a href="https://www.ufz.de/index.php?de=34260">UFZ ownership and public funding</a></li>
-        <li><a href="https://iiasa.ac.at/sites/default/files/2021-12/IIASA-overview-2020.pdf">IIASA institutional overview</a></li>
-      </ul>
-    </div>
-
-    <p class="small">Citation: Chun, Y. (2026). <em>Policy Commons data curation methods: country attribution, duplicate resolution, AI relevance and document-genre filtering</em>. Method note for the AI Knowledge Ecosystem and Policy Agenda Gaps project.</p>
-    <footer>© 2026 Youngsam Chun · <a href="https://orcid.org/0000-0002-6877-6230">ORCID 0000-0002-6877-6230</a></footer>
-  </main>
-</div>
-</body>
-</html>
+<section id="references"><span id="sample-validation"></span><h2>Review and resources</h2><p>Two independent AI agents reviewed duplicate resolution/AI screening and country attribution/analytical validity on 19 September 2026. Both recommended major revision before confirmatory analysis. This document addresses their findings at the specification level. Implementation and empirical validation remain outstanding; earlier exploratory samples do not validate the full corpus.</p><ul><li><a href="policycommons-ris-collection.html">Collection method</a></li><li><a href="../policy-commons-ris-data-dictionary.html">RIS data dictionary</a></li><li><a href="../research.html">Research overview</a></li></ul><p class="small">Citation: Chun, Y. (2026). <em>Policy Commons curation protocol: duplicate resolution, AI relevance and country attribution</em>. Version 3.0, 19 September 2026.</p></section><footer>© 2026 Youngsam Chun</footer></main></div></body></html>
