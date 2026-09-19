@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policy Commons Issuer-Country Attribution | Youngsam Chun</title>
+<meta name="description" content="An expert-reviewed distinct-country whole-counting method for attributing Policy Commons AI policy documents to issuer jurisdictions.">
+<link rel="stylesheet" href="../assets/style.css?v=4">
+<style>
+  .method-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  .method-table th, .method-table td { padding: 0.65rem 0.75rem; border-bottom: 1px solid #d9d9d9; text-align: left; vertical-align: top; }
+  .method-table th { font-weight: 650; background: #f7f7f7; }
+  .method-table code { white-space: nowrap; }
+  @media (max-width: 720px) { .method-table { font-size: 0.9rem; } .method-table th, .method-table td { padding: 0.5rem; } }
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">Youngsam Chun</span>
+    <a class="nav" href="../index.html">About</a>
+    <a class="nav active" href="../research.html">Research</a>
+    <a class="nav" href="../notes/">Notes</a>
+    <a class="nav" href="../publications.html">Publications</a>
+    <a class="nav" href="../education.html">Education</a>
+    <a class="nav" href="../cv.html">CV</a>
+  </div>
+</nav>
+<div class="wrap">
+  <aside class="sidebar">
+    <img class="avatar" src="../assets/profile.jpg" alt="Youngsam Chun">
+    <h1>Youngsam Chun</h1>
+    <p class="role">Responsible AI Researcher</p>
+    <p class="org">Responsible AI Department,<br>Frontier AI Lab, KT Corporation</p>
+    <div class="side-h">On this page</div>
+    <ul class="side-list">
+      <li><a href="#rule">Counting rule</a></li>
+      <li><a href="#algorithm">Attribution algorithm</a></li>
+      <li><a href="#codes">Code system</a></li>
+      <li><a href="#private">Private global issuers</a></li>
+      <li><a href="#data">Data model</a></li>
+      <li><a href="#reporting">Reporting and QA</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+    <div class="side-h">Resources</div>
+    <ul class="side-list">
+      <li><a href="policycommons-ris-collection.html">Collection method</a></li>
+      <li><a href="https://deep1003.github.io/policy-commons-ris-data-dictionary.html">RIS data dictionary</a></li>
+      <li><a href="../research.html">Research overview</a></li>
+    </ul>
+  </aside>
+  <main class="content">
+    <h2>Policy Commons issuer-country attribution</h2>
+    <p class="lead">An expert-reviewed method for identifying the countries and non-country actors that issue AI policy documents, using distinct-country whole counting.</p>
+    <p class="small muted">Method status: version 1.0, 19 September 2026. This method governs country-level attribution after record identity and issuer validation.</p>
+
+    <h3 id="rule">Counting rule</h3>
+    <div class="entry">
+      <p>Each document is attributed once to every distinct represented country of an eligible issuing institution. Multiple institutions from the same country still contribute one attribution for that country. No fractional weights or percentages are used.</p>
+      <table class="method-table">
+        <thead><tr><th>Issuing institutions</th><th>Attribution</th></tr></thead>
+        <tbody>
+          <tr><td>Two Korean public institutions</td><td><code>KOR = 1</code></td></tr>
+          <tr><td>Two Korean and one United States public institution</td><td><code>KOR = 1</code>, <code>USA = 1</code></td></tr>
+          <tr><td>Korean government and OECD</td><td><code>KOR = 1</code>, <code>XIG = 1</code></td></tr>
+        </tbody>
+      </table>
+      <p>Country totals are non-additive. A jointly issued document can appear once in more than one country, so the sum across countries can exceed the number of unique documents.</p>
+    </div>
+
+    <h3 id="algorithm">Attribution algorithm</h3>
+    <div class="entry">
+      <ol class="plain">
+        <li>Extract candidate organisations from publisher, organisation-valued author, provider fields, the Policy Commons detail page and the original document.</li>
+        <li>Separate issuer, publisher, distributor, repository, archive, host, commissioning body and adopting government.</li>
+        <li>Resolve each issuer against a versioned institution authority table, including its exact legal entity and status at publication.</li>
+        <li>Classify its role as sole issuer, co-issuer, commissioned contractor, adopting body, publisher only, host only or unresolved.</li>
+        <li>Create one country-attribution row for every distinct eligible issuer jurisdiction.</li>
+        <li>Apply <code>UNIQUE(record_id, attribution_type, jurisdiction_code)</code> so multiple issuers from one country are counted once.</li>
+        <li>Assign policy jurisdiction separately. Commissioning or adoption does not convert a private contractor into a government issuer.</li>
+      </ol>
+      <p>Publication country, issuer country, target country, author-affiliation country and policy jurisdiction remain separate variables. Raw <code>CY</code>, <code>PP</code>, <code>PB</code> and <code>AU</code> values are preserved as evidence.</p>
+    </div>
+
+    <h3 id="codes">Code system</h3>
+    <div class="entry">
+      <table class="method-table">
+        <thead><tr><th>Code</th><th>Meaning</th><th>Treatment</th></tr></thead>
+        <tbody>
+          <tr><td><code>KOR</code>, <code>USA</code>, <code>CHN</code></td><td>ISO alpha-3 issuer jurisdiction</td><td>Country attribution</td></tr>
+          <tr><td><code>XIG</code></td><td>Intergovernmental organisation</td><td>Separate international category</td></tr>
+          <tr><td><code>XEU</code></td><td>European Union institution</td><td>Separate supranational category</td></tr>
+          <tr><td><code>XMN</code></td><td>Global multinational private issuer</td><td>Separate private category</td></tr>
+          <tr><td><code>XUN</code></td><td>Unresolved issuer jurisdiction</td><td>Manual review</td></tr>
+        </tbody>
+      </table>
+      <p><code>XMU</code> is not an attribution code. It may appear only as a legacy display flag corresponding to <code>is_multi_country = true</code>. Actual country rows remain the source of truth.</p>
+    </div>
+
+    <h3 id="private">KPMG, BCG and Deloitte</h3>
+    <div class="entry">
+      <ul class="plain">
+        <li>KPMG International, global BCG and Deloitte Global receive <code>XMN</code> and remain in the non-government policy-discourse corpus.</li>
+        <li>An explicitly identified country entity, such as KPMG Korea, may receive <code>KOR</code>, but remains a private country office and is not a primary government-policy source.</li>
+        <li>Formal government co-issuance attributes the document to the government jurisdiction while preserving the private co-issuer.</li>
+        <li>Government commissioning or adoption creates a policy jurisdiction and government-linked status without relabelling the private firm as government.</li>
+        <li>A report that merely analyses Korea receives <code>target_country = KOR</code>, not a Korean issuer attribution.</li>
+      </ul>
+    </div>
+
+    <h3 id="data">Normalised data model</h3>
+    <div class="entry">
+      <p>The source of truth is a document-country link table, not a semicolon-separated country cell. Its core fields are <code>record_id</code>, <code>attribution_type</code>, <code>jurisdiction_code</code>, <code>attribution = 1</code>, inference method, evidence source, confidence, review status and decision version.</p>
+      <p>Separate document-institution links retain institution identity, issuer role and government relationship. The document table stores <code>is_multi_country</code>, <code>issuer_country_count</code> and <code>attribution_method_version</code>.</p>
+    </div>
+
+    <h3 id="reporting">Reporting and quality assurance</h3>
+    <div class="entry">
+      <p>Reports must show unique documents, country-attribution rows, multi-country documents, IGO records, EU records, multinational-private records and unresolved records separately. Before panel regression, country rows are aggregated to the intended country by topic by period grain.</p>
+      <p><strong>Required table note.</strong> Counts use distinct-country whole counting. Jointly issued documents may appear once in more than one country; multiple issuers from the same country are counted once. Country totals therefore do not sum to the number of unique documents.</p>
+      <p>Automated checks reject duplicate document-country keys, reject <code>XMU</code> as an attribution row, prevent non-country codes from entering ISO-country totals, and prevent publication place or policy target from being copied into issuer jurisdiction.</p>
+    </div>
+
+    <h3 id="references">Methodological basis and review</h3>
+    <div class="entry">
+      <p>Two independent expert reviews covered methodological validity and data engineering. Both approved country-presence counting for the stated purpose, subject to non-additivity disclosure, normalised link tables and explicit separation of country and non-country actors.</p>
+      <ul class="plain">
+        <li><a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2015/10/oecd-science-technology-and-industry-scoreboard-2015_g1g583b7/sti_scoreboard-2015-en.pdf">OECD Science, Technology and Industry Scoreboard 2015</a></li>
+        <li><a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2013/11/world-social-science-report-2013_g1g32ae1/9789264203419-en.pdf">World Social Science Report 2013</a></li>
+        <li><a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2015/10/frascati-manual-2015_g1g57dcb/9789264239012-en.pdf">OECD Frascati Manual 2015</a></li>
+      </ul>
+    </div>
+
+    <p class="small">Citation: Chun, Y. (2026). <em>Policy Commons issuer-country attribution: distinct-country whole counting for AI policy documents</em>. Method note for the AI Knowledge Ecosystem and Policy Agenda Gaps project.</p>
+    <footer>© 2026 Youngsam Chun · <a href="https://orcid.org/0000-0002-6877-6230">ORCID 0000-0002-6877-6230</a></footer>
+  </main>
+</div>
+</body>
+</html>
