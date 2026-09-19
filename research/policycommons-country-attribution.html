@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Policy Commons Issuer-Country Attribution | Youngsam Chun</title>
-<meta name="description" content="An expert-reviewed distinct-country whole-counting method for attributing Policy Commons AI policy documents to issuer jurisdictions.">
+<title>Policy Commons Data Curation Methods | Youngsam Chun</title>
+<meta name="description" content="Methods for issuer-country attribution, duplicate resolution and AI relevance classification in the Policy Commons corpus.">
 <link rel="stylesheet" href="../assets/style.css?v=4">
 <style>
   .method-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
@@ -38,13 +38,12 @@
     <p class="org">Responsible AI Department,<br>Frontier AI Lab, KT Corporation</p>
     <div class="side-h">On this page</div>
     <ul class="side-list">
+      <li><a href="#country-attribution">1. Country attribution</a></li>
       <li><a href="#rule">Counting rule</a></li>
       <li><a href="#algorithm">Attribution algorithm</a></li>
-      <li><a href="#codes">Code system</a></li>
-      <li><a href="#private">Private global issuers</a></li>
-      <li><a href="#data">Data model</a></li>
-      <li><a href="#reporting">Reporting and QA</a></li>
       <li><a href="#sample-validation">100-record sample</a></li>
+      <li><a href="#deduplication">2. Duplicate resolution</a></li>
+      <li><a href="#ai-relevance">3. AI / Non-AI classification</a></li>
       <li><a href="#references">References</a></li>
     </ul>
     <div class="side-h">Resources</div>
@@ -55,9 +54,12 @@
     </ul>
   </aside>
   <main class="content">
-    <h2>Policy Commons issuer-country attribution</h2>
-    <p class="lead">An expert-reviewed method for identifying the countries and non-country actors that issue AI policy documents, using distinct-country whole counting.</p>
-    <p class="small muted">Method status: version 1.1, 19 September 2026. Revised after independent policy-method and statistical-reproducibility review.</p>
+    <h2>Policy Commons data curation methods</h2>
+    <p class="lead">A provenance-preserving framework for issuer-country attribution, duplicate resolution and AI relevance classification.</p>
+    <p class="small muted">Method status: version 1.2, 19 September 2026. The rules apply to derived analytical records; raw source files and collection provenance remain unchanged.</p>
+
+    <h2 id="country-attribution">1. Issuer-country attribution</h2>
+    <p>An expert-reviewed method for identifying the countries and non-country actors that issue AI policy documents, using distinct-country whole counting.</p>
 
     <h3 id="rule">Counting rule</h3>
     <div class="entry">
@@ -152,6 +154,96 @@
       </details>
     </div>
 
+    <h2 id="deduplication">2. Duplicate-document resolution</h2>
+    <div class="entry">
+      <p>Deduplication is performed at the document-manifestation level. It removes repeated observations of the same Policy Commons record from the analytical master while preserving every source file, query, module, page and collection route in a provenance link table. Raw downloads are not deleted by this procedure.</p>
+
+      <h3>Precondition: contamination gate</h3>
+      <p>Records are not merged until title, abstract, year, publisher and URL are shown to belong together. Repeated identifiers with conflicting content, shifted title-abstract pairs, truncated RIS records and systematic export-order errors are quarantined before entity resolution.</p>
+
+      <h3>Identity hierarchy</h3>
+      <table class="method-table">
+        <thead><tr><th>Priority</th><th>Evidence</th><th>Decision rule</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Policy Commons artifact ID and file ID</td><td>Strongest identity evidence. The two namespaces remain separate and content compatibility must still pass.</td></tr>
+          <tr><td>2</td><td>Canonical Policy Commons URL</td><td>Merge repeated observations after URL normalisation and core-field consistency checks.</td></tr>
+          <tr><td>3</td><td>DOI, ISBN, report number or official publisher URL</td><td>Merge only when the identifier and document metadata refer to the same manifestation.</td></tr>
+          <tr><td>4</td><td>Normalised title, publisher, year, language and compatible abstract</td><td>Create a review candidate. Weak or fuzzy metadata alone never triggers an automatic merge.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>What is and is not a duplicate</h3>
+      <table class="method-table">
+        <thead><tr><th>Relationship</th><th>Treatment</th></tr></thead>
+        <tbody>
+          <tr><td>Same manifestation collected through different searches, modules or pages</td><td>One canonical record, with all collection memberships retained.</td></tr>
+          <tr><td>Same record with complementary non-conflicting metadata</td><td>One canonical record; missing fields may be completed through field-level provenance.</td></tr>
+          <tr><td>Translation, revised edition, updated report or summary version</td><td>Separate <code>record_id</code> values linked by a shared <code>work_cluster_id</code>.</td></tr>
+          <tr><td>Same title but different publisher, year, abstract or document</td><td>Not merged automatically. Place in the conflict or review table.</td></tr>
+          <tr><td>Repository copy and original publisher record</td><td>Link as related manifestations; do not assume the repository is the issuer.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Canonical record and field survivorship</h3>
+      <p>The canonical anchor is ranked by structural validity, valid identifiers and URL, completeness of title, abstract, year and publisher, richer secondary metadata, and preference for direct source metadata over generated summaries. A newer retrieval is only a tie-breaker. Conflicting non-empty values are preserved and never overwritten silently. Each selected field stores its source observation, rule, decision status and conflict flag.</p>
+
+      <h3>Required outputs and tests</h3>
+      <ul class="plain">
+        <li><code>canonical_record</code>: one accepted manifestation per <code>record_id</code>.</li>
+        <li><code>record_source_link</code>: every raw occurrence linked to its canonical record.</li>
+        <li><code>duplicate_record_map</code>: source record, canonical record, match rule, evidence and review status.</li>
+        <li><code>work_cluster_map</code>: translations, editions and revisions linked without collapsing them.</li>
+        <li><code>field_survivorship</code>: selected and conflicting values with field-level provenance.</li>
+      </ul>
+      <p>Automatic merges require unique-key and cardinality tests, idempotent reruns, reconciled flow counts and at least 99.9% merge precision on the frozen independent test set. Fuzzy matches remain review candidates until adjudicated.</p>
+    </div>
+
+    <h2 id="ai-relevance">3. AI / Non-AI document classification</h2>
+    <div class="entry">
+      <p>AI relevance is judged separately from whether a document is an eligible policy report. A document can be substantively about AI but still be an academic article, conference paper, dataset, repository entry or commercial publication that belongs in an auxiliary corpus.</p>
+
+      <h3>Evidence used</h3>
+      <p>Classification uses the title, abstract or summary, keywords and available full text, with language-aware normalisation. Every automated decision retains the supporting text span, source field, language, rule or model version, score, threshold and review status. Absence of an AI term in the title alone is not sufficient for exclusion.</p>
+
+      <h3>Five-class relevance codebook</h3>
+      <table class="method-table">
+        <thead><tr><th>Label</th><th>Operational criterion</th><th>Master-corpus treatment</th></tr></thead>
+        <tbody>
+          <tr><td><code>core_ai_policy</code></td><td>AI systems, governance, regulation, strategy, safety, rights, risks, public-sector adoption or AI-specific economic and social effects are the central subject.</td><td>Include in the primary AI master, subject to document and policy eligibility.</td></tr>
+          <tr><td><code>substantive_ai_component</code></td><td>AI is a material analytical or policy component and removing it would substantially change the document's purpose or conclusions.</td><td>Include in the AI master with a component flag.</td></tr>
+          <tr><td><code>incidental_ai_mention</code></td><td>AI appears only as an example, short contextual reference, generic technology list or peripheral tool.</td><td>Exclude from the primary AI master; retain in an auxiliary review dataset.</td></tr>
+          <tr><td><code>non_ai</code></td><td>No substantive AI subject is present, or the apparent match is caused by ambiguity, metadata contamination or retrieval noise.</td><td>Exclude from the analytical AI master; retain in the frozen exclusion table.</td></tr>
+          <tr><td><code>unresolved</code></td><td>Evidence is missing, contradictory, OCR-damaged, multilingual and ambiguous, or near a decision threshold.</td><td>Manual review. Never treat as automatically non-AI.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Positive and negative decision rules</h3>
+      <table class="method-table">
+        <thead><tr><th>Evidence pattern</th><th>Default interpretation</th></tr></thead>
+        <tbody>
+          <tr><td>Artificial intelligence, machine learning, deep learning, neural networks, generative AI, foundation models or named AI systems discussed as the document's subject</td><td>Positive evidence, provided the surrounding text confirms substantive treatment.</td></tr>
+          <tr><td>AI governance, ethics, regulation, standards, assurance, safety, risk, labour, education, capability, environment or public administration</td><td>Strong positive evidence when AI-specific claims, recommendations or analysis are present.</td></tr>
+          <tr><td>AI used only as a statistical or technical tool in otherwise unrelated research</td><td>Usually <code>incidental_ai_mention</code>, unless the AI method itself is a substantive object of analysis.</td></tr>
+          <tr><td>Ambiguous abbreviations, organisation names, product names, author names, OCR errors or keyword-only matches unsupported by title and abstract</td><td><code>non_ai</code> or <code>unresolved</code>, depending on evidence completeness.</td></tr>
+          <tr><td>Generic digitisation, automation, algorithms, robotics or data analysis without an explicit and substantive AI connection</td><td>Not sufficient for AI inclusion.</td></tr>
+          <tr><td>Missing or very short abstract but an authoritative AI-specific title, full text or publisher classification</td><td>Do not exclude automatically; route to full-text or manual review.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Decision pipeline</h3>
+      <ol class="plain">
+        <li>Run multilingual high-precision inclusion and exclusion rules.</li>
+        <li>Evaluate title-abstract-keyword consistency and reject contaminated field pairings.</li>
+        <li>Apply a versioned semantic classifier only to evidence-complete records.</li>
+        <li>Route abbreviation ambiguity, missing abstracts, conflicting evidence and boundary scores to manual review.</li>
+        <li>Apply the document-genre and policy-eligibility gate separately after AI relevance is assigned.</li>
+        <li>Freeze exclusion evidence before any deletion-candidate manifest is created.</li>
+      </ol>
+
+      <h3>Validation and release gate</h3>
+      <p>The codebook is validated on stratified multilingual data with separate development and frozen test sets. Two reviewers independently code the test sample and a third adjudicates disagreements. Report class-specific precision, recall, F1, confusion matrices and 95% confidence intervals. The current release gate requires at least 98% recall for <code>core_ai_policy</code> and at least 99.5% precision for <code>non_ai</code> exclusions before automatic deletion is permitted.</p>
+    </div>
+
     <h3 id="references">Methodological basis and review</h3>
     <div class="entry">
       <p>Two independent expert reviews covered methodological validity and data engineering. Both approved country-presence counting for the stated purpose, subject to non-additivity disclosure, normalised link tables and explicit separation of country and non-country actors.</p>
@@ -166,7 +258,7 @@
       </ul>
     </div>
 
-    <p class="small">Citation: Chun, Y. (2026). <em>Policy Commons issuer-country attribution: distinct-country whole counting for AI policy documents</em>. Method note for the AI Knowledge Ecosystem and Policy Agenda Gaps project.</p>
+    <p class="small">Citation: Chun, Y. (2026). <em>Policy Commons data curation methods: country attribution, duplicate resolution and AI relevance classification</em>. Method note for the AI Knowledge Ecosystem and Policy Agenda Gaps project.</p>
     <footer>© 2026 Youngsam Chun · <a href="https://orcid.org/0000-0002-6877-6230">ORCID 0000-0002-6877-6230</a></footer>
   </main>
 </div>
