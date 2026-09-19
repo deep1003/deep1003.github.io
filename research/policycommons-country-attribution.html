@@ -44,6 +44,7 @@
       <li><a href="#sample-validation">100-record sample</a></li>
       <li><a href="#deduplication">2. Duplicate resolution</a></li>
       <li><a href="#ai-relevance">3. AI / Non-AI classification</a></li>
+      <li><a href="#policy-document-filter">4. Papers and patents</a></li>
       <li><a href="#references">References</a></li>
     </ul>
     <div class="side-h">Resources</div>
@@ -56,7 +57,7 @@
   <main class="content">
     <h2>Policy Commons data curation methods</h2>
     <p class="lead">A provenance-preserving framework for issuer-country attribution, duplicate resolution and AI relevance classification.</p>
-    <p class="small muted">Method status: version 1.3, 19 September 2026. Revised after independent reviews in country attribution, entity resolution, reproducibility and multilingual information retrieval.</p>
+    <p class="small muted">Method status: version 1.4, 19 September 2026. Revised after independent reviews in country attribution, entity resolution, reproducibility and multilingual information retrieval.</p>
 
     <h2 id="country-attribution">1. Issuer-country attribution</h2>
     <p>An expert-reviewed method for identifying the countries and non-country actors that issue AI policy documents, using distinct-country whole counting.</p>
@@ -278,6 +279,66 @@
       <p><code>policy_eligibility_label</code> uses <code>eligible_national_policy</code>, <code>eligible_subnational_policy</code>, <code>eligible_igo_policy</code>, <code>government_linked_auxiliary</code>, <code>non_policy</code> and <code>unresolved</code>. This decision uses document genre, issuer role, governmental relationship and policy function only after AI relevance has been assigned. Raw audit proportions from stratified samples are not reported as corpus composition without sampling weights and confidence intervals.</p>
     </div>
 
+    <h2 id="policy-document-filter">4. Separating scholarly papers and patents from policy documents</h2>
+    <div class="entry">
+      <p>This stage removes records that are confidently scholarly papers or patent documents from the derived policy-report corpus. It does not physically delete source files. Confirmed papers and patents are retained in separate AI-paper and AI-patent auxiliary corpora with their identifiers, metadata and collection provenance.</p>
+
+      <h3>Independent classification axes</h3>
+      <p><code>document_genre_normalised</code> and <code>policy_eligibility_label</code> are decided separately. A document can have scholarly features but still be an official government-commissioned or adopted policy output. Conversely, a document hosted by a government or university is not automatically a policy report. Institution type alone never determines document genre.</p>
+
+      <h3>Required genre labels</h3>
+      <table class="method-table">
+        <thead><tr><th>Label</th><th>Definition</th><th>Policy-corpus treatment</th></tr></thead>
+        <tbody>
+          <tr><td><code>policy_document</code></td><td>Report, policy brief, strategy, legislation, regulation, guideline, standard, consultation, official evaluation or comparable policy output.</td><td>Retain, subject to AI relevance and issuer eligibility.</td></tr>
+          <tr><td><code>scholarly_article</code></td><td>Journal article, conference paper, proceedings contribution, preprint, thesis chapter or research manuscript whose primary function is scholarly communication.</td><td>Exclude from the policy master and retain in the AI-paper corpus.</td></tr>
+          <tr><td><code>patent_document</code></td><td>Patent application, granted patent, utility model or patent-family publication issued through an intellectual-property office.</td><td>Exclude from the policy master and retain in the AI-patent corpus.</td></tr>
+          <tr><td><code>government_linked_research</code></td><td>Research output formally commissioned, co-issued, adopted or published as an official government evidence product.</td><td>Retain in a separate government-linked policy-evidence corpus pending policy-function review.</td></tr>
+          <tr><td><code>hybrid_or_ambiguous</code></td><td>Working paper, institutional research report, standards document, official conference report or mixed-format output whose function is unclear.</td><td>Manual review. Never exclude automatically.</td></tr>
+          <tr><td><code>unresolved_genre</code></td><td>Insufficient, contradictory, truncated or OCR-damaged genre evidence.</td><td>Manual review and metadata enrichment.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Evidence for a scholarly paper</h3>
+      <p>Automatic paper classification requires mutually consistent structured and content evidence. Strong signals include a journal or proceedings title, volume, issue, article pagination or article number, manuscript type, conference-paper metadata, scholarly DOI registration and an abstract organised around research questions, methods, results and discussion. A DOI, university publisher, research institute or the word “paper” alone is insufficient because official reports and working papers can share these features.</p>
+      <table class="method-table">
+        <thead><tr><th>Evidence combination</th><th>Decision</th></tr></thead>
+        <tbody>
+          <tr><td>Journal or proceedings metadata plus compatible article content</td><td>High-confidence <code>scholarly_article</code>.</td></tr>
+          <tr><td>Preprint server or repository record plus manuscript structure and scholarly identifier</td><td><code>scholarly_article</code>, while retaining the repository as host rather than issuer.</td></tr>
+          <tr><td>Government working paper or commissioned study with scholarly structure</td><td>Do not remove automatically; assess formal policy function and government relationship.</td></tr>
+          <tr><td>Conference programme, event report or policy roundtable summary</td><td>Not a conference paper unless the individual scholarly contribution is the record itself.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Evidence for a patent document</h3>
+      <p>Patent classification uses jurisdiction-qualified publication identifiers and patent-specific metadata. Strong evidence includes a validated publication number such as WO, EP, US, KR, CN or JP with the appropriate number format, application and priority dates, applicants or assignees, inventors, claims, IPC or CPC classifications, patent-office provenance and patent-family links. A report discussing patents, a patent-landscape analysis, an innovation strategy or a document containing a patent number is not itself a patent.</p>
+      <table class="method-table">
+        <thead><tr><th>Evidence combination</th><th>Decision</th></tr></thead>
+        <tbody>
+          <tr><td>Validated patent publication number plus claims or patent-office metadata</td><td>High-confidence <code>patent_document</code>.</td></tr>
+          <tr><td>Patent-office URL plus applicant, inventor and IPC/CPC fields</td><td>High-confidence <code>patent_document</code>.</td></tr>
+          <tr><td>Patent number mentioned only in title, abstract, references or report body</td><td>Not sufficient. Classify the enclosing document by its own function.</td></tr>
+          <tr><td>Patent statistics, landscape report, examination guideline or IP policy document</td><td>Potential <code>policy_document</code> or research report, not a patent record.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Ordered decision procedure</h3>
+      <ol class="plain">
+        <li>Verify that title, abstract, identifiers, publisher and URL passed the contamination and deduplication gates.</li>
+        <li>Extract genre evidence from raw artifact type, bibliographic fields, identifiers, original document, publisher page and full text.</li>
+        <li>Test patent evidence first because patent identifiers and claims are highly structured.</li>
+        <li>Test scholarly-paper evidence using both bibliographic structure and document purpose.</li>
+        <li>Check for formal government commissioning, co-issuance, adoption or official policy function before excluding a research-shaped document.</li>
+        <li>Assign ambiguous or conflicting cases to review rather than forcing paper, patent or policy status.</li>
+        <li>Route confirmed papers and patents to separate auxiliary corpora while preserving every source observation and exclusion reason.</li>
+      </ol>
+
+      <h3>Exclusion and audit controls</h3>
+      <p>Each decision stores raw and normalised genre, rule ID, evidence fields and spans, identifier validation result, source URL, government relationship, model version, reviewer status and reason code. Automatic exclusion requires two compatible evidence families, such as structured bibliographic metadata plus document-content evidence. Title keywords, Policy Commons artifact type, publisher name or URL pattern alone cannot trigger exclusion.</p>
+      <p>Paper and patent exclusions are evaluated separately on a stratified frozen test set. Automatic removal from the policy master is permitted only when the lower bound of the pre-specified one-sided 95% confidence interval for precision in the relevant exclusion class is at least 99.5%. Failure for either papers or patents places that rule in review-only mode. “Removal” means exclusion from the derived policy corpus; physical deletion remains prohibited until the manifest, checksum, quarantine, restore-test and approval gates are satisfied.</p>
+    </div>
+
     <h3 id="references">Methodological basis and review</h3>
     <div class="entry">
       <p>Independent expert reviews covered country attribution, entity resolution, bibliographic deduplication, provenance engineering, statistical reproducibility, multilingual information retrieval and AI-policy corpus construction. The resulting method separates source observations from document versions, treats automated merges as reversible decisions, separates AI relevance from policy eligibility, and requires rule-specific independent validation before automated merging or exclusion.</p>
@@ -292,7 +353,7 @@
       </ul>
     </div>
 
-    <p class="small">Citation: Chun, Y. (2026). <em>Policy Commons data curation methods: country attribution, duplicate resolution and AI relevance classification</em>. Method note for the AI Knowledge Ecosystem and Policy Agenda Gaps project.</p>
+    <p class="small">Citation: Chun, Y. (2026). <em>Policy Commons data curation methods: country attribution, duplicate resolution, AI relevance and document-genre filtering</em>. Method note for the AI Knowledge Ecosystem and Policy Agenda Gaps project.</p>
     <footer>© 2026 Youngsam Chun · <a href="https://orcid.org/0000-0002-6877-6230">ORCID 0000-0002-6877-6230</a></footer>
   </main>
 </div>
