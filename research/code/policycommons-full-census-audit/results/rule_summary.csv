@@ -16,8 +16,8 @@ D004_excluded_recruitment_policy_or_analysis,high,propose_restore,"policy, evalu
 D005_eligible_archival_finding_aid,high,propose_exclude,"pure catalogue, file list or finding aid",0
 E003_missing_stable_identifier,high,review_identity,retain both provider ID and URL,0
 E004_missing_title,high,review_metadata,title must be present,0
-A003_ambiguous_ai_only,medium,review_ai_context,confirm computational or governance context,545
+A001_metadata_negative_ai_provenance,information,retain_without_additional_ai_review,documented AI-oriented collection provenance is sufficient for retention,8647
+A003_ambiguous_ai_only,information,retain_under_collection_provenance,do not exclude unless positive non-AI evidence is independently established,545
 D006_eligible_academic_or_patent_candidate,medium,review_document_form,exclude only a standalone academic work or patent,0
 E005_invalid_year,medium,review_date,"distinguish publication, revision and retrieval date",0
-A001_metadata_negative_ai_provenance,review,retain_ai_unless_positive_non_ai_evidence,Policy Commons may have matched document full text,8647
 C008_multiple_country_codes,review,verify_each_country,each supported country receives one unit-weight row,0

@@ -143,13 +143,14 @@ def build_audit(
     ambiguous = combined.str.contains(AI_AMBIGUOUS)
     add_flag(data, "A001_metadata_negative_ai_provenance",
              ~explicit & data["ai_include"].astype(str).eq("1"),
-             "review", "retain_ai_unless_positive_non_ai_evidence",
-             "Policy Commons may have matched document full text")
+             "information", "retain_without_additional_ai_review",
+             "documented AI-oriented collection provenance is sufficient for retention")
     add_flag(data, "A002_probable_alternative_ai_meaning",
              alternative & ~explicit,
              "high", "review_for_non_ai", "positive alternative meaning and no independent AI evidence")
     add_flag(data, "A003_ambiguous_ai_only", ambiguous & ~explicit & ~alternative,
-             "medium", "review_ai_context", "confirm computational or governance context")
+             "information", "retain_under_collection_provenance",
+             "do not exclude unless positive non-AI evidence is independently established")
 
     meeting = title.str.contains(MEETING_TRIGGER)
     bundle = title.str.contains(BUNDLE_OVERRIDE)
@@ -206,8 +207,12 @@ def build_audit(
     summary = pd.DataFrame(rule_rows).sort_values(["severity", "rule_id"])
 
     rule_cols = [r["rule_id"] for r in data.attrs["rules"]]
-    data["audit_flag_count"] = data[rule_cols].sum(axis=1)
-    data["audit_rule_ids"] = data[rule_cols].apply(
+    candidate_cols = [
+        r["rule_id"] for r in data.attrs["rules"] if r["severity"] != "information"
+    ]
+    data["audit_information_count"] = data[rule_cols].sum(axis=1) - data[candidate_cols].sum(axis=1)
+    data["audit_flag_count"] = data[candidate_cols].sum(axis=1)
+    data["audit_rule_ids"] = data[candidate_cols].apply(
         lambda row: ";".join(row.index[row.astype(bool)]), axis=1
     )
     candidates = data.loc[data["audit_flag_count"].gt(0)].copy()
@@ -246,7 +251,7 @@ def run(input_path: Path = DEFAULT_INPUT, output_root: Path = DEFAULT_OUTPUT_ROO
     candidates[keep].to_csv(output / "audit_candidates.csv.gz", index=False, compression="gzip")
     rule_summary.to_csv(output / "rule_summary.csv", index=False, encoding="utf-8-sig")
     regressions.to_csv(output / "regression_results.csv", index=False, encoding="utf-8-sig")
-    audited[["record_id", "audit_flag_count", "audit_rule_ids"]].to_parquet(
+    audited[["record_id", "audit_information_count", "audit_flag_count", "audit_rule_ids"]].to_parquet(
         output / "record_audit_flags.parquet", index=False, compression="zstd"
     )
 
