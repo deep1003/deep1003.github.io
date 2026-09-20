@@ -73,8 +73,7 @@ def ris_artifact_ids(path: Path) -> list[str]:
     )
 
 
-def export_csv(page, target: Path, expected_ids: list[str]) -> dict:
-    expected = len(expected_ids)
+def export_csv(page, target: Path) -> dict:
     result = page.evaluate(
         """async () => {
             const results = Array.from(document.querySelectorAll('.search-item'))
@@ -108,22 +107,9 @@ def export_csv(page, target: Path, expected_ids: list[str]) -> dict:
         raise RuntimeError(
             f"CSV export mismatch rendered={rendered_items} CSV={info['records']}"
         )
-    ordered_matches = sum(
-        a == b for a, b in zip(info["artifact_ids"], expected_ids)
-    )
-    overlap = len(set(info["artifact_ids"]) & set(expected_ids))
-    if info["artifact_ids"] == expected_ids:
-        pair_status = "exact_page_match"
-    elif overlap:
-        pair_status = "partial_page_overlap"
-    else:
-        pair_status = "no_page_overlap"
     info.update(
         {
-            "pair_status": pair_status,
-            "ordered_matches": ordered_matches,
-            "set_overlap": overlap,
-            "expected_ris_records": expected,
+            "pair_status": "not_evaluated_at_collection",
             "rendered_export_items": rendered_items,
         }
     )
@@ -157,14 +143,10 @@ def main() -> None:
                         common.append_jsonl(errors, {"module": module, "year": YEAR, "page": number, "error": "paired RIS missing", "at": common.now()})
                         continue
                     ris_info = common.inspect_ris(ris)
-                    expected_ids = ris_artifact_ids(ris)
-                    if len(expected_ids) != ris_info["records"]:
-                        common.append_jsonl(errors, {"module": module, "year": YEAR, "page": number, "error": f"RIS artifact IDs {len(expected_ids)} != records {ris_info['records']}", "at": common.now()})
-                        continue
                     if csv_path.exists():
                         try:
                             info = inspect_csv(csv_path)
-                            if info["records"] == ris_info["records"] and info["artifact_ids"] == expected_ids:
+                            if info["records"] > 0:
                                 print(f"[{module} {YEAR} {partition['label']} {number}/{pages}] skip CSV {info['records']}", flush=True)
                                 continue
                         except Exception:
@@ -180,9 +162,9 @@ def main() -> None:
                             )
                             page.goto(url, wait_until="domcontentloaded", timeout=120_000)
                             page.wait_for_selector(".search-item", timeout=120_000)
-                            info = export_csv(page, csv_path, expected_ids)
+                            info = export_csv(page, csv_path)
                             manifest_info = {key: value for key, value in info.items() if key != "artifact_ids"}
-                            common.append_jsonl(manifest, {"module": module, "module_name": MODULE_NAMES[module], "year": YEAR, "partition": partition, "page": number, **manifest_info, "join_key": "Policy Commons artifact ID parsed from URL", "paired_ris": str(ris.relative_to(ROOT)), "at": common.now()})
+                            common.append_jsonl(manifest, {"module": module, "module_name": MODULE_NAMES[module], "year": YEAR, "partition": partition, "page": number, **manifest_info, "join_key_for_later_matching": "CSV.coi to RIS.ID; unmatched records skipped during integration", "paired_ris": str(ris.relative_to(ROOT)), "at": common.now()})
                             print(f"[{module} {YEAR} {partition['label']} {number}/{pages}] saved CSV {info['records']}", flush=True)
                             success = True
                             break

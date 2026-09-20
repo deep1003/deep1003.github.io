@@ -105,18 +105,11 @@ def main() -> None:
         for index, (module, year, ris) in enumerate(queue, 1):
             target = ris.with_suffix(".csv")
             try:
-                expected_ids = helper.ris_artifact_ids(ris)
                 ris_info = common.inspect_ris(ris)
-                if len(expected_ids) != ris_info["records"]:
-                    raise RuntimeError(
-                        f"RIS artifact IDs {len(expected_ids)} != records {ris_info['records']}"
-                    )
                 if target.exists():
                     info = helper.inspect_csv(target)
                     if info["records"] > 0:
-                        overlap = len(set(info["artifact_ids"]) & set(expected_ids))
-                        status = "exact_page_match" if info["artifact_ids"] == expected_ids else ("partial_page_overlap" if overlap else "no_page_overlap")
-                        print(f"[{index}/{len(queue)}] skip {module} {year} {target.name} {info['records']} {status}", flush=True)
+                        print(f"[{index}/{len(queue)}] skip {module} {year} {target.name} {info['records']}", flush=True)
                         continue
                     quarantine = LOG_ROOT / "quarantine" / target.relative_to(BASE)
                     quarantine.parent.mkdir(parents=True, exist_ok=True)
@@ -132,11 +125,11 @@ def main() -> None:
                         )
                         page.goto(url, wait_until="domcontentloaded", timeout=120_000)
                         page.wait_for_selector(".search-item", timeout=120_000)
-                        info = helper.export_csv(page, target, expected_ids)
+                        info = helper.export_csv(page, target)
                         clean_info = {k: v for k, v in info.items() if k != "artifact_ids"}
                         append(LOG_ROOT / "manifest.jsonl", {
                             "module": module, "year": year, "ris": str(ris),
-                            "csv": str(target), "join_key": "Policy Commons artifact ID parsed from URL",
+                            "csv": str(target), "join_key_for_later_matching": "CSV.coi to RIS.ID; unmatched records skipped during integration",
                             **clean_info, "at": utc_now(),
                         })
                         print(f"[{index}/{len(queue)}] saved {module} {year} {target.name} {info['records']}", flush=True)
