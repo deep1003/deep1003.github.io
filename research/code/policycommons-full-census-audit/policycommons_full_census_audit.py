@@ -20,7 +20,7 @@ import pycountry
 
 DEFAULT_INPUT = Path(
     "/Users/deep1003/Downloads/pcgs_aigov5_20260920/"
-    "final_release_v5/policycommons_ai_master_final_v5.parquet"
+    "final_release_v6/policycommons_ai_master_final_v6.parquet"
 )
 DEFAULT_OUTPUT_ROOT = Path(
     "/Users/deep1003/Downloads/pcgs_aigov5_20260920/full_census_audit/runs"
@@ -146,7 +146,7 @@ def build_audit(
              "information", "retain_without_additional_ai_review",
              "documented AI-oriented collection provenance is sufficient for retention")
     add_flag(data, "A002_probable_alternative_ai_meaning",
-             alternative & ~explicit,
+             alternative & ~explicit & data.get("ai_include_v6", data["ai_include"]).astype(str).eq("1"),
              "high", "review_for_non_ai", "positive alternative meaning and no independent AI evidence")
     add_flag(data, "A003_ambiguous_ai_only", ambiguous & ~explicit & ~alternative,
              "information", "retain_under_collection_provenance",

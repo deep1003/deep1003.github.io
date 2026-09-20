@@ -4,13 +4,13 @@ C004_nz_productivity_false_australia,critical,correct_to_new_zealand,longest-spe
 C005_kosovo_not_xkx,critical,correct_to_kosovo,explicit issuer jurisdiction,0
 E001_duplicate_record_id,critical,block_release,record_id must be unique,0
 E002_pairing_not_exact,critical,quarantine,normalised coi and URL artefact ID must agree,0
-A002_probable_alternative_ai_meaning,high,review_for_non_ai,positive alternative meaning and no independent AI evidence,13
+A002_probable_alternative_ai_meaning,high,review_for_non_ai,positive alternative meaning and no independent AI evidence,11
 C001_eligible_country_unresolved,high,review_country,retain unresolved rather than invent attribution,367
 C002_provider_issuer_country_conflict,high,review_country_conflict,explicit issuer jurisdiction may override publication place,6
 C006_public_issuer_library_unresolved,high,review_public_issuer,distinguish issuing public body from passive repository,0
 C007_national_commission_unresolved,high,correct_to_canada,official national commission,0
 D001_eligible_standalone_meeting_document,high,propose_exclude,meeting trigger without a substantive bundle signal,0
-D002_excluded_substantive_meeting_bundle,high,propose_restore,bundle signal overrides logistical meeting exclusion,4
+D002_excluded_substantive_meeting_bundle,high,propose_restore,bundle signal overrides logistical meeting exclusion,0
 D003_eligible_standalone_recruitment,high,propose_exclude,standalone recruitment material,0
 D004_excluded_recruitment_policy_or_analysis,high,propose_restore,"policy, evaluation or labour-market content",0
 D005_eligible_archival_finding_aid,high,propose_exclude,"pure catalogue, file list or finding aid",0

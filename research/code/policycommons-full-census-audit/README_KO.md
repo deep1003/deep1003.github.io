@@ -2,8 +2,9 @@
 
 ## 웹에서 실행
 
-Finder에서 `open_audit_notebook.command`를 더블클릭한다. JupyterLab이 로컬 웹 브라우저에서
-열리면 `Run All Cells`를 실행한다. 입력 v5 마스터는 수정하지 않는다.
+Finder에서 `open_audit_notebook.command`를 더블클릭한다. 기본 입력은 Protocol 3.7의
+`final_release_v6` 마스터이다. JupyterLab이 로컬 웹 브라우저에서
+열리면 `Run All Cells`를 실행한다. 입력 v6 마스터는 수정하지 않는다.
 
 ## 셸에서 전체 자동 실행
 
