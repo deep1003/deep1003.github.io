@@ -21,6 +21,10 @@ LOG_ROOT = BASE / "output/csv_companion_backfill_20260920"
 HELPER = Path("/Users/deep1003/data3/policy_commons_collect_csv_2026_all_modules.py")
 CDP = "http://127.0.0.1:9223"
 
+
+class SkipCurrentPage(RuntimeError):
+    """The live search page no longer exposes exportable result cards."""
+
 spec = importlib.util.spec_from_file_location("csv_helper", HELPER)
 if spec is None or spec.loader is None:
     raise RuntimeError(f"Cannot load helper: {HELPER}")
@@ -116,15 +120,28 @@ def main() -> None:
                     target.replace(quarantine)
                 meta = load_page_metadata(ris, module, year)
                 success = False
-                for attempt in range(1, 6):
+                for attempt in range(1, 3):
                     try:
                         url = common.search_url(
                             meta["module"], meta["year"], page_number=meta["page"],
                             sort=meta["sort"], artifact_type=meta["artifact_type"],
                             query=meta["query"],
                         )
-                        page.goto(url, wait_until="domcontentloaded", timeout=120_000)
-                        page.wait_for_selector(".search-item", timeout=120_000)
+                        page.goto(url, wait_until="domcontentloaded", timeout=60_000)
+                        try:
+                            page.wait_for_selector(".search-item", timeout=20_000)
+                        except Exception as exc:
+                            body = page.locator("body").inner_text(timeout=5_000)
+                            challenge = (
+                                "Just a moment" in body
+                                or "Performing security verification" in body
+                                or "Verify you are human" in body
+                            )
+                            if challenge:
+                                raise RuntimeError("browser verification challenge") from exc
+                            raise SkipCurrentPage(
+                                "live search has no result cards; page skipped without blocking"
+                            ) from exc
                         info = helper.export_csv(page, target)
                         clean_info = {k: v for k, v in info.items() if k != "artifact_ids"}
                         append(LOG_ROOT / "manifest.jsonl", {
@@ -135,6 +152,19 @@ def main() -> None:
                         print(f"[{index}/{len(queue)}] saved {module} {year} {target.name} {info['records']}", flush=True)
                         success = True
                         break
+                    except SkipCurrentPage as exc:
+                        append(LOG_ROOT / "unresolved.jsonl", {
+                            "module": module, "year": year, "ris": str(ris),
+                            "page": meta["page"], "reason": str(exc),
+                            "disposition": "skipped_during_collection",
+                            "at": utc_now(),
+                        })
+                        print(
+                            f"[{index}/{len(queue)}] skip unavailable {module} {year} "
+                            f"{target.name}", flush=True
+                        )
+                        success = True
+                        break
                     except Exception as exc:
                         target.with_suffix(".csv.part").unlink(missing_ok=True)
                         append(LOG_ROOT / "errors.jsonl", {
@@ -142,12 +172,12 @@ def main() -> None:
                             "page": meta["page"], "attempt": attempt,
                             "error": repr(exc), "at": utc_now(),
                         })
-                        if attempt < 5:
-                            time.sleep(10 * attempt)
+                        if attempt < 2:
+                            time.sleep(5)
                 if not success:
                     append(LOG_ROOT / "unresolved.jsonl", {
                         "module": module, "year": year, "ris": str(ris),
-                        "reason": "five CSV attempts exhausted", "at": utc_now(),
+                        "reason": "two short CSV attempts exhausted", "at": utc_now(),
                     })
             except Exception as exc:
                 append(LOG_ROOT / "unresolved.jsonl", {
