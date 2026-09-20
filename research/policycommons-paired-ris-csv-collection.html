@@ -16,7 +16,7 @@
 <h2>Paired Policy Commons RIS and CSV collection</h2>
 <p class="lead">A page-preserving, identifier-checked method for enriching bibliographic records with provider-supplied country and topic metadata.</p>
 <p class="small muted">Implementation 1.0 · 20 September 2026 · Python 3.13.9 · Playwright 1.60.0</p>
-<p class="status"><strong>Purpose.</strong> Every accepted CSV is stored beside the RIS file produced from the same Policy Commons search page. RIS supplies rich bibliographic fields and abstracts. CSV adds provider-supplied <code>country</code> and <code>topics</code>. Files are accepted only when their Policy Commons identifiers agree, preventing a later page shift from silently joining unrelated records.</p>
+<p class="status"><strong>Purpose.</strong> Every structurally valid CSV is stored beside the RIS file collected for the corresponding Policy Commons search page. RIS supplies rich bibliographic fields and abstracts. CSV adds provider-supplied <code>country</code> and <code>topics</code>. Page-level agreement is recorded as <code>exact_page_match</code>, <code>partial_page_overlap</code> or <code>no_page_overlap</code>. Final enrichment is always performed by persistent record identifier, never by row or page position.</p>
 
 <section id="contract"><h2>1. Frozen collection contract</h2>
 <table class="method-table"><tbody>
@@ -31,10 +31,10 @@
 <p class="warning">The scripts do not bypass access controls and do not store credentials, cookies, CSRF tokens or signed download addresses. Reproduction requires an authorised Policy Commons account and must comply with the applicable licence.</p></section>
 
 <section id="architecture"><h2>2. Architecture and state transition</h2>
-<ol><li>Read the canonical module-year inventory and resolve its relative raw-source links.</li><li>Locate every valid <code>page_NNNN.ris</code> and its nearest <code>manifest.jsonl</code>.</li><li>Recover the exact module, year, query, sort order, artefact filter, partition and page number used for that RIS.</li><li>Open the identical search page in the authenticated browser.</li><li>Submit the rendered result identifiers to <code>/api/export/many/</code> with <code>export_type: csv</code>.</li><li>Download the short-lived object to <code>.csv.part</code>.</li><li>Parse and validate schema, row count, COI and URL-derived artefact identifiers against the paired RIS.</li><li>Atomically rename the accepted temporary file to <code>page_NNNN.csv</code>; otherwise remove the temporary file, log the failure and retry.</li></ol>
+<ol><li>Read the canonical module-year inventory and resolve its relative raw-source links.</li><li>Locate every valid <code>page_NNNN.ris</code> and its nearest <code>manifest.jsonl</code>.</li><li>Recover the exact module, year, query, sort order, artefact filter, partition and page number used for that RIS.</li><li>Open the identical search page in the authenticated browser.</li><li>Submit the currently rendered result identifiers to <code>/api/export/many/</code> with <code>export_type: csv</code>.</li><li>Download the short-lived object to <code>.csv.part</code>.</li><li>Validate CSV decoding, schema and rendered-item cardinality; compare COI and URL-derived artefact identifiers with the RIS.</li><li>Record page-level overlap status and atomically rename the structurally valid temporary file to <code>page_NNNN.csv</code>. Later integration uses record-level identifiers only.</li></ol>
 <pre><code>DISCOVER RIS → RECOVER SEARCH CONTRACT → RENDER AUTHENTICATED PAGE
-    → REQUEST CSV EXPORT → DOWNLOAD TO .part → VALIDATE IDENTIFIERS
-    → ATOMIC ACCEPT | RETRY | QUARANTINE | UNRESOLVED LOG</code></pre></section>
+    → REQUEST CSV EXPORT → DOWNLOAD TO .part → VALIDATE STRUCTURE
+    → LABEL PAGE OVERLAP → ATOMIC SAVE → RECORD-LEVEL JOIN LATER</code></pre></section>
 
 <section id="partitioning"><h2>3. Search partitioning above the 10,000-result boundary</h2>
 <p>Policy Commons exposes at most 100 pages of 100 results for a single search ordering. A module-year above 10,000 results is therefore divided before export. The partition planner is deterministic relative to the provider state observed at planning time.</p>
@@ -81,15 +81,18 @@ const response = await fetch('/api/export/many/', {
 <tr><td>RIS structure</td><td><code>TY</code> count equals <code>ER</code> count and is non-zero</td><td>Do not request a companion for an invalid RIS</td></tr>
 <tr><td>CSV decoding</td><td>Strict UTF-8 with optional BOM</td><td>Reject temporary file</td></tr>
 <tr><td>CSV schema</td><td><code>type,title,url,publisher,year,topics,country</code> are present; the observed export also contains <code>people,coi,language,issn,isbn</code></td><td>Reject and retry</td></tr>
-<tr><td>Cardinality</td><td>CSV rows equal paired RIS records and rendered export items</td><td>Reject and retry</td></tr>
-<tr><td>Artefact identity</td><td>The ordered artefact-ID sequence parsed from both URL fields is identical</td><td>Reject, never silently pair by position</td></tr>
-<tr><td>Bibliographic identity</td><td><code>CSV.coi</code> equals <code>RIS.ID</code> after conservative normalisation</td><td>Flag conflict for review; do not overwrite either source</td></tr>
+<tr><td>Export cardinality</td><td>CSV rows equal the item count submitted for the current CSV export</td><td>Reject and retry because the CSV export itself is incomplete</td></tr>
+<tr><td>Page cardinality</td><td>Compare CSV rows with paired RIS records</td><td>Retain the CSV and record the difference</td></tr>
+<tr><td>Artefact identity</td><td>Compare the ordered and set overlap of artefact IDs parsed from both URL fields</td><td>Retain and label as exact, partial or no page overlap; never join by position</td></tr>
+<tr><td>Bibliographic identity</td><td>At integration, compare <code>CSV.coi</code> with <code>RIS.ID</code> after conservative normalisation</td><td>Join matching records only; retain unmatched records and conflicts separately</td></tr>
 <tr><td>Atomicity</td><td>Validation occurs on <code>.csv.part</code>; only an accepted payload becomes <code>.csv</code></td><td>Delete incomplete temporary payload</td></tr>
 </tbody></table>
 <pre><code>expected_ids = ris_artifact_ids(ris_path)
 csv_info = inspect_csv(partial_csv)
-assert csv_info["records"] == len(expected_ids)
-assert csv_info["artifact_ids"] == expected_ids
+assert csv_info["records"] == rendered_export_items
+pair_status = classify_page_overlap(
+    csv_info["artifact_ids"], expected_ids
+)
 partial_csv.replace(final_csv)  # atomic rename on the same volume</code></pre>
 <p>On the first audited 2026 page, 100 RIS records matched 100 CSV rows in order by both COI and artefact ID. All 100 CSV rows contained country information and 96 contained topics. This is a pipeline smoke test, not a population completeness estimate.</p></section>
 
@@ -106,7 +109,7 @@ issuer_country         &lt;- later evidence layer  # never overwritten by CSV co
 <p><code>country</code> is preserved as provider-supplied publication-country evidence. It is not automatically treated as issuer country, target country, policy jurisdiction or analytical country. <code>topics</code> is stored independently from RIS keywords and analyst-derived classifications.</p></section>
 
 <section id="recovery"><h2>7. Idempotence, retries and recovery</h2>
-<ul><li>Before requesting a page, validate any existing CSV against its RIS. A valid pair is skipped.</li><li>An invalid existing CSV is moved to a provenance-preserving quarantine path, not overwritten.</li><li>Transient failures receive up to five attempts with increasing delays of 10, 20, 30 and 40 seconds.</li><li>Permanent failures are written to <code>unresolved.jsonl</code>. The main sweep continues.</li><li><code>checkpoint.json</code> stores queue index, total, module, year, RIS path, state and UTC timestamp.</li><li><code>manifest.jsonl</code> records accepted files, row count, columns, size, SHA-256, paired RIS path and join-key definition.</li><li>Re-running the collector is safe because accepted pairs are revalidated and skipped.</li></ul></section>
+<ul><li>Before requesting a page, validate any existing CSV structurally. A valid export is skipped even when page overlap is partial, because matching is deferred to the record level.</li><li>A structurally invalid existing CSV is moved to a provenance-preserving quarantine path, not overwritten.</li><li>Transient failures receive up to five attempts with increasing delays of 10, 20, 30 and 40 seconds.</li><li>Permanent export failures are written to <code>unresolved.jsonl</code>. The main sweep continues.</li><li><code>checkpoint.json</code> stores queue index, total, module, year, RIS path, state and UTC timestamp.</li><li><code>manifest.jsonl</code> records row count, page-overlap status, ordered matches, set overlap, columns, size, SHA-256, paired RIS path and join-key definition.</li><li>Re-running the collector is safe because structurally valid CSV files are revalidated and skipped.</li></ul></section>
 
 <section id="layout"><h2>8. On-disk layout</h2>
 <pre><code>artificial_intelligence_.../
@@ -138,7 +141,7 @@ python -u backfill_csv_companions.py</code></pre>
 <p>Policy Commons holdings and metadata can change. Exact reproduction therefore means executing the frozen method and retaining dated manifests, not assuming that a later query will return identical records.</p></section>
 
 <section id="code"><h2>10. Public code snapshot</h2>
-<ul><li><a href="code/policycommons-paired-ris-csv-collection/collect_partitioned_ris.py">Partitioned RIS collector</a>, SHA-256 <code>ec265bf2ab93456cb181cd4462edf02efd752b80af60c200e6e45f15c7141dc9</code></li><li><a href="code/policycommons-paired-ris-csv-collection/collect_csv_2026_all_modules.py">Bounded 2026 CSV companion collector</a>, SHA-256 <code>61ed292143d8fd7acd617116dc94c08317e5f3f684eba8fb7e62e50b5b277368</code></li><li><a href="code/policycommons-paired-ris-csv-collection/backfill_csv_companions.py">Canonical historical CSV backfill</a>, SHA-256 <code>3040b410feb1b4167e7c210789ce2197d8f4a1155945be57483a4ee095bf9c62</code></li></ul>
+<ul><li><a href="code/policycommons-paired-ris-csv-collection/collect_partitioned_ris.py">Partitioned RIS collector</a>, SHA-256 <code>ec265bf2ab93456cb181cd4462edf02efd752b80af60c200e6e45f15c7141dc9</code></li><li><a href="code/policycommons-paired-ris-csv-collection/collect_csv_2026_all_modules.py">Bounded 2026 CSV companion collector</a>, SHA-256 <code>20c054ea63d8f15d21a7b94f518fc9ed22ad025bb434f9d0c83df3e431f07ef1</code></li><li><a href="code/policycommons-paired-ris-csv-collection/backfill_csv_companions.py">Canonical historical CSV backfill</a>, SHA-256 <code>81e263e42269902521114c19ab0fe8f76250e7afc40d357442206eb2f1a99376</code></li></ul>
 <p>The repository contains code and method documentation only. Licensed RIS and CSV payloads, authentication state and signed download addresses are not published.</p>
 <p class="small">Citation: Chun, Y. (2026). <em>Paired Policy Commons RIS and CSV collection: authenticated export, identity validation and recovery protocol</em>. Implementation 1.0.</p></section>
 <footer>© 2026 Youngsam Chun · <a href="policycommons-country-attribution.html">Country-attribution protocol</a> · <a href="../research.html">Research overview</a></footer>

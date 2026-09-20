@@ -113,8 +113,10 @@ def main() -> None:
                     )
                 if target.exists():
                     info = helper.inspect_csv(target)
-                    if info["artifact_ids"] == expected_ids:
-                        print(f"[{index}/{len(queue)}] skip {module} {year} {target.name} {info['records']}", flush=True)
+                    if info["records"] > 0:
+                        overlap = len(set(info["artifact_ids"]) & set(expected_ids))
+                        status = "exact_page_match" if info["artifact_ids"] == expected_ids else ("partial_page_overlap" if overlap else "no_page_overlap")
+                        print(f"[{index}/{len(queue)}] skip {module} {year} {target.name} {info['records']} {status}", flush=True)
                         continue
                     quarantine = LOG_ROOT / "quarantine" / target.relative_to(BASE)
                     quarantine.parent.mkdir(parents=True, exist_ok=True)

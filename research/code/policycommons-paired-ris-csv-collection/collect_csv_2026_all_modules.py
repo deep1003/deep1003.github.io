@@ -94,8 +94,7 @@ def export_csv(page, target: Path, expected_ids: list[str]) -> dict:
     )
     if int(result["status"]) != 200:
         raise RuntimeError(f"CSV export HTTP {result['status']}: {result['text'][:500]}")
-    if int(result["count"]) != expected:
-        raise RuntimeError(f"page item mismatch RIS={expected} UI={result['count']}")
+    rendered_items = int(result["count"])
     url = json.loads(result["text"]).get("url")
     if not url:
         raise RuntimeError("CSV export returned no URL")
@@ -105,14 +104,29 @@ def export_csv(page, target: Path, expected_ids: list[str]) -> dict:
     partial = target.with_suffix(".csv.part")
     partial.write_bytes(response.body())
     info = inspect_csv(partial)
-    if info["records"] != expected:
-        raise RuntimeError(f"CSV record mismatch RIS={expected} CSV={info['records']}")
-    if info["artifact_ids"] != expected_ids:
-        overlap = len(set(info["artifact_ids"]) & set(expected_ids))
+    if info["records"] != rendered_items:
         raise RuntimeError(
-            f"CSV/RIS artifact mismatch ordered={sum(a == b for a, b in zip(info['artifact_ids'], expected_ids))} "
-            f"set_overlap={overlap}/{expected}"
+            f"CSV export mismatch rendered={rendered_items} CSV={info['records']}"
         )
+    ordered_matches = sum(
+        a == b for a, b in zip(info["artifact_ids"], expected_ids)
+    )
+    overlap = len(set(info["artifact_ids"]) & set(expected_ids))
+    if info["artifact_ids"] == expected_ids:
+        pair_status = "exact_page_match"
+    elif overlap:
+        pair_status = "partial_page_overlap"
+    else:
+        pair_status = "no_page_overlap"
+    info.update(
+        {
+            "pair_status": pair_status,
+            "ordered_matches": ordered_matches,
+            "set_overlap": overlap,
+            "expected_ris_records": expected,
+            "rendered_export_items": rendered_items,
+        }
+    )
     partial.replace(target)
     return info
 
