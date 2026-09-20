@@ -11,11 +11,11 @@
 </head><body>
 <nav class="topbar"><div class="topbar-inner"><span class="brand">Youngsam Chun</span><a class="nav" href="../index.html">About</a><a class="nav active" href="../research.html">Research</a><a class="nav" href="../publications.html">Publications</a></div></nav>
 <div class="wrap"><aside class="sidebar"><img class="avatar" src="../assets/profile.jpg" alt="Youngsam Chun"><h1>Youngsam Chun</h1><p class="role">Responsible AI Researcher</p>
-<ul class="side-list"><li><a href="#contract">Collection contract</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#partitioning">Partitioning</a></li><li><a href="#export">Authenticated export</a></li><li><a href="#validation">Acceptance tests</a></li><li><a href="#pairing">Pairing and joins</a></li><li><a href="#recovery">Recovery</a></li><li><a href="#layout">File layout</a></li><li><a href="#reproduce">Reproduction</a></li><li><a href="#code">Code snapshot</a></li></ul></aside>
+<ul class="side-list"><li><a href="#contract">Collection contract</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#partitioning">Partitioning</a></li><li><a href="#export">Authenticated export</a></li><li><a href="#validation">Acceptance tests</a></li><li><a href="#pairing">Pairing and joins</a></li><li><a href="#golden">Golden Set build</a></li><li><a href="#recovery">Recovery</a></li><li><a href="#layout">File layout</a></li><li><a href="#reproduce">Reproduction</a></li><li><a href="#code">Code snapshot</a></li></ul></aside>
 <main class="content">
 <h2>Paired Policy Commons RIS and CSV collection</h2>
 <p class="lead">A page-preserving, identifier-checked method for enriching bibliographic records with provider-supplied country and topic metadata.</p>
-<p class="small muted">Implementation 1.0 · 20 September 2026 · Python 3.13.9 · Playwright 1.60.0</p>
+<p class="small muted">Implementation 1.1 · 20 September 2026 · validated with Python 3.14.6, pandas 3.0.5 and pyarrow 25.0.1</p>
 <p class="status"><strong>Purpose.</strong> Every structurally valid CSV is stored beside the RIS file collected for the corresponding Policy Commons search page. RIS supplies rich bibliographic fields and abstracts. CSV adds provider-supplied <code>country</code> and <code>topics</code>. To maximise collection throughput, page-level RIS–CSV agreement is not evaluated during download. Final enrichment is performed later by persistent record identifier, never by row or page position; unmatched records are skipped at that stage.</p>
 
 <section id="contract"><h2>1. Frozen collection contract</h2>
@@ -27,6 +27,16 @@
 <tr><th>Preferred item scope</th><td><code>artifact_type=document:Document</code>. Historical batches that were originally exported without this filter retain their recorded manifest contract so that the CSV reproduces the RIS page rather than rewriting collection history.</td></tr>
 <tr><th>Output unit</th><td>One RIS and one CSV per module, year, partition and page</td></tr>
 <tr><th>Authentication</th><td>An existing user-authenticated Chrome session exposed locally through the Chrome DevTools Protocol at <code>127.0.0.1:9223</code></td></tr>
+</tbody></table>
+<h3>Frozen AIGOV5 execution used for the worked result</h3>
+<table class="method-table"><tbody>
+<tr><th>Query ID</th><td><code>aigov5</code></td></tr>
+<tr><th>Exact query</th><td><code>Artificial Intelligence AND AI Governance AND AI Safety AND AI System AND AI Policy</code></td></tr>
+<tr><th>Modules</th><td><code>POCO_POGO</code>, <code>POCO_PCWL</code>, <code>POCO_POHE</code>, <code>POCO_PSPL</code></td></tr>
+<tr><th>Filters</th><td>Publications; <code>document:Document</code>; <code>gov:Government</code>; 100 results per page</td></tr>
+<tr><th>Sort coverage</th><td><code>date_desc</code> pages 1–100 plus <code>date_asc</code> pages 1–53</td></tr>
+<tr><th>Provider count</th><td>15,206 displayed search hits at collection time</td></tr>
+<tr><th>Frozen observations</th><td>153 RIS files and 153 CSV files, 15,300 observations in each format</td></tr>
 </tbody></table>
 <p class="warning">The scripts do not bypass access controls and do not store credentials, cookies, CSRF tokens or signed download addresses. Reproduction requires an authorised Policy Commons account and must comply with the applicable licence.</p></section>
 
@@ -105,10 +115,35 @@ ris_keywords           &lt;- repeated RIS.KW       # retained separately
 issuer_country         &lt;- later evidence layer  # never overwritten by CSV country</code></pre>
 <p><code>country</code> is preserved as provider-supplied publication-country evidence. It is not automatically treated as issuer country, target country, policy jurisdiction or analytical country. <code>topics</code> is stored independently from RIS keywords and analyst-derived classifications.</p></section>
 
-<section id="recovery"><h2>7. Idempotence, retries and recovery</h2>
+<section id="golden"><h2>7. Deterministic Golden Set construction</h2>
+<p>The collector prioritises fast, lossless capture. The Golden Set builder then operates at record grain. It never assumes that page 39 in one export still represents page 39 in a later export because provider holdings and rankings can change between requests.</p>
+<ol><li>Parse all frozen RIS records and retain the existing deduplicated RIS master.</li><li>Concatenate all CSV observations and attach source file and source row provenance.</li><li>Normalise <code>CSV.coi</code> and <code>RIS.ID</code> by lower-casing, removing DOI resolver prefixes and trimming terminal slashes.</li><li>Parse the numeric artefact identifier from <code>/artifacts/{id}/</code> in both URL fields.</li><li>Deduplicate CSV observations on the compound key <code>(normalised COI, artefact ID)</code>. Preserve all contributing filenames and observation counts.</li><li>Accept a RIS–CSV pair only when both key components agree. Do not use title, page number, sort position, year or publisher as a substitute join.</li><li>Retain unmatched RIS, unmatched CSV and within-key field conflicts in separate audit files.</li><li>Merge CSV <code>country</code>, <code>topics</code>, <code>people</code>, <code>issn</code> and <code>isbn</code> into the paired master with field-level provenance.</li><li>Create a fixed-seed 100-record human-validation sample. The paired output remains a Golden Set candidate until original-source adjudication is complete.</li></ol>
+<pre><code>join_coi         = normalise(CSV.coi) == normalise(RIS.ID)
+join_artifact_id = artifact_id(CSV.url) == artifact_id(RIS.UR)
+accept_pair      = join_coi and join_artifact_id
+
+assert not golden.duplicated(["join_coi", "join_artifact_id"]).any()
+assert golden["join_coi"].ne("").all()
+assert golden["join_artifact_id"].ne("").all()</code></pre>
+<h3>Reproduced AIGOV5 results</h3>
+<table class="method-table"><tbody>
+<tr><th>CSV observations</th><td>15,300</td></tr>
+<tr><th>Unique CSV compound keys</th><td>11,320</td></tr>
+<tr><th>Deduplicated RIS records</th><td>14,696</td></tr>
+<tr><th>Exact RIS–CSV pairs</th><td><strong>11,306</strong>, 76.9325% of the RIS master</td></tr>
+<tr><th>AI-included, document-eligible pairs</th><td>11,285</td></tr>
+<tr><th>Provider publication country present</th><td>11,292</td></tr>
+<tr><th>Provider Topics present</th><td>10,192</td></tr>
+<tr><th>Unmatched records</th><td>3,390 RIS records and 14 unique CSV records, retained for audit</td></tr>
+<tr><th>Within-key field conflicts</th><td>15 compound keys, retained in <code>csv_field_conflicts.csv</code></td></tr>
+<tr><th>Duplicate accepted compound keys</th><td>0</td></tr>
+</tbody></table>
+<p class="warning"><strong>Interpretation boundary.</strong> <code>golden_set_master</code> is identifier-exact and provenance-complete for the accepted pairs. Its <code>human_validation_status</code> is <code>pending</code>. It must not be described as a fully adjudicated ground-truth set until the fixed-seed validation records have been checked against original documents.</p></section>
+
+<section id="recovery"><h2>8. Idempotence, retries and recovery</h2>
 <ul><li>Before requesting a page, validate any existing CSV structurally. A valid export is skipped because matching is deferred to the record level.</li><li>A structurally invalid existing CSV is moved to a provenance-preserving quarantine path, not overwritten.</li><li>A live search with no result cards is skipped after a 20-second bounded wait so that a changed historical partition cannot block the sweep.</li><li>A browser-verification challenge or other transient failure receives at most two short attempts with a five-second delay.</li><li>Unavailable and failed exports are written to <code>unresolved.jsonl</code>. The main sweep continues.</li><li><code>checkpoint.json</code> stores queue index, total, module, year, RIS path, state and UTC timestamp.</li><li><code>manifest.jsonl</code> records row count, columns, size, SHA-256, paired RIS path, <code>not_evaluated_at_collection</code> status and the later join-key definition.</li><li>Re-running the collector is safe because structurally valid CSV files are revalidated and skipped.</li></ul></section>
 
-<section id="layout"><h2>8. On-disk layout</h2>
+<section id="layout"><h2>9. On-disk layout</h2>
 <pre><code>artificial_intelligence_.../
 └── POCO_POGO/
     └── 2026/
@@ -125,21 +160,44 @@ csv_companion_backfill_20260920/
 ├── manifest.jsonl
 ├── errors.jsonl
 ├── unresolved.jsonl
-└── quarantine/</code></pre>
+└── quarantine/
+
+golden_set_v1/
+├── golden_set_master.parquet
+├── golden_set_master.csv.gz
+├── golden_set_document_eligible.csv.gz
+├── validation_sample_100.csv
+├── unmatched_ris_records.csv.gz
+├── unmatched_csv_records.csv
+├── csv_field_conflicts.csv
+├── input_csv_manifest.csv
+└── SUMMARY.json</code></pre>
 <p>The canonical 1950–2026 module view contains relative symbolic links to raw source folders. The backfill resolves each physical source once, preventing the same raw folder from being processed twice when it has more than one catalogue reference.</p></section>
 
-<section id="reproduce"><h2>9. Reproduction procedure</h2>
-<ol><li>Install Python 3.13 and Playwright 1.60.0.</li><li>Launch Chrome with a local debugging port and sign in to Policy Commons interactively.</li><li>Freeze the canonical inventory, RIS files and manifests. Do not place account secrets in configuration files.</li><li>Set the local <code>BASE</code>, <code>CANON</code>, <code>ROOT</code> and helper paths in the code snapshot.</li><li>Run the bounded 2026 companion collector. Inspect its first accepted pair manually.</li><li>Run the historical backfill. Monitor fresh CSV modification times and checkpoint movement, not PID presence alone.</li><li>After completion, require zero <code>.part</code> files; reconcile unresolved pages; recalculate SHA-256; and rerun COI plus artefact-ID linkage over the full collection.</li></ol>
+<section id="reproduce"><h2>10. Reproduction procedure</h2>
+<ol><li>Use an authorised Policy Commons account and record the exact query URL, modules, filters, page size, sort direction, page number and UTC collection time.</li><li>Install the pinned runtime or record equivalent versions. The worked result used Python 3.14.6, pandas 3.0.5 and pyarrow 25.0.1. The general collectors use Playwright 1.60.0.</li><li>Launch Chrome with a local debugging port and sign in interactively. Do not write cookies or signed addresses to configuration files.</li><li>Freeze RIS, CSV and manifests before integration. Record SHA-256 for every input file.</li><li>Run the structurally bounded CSV collection. During collection require the documented schema, UTF-8 decoding, submitted-item cardinality and atomic <code>.part</code> handling.</li><li>Place <code>build_golden_set_v1.py</code> in the frozen AIGOV5 collection root beside <code>raw_csv/</code> and <code>analysis_steps5_8_v4/</code>.</li><li>Run the builder exactly once, then rerun it to confirm idempotent row counts and hashes for unchanged inputs.</li><li>Require zero duplicate accepted compound keys, zero blank join components, zero temporary files and 100 unique records in the validation sample.</li><li>Review unmatched and conflict files before any later release. Do not delete them merely to improve the match rate.</li></ol>
 <pre><code>python -m py_compile collect_partitioned_ris.py \
-  collect_csv_2026_all_modules.py backfill_csv_companions.py
+  collect_csv_2026_all_modules.py backfill_csv_companions.py \
+  build_golden_set_v1.py
 
 python -u collect_csv_2026_all_modules.py
-python -u backfill_csv_companions.py</code></pre>
+python -u backfill_csv_companions.py
+python -u build_golden_set_v1.py
+
+python - &lt;&lt;'PY'
+import pandas as pd
+d = pd.read_parquet('golden_set_v1/golden_set_master.parquet')
+assert len(d) == 11306
+assert not d.duplicated(['join_coi','join_artifact_id']).any()
+assert d.join_coi.ne('').all() and d.join_artifact_id.ne('').all()
+s = pd.read_csv('golden_set_v1/validation_sample_100.csv')
+assert len(s) == 100 and not s.record_id.duplicated().any()
+PY</code></pre>
 <p>Policy Commons holdings and metadata can change. Exact reproduction therefore means executing the frozen method and retaining dated manifests, not assuming that a later query will return identical records.</p></section>
 
-<section id="code"><h2>10. Public code snapshot</h2>
-<ul><li><a href="code/policycommons-paired-ris-csv-collection/collect_partitioned_ris.py">Partitioned RIS collector</a>, SHA-256 <code>ec265bf2ab93456cb181cd4462edf02efd752b80af60c200e6e45f15c7141dc9</code></li><li><a href="code/policycommons-paired-ris-csv-collection/collect_csv_2026_all_modules.py">Bounded 2026 CSV companion collector</a>, SHA-256 <code>964b256e617cc7151f93747c48c27fe87ee3093e6720459d085fca27740088d0</code></li><li><a href="code/policycommons-paired-ris-csv-collection/backfill_csv_companions.py">Canonical historical CSV backfill</a>, SHA-256 <code>631457d5e87b3f7e9fe83c685e7a931eb60b2573330a6c59b88ce094677e2eb8</code></li></ul>
+<section id="code"><h2>11. Public code snapshot</h2>
+<ul><li><a href="code/policycommons-paired-ris-csv-collection/collect_partitioned_ris.py">Partitioned RIS collector</a>, SHA-256 <code>ec265bf2ab93456cb181cd4462edf02efd752b80af60c200e6e45f15c7141dc9</code></li><li><a href="code/policycommons-paired-ris-csv-collection/collect_csv_2026_all_modules.py">Bounded 2026 CSV companion collector</a>, SHA-256 <code>964b256e617cc7151f93747c48c27fe87ee3093e6720459d085fca27740088d0</code></li><li><a href="code/policycommons-paired-ris-csv-collection/backfill_csv_companions.py">Canonical historical CSV backfill</a>, SHA-256 <code>631457d5e87b3f7e9fe83c685e7a931eb60b2573330a6c59b88ce094677e2eb8</code></li><li><a href="code/policycommons-paired-ris-csv-collection/build_golden_set_v1.py">AIGOV5 identifier-exact Golden Set builder</a>, SHA-256 <code>e5c0f4adc62022387655bfb1583e8e933c79f8aecec6b2637a659e39c31e57d0</code></li></ul>
 <p>The repository contains code and method documentation only. Licensed RIS and CSV payloads, authentication state and signed download addresses are not published.</p>
-<p class="small">Citation: Chun, Y. (2026). <em>Paired Policy Commons RIS and CSV collection: authenticated export, identity validation and recovery protocol</em>. Implementation 1.0.</p></section>
+<p class="small">Citation: Chun, Y. (2026). <em>Paired Policy Commons RIS and CSV collection: authenticated export, identity validation and recovery protocol</em>. Implementation 1.1.</p></section>
 <footer>© 2026 Youngsam Chun · <a href="policycommons-country-attribution.html">Country-attribution protocol</a> · <a href="../research.html">Research overview</a></footer>
 </main></div></body></html>
