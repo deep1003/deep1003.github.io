@@ -1,0 +1,14 @@
+{
+  "audit_version": "full-census-1.0",
+  "created_at": "2026-09-20T07:14:36.055579+00:00",
+  "input": "/Users/deep1003/Downloads/pcgs_aigov5_20260920/final_release_v5/policycommons_ai_master_final_v5.parquet",
+  "input_sha256": "b441edf3e9752936b1db97111a7c8a2d73efb87a637fc122877e3ebf1b89a63c",
+  "records": 11306,
+  "records_with_flags": 8796,
+  "rules": 22,
+  "regression_tests": 12,
+  "regression_tests_passed": 11,
+  "regression_tests_failed": 1,
+  "automatic_input_changes": 0,
+  "output": "/Users/deep1003/Downloads/pcgs_aigov5_20260920/full_census_audit/runs/audit_20260920T071436Z"
+}
