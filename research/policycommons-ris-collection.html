@@ -6,7 +6,7 @@
 <title>Policy Commons RIS Collection Method | Youngsam Chun</title>
 <meta name="description" content="A reproducible method for collecting government AI policy records from Policy Commons through its authenticated RIS export service.">
 <link rel="stylesheet" href="../assets/style.css?v=4">
-<style>.criteria-box{border:1px solid #d8c38d;border-left:5px solid #ad791c;border-radius:6px;background:#fffaf0;padding:1rem 1.2rem;margin:1rem 0}.criteria-box h4{margin-top:0}.criteria-box code{background:#f4f4f4;padding:.1rem .25rem}</style>
+<style>.criteria-box{border:1px solid #d8c38d;border-left:5px solid #ad791c;border-radius:6px;background:#fffaf0;padding:1rem 1.2rem;margin:1rem 0}.criteria-box h4{margin-top:0}.criteria-box code{background:#f4f4f4;padding:.1rem .25rem}.method-table{width:100%;border-collapse:collapse;margin:1rem 0}.method-table th,.method-table td{padding:.55rem;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}.method-table th{background:#f7f7f7}.state{display:inline-block;padding:.1rem .4rem;border-radius:3px;font-size:.78rem;font-weight:650}.done{background:#e7f5ea;color:#176b3a}.rule{background:#eaf1f8;color:#245b88}.pending{background:#fff2d9;color:#8b5900}pre{overflow:auto;background:#f7f7f7;border:1px solid #ddd;padding:1rem;font-size:.82rem;line-height:1.45}</style>
 </head>
 <body>
 
@@ -49,44 +49,64 @@
   </aside>
 
   <main class="content">
-    <h2>Policy Commons government AI policy collection</h2>
+    <h2>Policy Commons AI policy candidate corpus and national analytical release</h2>
 
     <p class="lead">
-      This page documents the reproducible collection method used to retrieve government AI policy
-      records from Policy Commons on 16 September 2026. The method preserves the search contract,
-      provider identifiers, page boundaries, retrieval time, validation results and recovery state.
+      This page separates three dated Policy Commons collection routes from the subsequent construction
+      of the v7.10 augmented candidate master and its national document-country analytical view. It
+      records executed operations, governing rules, observed counts, code, examples and unresolved limits.
     </p>
 
     <p class="small muted">
-      Method status: operational collection pipeline. Search counts describe the database at the time
-      of collection and may change as Policy Commons updates its holdings.
+      Release snapshot: 21 September 2026. The authoritative analytical file is
+      <code>document_country_pairs_final_v7_10.csv</code>. Search counts describe dated provider snapshots
+      and may change as Policy Commons updates its holdings.
     </p>
+
+    <div class="criteria-box"><h4>Release identity and verified artefacts</h4>
+      <table class="method-table"><tr><th>Artefact</th><th>Grain and dimensions</th><th>SHA-256</th></tr>
+        <tr><td><code>policycommons_augmented_master_final_v7_10.parquet</code></td><td>269,853 unique canonical document-version rows × 162 stored string columns</td><td><code>e1b9b5884d2138c366ce97dbce7a09d694440b2d3af8f55710a1d279d1dd31a0</code></td></tr>
+        <tr><td><code>document_country_pairs_final_v7_10.csv</code></td><td>182,010 unique document-country rows × 16 columns; 182,010 unique documents; 135 analytical country or jurisdiction codes; unit weight 1</td><td><code>7bbe07e0faba5722717f679caaacef7f1825edf4c507382be1ca9ffb759faa67</code></td></tr>
+        <tr><td><code>SUMMARY.json</code></td><td>Release correction note and final row count</td><td><code>ca398f57767244cbeb51ae207651099eaadf8301c0625ffbeb3cdfdaebda4edd</code></td></tr>
+      </table>
+      <p><span class="state done">EXECUTED</span> The final pair file has zero duplicate <code>(record_id, analysis_country)</code> keys and every weight equals 1. The method permits multi-country links, but the current release contains exactly one analytical country row per included document.</p>
+      <p><span class="state pending">DISCLOSED LIMIT</span> The master column <code>release_version</code> still carries the inherited v7.3 label. The v7.10 directory, summary and file hashes above identify the release. Country analysis must use the final pair file, not reconstruct it by filtering the master's legacy or <code>*_final</code> columns.</p>
+    </div>
+
+    <h3 id="grains">Units of observation and analysis</h3>
+    <div class="entry"><table class="method-table">
+      <tr><th>Unit</th><th>Key</th><th>Purpose</th></tr>
+      <tr><td>Source observation</td><td><code>(source_file_sha256, source_record_ordinal)</code></td><td>One parsed occurrence in a frozen export; never destroyed by deduplication.</td></tr>
+      <tr><td>Canonical document version</td><td><code>record_id</code></td><td>One language, edition and substantive revision; the 269,853-row augmented master grain.</td></tr>
+      <tr><td>Work family</td><td><code>work_cluster_id</code>, when available</td><td>Links translations, editions and revisions without collapsing them.</td></tr>
+      <tr><td>Golden Set record</td><td><code>golden_record_id</code></td><td>One of 11,306 identifier-exact RIS/CSV records preserved from Golden Set v6.</td></tr>
+      <tr><td>Analytical document-country row</td><td><code>(record_id, analysis_country)</code></td><td>Unit-weight country-analysis row in the separate 182,010-row final pair file.</td></tr>
+    </table></div>
 
     <h3 id="scope">Scope and search contract</h3>
 
     <div class="entry">
       <p>
-        The collection targets government and public policy publications retrieved through documented AI-oriented Policy Commons searches. Query families include <code>artificial intelligence</code>, AI governance, AI safety, AI risk, AI system, AI policy, machine learning, deep learning, neural networks, generative AI and equivalent historical or multilingual terms. The earlier broad contract also used the logical query <code>AI AND system AND policy</code>. It uses the World Governments module
-        (<code>POCO_POGO</code>), limits the content to publications, selects the Policy Commons
-        <code>Document</code> artefact type and the <code>Government</code> publisher type, requests
-        100 results per page, and sorts records by date with the newest first.
+        The final corpus is a union of distinct collection routes. Their literal provider queries are
+        provenance strings, not claims about Boolean-search semantics. Records are linked across routes
+        only after collection by stable identifiers and compatibility checks.
       </p>
-      <p>
-        Years are processed separately so that every batch remains below the provider's practical
-        result limit and can be audited against its year-specific search count. Pages are collected
-        in ascending order within each year. The dated counts and starting pages used in the active
-        run are stored in the public configuration file.
-      </p>
+      <table class="method-table"><tr><th>Route</th><th>Dated contract</th><th>Modules and filters</th><th>Output and role</th></tr>
+        <tr><td><code>R1_POGO_20260916</code></td><td>16 September 2026; literal query <code>AI AND system AND policy</code>; newest first; 100/page; year-separated</td><td><code>POCO_POGO</code>; Publications; Document; Government</td><td>Authenticated RIS pages and restart manifests for the initial World Governments route.</td></tr>
+        <tr><td><code>R2_AIGOV5_20260920</code></td><td>20 September 2026; literal query <code>Artificial Intelligence AND AI Governance AND AI Safety AND AI System AND AI Policy</code>; date-desc pages 1–100 plus date-asc pages 1–53</td><td><code>POCO_POGO</code>, <code>POCO_PCWL</code>, <code>POCO_POHE</code>, <code>POCO_PSPL</code>; Publications; Document; Government</td><td>15,206 displayed hits; 153 RIS and 153 CSV files; 15,300 observations in each format; source of Golden Set v6.</td></tr>
+        <tr><td><code>R3_AI5_1950_2026</code></td><td>1950–2026; literal query <code>artificial intelligence</code>; module-year partitions; 100/page</td><td>All five documented modules, including <code>POCO_ALL</code>; recorded historical filters preserved per manifest</td><td>Broad local candidate collection used for later local enrichment and augmented-master construction.</td></tr>
+      </table>
       <p class="links">
         <a href="https://github.com/deep1003/ai-stpi-policy-gap-analysis/blob/main/code/policycommons_background_api_20260916/config.example.json">Search configuration</a>
+        · <a href="policycommons-paired-ris-csv-collection.html">Paired RIS/CSV contract and commands</a>
       </p>
       <details open><summary><strong>Five Policy Commons modules and their collection roles</strong></summary>
         <table class="method-table">
           <tr><th>Module code</th><th>Policy Commons name</th><th>Collection role</th></tr>
           <tr><td><code>POCO_POGO</code></td><td>World Governments</td><td>Central governments, ministries, legislatures, regulators and national public bodies.</td></tr>
-          <tr><td><code>POCO_PCWL</code></td><td>World Cities and Local Governments</td><td>Municipalities, cities, counties and other local-government issuers.</td></tr>
+          <tr><td><code>POCO_PCWL</code></td><td>World Cities; interface display may appear as “World Cities and Local…”</td><td>Municipalities, cities, counties and other local-government issuers.</td></tr>
           <tr><td><code>POCO_POHE</code></td><td>Public Health and Social Care</td><td>Public-health, health-service and social-care policy sources.</td></tr>
-          <tr><td><code>POCO_PSPL</code></td><td>North American State, Provincial and Territorial Governments</td><td>State, provincial and territorial government publications in North America.</td></tr>
+          <tr><td><code>POCO_PSPL</code></td><td>N.A. State, Provincial, and Territorial Governments</td><td>State, provincial and territorial government publications in North America.</td></tr>
           <tr><td><code>POCO_ALL</code></td><td>Global Think Tanks</td><td>Think-tank and policy-research material retained for institution and government-relationship classification.</td></tr>
         </table>
         <p>The documented AIGOV5 paired RIS–CSV search selected the first four government-facing modules. The wider local collection also contains the Global Think Tanks module. Module membership is collection provenance, not proof of national-policy eligibility; issuer and government relationship are classified later.</p>
@@ -162,12 +182,53 @@
         <li><strong>Build the analytical view.</strong> Retain unique <code>(record_id, analysis_country)</code> rows with unit weight 1. Assign a document to each supported country without percentage shares. Aggregate HKG to CHN while preserving the original value.</li>
         <li><strong>Audit and release.</strong> Apply deterministic census rules, preserve exclusion queues, run fixed-seed stratified original-page checks, record inaccessible pages as <code>unverifiable</code>, and publish versioned outputs with manifests and checksums.</li>
       </ol>
+      <details open><summary><strong>Stage-by-stage reproducibility matrix</strong></summary>
+        <table class="method-table"><tr><th>Step</th><th>Input and code</th><th>Decision and actual columns</th><th>Output, count and failure queue</th></tr>
+          <tr><td>1. Freeze</td><td>Raw RIS/CSV plus manifests; SHA-256 inventory</td><td><code>source_file</code>, <code>source_ordinal</code>, <code>observation_id</code>, <code>query_id</code></td><td>429,847 RIS observations; invalid or changed files fail the integrity gate.</td></tr>
+          <tr><td>2. Structural validation</td><td>RIS boundary tests and CSV schema/cardinality tests</td><td>RIS <code>TY</code>/<code>ER</code>; CSV required fields; strict UTF-8; temporary-file atomicity</td><td>4,875 source files, 4,402 unique hashes; rejected payloads remain in quarantine.</td></tr>
+          <tr><td>3. Parse and normalise</td><td>RIS parser and validated CSV observations</td><td><code>policy_commons_id</code>, <code>url</code>, <code>raw_fields_json</code>, bibliographic fields</td><td>306,644 RIS canonical records and 21,711 CSV canonical records.</td></tr>
+          <tr><td>4. Link formats</td><td><a href="code/policycommons-paired-ris-csv-collection/build_golden_set_v1.py">Golden Set builder</a></td><td><code>join_coi</code> and <code>join_artifact_id</code> must both agree; <code>pairing_status</code> records the outcome</td><td>21,450 paired; 285,194 RIS-only; 254 CSV-only; seven conflicts quarantined.</td></tr>
+          <tr><td>5. Resolve identity</td><td>Stable IDs, canonical URLs, DOI/ISBN/report numbers, compatible metadata</td><td><code>record_id</code>, <code>identity_status</code>, observation counts; incompatible edition/language is a merge veto</td><td>Translations and revisions stay distinct; uncertain identity enters review.</td></tr>
+          <tr><td>6. Cross-walk Golden Set</td><td><code>integrate_local_with_golden.py</code> in the frozen local workspace</td><td><code>golden_record_id</code>, <code>master_origin</code>, <code>golden_match_status</code></td><td>11,306 Golden records preserved; six local rows converge on those records.</td></tr>
+          <tr><td>7. High-recall AI gate</td><td>Query provenance, metadata and original full text</td><td><code>ai_broad_included</code>, <code>ai_evidence_location</code>, <code>ai_exclusion_reason</code>, <code>ai_fulltext_review_status_v7</code></td><td>295,354 of 295,586 new candidates pass the broad AI gate; metadata absence alone never excludes.</td></tr>
+          <tr><td>8. Document function</td><td>Form rules plus issuer/policy-function evidence</td><td><code>document_genre_protocol_3_7</code>, <code>document_eligible_protocol_3_7</code>, <code>document_form_review_v7_7</code>, <code>human_form_review_v7_8</code></td><td>258,777 document-eligible; confirmed exclusions and ambiguous records remain auditable.</td></tr>
+          <tr><td>9. Build augmented master</td><td><code>build_augmented_final_release_v1.py</code>, then versioned correction scripts</td><td><code>master_origin</code>, <code>augmentation_status</code>; source values are not overwritten</td><td>11,306 + 258,547 = 269,853 canonical document versions.</td></tr>
+          <tr><td>10. Institution and policy scope</td><td>Authority rules, public status, commissioning/funding/co-issuance evidence</td><td><code>institution_type_final</code>, <code>national_policy_interest_scope</code>, <code>national_policy_interest_rule</code></td><td>EU, IGO, multinational and repository cases are separated from national-policy interest.</td></tr>
+          <tr><td>11. Country attribution</td><td>Published-in recovery, issuer authority evidence and direct page verification</td><td><code>published_in_country_*</code>, <code>issuer_country_final</code>, <code>country_method_final</code>, <code>country_rule_id</code>, <code>policycommons_live_country_*</code></td><td>Non-country dispositions are excluded; HKG is aggregated to CHN while raw evidence is preserved.</td></tr>
+          <tr><td>12. Analytical pairs</td><td>Versioned pair builders and correction rules</td><td>Authoritative 16-column pair schema; key <code>(record_id, analysis_country)</code></td><td>182,010 unit-weight rows, 182,010 documents, 135 analytical country/jurisdiction codes.</td></tr>
+          <tr><td>13. Human QA and release</td><td>Fixed-seed samples, live pages, review manifests, checksums</td><td>Sampling stratum, decision, evidence URL, reviewer action and release rule</td><td>Corrections create a new release; inaccessible pages are <code>unverifiable</code>, not passes.</td></tr>
+        </table>
+        <p><span class="state done">EXECUTED</span> describes a verified local result. <span class="state rule">GOVERNING RULE</span> is a mandatory protocol control. <span class="state pending">PENDING OR DISTRIBUTED</span> means evidence remains in an earlier stage folder or requires consolidation. In particular, the governing protocol prescribes independent iCloud reprocessing; the current public v7.10 folder alone does not prove that full reconciliation step.</p>
+      </details>
+      <details><summary><strong>Accounting equations</strong></summary>
+        <pre><code>306,644 RIS + 21,711 CSV - 21,450 paired = 306,905 union candidates
+21,450 paired + 285,194 RIS-only + 254 CSV-only + 7 conflicts = 306,905
+306,898 conflict-cleared - 11,306 Golden matches - 6 converged duplicates = 295,586 new
+11,306 preserved Golden + 258,547 new AI/document records = 269,853 master</code></pre>
+        <p>The 295,586 new candidates include 295,354 broad AI inclusions and 258,777 document-eligible records. Their intersection is 258,547, so these are overlapping classification axes and must not be subtracted as independent sequential losses.</p>
+      </details>
       <p><a href="policycommons-country-attribution.html#workflow-overview">Current country-attribution protocol</a> · <a href="policycommons-error-register.md">British-English error register and cited examples</a></p>
     </div>
 
     <h3 id="audit-detail">Reproducible error handling and audit record</h3>
     <div class="entry">
-      <div class="criteria-box"><h4>Current local data inventory and analytical master</h4><table class="method-table"><tr><th>Stage</th><th>Verified count</th><th>Meaning</th></tr><tr><td>Raw RIS observations</td><td>429,847</td><td>Locally collected RIS observations before canonical deduplication.</td></tr><tr><td>Clean RIS records</td><td>306,644</td><td>Records remaining after structural validation and deduplication.</td></tr><tr><td>CSV observations</td><td>35,930</td><td>Paired CSV observations from 372 accepted export files.</td></tr><tr><td>Clean CSV records</td><td>21,711</td><td>CSV records passing schema and identifier checks.</td></tr><tr><td>New local AI/document candidates</td><td>258,547</td><td>New records retained under high-recall AI provenance and document-form screening.</td></tr><tr><td>Golden Set preserved</td><td>11,306</td><td>Validated paired RIS–CSV records retained without overwrite.</td></tr><tr><td>Augmented master</td><td>269,853</td><td>Golden Set plus new local records.</td></tr><tr><td>Final analytical document-country rows</td><td>182,010</td><td>Unique unit-weight rows after country attribution, form review and confirmed exclusions.</td></tr><tr><td>Sovereign-country codes</td><td>135</td><td>HKG aggregated to CHN; raw provider values preserved.</td></tr></table><p>All counts are versioned. Analytical exclusions are recorded in audit columns and do not physically delete source observations.</p></div>
+      <div class="criteria-box"><h4>Current local data inventory and analytical master</h4><table class="method-table"><tr><th>Stage</th><th>Verified count</th><th>Meaning</th></tr><tr><td>Raw RIS observations</td><td>429,847</td><td>Locally collected RIS observations before canonical deduplication.</td></tr><tr><td>RIS canonical records</td><td>306,644</td><td>Records remaining after structural validation and identity resolution.</td></tr><tr><td>CSV observations</td><td>35,930</td><td>Paired CSV observations from 372 accepted export files.</td></tr><tr><td>CSV canonical records</td><td>21,711</td><td>CSV records passing schema and identifier checks.</td></tr><tr><td>New local AI/document candidates</td><td>258,547</td><td>New records retained under high-recall AI provenance and document-form screening.</td></tr><tr><td>Golden Set preserved</td><td>11,306</td><td>Identifier-exact paired RIS/CSV records retained without overwrite.</td></tr><tr><td>Augmented master</td><td>269,853</td><td>Golden Set plus new local records.</td></tr><tr><td>Final analytical document-country rows</td><td>182,010</td><td>Unique unit-weight rows after country attribution, form review and confirmed exclusions; currently also 182,010 unique documents.</td></tr><tr><td>Analytical country/jurisdiction codes</td><td>135</td><td>Includes territories and project-normalised jurisdictions; HKG is aggregated to CHN and raw provider values are preserved.</td></tr></table><p>All counts are versioned. Analytical exclusions are recorded in audit columns and do not physically delete source observations.</p></div>
+      <details open><summary><strong>Release lineage and count changes</strong></summary>
+        <table class="method-table"><tr><th>Release</th><th>Rule or review</th><th>Analytical rows</th><th>Observed change</th></tr>
+          <tr><td>v1</td><td>Initial country attribution</td><td>184,966</td><td>269,853 master records; 174,276 new records resolved and 84,271 unresolved; 136 codes.</td></tr>
+          <tr><td>v5 / v5.1</td><td>3,002 automatic candidates merged</td><td>187,221</td><td>2,202 country pairs promoted; 800 held for review.</td></tr>
+          <tr><td>v7 base</td><td>Non-national and ineligible-form precision rules</td><td>182,705</td><td>4,516 rows excluded from the v5.1 analytical view; 22 earlier false positives restored.</td></tr>
+          <tr><td>v7.1</td><td>First 100-page live validation rules</td><td>182,664</td><td>41 additional exclusions.</td></tr>
+          <tr><td>v7.2</td><td>Second-round rules</td><td>182,385</td><td>279 additional exclusions.</td></tr>
+          <tr><td>v7.3</td><td>Hong Kong codebook</td><td>182,385</td><td>617 pair rows changed from HKG to CHN; analytical codes fell from 136 to 135.</td></tr>
+          <tr><td>v7.4</td><td>Precision round 3</td><td>182,347</td><td>38 pair rows removed after union and overlap accounting.</td></tr>
+          <tr><td>v7.5</td><td>Precision round 4</td><td>182,018</td><td>Non-national, academic-proceedings and product-manual rules applied.</td></tr>
+          <tr><td>v7.6</td><td>National policy-interest scope</td><td>182,018</td><td>182,012 standard rows plus six national-commission exceptions retained.</td></tr>
+          <tr><td>v7.7</td><td>Confirmed form exclusions</td><td>182,010</td><td>Four datasets, two theses, one video and one syllabus removed from analysis.</td></tr>
+          <tr><td>v7.8</td><td>Human proceedings review</td><td>182,010</td><td>136 official policy proceedings, workshops or agendas retained.</td></tr>
+          <tr><td>v7.9 / v7.10</td><td>Full-text AI corrections</td><td>182,010</td><td><em>Global Quarterly</em> and TxDOT minutes confirmed as AI-related; count unchanged.</td></tr>
+        </table>
+      </details>
       <details open><summary><strong>Storage, snapshots and governing order</strong></summary>
         <p>The working design is <strong>local first, iCloud second</strong>. Downloads is the intake and staging area. The iCloud-backed <code>data3</code> collection is frozen and processed independently only after the local master passes its gates. Path aliases, symbolic links, file-system identity, size and SHA-256 are compared before counting, so a local path and its iCloud backing path cannot be counted as two sources.</p>
         <p>Every RIS, CSV, JSON, JSONL, database and archive is inventoried with path, type, size, modification time, checksum, record count and collection category. The occurrence key is <code>(source_file_sha256, source_record_ordinal)</code>. Raw bytes or their hash, parsed-record hash and normalised-content fingerprint remain attached to that occurrence. A later canonical record never replaces this source layer.</p>
@@ -211,7 +272,7 @@
         <p><a href="../policy-commons-ris-data-dictionary.html">Open the complete Policy Commons augmented master v7.10 data dictionary</a>. The page is generated from the actual Parquet schema so a column cannot be omitted merely because it was added after the original 63-variable Golden Set.</p>
       </details>
       <div class="criteria-box"><h4>Example: RIS does not contain the country</h4><p>A Policy Commons detail page may show <strong>Published in Canada</strong> or <strong>Published in Italy</strong> while the RIS export leaves the field blank. Collect the paired CSV, preserve <code>published_in_country</code>, and do not treat a blank RIS field as an unknown country.</p></div>
-      <div class="criteria-box"><h4>Example: AI appears only in the body</h4><p><em>Global Quarterly</em> and the Texas Department of Transportation audit minutes had no AI term in their exported title, abstract or keywords. Their PDFs explicitly discuss artificial intelligence, AI governance, risk, cybersecurity or AI programmes. Retain them as AI-related on full-text evidence.</p></div>
+      <div class="criteria-box"><h4>Example: AI appears only in the body</h4><table class="method-table"><tr><th>Record</th><th>Evidence and decision</th><th>Applied release</th></tr><tr><td><code>pcv3_1f9a59f1f98802f54d78c1bd</code><br><a href="https://policycommons.net/artifacts/43008161/global-quarterly/"><em>Global Quarterly</em></a></td><td>No AI term in exported title, abstract or keywords; the original PDF contains explicit AI discussion and a dedicated technology section. Retain for India.</td><td>v7.9 full-text correction</td></tr><tr><td><code>pcv3_9c3ca430a4f15c9aa975684b</code><br><a href="https://policycommons.net/artifacts/57638205/audit-subcommittee-quarterly-meeting-minutes/">TxDOT Audit Subcommittee minutes</a></td><td>No exported metadata AI term; the original material covers AI programmes, AI governance, risk and cybersecurity. Retain for USA.</td><td>v7.10 full-text correction</td></tr></table><p>Both retain <code>ai_fulltext_review_status_v7 = provenance_included_metadata_term_not_observed</code>. This status documents a metadata false negative rather than a Non-AI decision.</p></div>
       <div class="criteria-box"><h4>Example: proceedings can be policy documents</h4><p><em>NSW Inquiry into AI: Portfolio Committee No. 1 Proceedings</em> records an official parliamentary inquiry, evidence and policy discussion. It is retained for Australia. The word <em>proceedings</em> alone is never an exclusion rule.</p></div>
       <div class="criteria-box"><h4>Example: issuer overrides publication place</h4><p>A document may show <code>Published in Serbia</code> while its issuer is the Government of Kosovo. Preserve both fields, but assign the analytical country from explicit issuer jurisdiction. Similarly, an EU or international organisation published in Belgium, Malta or the Netherlands is not automatically a national document of that host country.</p></div>
       <div class="criteria-box"><h4>Example: multinational private firm</h4><p>An Abbott document labelled <code>Abbott (United States)</code> preserves USA as source evidence but is excluded from the national policy-interest view unless government commissioning, funding or a national research remit is demonstrated. A headquarters location alone is insufficient.</p></div>
@@ -222,6 +283,32 @@
       <details><summary><strong>Multinational private institutions</strong></summary><p>A headquarters or branch location alone does not represent national policy interest. Ordinary business, product and promotional documents from multinational firms are excluded from the national analysis but retained in the source master. A private research unit is included only when the source demonstrates government commissioning, funding or a national research remit. Unclear cases remain <code>manual_review</code>.</p></details>
       <details><summary><strong>Sampling and original-page verification</strong></summary><p>Freeze a seed and frame before sampling. Use strata for suspected boundary documents, confirmed contamination and an ordinary negative control. Record <code>N_h</code>, <code>n_h</code>, inclusion probability and design weight. Open the original Policy Commons page with production labels hidden where feasible. Record actual form, policy function, issuer, year, AI evidence, URL, evidence quote, access status and adjudication. An inaccessible page is <code>unverifiable</code>, never an automatic pass.</p></details>
       <details><summary><strong>Review sampling tests already completed</strong></summary><p>Country-page audits used non-overlapping fixed-seed samples of 100 records with seeds <code>20260920</code>, <code>20260921</code>, <code>20260922</code>, <code>20260923</code> and <code>20260924</code>. Each selected Policy Commons page was opened and its publication-country value was compared with the classified country after issuer exceptions. The document-form review used 400 records: 200 suspected boundary records (seed <code>20260925</code>), 100 confirmed-contamination records (seed <code>20260926</code>) and 100 ordinary negative controls (seed <code>20260927</code>). IDs and URLs were unique, samples did not overlap earlier samples, and manifests were byte-reproducible. Human review retained official policy proceedings and confirmed exclusion of standalone datasets, theses, videos and syllabi. These samples validate implementation and identify error types; they are not treated as a full-population semantic accuracy estimate.</p></details><details><summary><strong>Release and regression gate</strong></summary><p>Apply only deterministic rules with a positive example, a counterexample and no confirmed false exclusion. Report document counts and document-country row counts separately; require unique pairs and unit weights of 1. Preserve the source master, exclusion register, manifests, code, environment, sample files and SHA-256 checksums. Create a new versioned release rather than overwriting a prior release.</p></details>
+    </div>
+
+    <h3 id="reproduce-release">Executable final-release verification</h3>
+    <div class="entry">
+      <p>The following public checker verifies the structural claims without publishing licensed Policy Commons payloads. Replace the placeholders with the local v7.10 files.</p>
+      <pre><code>python research/code/validate_policycommons_v710_release.py \
+  --master &lt;RELEASE_ROOT&gt;/policycommons_augmented_master_final_v7_10.parquet \
+  --pairs &lt;RELEASE_ROOT&gt;/document_country_pairs_final_v7_10.csv</code></pre>
+      <pre><code>master = pd.read_parquet(MASTER)
+pairs = pd.read_csv(PAIRS, dtype=str)
+assert len(master) == 269_853
+assert master.record_id.nunique(dropna=False) == 269_853
+assert len(master.columns) == 162
+assert len(pairs) == 182_010
+assert pairs.record_id.nunique(dropna=False) == 182_010
+assert not pairs.duplicated(["record_id", "analysis_country"]).any()
+assert pairs.weight.astype(int).eq(1).all()
+assert pairs.analysis_country.nunique(dropna=False) == 135
+assert set(pairs.record_id) &lt;= set(master.record_id)</code></pre>
+      <p><a href="code/validate_policycommons_v710_release.py">Download the checker</a> · <a href="code/generate_policycommons_v710_dictionary.py">Regenerate the 162-column dictionary</a> · <a href="code/policycommons-full-census-audit/policycommons_full_census_audit.py">Full-census audit code</a> · <a href="code/policycommons-full-census-audit/run_audit_notebook.sh">Notebook runner</a></p>
+      <details><summary><strong>Observed key-field coverage in the 269,853-row master</strong></summary>
+        <table class="method-table"><tr><th>Field</th><th>Non-empty rows</th><th>Coverage</th></tr>
+          <tr><td><code>title</code></td><td>269,853</td><td>100.00%</td></tr><tr><td><code>abstract</code></td><td>267,429</td><td>99.10%</td></tr><tr><td><code>publisher</code></td><td>269,839</td><td>99.99%</td></tr><tr><td><code>year</code></td><td>269,436</td><td>99.85%</td></tr><tr><td><code>url</code></td><td>269,853</td><td>100.00%</td></tr><tr><td><code>keywords</code></td><td>263,162</td><td>97.52%</td></tr><tr><td><code>topics</code></td><td>19,490</td><td>7.22%</td></tr><tr><td>Raw CSV country / Published in</td><td>20,921</td><td>7.75%</td></tr><tr><td><code>institution_type_final</code></td><td>258,533</td><td>95.81%</td></tr>
+        </table>
+        <p>All 162 physical Parquet columns are stored as strings. Missingness checks therefore treat both null values and empty strings as missing. Module provenance is not yet exposed as a dedicated master column for every record; source manifests remain authoritative and a future record-module link table is recommended.</p>
+      </details>
     </div>
 
     <h3 id="limitations">Interpretation and limitations</h3>
@@ -238,6 +325,13 @@
         Database coverage, metadata and result counts can change. Reproduction therefore requires the
         recorded configuration, retrieval date and manifests. RIS files are not published in the GitHub
         repository because access and redistribution remain subject to the user's Policy Commons licence.
+      </p>
+      <p>
+        The final pair file contains 222 rows without a year. Observed numeric years span 1601–2026, so
+        historical extreme values require a separate temporal-outlier review before longitudinal analysis.
+        The completed samples were designed primarily for implementation checks and discovery of error
+        families. Without stratum-level adjudicated outcomes and weighted confidence intervals, they do not
+        establish a population-wide semantic accuracy rate.
       </p>
     </div>
 

@@ -45,7 +45,7 @@ EXACT = {
     "published_in_country_name": ("Country evidence", "Country name parsed from the provider Published in field."),
     "issuer_country": ("Country attribution", "Country or countries attributed to the issuing institution in the base classification."),
     "target_country": ("Country attribution", "Country discussed, targeted or covered by the document; not issuer provenance."),
-    "CTRY": ("Country attribution", "Single analytical issuer-country code where one eligible jurisdiction is resolved."),
+    "CTRY": ("Country attribution", "Legacy or upstream single-country field. Do not use it as the current analytical country; use the separate final pair file."),
     "analysis_country": ("Country attribution", "Base whole-count analytical country assignment."),
     "analysis_country_count": ("Country attribution", "Number of distinct countries in the base analytical assignment."),
     "country": ("Country evidence", "Raw country value from the paired CSV or inherited Golden Set record."),
@@ -66,7 +66,7 @@ EXACT = {
     "raw_fields_json": ("Provenance", "Loss-preserving JSON representation of original repeated RIS fields."),
     "master_origin": ("Release", "Whether the record originated in the Golden Set or local augmentation."),
     "augmentation_status": ("Release", "Status assigned during Golden Set augmentation."),
-    "golden_membership": ("Release", "Whether the record is a preserved Golden Set member."),
+    "golden_membership": ("Release", "Legacy augmentation label. Golden rows can be blank; use master_origin to distinguish golden_v6 from local enrichment."),
     "golden_record_id": ("Release", "Matched Golden Set record identifier when present."),
     "golden_match_status": ("Release", "Outcome of matching the local record to the Golden Set."),
     "golden_set_version": ("Release", "Golden Set version from which the record or schema originated."),
@@ -154,8 +154,8 @@ html = f"""<!DOCTYPE html><html lang='en-GB'><head><meta charset='utf-8'><meta n
 <nav class='topbar'><div class='topbar-inner'><span class='brand'>Youngsam Chun</span><a class='nav' href='index.html'>About</a><a class='nav active' href='research.html'>Research</a></div></nav>
 <main class='dictionary-wrap'><p class='small'><a href='research/policycommons-ris-collection.html'>Collection and cleaning workflow</a> / Data dictionary</p>
 <h1>Policy Commons augmented master v7.10 data dictionary</h1>
-<p>The dictionary is generated from the physical Parquet schema of <code>policycommons_augmented_master_final_v7_10.parquet</code>. It describes all {len(schema.names)} stored columns. The master grain is one canonical document version; country-level analysis uses the separate document-country file and unique <code>(record_id, analysis_country)</code> rows.</p>
-<div class='notice'><strong>Interpretation.</strong> Base, intermediate and final fields coexist deliberately. Historical fields preserve the effect of each correction round. For current analysis, use the fields marked <code>final</code> together with the release-specific eligibility variables and retain raw provider evidence separately.</div>
+<p>The column names, order and physical types are generated from the Parquet schema of <code>policycommons_augmented_master_final_v7_10.parquet</code>. Definitions combine manually curated descriptions for core fields with documented prefix-based descriptions for versioned audit fields. It describes all {len(schema.names)} stored columns. The master grain is one canonical document version.</p>
+<div class='notice'><strong>Authoritative analytical table.</strong> Country-level analysis must use <code>document_country_pairs_final_v7_10.csv</code> and its unique <code>(record_id, analysis_country)</code> rows. Do not reconstruct the release by filtering <code>CTRY</code>, <code>analysis_country_final</code> or other master columns. Base, intermediate and final fields coexist to preserve correction history, and the inherited <code>release_version</code> value inside the master predates the v7.10 directory-level release identity.</div>
 {''.join(tables)}
 <p class='small'>Generated directly from the v7.10 Parquet schema. Schema order is preserved within each semantic group.</p>
 <footer>© 2026 Youngsam Chun · <a href='research.html'>Return to Research</a></footer></main></body></html>"""
