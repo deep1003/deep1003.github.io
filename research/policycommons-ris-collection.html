@@ -80,6 +80,17 @@
       <p class="links">
         <a href="https://github.com/deep1003/ai-stpi-policy-gap-analysis/blob/main/code/policycommons_background_api_20260916/config.example.json">Search configuration</a>
       </p>
+      <details open><summary><strong>Five Policy Commons modules and their collection roles</strong></summary>
+        <table class="method-table">
+          <tr><th>Module code</th><th>Policy Commons name</th><th>Collection role</th></tr>
+          <tr><td><code>POCO_POGO</code></td><td>World Governments</td><td>Central governments, ministries, legislatures, regulators and national public bodies.</td></tr>
+          <tr><td><code>POCO_PCWL</code></td><td>World Cities and Local Governments</td><td>Municipalities, cities, counties and other local-government issuers.</td></tr>
+          <tr><td><code>POCO_POHE</code></td><td>Public Health and Social Care</td><td>Public-health, health-service and social-care policy sources.</td></tr>
+          <tr><td><code>POCO_PSPL</code></td><td>North American State, Provincial and Territorial Governments</td><td>State, provincial and territorial government publications in North America.</td></tr>
+          <tr><td><code>POCO_ALL</code></td><td>Global Think Tanks</td><td>Think-tank and policy-research material retained for institution and government-relationship classification.</td></tr>
+        </table>
+        <p>The documented AIGOV5 paired RIS–CSV search selected the first four government-facing modules. The wider local collection also contains the Global Think Tanks module. Module membership is collection provenance, not proof of national-policy eligibility; issuer and government relationship are classified later.</p>
+      </details>
     </div>
 
     <h3 id="workflow">Authenticated collection workflow</h3>
@@ -194,6 +205,10 @@
         <p>A release contains the canonical master, source provenance, collection routes, duplicate and work-cluster maps, institution authority, document-country links, quarantine, exclusions, unresolved records, stage counts, scripts, environment information and SHA-256 manifests. Core grains are enforced with primary and foreign-key checks so many-to-many joins cannot inflate analysis rows.</p>
         <p>Required accounting identities include: raw observations equal accepted parses plus parse quarantine; accepted parses equal linked observations plus unresolved identities; linked observations equal canonical anchors plus duplicate links; canonical records equal accepted master records plus exclusions, unresolved classifications and conflict quarantine.</p>
         <p>Physical deletion is never a cleaning shortcut. It requires a frozen source manifest, persisted and checksummed canonical or exclusion record, reconciled counts, reviewed dry run, exact-path deletion manifest, recoverable quarantine, immediate pre-deletion size and checksum verification, recorded approval, successful restore test and completed iCloud synchronisation. No physical source deletion was performed for the current release.</p>
+      </details>
+      <details open><summary><strong>Complete final-master variable dictionary</strong></summary>
+        <p>The v7.10 augmented master contains <strong>162 stored columns</strong>. The complete dictionary lists every physical column, stored type and definition, including raw bibliographic fields, RIS–CSV linkage, collection provenance, AI screening, document form, institution classification, country evidence, live-page validation, correction history and final release fields.</p>
+        <p><a href="../policy-commons-ris-data-dictionary.html">Open the complete Policy Commons augmented master v7.10 data dictionary</a>. The page is generated from the actual Parquet schema so a column cannot be omitted merely because it was added after the original 63-variable Golden Set.</p>
       </details>
       <div class="criteria-box"><h4>Example: RIS does not contain the country</h4><p>A Policy Commons detail page may show <strong>Published in Canada</strong> or <strong>Published in Italy</strong> while the RIS export leaves the field blank. Collect the paired CSV, preserve <code>published_in_country</code>, and do not treat a blank RIS field as an unknown country.</p></div>
       <div class="criteria-box"><h4>Example: AI appears only in the body</h4><p><em>Global Quarterly</em> and the Texas Department of Transportation audit minutes had no AI term in their exported title, abstract or keywords. Their PDFs explicitly discuss artificial intelligence, AI governance, risk, cybersecurity or AI programmes. Retain them as AI-related on full-text evidence.</p></div>
