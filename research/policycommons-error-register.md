@@ -41,3 +41,7 @@ This register records error types that must be checked in every future dataset. 
 - Test international networks against national branches and commissions.
 - Test that metadata-negative AI records remain included.
 - Mark inaccessible pages as `unverifiable`; never count them as semantically validated.
+
+### Round-5 findings (v7.6 census)
+
+The latest full-census pass found 77 additional high-confidence form exclusions: 33 standalone vacancy or position-description records, 30 standalone user or product manuals, 10 thesis or thesis-administration records, 2 standalone datasets and 2 university syllabi. It also found 5 repository or commercial-platform records for manual country review. Twenty-six international or non-national cases remain in a manual-review queue. These categories must be tested before the next release; AI-term absence was not used as an exclusion rule.
