@@ -59,6 +59,7 @@ master_columns = [
     "country", "published_in_country_name", "institution_type_final", "language",
     "collection_categories", "query_id", "master_origin", "document_genre_protocol_3_7",
     "country_resolution_status", "ai_evidence_location", "ai_fulltext_review_status_v7",
+    "format_status", "pairing_status", "national_policy_interest_scope", "human_form_review_v7_8",
 ]
 master = pd.read_parquet(MASTER, columns=master_columns)
 pairs = pd.read_csv(PAIRS, dtype=str)
@@ -112,12 +113,20 @@ html = f"""<!doctype html><html lang='en-GB'><head><meta charset='utf-8'><meta n
 {bar_chart(language_counts, 'Languages in the canonical master', 'Top 15 raw or normalised language values in the 269,853-row master.', 15)}
 {bar_chart(category_counter.most_common(), 'Search-route collection categories', 'Multi-valued categories are split and whole-counted. These are query categories, not Policy Commons modules.', 15)}
 {bar_chart([(label, count) for label, count, _ in coverage], 'Representative field coverage', 'Non-empty values; both null and empty strings count as missing.', 20)}
+{bar_chart(master.master_origin.value_counts().items(), 'Master origin', 'Origin of all 269,853 canonical document versions.', 10)}
+{bar_chart(master.format_status.fillna('missing').replace('', 'missing').value_counts().items(), 'Available export formats', 'RIS-only, exact RIS/CSV pairs and CSV-only states in the augmented master.', 10)}
+{bar_chart(master.document_genre_protocol_3_7.fillna('missing').replace('', 'missing').value_counts().items(), 'Document genre values', 'Protocol 3.7 genre values retained in the final master.', 10)}
+{bar_chart(master.country_resolution_status.fillna('missing').replace('', 'missing').value_counts().items(), 'Country-resolution status values', 'Top final-master status values. Historical correction statuses remain visible for audit.', 12)}
+{bar_chart(pairs.release_source.fillna('missing').replace('', 'missing').value_counts().items(), 'Final analytical rows by release source', 'Provenance of the 182,010 authoritative document-country rows.', 10)}
+{bar_chart(pairs.country_method.fillna('missing').replace('', 'missing').value_counts().items(), 'Final country-attribution methods', 'Rules that supplied the analytical country in the final pair file.', 15)}
+{bar_chart(pairs.national_policy_interest_scope.fillna('missing').replace('', 'missing').value_counts().items(), 'National policy-interest scope', 'Final pair-file eligibility scope.', 10)}
+{bar_chart(pairs.human_form_review_v7_8.fillna('missing').replace('', 'missing').value_counts().items(), 'Human document-form status', 'Final retained proceedings are shown separately from records not individually reviewed.', 10)}
 </div>
 <details open><summary>Module coverage and record-linkage limitation</summary><div class='scroll'><table><thead><tr><th>Module</th><th>Displayed name</th><th>Frozen routes</th><th>Record-level count</th></tr></thead><tbody>{module_rows}</tbody></table></div><p class='note'>R1 is the 16 September World Governments run; R2 is the four-module AIGOV5 paired RIS/CSV run; R3 is the five-module 1950–2026 broad collection. A future release should add a many-to-many <code>record_module_link</code> table derived from frozen source manifests.</p></details>
 <details><summary>Complete country and jurisdiction table</summary><div class='scroll'><table><thead><tr><th>Code</th><th>Documents</th><th>Share</th></tr></thead><tbody>{country_table}</tbody></table></div></details>
 <details><summary>Complete year table</summary><div class='scroll'><table><thead><tr><th>Year</th><th>Documents</th></tr></thead><tbody>{year_table}</tbody></table></div></details>
 <details><summary>Representative column completeness</summary><div class='scroll'><table><thead><tr><th>Field</th><th>Non-empty</th><th>Coverage</th><th>Missing</th></tr></thead><tbody>{coverage_table}</tbody></table></div><p class='note'>The full 162-variable dictionary is available from the workflow page. The dashboard profiles representative attributes only, while retaining exact denominators.</p></details>
-<details><summary>Data scope and interpretation</summary><ul><li>Country, year and institution charts use the authoritative final document-country file.</li><li>Language, query category and field-completeness charts use the canonical master.</li><li>Documents from documented AI-oriented searches remain included under the high-recall rule even when exported metadata has no AI term.</li><li>Counts are descriptive collection status, not estimates of national policy quality or policy intensity.</li><li>Territories and project-normalised jurisdictions are included among the 135 analytical codes.</li></ul></details>
+<details><summary>Data scope and interpretation</summary><ul><li>Country, year, institution, release-source and attribution-method charts use the authoritative final document-country file.</li><li>Language, query category, master origin, format, genre, resolution status and field completeness use the canonical master.</li><li>Documents from documented AI-oriented searches remain included under the high-recall rule even when exported metadata has no AI term.</li><li>Counts are descriptive collection status, not estimates of national policy quality or policy intensity.</li><li>Territories and project-normalised jurisdictions are included among the 135 analytical codes.</li></ul></details>
 <p class='small'>Generated from <code>policycommons_augmented_master_final_v7_10.parquet</code> and <code>document_country_pairs_final_v7_10.csv</code>. Generator: <a href='code/generate_policycommons_collection_results.py'>source code</a>.</p><footer>© 2026 Youngsam Chun · <a href='../research.html'>Research overview</a></footer></main></body></html>"""
 
 OUTPUT.write_text(html, encoding="utf-8")
