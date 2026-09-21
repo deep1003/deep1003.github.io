@@ -63,8 +63,7 @@
 
     <div class="entry">
       <p>
-        The collection targets government publications that match the logical query
-        <code>AI AND system AND policy</code>. It uses the World Governments module
+        The collection targets government and public policy publications retrieved through documented AI-oriented Policy Commons searches. Query families include <code>artificial intelligence</code>, AI governance, AI safety, AI risk, AI system, AI policy, machine learning, deep learning, neural networks, generative AI and equivalent historical or multilingual terms. The earlier broad contract also used the logical query <code>AI AND system AND policy</code>. It uses the World Governments module
         (<code>POCO_POGO</code>), limits the content to publications, selects the Policy Commons
         <code>Document</code> artefact type and the <code>Government</code> publisher type, requests
         100 results per page, and sorts records by date with the newest first.
@@ -134,6 +133,22 @@
         <a href="https://github.com/deep1003/ai-stpi-policy-gap-analysis/blob/main/code/policycommons_background_api_20260916/collector.py">Collector source</a> ·
         <a href="https://github.com/deep1003/ai-stpi-policy-gap-analysis/tree/main/code/policycommons_background_api_20260916">Reproducibility package</a>
       </p>
+    </div>
+
+    <h3 id="workflow-detail">End-to-end cleaning and analysis workflow</h3>
+    <div class="entry">
+      <ol class="plain">
+        <li><strong>Freeze inputs.</strong> Save the exact query, modules, content type, publisher type, year filters, sort order, page size, retrieval time and SHA-256 manifest.</li>
+        <li><strong>Collect paired exports.</strong> Save RIS and CSV from the same page and filter state. CSV supplies provider fields such as <code>country</code> and <code>topics</code> that RIS may omit.</li>
+        <li><strong>Parse and link.</strong> Join only normalised Policy Commons identifiers and artefact IDs. Preserve unmatched rows and field-level provenance. Never join by title, filename or row order.</li>
+        <li><strong>Deduplicate.</strong> Resolve stable IDs, canonical URLs, compatible titles, publisher, year, language and content hashes. Keep editions, translations and substantive revisions separate.</li>
+        <li><strong>Screen AI with high recall.</strong> Collection provenance from documented AI-oriented searches is positive evidence. Missing AI terms in exported metadata do not establish Non-AI because Policy Commons may have matched indexed full text. Exclude only clear alternative meanings with positive evidence.</li>
+        <li><strong>Classify document function.</strong> Exclude standalone vacancy notices, product manuals, theses, datasets, course syllabi, media and purely scholarly outputs. Retain official proceedings, workshops and agendas when they contain policy inquiry, regulation, standards, testimony, recommendations or implementation.</li>
+        <li><strong>Attribute countries.</strong> Keep <code>published_in_country</code>, <code>issuer_country</code>, policy jurisdiction and target country separate. Government, public, national commission and publicly funded research evidence can support attribution. Headquarters or repository location alone cannot.</li>
+        <li><strong>Build the analytical view.</strong> Retain unique <code>(record_id, analysis_country)</code> rows with unit weight 1. Assign a document to each supported country without percentage shares. Aggregate HKG to CHN while preserving the original value.</li>
+        <li><strong>Audit and release.</strong> Apply deterministic census rules, preserve exclusion queues, run fixed-seed stratified original-page checks, record inaccessible pages as <code>unverifiable</code>, and publish versioned outputs with manifests and checksums.</li>
+      </ol>
+      <p><a href="policycommons-country-attribution.html#workflow-overview">Current country-attribution protocol</a> · <a href="policycommons-error-register.md">British-English error register and cited examples</a></p>
     </div>
 
     <h3 id="limitations">Interpretation and limitations</h3>
