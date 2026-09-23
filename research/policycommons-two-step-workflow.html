@@ -58,9 +58,9 @@
 <body>
 <div class="shell">
   <header>
-    <div class="eyebrow">Reviewed workflow · 22 September 2026</div>
+    <div class="eyebrow">Reviewed workflow · updated 23 September 2026</div>
     <h1>Policy Commons collection and Korean policy-report integration</h1>
-    <p>Two sequential integration steps with real directory names, numbered tasks, source evidence, release checks and current status. Step 2 covers Korean issuers only. Local file paths are documented for reproducibility; the underlying datasets are not published here.</p>
+    <p>Two sequential integration steps with real directory names, numbered tasks, source evidence, release checks and current status. Step 1 integration and strict quarantine are complete. Step 2 covers Korean issuers only.</p>
   </header>
 
   <nav aria-label="Page sections">
@@ -69,28 +69,34 @@
 
   <section class="card" id="status">
     <h2>Current status and units</h2>
-    <p class="lead">The v7.10 document-country file is the protected analysis baseline. The v8.3 master is a separate candidate input. Korean Step 2 files are prepared candidates. The Step 1 and Step 2 integration release directories exist but are empty.</p>
+    <p class="lead">Step 1 has been completed as an evidence-preserving integration of the frozen v8.3 candidate document master and the newly collected English and multilingual Policy Commons RIS/CSV master. Exact stable-pair resolution produced 738,737 unique records. A subsequent strict contamination review quarantined 298,880 records and issued a primary strict-analysis candidate set of 439,857 records. The protected v7.10 document-country file remains unchanged as a comparison baseline.</p>
     <div class="facts">
-      <div class="fact"><strong>182,010</strong><span>v7.10 document-country rows, per release summary</span></div>
-      <div class="fact"><strong>7,770</strong><span>Korean combined candidate rows: 7,749 + 21</span></div>
-      <div class="fact"><strong>7,522</strong><span>Korean candidates after collision quarantine</span></div>
-      <div class="fact"><strong>248</strong><span>collision cases set aside for source review</span></div>
+      <div class="fact"><strong>270,974</strong><span>Step 1 Source A: frozen v8.3 candidate document records</span></div>
+      <div class="fact"><strong>559,181</strong><span>Step 1 Source B: reviewed multilingual RIS/CSV document records</span></div>
+      <div class="fact"><strong>1,417,517</strong><span>unique source observations supporting Source B</span></div>
+      <div class="fact"><strong>182,010</strong><span>protected v7.10 document-country rows for comparison</span></div>
+      <div class="fact"><strong>738,737</strong><span>Step 1 integrated evidence-preserving document records</span></div>
+      <div class="fact"><strong>439,857</strong><span>strict primary-analysis candidate records after quarantine</span></div>
     </div>
-    <p class="note"><strong>Count rule:</strong> source files, RIS/CSV observations, document versions and document-country rows have different units. Do not add their counts together. The 7,522 rows are not yet a confirmed AI-policy release.</p>
+    <p class="note"><strong>Count rule:</strong> 270,974 + 559,181 − 50 internal duplicate rows − 91,368 exact cross-dataset overlaps = 738,737 integrated records. The 1,417,517 count is a Source B observation count and the 182,010 count is the protected document-country baseline, so neither is added to the document total. The strict quarantine partitions 738,737 records into Q1 210,153, Q2 82,380, Q3 6,347 and 439,857 analysis candidates.</p>
     <div class="flow" aria-label="Workflow sequence"><span>Protected v7.10 baseline</span><b>→</b><span>Step 1 Policy Commons integration</span><b>→</b><span>Step 2 Korean integration</span><b>→</b><span>Reviewed comparison and promotion</span></div>
   </section>
 
   <section class="card" id="directories">
     <h2>Verified upper-level directories</h2>
-    <p class="root">iCloud root: <code>~/Library/Mobile Documents/com~apple~CloudDocs/data3/</code></p>
+    <p class="root">iCloud root: <code>/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/</code></p>
     <div class="table-wrap"><table><thead><tr><th>Role</th><th>Real directory</th><th>Status</th></tr></thead><tbody>
-      <tr><td>Local intake</td><td class="path">~/Downloads/</td><td><span class="badge existing">Existing source</span></td></tr>
-      <tr><td>Golden baseline</td><td><span class="path">policycommons_golden_datasets_20260921/02_authoritative_analysis_v7_10/</span></td><td><span class="badge existing">Existing release</span></td></tr>
-      <tr><td>Collector</td><td><span class="path">policy_commons_ai_full_collection_20260910/artificial_intelligence_1950_2026_by_module/</span></td><td><span class="badge existing">Existing source</span></td></tr>
-      <tr><td>Downloads import</td><td><span class="path">policy_commons_ai_full_collection_20260910/imports_from_downloads_20260921/</span></td><td><span class="badge staged">Copied locally</span></td></tr>
-      <tr><td>Korean staged inputs</td><td><span class="path">policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/</span></td><td><span class="badge staged">Staged candidate</span></td></tr>
-      <tr><td>Historical STPI source</td><td><span class="path">kim_jongrip_ai_stpi_full_datasets_share_20260630/</span></td><td><span class="badge existing">Existing source</span></td></tr>
-      <tr><td>Integration workspace</td><td><span class="path">policycommons_merge_workspace_20260921/</span></td><td><span class="badge pending">Release folders empty</span></td></tr>
+      <tr><td>Local intake</td><td class="path">/Users/deep1003/Downloads/</td><td><span class="badge existing">Existing source</span></td></tr>
+      <tr><td>Golden baseline</td><td><a class="path" href="../../policycommons_golden_datasets_20260921/02_authoritative_analysis_v7_10/">policycommons_golden_datasets_20260921/02_authoritative_analysis_v7_10/</a></td><td><span class="badge existing">Existing release</span></td></tr>
+      <tr><td>Collector</td><td><a class="path" href="../../policy_commons_ai_full_collection_20260910/artificial_intelligence_1950_2026_by_module/">policy_commons_ai_full_collection_20260910/artificial_intelligence_1950_2026_by_module/</a></td><td><span class="badge existing">Existing source</span></td></tr>
+      <tr><td>Downloads import</td><td><a class="path" href="../../policy_commons_ai_full_collection_20260910/imports_from_downloads_20260921/">policy_commons_ai_full_collection_20260910/imports_from_downloads_20260921/</a></td><td><span class="badge staged">Copied locally</span></td></tr>
+      <tr><td>Step 1 Source A</td><td><a class="path" href="../../policy_commons_ai_full_collection_20260910/imports_from_downloads_20260921/04_legacy_releases_and_checkpoints/releases/policycommons_local_enrichment_20260920_r1/final_augmented_release_v8_3_20260921/policycommons_augmented_master_frozen_v8_3.parquet">policycommons_augmented_master_frozen_v8_3.parquet</a></td><td><span class="badge staged">270,974 documents</span></td></tr>
+      <tr><td>Step 1 Source B</td><td><a class="path" href="../../policy_commons_ai_full_collection_20260910/output/policycommons_ai_ris_csv_integrated_20260922_v3/integrated_master.parquet">policycommons_ai_ris_csv_integrated_20260922_v3/integrated_master.parquet</a></td><td><span class="badge staged">559,181 documents</span></td></tr>
+      <tr><td>Korean staged inputs</td><td><a class="path" href="../../policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/">policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/</a></td><td><span class="badge staged">Staged candidate</span></td></tr>
+      <tr><td>Historical STPI source</td><td><a class="path" href="../../kim_jongrip_ai_stpi_full_datasets_share_20260630/">kim_jongrip_ai_stpi_full_datasets_share_20260630/</a></td><td><span class="badge existing">Existing source</span></td></tr>
+      <tr><td>Integration workspace</td><td><a class="path" href="../">policycommons_merge_workspace_20260921/</a></td><td><span class="badge existing">Step 1 v6 and strict-quarantine v7 issued</span></td></tr>
+      <tr><td>Step 1 integrated master</td><td><a class="path" href="../03_stage1_current_master_plus_collector/04_versioned_release/step1_v83_plus_collector_20260923_v6_reviewed/stage1_document_master.parquet">step1_v83_plus_collector_20260923_v6_reviewed/stage1_document_master.parquet</a></td><td><span class="badge existing">738,737 documents</span></td></tr>
+      <tr><td>Strict analysis release</td><td><a class="path" href="../03_stage1_current_master_plus_collector/04_versioned_release/step1_v83_plus_collector_20260923_v7_strict_quarantine/strict_analysis_records.parquet">step1_v83_plus_collector_20260923_v7_strict_quarantine/strict_analysis_records.parquet</a></td><td><span class="badge existing">439,857 candidates</span></td></tr>
     </tbody></table></div>
     <details><summary>The five collector modules</summary>
       <ol>
@@ -105,14 +111,21 @@
 
   <section class="card" id="step1">
     <h2>Step 1: integrate the current Policy Commons collection</h2>
-    <p class="statusline"><span class="badge pending">Integration pending</span> <span class="badge staged">Sources and destinations exist</span></p>
-    <p><strong>Inputs:</strong> the frozen v8.3 candidate master, verified Downloads imports and a dated snapshot of the five-module collector. <strong>Workspace:</strong> <code>policycommons_merge_workspace_20260921/03_stage1_current_master_plus_collector/</code>.</p>
-    <p><span class="path">Frozen v8.3 candidate master</span> · <span class="path">v7.10 analytical baseline</span></p>
+    <p class="statusline"><span class="badge existing">Computational integration complete</span> <span class="badge existing">Strict quarantine verified</span> <span class="badge review">Analytical promotion remains review-gated</span></p>
+    <p><strong>Merge inputs:</strong> Source A is the frozen v8.3 candidate master copied from Downloads. Source B is the reviewed English and multilingual RIS/CSV integration produced from the collector. <strong>Target workspace:</strong> <code>policycommons_merge_workspace_20260921/03_stage1_current_master_plus_collector/</code>.</p>
+    <div class="table-wrap"><table><thead><tr><th>Role</th><th>Dataset and exact path</th><th>Verified scale</th><th>Boundary</th></tr></thead><tbody>
+      <tr><td><strong>Source A<br>local baseline input</strong></td><td><a class="path" href="../../policy_commons_ai_full_collection_20260910/imports_from_downloads_20260921/04_legacy_releases_and_checkpoints/releases/policycommons_local_enrichment_20260920_r1/final_augmented_release_v8_3_20260921/policycommons_augmented_master_frozen_v8_3.parquet">policy_commons_ai_full_collection_20260910/imports_from_downloads_20260921/04_legacy_releases_and_checkpoints/releases/policycommons_local_enrichment_20260920_r1/final_augmented_release_v8_3_20260921/policycommons_augmented_master_frozen_v8_3.parquet</a></td><td>270,974 candidate document records; 269,853 base-master records before the reviewed increment</td><td>Candidate document master, not the protected v7.10 analytical release</td></tr>
+      <tr><td><strong>Source B<br>multilingual target input</strong></td><td><a class="path" href="../../policy_commons_ai_full_collection_20260910/output/policycommons_ai_ris_csv_integrated_20260922_v3/integrated_master.parquet">policy_commons_ai_full_collection_20260910/output/policycommons_ai_ris_csv_integrated_20260922_v3/integrated_master.parquet</a></td><td>559,181 unique documents: 545,717 paired RIS/CSV, 11,866 RIS-only and 1,598 CSV-only; 1,417,517 unique source observations</td><td>English and multilingual collection after specialist metadata review; not yet merged with Source A</td></tr>
+      <tr><td><strong>Comparison baseline<br>not a merge input</strong></td><td><a class="path" href="../../policycommons_golden_datasets_20260921/02_authoritative_analysis_v7_10/document_country_pairs_final_v7_10.csv">policycommons_golden_datasets_20260921/02_authoritative_analysis_v7_10/document_country_pairs_final_v7_10.csv</a></td><td>182,010 document-country rows</td><td>Protected analytical baseline used only for comparison and reviewed promotion</td></tr>
+      <tr><td><strong>Step 1 integrated output</strong></td><td><a class="path" href="../03_stage1_current_master_plus_collector/04_versioned_release/step1_v83_plus_collector_20260923_v6_reviewed/">step1_v83_plus_collector_20260923_v6_reviewed/</a></td><td>738,737 unique documents; 830,155 crosswalk rows; 1,473,871 linked source observations</td><td>Evidence-preserving master; no source record overwritten</td></tr>
+      <tr><td><strong>Strict quarantine output</strong></td><td><a class="path" href="../03_stage1_current_master_plus_collector/04_versioned_release/step1_v83_plus_collector_20260923_v7_strict_quarantine/">step1_v83_plus_collector_20260923_v7_strict_quarantine/</a></td><td>210,153 Q1; 82,380 Q2; 6,347 Q3; 439,857 strict analysis candidates</td><td>Only <code>strict_analysis_use_allowed=true</code> records enter primary analysis</td></tr>
+    </tbody></table></div>
+    <p class="note"><strong>Validated count:</strong> the 830,155 pre-deduplication rows resolved to 738,737 documents after removing 50 internal duplicate rows and 91,368 exact cross-dataset overlaps. Two same-COI/different-artifact groups, DOI/title collision candidates and 16 provenance orphans remain in explicit review or recovery ledgers rather than being silently merged.</p>
 
     <div class="task"><h3>Task 1. Secure and reconcile files</h3>
-      <p class="dirs">Real directories: <code>~/Downloads/</code>; <code>policy_commons_ai_full_collection_20260910/imports_from_downloads_20260921/{00_inventory,05_transfer_audit}/</code>; <code>policycommons_merge_workspace_20260921/03_stage1_current_master_plus_collector/00_frozen_inputs/</code>.</p>
+      <p class="dirs">Real directories: <code>/Users/deep1003/Downloads/</code>; <code>policy_commons_ai_full_collection_20260910/imports_from_downloads_20260921/{00_inventory,05_transfer_audit}/</code>; <code>policycommons_merge_workspace_20260921/03_stage1_current_master_plus_collector/00_frozen_inputs/</code>.</p>
       <ol><li><strong>1.1</strong> Reconcile each frozen Downloads entry with its recorded iCloud destination by byte size and SHA-256. Record missing, changed or unreadable files individually.</li><li><strong>1.2</strong> Verify remote iCloud upload and restore a test batch. Local copy hashes alone do not prove remote durability.</li><li><strong>1.3</strong> Freeze a dated collector snapshot without reading partially written files. Record completeness by module and year, including incomplete slices.</li><li><strong>1.4</strong> Preserve manifests and checksums; check symlinks, scripts and active checkpoint paths. Prepare a source deletion inventory only after the transfer checks pass.</li></ol>
-      <p><span class="badge pending">Pending gate</span> The final complete file-level reconciliation report and remote read-back were not present at this review.</p>
+      <p><span class="badge review">Transfer limitation</span> The reconciliation ledger contains 6,072 inventory entries: 6,057 local source-to-destination SHA-256 matches, 14 file-access cases requiring review and one non-regular item. This proves local copy agreement for the matched files, not independent remote iCloud durability.</p>
     </div>
     <div class="task"><h3>Task 2. Normalise RIS and CSV observations</h3>
       <p class="dirs">Real directories: <code>policy_commons_ai_full_collection_20260910/artificial_intelligence_1950_2026_by_module/</code>; <code>.../imports_from_downloads_20260921/02_upload_batches/</code>; <code>policycommons_merge_workspace_20260921/03_stage1_current_master_plus_collector/01_normalised_observations/</code>.</p>
@@ -125,7 +138,13 @@
     <div class="task"><h3>Task 4. Validate and issue Step 1 outputs</h3>
       <p class="dirs">Real directories: <code>policycommons_merge_workspace_20260921/03_stage1_current_master_plus_collector/{03_quality_assurance,04_versioned_release}/</code>; <code>.../05_final_analysis_releases/</code>; <code>.../06_comparative_evaluation/baseline_vs_stage1/</code>.</p>
       <ol><li><strong>4.1</strong> Build a versioned document master and document-country table with distinct declared units.</li><li><strong>4.2</strong> Identify national analytical rows and separately retain international organisations and multinational private issuers.</li><li><strong>4.3</strong> Check schema, uniqueness, counts, provenance, conflicts, checksums and source-review samples.</li><li><strong>4.4</strong> Compare the issued Step 1 release with the protected v7.10 baseline.</li></ol>
-      <p><span class="badge pending">No release yet</span> The Step 1 versioned-release directory was empty at review.</p>
+      <p><span class="badge existing">Verified release issued</span> The v6 integration and v7 strict-quarantine releases contain manifests, SHA-256 checksums, identity and field-reconciliation ledgers, country partitions, quarantine indexes and independent verification reports. The v7 partition check passed: all 738,737 records are unique within and mutually exclusive across Q1, Q2, Q3 and the strict analysis set.</p>
+      <div class="table-wrap"><table><thead><tr><th>Strict partition</th><th>Records</th><th>Primary-analysis treatment</th></tr></thead><tbody>
+        <tr><td>Q1 high-confidence quarantine</td><td>210,153</td><td>Excluded. Includes explicit non-AI/non-document records, simple agendas and minutes, calls and solicitations, event material, newsletters, simple press releases, recruitment notices and explicit non-document media.</td></tr>
+        <tr><td>Q2 precautionary review</td><td>82,380</td><td>Excluded pending adjudication. Includes ambiguous event material, identity candidates, repeated abstracts, title-summary risk and substantive cross-source conflicts.</td></tr>
+        <tr><td>Q3 metadata recovery</td><td>6,347</td><td>Excluded pending recovery and reclassification.</td></tr>
+        <tr><td>Strict analysis candidates</td><td>439,857</td><td>Permitted for primary analysis under the strict release rule.</td></tr>
+      </tbody></table></div>
     </div>
   </section>
 
@@ -134,12 +153,12 @@
     <p class="statusline"><span class="badge staged">Korean candidate files exist</span> <span class="badge pending">Integration pending</span></p>
     <p><strong>Source:</strong> <code>kim_jongrip_ai_stpi_full_datasets_share_20260630/</code>. <strong>Prepared inputs:</strong> <code>policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/</code>. <strong>Workspace:</strong> <code>policycommons_merge_workspace_20260921/04_stage2_stpi_kor_chn_jpn/</code>. The final directory has a legacy name; this step covers <strong>Korea only</strong>.</p>
     <div class="table-wrap"><table><thead><tr><th>Korean file</th><th>Rows</th><th>Current meaning</th></tr></thead><tbody>
-      <tr><td><span class="path">Approved input</span></td><td>7,749</td><td>Protected manuscript baseline, 144 original columns</td></tr>
-      <tr><td><span class="path">Recent increment</span></td><td>21</td><td>Official-source additions, 1 August to 21 September 2026; not a full census</td></tr>
-      <tr><td><span class="path">Combined candidate</span></td><td>7,770</td><td>Baseline plus increment; no Policy Commons merge</td></tr>
-      <tr><td><span class="path">Cleaned candidate</span></td><td>7,522</td><td>After collision quarantine; further issuer and AI review required</td></tr>
-      <tr><td><span class="path">Collision review ledger</span></td><td>248</td><td>Quarantined, not irreversibly deleted</td></tr>
-      <tr><td><span class="path">Expanded pool</span></td><td>16,954</td><td>Overlapping source review pool; not an appendable increment</td></tr>
+      <tr><td><a href="../../policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/stpi_korean_policy_approved_input_7749.csv">Approved input</a></td><td>7,749</td><td>Protected manuscript baseline, 144 original columns</td></tr>
+      <tr><td><a href="../../policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/korean_ai_policy_reports_20260801_20260921_increment.csv">Recent increment</a></td><td>21</td><td>Official-source additions, 1 August to 21 September 2026; not a full census</td></tr>
+      <tr><td><a href="../../policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/stpi_korean_policy_stage2_candidate_7770.csv">Combined candidate</a></td><td>7,770</td><td>Baseline plus increment; no Policy Commons merge</td></tr>
+      <tr><td><a href="../../policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/stpi_korean_policy_stage2_candidate_title_abstract_cleaned.csv">Cleaned candidate</a></td><td>7,522</td><td>After collision quarantine; further issuer and AI review required</td></tr>
+      <tr><td><a href="../../policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/stpi_korean_policy_stage2_title_abstract_collision_exclusions.csv">Collision review ledger</a></td><td>248</td><td>Quarantined, not irreversibly deleted</td></tr>
+      <tr><td><a href="../../policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/stpi_korean_report_expanded_review_pool.csv">Expanded pool</a></td><td>16,954</td><td>Overlapping source review pool; not an appendable increment</td></tr>
     </tbody></table></div>
 
     <div class="task"><h3>Task 5. Validate the existing Korean inputs</h3>
@@ -166,26 +185,30 @@
     <div class="table-wrap"><table><thead><tr><th>Deliverable</th><th>Unit and check</th><th>Destination</th></tr></thead><tbody>
       <tr><td>Source observation table</td><td>One source occurrence; reconcile files, RIS/CSV rows and repeated searches</td><td><code>03_stage1_current_master_plus_collector/01_normalised_observations/</code></td></tr>
       <tr><td>Document identity crosswalk</td><td>Source occurrence to canonical version; retain conflicts and versions</td><td><code>03_stage1_current_master_plus_collector/02_identity_and_conflicts/</code> and <code>04_stage2_stpi_kor_chn_jpn/02_identity_and_conflicts/</code></td></tr>
-      <tr><td>Versioned document masters</td><td>Unique document-version key, provenance and checksum</td><td><code>03_stage1_current_master_plus_collector/04_versioned_release/</code> and <code>04_stage2_stpi_kor_chn_jpn/04_versioned_release/</code></td></tr>
+      <tr><td>Versioned document masters</td><td>Step 1 v6: 738,737 unique document records; protected source-specific values and checksums</td><td><code>03_stage1_current_master_plus_collector/04_versioned_release/step1_v83_plus_collector_20260923_v6_reviewed/</code></td></tr>
+      <tr><td>Strict quarantine release</td><td>Q1, Q2, Q3 and strict-analysis partitions; mutually exclusive and count-conserving</td><td><code>03_stage1_current_master_plus_collector/04_versioned_release/step1_v83_plus_collector_20260923_v7_strict_quarantine/</code></td></tr>
       <tr><td>Final analysis categories</td><td>Document-country rows and separate international/private/unresolved sets</td><td><code>05_final_analysis_releases/</code></td></tr>
       <tr><td>Comparative audit</td><td>Baseline versus each step, plus review samples and metrics</td><td><code>06_comparative_evaluation/</code></td></tr>
     </tbody></table></div>
-    <p class="note">The two versioned-release destinations are prepared directories. A release exists only after files, manifests, checksums, reconciliation and source review are present and verified.</p>
+    <p class="note">Step 1 v6 and strict-quarantine v7 are issued and independently verified. Step 2 remains pending. Original-source validation is not yet complete, so heuristic title-summary cases remain quarantined rather than being labelled confirmed corruption.</p>
   </section>
 
   <section class="card" id="review">
     <h2>Specialist review incorporated</h2>
-    <p>Three independent reviews checked lineage and counts, merge logic, and the actual directory tree. Their corrections are reflected here:</p>
+    <p>Specialist reviews checked identity and deduplication, country and provenance, format contamination, administrative and event contamination, and metadata integrity. Their corrections are reflected here:</p>
     <ul>
       <li>Step 2 is Korea only despite the legacy <code>kor_chn_jpn</code> folder name.</li>
       <li>The 7,522 rows are cleaned candidates, the 248 are quarantined for review, and the 16,954-row pool overlaps other inputs.</li>
       <li>RIS/CSV file pairing is distinct from record and document identity matching.</li>
-      <li>The collector snapshot needs module/year completeness flags; the integration output folders are empty.</li>
+      <li>The 738,737-record v6 master preserves one unique record ID and stable identifier pair per document record.</li>
+      <li>The strict v7 release actively excludes simple tables, images, recordings, videos, agenda and minutes, calls for papers and comparable non-substantive material.</li>
+      <li>Source-only records are not automatically called contaminated; only records with additional risk evidence enter the corresponding quarantine.</li>
+      <li>Q2 and Q3 remain recoverable. No quarantined record was physically deleted from the evidence master.</li>
       <li>The import ledgers show local copies, while full reconciliation and remote iCloud read-back are separate checks.</li>
     </ul>
-    <p>Source documents: <span class="path">migration and integration README</span>, <span class="path">Korean staging README</span>, and <span class="path">workspace README</span>.</p>
+    <p>Source documents: <a href="../../policy_commons_ai_full_collection_20260910/imports_from_downloads_20260921/README_MIGRATION_AND_INTEGRATION.md">migration and integration README</a>, <a href="../../policy_commons_ai_full_collection_20260910/stage2_stpi_korean_policy_reports_20260921/README.md">Korean staging README</a>, <a href="../03_stage1_current_master_plus_collector/03_quality_assurance/step1_v83_plus_collector_20260923_v6_reviewed/specialist_review_resolution.md">Step 1 specialist resolution</a>, <a href="../03_stage1_current_master_plus_collector/03_quality_assurance/step1_v83_plus_collector_20260923_v7_strict_quarantine/STRICT_QUARANTINE_REPORT.md">strict-quarantine report</a>, and <a href="../README.md">workspace README</a>.</p>
   </section>
-  <footer>Local planning artefact. Directory names and Korean CSV counts were checked on 22 September 2026. A live collector or transfer status can change after this review.</footer>
+  <footer>Local workflow artefact. Step 1 v6 integration and v7 strict quarantine were completed and independently verified on 23 September 2026. Step 2 remains pending.</footer>
 </div>
 </body>
 </html>
