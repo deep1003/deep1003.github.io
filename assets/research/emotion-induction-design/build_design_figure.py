@@ -79,7 +79,8 @@ def icon_clock(cx, cy, col):
 
 def lines(x, y, rows, size=19, weight="400", fill=INK, anchor="start", leading=27):
     for i, row in enumerate(rows):
-        t(x, y + leading * i, row, size, weight, fill, anchor)
+        dx, row = row if isinstance(row, tuple) else (0, row)   # (들여쓰기 px, 문장): SVG는 앞 공백을 접으므로 좌표로 들여쓴다
+        t(x + dx, y + leading * i, row, size, weight, fill, anchor)
 
 
 def build():
@@ -143,7 +144,7 @@ def build():
          ["Average across both option orders.", "Positive ΔS indicates a shift towards the target response."]),
         ("d", 820, icon_scale, "Social judgment", "KoBBQ items with ambiguous information",
          ["Same item across emotion and neutral conditions", "Response options: target A / target B / Unknown"],
-         ["ΔP(Unknown) = P(Unknown | emotion)", "                         − P(Unknown | neutral)"],
+         ["ΔP(Unknown) = P(Unknown | emotion)", (150, "− P(Unknown | neutral)")],
          ["Report differences in percentage points.", "Positive values indicate greater judgment withholding."]),
     ]
     for panel, x, icon, title, subtitle, example, metric, note in probes:
