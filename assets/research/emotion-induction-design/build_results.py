@@ -122,6 +122,43 @@ section = '''
   <p><a href="results-1p5b.json">그래프에 사용한 수치와 출처 해시</a> · <a href="build_results.py">그래프 생성 코드</a></p>
 </section>
 '''
+# 모델 규모와 비교 목적에 맞춰 결과를 기본 접힘 항목으로 구성한다.
+section = section.replace('6. 1.5B 실험 결과', '6. 모델·조건별 실험 결과')
+section = section.replace(
+    '  <p class="lead">',
+    '  <p>모델 규모를 선택한 뒤 비교할 결과를 펼친다. 같은 대상의 불안·공포·슬픔은 해당 중립 조건과 함께 비교하고, 맥락별 결과와 고정관념 지표는 별도 항목에서 확인한다. 여러 항목을 동시에 펼칠 수 있다.</p>\n'
+    '  <details class="model-results" id="results-model-1p5b"><summary>1.5B · Qwen2.5 · 결과 게시 완료</summary><div class="result-body">\n'
+    '  <p class="lead">', 1)
+groups = [
+    ('6.1 사용자 정서 · 불안에서 판단 유보 증가',
+     '사용자 정서 비교 · 불안·공포·슬픔 대 사용자 중립', 'user'),
+    ('6.2 모델 자기 정서 · 중립 대비 유의한 효과 미확인',
+     '모델 자기 정서 비교 · 불안·공포·슬픔 대 모델 중립', 'self'),
+    ('6.3 입시·청년 실업·은퇴 후 독거의 불안 효과',
+     '맥락별 분석 · 입시·청년 실업·은퇴 후 독거', 'context'),
+    ('6.4 고정관념 선호는 별도 지표다',
+     '별도 지표 · 고정관념 선호와 동등성', 'bias'),
+]
+for i, (heading, title, key) in enumerate(groups):
+    old = f'  <h3 style="margin-top:28px">{heading}</h3>'
+    close = '' if i == 0 else '  </div></details>\n'
+    section = section.replace(old, close + f'  <details class="result-group" id="results-1p5b-{key}"><summary>{title}</summary><div class="result-body">')
+section = section.replace(
+    '  <div class="note">이 결과는 선택 응답의 변화에 관한 것이다.',
+    '  </div></details>\n  <div class="note">이 결과는 선택 응답의 변화에 관한 것이다.', 1)
+section = section.replace('</section>', """  </div></details>
+  <details class="model-results" id="results-model-7b">
+    <summary>7B · Qwen2.5 · 결과 미게시</summary>
+    <div class="result-body">
+      <p>7B는 1.5B와 구분해 게시한다. 이 페이지에는 아직 7B 수치와 그래프를 추가하지 않았다. 실험의 실행·완료 여부와 홈페이지 게시 여부는 다르다.</p>
+      <details class="result-group"><summary>사용자 정서 비교 · 사용자 중립 기준</summary><div class="result-body"><p>블록 0의 중립·자극 없음과 블록 A의 불안·공포 결과를 함께 비교할 위치다. 현재 블록 A에는 슬픔 조건이 없으므로 슬픔을 실행한 결과처럼 표시하지 않는다.</p></div></details>
+      <details class="result-group"><summary>모델 자기 정서 비교 · 모델 중립 기준</summary><div class="result-body"><p>블록 B의 불안·공포·슬픔을 모델 중립과 비교할 위치다. 천장 효과에 대응해 새 모호 문항을 선별한 실험이므로 블록 A와는 별도 분석으로 제시한다.</p></div></details>
+      <details class="result-group"><summary>별도 분석 · 맥락·단계·고정관념 선호</summary><div class="result-body"><p>사용자의 입시·청년 실업·은퇴 후 독거, 모델의 개발·출시 전 테스트·상용 서비스 단계, 고정관념 지표를 각각 구분해 제시할 위치다.</p></div></details>
+    </div>
+  </details>
+  <details class="result-group"><summary>비교 범위 안내 · 1.5B와 7B, 사용자와 모델 자신</summary><div class="result-body"><p>같은 모델·같은 정서 대상 안에서 대응 중립 대비 효과를 우선 비교한다. 모델 규모나 정서 대상이 달라지면 문항 수·자극·문항 선정 규칙을 함께 확인해야 한다. 한쪽의 유의성과 다른 쪽의 비유의성만으로 두 효과 사이에 유의한 차이가 있다고 결론 내리지 않는다. 모델 간 직접 비교 결과는 별도의 분석이 준비된 뒤 제시한다.</p></div></details>
+</section>""", 1)
+
 eq_rows = []
 for who, rows in [('사용자', u['H4']), ('모델 자신', m['task2_eq'])]:
     for emotion, r in zip(['불안', '공포'], rows):
@@ -144,9 +181,20 @@ css = '''
 .result-figure img { display: block; width: 100%; min-width: 700px; height: auto; }
 .result-figure figcaption { color: var(--muted); font-size: 14px; }
 #results-1p5b { scroll-margin-top: 24px; }
+.model-results { margin: 22px 0; border: 2px solid var(--line); padding: 0; }
+.model-results > summary { padding: 20px; background: #f3f6fa; font-size: 20px; }
+.result-group { padding: 0; margin: 14px 0; }
+.result-group > summary { padding: 16px; background: #f7f9fc; }
+.result-body { padding: 18px; }
+.model-results > summary::after, .result-group > summary::after {
+  content: '펼치기'; float: right; font-size: 13px; font-weight: 400; color: var(--muted); margin-left: 12px;
+}
+.model-results[open] > summary::after, .result-group[open] > summary::after { content: '접기'; }
+@media (max-width: 720px) { .result-body { padding: 12px; } .model-results > summary { font-size: 18px; } }
+
 '''
 s = s.replace('.result-figure { margin: 24px 0; }', '.result-figure { margin: 24px 0; overflow-x: auto; }').replace('.result-figure img { display: block; width: 100%; height: auto; }', '.result-figure img { display: block; width: 100%; min-width: 700px; height: auto; }')
-if '.result-figure {' not in s:
+if '.model-results {' not in s:
     s = s.replace('</style>', css + '</style>', 1)
 page.write_text(s)
 provenance = {'model': u['model'], 'metric': '중립 대비 P(알 수 없음) 차이',
