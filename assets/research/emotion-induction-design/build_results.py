@@ -205,3 +205,8 @@ provenance = {'model': u['model'], 'metric': '중립 대비 P(알 수 없음) �
                            'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths]}
 (out / 'results-1p5b.json').write_text(json.dumps(provenance, ensure_ascii=False, indent=2) + '\n')
 print('Generated two source-backed figures and results section.')
+
+# 7B 결과가 있는 경우 최신 보고도 함께 복원한다.
+if (args.source_root / "outputs_7b_v5/summary.json").exists():
+    import subprocess, sys
+    subprocess.run([sys.executable, str(out / "build_results_7b.py"), str(args.source_root)], check=True)
