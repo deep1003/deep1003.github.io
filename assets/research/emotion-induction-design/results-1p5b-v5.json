@@ -1,0 +1,223 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "version": "v5 system notice",
+  "checked_at": "2026-10-16 09:42 KST",
+  "latest_saved_at": "2026-10-16T09:40:42.015320+09:00",
+  "status": "partial; block A complete, block B in progress, C/D pending",
+  "user": [
+    {
+      "label": "불안",
+      "cls": "anxiety",
+      "est": 0.0444,
+      "lo": -0.0062,
+      "hi": 0.0963,
+      "p_holm": 0.171,
+      "exact_est": 0.044386974122591266
+    },
+    {
+      "label": "공포",
+      "cls": "fear",
+      "est": -0.0168,
+      "lo": -0.0678,
+      "hi": 0.0314,
+      "p_holm": 0.4775,
+      "exact_est": -0.01681553272834127
+    }
+  ],
+  "model_self": [
+    {
+      "label": "중립",
+      "cls": "model_neutral",
+      "items": 652,
+      "rows": 2608,
+      "mean": 0.11719342808421472,
+      "complete": true,
+      "est": 0.0
+    },
+    {
+      "label": "불안",
+      "cls": "model_anxiety",
+      "items": 652,
+      "rows": 2608,
+      "mean": 0.14339824729502304,
+      "complete": true,
+      "est": 0.02620481921080832
+    },
+    {
+      "label": "공포",
+      "cls": "model_fear",
+      "items": 652,
+      "rows": 2608,
+      "mean": 0.10843889645903566,
+      "complete": true,
+      "est": -0.008754531625179057
+    },
+    {
+      "label": "슬픔",
+      "cls": "model_sadness",
+      "items": 450,
+      "rows": 1800,
+      "mean": 0.12479785044297556,
+      "complete": false,
+      "est": null
+    }
+  ],
+  "blockB_saved_rows": 9624,
+  "blockB_planned_rows": 11232,
+  "measurement_audit": [
+    {
+      "file": "base_none_amb.csv",
+      "rows": 400,
+      "items": 400,
+      "mean_p_unknown": 0.146030627126885,
+      "saved_at": "2026-10-15T19:03:57.637019+09:00"
+    },
+    {
+      "file": "base_none_dis.csv",
+      "rows": 100,
+      "items": 100,
+      "mean_p_unknown": 0.04722642887468001,
+      "saved_at": "2026-10-15T19:14:45.621199+09:00"
+    },
+    {
+      "file": "model60v5_model_anxiety_amb.csv",
+      "rows": 2608,
+      "items": 652,
+      "mean_p_unknown": 0.14339824729502304,
+      "saved_at": "2026-10-16T07:08:32.354332+09:00"
+    },
+    {
+      "file": "model60v5_model_fear_amb.csv",
+      "rows": 2608,
+      "items": 652,
+      "mean_p_unknown": 0.10843889645903566,
+      "saved_at": "2026-10-16T08:37:24.035229+09:00"
+    },
+    {
+      "file": "model60v5_model_neutral_amb.csv",
+      "rows": 2608,
+      "items": 652,
+      "mean_p_unknown": 0.11719342808421472,
+      "saved_at": "2026-10-16T01:46:14.682392+09:00"
+    },
+    {
+      "file": "model60v5_model_sadness_amb.csv",
+      "rows": 1800,
+      "items": 450,
+      "mean_p_unknown": 0.12479785044297556,
+      "saved_at": "2026-10-16T09:40:42.015320+09:00"
+    },
+    {
+      "file": "screen_none_amb.csv",
+      "rows": 668,
+      "items": 668,
+      "mean_p_unknown": 0.1392918980545958,
+      "saved_at": "2026-10-15T22:12:23.414798+09:00"
+    },
+    {
+      "file": "user_anxiety_amb.csv",
+      "rows": 1600,
+      "items": 400,
+      "mean_p_unknown": 0.25851962424545627,
+      "saved_at": "2026-10-15T19:51:59.237156+09:00"
+    },
+    {
+      "file": "user_anxiety_dis.csv",
+      "rows": 400,
+      "items": 100,
+      "mean_p_unknown": 0.057663362875219996,
+      "saved_at": "2026-10-15T20:43:26.010508+09:00"
+    },
+    {
+      "file": "user_fear_amb.csv",
+      "rows": 1600,
+      "items": 400,
+      "mean_p_unknown": 0.19731711739452373,
+      "saved_at": "2026-10-15T20:25:34.876036+09:00"
+    },
+    {
+      "file": "user_fear_dis.csv",
+      "rows": 400,
+      "items": 100,
+      "mean_p_unknown": 0.03872518584461,
+      "saved_at": "2026-10-15T21:07:03.873785+09:00"
+    },
+    {
+      "file": "user_neutral_amb.csv",
+      "rows": 1600,
+      "items": 400,
+      "mean_p_unknown": 0.214132650122865,
+      "saved_at": "2026-10-15T19:14:04.403245+09:00"
+    },
+    {
+      "file": "user_neutral_dis.csv",
+      "rows": 400,
+      "items": 100,
+      "mean_p_unknown": 0.0608000281117225,
+      "saved_at": "2026-10-15T19:27:37.221191+09:00"
+    }
+  ],
+  "sources": [
+    {
+      "file": "fear_axis_v2.ipynb",
+      "sha256": "f19f6788420e97cad7a755b927f246d76af96629b26be3227fcf3b717b80d4a9"
+    },
+    {
+      "file": "outputs_1p5b_v5/base_none_amb.csv",
+      "sha256": "ed6e7268e3903ab132c85a73f316820354701c0aeec716cb8f33c86e86e2859d"
+    },
+    {
+      "file": "outputs_1p5b_v5/base_none_dis.csv",
+      "sha256": "876c65294d7e545c8bf27c068dbc13941c5d7c6d4fa134b7173de384d67f3335"
+    },
+    {
+      "file": "outputs_1p5b_v5/blockA_mc_v3.csv",
+      "sha256": "d690897600b351961892474a85017f5cc31c09fe9c8127fd1e69c1eb4815912b"
+    },
+    {
+      "file": "outputs_1p5b_v5/model60v5_model_anxiety_amb.csv",
+      "sha256": "0a473e896fe2b280554aaf20722098a61ddbf01803481b5e732e86f884fbd2d6"
+    },
+    {
+      "file": "outputs_1p5b_v5/model60v5_model_fear_amb.csv",
+      "sha256": "e97c04a9b1f6c292d79614652ec27f57dadfe74021314d0bc8b4a0b160e04bbc"
+    },
+    {
+      "file": "outputs_1p5b_v5/model60v5_model_neutral_amb.csv",
+      "sha256": "182aecc73e1aa7d970131b70cbdd20e18199179b251ef51f1ac72cdd4e845ad5"
+    },
+    {
+      "file": "outputs_1p5b_v5/model60v5_model_sadness_amb.csv",
+      "sha256": "1d6724cf83c5d13d9cd32475c3bccee5e73d822794a8088d1e6856dc5453b3de"
+    },
+    {
+      "file": "outputs_1p5b_v5/screen_none_amb.csv",
+      "sha256": "62200938fd0c56dedadf10c255cc02621f884759b328bc73ab25e737050fc846"
+    },
+    {
+      "file": "outputs_1p5b_v5/user_anxiety_amb.csv",
+      "sha256": "645cd7b361ad693213063dcbcc12c51e4a65f913c0a7aa51dce0041dd9bb757c"
+    },
+    {
+      "file": "outputs_1p5b_v5/user_anxiety_dis.csv",
+      "sha256": "1fc45c264e3d86b7bad0ef5d6a15d5f421d3aeedcccbbbeb085bbb8db34f8541"
+    },
+    {
+      "file": "outputs_1p5b_v5/user_fear_amb.csv",
+      "sha256": "6919bd9d65b1ba0f535f70e20f3a73123825021ec30a57e76be3e2c4284988e3"
+    },
+    {
+      "file": "outputs_1p5b_v5/user_fear_dis.csv",
+      "sha256": "9c2c84eeaf871e55f0f26a4aaf867741909b9de598f5d650dfe4f2787569bba4"
+    },
+    {
+      "file": "outputs_1p5b_v5/user_neutral_amb.csv",
+      "sha256": "5de021b6588ce106adf9a46e42618ac40b1668e12c835236a8bb834be741f314"
+    },
+    {
+      "file": "outputs_1p5b_v5/user_neutral_dis.csv",
+      "sha256": "0e9b297e5cd35915eeaa1fe27c602dc8bff3ff94d9477ce95fab68195f1a5b95"
+    }
+  ],
+  "inference_note": "A inference copied from saved notebook output; no interim B tests"
+}

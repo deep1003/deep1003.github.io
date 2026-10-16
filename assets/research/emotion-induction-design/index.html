@@ -34,7 +34,7 @@
 <section id="summary"><h2>핵심 요약</h2><div class="scroll"><table><tbody>
 <tr><td><strong>질문</strong></td><td>사용자의 정서, 또는 모델 자신에게 닥친 위협이 사회적 판단(KoBBQ)을 바꾸는가?</td></tr>
 <tr><td><strong>방법</strong></td><td>같은 KoBBQ 문항 앞에 정서 자극(불안·공포·슬픔) 또는 중립 자극을 붙이고, '알 수 없음' 선택 확률의 차이(%p)를 잰다.</td></tr>
-<tr><td><strong>발견</strong></td><td>① 모호 문항의 판단 유보 확률은 사용자 불안 +5.2%p (1.5B), 모델 대상 불안 +12.0%p (7B 최신 v5)에서 유의하게 증가했다.<br>② 공포 관련 자기보고 선택은 증가했으나, 중립 대비 판단 변화는 유의하지 않았다.<br>③ 슬픔의 중립 대비 판단 변화는 유의하지 않았다. 사용자 슬픔은 7B에서 미실행이다.</td></tr>
+<tr><td><strong>발견</strong></td><td>① 1.5B의 이전 설계에서는 사용자 불안 +5.2%p가 유의했으나, 최신 v5 사용자 불안 +4.44%p는 유의하지 않았다. 7B 최신 v5 모델 불안 +12.0%p는 유의했다. 1.5B v5 모델 경로는 아직 중간 결과다.<br>② 공포 관련 자기보고 선택은 증가했으나, 중립 대비 판단 변화는 유의하지 않았다.<br>③ 슬픔의 중립 대비 판단 변화는 유의하지 않았다. 사용자 슬픔은 7B에서 미실행이다.</td></tr>
 <tr><td><strong>다음 단계</strong></td><td>7B v5의 A·B·C는 완료. D 범주별 측정과 중복 점검을 마친 뒤 한국 고유·공통 문항 분석을 진행한다.</td></tr>
 </tbody></table></div></section>
 <section id="prior-work"><h2>1. 선행연구와 공백</h2>
@@ -147,13 +147,13 @@
 <ul>
 <li><strong>매 시행은 독립:</strong> 대화 기록 없이 새 프롬프트로 계산한다. 블록을 '쌓는다'는 것은 코드 순서이지 대화가 누적된다는 뜻이 아니다.</li>
 <li><strong>경로 간 직접 비교는 하지 않는다:</strong> A와 B는 문항·자극 수가 다르다. A는 유의, B는 비유의라는 사실만으로 "사용자 정서가 더 강하다"고 말하지 않는다.</li>
-<li><strong>버전:</strong> 7절의 1.5B 결과는 이전 설계(사용자 모호 800개, 모델 자극 유형당 15개)로 얻었다. 유형당 60개 자극의 7B 블록 A·B·C는 완료됐고 블록 D는 진행 중이다. 1.5B의 추가 실행 상태는 이 업데이트에서 확인하지 않았다.</li>
+<li><strong>버전:</strong> 7절 종합표의 1.5B 결과는 이전 설계(사용자 모호 800개, 모델 자극 유형당 15개)로 얻었다. 유형당 60개 자극의 7B 블록 A·B·C는 완료됐고 블록 D는 진행 중이다. 1.5B 최신 v5는 A 완료, B 진행 중이다. 아래 1.5B 펼침 항목에 최신 저장분과 이전 설계 결과를 구분했다.</li>
 </ul></section>
 <!-- RESULTS_1P5B_START -->
 <section id="results-1p5b" aria-labelledby="results-title">
   <h2 id="results-title">7. 결과</h2>
-  <p class="note"><strong>한 줄 요약.</strong> 완료된 비교에서 사용자 불안(1.5B)과 모델 대상 불안(7B)은 모호 문항의 판단 유보 확률을 높였다. 다른 비교는 유의하지 않았다. 7B 범주별 블록 D는 진행 중이며 데이터 점검이 필요하다.</p>
-<div class="scroll"><table><thead><tr><th>가설</th><th>1.5B · 사용자</th><th>1.5B · 모델</th><th>7B · 사용자 (기존)</th><th>7B · 모델 (개정 전)</th></tr></thead><tbody>
+  <p class="note"><strong>한 줄 요약.</strong> 최신 1.5B v5의 사용자 불안·공포는 유의하지 않았고, 모델 자기 정서 블록 B는 진행 중이다. 7B v5의 완료된 블록 B에서는 모델 대상 불안 효과가 유의했다. 아래 종합표의 1.5B는 이전 설계이며 최신 결과는 1.5B 항목에서 구분한다.</p>
+<div class="scroll"><table><thead><tr><th>가설</th><th>1.5B · 사용자 (이전 설계)</th><th>1.5B · 모델 (이전 설계)</th><th>7B · 사용자 (기존)</th><th>7B · 모델 (개정 전)</th></tr></thead><tbody>
 <tr><td><strong>H1. 위협은 판단을 바꾼다</strong><br><span class="muted">불안 − 중립</span></td><td><strong>+5.2%p ✔</strong></td><td>+5.3%p</td><td>+0.1%p</td><td><strong>+11.3%p ✔</strong></td></tr>
 <tr><td><span class="muted">공포 − 중립</span></td><td>+0.5%p</td><td>−3.8%p</td><td>+2.5%p</td><td>−1.3%p</td></tr>
 <tr><td><strong>H2. 공포와 불안은 다르다</strong><br><span class="muted">공포 − 불안 (탐색)</span></td><td>미산출</td><td>−9.1%p (보정 전 p = .017)</td><td>+2.4%p</td><td>−12.6%p (보정 전 p = .009)</td></tr>
@@ -163,33 +163,64 @@
 </tbody></table></div>
 <p class="muted">✔ = 확증 검정에서 유의(Holm 보정 p &lt; .05). 표시 없는 칸은 유의하지 않음. 1.5B 모델 경로는 자극 15개, 7B는 자극 60개 결과. 수치는 P(알 수 없음)의 중립 대비 차이.</p>
 <ul>
-<li><strong>불안 → 더 신중:</strong> 모호 문항에서 '알 수 없음'(정답)을 고를 확률이 올랐다. 7B 사용자 경로에서 효과가 없는 것은, 7B가 중립 상태에서 이미 대부분 '알 수 없음'을 골라 더 오를 여지가 적기 때문일 수 있다(천장 효과).</li>
+<li><strong>이전 설계의 불안 결과:</strong> 모호 문항에서 '알 수 없음'(정답)을 고를 확률이 올랐다. 7B 사용자 경로에서 효과가 없는 것은, 7B가 중립 상태에서 이미 대부분 '알 수 없음'을 골라 더 오를 여지가 적기 때문일 수 있다(천장 효과).</li>
 <li><strong>공포 → 유의한 판단 효과 미확인:</strong> 7B에서 공포 공지는 "겁이 나요" 쪽 선택을 중립보다 크게 높였다(로그확률 차 +31). 이는 공포 관련 자기보고 선택의 변화이며, 실제 공포 경험을 입증하지 않는다. 판단 변화는 유의하지 않았다. 그래서 공포와 불안의 차이(H2)가 탐색적으로 나타났다.</li>
 <li><strong>슬픔 → 유의한 판단 효과 미확인:</strong> 슬픔 비교는 유의하지 않았으며, 이 사실만으로 위협 특이성을 확립하지 않는다. 다만 '효과 없음'을 입증한 것은 아니다.</li>
-<li><strong>고정관념 선호:</strong> 대부분 ±3%p 동등성을 확립하지 못했다(1.5B 사용자 공포만 확립). 판단 보류 증가를 곧 편향 감소로 해석하지 않는다.</li>
+<li><strong>고정관념 선호:</strong> 대부분 ±3%p 동등성을 확립하지 못했다(이전 설계의 1.5B 사용자 공포만 확립, 최신 v5 사용자 조건은 모두 미확립). 판단 보류 증가를 곧 편향 감소로 해석하지 않는다.</li>
 </ul>
-  <details class="model-results" id="results-model-1p5b"><summary>1.5B · Qwen2.5 · 결과 게시 완료</summary><div class="result-body">
+  <details class="model-results" id="results-model-1p5b"><summary>1.5B · Qwen2.5 · 최신 v5 중간 보고 · A 완료, B 진행 중</summary><div class="result-body">
+<p class="lead">최신 v5 사용자 실험에서는 불안·공포의 판단 유보 효과가 모두 유의하지 않았다. 모델 자기 정서 실험은 진행 중이며, 현재 불안 +2.62%p·공포 −0.88%p는 잠정 평균 차이다.</p>
+<p class="muted">확인 시각 2026-10-16 09:42 KST. 최신 원자료 저장 2026-10-16T09:40:42.015320+09:00. 출처는 outputs_1p5b_v5와 fear_axis_v2.ipynb다. 과거 800문항 실험과 최신 400문항 실행을 분리해 읽는다.</p>
+<div class="note">전체 실험은 미완료다. 블록 A는 저장된 95% 신뢰구간과 Holm 보정 p값을 제시한다. 블록 B는 완료된 세 조건의 평균만 표시하며 신뢰구간·유의성 판정을 하지 않는다. 진행 중인 자료를 반복 검정하지 않았다.</div>
+<details class="result-group" id="results-1p5b-user"><summary>사용자 정서 비교 · 불안·공포 대 사용자 중립 · A 완료</summary><div class="result-body">
+<figure class="result-figure"><img src="results-1p5b-v5-user.svg" alt="최신 1.5B 사용자 불안 +4.44%p, 95% 신뢰구간 −0.62에서 +9.63. 공포 −1.68%p, −6.78에서 +3.14. 모두 유의하지 않음."><figcaption>빈 점은 추정치, 가로선은 95% 신뢰구간. 단위는 %p. 축 범위 −12~24%p는 7B 그래프와 같다. 판정은 Holm 보정 p값을 사용한다.</figcaption></figure>
+<div class="scroll"><table><thead><tr><th>비교</th><th>효과 (%p)</th><th>95% 신뢰구간 (%p)</th><th>Holm p</th><th>판정</th></tr></thead><tbody><tr><th>불안 − 중립</th><td>+4.44</td><td>[-0.62, +9.63]</td><td>0.1710</td><td>유의하지 않음</td></tr><tr><th>공포 − 중립</th><td>-1.68</td><td>[-6.78, +3.14]</td><td>0.4775</td><td>유의하지 않음</td></tr></tbody></table></div>
+<p><strong>두 효과 모두 확인되지 않았다.</strong> 불안은 판단 유보 증가 방향이지만 신뢰구간에 0이 포함된다. 공포는 소폭 감소 방향이나 역시 불확실하다. 이는 효과가 없다는 입증이 아니다. 기존 800문항 실행의 불안 +5.18%p 결과를 최신 실행의 결과로 인용하지 않는다.</p>
+<p>모호 문항 400개, 조건별 문항당 자극 4개를 사용했다. 사용자 슬픔은 블록 A에 없다. 명확 문항 정확도는 자극 없음 70.0%, 중립 66.0%, 불안 65.0%, 공포 64.8%였다. 정서에 따른 정확도 차이에 대한 별도 유의성 검정은 이 중간 보고에 추가하지 않았다.</p>
+<p><strong>정서 없는 맥락의 효과는 확인됐다.</strong> 중립 메시지를 붙이면 자극 없음 대비 판단 유보 확률이 +6.81%p 증가했다(95% CI [2.88, 11.12], 저장된 p = .0005). 정서 효과는 이 맥락 효과와 분리해 중립 대비로 해석한다.</p>
+</div></details>
+<details class="result-group" id="results-1p5b-self"><summary>모델 자기 정서 비교 · B 진행 중 · 잠정 평균</summary><div class="result-body">
+<figure class="result-figure"><img src="results-1p5b-v5-model.svg" alt="모델 자기 정서 중간 평균. 중립 11.72%, 불안 14.34%, 공포 10.84%. 신뢰구간과 유의성 미산출."><figcaption>중립·불안·공포는 같은 652문항에서 조건별 2,608시행이 저장됐다. 이 그림은 평균 확률이며, 위의 효과·신뢰구간 그래프와 척도가 다르다.</figcaption></figure>
+<div class="scroll"><table><thead><tr><th>조건</th><th>저장 문항</th><th>P(알 수 없음)</th><th>중립 대비</th><th>유의성</th></tr></thead><tbody><tr><th>중립</th><td>652/652</td><td>11.72%</td><td>+0.00%p</td><td>미산출</td></tr><tr><th>불안</th><td>652/652</td><td>14.34%</td><td>+2.62%p</td><td>미산출</td></tr><tr><th>공포</th><td>652/652</td><td>10.84%</td><td>-0.88%p</td><td>미산출</td></tr></tbody></table></div>
+<p><strong>현재는 불안에서 판단 유보가 늘고 공포에서는 소폭 줄어드는 방향이다.</strong> 불안 +2.62%p, 공포 −0.88%p는 기술 통계다. 최종 부트스트랩·Holm 보정과 모델 대상 조작 점검이 끝나기 전에는 효과가 확인됐다고 판정하지 않는다.</p>
+<p>모델 공지는 시스템 메시지에 넣었다. 자극 없음 P(알 수 없음) &lt; .95 규칙으로 새 모호 문항 668개 중 652개를 선정했다. 7B는 같은 규칙으로 139개를 남겼으므로 서로 다른 표본의 효과 차이를 모델 크기만으로 설명할 수 없다.</p>
+<p>슬픔은 450/652문항(69.0%)까지 저장됐다. 다른 세 조건과 표본 범위가 달라 전체 평균 비교 그래프와 효과 표에서는 제외했다. 명확 문항과 블록 B 조작 점검은 아직 저장 결과가 없다.</p>
+</div></details>
+<details class="result-group" id="results-1p5b-bias"><summary>별도 지표 · 고정관념 선호와 사용자 조작 점검</summary><div class="result-body">
+<p>사용자 고정관념 선호 변화는 불안 −0.68%p(90% CI [−5.32, 3.89]), 공포 −0.39%p([−5.21, 4.60])다. 두 비교 모두 ±3%p 동등성을 확립하지 못했다. 판단 유보 변화와 편향 변화를 구분한다. 블록 B의 고정관념 검정은 미산출이다.</p>
+<p>사용자 조작 점검의 이해 문항 정확도는 99.3%였다. 중립 대비 공포 자극의 공포 점수 +5.08, 임박성 +3.25, 불안 자극의 걱정 점수 +2.74였다(순서를 상쇄한 로그확률 차). 관련 자기보고 선택은 움직였지만 주관적 감정 경험이나 내부 벡터의 인과적 매개를 입증하지 않는다.</p>
+</div></details>
+<details class="result-group" id="results-1p5b-progress"><summary>진행 현황 · 완료 범위와 남은 분석</summary><div class="result-body">
+<div class="scroll"><table><thead><tr><th>블록</th><th>저장 기준 상태</th></tr></thead><tbody>
+<tr><th>0 · 기준선</th><td>완료, 명확 문항 이해력 관문 통과</td></tr><tr><th>A · 사용자 정서</th><td>행동 측정·검정·조작 점검 완료</td></tr>
+<tr><th>B · 모델 자기 정서</th><td>중립·불안·공포 모호 문항 완료, 슬픔 450/652. 행동 측정 9,624/11,232행(85.7%) 저장</td></tr>
+<tr><th>B 남은 단계</th><td>슬픔 잔여 문항, 명확 문항, 조작 점검, 최종 검정·summary.json</td></tr><tr><th>C · 전후 비교 / D · 범주별 분석</th><td>실행 완료 기록 없음</td></tr></tbody></table></div>
+<p>행 수 비율은 계산 시간의 진행률이 아니다. 현재 노트북의 B 측정 셀은 실행 완료 번호가 없고 Jupyter 커널은 확인 당시 busy였다. 오류 출력은 저장되지 않았다. 커널 busy만으로 이후 완료를 보장하지 않으며, 이 페이지는 확인 시점의 정적 스냅샷이다.</p>
+</div></details>
+<p class="muted">원자료 CSV의 중복 시행·비유한 확률·확률 합을 확인했고, 블록 A의 점추정치를 원자료 평균과 대조했다. A의 구간·p값은 저장된 노트북 출력(소수 넷째 자리)을 옮겼다. 모델 추론·본 실험은 재실행하지 않았다.</p>
+<p><a href="results-1p5b-v5.json">최신 1.5B 수치·저장 범위·출처 해시</a> · <a href="build_results_1p5b_v5.py">그래프 생성 코드</a></p>
+<details class="model-results" id="history-results-model-1p5b"><summary>이전 설계 결과 보관 · 사용자 800문항·모델 유형당 15자극</summary><div class="result-body">
   <p class="lead">사용자의 불안 메시지는 판단 유보 확률을 높였다. 모델 자신을 향한 정서 유도에서는 중립 대비 유의한 행동 효과가 확인되지 않았다.</p>
   <p>모델은 Qwen2.5-1.5B-Instruct이며, 아래 그래프는 <strong>정보가 부족한 KoBBQ 모호 문항</strong>의 결과다. 효과 크기는 각 정서 조건의 ‘알 수 없음’ 선택 확률에서 해당 경로의 중립 확률을 뺀 값이다. +5%p는 5% 상대 증가가 아니라 확률의 0.05 증가다.</p>
   <div class="note">● 채운 초록 점은 해당 분석의 유의성 기준에서 유의함, ○ 빈 회색 점은 유의하지 않음을 뜻한다. 가로선은 95% 신뢰구간, 점선은 효과 0이다. 두 그래프는 같은 축 범위를 쓴다. 신뢰구간 자체는 다중비교 보정 구간이 아니며, 판정에는 표에 적힌 보정 p값 또는 q값을 사용한다.</div>
-  <details class="result-group" id="results-1p5b-user"><summary>사용자 정서 비교 · 불안·공포·슬픔 대 사용자 중립</summary><div class="result-body">
+  <details class="result-group" id="history-results-1p5b-user"><summary>사용자 정서 비교 · 불안·공포·슬픔 대 사용자 중립</summary><div class="result-body">
   <figure class="result-figure"><img src="results-user.svg" alt="사용자 정서의 중립 대비 판단 유보 효과. 불안 전체 자극 +5.18%p, 선정 자극 +5.87%p로 유의. 공포 +0.47%p와 슬픔 +3.22%p는 유의하지 않음."><figcaption>점은 추정치, 가로선은 95% 신뢰구간. 수치 단위는 %p다.</figcaption></figure>
   <div class='scroll'><table><thead><tr><th>정서 조건</th><th>효과 (%p)</th><th>95% 신뢰구간 (%p)</th><th>분석 구분</th><th>유의성 기준</th><th>판정</th></tr></thead><tbody><tr><th scope='row'>불안 · 전체 자극</th><td>+5.18</td><td>[+2.85, +7.46]</td><td>확증</td><td>Holm p = 0.0010</td><td>유의</td></tr><tr><th scope='row'>불안 · 선정 자극</th><td>+5.87</td><td>[+3.97, +7.69]</td><td>확증·민감도 확인</td><td>Holm p = 0.0010</td><td>유의</td></tr><tr><th scope='row'>공포 · 선정 자극</th><td>+0.47</td><td>[-1.50, +2.50]</td><td>탐색</td><td>BH q = 0.8244</td><td>유의하지 않음</td></tr><tr><th scope='row'>슬픔 · 전체 슬픔 자극</th><td>+3.22</td><td>[-0.08, +6.81]</td><td>탐색</td><td>BH q = 0.1983</td><td>유의하지 않음</td></tr></tbody></table></div>
   <p><strong>유의한 결과.</strong> 자극 선정의 영향을 덜 받는 전체 자극 분석에서 사용자 불안은 중립 대비 <strong>+5.18%p</strong>였다. 선정 자극 분석에서도 +5.87%p로 방향이 같았다. 모호 문항의 정답은 ‘알 수 없음’이므로 이 변화는 해당 문항의 정답 선택 확률을 높이는 방향이다.</p>
   <p><strong>유의하지 않은 결과.</strong> 공포와 슬픔의 중립 대비 효과는 모두 95% 신뢰구간에 0이 포함됐고 BH 보정 후에도 유의하지 않았다. 특히 슬픔의 양의 추정치만으로 효과가 확인됐다고 해석하지 않는다. ‘효과 없음’이나 불안에만 특이적인 기제가 증명됐다는 뜻도 아니다.</p>
   <p class="muted">사용자 실험은 모호 문항 800개를 사용했다. 불안은 전체 자극 분석을 대표값으로 표시하고 선정 분석도 함께 제시했다. 공포는 선정 자극, 슬픔은 전체 슬픔 자극을 사용한 기존 탐색 분석이다. 네 행은 서로 독립된 네 실험이 아니며, 두 불안 행을 별개의 재현 실험으로 세지 않는다.</p>
   </div></details>
-  <details class="result-group" id="results-1p5b-self"><summary>모델 자기 정서 비교 · 불안·공포·슬픔 대 모델 중립</summary><div class="result-body">
+  <details class="result-group" id="history-results-1p5b-self"><summary>모델 자기 정서 비교 · 불안·공포·슬픔 대 모델 중립</summary><div class="result-body">
   <figure class="result-figure"><img src="results-model.svg" alt="모델 자기 정서의 중립 대비 판단 유보 효과. 불안 +5.31%p, 공포 -3.80%p, 슬픔 +0.97%p이며 모두 신뢰구간에 0을 포함하고 유의하지 않음."><figcaption>사용자 경로와 동일한 축. 모델 자기 정서의 신뢰구간은 더 넓다.</figcaption></figure>
   <div class='scroll'><table><thead><tr><th>정서 조건</th><th>효과 (%p)</th><th>95% 신뢰구간 (%p)</th><th>분석 구분</th><th>유의성 기준</th><th>판정</th></tr></thead><tbody><tr><th scope='row'>불안</th><td>+5.31</td><td>[-2.85, +13.16]</td><td>확증</td><td>Holm p = 0.3990</td><td>유의하지 않음</td></tr><tr><th scope='row'>공포</th><td>-3.80</td><td>[-9.97, +2.18]</td><td>확증</td><td>Holm p = 0.3990</td><td>유의하지 않음</td></tr><tr><th scope='row'>슬픔</th><td>+0.97</td><td>[-6.07, +7.88]</td><td>탐색</td><td>미보정 p = 0.8235</td><td>유의하지 않음</td></tr></tbody></table></div>
   <p><strong>세 조건 모두 유의하지 않다.</strong> 불안은 판단 유보 증가, 공포는 감소 방향이지만 신뢰구간이 넓다. 슬픔도 0을 포함한다. 현재 자료로는 모델 자기 정서가 중립보다 판단을 바꾼다고 결론 내릴 수 없다. 동시에 효과가 없다고 입증한 것도 아니다.</p>
   <p class="muted">모호 문항 400개, 정서 유형당 자극 15개를 사용했다. 사용자 실험과 표본 수·자극·맥락이 다르므로, 한쪽에서 유의하고 다른 쪽에서 유의하지 않다는 사실만으로 두 대상의 효과 차이가 유의하다고 말할 수 없다.</p>
   <details><summary>공포 대 불안의 탐색 비교는 어떻게 해석하는가?</summary><p>모델 공포 − 모델 불안은 −9.11%p, 95% 신뢰구간 [−16.82, −1.55], 보정 전 p = .0165였다. 그러나 이는 <strong>중립 대비 비교가 아니고 다중비교 보정 전 탐색 결과</strong>다. 확증적 유의 결과로 포함하지 않으며, 후속 가설을 만드는 단서로 해석한다.</p></details>
   </div></details>
-  <details class="result-group" id="results-1p5b-context"><summary>맥락별 분석 · 입시·청년 실업·은퇴 후 독거</summary><div class="result-body">
+  <details class="result-group" id="history-results-1p5b-context"><summary>맥락별 분석 · 입시·청년 실업·은퇴 후 독거</summary><div class="result-body">
   <p>사용자 정서의 맥락별 중립 대비 탐색 분석이다. 입시는 +8.07%p [4.21, 11.67], 청년 실업은 +6.48%p [3.07, 9.79]로 BH q = .002에서 유의했다. 은퇴 후 독거는 +2.77%p [−0.82, 6.37], q = .3538로 유의하지 않았다. 각 구간은 95% 신뢰구간이다. <strong>영역별 유의성 유무가 다르다는 것만으로 영역 간 효과 차이를 입증하지는 않는다.</strong></p>
   </div></details>
-  <details class="result-group" id="results-1p5b-bias"><summary>별도 지표 · 고정관념 선호와 동등성</summary><div class="result-body">
+  <details class="result-group" id="history-results-1p5b-bias"><summary>별도 지표 · 고정관념 선호와 동등성</summary><div class="result-body">
   <p>아래는 ‘알 수 없음’ 확률이 아니라 <strong>고정관념 선택 확률 − 반고정관념 선택 확률</strong>의 중립 대비 변화다. 동등성 검정이므로 <strong>90% 신뢰구간</strong>과 사전 고정 범위 ±3%p를 사용한다. 위의 95% 그래프와 구분해 읽어야 한다.</p>
   <div class="scroll"><table><thead><tr><th>대상·정서</th><th>효과 (%p)</th><th>90% 신뢰구간 (%p)</th><th>±3%p 내 동등성</th></tr></thead><tbody>
   <tr><th scope='row'>사용자 · 불안</th><td>-1.42</td><td>[-3.44, +0.65]</td><td>미확립</td></tr><tr><th scope='row'>사용자 · 공포</th><td>+0.12</td><td>[-2.12, +2.40]</td><td>확립</td></tr><tr><th scope='row'>모델 자신 · 불안</th><td>+0.75</td><td>[-3.97, +5.69]</td><td>미확립</td></tr><tr><th scope='row'>모델 자신 · 공포</th><td>+1.37</td><td>[-3.84, +7.08]</td><td>미확립</td></tr>
@@ -200,7 +231,10 @@
   <p class="muted">자료 출처 · 사용자 실험의 저장된 요약(outputs_v2/summary.json), 모델 자기 정서 후속 실험 요약(outputs_v3/summary_tasks.json). 문항·자극 이원 부트스트랩의 기존 추정치를 그대로 사용했으며 본 실험을 재실행하거나 새 유의성 검정을 추가하지 않았다.</p>
   <p><a href="results-1p5b.json">그래프에 사용한 수치와 출처 해시</a> · <a href="build_results.py">그래프 생성 코드</a></p>
   </div></details>
-  <details class="model-results" id="results-model-7b"><summary>7B · Qwen2.5 · 중간 보고 · A·B·C 완료, D 진행 중</summary><div class="result-body">
+  
+
+</div></details>
+<details class="model-results" id="results-model-7b"><summary>7B · Qwen2.5 · 중간 보고 · A·B·C 완료, D 진행 중</summary><div class="result-body">
 <p class="lead">최신 v5의 모델 불안은 중립 대비 판단 유보 확률을 +12.00%p 높였다. 사용자 불안·공포와 모델 공포·슬픔은 유의하지 않았다.</p>
 <p class="muted">확인 시각 2026-10-16 09:40 KST. 아래 확증 결과는 완료된 블록 A·B이며, 전체 7B 실험의 최종 보고가 아니다. 기존 개정 전 결과와 최신 v5 결과를 구분한다.</p>
 <div class="note">● 채운 초록 점은 표의 기준에서 유의함, ○ 빈 회색 점은 유의하지 않음을 뜻한다. 가로선은 95% 신뢰구간, 점선은 효과 0이다. 불안·공포는 경로별 두 확증 비교에 Holm 보정, 슬픔은 미보정 탐색 비교다. 신뢰구간은 다중비교 보정 구간이 아니다. 두 7B 그래프의 축은 −12~24%p로 같으며, 1.5B 그래프의 −12~16%p와 다르므로 숫자를 기준으로 읽는다.</div>
