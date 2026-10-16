@@ -210,3 +210,8 @@ print('Generated two source-backed figures and results section.')
 if (args.source_root / "outputs_7b_v5/summary.json").exists():
     import subprocess, sys
     subprocess.run([sys.executable, str(out / "build_results_7b.py"), str(args.source_root)], check=True)
+
+# 최신 1.5B 실행 결과도 같은 페이지에 동기화한다.
+if (args.source_root / "outputs_1p5b_v5").exists():
+    import subprocess, sys
+    subprocess.run([sys.executable, str(out / "build_results_1p5b_v5.py"), str(args.source_root)], check=True)

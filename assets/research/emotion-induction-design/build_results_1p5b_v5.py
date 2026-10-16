@@ -25,6 +25,10 @@ def main():
     args = parser.parse_args()
     root = args.source_root
     source = root / 'outputs_1p5b_v5'
+    if (source / 'summary.json').exists():
+        import subprocess, sys
+        subprocess.run([sys.executable, str(Path(__file__).with_name('build_results_1p5b_completed.py')), str(root)], check=True)
+        return
     out = Path(__file__).resolve().parent
     notebook = root / 'fear_axis_v2.ipynb'
     nb_bytes = notebook.read_bytes()
