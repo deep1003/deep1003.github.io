@@ -185,7 +185,7 @@ __ARCHIVE__
         old = old.replace('id="results-model-1p5b"', 'id="history-results-model-1p5b"')
         old = old.replace('id="results-1p5b-', 'id="history-results-1p5b-')
         old = old.replace('1.5B · Qwen2.5 · 결과 게시 완료', '이전 설계 결과 보관 · 사용자 800문항·모델 유형당 15자극')
-    text = text[:start] + block.replace('__ARCHIVE__', old) + text[end:]
+    text = text[:start] + block.replace('__ARCHIVE__', old.rstrip()) + text[end:]
     text = text.replace('1.5B의 추가 실행 상태는 이 업데이트에서 확인하지 않았다.',
                         '1.5B 최신 v5는 A 완료, B 진행 중이다. 아래 1.5B 펼침 항목에 최신 저장분과 이전 설계 결과를 구분했다.')
     text = text.replace('<th>1.5B · 사용자</th><th>1.5B · 모델</th>',
