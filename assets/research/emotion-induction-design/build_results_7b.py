@@ -143,3 +143,8 @@ page.write_text(text)
 payload={'model':s['model'],'version':'v5 system notice','checked_at':when,'status':'partial; A/B/C complete, D pending quality review','summary':s,'user':user,'model_self':model,'measurement_audit':audit,'D_progress':progress,'sources':[{'file':str(p.relative_to(root)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in files]}
 (out/'results-7b.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n')
 print('Validated A/B source data; generated two 7B figures and partial report.')
+
+# D 완료 후에는 검증된 완료 결과를 이어서 게시한다.
+if (source / 'summary_D.json').exists() and (source / 'category_D.csv').exists():
+    import subprocess, sys
+    subprocess.run([sys.executable, str(out / 'build_results_7b_D.py'), str(root)], check=True)
