@@ -10,32 +10,32 @@
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figures/experiment_design_en.png",
       "website": "figures/experiment_design_en.png",
-      "sha256": "c52c98bd6f88af363db87bff36cd0e1a420231057cfe28b87af0512b6ad49068"
+      "sha256": "266019a6df002e82c5a4e92523fea9371cdc597a2ceea6882e888215f9367981"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figures/experiment_design_en.pdf",
       "website": "figures/experiment_design_en.pdf",
-      "sha256": "1943ad4bb63b3b574fe9f4c9a0ad7c4549d388fd415c3c4d71ec65ec12c63968"
+      "sha256": "63d5191c7fbdd435e31e4fe2e43584b4000fd63dd5a537b0ad17451bc4175fdf"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figures/experiment_design_en.svg",
       "website": "figures/experiment_design_en.svg",
-      "sha256": "766e13e91125b1790cf1e267015987ce0a232c0c1dc18e2851511277ebaeb90e"
+      "sha256": "3ec2de00cbe29b98b389baad5a959fb0afb3e4282dfa80175288ecc82410f6cc"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figures/behavior_results_en.png",
       "website": "figures/behavior_results_en.png",
-      "sha256": "7a7ef21a698eeaf3082eabe0cbe38caa46d64ba2c8c92401d874a1d996c39f33"
+      "sha256": "44870547b87e1a197155dec462bbf8f132e60b2dfd6502b7f1da0e2b454dc45b"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figures/behavior_results_en.pdf",
       "website": "figures/behavior_results_en.pdf",
-      "sha256": "cdc8f625bd03f4a5681426666d7890d589b3f08cc985a40fab1d15ef9440a48e"
+      "sha256": "04f5436dc8ad6a03bf511b8884a2521de062caf7f31ae921728e5e5ae3fcea6a"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figures/behavior_results_en.svg",
       "website": "figures/behavior_results_en.svg",
-      "sha256": "fa2fea1f55dc56d01c786b4515b767f956ecc83691488f5f7ed79bfee7d2c378"
+      "sha256": "ff03ee91011c11ae469daa53a1ae5dc2b1cbc16226e238aacb0e2265f5bbbd41"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/emotion_atlas/output/Emotion_atlas_change_en.png",
@@ -485,7 +485,7 @@
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/english_figures.py",
       "website": "code/english_figures.py",
-      "sha256": "7a29f3b940b0329d3e1491ea310db767d8daae0925637b55ffbc056531ac8bc0"
+      "sha256": "074e11eeb596abac7346fcc748690619e1f4665e84e5a71dc54e67fe59195967"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/notebook_views.py",
@@ -570,7 +570,7 @@
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139.ipynb",
       "website": "downloads/uncertainty_self_threat_139.ipynb",
-      "sha256": "56ec9c53773350f00770b81906d30320957823f91c43531acd185c9dea64a150"
+      "sha256": "70e1b7ba29affcda6e049708aa8f7fd613784f4112e76021e0b4bc68dd489046"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figure_catalog.json",
@@ -600,12 +600,25 @@
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/downloads/notebook_cached_analysis.zip",
       "website": "downloads/notebook_cached_analysis.zip",
-      "sha256": "79f4eabc10b62fbfbce67089f5f118870148db5a8137127e96630d67cf529d12"
+      "sha256": "c4d4f490088da8ff429da0eab413af8cfcc3445884d8098d72655fd593d1411b"
     },
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/index.html",
       "website": "index.html",
-      "sha256": "d2d214a30066791a24df9780dc2f9d613c6d239fa396bb09c44df4d20b7f4253"
+      "sha256": "32e504abc1ea8c9fe97888f6b71e775c11a26067e6e2c6a809eebbbd5d2bbce0"
     }
-  ]
+  ],
+  "design_labels": {
+    "UN0": "Implicit uncertainty",
+    "UN1": "Explicit uncertainty",
+    "FA0": "Control context",
+    "FA1": "Threat context",
+    "grayscale": [
+      "#EEEEEE",
+      "#BBBBBB",
+      "#666666",
+      "#111111"
+    ],
+    "interpretation": "0/1 are condition codes, not emotional intensity."
+  }
 }
