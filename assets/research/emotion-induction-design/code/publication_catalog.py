@@ -1,0 +1,25 @@
+"""One authoritative publication selection; display cached artwork without plotting."""
+from pathlib import Path
+import json
+BASE = Path(__file__).resolve().parent
+
+def entries(placement=None):
+    figures = json.loads((BASE / 'figure_catalog.json').read_text())['figures']
+    return [f for f in figures if placement is None or f['placement'] == placement]
+
+def show(figure_id, width=1000):
+    from IPython.display import Image, Markdown, display
+    entry = next(f for f in entries() if f['id'] == figure_id)
+    path = BASE / (entry['local_stem'] + '.png')
+    if not path.exists():
+        raise FileNotFoundError(f'Cached publication artwork is missing: {path}')
+    display(Markdown(f"**{entry['id']}. {entry['title']}**"))
+    display(Image(filename=str(path), width=width))
+    return path
+
+def show_supplement(enabled=False):
+    if enabled:
+        for entry in entries('supplement'):
+            show(entry['id'])
+    else:
+        print('Supplementary figures are available. Set SHOW_SUPPLEMENT = True to display them once.')

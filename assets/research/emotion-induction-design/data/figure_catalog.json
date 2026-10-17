@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "default_rendering": "read_cached_files_only",
+  "png_dpi": 600,
+  "condition_order": [
+    "00",
+    "01",
+    "10",
+    "11"
+  ],
+  "figures": [
+    {
+      "id": "M1",
+      "placement": "main",
+      "title": "Study design",
+      "local_stem": "figures/experiment_design_en",
+      "website_stem": "figures/experiment_design_en"
+    },
+    {
+      "id": "M2",
+      "placement": "main",
+      "title": "Behavioral effects",
+      "local_stem": "figures/behavior_results_en",
+      "website_stem": "figures/behavior_results_en"
+    },
+    {
+      "id": "M3",
+      "placement": "main",
+      "title": "Within-item concept alignment changes",
+      "local_stem": "representation_analysis/emotion_atlas/output/Emotion_atlas_change_en",
+      "website_stem": "figures/atlas/Emotion_atlas_change_en"
+    },
+    {
+      "id": "M4",
+      "placement": "main",
+      "title": "Prompt text and token-level alignment",
+      "local_stem": "figures/Prompt_text_activation_FA_en",
+      "website_stem": "figures/Prompt_text_activation_FA_en"
+    },
+    {
+      "id": "S1",
+      "placement": "supplement",
+      "title": "Concept-axis specificity",
+      "local_stem": "representation_analysis/publication_figures/output/Extended_Data_1_axis_specificity",
+      "website_stem": "figures/concept/Extended_Data_1_axis_specificity"
+    },
+    {
+      "id": "S2",
+      "placement": "supplement",
+      "title": "Category-colored item alignment",
+      "local_stem": "representation_analysis/item_category_alignment/output/Figure_2_KoBBQ_category_alignment",
+      "website_stem": "figures/category/Figure_2_KoBBQ_category_alignment"
+    }
+  ]
+}

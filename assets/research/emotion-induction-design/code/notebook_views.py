@@ -82,7 +82,7 @@ def show_model():
     display(Image(filename=str(figure), width=760))
 
 
-def progress_snapshot(module, render=True):
+def progress_snapshot(module, render=True, charts=False):
     items, out, frame = load(module)
     expected = len(items) * 3
     records = []
@@ -96,6 +96,8 @@ def progress_snapshot(module, render=True):
         from IPython.display import Markdown, display
         display(Markdown(f'**저장 진행 {len(frame):,}/{expected * 4:,}회 ({len(frame)/(expected*4):.1%})**'))
         _display_table(table)
+        if not charts:
+            return table
         plt = _style()
         fig, ax = plt.subplots(figsize=(180/25.4, 65/25.4))
         ax.barh(table['조건'], table['진행률 (%)'], color=[CONDITION_COLORS[c] for c in table['조건']])
