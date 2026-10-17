@@ -1343,5 +1343,9 @@
       "sha256": "371a38e8eb96bd5eac07aea37cb3e47c1b36f5a4d992617baf3d155109795445"
     }
   ],
-  "interpretation": "Saved estimates only; no new inference/tests; raw data unchanged. All model-size comparisons are descriptive."
+  "interpretation": "Saved estimates only; no new inference/tests; raw data unchanged. All model-size comparisons are descriptive.",
+  "completion": {
+    "1p5b": "A/B/D complete; C before data unavailable, no before-after comparison",
+    "7b": "A/B/C/D complete"
+  }
 }

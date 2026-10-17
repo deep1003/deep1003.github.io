@@ -2,7 +2,7 @@
   "model": "Qwen/Qwen2.5-1.5B-Instruct",
   "version": "v5 system notice",
   "checked_at": "2026-10-17",
-  "status": "A/B/C/D complete; current CSV audit passed",
+  "status": "A/B/D complete; C before data missing; no before-after inference",
   "user": [
     {
       "index": "A anxiety - neutral, P(unknown)",
@@ -605,5 +605,6 @@
     "D_categories": 60,
     "D_significant_BH": 0
   },
-  "current_snapshot": "results-current.json"
+  "current_snapshot": "results-current.json",
+  "C_limitation": "1.5B는 A·B·D 완료다. C는 개정 전 자료가 없어 전후 비교를 완료하지 못했으며, 저장된 개정 후 값은 B의 중립 대비 결과다. 7B의 완료된 C와 구분한다."
 }
