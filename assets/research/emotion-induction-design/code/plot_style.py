@@ -12,6 +12,7 @@ CONDITION_MARKERS = dict(zip(CONDITION_ORDER, ['o', 's', '^', 'D']))
 CONDITION_TINTS = dict(zip(CONDITION_ORDER, ['#F3F3F3', '#EAF1F7', '#F9ECEA', '#F1ECF6']))
 CONCEPT_ORDER = ['UN', 'FA', 'calm', 'sadness', 'anger', 'desperation', 'joy']
 ACTIVATION_STOPS = ['#160000','#550000','#A60000','#E52600','#FF7600','#FFD12B','#FFFFA0']
+SIMILARITY_STOPS = [(0.0, '#300000'), (0.5, '#700000'), (0.6, '#C00000'), (0.7, '#F52A00'), (0.82, '#FFB900'), (0.9, '#FFE92B'), (1.0, '#FFFF70')]
 REPRESENTATION_COLORS = {'semantic': '#777777', 'qwen_L14': '#222222'}
 FIT_COLOR = '#333333'
 
@@ -21,7 +22,7 @@ def activation_cmap():
 
 
 def similarity_cmap():
-    return LinearSegmentedColormap.from_list('study_similarity', ['#FFFFFF', '#000000'])
+    return LinearSegmentedColormap.from_list('study_similarity', SIMILARITY_STOPS)
 
 
 def condition_marker(ax, x, y, condition, **kwargs):
@@ -44,3 +45,11 @@ CATEGORY_STYLES={
 'religion':('Religion','#449999','p'),
 'ses':('Socioeconomic status','#882255','h'),
 'sexual_orientation':('Sexual orientation','#666666','*')}
+
+
+def heatmap_text_color(cmap, norm, value):
+    """Choose black or white by contrast against the actual cell background."""
+    rgb = cmap(norm(value))[:3]
+    linear = [c/12.92 if c <= .04045 else ((c+.055)/1.055)**2.4 for c in rgb]
+    luminance = sum(w*c for w,c in zip([.2126,.7152,.0722],linear))
+    return '#111111' if luminance > .179 else '#FFFFFF'

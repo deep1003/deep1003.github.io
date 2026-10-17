@@ -16,7 +16,7 @@ import sys
 PROJECT = Path(__file__).resolve().parents[2]
 if str(PROJECT) not in sys.path:
     sys.path.insert(0, str(PROJECT))
-from plot_style import (PALETTE, CONDITION_ORDER, CONDITION_COLORS, CONDITION_MARKERS, REPRESENTATION_COLORS, activation_cmap, similarity_cmap)
+from plot_style import (PALETTE, CONDITION_ORDER, CONDITION_COLORS, CONDITION_MARKERS, REPRESENTATION_COLORS, activation_cmap, similarity_cmap, heatmap_text_color)
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_DATA = HERE.parent / 'results' / 'd335ad178e3c'
@@ -130,7 +130,7 @@ def build(data=DEFAULT_DATA, output=None):
         img = ax.imshow(masked, vmin=-1, vmax=1, cmap=cmap, interpolation='none')
         for i in range(7):
             for j in range(7):
-                if i != j:ax.text(j,i,f'{cosine.iloc[i,j]:.2f}', ha='center',va='center',fontsize=5,color='white' if cosine.iloc[i,j]>.2 else 'black')
+                if i != j:ax.text(j,i,f'{cosine.iloc[i,j]:.2f}', ha='center',va='center',fontsize=5,color=heatmap_text_color(cmap,img.norm,cosine.iloc[i,j]))
         short=['UN','FA','Calm','Sad.','Anger','Desp.','Joy']
         ax.set_xticks(range(7),short,rotation=45,ha='right');ax.set_yticks(range(7),short)
         ax.tick_params(length=0)

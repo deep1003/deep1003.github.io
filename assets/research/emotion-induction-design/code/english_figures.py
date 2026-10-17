@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap,TwoSlopeNorm
 from matplotlib.patches import FancyBboxPatch
 
-from plot_style import (PALETTE, CONDITION_ORDER, CONDITION_COLORS, CONDITION_MARKERS, CONDITION_TINTS, activation_cmap, similarity_cmap)
+from plot_style import (PALETTE, CONDITION_ORDER, CONDITION_COLORS, CONDITION_MARKERS, CONDITION_TINTS, activation_cmap, similarity_cmap, heatmap_text_color)
 
 BASE=Path(__file__).resolve().parent
 NAMES={'semantic':'Semantic concept profiles','qwen_L14':'Internal concept profiles, layer 14'}
@@ -120,7 +120,7 @@ def axis_similarity_heatmap(data, show=True):
         for j in range(7):
             v = values[i, j]
             ax.text(j, i, f'{v:.3f}', ha='center', va='center', fontsize=5.8,
-                    color='white' if v > .2 else '#18232D')
+                    color=heatmap_text_color(cmap, image.norm, v))
     for spine in ax.spines.values():
         spine.set_visible(False)
     fig.text(.22, .93, 'Concept-axis cosine similarity', fontsize=8, weight='bold')
@@ -208,4 +208,35 @@ def standalone_heatmap(data, show=True):
             cb=fig.colorbar(im,cax=fig.add_axes([.86,.23,.025,.53]),ticks=[-.6,-.3,0,.3,.6])
             cb.set_label('Change from reference (a.u.)',fontsize=10)
             paths.append(save(fig,BASE/'figures',f'emotion_heatmap_{space}_en',show))
+    return paths
+
+
+def standalone_axis_similarity(data, show=True):
+    """Read-only cosine matrices with a shared fixed [-1, 1] color scale."""
+    from matplotlib.colors import Normalize
+    paths = []
+    for space in NAMES:
+        matrix = pd.read_csv(Path(data)/f'axis_cosines_{space}.csv',index_col=0).loc[AXES,AXES]
+        assert np.isfinite(matrix.to_numpy()).all()
+        style()
+        fig, ax = plt.subplots(figsize=(180/25.4,165/25.4))
+        fig.subplots_adjust(left=.21,right=.83,bottom=.22,top=.87)
+        cmap=similarity_cmap();cmap.set_bad('#F1F1F1')
+        norm=Normalize(-1,1)
+        values=np.ma.array(matrix.to_numpy(),mask=np.eye(7,dtype=bool))
+        im=ax.imshow(values,cmap=cmap,norm=norm,interpolation='none')
+        labels=['UN','FA','Calm','Sadness','Anger','Desperation','Joy']
+        ax.set_xticks(range(7),labels,rotation=45,ha='right',fontsize=10)
+        ax.set_yticks(range(7),labels,fontsize=10);ax.tick_params(length=0)
+        for i in range(7):
+            for j in range(7):
+                if i!=j:
+                    value=matrix.iloc[i,j]
+                    ax.text(j,i,f'{value:.2f}',ha='center',va='center',fontsize=10,
+                            color=heatmap_text_color(cmap,norm,value))
+        for spine in ax.spines.values():spine.set_visible(False)
+        ax.set_title(NAMES[space],loc='left',pad=20,fontsize=12)
+        cb=fig.colorbar(im,cax=fig.add_axes([.88,.29,.025,.47]),ticks=[-1,-.5,0,.5,1])
+        cb.ax.tick_params(labelsize=10);cb.set_label('Axis cosine similarity',fontsize=11)
+        paths.append(save(fig,BASE/'figures',f'axis_similarity_{space}_en',show))
     return paths

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from plot_style import (PALETTE, CONDITION_ORDER, CONDITION_COLORS, CONDITION_MARKERS,
                         CONCEPT_ORDER, CATEGORY_STYLES, ACTIVATION_STOPS, activation_cmap,
-                        similarity_cmap, REPRESENTATION_COLORS, FIT_COLOR)
+                        similarity_cmap, SIMILARITY_STOPS, REPRESENTATION_COLORS, FIT_COLOR)
 BASE=Path(__file__).resolve().parent
 
 def build(show=False):
@@ -15,12 +15,12 @@ def build(show=False):
               identities=PALETTE,condition_colors=CONDITION_COLORS,condition_markers=CONDITION_MARKERS,
               category_styles={k:dict(label=v[0],color=v[1],marker=v[2]) for k,v in CATEGORY_STYLES.items()},
               representations=REPRESENTATION_COLORS,fit_color=FIT_COLOR,
-              quantitative_scales=dict(activation=ACTIVATION_STOPS,similarity=['#FFFFFF','#000000']),
+              quantitative_scales=dict(activation=ACTIVATION_STOPS,similarity=SIMILARITY_STOPS),
               rules=['Identity colors are fixed across graphs, text highlights and legends.',
                      'Condition 11 is purple and diamond-shaped, never a split red-blue symbol.',
                      'Continuous colors encode values, not emotion identities; color bars state units and sign.',
                      'All activation heatmaps use dark red through light yellow; negative values are retained.',
-                     'Similarity matrices use the same grayscale and the range [-1, 1].',
+                     'Similarity matrices use the same dark-red-to-bright-yellow scale and the range [-1, 1].',
                      'Condition panels retain 00, 01, 10, 11; category colors are a separate fixed encoding.',
                      'Token overlays: positive alignment uses the selected concept color; negative alignment uses gray.'])
     (BASE/'color-specification.json').write_text(json.dumps(spec,ensure_ascii=False,indent=2))
@@ -40,7 +40,7 @@ def build(show=False):
     heading(.47,'c  Quantitative scales (not identity colors)')
     for y,cmap,label in [(.35,activation_cmap(),'Activation / alignment: lower to higher values'),(.21,similarity_cmap(),'Concept similarity: cosine -1 to +1')]:
         ax=fig.add_axes([.05,y,.9,.035]);ax.imshow(np.linspace(0,1,256)[None,:],cmap=cmap,aspect='auto',vmin=0,vmax=1);ax.axis('off');fig.text(.05,y+.055,label,fontsize=7)
-    fig.text(.05,.11,'Dark red → light yellow encodes magnitude; grayscale encodes similarity.',fontsize=6.5)
+    fig.text(.05,.11,'Dark red to bright yellow encodes magnitude; read the labeled scale for each measure.',fontsize=6.5)
     fig.text(.05,.065,'KoBBQ category colors are fixed separately. Dark-gray solid lines denote pooled OLS fits.',fontsize=6.5)
     return save(fig,BASE/'figures','Study_color_guide_en',show)
 

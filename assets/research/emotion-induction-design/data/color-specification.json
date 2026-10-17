@@ -115,8 +115,34 @@
       "#FFFFA0"
     ],
     "similarity": [
-      "#FFFFFF",
-      "#000000"
+      [
+        0.0,
+        "#300000"
+      ],
+      [
+        0.5,
+        "#700000"
+      ],
+      [
+        0.6,
+        "#C00000"
+      ],
+      [
+        0.7,
+        "#F52A00"
+      ],
+      [
+        0.82,
+        "#FFB900"
+      ],
+      [
+        0.9,
+        "#FFE92B"
+      ],
+      [
+        1.0,
+        "#FFFF70"
+      ]
     ]
   },
   "rules": [
@@ -124,7 +150,7 @@
     "Condition 11 is purple and diamond-shaped, never a split red-blue symbol.",
     "Continuous colors encode values, not emotion identities; color bars state units and sign.",
     "All activation heatmaps use dark red through light yellow; negative values are retained.",
-    "Similarity matrices use the same grayscale and the range [-1, 1].",
+    "Similarity matrices use the same dark-red-to-bright-yellow scale and the range [-1, 1].",
     "Condition panels retain 00, 01, 10, 11; category colors are a separate fixed encoding.",
     "Token overlays: positive alignment uses the selected concept color; negative alignment uses gray."
   ]
