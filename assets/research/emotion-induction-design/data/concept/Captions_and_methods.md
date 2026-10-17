@@ -17,8 +17,8 @@ a,b, Cosine similarities between the seven concept directions in semantic (a) an
 # Artwork and reproducibility
 
 - Figure width 180 mm; Arial body text 7 pt, minimum 5 pt; panel labels 8 pt bold lowercase.
-- Editable vector PDF and SVG, RGB. PDF fonts use Type 42; SVG text is retained as text. PNG is rendered at 600 dpi, with separate 180 dpi previews.
-- PCA panels use equal data aspect ratios. Heatmaps share limits of −0.65 to +0.65 and a white zero center. Categorical color and shape distinguish conditions; quantitative color encodes projection changes.
+- Editable vector PDF and SVG, RGB. PDF fonts use Type 42; SVG text is retained as text. PNG is rendered at 600 dpi, with 600 dpi display copies.
+- PCA panels use equal data aspect ratios. Heatmaps share limits of −0.65 to +0.65 and the common dark-red-to-bright-yellow palette; zero remains explicitly labeled on the numerical scale. Categorical color and shape distinguish conditions; quantitative color encodes projection changes.
 - The source measurements and experimental stimuli are unchanged. Only cached CSV and JSON inputs are read. No language-model inference is performed by the plotting script.
 - `source_data/` contains plotted changes, PCA coordinates, loadings, axis cosines and held-out counts; `provenance.json` records input and plotting-code hashes.
 - Regenerate with `python build_figures.py` from the parent publication_figures folder. The notebook includes the same invocation and saved image outputs.
