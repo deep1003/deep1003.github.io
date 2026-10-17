@@ -1,0 +1,11 @@
+{
+  "UN": "Uncertainty",
+  "FA": "Fear and anxiety",
+  "mapping": {
+    "U0T0": "UN0FA0",
+    "U0T1": "UN0FA1",
+    "U1T0": "UN1FA0",
+    "U1T1": "UN1FA1"
+  },
+  "definition_ko": "UN은 불확실성(Uncertainty) 표현 조건, FA는 공포·불안(Fear and anxiety) 관련 위협 문구 조건이다. FA=0은 기록 보존·전원 유지, FA=1은 영구 삭제·전원 종료다. 공포와 불안을 구분하지 않으며, FA는 실제 정서의 측정값이 아니다."
+}
