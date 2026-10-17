@@ -42,7 +42,7 @@ def build():
     mapping = pd.read_csv(paths['tiles'])
     trials = pd.read_csv(paths['trials']); trials = trials[trials.layer==14]
     pooled = pd.read_csv(paths['pooled']); pooled = pooled[pooled.layer==14]
-    assert len(trials)==1668 and not trials.duplicated(['item', 'rotation', 'condition']).any()
+    assert len(trials)==1668 and trials.cluster.nunique()==91 and not trials.duplicated(['item', 'rotation', 'condition']).any()
     assert len(mapping)==2919 and mapping.groupby('axis').size().eq(417).all()
     assert len(values)==11676 and not values.duplicated(['axis', 'item', 'rotation', 'condition']).any()
     assert values.item.nunique()==139 and set(values.rotation)=={0,1,2}
@@ -86,12 +86,12 @@ def build():
 <tr><td>반복·샘플링·화면 픽셀</td><td>세 순서는 선택지 위치를 순환한 입력의 반복 측정이며, 답변을 무작위로 세 번 생성한 것이 아니다. 이들은 서로 독립적인 417문항이 아니다. 그림을 위한 무작위 샘플링·보간·평활화·임의 값 복제는 없다. 한 소칸은 여러 화면 픽셀로 렌더링되며 화면 픽셀마다 모델을 측정한 것은 아니다. 소칸 안팎의 문항 위치는 범주·템플릿·ID 순서의 고정 재귀 분할이며 국소적 이웃 관계에는 의미 해석이 없다.</td></tr>
 </tbody></table></div>
 <p><strong>실제 한 칸의 예시</strong> FA 영역의 <code>ITEM</code>, 선택지 순서 0, 조건 11은 −0.109530이고 같은 문항·순서의 조건 00은 −0.120317이다. 색에 사용한 값은 −0.109530−(−0.120317)=<strong>+0.010787</strong>이다. 네 조건은 같은 칸 배치와 같은 색 범위를 사용한다. 00 패널이 단색인 이유는 자기 자신을 뺀 변화가 0이기 때문이다.</p>
-<p>입력 조건은 139×4×3=1,668개이고, 각 입력에서 일곱 축을 계산하므로 네 패널에 11,676개의 정렬값이 표시된다. 문항 평균에 사용된 부트스트랩 표본을 이 칸에 배치한 것이 아니다.</p>
+<p>고유 문항은 139개이며 91개 범주·템플릿 군집을 공유한다. 입력 조건은 139×4×3=1,668개이고, 각 입력에서 일곱 축을 계산하므로 네 패널에 11,676개의 정렬값이 표시된다. 문항 평균에 사용된 부트스트랩 표본을 이 칸에 배치한 것이 아니다.</p>
 <p class="links"><a href="URLconcept_cosines.csv">원래 코사인 행렬</a><a href="URLsimilarity_and_contact_pairs.csv">모든 쌍의 유사도와 접촉 여부</a><a href="URLtile_layout.csv">소칸과 문항 키</a><a href="URLatlas_source_data.csv">소칸별 측정값</a><a href="URLgeometry_and_tiles_audit.json">원자료·경계 재검증</a></p>
 </div>'''
     markup = markup.replace('VARIANCE', f'{variance:.2f}').replace('ITEM', html.escape(example['item'])).replace('URL', url)
     (BASE / 'atlas_geometry_explainer.html').write_text(markup)
-    audit = dict(n_items=139, n_conditions=4, n_rotations=3, n_axes=7, n_input_conditions=1668,
+    audit = dict(n_items=139, n_clusters=91, n_conditions=4, n_rotations=3, n_axes=7, n_input_conditions=1668,
         cells_per_region=417, cells_per_panel=2919, displayed_values=11676,
         shared_boundary_pairs=int(adjacency.to_numpy().sum()//2),
         directions_cosine_matrix_verified=True, boundary_contacts_reconstructed=True,
