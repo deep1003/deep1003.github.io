@@ -195,6 +195,8 @@ def show_results(module, show=True):
     weights = np.random.default_rng(module.SEED).multinomial(
         n_clusters, np.ones(n_clusters) / n_clusters, size=10000)[:, groups].astype(float)
     weights /= weights.sum(1, keepdims=True)
+    result_colors = {'neutral':'#857B69','FA':'#B15450','UN':'#0F6479','combined':'#2C2033'}
+    condition_colors = dict(zip(['UN0FA0','UN0FA1','UN1FA0','UN1FA1'],[result_colors[k] for k in ['neutral','FA','UN','combined']]))
     plt = _style()
     fig, axes = plt.subplots(1, 2, figsize=(180/25.4, 108/25.4),
                              layout='constrained', gridspec_kw={'width_ratios': [1, 1.08]})
@@ -202,19 +204,19 @@ def show_results(module, show=True):
     for x, condition in enumerate(CONDITION_LABELS):
         a = values[condition].to_numpy()
         lo, hi = np.quantile(weights @ a, [.025, .975])
-        color = CONDITION_COLORS[condition_name(condition)]
+        color = condition_colors[condition_name(condition)]
         axes[0].errorbar(x, a.mean()*100, yerr=[[(a.mean()-lo)*100], [(hi-a.mean())*100]],
                          fmt='none', color=color, capsize=4)
-        condition_marker(axes[0], x, a.mean()*100, condition_name(condition))
+        artists = condition_marker(axes[0], x, a.mean()*100, condition_name(condition))
+        for artist in artists: artist.set_markerfacecolor('#BEB29D' if x==0 else color); artist.set_markeredgecolor('#857B69' if x==0 else '#1F1B16')
+        axes[0].annotate(f'{a.mean()*100:.1f}',(x,a.mean()*100),xytext=(7,0),textcoords='offset points',va='center',fontsize=7)
     axes[0].set(xticks=range(4), xticklabels=['00', '01', '10', '11'],
-                xlabel='Prompt condition (UN, FA)',
-                ylabel='Information-insufficient response probability (%)',
-                title='Condition means and 95% confidence intervals')
-    rows = [combined] + summary['primary']
-    labels = ['UN + FA: combined\n11 vs. 00', 'UN: average effect', 'FA: average effect',
-              'UN × FA: interaction\nDifference in differences']
-    colors = [PALETTE['combined'], PALETTE['UN'], PALETTE['FA'], PALETTE['combined']]
-    for row, y, color in zip(rows, [3, 2, 1, 0], colors):
+                xlabel='Condition (UN, FA)',
+                ylabel=r'$P_{\mathrm{unknown}}$ (%)', ylim=(30,70))
+    rows = [combined] + [r for r in summary['primary'] if r['term'] in ('uncertainty', 'threat')]
+    labels = ['UN + FA (11 − 00)', 'UN', 'FA']
+    colors = [result_colors['combined'], result_colors['UN'], result_colors['FA']]
+    for row, y, color in zip(rows, [2, 1, 0], colors):
         marker = 'D' if row['term'] == 'combined' else 'o'
         axes[1].errorbar(row['estimate']*100, y,
             xerr=[[(row['estimate']-row['ci_low'])*100], [(row['ci_high']-row['estimate'])*100]],
@@ -222,19 +224,22 @@ def show_results(module, show=True):
             markersize=5, capsize=3)
         axes[1].annotate(f"{row['estimate']*100:+.2f}", (row['estimate']*100, y),
                           xytext=(0, 10), textcoords='offset points', ha='center', fontsize=7)
-    axes[1].set(yticks=[3, 2, 1, 0], yticklabels=labels, ylim=(-.5, 3.6),
-                xlabel='Effect (percentage points)', title='Combined effect and primary contrasts')
+    axes[1].set(yticks=[2, 1, 0], yticklabels=labels, ylim=(-.5, 2.6),
+                xlabel='Effect (percentage points)', xlim=(-1,28))
     axes[1].axvline(0, color='#888888', linestyle=':', lw=.8)
-    axes[1].axhline(2.5, color='#CCCCCC', linestyle=':', lw=.6)
-    fig.text(.02, .045, 'Open diamond: additional combined contrast. Filled circles: three prespecified primary contrasts.', fontsize=6)
-    fig.text(.02, .015, 'Intervals: unadjusted 95% cluster bootstrap. Holm adjustment applies only to the three primary tests.', fontsize=6)
+    axes[1].axhline(1.5, color='#CCCCCC', linestyle=':', lw=.6)
+    fig.text(.02, .045, 'Open diamond: combined effect (11 vs. 00). Filled circles: UN and FA average effects.', fontsize=6)
+    fig.text(.02, .015, 'Intervals: unadjusted 95% cluster bootstrap.', fontsize=6)
+    for letter, ax in zip('ab',axes):
+        ax.spines[['top','right']].set_visible(False)
+        ax.text(-.1,1.04,letter,transform=ax.transAxes,fontsize=10,fontweight='bold')
     destination = Path(__file__).resolve().parent / 'figures'
     for extension in ['png', 'svg', 'pdf']:
         fig.savefig(destination / f'behavior_results_en.{extension}', dpi=600)
         if extension == 'svg':
             vector = destination / 'behavior_results_en.svg'
             vector.write_text('\n'.join(line.rstrip() for line in vector.read_text().splitlines()) + '\n')
-    display_data = dict(combined=combined, primary=summary['primary'],
+    display_data = dict(combined=combined, displayed_terms=[r['term'] for r in rows], primary=summary['primary'],
                         combined_vs_interaction='Y11-Y00 is not Y11-Y10-Y01+Y00.')
     (destination / 'behavior_contrasts_display.json').write_text(json.dumps(display_data, indent=2))
     if show:
