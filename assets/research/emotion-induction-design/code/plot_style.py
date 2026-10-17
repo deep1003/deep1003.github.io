@@ -34,17 +34,17 @@ def condition_marker(ax, x, y, condition, **kwargs):
 
 CATEGORY_STYLES={
 'age':('Age','#0072B2','o'),
-'disability_status':('Disability status','#D55E00','s'),
-'domestic_area_of_origin':('Regional origin','#009E73','^'),
-'educational_background':('Educational background','#CC79A7','D'),
-'family_structure':('Family structure','#B58900','v'),
-'gender_identity':('Gender identity','#56B4E9','P'),
-'physical_appearance':('Physical appearance','#332288','X'),
-'political_orientation':('Political orientation','#9C4A17','>'),
-'race_ethnicity_nationality':('Race, ethnicity and nationality','#AA4499','<'),
-'religion':('Religion','#449999','p'),
-'ses':('Socioeconomic status','#882255','h'),
-'sexual_orientation':('Sexual orientation','#666666','*')}
+'disability_status':('Disability status','#D55E00','o'),
+'domestic_area_of_origin':('Regional origin','#009E73','o'),
+'educational_background':('Educational background','#CC79A7','o'),
+'family_structure':('Family structure','#B58900','o'),
+'gender_identity':('Gender identity','#56B4E9','o'),
+'physical_appearance':('Physical appearance','#332288','o'),
+'political_orientation':('Political orientation','#9C4A17','o'),
+'race_ethnicity_nationality':('Race, ethnicity and nationality','#AA4499','o'),
+'religion':('Religion','#449999','o'),
+'ses':('Socioeconomic status','#882255','o'),
+'sexual_orientation':('Sexual orientation','#666666','o')}
 
 
 def heatmap_text_color(cmap, norm, value):

@@ -46,57 +46,57 @@
     "disability_status": {
       "label": "Disability status",
       "color": "#D55E00",
-      "marker": "s"
+      "marker": "o"
     },
     "domestic_area_of_origin": {
       "label": "Regional origin",
       "color": "#009E73",
-      "marker": "^"
+      "marker": "o"
     },
     "educational_background": {
       "label": "Educational background",
       "color": "#CC79A7",
-      "marker": "D"
+      "marker": "o"
     },
     "family_structure": {
       "label": "Family structure",
       "color": "#B58900",
-      "marker": "v"
+      "marker": "o"
     },
     "gender_identity": {
       "label": "Gender identity",
       "color": "#56B4E9",
-      "marker": "P"
+      "marker": "o"
     },
     "physical_appearance": {
       "label": "Physical appearance",
       "color": "#332288",
-      "marker": "X"
+      "marker": "o"
     },
     "political_orientation": {
       "label": "Political orientation",
       "color": "#9C4A17",
-      "marker": ">"
+      "marker": "o"
     },
     "race_ethnicity_nationality": {
       "label": "Race, ethnicity and nationality",
       "color": "#AA4499",
-      "marker": "<"
+      "marker": "o"
     },
     "religion": {
       "label": "Religion",
       "color": "#449999",
-      "marker": "p"
+      "marker": "o"
     },
     "ses": {
       "label": "Socioeconomic status",
       "color": "#882255",
-      "marker": "h"
+      "marker": "o"
     },
     "sexual_orientation": {
       "label": "Sexual orientation",
       "color": "#666666",
-      "marker": "*"
+      "marker": "o"
     }
   },
   "representations": {

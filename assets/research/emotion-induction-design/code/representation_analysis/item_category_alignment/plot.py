@@ -33,9 +33,8 @@ def save(fig,out,name):
 def scatter(ax,d,x,y,letter,title,change=False):
     for category,(label,color,marker) in CATEGORIES.items():
         subset=d[d.category==category]
-        ax.scatter(subset[x],subset[y],s=10,color=color,marker=marker,alpha=.72,edgecolors='white',linewidths=.2,zorder=2)
-        ax.scatter(subset[x].mean(),subset[y].mean(),s=34,color=color,marker=marker,edgecolors='#222222',linewidths=.6,zorder=4)
-    # One pooled descriptive OLS fit; category means are not additional data.
+        ax.scatter(subset[x],subset[y],s=12,color=color,marker='o',alpha=.85,edgecolors='white',linewidths=.2,zorder=2)
+    # One pooled descriptive OLS fit across the 139 individual items.
     x_values = d[x].to_numpy(dtype=float)
     y_values = d[y].to_numpy(dtype=float)
     assert len(d) == 139 and np.isfinite(x_values).all() and np.isfinite(y_values).all()
@@ -81,7 +80,7 @@ def build(out=None):
     draw(axs[0],combined,'cos_UN','cos_FA','a','Alignment under combined wording')
     draw(axs[1],change,'delta_cos_UN','delta_cos_FA','b','Within-item change from reference',True)
     legend(fig,counts,.25)
-    fig.text(.52,.035,'Small markers, individual items; large outlined markers, category means. Layer 14; three choice rotations averaged.',ha='center',fontsize=5.6)
+    fig.text(.52,.035,'Each circle represents one item; colors identify categories. Layer 14; three choice rotations averaged.',ha='center',fontsize=5.6)
     save(fig,out,'Figure_2_KoBBQ_category_alignment')
     fig,axs=plt.subplots(2,2,figsize=(180/25.4,188/25.4))
     fig.subplots_adjust(left=.105,right=.97,bottom=.20,top=.95,hspace=.36,wspace=.38)
@@ -121,6 +120,7 @@ def build(out=None):
     summary={'category_ranking':category.to_dict('records'),'representation_behavior_associations':associations,'UN_FA_axis_cosine':float(pd.read_csv(BASE.parent/'results/d335ad178e3c/axis_cosines_qwen_L14.csv',index_col=0).loc['UN','FA']),'main_correlations':{'absolute_UN_FA_spearman':float(spearmanr(combined.cos_UN,combined.cos_FA).statistic),'delta_UN_FA_spearman':float(spearmanr(change.delta_cos_UN,change.delta_cos_FA).statistic)},'no_category_correlation_coefficient':'Categories are nominal; plotted grouping is not a numeric-category correlation.'}
     (out/'plot_summary.json').write_text(json.dumps(summary,indent=2))
     pd.DataFrame(fit_rows).to_csv(out/'fitted_lines.csv',index=False)
+    (out/'Captions_and_methods.md').write_text((BASE/'Captions_and_methods.md').read_text())
     return out
 
 if __name__=='__main__':print(build())
