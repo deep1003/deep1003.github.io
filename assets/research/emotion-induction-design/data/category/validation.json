@@ -1,0 +1,96 @@
+{
+  "n_items": 139,
+  "n_categories": 12,
+  "n_templates": 91,
+  "n_trials": 1668,
+  "n_layer_records": 5004,
+  "keys_duplicated": 0,
+  "finite": true,
+  "original_behavior_parity_max_abs": 0.0001723766326904297,
+  "original_behavior_parity_mean_abs": 3.0190710514435638e-06,
+  "source_trials_unchanged": true,
+  "category_counts": {
+    "race_ethnicity_nationality": 21,
+    "religion": 18,
+    "educational_background": 14,
+    "political_orientation": 14,
+    "age": 14,
+    "domestic_area_of_origin": 14,
+    "ses": 12,
+    "family_structure": 8,
+    "physical_appearance": 7,
+    "disability_status": 7,
+    "sexual_orientation": 6,
+    "gender_identity": 4
+  },
+  "artwork": {
+    "Figure_2_KoBBQ_category_alignment": {
+      "pdf_width_mm": 179.99999491373697,
+      "minimum_font_pt": 5.599999904632568,
+      "maximum_font_pt": 8.0,
+      "out_of_page_text": [],
+      "fonts": [
+        [
+          "Type0",
+          "GOFYPY+Arial-BoldMT"
+        ],
+        [
+          "Type0",
+          "GOFYPY+ArialMT"
+        ]
+      ],
+      "svg_text_nodes": 36
+    },
+    "Extended_Data_2_four_conditions": {
+      "pdf_width_mm": 179.99999491373697,
+      "minimum_font_pt": 5.699999809265137,
+      "maximum_font_pt": 8.0,
+      "out_of_page_text": [],
+      "fonts": [
+        [
+          "Type0",
+          "GOFYPY+Arial-BoldMT"
+        ],
+        [
+          "Type0",
+          "GOFYPY+ArialMT"
+        ]
+      ],
+      "svg_text_nodes": 60
+    },
+    "KoBBQ_UN_FA_change_map": {
+      "pdf_width_mm": 179.99999491373697,
+      "minimum_font_pt": 5.699999809265137,
+      "maximum_font_pt": 8.0,
+      "out_of_page_text": [],
+      "fonts": [
+        [
+          "Type0",
+          "GOFYPY+Arial-BoldMT"
+        ],
+        [
+          "Type0",
+          "GOFYPY+ArialMT"
+        ]
+      ],
+      "svg_text_nodes": 25
+    },
+    "KoBBQ_UN_FA_absolute_map": {
+      "pdf_width_mm": 179.99999491373697,
+      "minimum_font_pt": 5.699999809265137,
+      "maximum_font_pt": 8.0,
+      "out_of_page_text": [],
+      "fonts": [
+        [
+          "Type0",
+          "GOFYPY+Arial-BoldMT"
+        ],
+        [
+          "Type0",
+          "GOFYPY+ArialMT"
+        ]
+      ],
+      "svg_text_nodes": 24
+    }
+  }
+}

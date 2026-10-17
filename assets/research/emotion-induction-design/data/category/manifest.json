@@ -1,0 +1,38 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "dtype": "float32",
+  "attention": "eager",
+  "layers": [
+    14,
+    21,
+    28
+  ],
+  "primary_layer": 14,
+  "n_items": 139,
+  "n_conditions": 4,
+  "rotations": [
+    0,
+    1,
+    2
+  ],
+  "items_sha256": "424888e46d35a0a66e473cca1137e6874ba451506be2477be01566929c0a2dfb",
+  "prompt_source_sha256": "5992de586e0e7250bc362bc49404f992d1641788775fa40179d9038301bf4134",
+  "original_trials_sha256": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4",
+  "code_sha256": "d328f75b510e3b74794f882dc44791db348e20c5e4ba0cad6c5c79a553b3e97b",
+  "axes_sha256": {
+    "14": "4022aefeaba4f5c2d66f9e9d88e502a2e5096016594857b0b9ceecd804203311",
+    "21": "fc8054332a21ea4bc6527f541dc85af9507c65ae626c1e9fecf9dc41493373b8",
+    "28": "2cf4fee392fe1386f9f50a9e2754501185c709d6f9c51e837584e3f40cdcbe90"
+  },
+  "position": "last assistant-start token, full original system+KoBBQ user input; no generation",
+  "padding_smoke": "before collection compare mixed-length left-padded batch with singles: hidden max error <= .02 and choice-probability max error <= .02; otherwise use batch 1",
+  "primary_coordinates": "mean across three choice rotations of centered cosine to frozen UN and FA directions; no PCA or refitting",
+  "primary_figures": [
+    "absolute alignment in UN1FA1",
+    "within-item change UN1FA1 minus UN0FA0"
+  ],
+  "category_aggregation": "item-weighted means; category is nominal, no numeric-category Pearson correlation",
+  "inference": "exploratory/descriptive, selected reused items; no category significance claims",
+  "limits": "Axes validated on assistant-start system-only narrative contrasts; transfer to full KoBBQ context unvalidated; UN/FA directions correlated; projections do not establish emotion or causality."
+}
