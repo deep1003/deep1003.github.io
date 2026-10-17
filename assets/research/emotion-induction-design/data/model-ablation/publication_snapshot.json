@@ -1,7 +1,35 @@
 {
-  "timestamp_kst": "2026-10-17T22:53:51.893331+09:00",
-  "source_snapshot": "/Users/deep1003/data3/output/model_ablation_sync_20261017/20261017_225351",
-  "model_ablations": 3,
-  "llama_complete": false,
-  "exaone_internal_complete": false
+  "report_type": "model_ablation",
+  "main_model": "Qwen2.5-7B FP32",
+  "ablation_models": [
+    "Gemma3-4B",
+    "Ministral3-8B",
+    "EXAONE3.5-7.8B",
+    "Llama3.1-8B"
+  ],
+  "snapshot_kst": "2026-10-17T23:33:52.478258+09:00",
+  "all_behavior_complete": true,
+  "llama": {
+    "state": "complete",
+    "completed": 1668,
+    "total": 1668,
+    "updated_at": 1792246173.7042692
+  },
+  "exaone_internal": {
+    "state": "complete",
+    "completed": 1812,
+    "total": 1812,
+    "updated_at": 1792245865.773901
+  },
+  "contrast": "combined=UN1FA1-UN0FA0",
+  "n_items": 139,
+  "n_clusters": 91,
+  "n_trials_per_model": 1668,
+  "bootstrap": 10000,
+  "holm": "three displayed contrasts within each model",
+  "limits": "Exploratory model-replacement ablation on reused selected items. Precision and template vary with model. Alignment is not experienced emotion or causal mediation.",
+  "scheduled_tasks": "remain paused; not enabled by this publication",
+  "llama_complete": true,
+  "exaone_internal_complete": true,
+  "completed_ablation_models": 4
 }
