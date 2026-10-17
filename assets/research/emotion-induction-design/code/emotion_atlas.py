@@ -18,7 +18,7 @@ AXIS_DATA = BASE / 'representation_analysis/results/d335ad178e3c'
 ITEM_DATA = BASE / 'representation_analysis/item_category_alignment/output/item_alignment.csv'
 OUT = BASE / 'representation_analysis/emotion_atlas/output'
 AXES = ['UN', 'FA', 'calm', 'sadness', 'anger', 'desperation', 'joy']
-CONDITIONS = ['UN0FA0', 'UN1FA0', 'UN0FA1', 'UN1FA1']
+CONDITIONS = ['UN0FA0', 'UN0FA1', 'UN1FA0', 'UN1FA1']
 LABELS = ['Uncertainty', 'Fear /\nanxiety', 'Calm', 'Sadness', 'Anger', 'Desperation', 'Joy']
 
 

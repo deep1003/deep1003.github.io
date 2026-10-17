@@ -14,12 +14,12 @@ from matplotlib.ticker import MaxNLocator
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_DATA = HERE.parent / 'results' / 'd335ad178e3c'
-CONDITIONS = ['UN0FA0', 'UN1FA0', 'UN0FA1', 'UN1FA1']
-CODES = ['00', '10', '01', '11']
+CONDITIONS = ['UN0FA0', 'UN0FA1', 'UN1FA0', 'UN1FA1']
+CODES = ['00', '01', '10', '11']
 CONCEPTS = ['UN', 'FA', 'calm', 'sadness', 'anger', 'desperation', 'joy']
 LABELS = ['Uncertainty (UN)', 'Fear / anxiety (FA)', 'Calm', 'Sadness', 'Anger', 'Desperation', 'Joy']
-COLORS = ['#777777', '#C34835', '#2868A3', '#8054A1']
-MARKERS = ['o', '^', 's', 'D']
+COLORS = ['#777777', '#2868A3', '#C34835', '#8054A1']
+MARKERS = ['o', 's', '^', 'D']
 SPACES = ['semantic', 'qwen_L14']
 TITLES = ['Semantic concept profiles', 'Internal concept profiles, layer 14']
 CMAP = LinearSegmentedColormap.from_list('purple_white_teal', ['#7853A2', '#FFFFFF', '#167D8D'])
@@ -60,7 +60,7 @@ def build(data=DEFAULT_DATA, output=None):
         m = scores[scores.space == space].pivot(index='condition', columns='axis', values='standardized').reindex(index=CONDITIONS, columns=CONCEPTS)
         matrices[space] = m.subtract(m.loc['UN0FA0'])
         matrices[space].to_csv(source / f'fig1_delta_{space}.csv')
-        pd.DataFrame(pca[space]['coordinates']).to_csv(source / f'fig1_pca_{space}.csv', index=False)
+        pd.DataFrame(pca[space]['coordinates']).set_index('condition').reindex(CONDITIONS).reset_index().to_csv(source / f'fig1_pca_{space}.csv', index=False)
         pd.DataFrame(pca[space]['components'], columns=CONCEPTS, index=['PC1', 'PC2']).to_csv(source / f'fig1_loadings_{space}.csv')
     # Explicit physical dimensions. PCA distance is not distorted by display aspect.
     fig = plt.figure(figsize=(180 / 25.4, 143 / 25.4))
@@ -107,7 +107,7 @@ def build(data=DEFAULT_DATA, output=None):
     cb = fig.colorbar(img, cax=cbax, ticks=[-.6, -.3, 0, .3, .6])
     cb.set_label('Change in anchor-standardized projection (a.u.)', fontsize=6, labelpad=5)
     cb.ax.tick_params(labelsize=5.5)
-    handles = [Line2D([], [], marker=m, color=c, linestyle='none', markersize=4, label=l) for m,c,l in zip(MARKERS,COLORS,['00  Reference','10  UN only','01  FA only','11  UN + FA'])]
+    handles = [Line2D([], [], marker=m, color=c, linestyle='none', markersize=4, label=l) for m,c,l in zip(MARKERS,COLORS,['00  Reference','01  FA only','10  UN only','11  UN + FA'])]
     fig.legend(handles=handles, loc='upper center', bbox_to_anchor=(.52, .99), ncol=4, frameon=False, handletextpad=.4, columnspacing=1.8)
     fig.text(.52, .035, 'Separate PCA fits and calibrations; four fixed prompts; alignment does not establish emotion.', ha='center', fontsize=6)
     save(fig, 'Figure_1_concept_alignment', out)

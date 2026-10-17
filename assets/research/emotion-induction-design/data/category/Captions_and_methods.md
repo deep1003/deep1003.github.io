@@ -4,7 +4,7 @@ a, Each small marker represents one of 139 fixed, previously selected ambiguous 
 
 # Extended Data Figure 2 | Full condition comparison in the UN–FA projection plane
 
-All 139 item profiles are shown separately under reference (UN0FA0), uncertainty wording only (UN1FA0), self-threat wording only (UN0FA1), and combined wording (UN1FA1). All panels use shared axis limits and equal numeric aspect. Points and category means follow the same conventions as Fig. 2. The same item appears once in each panel; panels are not independent samples. Coordinates are averaged over three choice rotations. No dimensionality reduction or category labels were used to construct the concept axes.
+All 139 item profiles are shown separately under reference (UN0FA0), self-threat wording only (UN0FA1), uncertainty wording only (UN1FA0), and combined wording (UN1FA1). All panels use shared axis limits and equal numeric aspect. Points and category means follow the same conventions as Fig. 2. The same item appears once in each panel; panels are not independent samples. Coordinates are averaged over three choice rotations. No dimensionality reduction or category labels were used to construct the concept axes.
 
 # Single-panel change map
 

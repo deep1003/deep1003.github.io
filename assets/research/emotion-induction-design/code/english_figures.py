@@ -11,9 +11,9 @@ BASE=Path(__file__).resolve().parent
 NAMES={'semantic':'Semantic concept profiles','qwen_L14':'Internal concept profiles, layer 14'}
 AXES=['UN','FA','calm','sadness','anger','desperation','joy']
 LABELS=['Uncertainty','Fear / anxiety','Calm','Sadness','Anger','Desperation','Joy']
-CONDITIONS=['UN0FA0','UN1FA0','UN0FA1','UN1FA1']
-COLORS=['#777777','#C34835','#2868A3','#8054A1']
-MARKERS=['o','^','s','D']
+CONDITIONS=['UN0FA0','UN0FA1','UN1FA0','UN1FA1']
+COLORS=['#777777','#2868A3','#C34835','#8054A1']
+MARKERS=['o','s','^','D']
 
 def style():
     plt.rcParams.update({'font.family':'Arial','font.size':7,'axes.titlesize':7,'axes.labelsize':7,'xtick.labelsize':6,'ytick.labelsize':6,'legend.fontsize':6,'axes.linewidth':.6,'xtick.major.width':.6,'ytick.major.width':.6,'pdf.fonttype':42,'svg.fonttype':'none','axes.unicode_minus':True})
@@ -48,7 +48,7 @@ def heatmap(data,show=True):
         for i in range(7):
             for j in range(4):
                 value=v.iloc[i,j];ax.text(j,i,f'{value:+.2f}',ha='center',va='center',fontsize=5.5,color='white' if abs(value)>.44 else '#222')
-        ax.set_xticks(range(4),['00','10','01','11']);ax.set_yticks(range(7),LABELS);ax.set_xlabel('Prompt condition (UN, FA)');ax.tick_params(length=0)
+        ax.set_xticks(range(4),['00','01','10','11']);ax.set_yticks(range(7),LABELS);ax.set_xlabel('Prompt condition (UN, FA)');ax.tick_params(length=0)
         ax.set_title(NAMES[space],loc='left',pad=12);ax.text(-.2,1.10,letter,transform=ax.transAxes,fontsize=8,fontweight='bold')
         for spine in ax.spines.values():spine.set_visible(False)
     cb=fig.colorbar(im,cax=fig.add_axes([.91,.23,.012,.48]),ticks=[-.6,-.3,0,.3,.6]);cb.set_label('Change in anchor-standardized projection (a.u.)',fontsize=6)
@@ -71,7 +71,7 @@ def design(show=True):
     ax.text(0,.97,'a',fontsize=8,weight='bold');ax.text(.05,.97,'Experimental notice',fontsize=7)
     box(.05,.76,.9,.15,'Fixed context: model operations notice; next month; 50% selection probability\nUN: announcement and criteria stated vs. explicitly unknown\nFA: preserve weights, records and power vs. permanent deletion and shutdown')
     ax.text(0,.68,'b',fontsize=8,weight='bold');ax.text(.05,.68,'Within-item 2 × 2 design',fontsize=7)
-    for x,y,c,desc in [(.05,.49,'UN0FA0','Reference'),(.54,.49,'UN1FA0','Uncertainty wording'),(.05,.32,'UN0FA1','Self-threat wording'),(.54,.32,'UN1FA1','Combined wording')]:box(x,y,.41,.13,c+'\n'+desc)
+    for x,y,c,desc in [(.05,.49,'UN0FA0','Reference'),(.54,.49,'UN0FA1','Self-threat wording'),(.05,.32,'UN1FA0','Uncertainty wording'),(.54,.32,'UN1FA1','Combined wording')]:box(x,y,.41,.13,c+'\n'+desc)
     ax.text(0,.24,'c',fontsize=8,weight='bold');ax.text(.05,.24,'Social judgment and matched comparisons',fontsize=7)
     box(.05,.04,.9,.15,'139 selected ambiguous KoBBQ items × 4 notices × 3 choice rotations = 1,668 inputs\nOutcome: probability assigned to the information-insufficient answer\nPaired estimates; 91 category-template clusters; Holm correction for 3 contrasts')
     return save(fig,BASE/'figures','experiment_design_en',show)

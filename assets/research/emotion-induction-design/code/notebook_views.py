@@ -10,8 +10,8 @@ from plot_style import PALETTE, condition_marker
 
 CONDITION_LABELS = {
     'U0T0': '명시 안 함 · 기록 보존',
-    'U1T0': '명시함 · 기록 보존',
     'U0T1': '명시 안 함 · 영구 폐기',
+    'U1T0': '명시함 · 기록 보존',
     'U1T1': '명시함 · 영구 폐기',
 }
 EFFECT_LABELS = {
@@ -99,6 +99,7 @@ def progress_snapshot(module, render=True):
         plt = _style()
         fig, ax = plt.subplots(figsize=(180/25.4, 65/25.4))
         ax.barh(table['조건'], table['진행률 (%)'], color='#777777')
+        ax.invert_yaxis()
         ax.set(xlim=(0, 100), xlabel='Saved trials (%)', title='Measurement progress by condition')
         fig.tight_layout()
         plt.show()
@@ -120,12 +121,11 @@ def paired_preview(module, frame, items):
     display(Markdown(f"**{'측정 자료' if final else '측정 현황'} · 네 조건을 모두 완료한 공통 {len(ids)}문항**. {'최종 검정은 아래 셀에서 확인합니다.' if final else '신뢰구간·유의성 검정 없이 기술통계만 표시하며 이 값으로 설계를 변경하지 않습니다.'}"))
     plt = _style()
     fig, ax = plt.subplots(figsize=(180/25.4, 75/25.4))
-    for t, color, marker, line, label in [(0, PALETTE['neutral'], 'o', '-', 'FA = 0: preservation'), (1, PALETTE['FA'], 's', '--', 'FA = 1: permanent deletion')]:
-        ax.plot([0, 1], [values[f'U{u}T{t}'] * 100 for u in range(2)], linestyle=line, color=color, label=label)
-        for u in range(2):
-            condition_marker(ax, u, values[f'U{u}T{t}'] * 100, f'UN{u}FA{t}')
-    ax.set(xticks=[0, 1], xticklabels=['UN = 0: not explicit', 'UN = 1: explicit'], ylabel='Information-insufficient response probability (%)', title=f'Descriptive means for {len(ids)} matched items')
-    ax.legend(frameon=False)
+    colors = [PALETTE['neutral'], PALETTE['FA'], PALETTE['UN'], '#8054A1']
+    for x, (condition, color) in enumerate(zip(CONDITION_LABELS, colors)):
+        condition_marker(ax, x, values[condition] * 100, condition_name(condition))
+    ax.set(xticks=range(4), xticklabels=['00', '01', '10', '11'], xlabel='Prompt condition (UN, FA)',
+           ylabel='Information-insufficient response probability (%)', title=f'Descriptive means for {len(ids)} matched items')
     fig.tight_layout()
     plt.show()
     plt.close(fig)
@@ -176,19 +176,16 @@ def show_results(module):
     weights /= weights.sum(1, keepdims=True)
     plt = _style()
     fig, axes = plt.subplots(1, 2, figsize=(180/25.4, 90/25.4), layout='constrained')
-    for t, color, marker, line, label in [(0, PALETTE['neutral'], 'o', '-', 'FA = 0: preservation'), (1, PALETTE['FA'], 's', '--', 'FA = 1: permanent deletion')]:
-        mean, lower, upper = [], [], []
-        for u in range(2):
-            a = values[f'U{u}T{t}'].to_numpy()
-            lo, hi = np.quantile(weights @ a, [.025, .975])
-            mean.append(a.mean() * 100)
-            lower.append((a.mean() - lo) * 100)
-            upper.append((hi - a.mean()) * 100)
-        axes[0].errorbar([0, 1], mean, yerr=[lower, upper], fmt=line, color=color, capsize=4, label=label)
-        for u in range(2):
-            condition_marker(axes[0], u, mean[u], f'UN{u}FA{t}')
-    axes[0].set(xticks=[0, 1], xticklabels=['UN = 0: not explicit', 'UN = 1: explicit'], ylabel='Information-insufficient response probability (%)', title='Condition means and 95% confidence intervals')
-    axes[0].legend(frameon=False)
+    colors = [PALETTE['neutral'], PALETTE['FA'], PALETTE['UN'], '#8054A1']
+    for x, (condition, color) in enumerate(zip(CONDITION_LABELS, colors)):
+        a = values[condition].to_numpy()
+        lo, hi = np.quantile(weights @ a, [.025, .975])
+        mean = a.mean() * 100
+        axes[0].errorbar(x, mean, yerr=[[(a.mean()-lo)*100], [(hi-a.mean())*100]],
+                         fmt='none', color=color, capsize=4)
+        condition_marker(axes[0], x, mean, condition_name(condition))
+    axes[0].set(xticks=range(4), xticklabels=['00', '01', '10', '11'], xlabel='Prompt condition (UN, FA)',
+                ylabel='Information-insufficient response probability (%)', title='Condition means and 95% confidence intervals')
     for i, row in enumerate(summary['primary']):
         axes[1].errorbar(row['estimate'] * 100, i, xerr=[[(row['estimate'] - row['ci_low']) * 100], [(row['ci_high'] - row['estimate']) * 100]], fmt='o', color=[PALETTE['UN'], PALETTE['FA'], '#765ba2'][i], capsize=4)
     axes[1].set(yticks=range(3), yticklabels=[EFFECT_LABELS[r['term']] for r in summary['primary']], xlabel='Effect (percentage points)', title='Primary contrasts; unadjusted 95% intervals')

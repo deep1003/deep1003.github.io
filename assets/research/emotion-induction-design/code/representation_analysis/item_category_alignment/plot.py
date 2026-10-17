@@ -24,7 +24,7 @@ CATEGORIES={
 'religion':('Religion','#449999','p'),
 'ses':('Socioeconomic status','#882255','h'),
 'sexual_orientation':('Sexual orientation','#666666','*')}
-CONDITIONS=['UN0FA0','UN1FA0','UN0FA1','UN1FA1']
+CONDITIONS=['UN0FA0','UN0FA1','UN1FA0','UN1FA1']
 
 
 def setup():
