@@ -1,0 +1,29 @@
+{
+  "n_concepts": 7,
+  "n_items": 139,
+  "n_conditions": 4,
+  "n_cells_per_panel": 973,
+  "n_measured_values": 3892,
+  "baseline": "UN0FA0 within item and concept",
+  "model_inference": false,
+  "interpolated_values": false,
+  "duplicated_keys": 0,
+  "diagnostics": {
+    "two_dimensional_retained_variance": 0.5979161266766598,
+    "distance_stress": 0.35174696106691233,
+    "capacity": 139,
+    "components_per_region": {
+      "UN": 1,
+      "FA": 1,
+      "calm": 1,
+      "sadness": 1,
+      "anger": 1,
+      "desperation": 1,
+      "joy": 1
+    },
+    "centroid_distance_correlation": 0.7999091570501913
+  },
+  "source_sha256": "d28d2b658382c8b79eb0e3b8f3a01367ae15602604a9c78fae3445a4dae6c3c0",
+  "axes_sha256": "4022aefeaba4f5c2d66f9e9d88e502a2e5096016594857b0b9ceecd804203311",
+  "code_sha256": "fd90cbe152b646dfc603f0ad1e2da11702f5f6f68f24e0482c3ff28caaeddce7"
+}
