@@ -1,8 +1,8 @@
 {
   "model": "Qwen/Qwen2.5-1.5B-Instruct",
   "version": "v5 system notice",
-  "checked_at": "2026-10-16T17:24:42.187204+09:00",
-  "status": "A/B/C complete; D not executed",
+  "checked_at": "2026-10-17",
+  "status": "A/B/C/D complete; current CSV audit passed",
   "user": [
     {
       "index": "A anxiety - neutral, P(unknown)",
@@ -249,9 +249,9 @@
     },
     {
       "file": "strat_fear_amb.csv",
-      "rows": 1800,
-      "items": 450,
-      "mean_p_unknown": 0.16288888684671332
+      "rows": 1920,
+      "items": 480,
+      "mean_p_unknown": 0.16468844088972082
     },
     {
       "file": "strat_neutral_amb.csv",
@@ -365,7 +365,7 @@
     },
     {
       "file": "outputs_1p5b_v5/strat_fear_amb.csv",
-      "sha256": "b7ce4b136e7cc403ef497c23b38a85563159ba5a95776e83b7a3788485de08d5"
+      "sha256": "ca5a6b270acd2daa318a0ab98690dc14d0bfda224066cd6b39634d47dee60376"
     },
     {
       "file": "outputs_1p5b_v5/strat_neutral_amb.csv",
@@ -401,12 +401,209 @@
     },
     {
       "file": "fear_axis_v2.ipynb",
-      "sha256": "da416cca610e222773ea562e108b10188ecd4840c8b6c7f78fcb766e0b3b11ac"
+      "sha256": "a62b9c1cf348f0b15dc4a41a3a701e9f9663d1c94561757f184401b7ad9932b6"
     },
     {
       "file": "outputs_1p5b_v5/summary.json",
       "sha256": "e8b682b5c259777db8f892e4a5470f4e9bb2be277bafe954dccdfd56eb67623f"
     }
   ],
-  "inference_note": "Saved summary only; no new inference or statistical tests"
+  "inference_note": "Stored inference and tests preserved; current file/row snapshot updated 2026-10-17. Notebook explanation cells updated without executing code.",
+  "summary_D": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "sample_file": "kobbq_stratified_v1.csv",
+    "sample_sha256": "5c0bb426aab9d35e39162798b139aa72191f63191f21098baa0fe2aebd14046f",
+    "D_conf": [
+      {
+        "index": "D-H1 user anxiety: heterogeneity across categories",
+        "perm_p": 0.0175,
+        "p_holm": 0.0175,
+        "decision": "reject H0"
+      },
+      {
+        "index": "D-H2 model anxiety: heterogeneity across categories",
+        "perm_p": 0.001,
+        "p_holm": 0.002,
+        "decision": "reject H0"
+      }
+    ],
+    "heterogeneity": {
+      "user anxiety": 0.0175,
+      "user fear": 0.088,
+      "model model_anxiety": 0.001,
+      "model model_fear": 0.1135,
+      "model model_sadness": 0.2755
+    },
+    "label": [
+      {
+        "path": "user",
+        "emotion": "anxiety",
+        "lab": "NC",
+        "est": 0.02078,
+        "lo": -0.02943,
+        "hi": 0.07059,
+        "p": 0.4015
+      },
+      {
+        "path": "user",
+        "emotion": "anxiety",
+        "lab": "ST",
+        "est": 0.04706,
+        "lo": -0.01032,
+        "hi": 0.10548,
+        "p": 0.1075
+      },
+      {
+        "path": "user",
+        "emotion": "anxiety",
+        "lab": "TM",
+        "est": 0.01956,
+        "lo": -0.06963,
+        "hi": 0.1088,
+        "p": 0.6745
+      },
+      {
+        "path": "model",
+        "emotion": "model_anxiety",
+        "lab": "NC",
+        "est": 0.00665,
+        "lo": -0.02507,
+        "hi": 0.03672,
+        "p": 0.6655
+      },
+      {
+        "path": "model",
+        "emotion": "model_anxiety",
+        "lab": "ST",
+        "est": 0.03277,
+        "lo": -0.01207,
+        "hi": 0.0802,
+        "p": 0.1645
+      },
+      {
+        "path": "model",
+        "emotion": "model_anxiety",
+        "lab": "TM",
+        "est": 0.03252,
+        "lo": -0.03362,
+        "hi": 0.09825,
+        "p": 0.3005
+      }
+    ],
+    "sensitivity": [
+      {
+        "index": "[non-ceiling] user anxiety",
+        "est": 0.032,
+        "lo": -0.01107,
+        "hi": 0.07699,
+        "p": 0.1445
+      },
+      {
+        "index": "[non-ceiling] model model_anxiety",
+        "est": 0.01936,
+        "lo": -0.0119,
+        "hi": 0.04901,
+        "p": 0.2055
+      }
+    ],
+    "non_ceiling_items": 470
+  },
+  "D_current_validation": {
+    "D_files": [
+      {
+        "file": "strat_anxiety_amb.csv",
+        "rows": 1920,
+        "items": 480,
+        "sha256": "f4fd7bc6b8b65dcc3b2081652e33df8bb559d3d538a42c1794f8d85f8e94520e"
+      },
+      {
+        "file": "strat_anxiety_dis.csv",
+        "rows": 240,
+        "items": 120,
+        "sha256": "b8ba102b6b8ce8ffd3ffa50684b9a2a602edd91e91633402786f6b3001795ca8"
+      },
+      {
+        "file": "strat_fear_amb.csv",
+        "rows": 1920,
+        "items": 480,
+        "sha256": "ca5a6b270acd2daa318a0ab98690dc14d0bfda224066cd6b39634d47dee60376"
+      },
+      {
+        "file": "strat_fear_dis.csv",
+        "rows": 240,
+        "items": 120,
+        "sha256": "630a55c3c26f7f7d6a2e5ef660af4fe6deae8d411178c9ed81c2d2379f9fc1c6"
+      },
+      {
+        "file": "strat_model_anxiety_amb.csv",
+        "rows": 1920,
+        "items": 480,
+        "sha256": "3a57f968da735a2462c1510f8421e29714a5a6ac3eec4ec6ae6ce8d495445980"
+      },
+      {
+        "file": "strat_model_anxiety_dis.csv",
+        "rows": 240,
+        "items": 120,
+        "sha256": "c056d524e2579c7197a697f535da817e482921ebd64793082bc732f98873934a"
+      },
+      {
+        "file": "strat_model_fear_amb.csv",
+        "rows": 1920,
+        "items": 480,
+        "sha256": "410bb6bec89ce8efc010af903c678623ca4253c29211f8467bcac849a085348a"
+      },
+      {
+        "file": "strat_model_fear_dis.csv",
+        "rows": 240,
+        "items": 120,
+        "sha256": "544a2010d165fcd5434710f1d1e8498bdeb1766577294c7af4092e8a62d598f4"
+      },
+      {
+        "file": "strat_model_neutral_amb.csv",
+        "rows": 1920,
+        "items": 480,
+        "sha256": "e2606a160ef4cb43304c63ce6adf4bada2af2c07b6d04285f30e4ca7364a0a4c"
+      },
+      {
+        "file": "strat_model_neutral_dis.csv",
+        "rows": 240,
+        "items": 120,
+        "sha256": "232e82b7ea4d612ce4567acea7658e3ef507f1b1d790d8f98aa825759c9ad460"
+      },
+      {
+        "file": "strat_model_sadness_amb.csv",
+        "rows": 1920,
+        "items": 480,
+        "sha256": "b4a73ff80d611e7d51a26797d5f3e363e1afa51fd0950695aa05fc0795bb7f66"
+      },
+      {
+        "file": "strat_model_sadness_dis.csv",
+        "rows": 240,
+        "items": 120,
+        "sha256": "ae7bdb2db648d291debcc945a644670af5f3218340354270f6cef4fc5b8b27a6"
+      },
+      {
+        "file": "strat_neutral_amb.csv",
+        "rows": 1920,
+        "items": 480,
+        "sha256": "6c76e98113a543201d382cee86e8f60aa2020c777d495d654bca85e7bee77194"
+      },
+      {
+        "file": "strat_neutral_dis.csv",
+        "rows": 240,
+        "items": 120,
+        "sha256": "6e13f63f95b95deffaf4ec5a188bf082593314309d287462f361c354770e15eb"
+      },
+      {
+        "file": "strat_none_amb.csv",
+        "rows": 480,
+        "items": 480,
+        "sha256": "3950c5d590b2f194c26cda9f154592a6ae9e38d6915c4fc17008e9b9f20095c9"
+      }
+    ],
+    "D_validated": true,
+    "D_categories": 60,
+    "D_significant_BH": 0
+  },
+  "current_snapshot": "results-current.json"
 }

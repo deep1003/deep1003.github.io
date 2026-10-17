@@ -1,7 +1,7 @@
 {
   "model": "Qwen/Qwen2.5-7B-Instruct",
   "version": "v5 system notice",
-  "checked_at": "2026-10-16 15:45 KST",
+  "checked_at": "2026-10-17",
   "status": "complete; A/B/C/D measurements and D validation complete",
   "summary": {
     "model": "Qwen/Qwen2.5-7B-Instruct",
@@ -1259,5 +1259,7 @@
       "items": 120,
       "sha256": "57518b8f11bbb27d0dac91bbc24e02b952c944017207d3ef7a18ca906f2b8fb3"
     }
-  ]
+  ],
+  "current_snapshot": "results-current.json",
+  "inference_note": "Stored inference and tests preserved; current file/row snapshot updated 2026-10-17. Notebook explanation cells updated without executing code."
 }

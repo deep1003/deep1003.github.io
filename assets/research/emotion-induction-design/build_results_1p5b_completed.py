@@ -1,4 +1,4 @@
-"""저장된 1.5B v5 A/B/C 완료 결과를 동기화한다. 추론이나 검정은 재실행하지 않는다."""
+"""저장된 1.5B v5 결과와 D 완료 상태를 동기화한다. 추론이나 검정은 재실행하지 않는다."""
 import argparse, hashlib, json
 from pathlib import Path
 from datetime import datetime
@@ -66,12 +66,21 @@ for note in section.select('.note'):
 for para in section.select('p.muted'):
     if '확인 시각' in para.text:para.string='2026-10-16 동기화. outputs_1p5b_v5/summary.json과 원자료를 대조했다. 기존 모형 추론과 통계 검정은 재실행하지 않았다.'
     elif '모델 추론·본 실험' in para.text:para.string='원자료 CSV의 중복과 확률값, 블록 B의 조건별 문항 수 및 점추정치를 검증했다. 구간과 p값은 저장된 summary.json을 사용했다. 모델 추론과 검정은 재실행하지 않았다.'
+# D completion is established from the saved summary and complete audited frames.
+d_done=(source/'summary_D.json').exists() and all(name in frames and len(frames[name])==n for name,n in [('strat_none_amb',480)]+[(f'strat_{c}_{ctx}',1920 if ctx=='amb' else 240) for c in ['neutral','anxiety','fear','model_neutral','model_anxiety','model_fear','model_sadness'] for ctx in ['amb','dis']])
+if d_done:
+    progress.clear()
+    progress.append(BeautifulSoup('<summary>진행 현황 · A·B·C·D 완료</summary><div class="result-body"><p>범주 D의 모호 480·명확 120문항 및 summary_D.json 저장을 확인했다. 사용자 불안 범주 이질성 Holm p=.0175, 모델 불안 p=.0020이며 개별 범주는 BH 보정 후 유의하지 않았다. 최신 통합 결과를 함께 참조한다.</p></div>','html.parser'))
+    section.select_one(':scope > summary').string='1.5B · Qwen2.5 · 최신 v5 · A·B·C·D 완료'
+    section.select_one('.lead').string='최신 v5의 중립 대비 평균 효과는 유의하지 않았다. A·B·C·D는 완료됐으며 범주 간 이질성과 개별 범주 유의성은 구분한다.'
+    for note in section.select('.note'):
+        if 'D는 미실행' in note.text:note.string='A·B의 저장된 구간과 보정값을 사용했다. D도 완료했으며 최신 통합 결과에서 범주 이질성을 확인한다.'
 oldstart=text.index('<details class="model-results" id="results-model-1p5b">');oldend=text.index('<details class="model-results" id="results-model-7b">',oldstart);text=text[:oldstart]+str(section)+'\n'+text[oldend:]
 text=text.replace('1.5B v5 모델 경로는 아직 중간 결과다.','1.5B v5 모델 경로도 완료됐으며 중립 대비 효과는 모두 유의하지 않았다.')
 text=text.replace('1.5B 최신 v5는 A 완료, B 진행 중이다.','1.5B 최신 v5는 A·B·C 완료, D 미실행이다.')
 p.write_text(text)
 for f in [root/'fear_axis_v2.ipynb',source/'summary.json']:
  sources.append(dict(file=str(f.relative_to(root)),sha256=hashlib.sha256(f.read_bytes()).hexdigest()))
-payload=dict(model=s['model'],version='v5 system notice',checked_at=datetime.now(ZoneInfo('Asia/Seoul')).isoformat(),status='A/B/C complete; D not executed',user=s['A'],model_self=rows,summary=s,measurement_audit=audit,sources=sources,inference_note='Saved summary only; no new inference or statistical tests')
+payload=dict(model=s['model'],version='v5 system notice',checked_at=datetime.now(ZoneInfo('Asia/Seoul')).isoformat(),status='A/B/C/D complete' if d_done else 'A/B/C complete; D not executed',user=s['A'],model_self=rows,summary=s,measurement_audit=audit,sources=sources,inference_note='Saved summary only; no new inference or statistical tests')
 (out/'results-1p5b-v5.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n')
-print('Synced completed 1.5B A/B/C; D remains unexecuted. No inference.')
+print('Synced saved 1.5B results. D complete:',d_done,'No inference.')
