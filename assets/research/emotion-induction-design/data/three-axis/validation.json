@@ -1,0 +1,25 @@
+{
+  "n_items": 139,
+  "n_clusters": 91,
+  "layer": 14,
+  "condition_comparison": "11 minus 00",
+  "analysis": "Post hoc descriptive Spearman associations and pooled OLS display lines.",
+  "p_values_reported": false,
+  "causal_effects_estimated": false,
+  "model_inference": false,
+  "axes_selected_after_inspecting_atlas": true,
+  "analysis_code_sha256": "1c11f0fa2aa9563048a0cdd0760c8b42fd6c00ea52db7c41eab643d3bb062220",
+  "source_sha256": {
+    "alignment": "d28d2b658382c8b79eb0e3b8f3a01367ae15602604a9c78fae3445a4dae6c3c0",
+    "trials": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4",
+    "items": "424888e46d35a0a66e473cca1137e6874ba451506be2477be01566929c0a2dfb",
+    "axis_gram": "602280a1dd2b69a30509b5788a06ee5ef5c59172c4380ed310d2917440a54d09"
+  },
+  "mean_change_p_unknown_pp": 22.717172247730748,
+  "limitations": [
+    "Same selected items and prompts reused.",
+    "Nonorthogonal axes and strongly correlated alignment changes.",
+    "No independent manipulation of anger or desperation.",
+    "Input-evoked hidden alignment is not experienced emotion or causal mediation."
+  ]
+}

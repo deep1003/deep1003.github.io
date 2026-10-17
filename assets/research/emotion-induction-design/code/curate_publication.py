@@ -1,4 +1,4 @@
-"""Keep one six-figure publication set across the website and cached notebook bundle."""
+"""Keep one curated publication set across the website and cached notebook bundle."""
 from pathlib import Path
 import hashlib
 import json
@@ -40,6 +40,7 @@ def curate(records):
         'M3': '같은 문항·선택지 순서의 00 대비 내부 개념 정렬 변화. 경계는 시각화용 근사이며 정서의 생물학적 경계가 아니다.',
         'M4': '실제 한국어 입력의 토큰별 내부 정렬. 글자 배경은 FA 정렬이며 단어의 인과 기여도가 아니다.',
         'S1': '축 간 유사도와 보류 문장 진단. 축의 겹침과 제한된 구분 타당성을 공개한다.',
+        'S3': '11−00 변화량의 사후 기술 분석. 세 방향은 함께 변하지만 응답 변화와의 상관은 FA 0.085, 절박함 −0.026, 분노 −0.037로 약하다. 정렬 변화의 상관과 개념 방향의 코사인 유사도는 서로 다른 지표이며 인과 효과는 추정하지 않았다.',
         'S2': '139문항의 절대 UN·FA 정렬과 00 대비 변화. 범주는 색으로만 구분하며 각 패널의 선은 전체 문항 OLS 적합선이다.'}
     def artwork(entry):
         stem = entry['website_stem']
@@ -66,12 +67,13 @@ def curate(records):
     atlas = soup.find(id='emotion-atlas')
     if atlas:
         atlas.find('summary').string = '아틀라스 경계·계층군집·차원 축소의 방법과 한계'
-    supplementary = '<section id="publication-supplement"><h2>별첨 그림</h2><p>본문 해석을 검증하는 두 그림만 제공한다.</p>'
+    supplementary = '<section id="publication-supplement"><h2>별첨 그림</h2><p>축 검증, 범주별 정렬, 세 개념 방향의 동반 변화를 별첨으로 제공한다.</p>'
     for entry in figures[4:]:
         supplementary += f'<details><summary>{entry["id"]} · {entry["title"]}</summary>' + artwork(entry) + '</details>'
+    supplementary += '<p id="s3-interpretation">별첨 S3는 기존 139문항에서 FA·절박함·분노의 11−00 정렬 변화와 같은 문항의 정보 부족 응답 확률 변화를 연결한다. 세 방향 간 변화의 Spearman 상관은 FA·절박함 0.745, FA·분노 0.681, 절박함·분노 0.788이다. 함께 변한다는 사실만으로 세 감정이 복합적으로 판단을 바꿨다고 해석하지 않는다. 절박함·분노를 독립적으로 조작한 조건이 없으며, 인과 효과를 분리하려면 같은 중립 입력에서 방향별 개입과 대조가 필요하다.</p><p id="s3-source-links" class="links"><a href="data/three-axis/source_data.csv">S3 문항별 원자료</a><a href="data/three-axis/behavior_associations.csv">응답 변화와의 관계</a><a href="data/three-axis/alignment_change_correlations.csv">정렬 변화의 상관</a><a href="data/three-axis/axis_direction_cosines.csv">고정 축 방향의 유사도</a><a href="data/three-axis/Captions_and_methods.md">영문 캡션과 방법</a></p>'
     supplementary += '<p class="links"><a href="data/category/category_summary.csv">범주별 수치</a><a href="data/category/representation_behavior_associations.csv">행동 변화와의 관계</a><a href="data/category/fitted_lines.csv">적합선 계수</a></p></section>'
     rep.insert_after(fragment(supplementary))
-    selection = '<details id="publication-selection"><summary>그림 구성과 공통 표기</summary><p>본문 4개, 별첨 2개를 사용한다. 조건은 00·01·10·11 순서이며 회색·파랑·빨강·보라색으로 표시한다. 활성·유사도는 짙은 적색에서 밝은 노란색이고, 단위와 범위는 각각의 범례를 따른다. KoBBQ 범주 산점도는 범주별 색을 사용한다. 모든 PNG는 600 dpi이며 PDF·SVG를 함께 제공한다.</p><a href="data/figure_catalog.json">그림 목록</a></details>'
+    selection = '<details id="publication-selection"><summary>그림 구성과 공통 표기</summary><p>본문 4개, 별첨 3개를 사용한다. 조건은 00·01·10·11 순서이며 회색·파랑·빨강·보라색으로 표시한다. 활성·유사도는 짙은 적색에서 밝은 노란색이고, 단위와 범위는 각각의 범례를 따른다. KoBBQ 범주 산점도는 범주별 색을 사용한다. 모든 PNG는 600 dpi이며 PDF·SVG를 함께 제공한다.</p><a href="data/figure_catalog.json">그림 목록</a></details>'
     soup.find('nav').insert_after(fragment(selection))
     for link in list(soup.select('nav a')):
         if link.get('href') == '#category-map':
@@ -86,6 +88,12 @@ def curate(records):
         node.attrs.pop('open', None)
     for section_id, title in [('publication-main', '7. 내부 개념 정렬 · 본문 그림'), ('representations', '8. 측정 방법'), ('publication-supplement', '9. 별첨 그림'), ('implications', '10. 학술적 함의'), ('limitations', '11. 한계와 후속 검증'), ('references', '12. 참고문헌')]:
         soup.find(id=section_id).find('h2').string = title
+    s3 = soup.find('figure', attrs={'data-publication-id': 'S3'})
+    if s3:
+        for identity in ('s3-interpretation', 's3-source-links'):
+            node = soup.find(id=identity)
+            if node:
+                s3.find_parent('details').append(node.extract())
     combined_data = json.loads((BASE / 'figures/behavior_contrasts_display.json').read_text())['combined']
     for identity in ('combined-effect-summary', 'combined-effect-explanation', 'combined-effect-formula'):
         node = soup.find(id=identity)
@@ -124,13 +132,15 @@ def curate(records):
         records.append({'source': str(BASE / source), 'website': relative, 'sha256': sha(path)})
     readme = '''# Manual notebook workflow
 
-The study uses four main-text figures (M1–M4) and two supplementary figures (S1–S2), listed in figure_catalog.json. Figure display reads existing artwork and never calls a plotting builder. Set SHOW_SUPPLEMENT=True to display the two supplements. Progress is shown as tables. Explicit measurement flags default to False; no model inference or background jobs start automatically.
+The study uses four main-text figures (M1–M4) and three supplementary figures (S1–S3), listed in figure_catalog.json. Figure display reads existing artwork and never calls a plotting builder. Set SHOW_SUPPLEMENT=True to display the three supplements. Progress is shown as tables. Explicit measurement flags default to False; no model inference or background jobs start automatically.
+
+Supplement S3 relates FA, desperation, and anger alignment changes to behavioral changes using existing observations only. It is a post hoc descriptive analysis, not a test of independent or combined causal emotion effects.
 
 The combined effect (11 minus 00) is an additional descriptive contrast, distinct from the interaction difference in differences. Its unadjusted 95% interval uses the same paired cluster bootstrap. The three primary tests and their Holm adjustment are unchanged.
 
 All charts use American English, consistent 00/01/10/11 colors, 600 dpi PNG and vector PDF/SVG exports. The original Korean stimuli remain Korean. Internal alignment is not evidence of experienced emotion or emotion-specific causal mediation.
 
-The ZIP contains the same notebook source without embedded output images, with each of the six PNGs stored once, code and cached measurements. Execute display cells to view them. The separately downloadable notebook retains four main-text figures as saved outputs. Unzip beside uncertainty_self_threat_139/ and threat_139_pilot/. Models and model weights are not included. PDF/SVG files are downloaded individually from the website.
+The ZIP contains the same notebook source without embedded output images, with each of the seven PNGs stored once, code and cached measurements. Execute display cells to view them. The separately downloadable notebook retains four main-text figures as saved outputs. Unzip beside uncertainty_self_threat_139/ and threat_139_pilot/. Models and model weights are not included. PDF/SVG files are downloaded individually from the website.
 
 Raw measurements, frozen collectors, hashes, and numerical checks are preserved. Older figure variants are retained in the local timestamped recovery backup and original analysis folders, outside the active figure set. Optional historic renderers remain available as implementation records and are not called by the default notebook.
 '''

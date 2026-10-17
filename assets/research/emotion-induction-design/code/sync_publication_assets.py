@@ -1,4 +1,4 @@
-"""Synchronize six curated figures, source tables, and the manual notebook. No plotting."""
+"""Synchronize curated figures, source tables, and the manual notebook. No plotting."""
 from pathlib import Path
 import hashlib
 import json
@@ -37,7 +37,7 @@ def sync():
     copy(BASE / 'fear_anxiety_expert_review.md', 'data/atlas/fear_anxiety_expert_review.md')
     for directory, destination in [('emotion_atlas', 'atlas'),
                                     ('publication_figures', 'concept'),
-                                    ('item_category_alignment', 'category')]:
+                                    ('item_category_alignment', 'category'), ('three_axis_supplement', 'three-axis')]:
         output = REP / directory / 'output'
         for file in output.rglob('*'):
             selected = file.suffix == '.csv' or file.name in ('Captions_and_methods.md', 'validation.json', 'provenance.json', 'artwork_provenance.json', 'manifest.json', 'plot_summary.json')
@@ -48,7 +48,7 @@ def sync():
                                ('token_scores.csv', 'token_scores.csv'), ('manifest.json', 'manifest.json')]:
         copy(token / name, 'prompt-activations/' + destination)
     modules = ['english_figures.py', 'notebook_views.py', 'plot_style.py', 'prompt_text_figure.py',
-               'emotion_atlas.py', 'concept_umap.py', 'axis_intervention.py',
+               'emotion_atlas.py', 'concept_umap.py', 'axis_intervention.py', 'three_axis_supplement.py',
                'representation_analysis/analysis.py', 'representation_analysis/publication_figures/build_figures.py',
                'representation_analysis/item_category_alignment/plot.py',
                'representation_analysis/item_category_alignment/measure.py',
@@ -66,10 +66,10 @@ def sync():
                         'sha256': hashlib.sha256(file.read_bytes()).hexdigest()})
     unique = {entry['website']: entry for entry in records}
     manifest = {'manual_execution': True, 'automatic_model_inference': False,
-                'automatic_figure_generation': False, 'main_figures': 4, 'supplementary_figures': 2,
+                'automatic_figure_generation': False, 'main_figures': 4, 'supplementary_figures': 3,
                 'figure_language': 'en-US', 'n_items': 139, 'records': list(unique.values())}
     (SITE / 'sync-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2))
-    print(f"Synchronized {len(unique)} files; 4 main + 2 supplementary figures; "
+    print(f"Synchronized {len(unique)} files; 4 main + 3 supplementary figures; "
           f"bundle {(SITE / 'downloads/notebook_cached_analysis.zip').stat().st_size / 1e6:.2f} MB")
 
 if __name__ == '__main__':
