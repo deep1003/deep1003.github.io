@@ -98,7 +98,7 @@ def build(data=DEFAULT_DATA, output=None):
         for i in range(7):
             for j in range(4):
                 v = values[i, j]
-                hm.text(j, i, f'{v:+.2f}' if j else '0.00', ha='center', va='center', fontsize=6, color='white' if (v+.65)/1.3 < .45 else '#161616')
+                hm.text(j, i, f'{v:+.2f}' if j else '0.00', ha='center', va='center', fontsize=6, color=heatmap_text_color(CMAP,img.norm,v))
         hm.set_xticks(range(4), CODES)
         hm.set_yticks(range(7), LABELS)
         hm.set_xlabel('Prompt condition (UN, FA)')

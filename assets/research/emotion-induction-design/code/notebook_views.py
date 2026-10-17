@@ -6,7 +6,7 @@ import json
 import time
 import numpy as np
 import pandas as pd
-from plot_style import PALETTE, condition_marker
+from plot_style import PALETTE, CONDITION_COLORS, condition_marker
 
 CONDITION_LABELS = {
     'U0T0': '명시 안 함 · 기록 보존',
@@ -98,7 +98,7 @@ def progress_snapshot(module, render=True):
         _display_table(table)
         plt = _style()
         fig, ax = plt.subplots(figsize=(180/25.4, 65/25.4))
-        ax.barh(table['조건'], table['진행률 (%)'], color='#777777')
+        ax.barh(table['조건'], table['진행률 (%)'], color=[CONDITION_COLORS[c] for c in table['조건']])
         ax.invert_yaxis()
         ax.set(xlim=(0, 100), xlabel='Saved trials (%)', title='Measurement progress by condition')
         fig.tight_layout()

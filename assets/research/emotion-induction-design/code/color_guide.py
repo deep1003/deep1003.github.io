@@ -17,12 +17,12 @@ def build(show=False):
               representations=REPRESENTATION_COLORS,fit_color=FIT_COLOR,
               quantitative_scales=dict(activation=ACTIVATION_STOPS,similarity=SIMILARITY_STOPS),
               rules=['Identity colors are fixed across graphs, text highlights and legends.',
-                     'Condition 11 is purple and diamond-shaped, never a split red-blue symbol.',
+                     'Condition 11 is purple; condition identity colors are independent of quantitative value colors.',
                      'Continuous colors encode values, not emotion identities; color bars state units and sign.',
                      'All activation heatmaps use dark red through light yellow; negative values are retained.',
                      'Similarity matrices use the same dark-red-to-bright-yellow scale and the range [-1, 1].',
                      'Condition panels retain 00, 01, 10, 11; category colors are a separate fixed encoding.',
-                     'Token overlays: positive alignment uses the selected concept color; negative alignment uses gray.'])
+                     'Token backgrounds use the shared red-yellow value scale; concept selectors use fixed identity colors.'])
     (BASE/'color-specification.json').write_text(json.dumps(spec,ensure_ascii=False,indent=2))
     fig=plt.figure(figsize=(180/25.4,148/25.4))
     def heading(y,text):fig.text(.04,y,text,fontsize=8,weight='bold')

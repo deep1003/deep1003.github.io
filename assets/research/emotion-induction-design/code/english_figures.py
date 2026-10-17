@@ -27,6 +27,12 @@ def save(fig,folder,name,show=True):
         for artist in ax.images:
             if artist.get_cmap().name == 'RdBu':
                 artist.set_cmap(activation_cmap())
+                data = artist.get_array()
+                for text in ax.texts:
+                    x,y = text.get_position()
+                    i,j = int(round(y)),int(round(x))
+                    if 0 <= i < data.shape[0] and 0 <= j < data.shape[1]:
+                        text.set_color(heatmap_text_color(artist.cmap,artist.norm,float(data[i,j])))
     for ext in ['pdf','svg','png']:fig.savefig(folder/f'{name}.{ext}',dpi=600)
     if show:plt.show()
     plt.close(fig)
@@ -54,7 +60,7 @@ def heatmap(data,show=True):
         im=ax.imshow(v,aspect='auto',cmap=cmap,norm=TwoSlopeNorm(vmin=-.65,vcenter=0,vmax=.65),interpolation='none')
         for i in range(7):
             for j in range(4):
-                value=v.iloc[i,j];ax.text(j,i,f'{value:+.2f}',ha='center',va='center',fontsize=5.5,color='white' if (value+.65)/1.3<.45 else '#222')
+                value=v.iloc[i,j];ax.text(j,i,f'{value:+.2f}',ha='center',va='center',fontsize=5.5,color=heatmap_text_color(cmap,im.norm,value))
         ax.set_xticks(range(4),['00','01','10','11']);ax.set_yticks(range(7),LABELS);ax.set_xlabel('Prompt condition (UN, FA)');ax.tick_params(length=0)
         ax.set_title(NAMES[space],loc='left',pad=12);ax.text(-.2,1.10,letter,transform=ax.transAxes,fontsize=8,fontweight='bold')
         for spine in ax.spines.values():spine.set_visible(False)
@@ -62,14 +68,32 @@ def heatmap(data,show=True):
     save(fig,BASE/'figures','emotion_heatmap_en',show)
 
 def token_trace(data,show=True):
-    style();data=Path(data);payload=json.loads((data/'highlights.json').read_text());fig,axs=plt.subplots(2,2,figsize=(180/25.4,135/25.4),layout='constrained')
-    for ax,c,color,letter in zip(axs.flat,CONDITIONS,COLORS,'abcd'):
-        p=next(x for x in payload['prompts'] if x['condition']==c);v=[x['cosine'][1] for x in p['layers']['14']];last=p['assistant_start']['14']['cosine'][1]
-        ax.plot(np.arange(len(v)),v,color=color,lw=.7,label='Reading the input');ax.scatter(len(v)+12,last,color=color,marker='D',s=18,zorder=3,label='Response start')
-        ax.legend(frameon=False,loc='lower left',fontsize=5.5)
-        ax.set(title=c,xlabel='Input position (character offset)',ylabel='FA alignment (cosine)',ylim=(-.20,.05));ax.spines[['top','right']].set_visible(False)
-        ax.text(-.18,1.08,letter,transform=ax.transAxes,weight='bold',fontsize=8)
+    """Overlay four unchanged measured traces on a common reading-progress axis."""
+    from matplotlib.lines import Line2D
+    style();data=Path(data);payload=json.loads((data/'highlights.json').read_text())
+    fig,ax=plt.subplots(figsize=(180/25.4,125/25.4))
+    fig.subplots_adjust(left=.15,right=.97,bottom=.23,top=.86)
+    labels=['00 Reference','01 FA only','10 UN only','11 UN + FA']
+    for c,color,marker in zip(CONDITIONS,COLORS,MARKERS):
+        p=next(x for x in payload['prompts'] if x['condition']==c)
+        v=np.array([x['cosine'][1] for x in p['layers']['14']],dtype=float)
+        last=p['assistant_start']['14']['cosine'][1]
+        x=np.linspace(0,100,len(v))  # Display rescaling only; no interpolation or averaging.
+        ax.plot(x,v,color=color,lw=1.05,alpha=.95,zorder=2)
+        ax.scatter(108,last,color=color,marker='o',s=36,edgecolors='white',linewidths=.45,zorder=4)
+    ax.axvline(104,color='#BBBBBB',lw=.6,linestyle=':',zorder=0)
+    ax.text(108,.06,'Response\nstart',ha='center',va='bottom',fontsize=8)
+    ax.set(xlim=(-1,112),ylim=(-.20,.05),xticks=[0,25,50,75,100],
+           xlabel='Relative input position (%)',ylabel='FA alignment (cosine)')
+    ax.set_title('FA alignment while reading each prompt',loc='left',pad=22,fontsize=11)
+    ax.xaxis.label.set_size(10);ax.yaxis.label.set_size(10);ax.tick_params(labelsize=9)
+    ax.spines[['top','right']].set_visible(False)
+    handles=[Line2D([],[],color=color,lw=1.5,label=label) for color,label in zip(COLORS,labels)]
+    fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.55,.065),ncol=4,
+               frameon=False,fontsize=8,handlelength=2,columnspacing=1.4)
+    fig.text(.15,.025,'Layer 14; positions normalized within each prompt, not matched words. Dots: response start.',fontsize=6.5)
     return save(fig,data,'prompt_FA_trace_en',show)
+
 
 def design(show=True):
     style();fig,ax=plt.subplots(figsize=(180/25.4,145/25.4));ax.set_xlim(0,1);ax.set_ylim(0,1);ax.axis('off')
@@ -198,7 +222,7 @@ def standalone_heatmap(data, show=True):
                 for j in range(4):
                     value=v.iloc[i,j]
                     ax.text(j,i,f'{value:+.2f}',ha='center',va='center',fontsize=11,
-                            color='white' if (value+.65)/1.3<.45 else '#222')
+                            color=heatmap_text_color(im.cmap,im.norm,value))
             ax.set_xticks(range(4),['00','01','10','11'])
             ax.set_yticks(range(7),LABELS)
             ax.set_xlabel('Prompt condition (UN, FA)',labelpad=12)

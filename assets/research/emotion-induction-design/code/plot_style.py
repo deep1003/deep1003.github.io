@@ -11,8 +11,8 @@ CONDITION_COLORS = dict(zip(CONDITION_ORDER, [PALETTE[k] for k in ['neutral','FA
 CONDITION_MARKERS = dict(zip(CONDITION_ORDER, ['o', 's', '^', 'D']))
 CONDITION_TINTS = dict(zip(CONDITION_ORDER, ['#F3F3F3', '#EAF1F7', '#F9ECEA', '#F1ECF6']))
 CONCEPT_ORDER = ['UN', 'FA', 'calm', 'sadness', 'anger', 'desperation', 'joy']
-ACTIVATION_STOPS = ['#160000','#550000','#A60000','#E52600','#FF7600','#FFD12B','#FFFFA0']
-SIMILARITY_STOPS = [(0.0, '#300000'), (0.5, '#700000'), (0.6, '#C00000'), (0.7, '#F52A00'), (0.82, '#FFB900'), (0.9, '#FFE92B'), (1.0, '#FFFF70')]
+ACTIVATION_STOPS = [(0.0, '#300000'), (0.5, '#700000'), (0.6, '#C00000'), (0.7, '#F52A00'), (0.82, '#FFB900'), (0.9, '#FFE92B'), (1.0, '#FFFF70')]
+SIMILARITY_STOPS = ACTIVATION_STOPS
 REPRESENTATION_COLORS = {'semantic': '#777777', 'qwen_L14': '#222222'}
 FIT_COLOR = '#333333'
 
