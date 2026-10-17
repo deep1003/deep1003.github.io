@@ -45,7 +45,7 @@ def _display_table(frame):
 
 def _style():
     import matplotlib.pyplot as plt
-    plt.rcParams.update({'font.family': 'Arial', 'axes.unicode_minus': True, 'font.size': 7, 'axes.titlesize': 7, 'axes.labelsize': 7, 'xtick.labelsize': 6, 'ytick.labelsize': 6, 'legend.fontsize': 6, 'pdf.fonttype': 42, 'svg.fonttype': 'none'})
+    plt.rcParams.update({'figure.dpi':600,'savefig.dpi':600,'font.family': 'Arial', 'axes.unicode_minus': True, 'font.size': 7, 'axes.titlesize': 7, 'axes.labelsize': 7, 'xtick.labelsize': 6, 'ytick.labelsize': 6, 'legend.fontsize': 6, 'pdf.fonttype': 42, 'svg.fonttype': 'none'})
     return plt
 
 

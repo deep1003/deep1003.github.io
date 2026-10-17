@@ -18,7 +18,7 @@ COLORS=[CONDITION_COLORS[c] for c in CONDITIONS]
 MARKERS=[CONDITION_MARKERS[c] for c in CONDITIONS]
 
 def style():
-    plt.rcParams.update({'font.family':'Arial','font.size':7,'axes.titlesize':7,'axes.labelsize':7,'xtick.labelsize':6,'ytick.labelsize':6,'legend.fontsize':6,'axes.linewidth':.6,'xtick.major.width':.6,'ytick.major.width':.6,'pdf.fonttype':42,'svg.fonttype':'none','axes.unicode_minus':True})
+    plt.rcParams.update({'figure.dpi':600,'savefig.dpi':600,'font.family':'Arial','font.size':7,'axes.titlesize':7,'axes.labelsize':7,'xtick.labelsize':6,'ytick.labelsize':6,'legend.fontsize':6,'axes.linewidth':.6,'xtick.major.width':.6,'ytick.major.width':.6,'pdf.fonttype':42,'svg.fonttype':'none','axes.unicode_minus':True})
 
 def save(fig,folder,name,show=True):
     folder=Path(folder);folder.mkdir(parents=True,exist_ok=True)
@@ -130,7 +130,7 @@ def axis_similarity_heatmap(data, show=True):
     fig.text(.22, .045, 'UN, uncertainty; FA, fear / anxiety. Fixed axis order.', fontsize=5.8)
     out = BASE / 'figures'
     out.mkdir(exist_ok=True)
-    fig.savefig(out / 'axis_similarity_L14_en_preview.png', dpi=180)
+    fig.savefig(out / 'axis_similarity_L14_en_preview.png', dpi=600)
     path = save(fig, out, 'axis_similarity_L14_en', show)
     (out / 'axis_similarity_L14_validation.json').write_text(json.dumps({
         'matrix': 'axis_cosines_qwen_L14.csv', 'kind': 'unit-direction Gram matrix',
@@ -138,3 +138,74 @@ def axis_similarity_heatmap(data, show=True):
         'input_sha256': hashlib.sha256((data / 'axis_cosines_qwen_L14.csv').read_bytes()).hexdigest(),
         'color_limits': [-1, 1], 'model_inference': False}, indent=2))
     return path
+
+
+def standalone_pca(data, kind='profile_pca', show=True):
+    """Readable individual panels from the original cached PCA coordinates."""
+    from matplotlib.lines import Line2D
+    results = json.loads((Path(data) / f'{kind}.json').read_text())
+    paths = []
+    for space in NAMES:
+        style()
+        with plt.rc_context({'font.size': 11, 'axes.titlesize': 12,
+                             'axes.labelsize': 11, 'xtick.labelsize': 10,
+                             'ytick.labelsize': 10, 'legend.fontsize': 9}):
+            fig, ax = plt.subplots(figsize=(180/25.4, 150/25.4))
+            fig.subplots_adjust(left=.17, right=.96, bottom=.24, top=.88)
+            result = results[space]
+            xy = pd.DataFrame(result['coordinates']).set_index('condition')
+            labels = ['00 Reference', '01 FA only', '10 UN only', '11 UN + FA']
+            handles = []
+            for c, color, marker, label in zip(CONDITIONS, COLORS, MARKERS, labels):
+                r = xy.loc[c]
+                ax.scatter(r.PC1, r.PC2, s=80, c=color, marker=marker,
+                           edgecolors='white', linewidths=.6, zorder=3)
+                code = c.replace('UN','').replace('FA','')
+                ax.annotate(code, (r.PC1,r.PC2), xytext=(9,9),
+                            textcoords='offset points', fontsize=11)
+                handles.append(Line2D([], [], color=color, marker=marker,
+                                      linestyle='none', markersize=7, label=label))
+            ratio = result['explained_variance_ratio']
+            ax.set_xlabel(f'PC1 ({100*ratio[0]:.1f}%; a.u.)')
+            ax.set_ylabel(f'PC2 ({100*ratio[1]:.1f}%; a.u.)')
+            title = NAMES[space] if kind == 'profile_pca' else {
+                'semantic':'Sentence embeddings', 'qwen_L14':'Full hidden states, layer 14'}[space]
+            ax.set_title(title, loc='left', pad=18)
+            ax.margins(.30)
+            ax.set_aspect('equal', adjustable='datalim')
+            ax.spines[['top','right']].set_visible(False)
+            fig.legend(handles=[handles[i] for i in [0,2,1,3]], loc='lower center', ncol=2,
+                       frameon=False, bbox_to_anchor=(.55,.025))
+            paths.append(save(fig, BASE/'figures', f'{kind}_{space}_en', show))
+    return paths
+
+
+def standalone_heatmap(data, show=True):
+    """Individual heatmaps retain the composite figure's fixed color scale."""
+    scores = pd.read_csv(Path(data)/'scores.csv')
+    paths = []
+    for space in NAMES:
+        style()
+        with plt.rc_context({'font.size':11, 'axes.labelsize':11,
+                             'xtick.labelsize':10, 'ytick.labelsize':10}):
+            fig, ax = plt.subplots(figsize=(180/25.4,145/25.4))
+            fig.subplots_adjust(left=.28,right=.82,bottom=.17,top=.85)
+            v = scores[scores.space==space].pivot(index='condition',columns='axis',values='standardized').reindex(index=CONDITIONS,columns=AXES)
+            v = v.subtract(v.loc['UN0FA0']).T
+            im = ax.imshow(v, aspect='auto', cmap=activation_cmap(),
+                           norm=TwoSlopeNorm(vmin=-.65,vcenter=0,vmax=.65))
+            for i in range(7):
+                for j in range(4):
+                    value=v.iloc[i,j]
+                    ax.text(j,i,f'{value:+.2f}',ha='center',va='center',fontsize=11,
+                            color='white' if (value+.65)/1.3<.45 else '#222')
+            ax.set_xticks(range(4),['00','01','10','11'])
+            ax.set_yticks(range(7),LABELS)
+            ax.set_xlabel('Prompt condition (UN, FA)',labelpad=12)
+            ax.tick_params(length=0)
+            ax.set_title(NAMES[space],loc='left',pad=20,fontsize=12)
+            for spine in ax.spines.values():spine.set_visible(False)
+            cb=fig.colorbar(im,cax=fig.add_axes([.86,.23,.025,.53]),ticks=[-.6,-.3,0,.3,.6])
+            cb.set_label('Change from reference (a.u.)',fontsize=10)
+            paths.append(save(fig,BASE/'figures',f'emotion_heatmap_{space}_en',show))
+    return paths

@@ -32,7 +32,7 @@ CMAP = activation_cmap()
 
 
 def setup():
-    plt.rcParams.update({'font.family': 'Arial', 'font.size': 7, 'axes.titlesize': 7,
+    plt.rcParams.update({'figure.dpi':600,'savefig.dpi':600,'font.family': 'Arial', 'font.size': 7, 'axes.titlesize': 7,
         'axes.labelsize': 7, 'xtick.labelsize': 6, 'ytick.labelsize': 6,
         'legend.fontsize': 6, 'axes.linewidth': .6, 'lines.linewidth': .7,
         'xtick.major.width': .6, 'ytick.major.width': .6, 'xtick.major.size': 2,
@@ -48,7 +48,7 @@ def panel(ax, letter, title):
 def save(fig, name, out):
     for ext in ['pdf', 'svg', 'png']:
         fig.savefig(out / f'{name}.{ext}', dpi=600)
-    fig.savefig(out / f'{name}_preview.png', dpi=180)
+    fig.savefig(out / f'{name}_preview.png', dpi=600)
     plt.close(fig)
 
 

@@ -155,7 +155,7 @@ def build(show=True):
         cb.ax.set_yticklabels([f'{v:+.3f}' for v in ticks], fontsize=6)
         fig.text(.025,.045,'Regions: fixed similarity-based layout. Tiles: individual items, not spatial measurements.',fontsize=6)
         fig.text(.025,.020,'Dark red = lower value; light yellow = higher value. No smoothing; identical scales across conditions.',fontsize=6)
-        fig.savefig(OUT/f'{name}_preview.png',dpi=180)
+        fig.savefig(OUT/f'{name}_preview.png',dpi=600)
         for ext in ['pdf','svg','png']:
             fig.savefig(OUT/f'{name}.{ext}',dpi=600)
         if show:
