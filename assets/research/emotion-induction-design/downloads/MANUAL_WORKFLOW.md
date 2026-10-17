@@ -4,7 +4,7 @@ The study uses four main-text figures (M1–M4) and three supplementary figures 
 
 Before M3, the notebook and website show a cosine-similarity/contact table and an audited explanation of geometry and observed cells. Geometry is PCA plus an equal-area power diagram, not correlation thresholding; each cell is one item–choice-rotation–axis value.
 
-Supplement S3 relates FA, desperation, and anger alignment changes to behavioral changes using existing observations only. It is a post hoc descriptive analysis, not a test of independent or combined causal emotion effects.
+Supplement S3 relates FA, desperation, and anger alignment changes to behavioral changes using existing observations only. It is a post hoc descriptive analysis with 10,000 paired template-cluster bootstrap replicates and pointwise unadjusted 95% intervals, not a test of independent or combined causal emotion effects. The existing outcome and three primary hypothesis tests are unchanged.
 
 The combined effect (11 minus 00) is an additional descriptive contrast, distinct from the interaction difference in differences. Its unadjusted 95% interval uses the same paired cluster bootstrap. The three primary tests and their Holm adjustment are unchanged.
 

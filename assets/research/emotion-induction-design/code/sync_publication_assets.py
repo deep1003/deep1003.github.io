@@ -27,6 +27,7 @@ def sync():
     for name in ('Prompt_text_activation_FA_provenance.json', 'Prompt_text_activation_source.json'):
         copy(BASE / 'figures' / name, 'data/prompt-text/' + name)
     copy(BASE / 'figures/behavior_contrasts_display.json', 'data/behavior/contrasts_display.json')
+    copy(BASE / 'representation_analysis/three_axis_supplement/output/Interpretation.html', 'data/three-axis/Interpretation.html')
     copy(BASE / 'color-specification.json', 'data/color-specification.json')
     copy(BASE / 'figures/axis_similarity_L14_validation.json', 'data/l14/validation.json')
     for name in ('axis_cosines_qwen_L14.csv', 'heldout_checks.csv', 'manifest.json', 'qwen_runtime.json'):
@@ -42,14 +43,14 @@ def sync():
         output = REP / directory / 'output'
         for file in output.rglob('*'):
             selected = file.suffix == '.csv' or file.name in ('Captions_and_methods.md', 'validation.json', 'provenance.json', 'artwork_provenance.json', 'manifest.json', 'plot_summary.json')
-            if file.is_file() and ((destination == 'atlas' and file.suffix in ('.csv', '.json', '.md')) or selected):
+            if file.is_file() and ((destination in ('atlas', 'three-axis') and file.suffix in ('.csv', '.json', '.md')) or selected):
                 copy(file, 'data/' + destination + '/' + str(file.relative_to(output)))
     token = REP / 'token_highlights/output'
     for name, destination in [('prompt_highlights.html', 'index.html'),
                                ('token_scores.csv', 'token_scores.csv'), ('manifest.json', 'manifest.json')]:
         copy(token / name, 'prompt-activations/' + destination)
     modules = ['english_figures.py', 'notebook_views.py', 'plot_style.py', 'prompt_text_figure.py',
-               'emotion_atlas.py', 'concept_umap.py', 'axis_intervention.py', 'three_axis_supplement.py', 'atlas_geometry_notes.py',
+               'emotion_atlas.py', 'concept_umap.py', 'axis_intervention.py', 'three_axis_supplement.py', 'three_axis_supplement_notes.py', 'atlas_geometry_notes.py',
                'representation_analysis/analysis.py', 'representation_analysis/publication_figures/build_figures.py',
                'representation_analysis/item_category_alignment/plot.py',
                'representation_analysis/item_category_alignment/measure.py',

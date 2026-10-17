@@ -100,17 +100,17 @@
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/Supplement_FA_desperation_anger_en.png",
       "website": "figures/three-axis/Supplement_FA_desperation_anger_en.png",
-      "sha256": "d2f8a4208f509e0d8706a1537ccc6050251ceb24b490b55547662bdc113035fa"
+      "sha256": "c5a8d309e65e19f267a8f3dd2db3600cd2f1dc682cd9ddb0f06cf8ca2dd07913"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/Supplement_FA_desperation_anger_en.pdf",
       "website": "figures/three-axis/Supplement_FA_desperation_anger_en.pdf",
-      "sha256": "2109a382cfda04c063f15b466a811d811844e8b5afaa6f7ecf1f0c7fccf09130"
+      "sha256": "121f9e5ed17bc84f18393f4d4fe0ed5f98372cd34facc0745aa5e64ccfc5cfe4"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/Supplement_FA_desperation_anger_en.svg",
       "website": "figures/three-axis/Supplement_FA_desperation_anger_en.svg",
-      "sha256": "a039e167900b9656ed639c176085438f430b3158bbbd9166a2abf43bbb9b908c"
+      "sha256": "c24f64c7ee759fb259b331390928953e27521985989f2ceee090f4487239b038"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figures/Prompt_text_activation_FA_provenance.json",
@@ -126,6 +126,11 @@
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figures/behavior_contrasts_display.json",
       "website": "data/behavior/contrasts_display.json",
       "sha256": "e6a4ca6cc6fb807cab8660a8e0c8954ba6be24eff2945d0047140242453f3f00"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/Interpretation.html",
+      "website": "data/three-axis/Interpretation.html",
+      "sha256": "d3bba33c7f39c48180ecbb130435647de1d3423a96c5f89ce02189194c10c8af"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/color-specification.json",
@@ -410,12 +415,27 @@
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/behavior_associations.csv",
       "website": "data/three-axis/behavior_associations.csv",
-      "sha256": "d27a179a830411b88f9875c8e1aba08b981a6c5d843a26134c17fa5f6a3d0462"
+      "sha256": "82f1164fd4e080238485c09a56c068da1da14aa9d6203d1905bfe476bd5e4a04"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/sensitivity_source_data.csv",
+      "website": "data/three-axis/sensitivity_source_data.csv",
+      "sha256": "c36c61a0e9a0c941b034845ab548687bbfb42950a28bea9acd17a831bf9167b0"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/alignment_change_intervals.csv",
+      "website": "data/three-axis/alignment_change_intervals.csv",
+      "sha256": "311eb203dc516b6eed715b7c9261eac0cd29d3da70376ef47b196221305ab3e0"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/validation.json",
       "website": "data/three-axis/validation.json",
-      "sha256": "80b10516380312e47507f30f741b9fc88dea2bc6265ffa1d0f1e7538c6b79a16"
+      "sha256": "0a2c12b52431003e9f3085e2ac0dd12eec4d8bb6c24717c91386bba3ab433b7a"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/contrast_sensitivity.csv",
+      "website": "data/three-axis/contrast_sensitivity.csv",
+      "sha256": "2e6e2671e31618e3617aa5bec06ff9e74d42498cf829a9a0d987611541d9fee9"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/axis_direction_cosines.csv",
@@ -423,9 +443,19 @@
       "sha256": "b99f2a90a46eaab578818a31d9991944117de65df04ca808c66cc4dc602a14bd"
     },
     {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/bootstrap_plan.json",
+      "website": "data/three-axis/bootstrap_plan.json",
+      "sha256": "f9247ecd90295efdc705ea03d234ddfff1fa25afefdb30c89b84a6e897b980ea"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/Expert_review.md",
+      "website": "data/three-axis/Expert_review.md",
+      "sha256": "ccdbfbf2c62e7fb9450bae9bfc16504a2203216a116fe801749c5cee216fa37a"
+    },
+    {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/source_data.csv",
       "website": "data/three-axis/source_data.csv",
-      "sha256": "a45aa25f586af33a0d56f34302cbfc4c384bb0eba4f57eb5adc0d6fa150e0c8f"
+      "sha256": "6fb4b05e67a4a9199006c30653c417ac391eab307095ecccd4724c5aeac703bb"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/alignment_change_correlations.csv",
@@ -435,7 +465,7 @@
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/three_axis_supplement/output/Captions_and_methods.md",
       "website": "data/three-axis/Captions_and_methods.md",
-      "sha256": "83cb271b005ada47db9b611c499665ef81096232ad7c1f217cdfb2fd3d461b15"
+      "sha256": "834f8667dcb90756b9cca4e3003989a0679333fc2cd21405a9303aa3136f6198"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/representation_analysis/token_highlights/output/prompt_highlights.html",
@@ -490,7 +520,12 @@
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/three_axis_supplement.py",
       "website": "code/three_axis_supplement.py",
-      "sha256": "1c11f0fa2aa9563048a0cdd0760c8b42fd6c00ea52db7c41eab643d3bb062220"
+      "sha256": "532b5b74a7dcbc76e491e1415bff4023df9fb7713150edd5203a52351029c89d"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/three_axis_supplement_notes.py",
+      "website": "code/three_axis_supplement_notes.py",
+      "sha256": "e297395964a0c9a4a15589db8c657651cad78f0c619e3e1ab5455f092fdb1dcb"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/atlas_geometry_notes.py",
@@ -535,7 +570,7 @@
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139.ipynb",
       "website": "downloads/uncertainty_self_threat_139.ipynb",
-      "sha256": "3a5752f98ab5c2a93af954bd84f7a49bfe2380bad5e987765c67f135a80dcc7e"
+      "sha256": "56ec9c53773350f00770b81906d30320957823f91c43531acd185c9dea64a150"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figure_catalog.json",
@@ -545,32 +580,32 @@
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/publication_catalog.py",
       "website": "code/publication_catalog.py",
-      "sha256": "843f38e7c5559d859c92f765bdab5600e84243a13cbc3bf2fc69e9b9a30e386e"
+      "sha256": "aebad3e919bbcfe749f2c4d613c576067d815e6e14f909c1b8ad63cb8049395e"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/curate_publication.py",
       "website": "code/curate_publication.py",
-      "sha256": "08bb471e5dd9870f87e3e4de799d44ef1dd99bf6afb58e7fdc639b7bd58bd6d9"
+      "sha256": "df0a455129412bbb1b9156c93dae1bab4e8b3e034a88482bda8f5f1901f6a016"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/sync_publication_assets.py",
       "website": "code/sync_publication_assets.py",
-      "sha256": "48061025f7514af9be2de9cc494ecb161e7ccb7d27d1583ddb40b3eae2cdde5e"
+      "sha256": "76efa7be05e215148b92a5aa322a90d3d972bf407803a4b056f49f0ae2f38ac1"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/MANUAL_WORKFLOW.md",
       "website": "downloads/MANUAL_WORKFLOW.md",
-      "sha256": "773540c1c6feb9ad296d70174d29eaf10b2cf65df57e8708f6cb135c0d9cb8a5"
+      "sha256": "674643c8cd1bb8765490f44844ae87c0c51d1b69f8a742c02403cf3ab9565ec7"
     },
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/downloads/notebook_cached_analysis.zip",
       "website": "downloads/notebook_cached_analysis.zip",
-      "sha256": "65d57e1af97cf700a4c8fb355c5f3d83a8656979dc7bb176b86581616c4a6dba"
+      "sha256": "79f4eabc10b62fbfbce67089f5f118870148db5a8137127e96630d67cf529d12"
     },
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/index.html",
       "website": "index.html",
-      "sha256": "5d5033d22a7b0e7f7206d6177e8a19c6cd6b33c841cecd9fec2c88748d60d7ea"
+      "sha256": "d2d214a30066791a24df9780dc2f9d613c6d239fa396bb09c44df4d20b7f4253"
     }
   ]
 }

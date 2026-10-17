@@ -17,6 +17,8 @@ def show(figure_id, width=1000):
     if figure_id == 'M3':
         display(HTML((BASE / 'atlas_geometry_explainer.html').read_text()))
     display(Image(filename=str(path), width=width))
+    if figure_id == 'S3':
+        display(HTML((BASE / 'representation_analysis/three_axis_supplement/output/Interpretation.html').read_text()))
     return path
 
 def show_supplement(enabled=False):

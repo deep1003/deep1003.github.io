@@ -40,7 +40,7 @@ def curate(records):
         'M3': '같은 문항·선택지 순서의 00 대비 내부 정렬 변화. 앞의 표는 고정 방향의 코사인 유사도와 실제 경계 접촉 여부다. 영역당 417칸은 139문항×3선택지 순서이며, 화면 픽셀이나 독립적인 417개 문항을 뜻하지 않는다.',
         'M4': '실제 한국어 입력의 토큰별 내부 정렬. 글자 배경은 FA 정렬이며 단어의 인과 기여도가 아니다.',
         'S1': '축 간 유사도와 보류 문장 진단. 축의 겹침과 제한된 구분 타당성을 공개한다.',
-        'S3': '11−00 변화량의 사후 기술 분석. 세 방향은 함께 변하지만 응답 변화와의 상관은 FA 0.085, 절박함 −0.026, 분노 −0.037로 약하다. 정렬 변화의 상관과 개념 방향의 코사인 유사도는 서로 다른 지표이며 인과 효과는 추정하지 않았다.',
+        'S3': '세 방향의 평균 정렬 변화와 문항별 응답 변화의 연관성을 구분한다. 91개 군집·10,000회 부트스트랩의 보정 전 95% 구간을 표시했다. 약한 상관은 인과적 무효를 뜻하지 않으며, 기존 지표를 변경하지 않았다.',
         'S2': '139문항의 절대 UN·FA 정렬과 00 대비 변화. 범주는 색으로만 구분하며 각 패널의 선은 전체 문항 OLS 적합선이다.'}
     def artwork(entry):
         stem = entry['website_stem']
@@ -71,7 +71,7 @@ def curate(records):
     supplementary = '<section id="publication-supplement"><h2>별첨 그림</h2><p>축 검증, 범주별 정렬, 세 개념 방향의 동반 변화를 별첨으로 제공한다.</p>'
     for entry in figures[4:]:
         supplementary += f'<details><summary>{entry["id"]} · {entry["title"]}</summary>' + artwork(entry) + '</details>'
-    supplementary += '<p id="s3-interpretation">별첨 S3는 기존 139문항에서 FA·절박함·분노의 11−00 정렬 변화와 같은 문항의 정보 부족 응답 확률 변화를 연결한다. 세 방향 간 변화의 Spearman 상관은 FA·절박함 0.745, FA·분노 0.681, 절박함·분노 0.788이다. 함께 변한다는 사실만으로 세 감정이 복합적으로 판단을 바꿨다고 해석하지 않는다. 절박함·분노를 독립적으로 조작한 조건이 없으며, 인과 효과를 분리하려면 같은 중립 입력에서 방향별 개입과 대조가 필요하다.</p><p id="s3-source-links" class="links"><a href="data/three-axis/source_data.csv">S3 문항별 원자료</a><a href="data/three-axis/behavior_associations.csv">응답 변화와의 관계</a><a href="data/three-axis/alignment_change_correlations.csv">정렬 변화의 상관</a><a href="data/three-axis/axis_direction_cosines.csv">고정 축 방향의 유사도</a><a href="data/three-axis/Captions_and_methods.md">영문 캡션과 방법</a></p>'
+    supplementary += '<div id="s3-interpretation">' + (BASE / 'representation_analysis/three_axis_supplement/output/Interpretation.html').read_text() + '</div><p id="s3-source-links" class="links"><a href="data/three-axis/source_data.csv">문항별 측정값</a><a href="data/three-axis/behavior_associations.csv">평균 변화와 상관·신뢰구간</a><a href="data/three-axis/contrast_sensitivity.csv">세 대비 전체 민감도 분석</a><a href="data/three-axis/alignment_change_intervals.csv">정렬 간 상관·구간</a><a href="data/three-axis/bootstrap_plan.json">사후 분석 설정</a><a href="data/three-axis/Expert_review.md">세 전문 역할의 AI 검토</a><a href="data/three-axis/Captions_and_methods.md">영문 캡션과 방법</a></p>'
     supplementary += '<p class="links"><a href="data/category/category_summary.csv">범주별 수치</a><a href="data/category/representation_behavior_associations.csv">행동 변화와의 관계</a><a href="data/category/fitted_lines.csv">적합선 계수</a></p></section>'
     rep.insert_after(fragment(supplementary))
     selection = '<details id="publication-selection"><summary>그림 구성과 공통 표기</summary><p>본문 4개, 별첨 3개를 사용한다. 조건은 00·01·10·11 순서이며 회색·파랑·빨강·보라색으로 표시한다. 활성·유사도는 짙은 적색에서 밝은 노란색이고, 단위와 범위는 각각의 범례를 따른다. KoBBQ 범주 산점도는 범주별 색을 사용한다. 모든 PNG는 600 dpi이며 PDF·SVG를 함께 제공한다.</p><a href="data/figure_catalog.json">그림 목록</a></details>'
@@ -137,7 +137,7 @@ The study uses four main-text figures (M1–M4) and three supplementary figures 
 
 Before M3, the notebook and website show a cosine-similarity/contact table and an audited explanation of geometry and observed cells. Geometry is PCA plus an equal-area power diagram, not correlation thresholding; each cell is one item–choice-rotation–axis value.
 
-Supplement S3 relates FA, desperation, and anger alignment changes to behavioral changes using existing observations only. It is a post hoc descriptive analysis, not a test of independent or combined causal emotion effects.
+Supplement S3 relates FA, desperation, and anger alignment changes to behavioral changes using existing observations only. It is a post hoc descriptive analysis with 10,000 paired template-cluster bootstrap replicates and pointwise unadjusted 95% intervals, not a test of independent or combined causal emotion effects. The existing outcome and three primary hypothesis tests are unchanged.
 
 The combined effect (11 minus 00) is an additional descriptive contrast, distinct from the interaction difference in differences. Its unadjusted 95% interval uses the same paired cluster bootstrap. The three primary tests and their Holm adjustment are unchanged.
 
@@ -175,7 +175,7 @@ Raw measurements, frozen collectors, hashes, and numerical checks are preserved.
         for file in (BASE / 'representation_analysis').rglob('*'):
             if not file.is_file() or any(p in file.parts for p in ('references', 'hidden', 'chunks', '__pycache__', 'loading_recovery')):
                 continue
-            if file.suffix not in ('.py', '.csv', '.json', '.md', '.npz'):
+            if file.suffix not in ('.py', '.csv', '.json', '.md', '.npz') and file.name != 'Interpretation.html':
                 continue
             if file.suffix == '.npz' and file.parent.name == 'output':
                 continue
