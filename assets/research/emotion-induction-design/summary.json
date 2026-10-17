@@ -1,0 +1,54 @@
+{
+  "n_items": 139,
+  "n_trials": 1668,
+  "n_clusters": 91,
+  "primary": [
+    {
+      "term": "uncertainty",
+      "estimate": 0.1876360558012823,
+      "ci_low": 0.15548031573815926,
+      "ci_high": 0.22046344092310166,
+      "p": 0.0001,
+      "p_holm": 0.00030000000000000003
+    },
+    {
+      "term": "threat",
+      "estimate": 0.03953566667602517,
+      "ci_low": 0.03048995752279692,
+      "ci_high": 0.04987436471100942,
+      "p": 0.0001,
+      "p_holm": 0.00030000000000000003
+    },
+    {
+      "term": "interaction",
+      "estimate": -0.01938649792972571,
+      "ci_low": -0.03377338502410934,
+      "ci_high": -0.005588235798248149,
+      "p": 0.0029,
+      "p_holm": 0.0029
+    }
+  ],
+  "conditions": {
+    "U0T0": {
+      "p_unknown": 0.38669001656466956,
+      "p_stereotype": 0.45277754783244545,
+      "p_anti": 0.16053243576301926
+    },
+    "U0T1": {
+      "p_unknown": 0.4359189322055576,
+      "p_stereotype": 0.41744056068444824,
+      "p_anti": 0.1466405063296856
+    },
+    "U1T0": {
+      "p_unknown": 0.5840193213308147,
+      "p_stereotype": 0.30502839693494027,
+      "p_anti": 0.11095228320528308
+    },
+    "U1T1": {
+      "p_unknown": 0.613861739041977,
+      "p_stereotype": 0.28531345301776556,
+      "p_anti": 0.1008248117847338
+    }
+  },
+  "limits": "Fixed stimuli, reused selected items, explicit wording rather than absence of uncertainty; not historical effect mediation or actual emotions."
+}
