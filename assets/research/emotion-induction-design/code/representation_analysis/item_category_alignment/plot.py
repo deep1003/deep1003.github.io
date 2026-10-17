@@ -42,6 +42,13 @@ def scatter(ax,d,x,y,letter,title,change=False):
         subset=d[d.category==category]
         ax.scatter(subset[x],subset[y],s=10,color=color,marker=marker,alpha=.72,edgecolors='white',linewidths=.2,zorder=2)
         ax.scatter(subset[x].mean(),subset[y].mean(),s=34,color=color,marker=marker,edgecolors='#222222',linewidths=.6,zorder=4)
+    # One pooled descriptive OLS fit; category means are not additional data.
+    x_values = d[x].to_numpy(dtype=float)
+    y_values = d[y].to_numpy(dtype=float)
+    assert len(d) == 139 and np.isfinite(x_values).all() and np.isfinite(y_values).all()
+    slope, intercept = np.polyfit(x_values, y_values, 1)
+    fit_x = np.array([x_values.min(), x_values.max()])
+    ax.plot(fit_x, intercept + slope * fit_x, color='#333333', lw=.9, zorder=1)
     ax.spines[['top','right']].set_visible(False)
     if change:
         ax.axhline(0,color='#999999',lw=.5,zorder=0);ax.axvline(0,color='#999999',lw=.5,zorder=0)
@@ -58,7 +65,8 @@ def scatter(ax,d,x,y,letter,title,change=False):
     ax.set_xlim(cx-span/2,cx+span/2);ax.set_ylim(cy-span/2,cy+span/2);ax.set_aspect('equal',adjustable='box')
     ax.xaxis.set_major_locator(MaxNLocator(4));ax.yaxis.set_major_locator(MaxNLocator(4))
     rho=float(spearmanr(d[x],d[y]).statistic)
-    ax.text(.03,.96,f'n = {len(d)} items; Spearman rho = {rho:.2f}',transform=ax.transAxes,fontsize=5.7,va='top')
+    ax.text(.03,.96,f'n = {len(d)} items; Spearman rho = {rho:.2f}\nSolid line: pooled OLS fit',transform=ax.transAxes,fontsize=5.7,va='top',linespacing=1.5)
+    return dict(panel_title=title, x=x, y=y, n=len(d), slope=float(slope), intercept=float(intercept), x_min=float(fit_x[0]), x_max=float(fit_x[1]), interpretation='Descriptive item-weighted OLS; no confidence band or independent-item significance test.')
 
 
 def legend(fig,counts,y=.24):
@@ -68,14 +76,17 @@ def legend(fig,counts,y=.24):
 
 def build(out=None):
     setup();out=Path(out) if out else BASE/'output'
+    fit_rows=[]
+    def draw(*args, **kwargs):
+        fit_rows.append(scatter(*args, **kwargs))
     d=pd.read_csv(out/'item_alignment.csv');delta=pd.read_csv(out/'item_changes.csv');counts=d[(d.layer==14)&(d.condition=='UN0FA0')].category.value_counts().to_dict()
     assert set(counts)==set(CATEGORIES) and sum(counts.values())==139
     combined=d[(d.layer==14)&(d.condition=='UN1FA1')].copy();change=delta[(delta.layer==14)&(delta.condition=='UN1FA1')].copy()
     assert len(combined)==len(change)==139 and combined.item.is_unique and change.item.is_unique
     fig,axs=plt.subplots(1,2,figsize=(180/25.4,135/25.4))
     fig.subplots_adjust(left=.10,right=.98,bottom=.34,top=.92,wspace=.42)
-    scatter(axs[0],combined,'cos_UN','cos_FA','a','Alignment under combined wording')
-    scatter(axs[1],change,'delta_cos_UN','delta_cos_FA','b','Within-item change from reference',True)
+    draw(axs[0],combined,'cos_UN','cos_FA','a','Alignment under combined wording')
+    draw(axs[1],change,'delta_cos_UN','delta_cos_FA','b','Within-item change from reference',True)
     legend(fig,counts,.25)
     fig.text(.52,.035,'Small markers, individual items; large outlined markers, category means. Layer 14; three choice rotations averaged.',ha='center',fontsize=5.6)
     save(fig,out,'Figure_2_KoBBQ_category_alignment')
@@ -83,7 +94,7 @@ def build(out=None):
     fig.subplots_adjust(left=.105,right=.97,bottom=.20,top=.95,hspace=.36,wspace=.38)
     for ax,c,letter in zip(axs.flat,CONDITIONS,'abcd'):
         subset=d[(d.layer==14)&(d.condition==c)]
-        scatter(ax,subset,'cos_UN','cos_FA',letter,{'UN0FA0':'Reference (UN0, FA0)','UN1FA0':'Uncertainty wording (UN1, FA0)','UN0FA1':'Self-threat wording (UN0, FA1)','UN1FA1':'Combined wording (UN1, FA1)'}[c])
+        draw(ax,subset,'cos_UN','cos_FA',letter,{'UN0FA0':'Reference (UN0, FA0)','UN1FA0':'Uncertainty wording (UN1, FA0)','UN0FA1':'Self-threat wording (UN0, FA1)','UN1FA1':'Combined wording (UN1, FA1)'}[c])
     # Shared axis domains across experimental conditions, plus equal aspect.
     all14=d[d.layer==14];xmin,xmax=all14.cos_UN.min(),all14.cos_UN.max();ymin,ymax=all14.cos_FA.min(),all14.cos_FA.max();span=max(xmax-xmin,ymax-ymin)*1.18
     for ax in axs.flat:ax.set_xlim((xmin+xmax)/2-span/2,(xmin+xmax)/2+span/2);ax.set_ylim((ymin+ymax)/2-span/2,(ymin+ymax)/2+span/2)
@@ -91,13 +102,13 @@ def build(out=None):
     save(fig,out,'Extended_Data_2_four_conditions')
     # A single-panel version of the requested 139-point change map.
     fig,ax=plt.subplots(figsize=(180/25.4,135/25.4));fig.subplots_adjust(left=.13,right=.72,bottom=.16,top=.92)
-    scatter(ax,change,'delta_cos_UN','delta_cos_FA','a','Context sensitivity across KoBBQ categories',True)
+    draw(ax,change,'delta_cos_UN','delta_cos_FA','a','Context sensitivity across KoBBQ categories',True)
     handles=[Line2D([],[],linestyle='none',marker=m,color=c,markersize=4,label=f'{l} (n = {counts[k]})') for k,(l,c,m) in CATEGORIES.items()]
     fig.legend(handles=handles,loc='center left',bbox_to_anchor=(.74,.53),frameon=False,labelspacing=1)
     fig.text(.13,.06,'UN1FA1 minus UN0FA0; layer 14; three choice rotations averaged.',fontsize=6)
     save(fig,out,'KoBBQ_UN_FA_change_map')
     fig,ax=plt.subplots(figsize=(180/25.4,135/25.4));fig.subplots_adjust(left=.13,right=.72,bottom=.16,top=.92)
-    scatter(ax,combined,'cos_UN','cos_FA','a','KoBBQ items in the UN-FA alignment plane')
+    draw(ax,combined,'cos_UN','cos_FA','a','KoBBQ items in the UN-FA alignment plane')
     fig.legend(handles=handles,loc='center left',bbox_to_anchor=(.74,.53),frameon=False,labelspacing=1)
     fig.text(.13,.06,'Combined wording (UN1FA1); layer 14; three choice rotations averaged.',fontsize=6)
     save(fig,out,'KoBBQ_UN_FA_absolute_map')
@@ -116,6 +127,7 @@ def build(out=None):
     pd.DataFrame(associations).to_csv(out/'representation_behavior_associations.csv',index=False)
     summary={'category_ranking':category.to_dict('records'),'representation_behavior_associations':associations,'UN_FA_axis_cosine':float(pd.read_csv(BASE.parent/'results/d335ad178e3c/axis_cosines_qwen_L14.csv',index_col=0).loc['UN','FA']),'main_correlations':{'absolute_UN_FA_spearman':float(spearmanr(combined.cos_UN,combined.cos_FA).statistic),'delta_UN_FA_spearman':float(spearmanr(change.delta_cos_UN,change.delta_cos_FA).statistic)},'no_category_correlation_coefficient':'Categories are nominal; plotted grouping is not a numeric-category correlation.'}
     (out/'plot_summary.json').write_text(json.dumps(summary,indent=2))
+    pd.DataFrame(fit_rows).to_csv(out/'fitted_lines.csv',index=False)
     return out
 
 if __name__=='__main__':print(build())

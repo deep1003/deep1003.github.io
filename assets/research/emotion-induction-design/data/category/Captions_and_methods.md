@@ -29,3 +29,6 @@ The plotting code uses saved representation measurements only and does not load 
 Nature Research Figure Guide, Preparing figures: our specifications. https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/ (accessed 17 October 2026).
 
 Emotion concepts and their function in a large language model. Anthropic (2026). https://www.anthropic.com/research/emotion-concepts-function. This motivates concept-alignment measurement; its causal steering findings are not attributed to the present observational projection analysis.
+
+
+Each scatter panel includes one solid dark-gray ordinary least-squares line fitted to its 139 individual item coordinates, with an intercept. Category means are excluded from fitting. The line is drawn only over the observed x range. It is a descriptive, item-weighted fit; no confidence band, independent-item p-value, or causal interpretation is attached. The Spearman coefficient remains a separate rank-association summary and is not the fitted-line slope. Regression coefficients and observed x ranges are provided in fitted_lines.csv.
