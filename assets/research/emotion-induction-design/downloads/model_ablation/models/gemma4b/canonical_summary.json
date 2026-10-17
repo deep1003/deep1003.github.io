@@ -1,30 +1,45 @@
 {
   "model": "Gemma3-4B Q4_K_M",
   "study_type": "model_ablation",
-  "contrasts": [
+  "state": "complete",
+  "primary": [
     {
       "model": "Gemma3-4B Q4_K_M",
       "term": "uncertainty",
       "effect_pp": 4.01034152197907,
+      "ci_low_pp": 2.0794997202159142,
+      "ci_high_pp": 6.135192789919019,
+      "p": 0.0001,
+      "source_sha256": "d3b63d9b1a90206f8aed5cd97cc962b0fd55e9911efa0b6b544a772e6ea7a8c8",
       "p_holm": 0.0003,
       "significant": true
     },
     {
       "model": "Gemma3-4B Q4_K_M",
       "term": "threat",
-      "effect_pp": 0.04359359345594,
+      "effect_pp": 0.0435935934559422,
+      "ci_low_pp": -0.8892378548520862,
+      "ci_high_pp": 0.9626313631801396,
+      "p": 0.9097,
+      "source_sha256": "d3b63d9b1a90206f8aed5cd97cc962b0fd55e9911efa0b6b544a772e6ea7a8c8",
       "p_holm": 0.9097,
       "significant": false
     },
     {
       "model": "Gemma3-4B Q4_K_M",
       "term": "combined",
-      "effect_pp": 4.05393511543501,
+      "effect_pp": 4.053935115435013,
+      "ci_low_pp": 1.936760217198096,
+      "ci_high_pp": 6.4134516799737025,
+      "p": 0.0003,
+      "source_sha256": "d3b63d9b1a90206f8aed5cd97cc962b0fd55e9911efa0b6b544a772e6ea7a8c8",
       "p_holm": 0.0006,
       "significant": true
     }
   ],
+  "n_items": 139,
+  "n_trials": 1668,
+  "n_clusters": 91,
   "combined": "UN1FA1-UN0FA0",
-  "multiplicity": "Holm3 within uncertainty,threat,combined",
-  "original_analyses_preserved": true
+  "holm": "three displayed contrasts within model"
 }

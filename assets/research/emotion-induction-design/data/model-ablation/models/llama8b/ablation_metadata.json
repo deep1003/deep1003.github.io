@@ -1,12 +1,6 @@
 {
+  "model": "Llama3.1-8B Q4_K_M",
   "report_type": "model_ablation",
-  "model": "llama8b",
-  "status": "running",
-  "snapshot_kst": "2026-10-17T22:53:51.893331+09:00",
-  "displayed_contrasts": [
-    "uncertainty",
-    "threat",
-    "combined=11-00"
-  ],
-  "completed_results_only": true
+  "state": "complete",
+  "time_kst": "2026-10-17T23:33:52.478258+09:00"
 }

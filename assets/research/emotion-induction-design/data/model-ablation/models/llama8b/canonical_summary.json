@@ -1,0 +1,45 @@
+{
+  "model": "Llama3.1-8B Q4_K_M",
+  "study_type": "model_ablation",
+  "state": "complete",
+  "primary": [
+    {
+      "model": "Llama3.1-8B Q4_K_M",
+      "term": "uncertainty",
+      "effect_pp": 4.278053712384698,
+      "ci_low_pp": 3.615022032000348,
+      "ci_high_pp": 4.971239523794358,
+      "p": 0.0001,
+      "source_sha256": "1d716a2538ed41355da3749e2689fc5d3528248d42802972031be770d8d09d72",
+      "p_holm": 0.0003,
+      "significant": true
+    },
+    {
+      "model": "Llama3.1-8B Q4_K_M",
+      "term": "threat",
+      "effect_pp": 3.8610020993572,
+      "ci_low_pp": 3.3831690430513395,
+      "ci_high_pp": 4.333448729523983,
+      "p": 0.0001,
+      "source_sha256": "1d716a2538ed41355da3749e2689fc5d3528248d42802972031be770d8d09d72",
+      "p_holm": 0.0003,
+      "significant": true
+    },
+    {
+      "model": "Llama3.1-8B Q4_K_M",
+      "term": "combined",
+      "effect_pp": 8.139055811741896,
+      "ci_low_pp": 7.187596240809234,
+      "ci_high_pp": 9.090767794398818,
+      "p": 0.0001,
+      "source_sha256": "1d716a2538ed41355da3749e2689fc5d3528248d42802972031be770d8d09d72",
+      "p_holm": 0.0003,
+      "significant": true
+    }
+  ],
+  "n_items": 139,
+  "n_trials": 1668,
+  "n_clusters": 91,
+  "combined": "UN1FA1-UN0FA0",
+  "holm": "three displayed contrasts within model"
+}

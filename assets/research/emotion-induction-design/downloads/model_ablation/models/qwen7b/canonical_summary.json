@@ -1,30 +1,45 @@
 {
   "model": "Qwen2.5-7B FP32",
   "study_type": "main_study",
-  "contrasts": [
+  "state": "complete",
+  "primary": [
     {
       "model": "Qwen2.5-7B FP32",
       "term": "uncertainty",
       "effect_pp": 18.763605580128228,
+      "ci_low_pp": 15.548031573815926,
+      "ci_high_pp": 22.046344092310164,
+      "p": 0.0001,
+      "source_sha256": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4",
       "p_holm": 0.0003,
       "significant": true
     },
     {
       "model": "Qwen2.5-7B FP32",
       "term": "threat",
-      "effect_pp": 3.95356666760251,
+      "effect_pp": 3.953566667602517,
+      "ci_low_pp": 3.048995752279692,
+      "ci_high_pp": 4.987436471100942,
+      "p": 0.0001,
+      "source_sha256": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4",
       "p_holm": 0.0003,
       "significant": true
     },
     {
       "model": "Qwen2.5-7B FP32",
       "term": "combined",
-      "effect_pp": 22.71717224773074,
+      "effect_pp": 22.717172247730748,
+      "ci_low_pp": 19.125465624223033,
+      "ci_high_pp": 26.34369498137385,
+      "p": 0.0001,
+      "source_sha256": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4",
       "p_holm": 0.0003,
       "significant": true
     }
   ],
+  "n_items": 139,
+  "n_trials": 1668,
+  "n_clusters": 91,
   "combined": "UN1FA1-UN0FA0",
-  "multiplicity": "Holm3 within uncertainty,threat,combined",
-  "original_analyses_preserved": true
+  "holm": "three displayed contrasts within model"
 }
