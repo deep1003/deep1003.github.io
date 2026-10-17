@@ -1,0 +1,88 @@
+{
+  "plan_signature": "7d4a83ed691b1adccc343ef294ec1467bfafac27323d253affb6052660c4414b",
+  "settings": {
+    "source_sha256": "d28d2b658382c8b79eb0e3b8f3a01367ae15602604a9c78fae3445a4dae6c3c0",
+    "rows": "139 selected items x 4 conditions; repeated within item",
+    "features": [
+      "cos_UN",
+      "cos_FA",
+      "cos_calm",
+      "cos_sadness",
+      "cos_anger",
+      "cos_desperation",
+      "cos_joy"
+    ],
+    "preprocessing": "No rescaling or orthogonalization; seven original cosine-alignment features.",
+    "fit_scope": "All four conditions jointly; this is not a baseline-only embedding.",
+    "primary": {
+      "n_neighbors": 15,
+      "random_state": 42,
+      "min_dist": 0.3,
+      "metric": "euclidean",
+      "n_epochs": 300,
+      "n_jobs": 1
+    },
+    "sensitivity": [
+      {
+        "n_neighbors": 15,
+        "random_state": 42
+      },
+      {
+        "n_neighbors": 5,
+        "random_state": 42
+      },
+      {
+        "n_neighbors": 30,
+        "random_state": 42
+      },
+      {
+        "n_neighbors": 15,
+        "random_state": 13
+      },
+      {
+        "n_neighbors": 15,
+        "random_state": 97
+      }
+    ],
+    "model_inference": false,
+    "umap_version": "0.5.12"
+  },
+  "diagnostics": [
+    {
+      "n_neighbors": 15,
+      "seed": 42,
+      "primary": true,
+      "trustworthiness_k10": 0.9744012005936417,
+      "knn_recall_k10": 0.5683453237410072
+    },
+    {
+      "n_neighbors": 5,
+      "seed": 42,
+      "primary": false,
+      "trustworthiness_k10": 0.9742641039804604,
+      "knn_recall_k10": 0.5821942446043166
+    },
+    {
+      "n_neighbors": 30,
+      "seed": 42,
+      "primary": false,
+      "trustworthiness_k10": 0.96908537924517,
+      "knn_recall_k10": 0.5170863309352518
+    },
+    {
+      "n_neighbors": 15,
+      "seed": 13,
+      "primary": false,
+      "trustworthiness_k10": 0.9774020191802155,
+      "knn_recall_k10": 0.5803956834532374
+    },
+    {
+      "n_neighbors": 15,
+      "seed": 97,
+      "primary": false,
+      "trustworthiness_k10": 0.9760696530657066,
+      "knn_recall_k10": 0.5755395683453237
+    }
+  ],
+  "interpretation": "Exploratory nonlinear profile layout; not full 3584-dimensional hidden states, causal evidence or independent emotion clusters."
+}
