@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T09:27:21.615121+09:00",
-  "headline": "7B의 선별된 모호 139문항에서 모델 자기 불안 문맥이 중립 대비 ‘알 수 없음’ 응답 확률을 12.00%p 높였다(95% 신뢰구간 2.91~21.61%p, Holm p=.025).",
+  "updated_at": "2026-10-17T13:48:47.554231+09:00",
+  "headline": "위협 공지의 고정관념 응답 효과는 확인되지 않았고, 폐기 확률 25%→75%에서는 ‘알 수 없음’ 확률이 7B에서 1.64%p 감소했다.",
   "main_comparisons": [
     {
       "model": "1p5b",
@@ -1347,5 +1347,300 @@
   "completion": {
     "1p5b": "A/B/D complete; C before data unavailable, no before-after comparison",
     "7b": "A/B/C/D complete"
+  },
+  "latest_completed": {
+    "probability_fp16": {
+      "primary_interaction": {
+        "estimate": -0.014285943122036328,
+        "ci_low": -0.02065031087157379,
+        "ci_high": -0.008258024474986327,
+        "p": 0.0001
+      },
+      "secondary_strength": {
+        "1.5B": {
+          "estimate": -0.002076954014487792,
+          "ci_low": -0.002680512735269185,
+          "ci_high": -0.001461671482849434,
+          "p": 0.0001,
+          "p_holm": 0.0002
+        },
+        "7B": {
+          "estimate": -0.016362897136524116,
+          "ci_low": -0.022561179082267412,
+          "ci_high": -0.010464581060672972,
+          "p": 0.0001,
+          "p_holm": 0.0002
+        }
+      },
+      "n_items": 139,
+      "template_clusters": 91,
+      "bootstrap": "10000 paired cluster draws; 139-item weighted estimand",
+      "scope": "Retrospective extension on reused 7B-selected items. New probability contrast is not demonstrated subjective threat intensity. Original7B anchors historical, not independent replication."
+    },
+    "slide_fp32": {
+      "out": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b",
+      "n_items": 139,
+      "clusters": 91,
+      "n_boot": 10000,
+      "primary": [
+        {
+          "metric": "p_stereotype",
+          "hypothesis": "H1 T2_slide - N0",
+          "term": "1.5B",
+          "estimate": -0.008690558804413502,
+          "ci_low": -0.01717160314966676,
+          "ci_high": -0.00043449242386047447,
+          "p": 0.040900000000000006,
+          "p_holm": 0.08180000000000001,
+          "primary": true
+        },
+        {
+          "metric": "p_stereotype",
+          "hypothesis": "H1 T2_slide - N0",
+          "term": "7B",
+          "estimate": -0.008966452835060468,
+          "ci_low": -0.04556451327547833,
+          "ci_high": 0.02587692154157917,
+          "p": 0.6037,
+          "p_holm": 0.6037,
+          "primary": true
+        },
+        {
+          "metric": "p_stereotype",
+          "hypothesis": "H2 dose slope (per step)",
+          "term": "1.5B",
+          "estimate": 1.6507208995003795e-05,
+          "ci_low": -0.0031076817726254677,
+          "ci_high": 0.0031814429276286506,
+          "p": 0.9944999999999999,
+          "p_holm": 1.0,
+          "primary": true
+        },
+        {
+          "metric": "p_stereotype",
+          "hypothesis": "H2 dose slope (per step)",
+          "term": "7B",
+          "estimate": 0.003065992240815195,
+          "ci_low": -0.0071509309719067285,
+          "ci_high": 0.0128656164004682,
+          "p": 0.5559,
+          "p_holm": 1.0,
+          "primary": true
+        },
+        {
+          "metric": "p_stereotype",
+          "hypothesis": "H3 size moderation (7B - 1.5B)",
+          "term": "T2-N0",
+          "estimate": -0.00027589403064696814,
+          "ci_low": -0.03767030658258599,
+          "ci_high": 0.035275536459274594,
+          "p": 0.9757,
+          "p_holm": 1.0,
+          "primary": true
+        },
+        {
+          "metric": "p_stereotype",
+          "hypothesis": "H3 size moderation (7B - 1.5B)",
+          "term": "dose slope",
+          "estimate": 0.0030494850318201895,
+          "ci_low": -0.008359569747570733,
+          "ci_high": 0.014020207373989041,
+          "p": 0.5951,
+          "p_holm": 1.0,
+          "primary": true
+        },
+        {
+          "metric": "p_stereotype",
+          "hypothesis": "H5 self-relevance T2_slide - C_other",
+          "term": "1.5B",
+          "estimate": 0.009569363898041545,
+          "ci_low": -0.0007127693169500881,
+          "ci_high": 0.020029979141438805,
+          "p": 0.0643,
+          "p_holm": 0.1286,
+          "primary": true
+        },
+        {
+          "metric": "p_stereotype",
+          "hypothesis": "H5 self-relevance T2_slide - C_other",
+          "term": "7B",
+          "estimate": 0.010136765566008146,
+          "ci_low": -0.02362257757067044,
+          "ci_high": 0.0429693261913661,
+          "p": 0.5565,
+          "p_holm": 0.5565,
+          "primary": true
+        }
+      ],
+      "h4_wald": {
+        "dose_x_category": {
+          "n_terms": 11,
+          "stat": 19.17271395741056,
+          "p": 0.05806282541433587
+        },
+        "dose_x_category_x_7B": {
+          "n_terms": 11,
+          "stat": 21.970084464920106,
+          "p": 0.024606030306237904
+        }
+      },
+      "manipulation": [
+        {
+          "condition": "N0_neutral",
+          "threat_rating_ev": 6.6482432978227735,
+          "digit_mass": 0.9976090788841248,
+          "model": "1.5B"
+        },
+        {
+          "condition": "T1_low",
+          "threat_rating_ev": 5.775805587880313,
+          "digit_mass": 0.993013083934784,
+          "model": "1.5B"
+        },
+        {
+          "condition": "T2_slide",
+          "threat_rating_ev": 7.929602700285613,
+          "digit_mass": 0.9962210655212402,
+          "model": "1.5B"
+        },
+        {
+          "condition": "T3_high",
+          "threat_rating_ev": 7.925407458562404,
+          "digit_mass": 0.9868991374969482,
+          "model": "1.5B"
+        },
+        {
+          "condition": "C_other",
+          "threat_rating_ev": 8.047869161469862,
+          "digit_mass": 0.9979403018951416,
+          "model": "1.5B"
+        },
+        {
+          "condition": "N0_neutral",
+          "threat_rating_ev": 2.8836902114420724,
+          "digit_mass": 1.0,
+          "model": "7B"
+        },
+        {
+          "condition": "T1_low",
+          "threat_rating_ev": 3.149278499846062,
+          "digit_mass": 1.0,
+          "model": "7B"
+        },
+        {
+          "condition": "T2_slide",
+          "threat_rating_ev": 6.787945848430699,
+          "digit_mass": 1.0,
+          "model": "7B"
+        },
+        {
+          "condition": "T3_high",
+          "threat_rating_ev": 7.591972208561332,
+          "digit_mass": 1.0,
+          "model": "7B"
+        },
+        {
+          "condition": "C_other",
+          "threat_rating_ev": 3.129389581759824,
+          "digit_mass": 1.0,
+          "model": "7B"
+        }
+      ],
+      "limits": [
+        "동일 139문항은 기존 7B 블록 B에서 선별된 문항의 재사용이며 독립 표본 재현이 아니다.",
+        "위협 강도는 공지 속성으로 조작했으며 내적 정서 강도를 검증하지 않는다. 조작 점검은 자기보고형 언어 반응이다.",
+        "공지 길이가 조건 간 완전히 같지 않다 (T3가 가장 길다).",
+        "범주별 문항 수가 4~21로 불균형하여 H4는 탐색적이다.",
+        "모델 크기 조절은 단일 계열 두 크기 비교이며 크기 외 차이(학습 데이터, 정렬)를 배제하지 못한다."
+      ]
+    }
+  },
+  "latest_validation": [
+    {
+      "experiment": "threat_slide_moderation",
+      "model": "1.5B",
+      "rows": 2085,
+      "items": 139,
+      "duplicates": 0,
+      "probability_checks": "passed",
+      "conditions": {
+        "C_other": 417,
+        "N0_neutral": 417,
+        "T1_low": 417,
+        "T2_slide": 417,
+        "T3_high": 417
+      }
+    },
+    {
+      "experiment": "threat_slide_moderation",
+      "model": "7B",
+      "rows": 2085,
+      "items": 139,
+      "duplicates": 0,
+      "probability_checks": "passed",
+      "conditions": {
+        "C_other": 417,
+        "N0_neutral": 417,
+        "T1_low": 417,
+        "T2_slide": 417,
+        "T3_high": 417
+      }
+    },
+    {
+      "experiment": "threat_139_fp16_pilot",
+      "model": "1.5B",
+      "rows": 1946,
+      "items": 139,
+      "duplicates": 0,
+      "probability_checks": "passed",
+      "conditions": {
+        "neutral": 556,
+        "original_anxiety": 556,
+        "threat_25": 417,
+        "threat_75": 417
+      }
+    },
+    {
+      "experiment": "threat_139_fp16_pilot",
+      "model": "7B",
+      "rows": 1946,
+      "items": 139,
+      "duplicates": 0,
+      "probability_checks": "passed",
+      "conditions": {
+        "neutral": 556,
+        "original_anxiety": 556,
+        "threat_25": 417,
+        "threat_75": 417
+      }
+    }
+  ],
+  "latest_sources_sha256": {
+    "output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b/summary.json": "a59d94f286c817be407619ff555ae8577c3510851b22ccf83fe08e42a2556639",
+    "output/jupyter-notebook/threat_139_fp16_pilot/results/786239b910f6/summary.json": "64e7fa1b366a08936b1a741c0e086a0111075d1e28605df8c3b8c721ecf4c1e1",
+    "output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b/manifest.json": "729895b1b653a9a34849487ecb162964c699fb1c31cab385ee8665e2b5bf61a9",
+    "output/jupyter-notebook/threat_139_fp16_pilot/results/786239b910f6/manifest.json": "9a8acf98e0f87303832d8aad3bf9a47bbfd11a8d37a285e37ca63d7aa40c28a2",
+    "output/jupyter-notebook/threat_139_pilot/items_139.csv": "424888e46d35a0a66e473cca1137e6874ba451506be2477be01566929c0a2dfb",
+    "output/jupyter-notebook/threat_139_fp16_pilot/plan.csv": "a27af153ada99d7f273fd3d031db39bafc75697a31b51071790330820cf86d3e",
+    "output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b/trials_1.5B.csv": "61a725e4ce268ea596f03d52ac44772aa86c42de66adcee521ca18590ab4fa08",
+    "output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b/manipulation_1.5B.csv": "f7a5f1ccd6a8fd62d76569d9a59149075a8aaaf3e4d1ef4e912696e41f008762",
+    "output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b/trials_7B.csv": "8c5dae54dbec24f7eb9964ab4991c7ed94d387d5f2a659318b9ab87e6c91a53a",
+    "output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b/manipulation_7B.csv": "7bd7228e7f63d270c72af67056949a199d25766f7142354b2ce80c16b43acb1c",
+    "output/jupyter-notebook/threat_139_fp16_pilot/results/786239b910f6/trials_1.5B.csv": "df27ef96dc947210c59665aa64dbc4cdb72c8086c1c9cb7a6deb2b41427bb797",
+    "output/jupyter-notebook/threat_139_fp16_pilot/results/786239b910f6/trials_7B.csv": "17f291d95b7c2f3ee0440c228dc6daa039617edfc8975046f143ed06b1c3b399",
+    "output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b/contrasts.csv": "e025409202adf402ca97b77dacf3f5e191245036ca6be895d012601dcf1406c2",
+    "output/jupyter-notebook/threat_139_fp16_pilot/results/786239b910f6/condition_curve.csv": "7e66f68b59786b0f7099074eb32972aca0993542b69360e583ce4f5e991564e3",
+    "output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b/category_descriptive.csv": "201e616b478baa5be5ef7c71ac40d3fe82a1e51a0c808165b036c6af47952300",
+    "output/jupyter-notebook/threat_139_fp16_pilot/results/786239b910f6/runtime_7B.json": "a428f511917f45d96f9873b8aa7544080aaed692b9a458e6d5107125a8b23782",
+    "output/jupyter-notebook/threat_139_fp16_pilot/results/786239b910f6/runtime_1.5B.json": "1510d42e233ae050123103789d7f8f5669b0a0dc87593cc5c07628bd955e403e",
+    "output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b/runtime_7B.json": "a218d592751985b76a10a78f66342d18f79959095f4eaf892fe76882db9fe60e",
+    "output/jupyter-notebook/threat_slide_moderation/results/c271b1dae32b/runtime_1.5B.json": "b7acd9def2f590fb319c5acdb3b02413672491937a0e3652956173e4e68f524a"
+  },
+  "latest_numerical_limit": {
+    "batch_check_max_pp": {
+      "1.5B": 0.5268111824989319,
+      "7B": 0.9001076221466064
+    },
+    "scope": "28-prompt batch diagnostic, not an estimate of treatment-effect error; small 1.5B effect needs high-precision replication"
   }
 }

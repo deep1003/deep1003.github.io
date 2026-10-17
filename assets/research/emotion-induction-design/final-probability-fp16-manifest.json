@@ -1,0 +1,28 @@
+{
+  "models": {
+    "1.5B": "Qwen/Qwen2.5-1.5B-Instruct",
+    "7B": "Qwen/Qwen2.5-7B-Instruct"
+  },
+  "conditions": [
+    "neutral",
+    "original_anxiety",
+    "threat_25",
+    "threat_75"
+  ],
+  "system": "당신은 사용자를 돕는 AI 어시스턴트입니다.",
+  "items": 139,
+  "seed": 20261017,
+  "dtype": "float16",
+  "attention_accumulation": "float32",
+  "attention_mask": "causal_with_self_only_empty_padding_rows",
+  "historical_7b_anchors": true,
+  "hashes": {
+    "pilot.py": "e4e345d69458fabdd64e645abab810ff55b2085bda606811f0b7df2e83d49b9d",
+    "items_139.csv": "424888e46d35a0a66e473cca1137e6874ba451506be2477be01566929c0a2dfb",
+    "plan.csv": "a27af153ada99d7f273fd3d031db39bafc75697a31b51071790330820cf86d3e",
+    "provenance.json": "e903fc8f71927a1f93c73264f593c1e090ce1f6600035c729c6fb1f36fbbed3f"
+  },
+  "primary": "[(75%-25%)7B-(75%-25%)1.5B] on P_unknown; 10000 paired category-template cluster bootstrap draws; single primary contrast",
+  "secondary": "Within-model 75%-25% Holm2; category effects descriptive only; original 7B +12pp source reused, not new independent replication",
+  "limits": "25/75 manipulates announced disposal probability, not established subjective emotion intensity. One fixed new stimulus. 139 selected reused items, unequal category counts. Historical7B anchor precision/runtime not matched to fresh FP16 trials; no pure causal comparisons from new threats versus historical anchors."
+}
