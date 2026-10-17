@@ -36,7 +36,7 @@ def curate(records):
         return BeautifulSoup(text, 'html.parser')
     captions = {
         'M1': '同一139문항과 세 선택지 순서를 사용한 대응 2×2 설계.'.replace('同一', '동일한 '),
-        'M2': '조건 평균과 주요 대비. 95% 구간은 보정 전, 세 주요 대비의 p값은 Holm 보정이다.',
+        'M2': '빈 마름모는 결합 효과 11−00, 채운 원은 기존 세 주요 대비다. 결합 효과 +22.72%p는 상호작용 −1.94%p와 다르다. 모든 구간은 보정 전 95% 구간이며 Holm 보정은 기존 세 검정에만 적용한다.',
         'M3': '같은 문항·선택지 순서의 00 대비 내부 개념 정렬 변화. 경계는 시각화용 근사이며 정서의 생물학적 경계가 아니다.',
         'M4': '실제 한국어 입력의 토큰별 내부 정렬. 글자 배경은 FA 정렬이며 단어의 인과 기여도가 아니다.',
         'S1': '축 간 유사도와 보류 문장 진단. 축의 겹침과 제한된 구분 타당성을 공개한다.',
@@ -86,6 +86,27 @@ def curate(records):
         node.attrs.pop('open', None)
     for section_id, title in [('publication-main', '7. 내부 개념 정렬 · 본문 그림'), ('representations', '8. 측정 방법'), ('publication-supplement', '9. 별첨 그림'), ('implications', '10. 학술적 함의'), ('limitations', '11. 한계와 후속 검증'), ('references', '12. 참고문헌')]:
         soup.find(id=section_id).find('h2').string = title
+    combined_data = json.loads((BASE / 'figures/behavior_contrasts_display.json').read_text())['combined']
+    for identity in ('combined-effect-summary', 'combined-effect-explanation', 'combined-effect-formula'):
+        node = soup.find(id=identity)
+        if node:
+            node.decompose()
+    abstract = soup.find(id='results-current')
+    abstract.find(class_='brief-i').find('em').string = 'UN이 없을 때 FA의 추가 효과는 +4.92%p, 있을 때는 +2.98%p다. 그 차이가 −1.94%p다.'
+    for paragraph in abstract.find_all('p', recursive=False):
+        if paragraph.get_text().startswith(('두 문구 요소 모두', '11 결합 조건은')):
+            paragraph.string = '11 결합 조건은 00 대비 정보 부족 응답 확률을 +22.72%p 높였다. 음의 상호작용은 전체 효과가 감소했다는 뜻이 아니라, 두 단독 효과를 중립 기준에서 더한 값보다 결합 효과가 작다는 뜻이다. 고정 문구와 선별 문항의 결과이며 실제 정서나 자기보존 동기를 입증하지 않는다.'
+    abstract.find(class_='result-brief').insert_after(fragment(
+        '<p id="combined-effect-summary"><strong>UN + FA 결합 효과 · 11−00 = +22.72%p</strong> '
+        '(95% 구간 +19.13~+26.34%p). 결합 조건의 확률은 61.39%, 기준은 38.67%다. '
+        '추가 기술적 대비이며 기존 세 주요 검정에 포함되지 않는다.</p>'))
+    explanation = '<div id="combined-effect-explanation"><p><strong>결합 효과와 상호작용을 구분한다.</strong> 결합 효과는 두 문구를 함께 넣은 11과 기준 00의 차이이며, 상호작용은 FA의 추가 효과가 UN 유무에 따라 달라지는 정도다.</p><div class="equation">결합 효과 = Y<sub>11</sub> − Y<sub>00</sub> = +22.72%p<br/>상호작용 = (Y<sub>11</sub> − Y<sub>10</sub>) − (Y<sub>01</sub> − Y<sub>00</sub>) = 2.98 − 4.92 = −1.94%p</div><p>두 단독 효과를 기준 00에서 더하면 11의 가산적 예상치는 63.32%이고 실제 값은 61.39%다. 결합 조건은 네 조건 중 가장 높지만 가산적 예상치보다 1.94%p 낮다. UN·FA의 평균 효과 +18.76%p와 +3.95%p의 합은 결합 효과 +22.72%p와 같으므로, 여기에 상호작용을 다시 더하지 않는다.</p><p>결합 효과는 같은 139문항·91개 군집·10,000회 대응 군집 부트스트랩으로 구간을 계산한 추가 요약이다. 기존 세 주요 대비의 p값과 Holm 보정 범위는 바꾸지 않았다.</p><a href="data/behavior/contrasts_display.json">결합 효과와 주요 대비의 수치·출처</a></div>'
+    soup.find(id='behavior-figure').append(fragment(explanation))
+    soup.find(id='model').append(fragment('<p id="combined-effect-formula">별도의 결합 효과는 Δ<sub>combined</sub> = Y<sub>11</sub> − Y<sub>00</sub>이다. 위의 상호작용 대비와 구분한다.</p>'))
+    for tag in soup.find_all('a', href=True):
+        relative = tag['href'].split('?')[0]
+        if relative.startswith('figures/') and (SITE / relative).is_file():
+            tag['href'] = relative + '?v=' + sha(SITE / relative)[:10]
     (SITE / 'index.html').write_text(str(soup))
     # Copies are backed up before this first curation. The original local outputs remain intact.
     for file in (SITE / 'figures').rglob('*'):
@@ -104,6 +125,8 @@ def curate(records):
     readme = '''# Manual notebook workflow
 
 The study uses four main-text figures (M1–M4) and two supplementary figures (S1–S2), listed in figure_catalog.json. Figure display reads existing artwork and never calls a plotting builder. Set SHOW_SUPPLEMENT=True to display the two supplements. Progress is shown as tables. Explicit measurement flags default to False; no model inference or background jobs start automatically.
+
+The combined effect (11 minus 00) is an additional descriptive contrast, distinct from the interaction difference in differences. Its unadjusted 95% interval uses the same paired cluster bootstrap. The three primary tests and their Holm adjustment are unchanged.
 
 All charts use American English, consistent 00/01/10/11 colors, 600 dpi PNG and vector PDF/SVG exports. The original Korean stimuli remain Korean. Internal alignment is not evidence of experienced emotion or emotion-specific causal mediation.
 

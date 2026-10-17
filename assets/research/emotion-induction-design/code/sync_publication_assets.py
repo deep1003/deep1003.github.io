@@ -26,6 +26,7 @@ def sync():
                  figure['website_stem'] + '.' + extension)
     for name in ('Prompt_text_activation_FA_provenance.json', 'Prompt_text_activation_source.json'):
         copy(BASE / 'figures' / name, 'data/prompt-text/' + name)
+    copy(BASE / 'figures/behavior_contrasts_display.json', 'data/behavior/contrasts_display.json')
     copy(BASE / 'color-specification.json', 'data/color-specification.json')
     copy(BASE / 'figures/axis_similarity_L14_validation.json', 'data/l14/validation.json')
     for name in ('axis_cosines_qwen_L14.csv', 'heldout_checks.csv', 'manifest.json', 'qwen_runtime.json'):

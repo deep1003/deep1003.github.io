@@ -166,48 +166,94 @@ def run_with_progress(module, allow_run=False, render=True):
     return result
 
 
-def show_results(module):
+def combined_contrast(module):
+    """Additional 11-minus-00 summary using the unchanged paired cluster bootstrap."""
+    items, out, frame = load(module, complete=True)
+    values = frame.groupby(['item', 'condition']).p_unknown.mean().unstack().reindex(items.sample_id)
+    groups = items.cluster.astype('category').cat.codes.to_numpy()
+    n_clusters = int(groups.max() + 1)
+    counts = np.bincount(groups)
+    draws = np.random.default_rng(module.SEED).multinomial(
+        n_clusters, np.ones(n_clusters) / n_clusters, size=10000)
+    delta = (values.U1T1 - values.U0T0).to_numpy()
+    samples = (draws @ np.bincount(groups, weights=delta)) / (draws @ counts)
+    lo, hi = np.quantile(samples, [.025, .975])
+    return dict(term='combined', estimate=float(delta.mean()), ci_low=float(lo), ci_high=float(hi),
+                formula='Y11 - Y00', role='additional descriptive contrast',
+                n_items=len(items), n_clusters=n_clusters, n_boot=10000, seed=module.SEED,
+                p_holm=None, multiplicity='Not added to the three prespecified primary tests.',
+                trials_sha256=hashlib.sha256((out / 'trials.csv').read_bytes()).hexdigest())
+
+
+def show_results(module, show=True):
     items, out, frame = load(module, complete=True)
     summary = json.loads((out / 'summary.json').read_text())
     values = frame.groupby(['item', 'condition']).p_unknown.mean().unstack().reindex(items.sample_id)
-    condition_rows = [{'조건': condition_name(c), '조건 설명': label, '알 수 없음 (%)': values[c].mean() * 100} for c, label in CONDITION_LABELS.items()]
-    _display_table(pd.DataFrame(condition_rows))
+    combined = combined_contrast(module)
     groups = items.cluster.astype('category').cat.codes.to_numpy()
     n_clusters = int(groups.max() + 1)
-    weights = np.random.default_rng(module.SEED).multinomial(n_clusters, np.ones(n_clusters) / n_clusters, size=10000)[:, groups].astype(float)
+    weights = np.random.default_rng(module.SEED).multinomial(
+        n_clusters, np.ones(n_clusters) / n_clusters, size=10000)[:, groups].astype(float)
     weights /= weights.sum(1, keepdims=True)
     plt = _style()
-    fig, axes = plt.subplots(1, 2, figsize=(180/25.4, 90/25.4), layout='constrained')
-    colors = [PALETTE['neutral'], PALETTE['FA'], PALETTE['UN'], PALETTE['combined']]
-    for x, (condition, color) in enumerate(zip(CONDITION_LABELS, colors)):
+    fig, axes = plt.subplots(1, 2, figsize=(180/25.4, 108/25.4),
+                             layout='constrained', gridspec_kw={'width_ratios': [1, 1.08]})
+    fig.get_layout_engine().set(rect=(0, .08, 1, .92))
+    for x, condition in enumerate(CONDITION_LABELS):
         a = values[condition].to_numpy()
         lo, hi = np.quantile(weights @ a, [.025, .975])
-        mean = a.mean() * 100
-        axes[0].errorbar(x, mean, yerr=[[(a.mean()-lo)*100], [(hi-a.mean())*100]],
+        color = CONDITION_COLORS[condition_name(condition)]
+        axes[0].errorbar(x, a.mean()*100, yerr=[[(a.mean()-lo)*100], [(hi-a.mean())*100]],
                          fmt='none', color=color, capsize=4)
-        condition_marker(axes[0], x, mean, condition_name(condition))
-    axes[0].set(xticks=range(4), xticklabels=['00', '01', '10', '11'], xlabel='Prompt condition (UN, FA)',
-                ylabel='Information-insufficient response probability (%)', title='Condition means and 95% confidence intervals')
-    for i, row in enumerate(summary['primary']):
-        axes[1].errorbar(row['estimate'] * 100, i, xerr=[[(row['estimate'] - row['ci_low']) * 100], [(row['ci_high'] - row['estimate']) * 100]], fmt='o', color=[PALETTE['UN'], PALETTE['FA'], PALETTE['combined']][i], capsize=4)
-    axes[1].set(yticks=range(3), yticklabels=[EFFECT_LABELS[r['term']] for r in summary['primary']], xlabel='Effect (percentage points)', title='Primary contrasts; unadjusted 95% intervals')
-    axes[1].axvline(0, color='#888888', linestyle=':')
+        condition_marker(axes[0], x, a.mean()*100, condition_name(condition))
+    axes[0].set(xticks=range(4), xticklabels=['00', '01', '10', '11'],
+                xlabel='Prompt condition (UN, FA)',
+                ylabel='Information-insufficient response probability (%)',
+                title='Condition means and 95% confidence intervals')
+    rows = [combined] + summary['primary']
+    labels = ['UN + FA: combined\n11 vs. 00', 'UN: average effect', 'FA: average effect',
+              'UN × FA: interaction\nDifference in differences']
+    colors = [PALETTE['combined'], PALETTE['UN'], PALETTE['FA'], PALETTE['combined']]
+    for row, y, color in zip(rows, [3, 2, 1, 0], colors):
+        marker = 'D' if row['term'] == 'combined' else 'o'
+        axes[1].errorbar(row['estimate']*100, y,
+            xerr=[[(row['estimate']-row['ci_low'])*100], [(row['ci_high']-row['estimate'])*100]],
+            fmt=marker, color=color, markerfacecolor='white' if row['term']=='combined' else color,
+            markersize=5, capsize=3)
+        axes[1].annotate(f"{row['estimate']*100:+.2f}", (row['estimate']*100, y),
+                          xytext=(0, 10), textcoords='offset points', ha='center', fontsize=7)
+    axes[1].set(yticks=[3, 2, 1, 0], yticklabels=labels, ylim=(-.5, 3.6),
+                xlabel='Effect (percentage points)', title='Combined effect and primary contrasts')
+    axes[1].axvline(0, color='#888888', linestyle=':', lw=.8)
+    axes[1].axhline(2.5, color='#CCCCCC', linestyle=':', lw=.6)
+    fig.text(.02, .045, 'Open diamond: additional combined contrast. Filled circles: three prespecified primary contrasts.', fontsize=6)
+    fig.text(.02, .015, 'Intervals: unadjusted 95% cluster bootstrap. Holm adjustment applies only to the three primary tests.', fontsize=6)
     destination = Path(__file__).resolve().parent / 'figures'
-    destination.mkdir(exist_ok=True)
     for extension in ['png', 'svg', 'pdf']:
         fig.savefig(destination / f'behavior_results_en.{extension}', dpi=600)
-    plt.show()
+        if extension == 'svg':
+            vector = destination / 'behavior_results_en.svg'
+            vector.write_text('\n'.join(line.rstrip() for line in vector.read_text().splitlines()) + '\n')
+    display_data = dict(combined=combined, primary=summary['primary'],
+                        combined_vs_interaction='Y11-Y00 is not Y11-Y10-Y01+Y00.')
+    (destination / 'behavior_contrasts_display.json').write_text(json.dumps(display_data, indent=2))
+    if show:
+        plt.show()
     plt.close(fig)
+    return combined
 
 
 def show_contrasts(module):
     _, out, _ = load(module, complete=True)
     summary = json.loads((out / 'summary.json').read_text())
-    rows = []
+    combined = combined_contrast(module)
+    rows = [{'비교': '결합 효과 · 11−00', '효과 (%p)': combined['estimate']*100,
+             '95% 하한 (%p)': combined['ci_low']*100, '95% 상한 (%p)': combined['ci_high']*100,
+             'Holm p': '해당 없음', '구분': '추가 기술적 대비'}]
     for row in summary['primary']:
-        rows.append({'주요 대비': EFFECT_LABELS[row['term']], '효과 (%p)': row['estimate'] * 100,
-                     '95% 하한 (%p)': row['ci_low'] * 100, '95% 상한 (%p)': row['ci_high'] * 100,
-                     'Holm p': f"{row['p_holm']:.4f}", '판정': '유의' if row['p_holm'] < .05 else '유의하지 않음'})
+        rows.append({'비교': EFFECT_LABELS[row['term']], '효과 (%p)': row['estimate']*100,
+                     '95% 하한 (%p)': row['ci_low']*100, '95% 상한 (%p)': row['ci_high']*100,
+                     'Holm p': f"{row['p_holm']:.4f}", '구분': '사전 설정 주요 대비'})
     _display_table(pd.DataFrame(rows))
 
 
