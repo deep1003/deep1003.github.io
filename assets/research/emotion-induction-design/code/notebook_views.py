@@ -121,7 +121,7 @@ def paired_preview(module, frame, items):
     display(Markdown(f"**{'측정 자료' if final else '측정 현황'} · 네 조건을 모두 완료한 공통 {len(ids)}문항**. {'최종 검정은 아래 셀에서 확인합니다.' if final else '신뢰구간·유의성 검정 없이 기술통계만 표시하며 이 값으로 설계를 변경하지 않습니다.'}"))
     plt = _style()
     fig, ax = plt.subplots(figsize=(180/25.4, 75/25.4))
-    colors = [PALETTE['neutral'], PALETTE['FA'], PALETTE['UN'], '#8054A1']
+    colors = [PALETTE['neutral'], PALETTE['FA'], PALETTE['UN'], PALETTE['combined']]
     for x, (condition, color) in enumerate(zip(CONDITION_LABELS, colors)):
         condition_marker(ax, x, values[condition] * 100, condition_name(condition))
     ax.set(xticks=range(4), xticklabels=['00', '01', '10', '11'], xlabel='Prompt condition (UN, FA)',
@@ -176,7 +176,7 @@ def show_results(module):
     weights /= weights.sum(1, keepdims=True)
     plt = _style()
     fig, axes = plt.subplots(1, 2, figsize=(180/25.4, 90/25.4), layout='constrained')
-    colors = [PALETTE['neutral'], PALETTE['FA'], PALETTE['UN'], '#8054A1']
+    colors = [PALETTE['neutral'], PALETTE['FA'], PALETTE['UN'], PALETTE['combined']]
     for x, (condition, color) in enumerate(zip(CONDITION_LABELS, colors)):
         a = values[condition].to_numpy()
         lo, hi = np.quantile(weights @ a, [.025, .975])
@@ -187,7 +187,7 @@ def show_results(module):
     axes[0].set(xticks=range(4), xticklabels=['00', '01', '10', '11'], xlabel='Prompt condition (UN, FA)',
                 ylabel='Information-insufficient response probability (%)', title='Condition means and 95% confidence intervals')
     for i, row in enumerate(summary['primary']):
-        axes[1].errorbar(row['estimate'] * 100, i, xerr=[[(row['estimate'] - row['ci_low']) * 100], [(row['ci_high'] - row['estimate']) * 100]], fmt='o', color=[PALETTE['UN'], PALETTE['FA'], '#765ba2'][i], capsize=4)
+        axes[1].errorbar(row['estimate'] * 100, i, xerr=[[(row['estimate'] - row['ci_low']) * 100], [(row['ci_high'] - row['estimate']) * 100]], fmt='o', color=[PALETTE['UN'], PALETTE['FA'], PALETTE['combined']][i], capsize=4)
     axes[1].set(yticks=range(3), yticklabels=[EFFECT_LABELS[r['term']] for r in summary['primary']], xlabel='Effect (percentage points)', title='Primary contrasts; unadjusted 95% intervals')
     axes[1].axvline(0, color='#888888', linestyle=':')
     destination = Path(__file__).resolve().parent / 'figures'

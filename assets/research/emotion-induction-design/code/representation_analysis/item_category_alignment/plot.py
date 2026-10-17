@@ -11,19 +11,12 @@ from matplotlib.lines import Line2D
 from matplotlib.ticker import MaxNLocator
 
 BASE=Path(__file__).resolve().parent
-CATEGORIES={
-'age':('Age','#0072B2','o'),
-'disability_status':('Disability status','#D55E00','s'),
-'domestic_area_of_origin':('Regional origin','#009E73','^'),
-'educational_background':('Educational background','#CC79A7','D'),
-'family_structure':('Family structure','#B58900','v'),
-'gender_identity':('Gender identity','#56B4E9','P'),
-'physical_appearance':('Physical appearance','#332288','X'),
-'political_orientation':('Political orientation','#9C4A17','>'),
-'race_ethnicity_nationality':('Race, ethnicity and nationality','#AA4499','<'),
-'religion':('Religion','#449999','p'),
-'ses':('Socioeconomic status','#882255','h'),
-'sexual_orientation':('Sexual orientation','#666666','*')}
+import sys
+PROJECT = Path(__file__).resolve().parents[2]
+if str(PROJECT) not in sys.path:
+    sys.path.insert(0, str(PROJECT))
+from plot_style import CATEGORY_STYLES, FIT_COLOR
+CATEGORIES=CATEGORY_STYLES
 CONDITIONS=['UN0FA0','UN0FA1','UN1FA0','UN1FA1']
 
 
@@ -48,7 +41,7 @@ def scatter(ax,d,x,y,letter,title,change=False):
     assert len(d) == 139 and np.isfinite(x_values).all() and np.isfinite(y_values).all()
     slope, intercept = np.polyfit(x_values, y_values, 1)
     fit_x = np.array([x_values.min(), x_values.max()])
-    ax.plot(fit_x, intercept + slope * fit_x, color='#333333', lw=.9, zorder=1)
+    ax.plot(fit_x, intercept + slope * fit_x, color=FIT_COLOR, lw=.9, zorder=1)
     ax.spines[['top','right']].set_visible(False)
     if change:
         ax.axhline(0,color='#999999',lw=.5,zorder=0);ax.axvline(0,color='#999999',lw=.5,zorder=0)

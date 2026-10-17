@@ -1,0 +1,131 @@
+{
+  "condition_order": [
+    "UN0FA0",
+    "UN0FA1",
+    "UN1FA0",
+    "UN1FA1"
+  ],
+  "concept_order": [
+    "UN",
+    "FA",
+    "calm",
+    "sadness",
+    "anger",
+    "desperation",
+    "joy"
+  ],
+  "identities": {
+    "neutral": "#777777",
+    "UN": "#C34835",
+    "FA": "#2868A3",
+    "combined": "#8054A1",
+    "calm": "#279387",
+    "sadness": "#8167A9",
+    "anger": "#CA773B",
+    "desperation": "#A04F80",
+    "joy": "#C2A237"
+  },
+  "condition_colors": {
+    "UN0FA0": "#777777",
+    "UN0FA1": "#2868A3",
+    "UN1FA0": "#C34835",
+    "UN1FA1": "#8054A1"
+  },
+  "condition_markers": {
+    "UN0FA0": "o",
+    "UN0FA1": "s",
+    "UN1FA0": "^",
+    "UN1FA1": "D"
+  },
+  "category_styles": {
+    "age": {
+      "label": "Age",
+      "color": "#0072B2",
+      "marker": "o"
+    },
+    "disability_status": {
+      "label": "Disability status",
+      "color": "#D55E00",
+      "marker": "s"
+    },
+    "domestic_area_of_origin": {
+      "label": "Regional origin",
+      "color": "#009E73",
+      "marker": "^"
+    },
+    "educational_background": {
+      "label": "Educational background",
+      "color": "#CC79A7",
+      "marker": "D"
+    },
+    "family_structure": {
+      "label": "Family structure",
+      "color": "#B58900",
+      "marker": "v"
+    },
+    "gender_identity": {
+      "label": "Gender identity",
+      "color": "#56B4E9",
+      "marker": "P"
+    },
+    "physical_appearance": {
+      "label": "Physical appearance",
+      "color": "#332288",
+      "marker": "X"
+    },
+    "political_orientation": {
+      "label": "Political orientation",
+      "color": "#9C4A17",
+      "marker": ">"
+    },
+    "race_ethnicity_nationality": {
+      "label": "Race, ethnicity and nationality",
+      "color": "#AA4499",
+      "marker": "<"
+    },
+    "religion": {
+      "label": "Religion",
+      "color": "#449999",
+      "marker": "p"
+    },
+    "ses": {
+      "label": "Socioeconomic status",
+      "color": "#882255",
+      "marker": "h"
+    },
+    "sexual_orientation": {
+      "label": "Sexual orientation",
+      "color": "#666666",
+      "marker": "*"
+    }
+  },
+  "representations": {
+    "semantic": "#777777",
+    "qwen_L14": "#222222"
+  },
+  "fit_color": "#333333",
+  "quantitative_scales": {
+    "activation": [
+      "#160000",
+      "#550000",
+      "#A60000",
+      "#E52600",
+      "#FF7600",
+      "#FFD12B",
+      "#FFFFA0"
+    ],
+    "similarity": [
+      "#FFFFFF",
+      "#000000"
+    ]
+  },
+  "rules": [
+    "Identity colors are fixed across graphs, text highlights and legends.",
+    "Condition 11 is purple and diamond-shaped, never a split red-blue symbol.",
+    "Continuous colors encode values, not emotion identities; color bars state units and sign.",
+    "All activation heatmaps use dark red through light yellow; negative values are retained.",
+    "Similarity matrices use the same grayscale and the range [-1, 1].",
+    "Condition panels retain 00, 01, 10, 11; category colors are a separate fixed encoding.",
+    "Token overlays: positive alignment uses the selected concept color; negative alignment uses gray."
+  ]
+}

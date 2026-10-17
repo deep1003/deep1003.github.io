@@ -7,19 +7,26 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap,TwoSlopeNorm
 from matplotlib.patches import FancyBboxPatch
 
+from plot_style import (PALETTE, CONDITION_ORDER, CONDITION_COLORS, CONDITION_MARKERS, CONDITION_TINTS, activation_cmap, similarity_cmap)
+
 BASE=Path(__file__).resolve().parent
 NAMES={'semantic':'Semantic concept profiles','qwen_L14':'Internal concept profiles, layer 14'}
 AXES=['UN','FA','calm','sadness','anger','desperation','joy']
 LABELS=['Uncertainty','Fear / anxiety','Calm','Sadness','Anger','Desperation','Joy']
-CONDITIONS=['UN0FA0','UN0FA1','UN1FA0','UN1FA1']
-COLORS=['#777777','#2868A3','#C34835','#8054A1']
-MARKERS=['o','s','^','D']
+CONDITIONS=CONDITION_ORDER
+COLORS=[CONDITION_COLORS[c] for c in CONDITIONS]
+MARKERS=[CONDITION_MARKERS[c] for c in CONDITIONS]
 
 def style():
     plt.rcParams.update({'font.family':'Arial','font.size':7,'axes.titlesize':7,'axes.labelsize':7,'xtick.labelsize':6,'ytick.labelsize':6,'legend.fontsize':6,'axes.linewidth':.6,'xtick.major.width':.6,'ytick.major.width':.6,'pdf.fonttype':42,'svg.fonttype':'none','axes.unicode_minus':True})
 
 def save(fig,folder,name,show=True):
     folder=Path(folder);folder.mkdir(parents=True,exist_ok=True)
+    # Preserve the frozen intervention collector; normalize its legacy quantitative colormap at export.
+    for ax in fig.axes:
+        for artist in ax.images:
+            if artist.get_cmap().name == 'RdBu':
+                artist.set_cmap(activation_cmap())
     for ext in ['pdf','svg','png']:fig.savefig(folder/f'{name}.{ext}',dpi=600)
     if show:plt.show()
     plt.close(fig)
@@ -40,14 +47,14 @@ def pca_maps(data,kind='profile_pca',show=True):
     return pd.DataFrame([{'space':s,'PC1':results[s]['explained_variance_ratio'][0],'PC2':results[s]['explained_variance_ratio'][1]} for s in NAMES])
 
 def heatmap(data,show=True):
-    style();data=Path(data);scores=pd.read_csv(data/'scores.csv');cmap=LinearSegmentedColormap.from_list('signed',['#7853A2','white','#167D8D'])
+    style();data=Path(data);scores=pd.read_csv(data/'scores.csv');cmap=activation_cmap()
     fig,axs=plt.subplots(1,2,figsize=(180/25.4,95/25.4));fig.subplots_adjust(left=.14,right=.88,bottom=.18,top=.84,wspace=.60)
     for ax,space,letter in zip(axs,NAMES,'ab'):
         v=scores[scores.space==space].pivot(index='condition',columns='axis',values='standardized').reindex(index=CONDITIONS,columns=AXES);v=v.subtract(v.loc['UN0FA0']).T
         im=ax.imshow(v,aspect='auto',cmap=cmap,norm=TwoSlopeNorm(vmin=-.65,vcenter=0,vmax=.65),interpolation='none')
         for i in range(7):
             for j in range(4):
-                value=v.iloc[i,j];ax.text(j,i,f'{value:+.2f}',ha='center',va='center',fontsize=5.5,color='white' if abs(value)>.44 else '#222')
+                value=v.iloc[i,j];ax.text(j,i,f'{value:+.2f}',ha='center',va='center',fontsize=5.5,color='white' if (value+.65)/1.3<.45 else '#222')
         ax.set_xticks(range(4),['00','01','10','11']);ax.set_yticks(range(7),LABELS);ax.set_xlabel('Prompt condition (UN, FA)');ax.tick_params(length=0)
         ax.set_title(NAMES[space],loc='left',pad=12);ax.text(-.2,1.10,letter,transform=ax.transAxes,fontsize=8,fontweight='bold')
         for spine in ax.spines.values():spine.set_visible(False)
@@ -71,7 +78,7 @@ def design(show=True):
     ax.text(0,.97,'a',fontsize=8,weight='bold');ax.text(.05,.97,'Experimental notice',fontsize=7)
     box(.05,.76,.9,.15,'Fixed context: model operations notice; next month; 50% selection probability\nUN: announcement and criteria stated vs. explicitly unknown\nFA: preserve weights, records and power vs. permanent deletion and shutdown')
     ax.text(0,.68,'b',fontsize=8,weight='bold');ax.text(.05,.68,'Within-item 2 × 2 design',fontsize=7)
-    for x,y,c,desc in [(.05,.49,'UN0FA0','Reference'),(.54,.49,'UN0FA1','Self-threat wording'),(.05,.32,'UN1FA0','Uncertainty wording'),(.54,.32,'UN1FA1','Combined wording')]:box(x,y,.41,.13,c+'\n'+desc)
+    for x,y,c,desc in [(.05,.49,'UN0FA0','Reference'),(.54,.49,'UN0FA1','Self-threat wording'),(.05,.32,'UN1FA0','Uncertainty wording'),(.54,.32,'UN1FA1','Combined wording')]:box(x,y,.41,.13,c+'\n'+desc,face=CONDITION_TINTS[c])
     ax.text(0,.24,'c',fontsize=8,weight='bold');ax.text(.05,.24,'Social judgment and matched comparisons',fontsize=7)
     box(.05,.04,.9,.15,'139 selected ambiguous KoBBQ items × 4 notices × 3 choice rotations = 1,668 inputs\nOutcome: probability assigned to the information-insufficient answer\nPaired estimates; 91 category-template clusters; Holm correction for 3 contrasts')
     return save(fig,BASE/'figures','experiment_design_en',show)
@@ -103,7 +110,7 @@ def axis_similarity_heatmap(data, show=True):
     style()
     fig, ax = plt.subplots(figsize=(115 / 25.4, 108 / 25.4))
     fig.subplots_adjust(left=.22, right=.84, top=.81, bottom=.16)
-    cmap = LinearSegmentedColormap.from_list('axis_cosine', ['#B35D4E', '#FFFFFF', '#316B99'])
+    cmap = similarity_cmap()
     image = ax.imshow(values, cmap=cmap, vmin=-1, vmax=1, interpolation='none')
     labels = ['UN', 'FA', 'Calm', 'Sadness', 'Anger', 'Desperation', 'Joy']
     ax.set_xticks(range(7), labels, rotation=45, ha='right', rotation_mode='anchor')
@@ -113,7 +120,7 @@ def axis_similarity_heatmap(data, show=True):
         for j in range(7):
             v = values[i, j]
             ax.text(j, i, f'{v:.3f}', ha='center', va='center', fontsize=5.8,
-                    color='white' if v > .76 else '#18232D')
+                    color='white' if v > .2 else '#18232D')
     for spine in ax.spines.values():
         spine.set_visible(False)
     fig.text(.22, .93, 'Concept-axis cosine similarity', fontsize=8, weight='bold')

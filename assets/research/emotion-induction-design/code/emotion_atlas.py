@@ -13,6 +13,8 @@ from matplotlib.colors import LinearSegmentedColormap, Normalize
 from matplotlib.collections import LineCollection
 import matplotlib.patheffects as path_effects
 
+from plot_style import activation_cmap
+
 BASE = Path(__file__).resolve().parent
 AXIS_DATA = BASE / 'representation_analysis/results/d335ad178e3c'
 ITEM_DATA = BASE / 'representation_analysis/item_category_alignment/output/item_alignment.csv'
@@ -115,8 +117,7 @@ def build(show=True):
     tiles.to_csv(OUT / 'tile_layout.csv', index=False)
     values.to_csv(OUT / 'atlas_source_data.csv', index=False)
     pd.DataFrame(coordinates, index=AXES, columns=['Dimension_1','Dimension_2']).to_csv(OUT/'concept_coordinates.csv')
-    cmap = LinearSegmentedColormap.from_list('dark_red_yellow',
-             ['#160000','#550000','#A60000','#E52600','#FF7600','#FFD12B','#FFFFA0'])
+    cmap = activation_cmap()
     outputs = []
     for metric, name, title, color_label in [
         ('cosine', 'Emotion_atlas_absolute_en', 'Emotion-concept activation atlas', 'L14 centered cosine alignment'),
