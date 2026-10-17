@@ -1,0 +1,12 @@
+{
+  "report_type": "model_ablation",
+  "model": "ministral8b",
+  "status": "complete",
+  "snapshot_kst": "2026-10-17T22:53:51.893331+09:00",
+  "displayed_contrasts": [
+    "uncertainty",
+    "threat",
+    "combined=11-00"
+  ],
+  "completed_results_only": true
+}

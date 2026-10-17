@@ -1,0 +1,30 @@
+{
+  "report_type": "model_ablation",
+  "korean_label": "모델 교체 ablation test",
+  "main_model": "Qwen2.5-7B FP32",
+  "ablation_models": [
+    "Gemma3-4B Q4_K_M",
+    "Ministral3-8B Q4_K_M",
+    "EXAONE3.5-7.8B Q4_K_M",
+    "Llama3.1-8B Q4_K_M"
+  ],
+  "snapshot_kst": "2026-10-17T22:53:51.893331+09:00",
+  "contrast": "combined=UN1FA1-UN0FA0",
+  "inference": "10000 paired template-cluster bootstrap; Holm3 within each model for uncertainty,threat,combined;95% CIs unadjusted",
+  "n_items": 139,
+  "n_clusters": 91,
+  "llama": {
+    "state": "running",
+    "completed": 980,
+    "total": 1668,
+    "updated_at": 1792245229.924258
+  },
+  "exaone_internal": {
+    "state": "items",
+    "completed": 1501,
+    "total": 1812,
+    "behavior_parity_max": 1.1102230246251565e-16,
+    "updated_at": 1792245229.935775
+  },
+  "limits": "Exploratory model-replacement ablation on reused selected items. Model,precision and chat template vary together; not isolated causal effects of architecture,scale or emotions. Incomplete results not tested or reported as final."
+}

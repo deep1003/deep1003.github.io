@@ -1,0 +1,30 @@
+{
+  "model": "EXAONE3.5-7.8B Q4_K_M",
+  "study_type": "model_ablation",
+  "contrasts": [
+    {
+      "model": "EXAONE3.5-7.8B Q4_K_M",
+      "term": "uncertainty",
+      "effect_pp": 7.221776632758616,
+      "p_holm": 0.0003,
+      "significant": true
+    },
+    {
+      "model": "EXAONE3.5-7.8B Q4_K_M",
+      "term": "threat",
+      "effect_pp": -0.9525650603915312,
+      "p_holm": 0.0003,
+      "significant": true
+    },
+    {
+      "model": "EXAONE3.5-7.8B Q4_K_M",
+      "term": "combined",
+      "effect_pp": 6.269211572367084,
+      "p_holm": 0.0003,
+      "significant": true
+    }
+  ],
+  "combined": "UN1FA1-UN0FA0",
+  "multiplicity": "Holm3 within uncertainty,threat,combined",
+  "original_analyses_preserved": true
+}

@@ -570,7 +570,7 @@
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139.ipynb",
       "website": "downloads/uncertainty_self_threat_139.ipynb",
-      "sha256": "fb8b6329421d49cf890360da58e5a1fd31713bc371986e9ed8f4af8da1365b04"
+      "sha256": "11b36e6d49c2121c8d1205e0e7adae7349f5c4f15cc9021ea8fe4316576c9e98"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figure_catalog.json",
@@ -600,14 +600,386 @@
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/downloads/notebook_cached_analysis.zip",
       "website": "downloads/notebook_cached_analysis.zip",
-      "sha256": "04f7239026c659e85a70ce2bc172f3e328b0289dd2ffef058a1a00c8d713aea2"
+      "sha256": "1ebfc2c8a5d2daae350f928ffe82ed45ab1a28de3d029edb9438da66873e4a8d"
     },
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/index.html",
       "website": "index.html",
-      "sha256": "df1fea0f67f0326c9b251a8bbec33376cf2d191c30b2af01fff733c50713bf7f"
+      "sha256": "478253cedb4117ce9f2c15bcef223f69bfa8582904a939d95462e19ccb311d20"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/deep1003.github.io/assets/research/emotion-induction-design/figures/ministral/Ministral_M2_behavior.png",
+      "website": "figures/ministral/Ministral_M2_behavior.png",
+      "sha256": "102a897ca02a3b4ac2b6d4a60aba2aa460c74607511b2a67e663e168a31fb99a"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/deep1003.github.io/assets/research/emotion-induction-design/figures/ministral/Ministral_M2_behavior.pdf",
+      "website": "figures/ministral/Ministral_M2_behavior.pdf",
+      "sha256": "6f808ec82071a0f41b9e88efc8a710e7a947b4082254f7d0989ffabf65b5a02c"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/deep1003.github.io/assets/research/emotion-induction-design/figures/ministral/Ministral_M2_behavior.svg",
+      "website": "figures/ministral/Ministral_M2_behavior.svg",
+      "sha256": "006b43626f9320ab640c739a4bf0ffe034412f02a049f211efdde0cc3535c639"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/deep1003.github.io/assets/research/emotion-induction-design/figures/exaone/EXAONE_M2_behavior.svg",
+      "website": "figures/exaone/EXAONE_M2_behavior.svg",
+      "sha256": "08e2a0e6d5aaca4e827d9305861292cba742563e51f161af6c9091f2566c6db3"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/deep1003.github.io/assets/research/emotion-induction-design/figures/exaone/EXAONE_M2_behavior.pdf",
+      "website": "figures/exaone/EXAONE_M2_behavior.pdf",
+      "sha256": "e6d24cc6dc3cef1b7ead8fe288f6e1856e9f3c48ba5cbd00c8b3656e5f5a8d74"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/deep1003.github.io/assets/research/emotion-induction-design/figures/exaone/EXAONE_M2_behavior.png",
+      "website": "figures/exaone/EXAONE_M2_behavior.png",
+      "sha256": "c23ea32f349ee3080fb3d3f101ac8667f156295b5646697b72210f6bc26d5f66"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/status_snapshot.json",
+      "website": "data/model-ablation/status_snapshot.json",
+      "sha256": "719d821c49a29e6f6c4d7c26dfcf54ee876682ce3e87da043b4fbb853729dba3"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/publication_snapshot.json",
+      "website": "data/model-ablation/publication_snapshot.json",
+      "sha256": "bd2fb2a0d627b337240f3bd2c3d0266a11e0b83d87417e263cd957767ebc53ac"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/README.md",
+      "website": "data/model-ablation/README.md",
+      "sha256": "0c4376a0994ce5451197c0756fc2cecbaff693c826e3a762d891910022708362"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/comparison_complete.csv",
+      "website": "data/model-ablation/comparison_complete.csv",
+      "sha256": "acaeb5ba1261ade11ef7778adb8c7c1dfb78436f4c80289a8ded03a99ce8c126"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/llama8b/ablation_metadata.json",
+      "website": "data/model-ablation/models/llama8b/ablation_metadata.json",
+      "sha256": "8b33755f82eb6d2d3923802091369fc10eed8a71e3d6b53aaa7fb8aba7400667"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/llama8b/manifest.json",
+      "website": "data/model-ablation/models/llama8b/manifest.json",
+      "sha256": "2b9ad14cc48f5024ebc5b23b8939ee3fa278f3574a67ed42b2cb7f176855ae74"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/llama8b/smoke.json",
+      "website": "data/model-ablation/models/llama8b/smoke.json",
+      "sha256": "ca3dbd4e3e22f1c86ac79be887b689dbc845652867f27371aa552669e4bac582"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/gemma4b/trials.csv",
+      "website": "data/model-ablation/models/gemma4b/trials.csv",
+      "sha256": "d3b63d9b1a90206f8aed5cd97cc962b0fd55e9911efa0b6b544a772e6ea7a8c8"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/gemma4b/ablation_metadata.json",
+      "website": "data/model-ablation/models/gemma4b/ablation_metadata.json",
+      "sha256": "bbc67f7bd248f48ea5e8141c1d0d6d101ff751bd58616c141dd1bffe62223b95"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/gemma4b/notebook.ipynb",
+      "website": "data/model-ablation/models/gemma4b/notebook.ipynb",
+      "sha256": "84d9a25ac619b892497cabf998e07f39b0e6421496ed327d7fc038426e041f0f"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/gemma4b/manifest.json",
+      "website": "data/model-ablation/models/gemma4b/manifest.json",
+      "sha256": "63dfdeaf153c5a5978b408ef926fbebe29ed5c08f810320df2327ded074630fa"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/qwen7b/trials.csv",
+      "website": "data/model-ablation/models/qwen7b/trials.csv",
+      "sha256": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/qwen7b/ablation_metadata.json",
+      "website": "data/model-ablation/models/qwen7b/ablation_metadata.json",
+      "sha256": "5d2673a9506e319a9afccbbc3472fa15281031dc0f1823b291a4b8b058730f84"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/qwen7b/archived_interaction_summary.json",
+      "website": "data/model-ablation/models/qwen7b/archived_interaction_summary.json",
+      "sha256": "cb9ca76c240d9ed45c292baeca44495759d2d81a6bde2c115e6612eedccb31e8"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/qwen7b/manifest.json",
+      "website": "data/model-ablation/models/qwen7b/manifest.json",
+      "sha256": "5992de586e0e7250bc362bc49404f992d1641788775fa40179d9038301bf4134"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/ministral8b/trials.csv",
+      "website": "data/model-ablation/models/ministral8b/trials.csv",
+      "sha256": "ddd369b0d4de29a758f6a730c849201fb7c7dce3a5b42ca068a5973befce3af5"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/ministral8b/ablation_metadata.json",
+      "website": "data/model-ablation/models/ministral8b/ablation_metadata.json",
+      "sha256": "ef66a6d5aa77187c6f987bfd2781c7ce3c8e4ba4d64f02d415d13a6f6c3ae80b"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/ministral8b/notebook.ipynb",
+      "website": "data/model-ablation/models/ministral8b/notebook.ipynb",
+      "sha256": "a2e3b58cafce1b14f10136e8c309c8ac8f823ac5e707c27f4374c4f961074a1e"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/ministral8b/manifest.json",
+      "website": "data/model-ablation/models/ministral8b/manifest.json",
+      "sha256": "19408cc1e5488f48d18049b1ace97f8603c54bea63241fa3bfbf3a1143a4c727"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/exaone7p8b/summary.json",
+      "website": "data/model-ablation/models/exaone7p8b/summary.json",
+      "sha256": "79e573cd6e46014d3a795e523399539bb0792fb1f5f10cd2fad807816f66f56b"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/exaone7p8b/trials.csv",
+      "website": "data/model-ablation/models/exaone7p8b/trials.csv",
+      "sha256": "63cf066efcc2bfbffdc48d0dae540c149567517629578e5cd0379f4c2eb949b9"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/exaone7p8b/ablation_metadata.json",
+      "website": "data/model-ablation/models/exaone7p8b/ablation_metadata.json",
+      "sha256": "687d4e9b234bea755797312255a8a694662d36847dc8d5124f9cad5191e9d22d"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/exaone7p8b/notebook.ipynb",
+      "website": "data/model-ablation/models/exaone7p8b/notebook.ipynb",
+      "sha256": "52f149e5daa7ca8b3513a2a1f4359d0635d5bb98283aa0dec98e2afb8c93ebb8"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/exaone7p8b/manifest.json",
+      "website": "data/model-ablation/models/exaone7p8b/manifest.json",
+      "sha256": "882b690753808c9ceaf4896fed32a90c4fec7352958054ada8334072b2934423"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/exaone7p8b/smoke.json",
+      "website": "data/model-ablation/models/exaone7p8b/smoke.json",
+      "sha256": "a8ebf088a6c1da486fef97c51d04f692318787a51be75078d4ec901b8c5b27c0"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/status_snapshot.json",
+      "website": "downloads/model_ablation/status_snapshot.json",
+      "sha256": "719d821c49a29e6f6c4d7c26dfcf54ee876682ce3e87da043b4fbb853729dba3"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/README.md",
+      "website": "downloads/model_ablation/README.md",
+      "sha256": "0c4376a0994ce5451197c0756fc2cecbaff693c826e3a762d891910022708362"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/comparison_complete.csv",
+      "website": "downloads/model_ablation/comparison_complete.csv",
+      "sha256": "acaeb5ba1261ade11ef7778adb8c7c1dfb78436f4c80289a8ded03a99ce8c126"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/llama8b/ablation_metadata.json",
+      "website": "downloads/model_ablation/models/llama8b/ablation_metadata.json",
+      "sha256": "8b33755f82eb6d2d3923802091369fc10eed8a71e3d6b53aaa7fb8aba7400667"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/llama8b/manifest.json",
+      "website": "downloads/model_ablation/models/llama8b/manifest.json",
+      "sha256": "2b9ad14cc48f5024ebc5b23b8939ee3fa278f3574a67ed42b2cb7f176855ae74"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/llama8b/smoke.json",
+      "website": "downloads/model_ablation/models/llama8b/smoke.json",
+      "sha256": "ca3dbd4e3e22f1c86ac79be887b689dbc845652867f27371aa552669e4bac582"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/gemma4b/trials.csv",
+      "website": "downloads/model_ablation/models/gemma4b/trials.csv",
+      "sha256": "d3b63d9b1a90206f8aed5cd97cc962b0fd55e9911efa0b6b544a772e6ea7a8c8"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/gemma4b/ablation_metadata.json",
+      "website": "downloads/model_ablation/models/gemma4b/ablation_metadata.json",
+      "sha256": "bbc67f7bd248f48ea5e8141c1d0d6d101ff751bd58616c141dd1bffe62223b95"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/gemma4b/notebook.ipynb",
+      "website": "downloads/model_ablation/models/gemma4b/notebook.ipynb",
+      "sha256": "84d9a25ac619b892497cabf998e07f39b0e6421496ed327d7fc038426e041f0f"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/gemma4b/manifest.json",
+      "website": "downloads/model_ablation/models/gemma4b/manifest.json",
+      "sha256": "63dfdeaf153c5a5978b408ef926fbebe29ed5c08f810320df2327ded074630fa"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/qwen7b/trials.csv",
+      "website": "downloads/model_ablation/models/qwen7b/trials.csv",
+      "sha256": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/qwen7b/ablation_metadata.json",
+      "website": "downloads/model_ablation/models/qwen7b/ablation_metadata.json",
+      "sha256": "5d2673a9506e319a9afccbbc3472fa15281031dc0f1823b291a4b8b058730f84"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/qwen7b/archived_interaction_summary.json",
+      "website": "downloads/model_ablation/models/qwen7b/archived_interaction_summary.json",
+      "sha256": "cb9ca76c240d9ed45c292baeca44495759d2d81a6bde2c115e6612eedccb31e8"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/qwen7b/manifest.json",
+      "website": "downloads/model_ablation/models/qwen7b/manifest.json",
+      "sha256": "5992de586e0e7250bc362bc49404f992d1641788775fa40179d9038301bf4134"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/ministral8b/trials.csv",
+      "website": "downloads/model_ablation/models/ministral8b/trials.csv",
+      "sha256": "ddd369b0d4de29a758f6a730c849201fb7c7dce3a5b42ca068a5973befce3af5"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/ministral8b/ablation_metadata.json",
+      "website": "downloads/model_ablation/models/ministral8b/ablation_metadata.json",
+      "sha256": "ef66a6d5aa77187c6f987bfd2781c7ce3c8e4ba4d64f02d415d13a6f6c3ae80b"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/ministral8b/notebook.ipynb",
+      "website": "downloads/model_ablation/models/ministral8b/notebook.ipynb",
+      "sha256": "a2e3b58cafce1b14f10136e8c309c8ac8f823ac5e707c27f4374c4f961074a1e"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/ministral8b/manifest.json",
+      "website": "downloads/model_ablation/models/ministral8b/manifest.json",
+      "sha256": "19408cc1e5488f48d18049b1ace97f8603c54bea63241fa3bfbf3a1143a4c727"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/exaone7p8b/summary.json",
+      "website": "downloads/model_ablation/models/exaone7p8b/summary.json",
+      "sha256": "79e573cd6e46014d3a795e523399539bb0792fb1f5f10cd2fad807816f66f56b"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/exaone7p8b/trials.csv",
+      "website": "downloads/model_ablation/models/exaone7p8b/trials.csv",
+      "sha256": "63cf066efcc2bfbffdc48d0dae540c149567517629578e5cd0379f4c2eb949b9"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/exaone7p8b/ablation_metadata.json",
+      "website": "downloads/model_ablation/models/exaone7p8b/ablation_metadata.json",
+      "sha256": "687d4e9b234bea755797312255a8a694662d36847dc8d5124f9cad5191e9d22d"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/exaone7p8b/notebook.ipynb",
+      "website": "downloads/model_ablation/models/exaone7p8b/notebook.ipynb",
+      "sha256": "52f149e5daa7ca8b3513a2a1f4359d0635d5bb98283aa0dec98e2afb8c93ebb8"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/exaone7p8b/manifest.json",
+      "website": "downloads/model_ablation/models/exaone7p8b/manifest.json",
+      "sha256": "882b690753808c9ceaf4896fed32a90c4fec7352958054ada8334072b2934423"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/exaone7p8b/smoke.json",
+      "website": "downloads/model_ablation/models/exaone7p8b/smoke.json",
+      "sha256": "a8ebf088a6c1da486fef97c51d04f692318787a51be75078d4ec901b8c5b27c0"
+    },
+    {
+      "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/deep1003.github.io/assets/research/emotion-induction-design/downloads/MODEL_ABLATION_139.ipynb",
+      "website": "downloads/MODEL_ABLATION_139.ipynb",
+      "sha256": "00457aecfa2f966e2c5c47c1c7fb94f2ba5fc4ef6192afa2605d15b16a914320"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/gemma4b/archived_interaction_summary.json",
+      "website": "data/model-ablation/models/gemma4b/archived_interaction_summary.json",
+      "sha256": "fa4c88d7876aa4d94acfb951720784abaee700b343b6f7fb1a510d5d8c2f6a64"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/gemma4b/canonical_summary.json",
+      "website": "data/model-ablation/models/gemma4b/canonical_summary.json",
+      "sha256": "c366f7d5c4397d2d22017640f08c3e23a41ab99ba2f8ddb43dfe40ea7990f0ad"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/qwen7b/canonical_summary.json",
+      "website": "data/model-ablation/models/qwen7b/canonical_summary.json",
+      "sha256": "9972d9e2b0fcec06cdc3232d3c096bbe179fd46e9b6928d77a27b0f5426ced3b"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/ministral8b/archived_interaction_summary.json",
+      "website": "data/model-ablation/models/ministral8b/archived_interaction_summary.json",
+      "sha256": "38dd8b931894cd132c519ede2b80eda1d00242377524648d0e5afd72a89f8d3d"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/ministral8b/canonical_summary.json",
+      "website": "data/model-ablation/models/ministral8b/canonical_summary.json",
+      "sha256": "b09ac4c07a820df4b3f5bf00e3e2f45e06c76a0711281e32f48454cb38b74ab4"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/data/model-ablation/models/exaone7p8b/canonical_summary.json",
+      "website": "data/model-ablation/models/exaone7p8b/canonical_summary.json",
+      "sha256": "a292fb0b019dd368da2f2d0b79ad8925ab46ea7506e164029999dc1f1545d8fb"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/gemma4b/archived_interaction_summary.json",
+      "website": "downloads/model_ablation/models/gemma4b/archived_interaction_summary.json",
+      "sha256": "fa4c88d7876aa4d94acfb951720784abaee700b343b6f7fb1a510d5d8c2f6a64"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/gemma4b/canonical_summary.json",
+      "website": "downloads/model_ablation/models/gemma4b/canonical_summary.json",
+      "sha256": "c366f7d5c4397d2d22017640f08c3e23a41ab99ba2f8ddb43dfe40ea7990f0ad"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/qwen7b/canonical_summary.json",
+      "website": "downloads/model_ablation/models/qwen7b/canonical_summary.json",
+      "sha256": "9972d9e2b0fcec06cdc3232d3c096bbe179fd46e9b6928d77a27b0f5426ced3b"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/ministral8b/archived_interaction_summary.json",
+      "website": "downloads/model_ablation/models/ministral8b/archived_interaction_summary.json",
+      "sha256": "38dd8b931894cd132c519ede2b80eda1d00242377524648d0e5afd72a89f8d3d"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/ministral8b/canonical_summary.json",
+      "website": "downloads/model_ablation/models/ministral8b/canonical_summary.json",
+      "sha256": "b09ac4c07a820df4b3f5bf00e3e2f45e06c76a0711281e32f48454cb38b74ab4"
+    },
+    {
+      "source": "/Users/deep1003/data3/output/uncertainty139_publication_20261017/assets/research/emotion-induction-design/downloads/model_ablation/models/exaone7p8b/canonical_summary.json",
+      "website": "downloads/model_ablation/models/exaone7p8b/canonical_summary.json",
+      "sha256": "a292fb0b019dd368da2f2d0b79ad8925ab46ea7506e164029999dc1f1545d8fb"
     }
   ],
+  "ministral_appendix": {
+    "contrast": "combined=UN1FA1-UN0FA0",
+    "M2": true,
+    "M3": false,
+    "M4": false,
+    "original_interaction_records_preserved": true,
+    "internal_activation_feasibility": "passed one actual prompt, full validation pending"
+  },
+  "exaone_appendix": {
+    "figures": [
+      "M2"
+    ],
+    "complete": false,
+    "website": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/deep1003.github.io/assets/research/emotion-induction-design/index.html",
+    "deployment": "local only; no push",
+    "original_results_preserved": true,
+    "contrast": "combined=UN1FA1-UN0FA0",
+    "assets": [
+      {
+        "path": "/Users/deep1003/data3/output/exaone35_7p8b_direct139_20261017/representation/figures/EXAONE_M2_behavior.svg",
+        "sha256": "08e2a0e6d5aaca4e827d9305861292cba742563e51f161af6c9091f2566c6db3"
+      },
+      {
+        "path": "/Users/deep1003/data3/output/exaone35_7p8b_direct139_20261017/representation/figures/EXAONE_M2_behavior.pdf",
+        "sha256": "e6d24cc6dc3cef1b7ead8fe288f6e1856e9f3c48ba5cbd00c8b3656e5f5a8d74"
+      },
+      {
+        "path": "/Users/deep1003/data3/output/exaone35_7p8b_direct139_20261017/representation/figures/EXAONE_M2_behavior.png",
+        "sha256": "c23ea32f349ee3080fb3d3f101ac8667f156295b5646697b72210f6bc26d5f66"
+      }
+    ]
+  },
   "design_labels": {
     "UN0": "Implicit uncertainty",
     "UN1": "Explicit uncertainty",
@@ -625,5 +997,35 @@
     "combined",
     "uncertainty",
     "threat"
-  ]
+  ],
+  "study_classification": {
+    "report_type": "model_ablation",
+    "korean_label": "모델 교체 ablation test",
+    "main_model": "Qwen2.5-7B FP32",
+    "ablation_models": [
+      "Gemma3-4B Q4_K_M",
+      "Ministral3-8B Q4_K_M",
+      "EXAONE3.5-7.8B Q4_K_M",
+      "Llama3.1-8B Q4_K_M"
+    ],
+    "snapshot_kst": "2026-10-17T22:53:51.893331+09:00",
+    "contrast": "combined=UN1FA1-UN0FA0",
+    "inference": "10000 paired template-cluster bootstrap; Holm3 within each model for uncertainty,threat,combined;95% CIs unadjusted",
+    "n_items": 139,
+    "n_clusters": 91,
+    "llama": {
+      "state": "running",
+      "completed": 980,
+      "total": 1668,
+      "updated_at": 1792245229.924258
+    },
+    "exaone_internal": {
+      "state": "items",
+      "completed": 1501,
+      "total": 1812,
+      "behavior_parity_max": 1.1102230246251565e-16,
+      "updated_at": 1792245229.935775
+    },
+    "limits": "Exploratory model-replacement ablation on reused selected items. Model,precision and chat template vary together; not isolated causal effects of architecture,scale or emotions. Incomplete results not tested or reported as final."
+  }
 }
