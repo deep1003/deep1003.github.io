@@ -37,7 +37,7 @@ def curate(records):
     captions = {
         'M1': '同一139문항과 세 선택지 순서를 사용한 대응 2×2 설계.'.replace('同一', '동일한 '),
         'M2': '빈 마름모는 결합 효과 11−00, 채운 원은 기존 세 주요 대비다. 결합 효과 +22.72%p는 상호작용 −1.94%p와 다르다. 모든 구간은 보정 전 95% 구간이며 Holm 보정은 기존 세 검정에만 적용한다.',
-        'M3': '같은 문항·선택지 순서의 00 대비 내부 개념 정렬 변화. 경계는 시각화용 근사이며 정서의 생물학적 경계가 아니다.',
+        'M3': '같은 문항·선택지 순서의 00 대비 내부 정렬 변화. 앞의 표는 고정 방향의 코사인 유사도와 실제 경계 접촉 여부다. 영역당 417칸은 139문항×3선택지 순서이며, 화면 픽셀이나 독립적인 417개 문항을 뜻하지 않는다.',
         'M4': '실제 한국어 입력의 토큰별 내부 정렬. 글자 배경은 FA 정렬이며 단어의 인과 기여도가 아니다.',
         'S1': '축 간 유사도와 보류 문장 진단. 축의 겹침과 제한된 구분 타당성을 공개한다.',
         'S3': '11−00 변화량의 사후 기술 분석. 세 방향은 함께 변하지만 응답 변화와의 상관은 FA 0.085, 절박함 −0.026, 분노 −0.037로 약하다. 정렬 변화의 상관과 개념 방향의 코사인 유사도는 서로 다른 지표이며 인과 효과는 추정하지 않았다.',
@@ -46,7 +46,8 @@ def curate(records):
         stem = entry['website_stem']
         version = sha(SITE / (stem + '.png'))[:10]
         title = entry['id'] + '. ' + entry['title']
-        return (f'<figure data-publication-id="{entry["id"]}"><a href="{stem}.svg"><img '
+        preface = (BASE / 'atlas_geometry_explainer.html').read_text() if entry['id'] == 'M3' else ''
+        return preface + (f'<figure data-publication-id="{entry["id"]}"><a href="{stem}.svg"><img '
                 f'src="{stem}.png?v={version}" loading="lazy" alt="{title}"/></a>'
                 f'<figcaption><strong>{title}</strong> · {captions[entry["id"]]}</figcaption>'
                 f'<p class="links"><a href="{stem}.pdf">PDF</a><a href="{stem}.svg">SVG</a>'
@@ -134,6 +135,8 @@ def curate(records):
 
 The study uses four main-text figures (M1–M4) and three supplementary figures (S1–S3), listed in figure_catalog.json. Figure display reads existing artwork and never calls a plotting builder. Set SHOW_SUPPLEMENT=True to display the three supplements. Progress is shown as tables. Explicit measurement flags default to False; no model inference or background jobs start automatically.
 
+Before M3, the notebook and website show a cosine-similarity/contact table and an audited explanation of geometry and observed cells. Geometry is PCA plus an equal-area power diagram, not correlation thresholding; each cell is one item–choice-rotation–axis value.
+
 Supplement S3 relates FA, desperation, and anger alignment changes to behavioral changes using existing observations only. It is a post hoc descriptive analysis, not a test of independent or combined causal emotion effects.
 
 The combined effect (11 minus 00) is an additional descriptive contrast, distinct from the interaction difference in differences. Its unadjusted 95% interval uses the same paired cluster bootstrap. The three primary tests and their Holm adjustment are unchanged.
@@ -160,7 +163,7 @@ Raw measurements, frozen collectors, hashes, and numerical checks are preserved.
             if file.name != 'run_notebook.py':
                 archive.write(file, Path(BASE.name) / file.name)
         for name in ['figure_catalog.json', 'color-specification.json', 'MANUAL_WORKFLOW.md',
-                     'l14_methods.html', 'emotion_atlas_section.html', 'fear_anxiety_review.html',
+                     'l14_methods.html', 'emotion_atlas_section.html', 'atlas_geometry_explainer.html', 'fear_anxiety_review.html',
                      'fear_anxiety_expert_review.md', 'axis_intervention/protocol.json']:
             archive.write(BASE / name, Path(BASE.name) / name)
         for entry in figures:

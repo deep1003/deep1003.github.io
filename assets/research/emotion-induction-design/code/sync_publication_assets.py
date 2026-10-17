@@ -33,6 +33,7 @@ def sync():
         copy(REP / 'results/d335ad178e3c' / name, 'data/l14/' + name)
     copy(REP / 'anchors.json', 'data/l14/anchors.json')
     copy(BASE / 'l14_methods.html', 'data/l14/methods.html')
+    copy(BASE / 'atlas_geometry_explainer.html', 'data/atlas/geometry_and_tiles.html')
     copy(BASE / 'axis_intervention/protocol.json', 'data/l14/axis_intervention_protocol.json')
     copy(BASE / 'fear_anxiety_expert_review.md', 'data/atlas/fear_anxiety_expert_review.md')
     for directory, destination in [('emotion_atlas', 'atlas'),
@@ -48,7 +49,7 @@ def sync():
                                ('token_scores.csv', 'token_scores.csv'), ('manifest.json', 'manifest.json')]:
         copy(token / name, 'prompt-activations/' + destination)
     modules = ['english_figures.py', 'notebook_views.py', 'plot_style.py', 'prompt_text_figure.py',
-               'emotion_atlas.py', 'concept_umap.py', 'axis_intervention.py', 'three_axis_supplement.py',
+               'emotion_atlas.py', 'concept_umap.py', 'axis_intervention.py', 'three_axis_supplement.py', 'atlas_geometry_notes.py',
                'representation_analysis/analysis.py', 'representation_analysis/publication_figures/build_figures.py',
                'representation_analysis/item_category_alignment/plot.py',
                'representation_analysis/item_category_alignment/measure.py',

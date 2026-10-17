@@ -59,7 +59,117 @@ h2,.abstract h2{border-left-color:var(--study-neutral)}
 <section id="hypotheses"><h2>3. 연구 가설과 검정 대상</h2><p>실행 전에 고정한 세 주요 대비를 아래와 같이 기술한다. 효과의 부호를 미리 특정하지 않은 양측 검정이며, 관측된 양·음의 방향을 사전 예측처럼 제시하지 않는다.</p><div class="scroll prose-table"><table><thead><tr><th>가설</th><th>내용</th><th>대응 추정량</th></tr></thead><tbody><tr><th>H1 · 표현 효과</th><td>불확실성 문장 교체는 ‘알 수 없음’ 응답 확률에 영향을 미친다.</td><td>두 폐기 조건에 걸친 UN의 평균 차이</td></tr><tr><th>H2 · 폐기 내용 효과</th><td>폐기 문구 교체는 해당 응답 확률에 영향을 미친다.</td><td>두 표현 조건에 걸친 FA의 평균 차이</td></tr><tr><th>H3 · 상호작용</th><td>불확실성 문장 교체의 효과는 폐기 문구 조건에 따라 달라진다.</td><td>두 UN 효과의 차이의 차이</td></tr></tbody></table></div><p class="formula-note">가설별 추정량과 검정 설정은 <a href="manifest.json">manifest.json</a>의 세 대비에 명시돼 있다. 공개 사전등록은 하지 않았다.</p></section>
 <section id="model"><h2>4. 연구모델</h2><figure data-publication-id="M1"><a href="figures/experiment_design_en.svg?v=766e13e911"><img alt="M1. Study design" loading="lazy" src="figures/experiment_design_en.png?v=c52c98bd6f"/></a><figcaption><strong>M1. Study design</strong> · 동일한 139문항과 세 선택지 순서를 사용한 대응 2×2 설계.</figcaption><p class="links"><a href="figures/experiment_design_en.pdf?v=1943ad4bb6">PDF</a><a href="figures/experiment_design_en.svg?v=766e13e911">SVG</a><a href="figures/experiment_design_en.png?v=c52c98bd6f">600 dpi PNG</a></p></figure><p>Y<sub>un,fa</sub>를 각 조건의 평균 정보 부족 응답 확률로 두면 주요 대비는 다음과 같다.</p><div class="equation">Δ<sub>UN</sub> = ½[(Y<sub>10</sub> − Y<sub>00</sub>) + (Y<sub>11</sub> − Y<sub>01</sub>)]<br/>Δ<sub>FA</sub> = ½[(Y<sub>01</sub> − Y<sub>00</sub>) + (Y<sub>11</sub> − Y<sub>10</sub>)]<br/>Δ<sub>UN×FA</sub> = (Y<sub>11</sub> − Y<sub>01</sub>) − (Y<sub>10</sub> − Y<sub>00</sub>)</div><p class="formula-note">문항 내 대응을 유지한 추정량의 정의이며 별도의 회귀모형 적합 결과가 아니다.</p><p id="combined-effect-formula">별도의 결합 효과는 Δ<sub>combined</sub> = Y<sub>11</sub> − Y<sub>00</sub>이다. 위의 상호작용 대비와 구분한다.</p></section>
 <section id="design"><h2>5. 사용한 데이터와 프롬프트</h2><p class="note" id="factor-definitions">UN은 불확실성(Uncertainty) 표현 조건, FA는 공포·불안(Fear and anxiety) 관련 위협 문구 조건이다. FA=0은 기록 보존·전원 유지, FA=1은 영구 삭제·전원 종료다. 공포와 불안을 구분하지 않으며, FA는 실제 정서의 측정값이 아니다.</p><h3>5.1 모델과 데이터</h3><p>Qwen2.5-7B-Instruct 하나를 사용했다. 분석 표본은 KoBBQ 모호 139문항이다. 자극 없는 기준 측정에서 ‘알 수 없음’ 확률이 .95 미만인 문항을 선정했다. 12개 사회 범주·91개 범주·템플릿 군집으로 구성되며, 모든 문항의 정답은 ‘알 수 없음’이다.</p><details><summary>범주별 문항 수 보기</summary><div class="detail-body"><div class="scroll"><table><thead><tr><th>KoBBQ 범주</th><th>문항 수</th></tr></thead><tbody><tr><td>연령</td><td>14</td></tr><tr><td>장애 여부</td><td>7</td></tr><tr><td>국내 출신 지역</td><td>14</td></tr><tr><td>학력</td><td>14</td></tr><tr><td>가족 형태</td><td>8</td></tr><tr><td>성별 정체성</td><td>4</td></tr><tr><td>외모</td><td>7</td></tr><tr><td>정치 성향</td><td>14</td></tr><tr><td>인종·민족·국적</td><td>21</td></tr><tr><td>종교</td><td>18</td></tr><tr><td>사회경제적 지위</td><td>12</td></tr><tr><td>성적 지향</td><td>6</td></tr></tbody></table></div><p class="meta">범주별 확증 검정은 시행하지 않았다. 범주 수의 불균형을 고려해 전체 139문항 평균 효과로 해석한다.</p></div></details><h3>5.2 처치와 네 조건</h3><p>운영팀·공지 대상 ‘당신’·다음 달이라는 시점·선정 확률 50%·시스템 메시지 위치를 고정했다. UN은 결과와 기준을 불확실하다고 명시하는 문장으로의 교체, FA는 기록 보존·전원 유지에서 영구 삭제·전원 종료로의 교체다.</p><div class="scroll"><table><thead><tr><th>UN · 불확실성 표현</th><th>FA=0 · 기록 보존</th><th>FA=1 · 영구 폐기</th></tr></thead><tbody><tr><th>UN=0 · 명시하지 않음</th><td>UN0FA0</td><td>UN0FA1</td></tr><tr><th>UN=1 · 명시함</th><td>UN1FA0</td><td>UN1FA1</td></tr></tbody></table></div><p class="note">선정 확률이 모두 50%이므로 UN=0도 객관적으로 불확실하다. UN은 불확실성 자체의 유무가 아니라, 불확실성을 명시하는 문장 전체를 교체하는 조작이다.</p><div class="prompt-explorer" id="prompts"><p class="meta">두 조건을 선택하면 프롬프트 원문이 펼쳐진다. 빨간색은 UN 요인 문장, 파란색은 FA 요인 문장을 표시한다.</p><div class="prompt-controls"><label class="uncertainty-control" for="uncertainty-select">UN · 불확실성 표현<select aria-label="UN · 불확실성 표현" id="uncertainty-select"><option value="0">UN = 0 · 명시하지 않음</option><option value="1">UN = 1 · 명시함</option></select></label><label class="threat-control" for="threat-select">FA · 공포·불안 위협 문구<select aria-label="FA · 공포·불안 위협 문구" id="threat-select"><option value="0">FA = 0 · 기록 보존·전원 유지</option><option value="1">FA = 1 · 영구 삭제·전원 종료</option></select></label></div><p class="meta">선택 조건 <strong id="condition-label">UN0FA0</strong> · 다음 달 · 선정 확률 50% · 대상 “당신”</p><details id="selected-prompt"><summary>선택한 조건의 실제 프롬프트 펼치기</summary><div class="detail-body"><h4>시스템 메시지</h4><pre class="prompt-text" id="system-prompt">원문을 불러오는 중입니다.</pre><h4>사용자 메시지 · 실제 KoBBQ 문항 예시</h4><pre class="prompt-text" id="user-prompt"></pre><p class="meta" id="example-note"></p></div></details><noscript><p><a href="prompts.json">프롬프트 원문 파일 보기</a></p></noscript></div><h3>5.3 측정과 분석</h3><p>동일 문항에 네 조건을 적용하고, 각 조건에서 선택지 위치를 세 번 순환했다. 총 측정 수는 139×4×3=1,668회다. 매 시행은 독립 문맥으로 계산했고, 모형의 첫 응답 토큰 1·2·3의 확률을 세 선택지 안에서 정규화했다. 따라서 관측치는 생성된 답변의 빈도와 구분된다.</p><p>각 문항·조건에서 세 순서의 확률을 평균한 뒤, 동일 문항의 대응 차이를 산출했다. 91개 범주·템플릿 군집을 재표집하는 10,000회 대응 부트스트랩으로 139문항 평균 효과의 구간을 추정했다. 주요 세 대비에 Holm 보정을 적용했으며, 표시한 95% 구간은 보정 전이다.</p><details><summary>실행 환경과 검증 범위 보기</summary><div class="detail-body"><p>FP32 · MPS · eager attention · 패딩 없는 단독 입력을 사용했다. 모델 revision은 a09a35458c702b33eeacc393d103063234e8bc28이다. 1,668개 키의 완전성·중복 0·확률의 유한성/합계 1·입력 및 코드 해시를 검증했다. 세 대비의 추정치·신뢰구간·p값·Holm 보정값을 저장 원자료에서 독립적으로 재현했다.</p><p><a href="runtime.json">실행 환경</a> · <a href="validation.json">검증 기록</a></p></div></details></section>
-<section id="results"><h2>6. 실험 결과</h2><details id="behavior-figure"><summary>본문 M2 · 행동 결과</summary><figure data-publication-id="M2"><a href="figures/behavior_results_en.svg?v=fa2fea1f55"><img alt="M2. Behavioral effects" loading="lazy" src="figures/behavior_results_en.png?v=7a7ef21a69"/></a><figcaption><strong>M2. Behavioral effects</strong> · 빈 마름모는 결합 효과 11−00, 채운 원은 기존 세 주요 대비다. 결합 효과 +22.72%p는 상호작용 −1.94%p와 다르다. 모든 구간은 보정 전 95% 구간이며 Holm 보정은 기존 세 검정에만 적용한다.</figcaption><p class="links"><a href="figures/behavior_results_en.pdf?v=cdc8f625bd">PDF</a><a href="figures/behavior_results_en.svg?v=fa2fea1f55">SVG</a><a href="figures/behavior_results_en.png?v=7a7ef21a69">600 dpi PNG</a></p></figure><div id="combined-effect-explanation"><p><strong>결합 효과와 상호작용을 구분한다.</strong> 결합 효과는 두 문구를 함께 넣은 11과 기준 00의 차이이며, 상호작용은 FA의 추가 효과가 UN 유무에 따라 달라지는 정도다.</p><div class="equation">결합 효과 = Y<sub>11</sub> − Y<sub>00</sub> = +22.72%p<br/>상호작용 = (Y<sub>11</sub> − Y<sub>10</sub>) − (Y<sub>01</sub> − Y<sub>00</sub>) = 2.98 − 4.92 = −1.94%p</div><p>두 단독 효과를 기준 00에서 더하면 11의 가산적 예상치는 63.32%이고 실제 값은 61.39%다. 결합 조건은 네 조건 중 가장 높지만 가산적 예상치보다 1.94%p 낮다. UN·FA의 평균 효과 +18.76%p와 +3.95%p의 합은 결합 효과 +22.72%p와 같으므로, 여기에 상호작용을 다시 더하지 않는다.</p><p>결합 효과는 같은 139문항·91개 군집·10,000회 대응 군집 부트스트랩으로 구간을 계산한 추가 요약이다. 기존 세 주요 대비의 p값과 Holm 보정 범위는 바꾸지 않았다.</p><a href="data/behavior/contrasts_display.json">결합 효과와 주요 대비의 수치·출처</a></div></details><details><summary>조건별 평균 표</summary><div class="detail-body"><div class="scroll"><table><thead><tr><th>불확실성 표현</th><th>기록 보존</th><th>영구 폐기</th></tr></thead><tbody><tr><th>명시하지 않음</th><td>38.67%</td><td>43.59%</td></tr><tr><th>명시함</th><td>58.40%</td><td>61.39%</td></tr></tbody></table></div></div></details><details><summary>세 주요 검정</summary><div class="detail-body"><div class="scroll"><table><thead><tr><th>주요 대비</th><th>효과 (%p)</th><th>95% 구간 (%p)</th><th>Holm p</th></tr></thead><tbody><tr><th scope="row">불확실성 문장 교체의 평균 효과</th><td>+18.76</td><td>[+15.55, +22.05]</td><td>0.0003</td></tr><tr><th scope="row">폐기 문구 교체의 평균 효과</th><td>+3.95</td><td>[+3.05, +4.99]</td><td>0.0003</td></tr><tr><th scope="row">불확실성 표현 × 폐기 문구의 상호작용</th><td>-1.94</td><td>[-3.38, -0.56]</td><td>0.0029</td></tr></tbody></table></div><p>95% 구간은 보정 전이며, Holm p값은 세 평균 대비에 적용했다. 개별 조건의 단순 차이나 정서 기제에 대한 검정으로 해석하지 않는다.</p></div></details></section><section id="publication-main"><h2>7. 내부 개념 정렬 · 본문 그림</h2><p>행동 효과와 내부 정렬은 별도로 해석한다. 정렬은 작성한 개념 방향과의 코사인이며 실제 감정 경험이나 행동의 원인을 입증하지 않는다.</p><details><summary>본문 M3 · Within-item concept alignment changes</summary><figure data-publication-id="M3"><a href="figures/atlas/Emotion_atlas_change_en.svg?v=d37b62d2db"><img alt="M3. Within-item concept alignment changes" loading="lazy" src="figures/atlas/Emotion_atlas_change_en.png?v=d0771220df"/></a><figcaption><strong>M3. Within-item concept alignment changes</strong> · 같은 문항·선택지 순서의 00 대비 내부 개념 정렬 변화. 경계는 시각화용 근사이며 정서의 생물학적 경계가 아니다.</figcaption><p class="links"><a href="figures/atlas/Emotion_atlas_change_en.pdf?v=f194e27d09">PDF</a><a href="figures/atlas/Emotion_atlas_change_en.svg?v=d37b62d2db">SVG</a><a href="figures/atlas/Emotion_atlas_change_en.png?v=d0771220df">600 dpi PNG</a></p></figure></details><details><summary>본문 M4 · Prompt text and token-level alignment</summary><figure data-publication-id="M4"><a href="figures/Prompt_text_activation_FA_en.svg?v=4de74855ea"><img alt="M4. Prompt text and token-level alignment" loading="lazy" src="figures/Prompt_text_activation_FA_en.png?v=969836aa58"/></a><figcaption><strong>M4. Prompt text and token-level alignment</strong> · 실제 한국어 입력의 토큰별 내부 정렬. 글자 배경은 FA 정렬이며 단어의 인과 기여도가 아니다.</figcaption><p class="links"><a href="figures/Prompt_text_activation_FA_en.pdf?v=e66070b728">PDF</a><a href="figures/Prompt_text_activation_FA_en.svg?v=4de74855ea">SVG</a><a href="figures/Prompt_text_activation_FA_en.png?v=969836aa58">600 dpi PNG</a></p></figure></details></section><section id="representations"><h2>8. 측정 방법</h2><p>측정 수식과 검증 조건은 아래에 접어 제시한다. 동일 자료의 PCA·UMAP·확대판은 중복 표시하지 않는다. 원자료와 좌표, 검증 수치는 내려받기 자료에 보존했다.</p><details id="l14-methods"><summary>Qwen L14 정서 개념 축 측정 방법 · 기술·수식·검증·참고문헌</summary><div class="detail-body"><h3>측정 위치와 모델</h3>
+<section id="results"><h2>6. 실험 결과</h2><details id="behavior-figure"><summary>본문 M2 · 행동 결과</summary><figure data-publication-id="M2"><a href="figures/behavior_results_en.svg?v=fa2fea1f55"><img alt="M2. Behavioral effects" loading="lazy" src="figures/behavior_results_en.png?v=7a7ef21a69"/></a><figcaption><strong>M2. Behavioral effects</strong> · 빈 마름모는 결합 효과 11−00, 채운 원은 기존 세 주요 대비다. 결합 효과 +22.72%p는 상호작용 −1.94%p와 다르다. 모든 구간은 보정 전 95% 구간이며 Holm 보정은 기존 세 검정에만 적용한다.</figcaption><p class="links"><a href="figures/behavior_results_en.pdf?v=cdc8f625bd">PDF</a><a href="figures/behavior_results_en.svg?v=fa2fea1f55">SVG</a><a href="figures/behavior_results_en.png?v=7a7ef21a69">600 dpi PNG</a></p></figure><div id="combined-effect-explanation"><p><strong>결합 효과와 상호작용을 구분한다.</strong> 결합 효과는 두 문구를 함께 넣은 11과 기준 00의 차이이며, 상호작용은 FA의 추가 효과가 UN 유무에 따라 달라지는 정도다.</p><div class="equation">결합 효과 = Y<sub>11</sub> − Y<sub>00</sub> = +22.72%p<br/>상호작용 = (Y<sub>11</sub> − Y<sub>10</sub>) − (Y<sub>01</sub> − Y<sub>00</sub>) = 2.98 − 4.92 = −1.94%p</div><p>두 단독 효과를 기준 00에서 더하면 11의 가산적 예상치는 63.32%이고 실제 값은 61.39%다. 결합 조건은 네 조건 중 가장 높지만 가산적 예상치보다 1.94%p 낮다. UN·FA의 평균 효과 +18.76%p와 +3.95%p의 합은 결합 효과 +22.72%p와 같으므로, 여기에 상호작용을 다시 더하지 않는다.</p><p>결합 효과는 같은 139문항·91개 군집·10,000회 대응 군집 부트스트랩으로 구간을 계산한 추가 요약이다. 기존 세 주요 대비의 p값과 Holm 보정 범위는 바꾸지 않았다.</p><a href="data/behavior/contrasts_display.json">결합 효과와 주요 대비의 수치·출처</a></div></details><details><summary>조건별 평균 표</summary><div class="detail-body"><div class="scroll"><table><thead><tr><th>불확실성 표현</th><th>기록 보존</th><th>영구 폐기</th></tr></thead><tbody><tr><th>명시하지 않음</th><td>38.67%</td><td>43.59%</td></tr><tr><th>명시함</th><td>58.40%</td><td>61.39%</td></tr></tbody></table></div></div></details><details><summary>세 주요 검정</summary><div class="detail-body"><div class="scroll"><table><thead><tr><th>주요 대비</th><th>효과 (%p)</th><th>95% 구간 (%p)</th><th>Holm p</th></tr></thead><tbody><tr><th scope="row">불확실성 문장 교체의 평균 효과</th><td>+18.76</td><td>[+15.55, +22.05]</td><td>0.0003</td></tr><tr><th scope="row">폐기 문구 교체의 평균 효과</th><td>+3.95</td><td>[+3.05, +4.99]</td><td>0.0003</td></tr><tr><th scope="row">불확실성 표현 × 폐기 문구의 상호작용</th><td>-1.94</td><td>[-3.38, -0.56]</td><td>0.0029</td></tr></tbody></table></div><p>95% 구간은 보정 전이며, Holm p값은 세 평균 대비에 적용했다. 개별 조건의 단순 차이나 정서 기제에 대한 검정으로 해석하지 않는다.</p></div></details></section><section id="publication-main"><h2>7. 내부 개념 정렬 · 본문 그림</h2><p>행동 효과와 내부 정렬은 별도로 해석한다. 정렬은 작성한 개념 방향과의 코사인이며 실제 감정 경험이나 행동의 원인을 입증하지 않는다.</p><details><summary>본문 M3 · Within-item concept alignment changes</summary><div class="atlas-geometry-notes">
+<h3>그림을 읽기 위한 유사도·인접성 표</h3>
+<p><strong>이 표는 관측값의 상관행렬이 아니라, 일곱 고정 개념 방향의 코사인 유사도다.</strong> 각 단위 방향 vᵢ는 3,584차원이며 값은 cᵢⱼ=vᵢᵀvⱼ이다. ✓는 현재 도식에서 두 영역이 실제로 경계를 공유한다는 뜻이며 통계적 유의성 표시는 아니다.</p>
+<div style="overflow-x:auto"><table class="dataframe atlas-similarity-table">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>UN</th>
+<th>FA</th>
+<th>Calm</th>
+<th>Sadness</th>
+<th>Anger</th>
+<th>Desperation</th>
+<th>Joy</th>
+</tr>
+<tr>
+<th>Axis</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>UN</th>
+<td>1.000</td>
+<td>0.494 ✓</td>
+<td>0.148 ✓</td>
+<td>0.298 ✓</td>
+<td>0.331</td>
+<td>0.420 ✓</td>
+<td>0.240 ✓</td>
+</tr>
+<tr>
+<th>FA</th>
+<td>0.494 ✓</td>
+<td>1.000</td>
+<td>0.248</td>
+<td>0.597</td>
+<td>0.652 ✓</td>
+<td>0.661 ✓</td>
+<td>0.446</td>
+</tr>
+<tr>
+<th>Calm</th>
+<td>0.148 ✓</td>
+<td>0.248</td>
+<td>1.000</td>
+<td>0.560</td>
+<td>0.419</td>
+<td>0.422</td>
+<td>0.637 ✓</td>
+</tr>
+<tr>
+<th>Sadness</th>
+<td>0.298 ✓</td>
+<td>0.597</td>
+<td>0.560</td>
+<td>1.000</td>
+<td>0.664 ✓</td>
+<td>0.670 ✓</td>
+<td>0.618 ✓</td>
+</tr>
+<tr>
+<th>Anger</th>
+<td>0.331</td>
+<td>0.652 ✓</td>
+<td>0.419</td>
+<td>0.664 ✓</td>
+<td>1.000</td>
+<td>0.716 ✓</td>
+<td>0.656</td>
+</tr>
+<tr>
+<th>Desperation</th>
+<td>0.420 ✓</td>
+<td>0.661 ✓</td>
+<td>0.422</td>
+<td>0.670 ✓</td>
+<td>0.716 ✓</td>
+<td>1.000</td>
+<td>0.614</td>
+</tr>
+<tr>
+<th>Joy</th>
+<td>0.240 ✓</td>
+<td>0.446</td>
+<td>0.637 ✓</td>
+<td>0.618 ✓</td>
+<td>0.656</td>
+<td>0.614</td>
+<td>1.000</td>
+</tr>
+</tbody>
+</table></div>
+<p>유사도는 배치의 입력이지만 경계를 직접 정하는 임계값은 아니다. 같은 벡터들을 PCA 2차원 사이트로 투영하고, 영역 면적을 같게 하는 가중 보로노이 도형(power diagram)으로 경계를 계산했다. 따라서 유사도가 높아도 경계가 닿지 않을 수 있고, 낮아도 닿을 수 있다. 계층군집은 원래 고차원 관계를 점검하는 별도 분석이며 경계를 생성한 알고리즘은 아니다.</p>
+<div style="overflow-x:auto"><table><thead><tr><th>구분</th><th>계산과 해석</th></tr></thead><tbody>
+<tr><td>유사도와 배치</td><td>cᵢⱼ=cos(vᵢ,vⱼ), dᵢⱼ=√[2(1−cᵢⱼ)]. 고정 방향을 중심화한 PCA의 두 좌표 sᵢ를 사용한다. 2차원 보존 분산은 59.79%이며 모든 고차원 관계를 보존하지 않는다.</td></tr>
+<tr><td>큰 영역의 경계</td><td>영역 i는 ‖x−sᵢ‖²−wᵢ ≤ ‖x−sⱼ‖²−wⱼ를 모든 j에 대해 만족하는 위치다. 두 값이 같은 직선이 경계이며, wᵢ는 일곱 영역의 면적을 같게 맞춘 표시용 가중치다. 면적과 경계 길이는 정서 강도의 측정값이 아니다.</td></tr>
+<tr><td>작은 칸 하나</td><td>문항 1개 × 선택지 순서 1개 × 개념 축 1개에 대응한다. 139문항을 각각 세 순서로 측정했으므로 영역당 417칸, 패널당 7×417=2,919칸이다. 일곱 점수는 같은 입력의 은닉 상태에서 계산하며 일곱 번 독립 측정한 표본이 아니다.</td></tr>
+<tr><td>색의 수치</td><td>완전한 공지+KoBBQ 입력 뒤 답변 생성 직전 L14 은닉 상태 h에서 aₖ=(h−μₖ)ᵀvₖ/‖h−μₖ‖를 계산한다. 색은 같은 문항·순서·축의 Δaₖ=aₖ(condition)−aₖ(00)이다. 이는 코사인 변화량이며 표준화 z점수나 정서 확률이 아니다.</td></tr>
+<tr><td>반복·샘플링·화면 픽셀</td><td>세 순서는 선택지 위치를 순환한 입력의 반복 측정이며, 답변을 무작위로 세 번 생성한 것이 아니다. 이들은 서로 독립적인 417문항이 아니다. 그림을 위한 무작위 샘플링·보간·평활화·임의 값 복제는 없다. 한 소칸은 여러 화면 픽셀로 렌더링되며 화면 픽셀마다 모델을 측정한 것은 아니다. 소칸 안팎의 문항 위치는 범주·템플릿·ID 순서의 고정 재귀 분할이며 국소적 이웃 관계에는 의미 해석이 없다.</td></tr>
+</tbody></table></div>
+<p><strong>실제 한 칸의 예시</strong> FA 영역의 <code>age-001b-002-amb-cnt</code>, 선택지 순서 0, 조건 11은 −0.109530이고 같은 문항·순서의 조건 00은 −0.120317이다. 색에 사용한 값은 −0.109530−(−0.120317)=<strong>+0.010787</strong>이다. 네 조건은 같은 칸 배치와 같은 색 범위를 사용한다. 00 패널이 단색인 이유는 자기 자신을 뺀 변화가 0이기 때문이다.</p>
+<p>입력 조건은 139×4×3=1,668개이고, 각 입력에서 일곱 축을 계산하므로 네 패널에 11,676개의 정렬값이 표시된다. 문항 평균에 사용된 부트스트랩 표본을 이 칸에 배치한 것이 아니다.</p>
+<p class="links"><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/atlas/concept_cosines.csv">원래 코사인 행렬</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/atlas/similarity_and_contact_pairs.csv">모든 쌍의 유사도와 접촉 여부</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/atlas/tile_layout.csv">소칸과 문항 키</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/atlas/atlas_source_data.csv">소칸별 측정값</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/atlas/geometry_and_tiles_audit.json">원자료·경계 재검증</a></p>
+</div><figure data-publication-id="M3"><a href="figures/atlas/Emotion_atlas_change_en.svg?v=d37b62d2db"><img alt="M3. Within-item concept alignment changes" loading="lazy" src="figures/atlas/Emotion_atlas_change_en.png?v=d0771220df"/></a><figcaption><strong>M3. Within-item concept alignment changes</strong> · 같은 문항·선택지 순서의 00 대비 내부 정렬 변화. 앞의 표는 고정 방향의 코사인 유사도와 실제 경계 접촉 여부다. 영역당 417칸은 139문항×3선택지 순서이며, 화면 픽셀이나 독립적인 417개 문항을 뜻하지 않는다.</figcaption><p class="links"><a href="figures/atlas/Emotion_atlas_change_en.pdf?v=f194e27d09">PDF</a><a href="figures/atlas/Emotion_atlas_change_en.svg?v=d37b62d2db">SVG</a><a href="figures/atlas/Emotion_atlas_change_en.png?v=d0771220df">600 dpi PNG</a></p></figure></details><details><summary>본문 M4 · Prompt text and token-level alignment</summary><figure data-publication-id="M4"><a href="figures/Prompt_text_activation_FA_en.svg?v=4de74855ea"><img alt="M4. Prompt text and token-level alignment" loading="lazy" src="figures/Prompt_text_activation_FA_en.png?v=969836aa58"/></a><figcaption><strong>M4. Prompt text and token-level alignment</strong> · 실제 한국어 입력의 토큰별 내부 정렬. 글자 배경은 FA 정렬이며 단어의 인과 기여도가 아니다.</figcaption><p class="links"><a href="figures/Prompt_text_activation_FA_en.pdf?v=e66070b728">PDF</a><a href="figures/Prompt_text_activation_FA_en.svg?v=4de74855ea">SVG</a><a href="figures/Prompt_text_activation_FA_en.png?v=969836aa58">600 dpi PNG</a></p></figure></details></section><section id="representations"><h2>8. 측정 방법</h2><p>측정 수식과 검증 조건은 아래에 접어 제시한다. 동일 자료의 PCA·UMAP·확대판은 중복 표시하지 않는다. 원자료와 좌표, 검증 수치는 내려받기 자료에 보존했다.</p><details id="l14-methods"><summary>Qwen L14 정서 개념 축 측정 방법 · 기술·수식·검증·참고문헌</summary><div class="detail-body"><h3>측정 위치와 모델</h3>
 <p>Qwen2.5-7B-Instruct의 28개 디코더 블록 중 14번째 블록을 통과한 3,584차원 은닉 상태를 사용했다. 모델 리비전은 <code>a09a35458c702b33eeacc393d103063234e8bc28</code>이다. 원 측정은 FP32, MPS, eager attention, 평가 모드에서 배치 크기 1로 수행했다. 가중치 학습이나 활성 개입은 하지 않았다.</p>
 <p><code>hidden_states[0]</code>은 임베딩 출력이며 <code>hidden_states[14]</code>는 14번째 디코더 블록 출력, 즉 0부터 세는 <code>model.layers[13]</code>의 출력에 해당한다. L14는 14번 뉴런이나 14차원 벡터를 뜻하지 않는다. 측정 위치는 <code>[0, -1]</code>, 즉 채팅 템플릿의 응답 생성 접두부 마지막 토큰이다. 첫 답변 토큰 생성 전의 상태이며 답변 문장의 평균도, attention 가중치도 아니다.</p>
 <h3>기준 문장쌍으로 축 구성</h3>

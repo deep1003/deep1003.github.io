@@ -8,12 +8,14 @@ def entries(placement=None):
     return [f for f in figures if placement is None or f['placement'] == placement]
 
 def show(figure_id, width=1000):
-    from IPython.display import Image, Markdown, display
+    from IPython.display import Image, Markdown, HTML, display
     entry = next(f for f in entries() if f['id'] == figure_id)
     path = BASE / (entry['local_stem'] + '.png')
     if not path.exists():
         raise FileNotFoundError(f'Cached publication artwork is missing: {path}')
     display(Markdown(f"**{entry['id']}. {entry['title']}**"))
+    if figure_id == 'M3':
+        display(HTML((BASE / 'atlas_geometry_explainer.html').read_text()))
     display(Image(filename=str(path), width=width))
     return path
 
