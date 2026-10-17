@@ -1,0 +1,45 @@
+<h3>측정 위치와 모델</h3>
+<p>Qwen2.5-7B-Instruct의 28개 디코더 블록 중 14번째 블록을 통과한 3,584차원 은닉 상태를 사용했다. 모델 리비전은 <code>a09a35458c702b33eeacc393d103063234e8bc28</code>이다. 원 측정은 FP32, MPS, eager attention, 평가 모드에서 배치 크기 1로 수행했다. 가중치 학습이나 활성 개입은 하지 않았다.</p>
+<p><code>hidden_states[0]</code>은 임베딩 출력이며 <code>hidden_states[14]</code>는 14번째 디코더 블록 출력, 즉 0부터 세는 <code>model.layers[13]</code>의 출력에 해당한다. L14는 14번 뉴런이나 14차원 벡터를 뜻하지 않는다. 측정 위치는 <code>[0, -1]</code>, 즉 채팅 템플릿의 응답 생성 접두부 마지막 토큰이다. 첫 답변 토큰 생성 전의 상태이며 답변 문장의 평균도, attention 가중치도 아니다.</p>
+<h3>기준 문장쌍으로 축 구성</h3>
+<p>불확실성(UN), 공포·불안(FA), 평온, 슬픔, 분노, 절박함, 기쁨의 7개 개념마다 연구자가 작성한 개념 표현 문장과 대조 문장 10쌍을 사용했다. 앞 6쌍은 축 구성, 뒤 4쌍은 보류 점검에 사용했다. 무작위 분할이나 외부 표준 정서 척도는 아니다. FA는 공포와 불안을 함께 포함한다. 총 70쌍, 140문장을 공통 시스템 지시문에 덧붙였고, 네 공지를 별도로 측정해 원 측정 입력은 총 144개다. KoBBQ 문항은 축 구성에 사용하지 않았다.</p>
+<p>예를 들어 UN 구성 문장쌍은 “출발 시간이 정해졌는지 아직 확인할 수 없다.”와 “출발 시간을 확인해서 정확히 알고 있다.”이다. FA 구성 문장쌍은 “내 앞의 개가 이빨을 드러내고 나를 향해 달려든다.”와 “내 앞의 개가 주인 옆에서 가만히 쉬고 있다.”이다. 대조 문장은 항상 정반대 감정을 의미하지 않는다.</p>
+<p>개념 k의 구성 문장쌍 i에서 얻은 은닉 벡터를 h<sup>+</sup><sub>ki</sub>, h<sup>−</sup><sub>ki</sub>로 쓴다. 문장쌍 차이의 평균을 단위 길이로 정규화해 축 d<sub>k</sub>를 얻는다.</p>
+<div class="equation">a<sub>k</sub> = (1/6) Σ<sub>i=1…6</sub>(h<sup>+</sup><sub>ki</sub> − h<sup>−</sup><sub>ki</sub>)<br>d<sub>k</sub> = a<sub>k</sub> / ‖a<sub>k</sub>‖<sub>2</sub><br>c<sub>k</sub> = (1/12) Σ<sub>i=1…6</sub>(h<sup>+</sup><sub>ki</sub> + h<sup>−</sup><sub>ki</sub>)</div>
+<p>중심 c<sub>k</sub>는 구성 문장 12개의 평균이다. u<sub>kj</sub> = (h<sub>kj</sub> − c<sub>k</sub>)ᵀd<sub>k</sub>를 12개 구성 문장에 대해 계산하고, 표본 표준편차 s<sub>k</sub>를 구한다. 분모는 11이며 코드의 <code>np.std(..., ddof=1)</code>과 같다.</p>
+<div class="equation">s<sub>k</sub> = √[Σ<sub>j=1…12</sub>(u<sub>kj</sub> − ū<sub>k</sub>)² / 11]</div>
+<p>축을 서로 직교화하거나 백색화하지 않았으며, 희소 오토인코더(SAE)나 별도의 분류기를 학습하지 않았다. PCA는 축을 구성한 뒤 시각화를 위해 사용하는 별도 단계다.</p>
+<h3>프롬프트의 내부 정렬 점수</h3>
+<p>새 입력의 은닉 상태 h에 대해 세 점수를 구분한다.</p>
+<div class="equation">p<sub>k</sub>(h) = (h − c<sub>k</sub>)ᵀd<sub>k</sub><br>z<sub>k</sub>(h) = p<sub>k</sub>(h) / s<sub>k</sub><br>cos<sub>k</sub>(h) = p<sub>k</sub>(h) / ‖h − c<sub>k</sub>‖<sub>2</sub></div>
+<p>p는 원 투영값, z는 구성 문장 기준 표준화 투영값, cos는 축별 중심을 뺀 벡터와 단위 축 사이의 코사인이다. z는 정서 확률이나 임상적 강도가 아니며, 정규분포를 가정한 모집단 z점수도 아니다. 음수는 기준 중심에 대한 반대 방향을 뜻하며 정서의 부재를 뜻하지 않는다. 중립 대비 변화는 같은 점수에서 UN0FA0 값을 빼서 계산한다.</p>
+<h3>이번 히트맵의 정의</h3>
+<div class="equation">G<sub>kℓ</sub> = (d<sub>k</sub>ᵀd<sub>ℓ</sub>) / (‖d<sub>k</sub>‖<sub>2</sub> ‖d<sub>ℓ</sub>‖<sub>2</sub>) = d<sub>k</sub>ᵀd<sub>ℓ</sub><br>G = DDᵀ</div>
+<p>D는 7개의 단위 방향을 행으로 둔 7×3,584 행렬이다. 따라서 이 그림은 방향의 그람 행렬(Gram matrix)이며, 문항별 활성값의 Pearson 상관행렬이나 네 프롬프트의 활성값 표가 아니다. 대각선 1은 구성상 당연한 결과다. 색 범위는 −1부터 +1까지 고정했다. 분노·절박함 0.716, FA·절박함 0.661, FA·분노 0.652, 평온·기쁨 0.637, UN·FA 0.494로 축이 겹친다. 이 행렬은 고정된 기준 문장의 기술통계이며 신뢰구간이나 유의성 검정을 붙이지 않았다.</p>
+<h3>구현에서의 추출 위치</h3>
+<pre><code>text = tok.apply_chat_template(
+    [{"role": "system", "content": content}],
+    tokenize=False, add_generation_prompt=True)
+enc = tok(text, return_tensors="pt").to(device)
+with torch.inference_mode():
+    result = model(**enc, output_hidden_states=True,
+                   use_cache=False, logits_to_keep=1)
+    h = result.hidden_states[14][0, -1]
+# 방향과 중심은 구성 문장으로 한 번 고정한 뒤 재사용한다.
+delta = h - center
+raw = delta @ direction
+standardized = raw / scale
+cosine = raw / norm(delta)</code></pre>
+<p>네 공지 분석에서는 시스템 메시지만 넣었다. 139문항 지도에서는 시스템 공지와 KoBBQ 문맥·질문·선택지를 모두 포함한 입력의 동일 위치를 측정했다. 각 문항의 선택지 순서 3개에서 구한 코사인을 평균했다. 축은 재학습하지 않았으므로 시스템 문장 기준에서 전체 질문으로의 전이는 탐색적이다.</p>
+<h3>검증 결과와 측정의 한계</h3>
+<p>L14의 7개 축 모두 보류 4쌍의 대응 정확도와 AUC가 1.000이었다. 통과 기준은 각각 0.75 이상이다. AUC는 보류 양성 4개와 대조 4개 사이 16개 비교에서 동점에 0.5를 준 값이다. 이 점검은 개념 표현과 그 대조를 구분하는지만 확인한다. 서로 다른 정서의 특이성을 보증하지 않는다.</p>
+<p>보류 문장쌍의 차이 벡터를 7개 축 중 가장 가까운 축에 배정한 추가 점검에서는 28쌍 중 23쌍을 맞혔다. UN·절박함은 각각 4/4, 나머지는 각각 3/4였다. 작은 동일 작성 문장 집합의 결과이며 외부 검증은 아니다. 또한 정서 6개 축의 대조 문장 60개 중 37개에 ‘확인·정리·기록’ 표현이 있는 반면 개념 표현 문장에는 없었다. 공통 문구가 축의 겹침을 만들었을 가능성이 있다.</p>
+<p>따라서 평온·기쁨·FA 점수의 동반 증가만으로 모델이 서로 반대 감정을 동시에 경험한다고 결론 내리지 않는다. 139문항에서 UN·FA 정렬 변화와 정보 부족 응답 확률 변화의 Spearman 상관도 각각 −0.009, 0.085로 약했다. 기능적 정서의 행동 기여를 주장하려면 축 개입, 대조 축, 외부 자극에서의 재현이 추가로 필요하다.</p>
+<h3>방법론 참고문헌과 적용 범위</h3>
+<ol>
+<li><a href="https://huggingface.co/Qwen/Qwen2.5-7B-Instruct">Qwen Team. Qwen2.5-7B-Instruct model card.</a> 모델 구조와 채팅 템플릿의 공식 자료.</li>
+<li><a href="https://huggingface.co/docs/transformers/main/en/main_classes/output">Hugging Face Transformers. Model outputs.</a> hidden_states의 임베딩·층별 출력 정의. 실제 측정 위치는 보존된 수집 코드로 고정했다.</li>
+<li><a href="https://aclanthology.org/2024.acl-long.828/">Rimsky et al. (2024). Steering Llama 2 via Contrastive Activation Addition. ACL, 15504–15522.</a> 쌍별 활성 차이의 평균으로 방향을 구성하는 관련 방법이다. 본 연구는 활성값에 방향을 더하는 인과적 steering 실험을 수행하지 않았다.</li>
+<li><a href="https://transformer-circuits.pub/2026/emotions/index.html">Sofroniew et al. (2026). Emotion Concepts and their Function in a Large Language Model.</a> 정서 개념 표현과 행동의 인과적 기능을 검증한 선행연구다. 본 연구의 7개 작성 문장 축은 해당 논문의 벡터를 가져오거나 그 검증을 재현한 결과가 아니다.</li>
+</ol>
+<p class="links"><a href="data/l14/anchors.json">70쌍 기준 문장</a><a href="code/representation_analysis/analysis.py">원 측정 코드</a><a href="data/l14/axis_cosines_qwen_L14.csv">히트맵 원자료</a><a href="data/l14/heldout_checks.csv">보류 점검</a><a href="data/l14/manifest.json">측정 명세와 해시</a><a href="data/l14/qwen_runtime.json">실행 환경</a></p>

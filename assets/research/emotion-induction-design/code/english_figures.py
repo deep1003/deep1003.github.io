@@ -85,3 +85,49 @@ def measure_representations(module):
     module.plot=render_english
     try:return module.run()
     finally:module.plot=original
+
+
+def axis_similarity_heatmap(data, show=True):
+    """Render the fixed seven-axis Gram matrix; no model inference."""
+    import hashlib
+    data = Path(data)
+    matrix = pd.read_csv(data / 'axis_cosines_qwen_L14.csv', index_col=0).loc[AXES, AXES]
+    directions = np.load(data / 'axes_qwen_L14.npz')['directions']
+    values = matrix.to_numpy()
+    assert values.shape == (7, 7) and np.isfinite(values).all()
+    assert np.allclose(values, values.T, atol=1e-6)
+    assert np.allclose(np.diag(values), 1, atol=1e-6)
+    assert np.max(np.abs(values)) <= 1 + 1e-5
+    error = float(np.max(np.abs(values - directions @ directions.T)))
+    assert error < 1e-5  # FP32 matrix multiplication can vary by BLAS backend.
+    style()
+    fig, ax = plt.subplots(figsize=(115 / 25.4, 108 / 25.4))
+    fig.subplots_adjust(left=.22, right=.84, top=.81, bottom=.16)
+    cmap = LinearSegmentedColormap.from_list('axis_cosine', ['#B35D4E', '#FFFFFF', '#316B99'])
+    image = ax.imshow(values, cmap=cmap, vmin=-1, vmax=1, interpolation='none')
+    labels = ['UN', 'FA', 'Calm', 'Sadness', 'Anger', 'Desperation', 'Joy']
+    ax.set_xticks(range(7), labels, rotation=45, ha='right', rotation_mode='anchor')
+    ax.set_yticks(range(7), labels)
+    ax.tick_params(length=0)
+    for i in range(7):
+        for j in range(7):
+            v = values[i, j]
+            ax.text(j, i, f'{v:.3f}', ha='center', va='center', fontsize=5.8,
+                    color='white' if v > .76 else '#18232D')
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    fig.text(.22, .93, 'Concept-axis cosine similarity', fontsize=8, weight='bold')
+    fig.text(.22, .885, 'Qwen2.5-7B-Instruct, layer 14', fontsize=7)
+    cb = fig.colorbar(image, cax=fig.add_axes([.88, .24, .025, .45]), ticks=[-1, -.5, 0, .5, 1])
+    cb.set_label('Cosine similarity', fontsize=7)
+    fig.text(.22, .045, 'UN, uncertainty; FA, fear / anxiety. Fixed axis order.', fontsize=5.8)
+    out = BASE / 'figures'
+    out.mkdir(exist_ok=True)
+    fig.savefig(out / 'axis_similarity_L14_en_preview.png', dpi=180)
+    path = save(fig, out, 'axis_similarity_L14_en', show)
+    (out / 'axis_similarity_L14_validation.json').write_text(json.dumps({
+        'matrix': 'axis_cosines_qwen_L14.csv', 'kind': 'unit-direction Gram matrix',
+        'max_reconstruction_error': error, 'dimensions': list(directions.shape),
+        'input_sha256': hashlib.sha256((data / 'axis_cosines_qwen_L14.csv').read_bytes()).hexdigest(),
+        'color_limits': [-1, 1], 'model_inference': False}, indent=2))
+    return path

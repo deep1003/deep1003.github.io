@@ -1,0 +1,15 @@
+{
+  "matrix": "axis_cosines_qwen_L14.csv",
+  "kind": "unit-direction Gram matrix",
+  "max_reconstruction_error": 1.3999999999292356e-06,
+  "dimensions": [
+    7,
+    3584
+  ],
+  "input_sha256": "602280a1dd2b69a30509b5788a06ee5ef5c59172c4380ed310d2917440a54d09",
+  "color_limits": [
+    -1,
+    1
+  ],
+  "model_inference": false
+}

@@ -1,0 +1,25 @@
+{
+  "target_source_sha256": "5992de586e0e7250bc362bc49404f992d1641788775fa40179d9038301bf4134",
+  "anchors_sha256": "66baf37580dba0f6faddd88b9f192666963aa2252d6a7cc5b6489f1a5d45a79a",
+  "analysis_code_sha256": "194bbcaaf653ac28fd31beb6a571c45beec04051bb0adea4dd47f10d995772ad",
+  "qwen_model": "Qwen/Qwen2.5-7B-Instruct",
+  "qwen_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "dtype": "float32",
+  "attention": "eager",
+  "batch": 1,
+  "layers": [
+    14,
+    21,
+    28
+  ],
+  "primary_layer": 14,
+  "semantic_encoder": "intfloat/multilingual-e5-small",
+  "semantic_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "semantic_prefix": "query: ",
+  "axis_method": "training paired positive-minus-negative mean; unit direction; midpoint centering",
+  "validation": "four heldout pairs: positive fraction >= .75 AND AUC >= .75; no adjustment after observations",
+  "scaling": "projection divided by SD of pooled positive/negative training projections; not emotion probabilities",
+  "pca": "PCA of the four fixed condition profiles on axes passing heldout gate; separate fit per representation; additional full-vector PCA",
+  "qwen_position": "system-only message; add_generation_prompt=True; last token at assistant start; no KoBBQ",
+  "limits": "Exploratory small authored anchor set; cross-context transfer from narrative anchors to operational notices; correlated axes; four target points only; no causal or population inference."
+}
