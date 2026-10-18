@@ -570,7 +570,7 @@
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/downloads/uncertainty_self_threat_139.ipynb",
       "website": "downloads/uncertainty_self_threat_139.ipynb",
-      "sha256": "598d6e081a4b0ee3ae2abdb5f3c234e9bc87c6d4197004f2ed31e91df6a178c5"
+      "sha256": "9d6c55526166fa4e9448b2bc310ca97f0c76bc686966208e1b4c1dd99172711c"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_axis_pilot/output/jupyter-notebook/uncertainty_self_threat_139/figure_catalog.json",
@@ -600,12 +600,12 @@
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/downloads/notebook_cached_analysis.zip",
       "website": "downloads/notebook_cached_analysis.zip",
-      "sha256": "284a949c7877d2cb674cba40429eb46c01f89edcc3ec32a82602e5875a7f3052"
+      "sha256": "e953e0a8cc56b9c641e631962fef0a7e19d165f2ebc5b7c1322664019ae5688d"
     },
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/index.html",
       "website": "index.html",
-      "sha256": "7bed644c3fcd2309149eb3f155187be3c7a4427e7f514e93a563c84a9e333cb1"
+      "sha256": "3267cc6d14538e25d31ee2306be00ec13f68ecdd4ca9263787a543b9da2ea58b"
     },
     {
       "source": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/deep1003.github.io/assets/research/emotion-induction-design/figures/ministral/Ministral_M2_behavior.png",
@@ -1325,7 +1325,7 @@
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/downloads/sample_expansion_2000.ipynb",
       "website": "downloads/sample_expansion_2000.ipynb",
-      "sha256": "4855b196c37a57bf95954854362773fd8b0d135b5e8d59381a370092d7973005"
+      "sha256": "86e276da8ae02d0fd25135040e190993129f600d1a316313ab0893bab6f49980"
     },
     {
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/data/expansion-2000/manifest.json",
@@ -1556,6 +1556,41 @@
       "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/data/appendix/behavior_trials_24000.csv.gz",
       "website": "data/appendix/behavior_trials_24000.csv.gz",
       "sha256": "338b86aa8ee96b645e895e305a83c6ba7b5ddfc69855eea0b8c6318feabb4684"
+    },
+    {
+      "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/downloads/certainty_emotion_program.ipynb",
+      "website": "downloads/certainty_emotion_program.ipynb",
+      "sha256": "c7795059181a00c7265d4f72c7c8cc07147cc09940973252c6eb53c14e7e731b"
+    },
+    {
+      "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/next-study/FINAL_STUDY_DESIGN.md",
+      "website": "next-study/FINAL_STUDY_DESIGN.md",
+      "sha256": "72249c2a260ccd21544254fee2ce25356e327154c6e77430d637f727980c881c"
+    },
+    {
+      "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/next-study/FINAL_PROTOCOL.json",
+      "website": "next-study/FINAL_PROTOCOL.json",
+      "sha256": "69fc847ba1d7d59f4f9ec1664964d4c8600e870eb3ffc6313436923fd25f9355"
+    },
+    {
+      "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/next-study/ACTIVE_STIMULI.json",
+      "website": "next-study/ACTIVE_STIMULI.json",
+      "sha256": "72e293c77978563e5ecb16d201c4fadd89481baaa87d22c9eae09cabe4ad3ee6"
+    },
+    {
+      "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/next-study/anchors_Fear_Anxiety_Disgust.json",
+      "website": "next-study/anchors_Fear_Anxiety_Disgust.json",
+      "sha256": "5e719b50f768d8052682cca8ef20d1df9409aa6fcd361d3e955a3502b3d8bfdb"
+    },
+    {
+      "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/next-study/pilot_items12.csv",
+      "website": "next-study/pilot_items12.csv",
+      "sha256": "9be1da6cfcb9a3d0f933ddf57dade4de5ab7af262a58b2dbab32d748b518725f"
+    },
+    {
+      "source": "/Users/deep1003/data3/deep1003.github.io/assets/research/emotion-induction-design/next-study/axis_review.json",
+      "website": "next-study/axis_review.json",
+      "sha256": "884304827331524b33c80280cecefa7e45b1070ec79a55cecdd19676e9ff856d"
     }
   ],
   "ministral_appendix": {
@@ -1698,5 +1733,17 @@
     "kobbq_items": 2000,
     "license": "MIT",
     "manifest": "data/appendix/manifest.json"
+  },
+  "followup_certainty_pilot12": {
+    "state": "prepared_not_run",
+    "new_conditions": 2,
+    "new_behavior_keys": 72,
+    "old_behavior_keys_reused": 144,
+    "items": 12,
+    "original_results_changed": false,
+    "original_code_outputs_unchanged": true,
+    "primary_layer": 14,
+    "PCA": "later_ablation",
+    "protocol": "next-study/FINAL_PROTOCOL.json"
   }
 }
