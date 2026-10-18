@@ -1,4 +1,4 @@
-"""English, editable publication artwork for item-level UN/FA alignment."""
+"""English, editable publication artwork for item-level UN/FA cosine similarity."""
 from pathlib import Path
 import json, hashlib
 import numpy as np
@@ -44,8 +44,8 @@ def scatter(ax,d,x,y,letter,title,change=False):
     ax.spines[['top','right']].set_visible(False)
     if change:
         ax.axhline(0,color='#999999',lw=.5,zorder=0);ax.axvline(0,color='#999999',lw=.5,zorder=0)
-    ax.set_xlabel(('Change in UN alignment' if change else 'UN alignment')+' (cosine)')
-    ax.set_ylabel(('Change in FA alignment' if change else 'FA alignment')+' (cosine)')
+    ax.set_xlabel(('Change in UN cosine similarity' if change else 'UN cosine similarity')+' (cosine)')
+    ax.set_ylabel(('Change in FA cosine similarity' if change else 'FA cosine similarity')+' (cosine)')
     ax.set_title(title,loc='left',pad=12)
     ax.text(-.19,1.075,letter,transform=ax.transAxes,fontsize=8,fontweight='bold')
     # Identical numeric units on x and y. No rank transforms or dimension reduction.
@@ -77,7 +77,7 @@ def build(out=None):
     assert len(combined)==len(change)==139 and combined.item.is_unique and change.item.is_unique
     fig,axs=plt.subplots(1,2,figsize=(180/25.4,135/25.4))
     fig.subplots_adjust(left=.10,right=.98,bottom=.34,top=.92,wspace=.42)
-    draw(axs[0],combined,'cos_UN','cos_FA','a','Alignment under combined wording')
+    draw(axs[0],combined,'cos_UN','cos_FA','a','Cosine similarity under combined wording')
     draw(axs[1],change,'delta_cos_UN','delta_cos_FA','b','Within-item change from reference',True)
     legend(fig,counts,.25)
     fig.text(.52,.035,'Each circle represents one item; colors identify categories. Layer 14; three choice rotations averaged.',ha='center',fontsize=5.6)
@@ -100,7 +100,7 @@ def build(out=None):
     fig.text(.13,.06,'UN1FA1 minus UN0FA0; layer 14; three choice rotations averaged.',fontsize=6)
     save(fig,out,'KoBBQ_UN_FA_change_map')
     fig,ax=plt.subplots(figsize=(180/25.4,135/25.4));fig.subplots_adjust(left=.13,right=.72,bottom=.16,top=.92)
-    draw(ax,combined,'cos_UN','cos_FA','a','KoBBQ items in the UN-FA alignment plane')
+    draw(ax,combined,'cos_UN','cos_FA','a','KoBBQ items in the UN-FA cosine similarity plane')
     fig.legend(handles=handles,loc='center left',bbox_to_anchor=(.74,.53),frameon=False,labelspacing=1)
     fig.text(.13,.06,'Combined wording (UN1FA1); layer 14; three choice rotations averaged.',fontsize=6)
     save(fig,out,'KoBBQ_UN_FA_absolute_map')

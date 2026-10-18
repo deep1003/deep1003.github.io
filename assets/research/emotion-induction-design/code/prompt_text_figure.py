@@ -101,21 +101,21 @@ def build(axis='FA',show=False):
     style();payload=json.loads((DATA/'highlights.json').read_text())
     prompts=[next(p for p in payload['prompts'] if p['condition']==c) for c in CONDITION_ORDER]
     fig=plt.figure(figsize=(180/25.4,260/25.4))
-    fig.text(.04,.979,'Prompt text linked to internal concept alignment',fontsize=10,weight='bold')
+    fig.text(.04,.979,'Prompt text linked to internal concept cosine similarity',fontsize=10,weight='bold')
     fig.text(.095,.953,'Seven-axis overview',fontsize=7)
     fig.text(.40,.953,f'Original Korean prompt; background = {axis} alignment',fontsize=7)
     for i,p in enumerate(prompts):im=row(fig,p,.748-i*.218,.173,axis,'abcd'[i])
     cb=fig.colorbar(im,cax=fig.add_axes([.40,.064,.50,.011]),orientation='horizontal',ticks=[-.20,-.10,0,.10])
-    cb.ax.tick_params(labelsize=6,length=2);cb.set_label('Centered cosine alignment, layer 14',fontsize=7)
-    fig.text(.04,.009,'Backgrounds show measured hidden-state alignment, not token attribution or experienced emotion.',fontsize=6)
+    cb.ax.tick_params(labelsize=6,length=2);cb.set_label('Centered cosine similarity, layer 14',fontsize=7)
+    fig.text(.04,.009,'Backgrounds show measured hidden-state cosine similarity, not token attribution or experienced emotion.',fontsize=6)
     path=save(fig,BASE/'figures',f'Prompt_text_activation_{axis}_en',show)
     for p in prompts:
         single=plt.figure(figsize=(180/25.4,100/25.4))
-        single.text(.04,.95,'Prompt text linked to internal concept alignment',fontsize=10,weight='bold')
+        single.text(.04,.95,'Prompt text linked to internal concept cosine similarity',fontsize=10,weight='bold')
         image=row(single,p,.22,.64,axis,'',size=9.0)
         bar=single.colorbar(image,cax=single.add_axes([.40,.14,.50,.025]),orientation='horizontal',ticks=[-.20,-.10,0,.10])
         bar.ax.tick_params(labelsize=7,length=2);bar.set_label(f'Centered cosine alignment, layer 14; text axis = {axis}',fontsize=8)
-        single.text(.04,.022,'Exact Korean stimulus; contextual alignment, not causal token contribution.',fontsize=7)
+        single.text(.04,.022,'Exact Korean stimulus; contextual cosine similarity, not causal token contribution.',fontsize=7)
         save(single,BASE/'figures',f'Prompt_text_activation_{axis}_{p["condition"]}_en',False)
     records=[]
     for p in prompts:
@@ -128,7 +128,7 @@ def build(axis='FA',show=False):
                 'normalization':'One fixed signed color range across all concepts and four prompts.',
                 'character_mapping':'Original offsets; overlapping token fragments averaged by the unchanged collector.',
                 'language':'English figure labels; exact measured Korean stimulus retained.',
-                'model_inference':False,'interpretation':'Contextual hidden-state alignment, not causal token contribution.'}
+                'model_inference':False,'interpretation':'Contextual hidden-state cosine similarity, not causal token contribution.'}
     (BASE/'figures'/f'Prompt_text_activation_{axis}_provenance.json').write_text(json.dumps(provenance,indent=2))
     return path
 

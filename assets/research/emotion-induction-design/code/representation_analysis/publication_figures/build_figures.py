@@ -115,7 +115,7 @@ def build(data=DEFAULT_DATA, output=None):
     cb.ax.tick_params(labelsize=5.5)
     handles = [Line2D([], [], marker=m, color=c, linestyle='none', markersize=4, label=l) for m,c,l in zip(MARKERS,COLORS,['00  Reference','01  FA only','10  UN only','11  UN + FA'])]
     fig.legend(handles=handles, loc='upper center', bbox_to_anchor=(.52, .99), ncol=4, frameon=False, handletextpad=.4, columnspacing=1.8)
-    fig.text(.52, .035, 'Separate PCA fits and calibrations; four fixed prompts; alignment does not establish emotion.', ha='center', fontsize=6)
+    fig.text(.52, .035, 'Separate PCA fits and calibrations; four fixed prompts; cosine similarity does not establish emotion.', ha='center', fontsize=6)
     save(fig, 'Figure_1_concept_alignment', out)
 
     # Convergent-looking target scores require a separate discriminant-validity check.

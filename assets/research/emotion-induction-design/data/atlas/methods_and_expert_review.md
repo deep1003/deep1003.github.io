@@ -1,6 +1,6 @@
 # Concept atlas, hierarchy, and UMAP methods
 
-The atlas is a schematic display of seven constructed concept directions, not a neural map. Original 3,584-dimensional unit directions determine cosine distances and PCA sites; the two-dimensional retained variance is 0.597916. The normalized distance stress is 0.351747. No behavioral outcome or measured alignment intensity determines the region sites or boundaries.
+The atlas is a schematic display of seven constructed concept directions, not a neural map. Original 3,584-dimensional unit directions determine cosine distances and PCA sites; the two-dimensional retained variance is 0.597916. The normalized distance stress is 0.351747. No behavioral outcome or measured cosine similarity intensity determines the region sites or boundaries.
 
 ## Region geometry and observed cells
 
@@ -16,7 +16,7 @@ Average linkage operates on original 1-cosine distances, with optimal leaf order
 
 ## UMAP companion
 
-A single joint UMAP uses 556 item-condition profiles with seven original cosine-alignment features, not all 3,584 hidden-state dimensions. The primary configuration is fixed before fitting: Euclidean distance, 15 neighbors, min_dist=0.3, two dimensions, 300 epochs, seed 42, one job. Sensitivity settings are (neighbors, seed) = (5,42), (30,42), (15,13), and (15,97). All five settings are reported; the primary layout is not selected for appearance. Colors indicate conditions in order 00,01,10,11; all item markers are circles. No territory boundaries, interpolated color surfaces, or categorical cluster claims are added. These 556 profiles are four repeated conditions for 139 selected items.
+A single joint UMAP uses 556 item-condition profiles with seven original cosine-cosine similarity features, not all 3,584 hidden-state dimensions. The primary configuration is fixed before fitting: Euclidean distance, 15 neighbors, min_dist=0.3, two dimensions, 300 epochs, seed 42, one job. Sensitivity settings are (neighbors, seed) = (5,42), (30,42), (15,13), and (15,97). All five settings are reported; the primary layout is not selected for appearance. Colors indicate conditions in order 00,01,10,11; all item markers are circles. No territory boundaries, interpolated color surfaces, or categorical cluster claims are added. These 556 profiles are four repeated conditions for 139 selected items.
 
 The primary trustworthiness at k=10 is 0.9744 and original-neighbor recall is 0.5683. Across all five settings these range from 0.9691 to 0.9774 and 0.5171 to 0.5822, respectively. These quantify limited aspects of neighborhood preservation, not construct validity or emotion-specific function. UMAP distances, gaps, and density are exploratory. See [McInnes, Healy, and Melville](https://arxiv.org/abs/1802.03426), [the developers' clustering cautions](https://umap-learn.readthedocs.io/en/latest/clustering.html), and [reproducibility guidance](https://umap-learn.readthedocs.io/en/latest/reproducibility.html).
 

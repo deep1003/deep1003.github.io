@@ -114,7 +114,7 @@ L 0 3.5
      </g>
     </g>
     <g id="text_8">
-     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="134.916674" y="185.237719" transform="rotate(-0 134.916674 185.237719)">Mean change in alignment (cosine)</text>
+     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="134.916674" y="185.237719" transform="rotate(-0 134.916674 185.237719)">Mean change in cosine similarity</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">
@@ -296,7 +296,7 @@ L 223.487171 163.65475
     <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start" x="14.460799" y="9.440641" transform="rotate(-0 14.460799 9.440641)">a</text>
    </g>
    <g id="text_16">
-    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="134.916674" y="17.460105" transform="rotate(-0 134.916674 17.460105)">Mean alignment change (11 minus 00)</text>
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="134.916674" y="17.460105" transform="rotate(-0 134.916674 17.460105)">Mean change in cosine similarity (11 minus 00)</text>
    </g>
   </g>
   <g id="axes_2">
@@ -621,7 +621,7 @@ L 223.487171 233.530065
     <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start" x="58.05749" y="219.510601" transform="rotate(-0 58.05749 219.510601)">c</text>
    </g>
    <g id="text_48">
-    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start" x="83.292526" y="221.530065" transform="rotate(-0 83.292526 221.530065)">Co-variation of alignment changes</text>
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start" x="83.292526" y="221.530065" transform="rotate(-0 83.292526 221.530065)">Co-variation of changes in cosine similarity</text>
    </g>
   </g>
   <g id="axes_4">
@@ -1132,7 +1132,7 @@ z
      </g>
     </g>
     <g id="text_55">
-     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="414.379263" y="395.307679" transform="rotate(-0 414.379263 395.307679)">Change in FA alignment (cosine)</text>
+     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="414.379263" y="395.307679" transform="rotate(-0 414.379263 395.307679)">Change in FA cosine similarity</text>
     </g>
    </g>
    <g id="matplotlib.axis_8">
@@ -1319,7 +1319,7 @@ L 502.94976 373.72471
     <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start" x="293.923388" y="219.510601" transform="rotate(-0 293.923388 219.510601)">d</text>
    </g>
    <g id="text_65">
-    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="414.379263" y="227.530065" transform="rotate(-0 414.379263 227.530065)">FA alignment and response change</text>
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="414.379263" y="227.530065" transform="rotate(-0 414.379263 227.530065)">FA cosine similarity and response change</text>
    </g>
   </g>
   <g id="axes_5">

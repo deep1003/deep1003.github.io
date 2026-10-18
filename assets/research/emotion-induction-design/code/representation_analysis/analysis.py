@@ -1,4 +1,4 @@
-"""Four fixed prompts: semantic embeddings, Qwen hidden states and exploratory concept axes."""
+"""Four fixed prompts: semantic embeddings, Qwen hidden states and exploratory emotion axes."""
 from pathlib import Path
 import fcntl, hashlib, json, os, time
 import numpy as np
@@ -189,7 +189,7 @@ def plot(out,show=False):
         valid=checks[checks.space==space].set_index('axis').passed
         for i in range(4):
             for j,a in enumerate(axes):ax.text(j,i,f'{mat.iloc[i,j]:+.2f}'+('' if valid[a] else '*'),ha='center',va='center',fontsize=9,color='#222')
-    fig.colorbar(im,ax=axs,label='기준 문장 대비 표준화 투영값 · 축별 기준 척도');fig.suptitle('정서 개념의 동시 정렬 · *는 보류 문장 검증 실패')
+    fig.colorbar(im,ax=axs,label='기준 문장 대비 표준화 투영값 · 축별 기준 척도');fig.suptitle('정서 개념의 동시 유사도 · *는 보류 문장 검증 실패')
     for ext in ['png','svg','pdf']:fig.savefig(out/f'emotion_heatmap.{ext}',dpi=200)
     if show:plt.show()
     plt.close(fig)

@@ -16,5 +16,5 @@
   "character_mapping": "Original offsets; overlapping token fragments averaged by the unchanged collector.",
   "language": "English figure labels; exact measured Korean stimulus retained.",
   "model_inference": false,
-  "interpretation": "Contextual hidden-state alignment, not causal token contribution."
+  "interpretation": "Contextual hidden-state cosine similarity, not causal token contribution."
 }

@@ -305,7 +305,7 @@ def analyze(show=True):
     vmax = max(1., float(np.abs(cross.to_numpy()).max()))
     im = ax.imshow(cross, cmap='RdBu', vmin=-vmax, vmax=vmax)
     ax.set(xticks=range(7), xticklabels=['UN','FA','Calm','Sadness','Anger','Desperation','Joy'],
-           yticks=range(7), yticklabels=labels, xlabel='Measured concept axis', ylabel='Intervention direction',
+           yticks=range(7), yticklabels=labels, xlabel='Measured emotion axis', ylabel='Intervention direction',
            title='Cross-axis changes at layer 14')
     ax.tick_params(axis='x', rotation=45)
     for i in range(7):

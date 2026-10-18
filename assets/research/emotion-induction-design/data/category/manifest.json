@@ -29,7 +29,7 @@
   "padding_smoke": "before collection compare mixed-length left-padded batch with singles: hidden max error <= .02 and choice-probability max error <= .02; otherwise use batch 1",
   "primary_coordinates": "mean across three choice rotations of centered cosine to frozen UN and FA directions; no PCA or refitting",
   "primary_figures": [
-    "absolute alignment in UN1FA1",
+    "absolute cosine similarity in UN1FA1",
     "within-item change UN1FA1 minus UN0FA0"
   ],
   "category_aggregation": "item-weighted means; category is nominal, no numeric-category Pearson correlation",

@@ -156,7 +156,7 @@ def build(show=True):
     (OUT/'region_geometry.json').write_text(json.dumps(dict(axes=AXES,polygons=[p.tolist() for p in polys],weights=weights.tolist(),sites=sites.tolist(),tiles=[p.tolist() for p in tiles])))
     hierarchy_figure(cosine,tree,adj)
     cmap=activation_cmap();outputs=[]
-    for metric,name,title,label in [('cosine','Emotion_atlas_absolute_en','Concept-alignment atlas','L16 centered cosine alignment'),('delta_cosine','Emotion_atlas_change_en','Change from the shared reference','Change in cosine vs. UN0FA0')]:
+    for metric,name,title,label in [('cosine','Emotion_atlas_absolute_en','Concept-cosine similarity atlas','L16 centered cosine similarity'),('delta_cosine','Emotion_atlas_change_en','Change from the shared reference','Change in cosine vs. UN0FA0')]:
         low,high=float(values[metric].min()),float(values[metric].max());norm=Normalize(low,high)
         fig,axs=plt.subplots(2,2,figsize=(180/25.4,190/25.4))
         fig.subplots_adjust(left=.025,right=.88,top=.88,bottom=.14,wspace=.08,hspace=.16)

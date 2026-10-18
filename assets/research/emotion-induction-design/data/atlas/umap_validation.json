@@ -12,7 +12,7 @@
       "cos_desperation",
       "cos_joy"
     ],
-    "preprocessing": "No rescaling or orthogonalization; seven original cosine-alignment features.",
+    "preprocessing": "No rescaling or orthogonalization; seven original cosine-cosine similarity features.",
     "fit_scope": "All four conditions jointly; this is not a baseline-only embedding.",
     "primary": {
       "n_neighbors": 15,

@@ -79,7 +79,7 @@ def run():
                 for ai,axis in enumerate(AXES):rows.append({'condition':c,'layer':l,'token_index':t,'token_id':int(token_id),'chat_start':int(start),'chat_end':int(end),'token_text':tok.decode([int(token_id)]),'axis':axis,'cosine':float(cosine[t,ai]),'standardized_projection':float(z[t,ai])})
         payload.append(entry)
     pd.DataFrame(rows).to_csv(out/'token_scores.csv',index=False)
-    write(out/'highlights.json',{'axes':AXES,'prompts':payload,'metric':'centered cosine alignment; not causal attribution or emotion probability','notes':cfg['axis_caveat']})
+    write(out/'highlights.json',{'axes':AXES,'prompts':payload,'metric':'centered cosine similarity; not causal attribution or emotion probability','notes':cfg['axis_caveat']})
     write(out/'status.json',{'state':'complete','completed':4,'total':4,'time':time.time(),'rows':len(rows)})
     return out
 

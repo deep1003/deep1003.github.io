@@ -3,7 +3,7 @@
   "n_clusters": 91,
   "layer": 14,
   "condition_comparison": "11 minus 00",
-  "analysis": "Mean alignment changes and Spearman associations, 10,000 paired cluster-bootstrap percentile intervals.",
+  "analysis": "Mean changes in cosine similarity and Spearman associations, 10,000 paired cluster-bootstrap percentile intervals.",
   "n_boot": 10000,
   "seed": 20261017,
   "intervals": "Pointwise 95%, unadjusted; no null or equivalence tests.",

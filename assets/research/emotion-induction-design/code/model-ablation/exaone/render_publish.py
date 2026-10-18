@@ -30,11 +30,11 @@ def representations():
  # Frozen geometry and all item-rotation values retained; only model/data paths change.
  p=B/'exaone_atlas.py';p.write_text(s);sp=importlib.util.spec_from_file_location('exaone_atlas',p);m=importlib.util.module_from_spec(sp);sp.loader.exec_module(m);m.build(False)
  for ext in ['png','pdf','svg']:shutil.copy2(F/'atlas'/('Emotion_atlas_change_en.'+ext),F/('EXAONE_M3_alignment.'+ext))
- s=(P/'prompt_text_figure.py').read_text().replace("DATA=BASE/'representation_analysis/token_highlights/output'","DATA=BASE").replace("['14']","['16']").replace('layer 14','layer 16').replace("'layer':14","'layer':16").replace('Prompt text linked to internal concept alignment','EXAONE prompt text and internal alignment')
+ s=(P/'prompt_text_figure.py').read_text().replace("DATA=BASE/'representation_analysis/token_highlights/output'","DATA=BASE").replace("['14']","['16']").replace('layer 14','layer 16').replace("'layer':14","'layer':16").replace('Prompt text linked to internal concept cosine similarity','EXAONE prompt text and internal cosine similarity')
  p=B/'exaone_prompt_figure.py';p.write_text(s);sp=importlib.util.spec_from_file_location('exaone_prompt_figure',p);m=importlib.util.module_from_spec(sp);sp.loader.exec_module(m);m.build('FA',False)
  for ext in ['png','pdf','svg']:shutil.copy2(F/('Prompt_text_activation_FA_en.'+ext),F/('EXAONE_M4_tokens.'+ext))
 def publish():
- stamp=time.strftime('%Y%m%d_%H%M%S');bak=B/'backups'/stamp;bak.mkdir(parents=True,exist_ok=True);available=[('M2','EXAONE_M2_behavior','Behavioral results; combined effect = 11 minus 00'),('M3','EXAONE_M3_alignment','Within-item concept alignment changes, EXAONE layer16'),('M4','EXAONE_M4_tokens','Original Korean prompt and measured token-level alignment')];available=[x for x in available if (F/(x[1]+'.png')).exists()];complete=len(available)==3
+ stamp=time.strftime('%Y%m%d_%H%M%S');bak=B/'backups'/stamp;bak.mkdir(parents=True,exist_ok=True);available=[('M2','EXAONE_M2_behavior','Behavioral results; combined effect = 11 minus 00'),('M3','EXAONE_M3_alignment','Within-item changes in emotion-axis cosine similarity, EXAONE layer16'),('M4','EXAONE_M4_tokens','Original Korean prompt and measured token-level cosine similarity')];available=[x for x in available if (F/(x[1]+'.png')).exists()];complete=len(available)==3
  asset=SITE/'figures/exaone';asset.mkdir(parents=True,exist_ok=True);project=P/'supplements/exaone';project.mkdir(parents=True,exist_ok=True)
  for _,stem,_ in available:
   for ext in ['png','pdf','svg']:shutil.copy2(F/(stem+'.'+ext),asset/(stem+'.'+ext));shutil.copy2(F/(stem+'.'+ext),project/(stem+'.'+ext))
@@ -44,7 +44,7 @@ def publish():
  if old:old.decompose()
  s=json.loads((R/'results/summary.json').read_text());tr=''.join(f"<tr><td>{label}</td><td>{r['estimate']*100:+.2f}%p</td><td>{r['p_holm']:.4f}</td></tr>" for label,r in zip(['불확실성 표현','삭제 위협','복합 효과 (11−00)'],s['primary']))
  figs=''.join(f'<figure><img loading="lazy" src="figures/exaone/{stem}.png" alt="EXAONE {k}: {title}"/><figcaption>EXAONE {k}. {title}</figcaption><a href="figures/exaone/{stem}.pdf">PDF</a> · <a href="figures/exaone/{stem}.svg">SVG</a></figure>' for k,stem,title in available)
- note='동일 Q4_K_M 가중치에서 중간층16/32의 실제 활성값을 수집했습니다. 고정앵커·분리된검증문장의 paired accuracy≥.75 및 AUC≥.75를 통과했습니다. M3는139문항×3선택지순서의각조건을동일문항00과대응비교하며, M4는실제토큰바이트와한국어원문의대응을검증했습니다. 내부정렬은실제정서나토큰의인과기여가아닙니다.' if complete else 'M3·M4 실제 내부활성 수집 및 개념축 검증이 진행 중입니다. 검증 전 그림은 표시하지 않습니다.'
+ note='동일 Q4_K_M 가중치에서 중간층16/32의 실제 활성값을 수집했습니다. 고정앵커·분리된검증문장의 paired accuracy≥.75 및 AUC≥.75를 통과했습니다. M3는139문항×3선택지순서의각조건을동일문항00과대응비교하며, M4는실제토큰바이트와한국어원문의대응을검증했습니다. 내부유사도는실제정서나토큰의인과기여가아닙니다.' if complete else 'M3·M4 실제 내부활성 수집 및 감정 축 검증이 진행 중입니다. 검증 전 그림은 표시하지 않습니다.'
  section=f'<section id="exaone-replication"><h2>별첨 · 모델 ablation test · EXAONE3.5-7.8B</h2><p>동일139문항·네조건·세선택지순서. 복합효과는UN1FA1−UN0FA0이며 상호작용과 다릅니다. 91템플릿군집대응bootstrap10000회 및 세대비Holm보정. 기존103회는보존했고, 행동결과는전체출력로짓에서선택지1·2·3을직접측정했습니다.</p><table><tr><th>효과</th><th>변화</th><th>Holm p</th></tr>{tr}</table>{figs}<p>{note}</p><p>재사용선별문항의탐색결과이며 모델·정밀도·템플릿이달라 순수한모델크기효과를식별하지않습니다.</p></section>';soup.main.append(BeautifulSoup(section,'html.parser'))
  for appendix in soup.find_all('section'):
   if appendix.get('id') not in ['publication-supplement','gemma-replication','ministral-replication','exaone-replication','model-ablation-overview']:continue

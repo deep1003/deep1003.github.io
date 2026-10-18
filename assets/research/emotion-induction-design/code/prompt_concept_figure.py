@@ -3,7 +3,7 @@
 입력: representation_analysis/token_highlights/output/highlights.json (저장된 측정값, 모델 재실행 없음)
 출력: figures/Prompt_text_concepts_en.{svg,pdf,png} + Prompt_text_concepts_source.csv
 
-표준화: 각 개념 축을 네 프롬프트의 모든 글자(14층)에 대해 z-점수화한다.
+표준화: 각 감정 축을 네 프롬프트의 모든 글자(14층)에 대해 z-점수화한다.
   원 코사인은 축마다 기준 수준이 달라(분노·절박함이 전반적으로 높음) 그대로 비교하면 한 축이 전부를 덮는다.
   z는 "그 축 안에서 상대적으로 높은 위치"를 뜻하며, 정서 확률이나 원인 기여도가 아니다.
 오른쪽 텍스트: 글자마다 z가 가장 큰 개념의 색, 그 z가 클수록 진하게(z < Z_MIN이면 칠하지 않음).
@@ -202,7 +202,7 @@ def build(show=False):
     for i, c in enumerate(CONDITIONS):
         row(fig, prompts[c], z[c], .762 - i * .212, .156, 'abcd'[i])
     legend(fig, .095, .045)
-    fig.text(.04, .006, 'Contextual hidden-state alignment, standardized within each internal emotion; not token attribution or experienced emotion.',
+    fig.text(.04, .006, 'Contextual hidden-state cosine similarity, standardized within each internal emotion; not token attribution or experienced emotion.',
              fontsize=6, color='#6B635A')
     OUT.mkdir(exist_ok=True)
     stem = OUT / 'Prompt_text_concepts_en'

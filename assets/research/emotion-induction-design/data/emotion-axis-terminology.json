@@ -1,0 +1,12 @@
+{
+  "preferred_ko": "감정 축 유사도",
+  "preferred_en": "emotion-axis cosine similarity",
+  "definition": "Cosine similarity between the centered hidden-state vector and a fixed emotion axis.",
+  "short_labels": [
+    "유사도",
+    "축별 변화",
+    "Cosine similarity"
+  ],
+  "activation": "May be discussed as a readout of emotion-related internal representations; not a direct measure of emotion intensity, probability, subjective experience, or causal mediation.",
+  "scope": "Emotion representation measurements only. Value alignment, agentic misalignment, original cited paper titles, stable paths and schema identifiers are separate terms."
+}

@@ -79,7 +79,7 @@ L 0 2
      </g>
     </g>
     <g id="text_4">
-     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="143.793844" y="254.443742" transform="rotate(-0 143.793844 254.443742)">UN alignment (cosine)</text>
+     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="143.793844" y="254.443742" transform="rotate(-0 143.793844 254.443742)">UN cosine similarity</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">
@@ -119,7 +119,7 @@ L -2 0
      </g>
     </g>
     <g id="text_8">
-     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="21.532841" y="141.590551" transform="rotate(-90 21.532841 141.590551)">FA alignment (cosine)</text>
+     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="21.532841" y="141.590551" transform="rotate(-90 21.532841 141.590551)">FA cosine similarity</text>
     </g>
    </g>
    <g id="PathCollection_1">
@@ -480,7 +480,7 @@ L 236.564066 234.360773
    </g>
    
    <g id="text_11">
-    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start" x="51.023622" y="36.820329" transform="rotate(-0 51.023622 36.820329)">Alignment under combined wording</text>
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start" x="51.023622" y="36.820329" transform="rotate(-0 51.023622 36.820329)">Cosine similarity under combined wording</text>
    </g>
   </g>
   <g id="axes_2">
@@ -539,7 +539,7 @@ L 451.272059 82.475403
      </g>
     </g>
     <g id="text_15">
-     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="407.261274" y="254.443742" transform="rotate(-0 407.261274 254.443742)">Change in UN alignment (cosine)</text>
+     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="407.261274" y="254.443742" transform="rotate(-0 407.261274 254.443742)">Change in UN cosine similarity</text>
     </g>
    </g>
    <g id="matplotlib.axis_4">
@@ -584,7 +584,7 @@ L 451.272059 82.475403
      </g>
     </g>
     <g id="text_20">
-     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="288.504646" y="141.590551" transform="rotate(-90 288.504646 141.590551)">Change in FA alignment (cosine)</text>
+     <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle" x="288.504646" y="141.590551" transform="rotate(-90 288.504646 141.590551)">Change in FA cosine similarity</text>
     </g>
    </g>
    <g id="PathCollection_13">

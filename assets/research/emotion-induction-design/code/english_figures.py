@@ -84,8 +84,8 @@ def token_trace(data,show=True):
     ax.axvline(104,color='#BBBBBB',lw=.6,linestyle=':',zorder=0)
     ax.text(108,.06,'Response\nstart',ha='center',va='bottom',fontsize=8)
     ax.set(xlim=(-1,112),ylim=(-.20,.05),xticks=[0,25,50,75,100],
-           xlabel='Relative input position (%)',ylabel='FA alignment (cosine)')
-    ax.set_title('FA alignment while reading each prompt',loc='left',pad=22,fontsize=11)
+           xlabel='Relative input position (%)',ylabel='FA cosine similarity')
+    ax.set_title('FA cosine similarity while reading each prompt',loc='left',pad=22,fontsize=11)
     ax.xaxis.label.set_size(10);ax.yaxis.label.set_size(10);ax.tick_params(labelsize=9)
     ax.spines[['top','right']].set_visible(False)
     handles=[Line2D([],[],color=color,lw=1.5,label=label) for color,label in zip(COLORS,labels)]

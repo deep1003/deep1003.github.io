@@ -1,4 +1,4 @@
-"""Post hoc alignment summaries with cluster-bootstrap uncertainty; no model inference."""
+"""Post hoc cosine similarity summaries with cluster-bootstrap uncertainty; no model inference."""
 from pathlib import Path
 import hashlib
 import json
@@ -20,7 +20,7 @@ def digest(path):
 
 def analyze():
     paths = {
-        'alignment': BASE / 'representation_analysis/item_category_alignment/output/item_alignment.csv',
+        'cosine similarity': BASE / 'representation_analysis/item_category_alignment/output/item_alignment.csv',
         'trials': BASE / 'results/a8e92be4014f/trials.csv',
         'items': BASE.parent / 'threat_139_pilot/items_139.csv',
         'axis_gram': BASE / 'representation_analysis/results/d335ad178e3c/axis_cosines_qwen_L14.csv'}
@@ -33,7 +33,7 @@ def analyze():
         return (pd.read_csv(OUTPUT / 'source_data.csv', index_col='item'),
                 pd.read_csv(OUTPUT / 'alignment_change_correlations.csv', index_col=0),
                 pd.read_csv(OUTPUT / 'behavior_associations.csv').to_dict('records'))
-    data = pd.read_csv(paths['alignment']); data = data[data.layer == 14]
+    data = pd.read_csv(paths['cosine similarity']); data = data[data.layer == 14]
     assert not data.duplicated(['item', 'condition']).any()
     trial = pd.read_csv(paths['trials'])
     assert len(trial)==1668 and trial.groupby(['item','condition']).size().eq(3).all()
@@ -110,7 +110,7 @@ def analyze():
                        delta_response_below_1pp=int((records.delta_p_unknown_pp<1).sum()),
                        ceiling_or_floor_causal_explanation_identified=False)
     meta=dict(n_items=139,n_clusters=91,layer=14,condition_comparison='11 minus 00',
-        analysis='Mean alignment changes and Spearman associations, 10,000 paired cluster-bootstrap percentile intervals.',
+        analysis='Mean changes in cosine similarity and Spearman associations, 10,000 paired cluster-bootstrap percentile intervals.',
         n_boot=n_boot,seed=plan['seed'],intervals='Pointwise 95%, unadjusted; no null or equivalence tests.',
         p_values_reported=False,causal_effects_estimated=False,model_inference=False,
         axes_selected_after_inspecting_atlas=True,outcome_changed=False,outcome='Normalized probability of the Cannot be determined option',
@@ -132,7 +132,7 @@ def build(show=False):
     style()
     fig,axs=plt.subplots(2,2,figsize=(180/25.4,155/25.4),layout='constrained')
     fig.get_layout_engine().set(rect=(0,.09,1,.91),hspace=.12,wspace=.08)
-    for ax,kind,title,xlabel in [(axs[0,0],'mean','Mean alignment change (11 minus 00)','Mean change in alignment (cosine)'),
+    for ax,kind,title,xlabel in [(axs[0,0],'mean','Mean change in cosine similarity (11 minus 00)','Mean change in cosine similarity'),
                                  (axs[0,1],'rho','Association with response change','Spearman correlation with response change')]:
         for i,(row,axis) in enumerate(zip(associations,AXES)):
             key='mean_delta_cosine' if kind=='mean' else 'spearman_rho'
@@ -153,21 +153,21 @@ def build(show=False):
         for j in range(3):
             if i!=j:
                 val=cochange.iloc[i,j];ax.text(j,i,f'{val:.2f}',ha='center',va='center',color=heatmap_text_color(cmap,norm,val),fontsize=8)
-    ax.set_title('Co-variation of alignment changes',loc='left',pad=12)
+    ax.set_title('Co-variation of changes in cosine similarity',loc='left',pad=12)
     fig.colorbar(image,ax=ax,shrink=.7,pad=.04,ticks=[0,.5,1],label='Spearman correlation')
     ax=axs[1,1];row=associations[0];x=records.delta_FA;y=records.delta_p_unknown_pp
     ax.scatter(x,y,color=PALETTE['FA'],s=12,alpha=.65,edgecolors='none')
     grid=np.linspace(x.min(),x.max(),100)
     ax.plot(grid,row['intercept_pp']+row['slope_pp_per_cosine']*grid,color='#333333',lw=.9)
     ax.axhline(0,color='#BBBBBB',lw=.5,zorder=0)
-    ax.set(xlabel='Change in FA alignment (cosine)',ylabel='Change in P(Cannot be determined)\n(percentage points)',title='FA alignment and response change')
+    ax.set(xlabel='Change in FA cosine similarity',ylabel='Change in P(Cannot be determined)\n(percentage points)',title='FA cosine similarity and response change')
     ax.text(.03,.97,f"rho = {row['spearman_rho']:.3f}\n95% CI [{row['rho_ci_low']:.3f}, {row['rho_ci_high']:.3f}]",transform=ax.transAxes,va='top',fontsize=6.5)
     ax.spines[['top','right']].set_visible(False)
     for ax,letter in zip(axs.flat,'abcd'):
         ax.text(-.18,1.10,letter,transform=ax.transAxes,weight='bold',fontsize=9)
     fig.text(.02,.060,'All panels: 11 minus 00; 139 items in 91 template clusters; 10,000 paired cluster-bootstrap draws.',fontsize=6)
     fig.text(.02,.035,'Intervals: pointwise 95%, unadjusted. Outcome: normalized P(Cannot be determined).',fontsize=6)
-    fig.text(.02,.010,'Post hoc analysis. Gray line: descriptive OLS. Alignment change is not a causal emotion effect.',fontsize=6)
+    fig.text(.02,.010,'Post hoc analysis. Gray line: descriptive OLS. change in cosine similarity is not a causal emotion effect.',fontsize=6)
     path=save(fig,OUTPUT,'Supplement_FA_desperation_anger_en',show)
     svg=path.with_suffix('.svg');svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
     from three_axis_supplement_notes import build_notes

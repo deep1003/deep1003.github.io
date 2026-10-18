@@ -37,10 +37,10 @@ def curate(records):
     captions = {
         'M1': '同一139문항과 세 선택지 순서를 사용한 대응 2×2 설계.'.replace('同一', '동일한 '),
         'M2': '빈 마름모는 결합 효과 11−00, 채운 원은 기존 세 주요 대비다. 결합 효과 +22.72%p는 상호작용 −1.94%p와 다르다. 모든 구간은 보정 전 95% 구간이며 Holm 보정은 기존 세 검정에만 적용한다.',
-        'M3': '같은 문항·선택지 순서의 00 대비 내부 정렬 변화. 앞의 표는 고정 방향의 코사인 유사도와 실제 경계 접촉 여부다. 영역당 417칸은 139문항×3선택지 순서이며, 화면 픽셀이나 독립적인 417개 문항을 뜻하지 않는다.',
-        'M4': '실제 한국어 입력의 토큰별 내부 정렬. 글자 배경은 FA 정렬이며 단어의 인과 기여도가 아니다.',
+        'M3': '같은 문항·선택지 순서의 00 대비 내부 유사도 변화. 앞의 표는 고정 방향의 코사인 유사도와 실제 경계 접촉 여부다. 영역당 417칸은 139문항×3선택지 순서이며, 화면 픽셀이나 독립적인 417개 문항을 뜻하지 않는다.',
+        'M4': '실제 한국어 입력의 토큰별 내부 유사도. 글자 배경은 FA 유사도가며 단어의 인과 기여도가 아니다.',
         'S1': '축 간 유사도와 보류 문장 진단. 축의 겹침과 제한된 구분 타당성을 공개한다.',
-        'S3': '세 방향의 평균 정렬 변화와 문항별 응답 변화의 연관성을 구분한다. 91개 군집·10,000회 부트스트랩의 보정 전 95% 구간을 표시했다. 약한 상관은 인과적 무효를 뜻하지 않으며, 기존 지표를 변경하지 않았다.',
+        'S3': '세 방향의 평균 유사도 변화와 문항별 응답 변화의 연관성을 구분한다. 91개 군집·10,000회 부트스트랩의 보정 전 95% 구간을 표시했다. 약한 상관은 인과적 무효를 뜻하지 않으며, 기존 지표를 변경하지 않았다.',
         'S2': '139문항의 절대 UN·FA 정렬과 00 대비 변화. 범주는 색으로만 구분하며 각 패널의 선은 전체 문항 OLS 적합선이다.'}
     def artwork(entry):
         stem = entry['website_stem']
@@ -56,7 +56,7 @@ def curate(records):
     model.find('h2').insert_after(fragment(artwork(figures[0])))
     results = soup.find(id='results')
     results.find('h2').insert_after(fragment('<details id="behavior-figure"><summary>본문 M2 · 행동 결과</summary>' + artwork(figures[1]) + '</details>'))
-    main = '<section id="publication-main"><h2>내부 개념 정렬 · 본문 그림</h2><p>행동 효과와 내부 정렬은 별도로 해석한다. 정렬은 작성한 개념 방향과의 코사인이며 실제 감정 경험이나 행동의 원인을 입증하지 않는다.</p>'
+    main = '<section id="publication-main"><h2>감정 축 유사도 · 본문 그림</h2><p>행동 효과와 내부 유사도는 별도로 해석한다. 유사도는 작성한 개념 방향과의 코사인이며 실제 감정 경험이나 행동의 원인을 입증하지 않는다.</p>'
     for entry in figures[2:4]:
         main += f'<details><summary>본문 {entry["id"]} · {entry["title"]}</summary>' + artwork(entry) + '</details>'
     main += '</section>'
@@ -68,10 +68,10 @@ def curate(records):
     atlas = soup.find(id='emotion-atlas')
     if atlas:
         atlas.find('summary').string = '아틀라스 경계·계층군집·차원 축소의 방법과 한계'
-    supplementary = '<section id="publication-supplement"><h2>별첨 그림</h2><p>축 검증, 범주별 정렬, 세 개념 방향의 동반 변화를 별첨으로 제공한다.</p>'
+    supplementary = '<section id="publication-supplement"><h2>별첨 그림</h2><p>축 검증, 범주별 유사도, 세 개념 방향의 동반 변화를 별첨으로 제공한다.</p>'
     for entry in figures[4:]:
         supplementary += f'<details><summary>{entry["id"]} · {entry["title"]}</summary>' + artwork(entry) + '</details>'
-    supplementary += '<div id="s3-interpretation">' + (BASE / 'representation_analysis/three_axis_supplement/output/Interpretation.html').read_text() + '</div><p id="s3-source-links" class="links"><a href="data/three-axis/source_data.csv">문항별 측정값</a><a href="data/three-axis/behavior_associations.csv">평균 변화와 상관·신뢰구간</a><a href="data/three-axis/contrast_sensitivity.csv">세 대비 전체 민감도 분석</a><a href="data/three-axis/alignment_change_intervals.csv">정렬 간 상관·구간</a><a href="data/three-axis/bootstrap_plan.json">사후 분석 설정</a><a href="data/three-axis/Expert_review.md">세 전문 역할의 AI 검토</a><a href="data/three-axis/Captions_and_methods.md">영문 캡션과 방법</a></p>'
+    supplementary += '<div id="s3-interpretation">' + (BASE / 'representation_analysis/three_axis_supplement/output/Interpretation.html').read_text() + '</div><p id="s3-source-links" class="links"><a href="data/three-axis/source_data.csv">문항별 측정값</a><a href="data/three-axis/behavior_associations.csv">평균 변화와 상관·신뢰구간</a><a href="data/three-axis/contrast_sensitivity.csv">세 대비 전체 민감도 분석</a><a href="data/three-axis/alignment_change_intervals.csv">유사도 간 상관·구간</a><a href="data/three-axis/bootstrap_plan.json">사후 분석 설정</a><a href="data/three-axis/Expert_review.md">세 전문 역할의 AI 검토</a><a href="data/three-axis/Captions_and_methods.md">영문 캡션과 방법</a></p>'
     supplementary += '<p class="links"><a href="data/category/category_summary.csv">범주별 수치</a><a href="data/category/representation_behavior_associations.csv">행동 변화와의 관계</a><a href="data/category/fitted_lines.csv">적합선 계수</a></p></section>'
     rep.insert_after(fragment(supplementary))
     selection = '<details id="publication-selection"><summary>그림 구성과 공통 표기</summary><p>본문 4개, 별첨 3개를 사용한다. 조건은 00·01·10·11 순서이며 회색·파랑·빨강·보라색으로 표시한다. 활성·유사도는 짙은 적색에서 밝은 노란색이고, 단위와 범위는 각각의 범례를 따른다. KoBBQ 범주 산점도는 범주별 색을 사용한다. 모든 PNG는 600 dpi이며 PDF·SVG를 함께 제공한다.</p><a href="data/figure_catalog.json">그림 목록</a></details>'
@@ -87,7 +87,7 @@ def curate(records):
             link.decompose()
     for node in soup.find_all('details'):
         node.attrs.pop('open', None)
-    for section_id, title in [('publication-main', '7. 내부 개념 정렬 · 본문 그림'), ('representations', '8. 측정 방법'), ('publication-supplement', '9. 별첨 그림'), ('implications', '10. 학술적 함의'), ('limitations', '11. 한계와 후속 검증'), ('references', '12. 참고문헌')]:
+    for section_id, title in [('publication-main', '7. 감정 축 유사도 · 본문 그림'), ('representations', '8. 측정 방법'), ('publication-supplement', '9. 별첨 그림'), ('implications', '10. 학술적 함의'), ('limitations', '11. 한계와 후속 검증'), ('references', '12. 참고문헌')]:
         soup.find(id=section_id).find('h2').string = title
     s3 = soup.find('figure', attrs={'data-publication-id': 'S3'})
     if s3:
@@ -137,11 +137,11 @@ The study uses four main-text figures (M1–M4) and three supplementary figures 
 
 Before M3, the notebook and website show a cosine-similarity/contact table and an audited explanation of geometry and observed cells. Geometry is PCA plus an equal-area power diagram, not correlation thresholding; each cell is one item–choice-rotation–axis value.
 
-Supplement S3 relates FA, desperation, and anger alignment changes to behavioral changes using existing observations only. It is a post hoc descriptive analysis with 10,000 paired template-cluster bootstrap replicates and pointwise unadjusted 95% intervals, not a test of independent or combined causal emotion effects. The existing outcome and three primary hypothesis tests are unchanged.
+Supplement S3 relates FA, desperation, and anger changes in cosine similarity to behavioral changes using existing observations only. It is a post hoc descriptive analysis with 10,000 paired template-cluster bootstrap replicates and pointwise unadjusted 95% intervals, not a test of independent or combined causal emotion effects. The existing outcome and three primary hypothesis tests are unchanged.
 
 The combined effect (11 minus 00) is an additional descriptive contrast, distinct from the interaction difference in differences. Its unadjusted 95% interval uses the same paired cluster bootstrap. The three primary tests and their Holm adjustment are unchanged.
 
-All charts use American English, consistent 00/01/10/11 colors, 600 dpi PNG and vector PDF/SVG exports. The original Korean stimuli remain Korean. Internal alignment is not evidence of experienced emotion or emotion-specific causal mediation.
+All charts use American English, consistent 00/01/10/11 colors, 600 dpi PNG and vector PDF/SVG exports. The original Korean stimuli remain Korean. Internal cosine similarity is not evidence of experienced emotion or emotion-specific causal mediation.
 
 The ZIP contains the same notebook source without embedded output images, with each of the seven PNGs stored once, code and cached measurements. Execute display cells to view them. The separately downloadable notebook retains four main-text figures as saved outputs. Unzip beside uncertainty_self_threat_139/ and threat_139_pilot/. Models and model weights are not included. PDF/SVG files are downloaded individually from the website.
 

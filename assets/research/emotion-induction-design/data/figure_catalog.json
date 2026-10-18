@@ -26,14 +26,14 @@
     {
       "id": "M3",
       "placement": "main",
-      "title": "Within-item concept alignment changes",
+      "title": "Within-item changes in emotion-axis cosine similarity",
       "local_stem": "representation_analysis/emotion_atlas/output/Emotion_atlas_change_en",
       "website_stem": "figures/atlas/Emotion_atlas_change_en"
     },
     {
       "id": "M4",
       "placement": "main",
-      "title": "Prompt text and token-level alignment",
+      "title": "Prompt text and token-level cosine similarity",
       "local_stem": "figures/Prompt_text_activation_FA_en",
       "website_stem": "figures/Prompt_text_activation_FA_en"
     },
@@ -47,14 +47,14 @@
     {
       "id": "S2",
       "placement": "supplement",
-      "title": "Category-colored item alignment",
+      "title": "Category-colored item cosine similarity",
       "local_stem": "representation_analysis/item_category_alignment/output/Figure_2_KoBBQ_category_alignment",
       "website_stem": "figures/category/Figure_2_KoBBQ_category_alignment"
     },
     {
       "id": "S3",
       "placement": "supplement",
-      "title": "FA, desperation, and anger: alignment and behavioral associations",
+      "title": "FA, desperation, and anger: cosine similarity and behavioral associations",
       "local_stem": "representation_analysis/three_axis_supplement/output/Supplement_FA_desperation_anger_en",
       "website_stem": "figures/three-axis/Supplement_FA_desperation_anger_en"
     }

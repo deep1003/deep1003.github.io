@@ -29,7 +29,7 @@ def build(show=False,refit=False):
     if version is None:version=importlib.metadata.version('umap-learn')
     plan=dict(source_sha256=hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
         rows='139 selected items x 4 conditions; repeated within item',features=['cos_'+a for a in AXES],
-        preprocessing='No rescaling or orthogonalization; seven original cosine-alignment features.',
+        preprocessing='No rescaling or orthogonalization; seven original cosine-cosine similarity features.',
         fit_scope='All four conditions jointly; this is not a baseline-only embedding.',
         primary=dict(n_neighbors=15,random_state=42,min_dist=.3,metric='euclidean',n_epochs=300,n_jobs=1),
         sensitivity=[dict(n_neighbors=n,random_state=s) for n,s in SCENARIOS],
@@ -65,7 +65,7 @@ def build(show=False,refit=False):
     ax.set_xlabel('UMAP 1',fontsize=10);ax.set_ylabel('UMAP 2',fontsize=10)
     ax.tick_params(labelsize=8);ax.spines[['top','right']].set_visible(False)
     fig.text(.14,.94,'UMAP of item-level concept profiles',fontsize=11,weight='bold')
-    fig.text(.14,.885,'Joint fit: 139 repeated items x 4 conditions; seven cosine-alignment features',fontsize=7)
+    fig.text(.14,.885,'Joint fit: 139 repeated items x 4 conditions; seven cosine-cosine similarity features',fontsize=7)
     handles=[Line2D([],[],marker='o',linestyle='none',color=CONDITION_COLORS[c],markersize=5,label=l) for c,l in zip(CONDITION_ORDER,labels)]
     fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.55,.07),ncol=4,frameon=False,fontsize=7)
     fig.text(.14,.025,'Exploratory geometry; no inferred territory boundaries, density estimates or emotion-state labels.',fontsize=6.5)

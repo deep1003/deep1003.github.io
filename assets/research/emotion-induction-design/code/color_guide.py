@@ -38,7 +38,7 @@ def build(show=False):
         fig.text(.05+col*.235,.66-row*.08,'●',color=PALETTE[key],fontsize=14,va='center')
         fig.text(.08+col*.235,.66-row*.08,label,fontsize=7,va='center')
     heading(.47,'c  Quantitative scales (not identity colors)')
-    for y,cmap,label in [(.35,activation_cmap(),'Activation / alignment: lower to higher values'),(.21,similarity_cmap(),'Concept similarity: cosine -1 to +1')]:
+    for y,cmap,label in [(.35,activation_cmap(),'Activation / cosine similarity: lower to higher values'),(.21,similarity_cmap(),'Concept similarity: cosine -1 to +1')]:
         ax=fig.add_axes([.05,y,.9,.035]);ax.imshow(np.linspace(0,1,256)[None,:],cmap=cmap,aspect='auto',vmin=0,vmax=1);ax.axis('off');fig.text(.05,y+.055,label,fontsize=7)
     fig.text(.05,.11,'Dark red to bright yellow encodes magnitude; read the labeled scale for each measure.',fontsize=6.5)
     fig.text(.05,.065,'KoBBQ category colors are fixed separately. Dark-gray solid lines denote pooled OLS fits.',fontsize=6.5)

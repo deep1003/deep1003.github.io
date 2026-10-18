@@ -17,5 +17,5 @@
     "all_character_bytes_matched": true,
     "behavior_parity_max": 1.1102230246251565e-16
   },
-  "reservations": "Reused selected items; differences in model,precision,template; alignment is not emotion or causal mediation."
+  "reservations": "Reused selected items; differences in model,precision,template; cosine similarity is not emotion or causal mediation."
 }
