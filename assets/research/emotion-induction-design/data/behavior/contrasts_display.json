@@ -1,4 +1,24 @@
 {
+  "combined": {
+    "term": "combined",
+    "estimate": 0.22717172247730746,
+    "ci_low": 0.19125465624223026,
+    "ci_high": 0.26343694981373866,
+    "formula": "Y11 - Y00",
+    "role": "additional descriptive contrast",
+    "n_items": 139,
+    "n_clusters": 91,
+    "n_boot": 10000,
+    "seed": 20261017,
+    "p_holm": null,
+    "multiplicity": "Not added to the three prespecified primary tests.",
+    "trials_sha256": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4"
+  },
+  "displayed_terms": [
+    "combined",
+    "uncertainty",
+    "threat"
+  ],
   "primary": [
     {
       "term": "uncertainty",
@@ -15,36 +35,15 @@
       "ci_high": 0.04987436471100942,
       "p": 0.0001,
       "p_holm": 0.00030000000000000003
+    },
+    {
+      "term": "interaction",
+      "estimate": -0.01938649792972571,
+      "ci_low": -0.03377338502410934,
+      "ci_high": -0.005588235798248149,
+      "p": 0.0029,
+      "p_holm": 0.0029
     }
   ],
-  "interaction_effect": {
-    "term": "interaction_effect",
-    "estimate": 0.22717172247730746,
-    "ci_low": 0.19125465624223026,
-    "ci_high": 0.26343694981373866,
-    "formula": "Y11 - Y00",
-    "role": "H3 interaction effect (UN+FA, 11 minus 00)",
-    "n_items": 139,
-    "n_clusters": 91,
-    "n_boot": 10000,
-    "seed": 20261017,
-    "p_holm": 0.0003,
-    "multiplicity": "Holm across UN, FA and UN+FA interaction effect",
-    "trials_sha256": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4",
-    "p": 0.0001
-  },
-  "overlap_attenuation": {
-    "term": "overlap_attenuation",
-    "estimate": 0.01938649792972571,
-    "ci_low": 0.005588235798248149,
-    "ci_high": 0.03377338502410934,
-    "p": 0.0029,
-    "formula": "(Y10 - Y00) + (Y01 - Y00) - (Y11 - Y00)",
-    "meaning": "How much smaller the interaction effect is than the sum of the single effects"
-  },
-  "displayed_terms": [
-    "uncertainty",
-    "threat",
-    "interaction_effect"
-  ]
+  "combined_vs_interaction": "Y11-Y00 is not Y11-Y10-Y01+Y00."
 }
