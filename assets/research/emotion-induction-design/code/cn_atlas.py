@@ -22,8 +22,8 @@ OUT = EXT/'atlas8'
 OLD = BASE/'representation_analysis/emotion_atlas/output'
 AXES = ['UN','CN','FA','calm','sadness','anger','desperation','joy']
 NAMES = ['UN','CN','FA','Calm','Sadness','Anger','Desperation','Joy']
-LABELS = ['Uncertainty','CN\nCertainty','Fear /\nanxiety','Calm','Sadness','Anger','Desperation','Joy']
-COLORS = ['#2166C4','#8064B2','#D9382C','#86C454','#F28B7A','#A82418','#661226','#2E9A3C']
+LABELS = ['Uncertainty','Certainty','Fear /\nanxiety','Calm','Sadness','Anger','Desperation','Joy']
+COLORS = ['#2166C4','#5B9BD5','#D9382C','#86C454','#F28B7A','#A82418','#661226','#2E9A3C']
 CONDITIONS = ['UN0FA0','UN0FA1','UN1FA0','UN1FA1']
 
 
@@ -113,6 +113,15 @@ def build():
     pd.DataFrame(adjacency,index=NAMES,columns=NAMES).to_csv(OUT/'boundary_adjacency.csv')
     pd.DataFrame(linkage(pdist(directions,metric='cosine'),method='average',optimal_ordering=True),
                  columns=['child_1','child_2','distance','n_concepts']).to_csv(OUT/'hierarchical_linkage.csv',index=False)
+    # Rigid display rotation only: preserve all distances, contacts and tile identities.
+    pair_centers=np.array([center(p) for p in polys[:2]])
+    heading=np.mean(pair_centers/np.linalg.norm(pair_centers,axis=1,keepdims=True),axis=0)
+    angle=3*np.pi/4-np.arctan2(heading[1],heading[0])
+    rotation=np.array([[np.cos(angle),-np.sin(angle)],[np.sin(angle),np.cos(angle)]])
+    polys=[p@rotation.T for p in polys]
+    tiles=[p@rotation.T for p in tiles]
+    sites=sites@rotation.T
+    xy=xy@rotation.T
     geometry=dict(axes=AXES,polygons=[p.tolist() for p in polys],tiles=[p.tolist() for p in tiles],sites=sites.tolist(),weights=weights.tolist())
     (OUT/'region_geometry.json').write_text(json.dumps(geometry))
     # Shared numeric limits across all regions and conditions. No clipping of CN values.
@@ -142,14 +151,14 @@ def build():
                     path_effects=[pe.withStroke(linewidth=2.5,foreground='black')])
         ax.set(xlim=(-1.02,1.02),ylim=(-1.02,1.02))
         ax.set_title(f'{panel}  {condition}'+(' (reference)' if condition=='UN0FA0' else ''),loc='left',fontsize=12,pad=8)
-    fig.text(.04,.085,f'Change in cosine vs. UN0FA0: shared scale {low:+.3f} to {high:+.3f}; CN = Certainty',fontsize=10)
+    fig.text(.04,.085,f'Change in cosine vs. UN0FA0: shared scale {low:+.3f} to {high:+.3f}',fontsize=10)
     grad=np.linspace(low,high,256)[None,:]
     for k,(axis,label) in enumerate(zip(AXES,NAMES)):
         x=.04+(k%4)*.245;y=.055-(k//4)*.037
         ax=fig.add_axes([x,y,.155,.011]);ax.imshow(grad,cmap=cmaps[axis],norm=norm,aspect='auto',extent=[low,high,0,1])
         ax.set_xticks([low,0,high],labels=[f'{low:+.3f}','0',f'{high:+.3f}'],fontsize=6)
         ax.set_yticks([]);ax.tick_params(length=1,pad=1)
-        fig.text(x+.161,y,label,fontsize=8)
+        fig.text(x+.161,y,'Certainty' if label=='CN' else label,fontsize=8)
     stem=OUT/'Emotion_atlas_CN_en'
     for ext in ['png','pdf','svg']:
         fig.savefig(stem.with_suffix('.'+ext),dpi=600,facecolor='white')
@@ -162,7 +171,7 @@ def build():
         color_limits=[low,high],delta_range=[float(values.delta_cosine.min()),float(values.delta_cosine.max())],
         cn_condition_mean_delta=values[values.axis=='CN'].groupby('condition').delta_cosine.mean().to_dict(),
         chunks_sha256=inputs,axis_sha256=sha(EXT/'certainty_axis_L14.npz'),
-        builder_sha256=sha(Path(__file__)),new_adjacency=True)
+        builder_sha256=sha(Path(__file__)),new_adjacency=True,display_rotation_degrees=float(np.degrees(angle)),rotation_preserves_geometry=True)
     (OUT/'validation.json').write_text(json.dumps(validation,indent=2))
     print(json.dumps({k:v for k,v in validation.items() if k!='chunks_sha256'},indent=2))
     return OUT
