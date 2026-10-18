@@ -10,6 +10,9 @@ PUBLIC = 'https://deep1003.github.io/assets/research/emotion-induction-design/da
 
 
 def extend_markup(markup):
+    atlas8 = BASE / 'atlas8/geometry_and_tiles.html'
+    if atlas8.exists():
+        return atlas8.read_text()
     validation = json.loads((BASE/'validation.json').read_text())
     matrix = pd.read_csv(BASE/'axis_cosines_qwen_L14_with_certainty.csv', index_col=0)
     names = matrix.index.tolist()
@@ -27,7 +30,7 @@ def extend_markup(markup):
     row = soup.new_tag('tr')
     for name in ['Axis']+names:
         cell = soup.new_tag('th', scope='col')
-        cell.string = name
+        cell.string = 'CN' if name == 'Certainty' else name
         row.append(cell)
     head.append(row)
     table.append(head)
@@ -35,7 +38,7 @@ def extend_markup(markup):
     for a in names:
         row = soup.new_tag('tr')
         label = soup.new_tag('th', scope='row')
-        label.string = a
+        label.string = 'CN' if a == 'Certainty' else a
         row.append(label)
         for b in names:
             cell = soup.new_tag('td')
