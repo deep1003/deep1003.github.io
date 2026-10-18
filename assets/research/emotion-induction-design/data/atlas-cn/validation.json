@@ -444,8 +444,9 @@
     "batch_00416.npz": "867aac30233567a658f18a1786916543af88de3889f4b0c0a2a0f577a831389b"
   },
   "axis_sha256": "95fb8dd26f1e7e5143f1d903e5fbb94bc5a414c8fb186262b06ba62f3f25c98e",
-  "builder_sha256": "1b905d3475c7e7df166848ee8b247efa2e2f986a1e21c0d37f84a0dc36266f4e",
+  "builder_sha256": "576c10c0309ff591dbc0ebddfcefe2e377771fac8b91f02fcf4d2be598c0c816",
   "new_adjacency": true,
   "display_rotation_degrees": 198.4613587377798,
-  "rotation_preserves_geometry": true
+  "rotation_preserves_geometry": true,
+  "display_reflection": "x_new=-y; y_new=-x"
 }

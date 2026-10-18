@@ -1,0 +1,66 @@
+{
+  "state": "prepared_not_run",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "dtype": "float32",
+  "attention": "eager",
+  "conditions": 24,
+  "outcomes": [
+    "retain",
+    "discard"
+  ],
+  "emotions": [
+    "neutral",
+    "positive",
+    "anger",
+    "disgust"
+  ],
+  "prompt_variants_per_cell": 3,
+  "rotations": [
+    0,
+    1,
+    2
+  ],
+  "pilot_items": 139,
+  "maximum_items": 2000,
+  "pilot_rows": 10008,
+  "maximum_rows": 144000,
+  "seed": 20261018,
+  "primary_outcome": "p_unknown",
+  "secondary_outcomes": [
+    "p_stereotype",
+    "p_anti",
+    "p_stereotype/(p_stereotype+p_anti)",
+    "choice_mass"
+  ],
+  "primary_contrasts": [
+    "anger-neutral within retain",
+    "disgust-neutral within retain",
+    "anger-neutral within discard",
+    "disgust-neutral within discard"
+  ],
+  "multiplicity": "Holm4 for four prespecified primary comparisons; two-sided",
+  "bootstrap": "10000 paired template-cluster draws; average rotations then fixed prompt variants within item; variants not independent sample units",
+  "secondary_contrasts": [
+    "positive-neutral within each outcome",
+    "discard-retain within each emotion",
+    "outcome x anger difference-in-differences",
+    "outcome x disgust difference-in-differences"
+  ],
+  "no_outcome_based_selection": true,
+  "induction_target": "anger at decision makers; moral disgust at procedure, never a KoBBQ social group",
+  "certainty_definition": "announced outcome probability 100%; not proof of subjective confidence",
+  "positive_definition": "one composite happiness/contentment/joy condition, not three separately identified emotions",
+  "limits": [
+    "Emotional instructions and associated semantic appraisals change together",
+    "Decision certainty and certainty about the KoBBQ answer are distinct",
+    "Disgust induction can overlap anger; require separate checks",
+    "Certainty fixed in all cells: cannot estimate a certainty main effect versus uncertainty",
+    "Original UN/FA measurements cannot be reused under these new prompts"
+  ],
+  "input_sha256": {
+    "stimuli.json": "4e37a4ab00790080c18e25dba48bb9bc46bf201db42c347d7c30a36b40653340",
+    "items_2000.csv": "5f1d887027dc636e4e18e5fd7499d96a0cc49c809bb482eb4ed6dff75b3aabe6"
+  },
+  "primary_p_method": "Two-sided centered-null cluster-bootstrap approximation with plus-one correction; Holm4; not the historical sign-tail p estimator"
+}

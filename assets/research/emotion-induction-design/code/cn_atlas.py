@@ -118,6 +118,8 @@ def build():
     heading=np.mean(pair_centers/np.linalg.norm(pair_centers,axis=1,keepdims=True),axis=0)
     angle=3*np.pi/4-np.arctan2(heading[1],heading[0])
     rotation=np.array([[np.cos(angle),-np.sin(angle)],[np.sin(angle),np.cos(angle)]])
+    # Reflect across the upper-left diagonal to exchange the top/left appraisal positions.
+    rotation=np.array([[0.,-1.],[-1.,0.]])@rotation
     polys=[p@rotation.T for p in polys]
     tiles=[p@rotation.T for p in tiles]
     sites=sites@rotation.T
@@ -171,7 +173,7 @@ def build():
         color_limits=[low,high],delta_range=[float(values.delta_cosine.min()),float(values.delta_cosine.max())],
         cn_condition_mean_delta=values[values.axis=='CN'].groupby('condition').delta_cosine.mean().to_dict(),
         chunks_sha256=inputs,axis_sha256=sha(EXT/'certainty_axis_L14.npz'),
-        builder_sha256=sha(Path(__file__)),new_adjacency=True,display_rotation_degrees=float(np.degrees(angle)),rotation_preserves_geometry=True)
+        builder_sha256=sha(Path(__file__)),new_adjacency=True,display_rotation_degrees=float(np.degrees(angle)),rotation_preserves_geometry=True,display_reflection="x_new=-y; y_new=-x")
     (OUT/'validation.json').write_text(json.dumps(validation,indent=2))
     print(json.dumps({k:v for k,v in validation.items() if k!='chunks_sha256'},indent=2))
     return OUT
