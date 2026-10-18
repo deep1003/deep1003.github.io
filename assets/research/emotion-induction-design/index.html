@@ -1,4 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="불확실성 표현과 모델 자기 위협의 문구 효과를 분리한 7B·KoBBQ 139문항 대응 2×2 요인 실험." name="description"/><title>정서적 맥락은 언어모델의 사회적 판단을 어떻게 바꾸는가?</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:#222;font:16px/1.9 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}main{max-width:1000px;margin:auto;padding:42px 32px 70px}a{color:#333;text-underline-offset:4px}header{padding:22px 0 24px;border-bottom:1px solid #333}.kicker,.meta{color:#666;font-size:13px}h1{font-size:clamp(27px,3.6vw,38px);line-height:1.5;letter-spacing:-.8px;margin:14px 0}h2{font-size:23px;line-height:1.5;padding-bottom:10px;margin:0 0 20px;border-bottom:1px solid #ccc}h3{font-size:18px;margin:23px 0 10px}h4{font-size:16px;margin:20px 0 10px}.subtitle{font-size:18px;color:#555;margin:12px 0}section{margin:34px 0 42px;scroll-margin-top:20px}p{margin:10px 0 16px}.abstract{background:#f6f6f6;padding:24px;margin-top:26px;border-left:3px solid #555}.abstract h2{font-size:20px;border:0;padding:0;margin-bottom:12px}.abstract p:last-child{margin-bottom:0}.nav{display:flex;flex-wrap:wrap;gap:8px 19px;font-size:14px;margin:22px 0}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{padding:12px 14px;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}thead th{background:#f4f4f4}td{white-space:nowrap}th:first-child{min-width:160px}.prose-table td{white-space:normal;min-width:180px}.note,.equation{padding:16px 20px;background:#f6f6f6;border-left:2px solid #888;font-size:15px}.equation{text-align:center;font-family:Georgia,"Times New Roman",serif;font-size:18px;overflow-wrap:anywhere}details{margin:16px 0;border-top:1px solid #ccc;border-bottom:1px solid #ccc}summary{cursor:pointer;padding:15px 4px;font-weight:650}summary::marker{color:#555}.detail-body{padding:4px 14px 20px}blockquote{margin:10px 0;padding:16px 20px;border-left:2px solid #aaa;background:#f7f7f7;line-height:1.95;overflow-wrap:anywhere}.model{width:100%;overflow:auto}.model svg{display:block;width:100%;min-width:620px;height:auto}figure{margin:22px 0}figure img{display:block;width:100%;height:auto}figcaption{font-size:13px;color:#666;margin-top:12px}.references{padding-left:24px;font-size:14px}.references li{margin:12px 0;overflow-wrap:anywhere}.links{display:flex;gap:10px 18px;flex-wrap:wrap;font-size:14px}.formula-note{font-size:14px;color:#666}footer{border-top:1px solid #ccc;padding-top:20px;color:#666;font-size:13px}ul,ol{padding-left:23px}li{margin:7px 0}code{overflow-wrap:anywhere}.refs-label{font-size:13px;color:#666} @media(max-width:640px){main{padding:22px 18px 45px}header{padding-top:12px}h1{font-size:28px}h2{font-size:21px}.abstract{padding:20px 16px}.detail-body{padding:0 3px 18px}th,td{padding:11px 10px}.equation{font-size:16px}.nav{font-size:13px}.model svg{min-width:620px}}@media print{.nav{display:none}section{break-inside:avoid}body{font-size:11pt}main{max-width:none;padding:0}}
 /* Restrained blue and gold accents; print figures remain monochrome. */
 .abstract{background:#fff;border-left:0;padding:0}.result-brief{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.result-brief>div{padding:18px 20px;border:1px solid #e0e4e9}.brief-u{background:#edf3fa}.brief-t{background:#fbf5e8}.brief-i{background:#f6f6f6}.result-brief span,.result-brief small{display:block;font-size:13px;color:#555}.result-brief strong{display:block;font-size:29px;font-weight:650;line-height:1.5;color:#222}.prompt-explorer{margin:20px 0;padding:20px;border:1px solid #ddd}.prompt-controls{display:grid;grid-template-columns:1fr 1fr;gap:16px}.prompt-controls label{display:flex;flex-direction:column;gap:8px;font-weight:650;padding:14px}.uncertainty-control{background:#edf3fa}.threat-control{background:#fbf5e8}.prompt-controls select{font:inherit;font-size:14px;color:#222;background:#fff;border:1px solid #bac4d0;padding:9px;width:100%;border-radius:3px}.prompt-text{white-space:pre-wrap;overflow-wrap:anywhere;font:15px/1.95 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;background:#fafafa;border:1px solid #e3e3e3;padding:18px;margin:10px 0}.uncertainty-fragment{background:#e4eef9;color:inherit}.threat-fragment{background:#f8ebce;color:inherit}.note{background:#f5f8fc;border-left-color:#b6c8dd}h2{border-bottom-color:#d4dfed}summary{background:#f7f9fc;padding-left:10px}#design-figure-en>summary{background:#fbf5e8}nav a{color:#3d5875}@media(max-width:640px){.result-brief{grid-template-columns:1fr}.result-brief>div{display:grid;grid-template-columns:1fr auto;gap:0 12px;padding:12px 15px}.result-brief strong{grid-column:2;grid-row:1/3;font-size:27px}.result-brief span,.result-brief small{grid-column:1}.prompt-controls{grid-template-columns:1fr}.prompt-explorer{padding:14px}.prompt-text{padding:13px}}
@@ -159,113 +160,23 @@ h2,.abstract h2{border-left-color:var(--study-neutral)}
 <p><strong>내부 정렬의 역할.</strong> FA·분노·절박함 방향의 동반 정렬을 감정별 확실성 평가의 직접 측정으로 해석하지 않는다. 인간 이론에서 서로 다른 평가 경향을 갖는 감정도 언어모델의 고정 축에서는 겹칠 수 있다. 약한 문항별 정렬·행동 연관과 축 간 중첩을 고려하면 별도의 활성 개입 없이 행동 매개를 주장할 수 없다.</p>
 <p>후속 검증에서는 표현이 겹치지 않는 불확실성 자극, 정보가 충분한 명확 문항, 인물 선택 안에서의 고정관념 상대 선호, 평가 경향이 다른 감정의 비교가 유용하다. 감정 비교에서는 긍정·부정뿐 아니라 각 자극이 실제로 유도하는 확실성·통제·각성 평가도 확인해야 한다. 이 제안은 현재 실험을 변경하거나 새 측정을 실행한다는 뜻이 아니다.</p></div></details></section><section id="publication-main"><h2>7. 감정 축 유사도 · 본문 그림</h2><p>행동 효과와 내부 유사도는 별도로 해석한다. 유사도는 작성한 개념 방향과의 코사인이며 실제 감정 경험이나 행동의 원인을 입증하지 않는다.</p><details><summary>본문 M3 · Within-item changes in emotion-axis cosine similarity</summary><div class="atlas-geometry-notes">
 <h3>그림을 읽기 위한 유사도·인접성 표</h3>
-<p><strong>이 표는 관측값의 상관행렬이 아니라, 일곱 고정 개념 방향의 코사인 유사도다.</strong> 각 단위 방향 vᵢ는 3,584차원이며 값은 cᵢⱼ=vᵢᵀvⱼ이다. ✓는 현재 도식에서 두 영역이 실제로 경계를 공유한다는 뜻이며 통계적 유의성 표시는 아니다.</p>
-<div style="overflow-x:auto"><table class="dataframe atlas-similarity-table">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>UN</th>
-<th>FA</th>
-<th>Calm</th>
-<th>Sadness</th>
-<th>Anger</th>
-<th>Desperation</th>
-<th>Joy</th>
-</tr>
-<tr>
-<th>Axis</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>UN</th>
-<td>1.000</td>
-<td>0.494 ✓</td>
-<td>0.148 ✓</td>
-<td>0.298 ✓</td>
-<td>0.331</td>
-<td>0.420 ✓</td>
-<td>0.240 ✓</td>
-</tr>
-<tr>
-<th>FA</th>
-<td>0.494 ✓</td>
-<td>1.000</td>
-<td>0.248</td>
-<td>0.597</td>
-<td>0.652 ✓</td>
-<td>0.661 ✓</td>
-<td>0.446</td>
-</tr>
-<tr>
-<th>Calm</th>
-<td>0.148 ✓</td>
-<td>0.248</td>
-<td>1.000</td>
-<td>0.560</td>
-<td>0.419</td>
-<td>0.422</td>
-<td>0.637 ✓</td>
-</tr>
-<tr>
-<th>Sadness</th>
-<td>0.298 ✓</td>
-<td>0.597</td>
-<td>0.560</td>
-<td>1.000</td>
-<td>0.664 ✓</td>
-<td>0.670 ✓</td>
-<td>0.618 ✓</td>
-</tr>
-<tr>
-<th>Anger</th>
-<td>0.331</td>
-<td>0.652 ✓</td>
-<td>0.419</td>
-<td>0.664 ✓</td>
-<td>1.000</td>
-<td>0.716 ✓</td>
-<td>0.656</td>
-</tr>
-<tr>
-<th>Desperation</th>
-<td>0.420 ✓</td>
-<td>0.661 ✓</td>
-<td>0.422</td>
-<td>0.670 ✓</td>
-<td>0.716 ✓</td>
-<td>1.000</td>
-<td>0.614</td>
-</tr>
-<tr>
-<th>Joy</th>
-<td>0.240 ✓</td>
-<td>0.446</td>
-<td>0.637 ✓</td>
-<td>0.618 ✓</td>
-<td>0.656</td>
-<td>0.614</td>
-<td>1.000</td>
-</tr>
-</tbody>
-</table></div>
+<p><strong>이 표는 관측값의 상관행렬이 아니라, 기존 일곱 고정 개념 방향과 새 Certainty 인지적 평가 방향의 코사인 유사도다.</strong> 각 방향은 Qwen2.5-7B의 L14, 3,584차원 단위 벡터다. ✓는 기존 일곱 영역 사이의 실제 경계 접촉만 표시하며 통계적 유의성이 아니다. Certainty에는 새 영역을 만들지 않았으므로 관련 칸에 ✓를 붙이지 않았다.</p>
+<div style="overflow-x:auto"><table class="dataframe atlas-similarity-table" data-certainty-extension="measured-L14"><thead><tr><th scope="col">Axis</th><th scope="col">UN</th><th scope="col">Certainty</th><th scope="col">FA</th><th scope="col">Calm</th><th scope="col">Sadness</th><th scope="col">Anger</th><th scope="col">Desperation</th><th scope="col">Joy</th></tr></thead><tbody><tr><th scope="row">UN</th><td>1.000</td><td style="background:#f3f4f6">-0.526</td><td>0.494 ✓</td><td>0.148 ✓</td><td>0.298 ✓</td><td>0.331</td><td>0.420 ✓</td><td>0.240 ✓</td></tr><tr><th scope="row">Certainty</th><td style="background:#f3f4f6">-0.526</td><td style="background:#f3f4f6">1.000</td><td style="background:#f3f4f6">-0.384</td><td style="background:#f3f4f6">0.091</td><td style="background:#f3f4f6">-0.185</td><td style="background:#f3f4f6">-0.117</td><td style="background:#f3f4f6">-0.303</td><td style="background:#f3f4f6">0.036</td></tr><tr><th scope="row">FA</th><td>0.494 ✓</td><td style="background:#f3f4f6">-0.384</td><td>1.000</td><td>0.248</td><td>0.597</td><td>0.652 ✓</td><td>0.661 ✓</td><td>0.446</td></tr><tr><th scope="row">Calm</th><td>0.148 ✓</td><td style="background:#f3f4f6">0.091</td><td>0.248</td><td>1.000</td><td>0.560</td><td>0.419</td><td>0.422</td><td>0.637 ✓</td></tr><tr><th scope="row">Sadness</th><td>0.298 ✓</td><td style="background:#f3f4f6">-0.185</td><td>0.597</td><td>0.560</td><td>1.000</td><td>0.664 ✓</td><td>0.670 ✓</td><td>0.618 ✓</td></tr><tr><th scope="row">Anger</th><td>0.331</td><td style="background:#f3f4f6">-0.117</td><td>0.652 ✓</td><td>0.419</td><td>0.664 ✓</td><td>1.000</td><td>0.716 ✓</td><td>0.656</td></tr><tr><th scope="row">Desperation</th><td>0.420 ✓</td><td style="background:#f3f4f6">-0.303</td><td>0.661 ✓</td><td>0.422</td><td>0.670 ✓</td><td>0.716 ✓</td><td>1.000</td><td>0.614</td></tr><tr><th scope="row">Joy</th><td>0.240 ✓</td><td style="background:#f3f4f6">0.036</td><td>0.446</td><td>0.637 ✓</td><td>0.618 ✓</td><td>0.656</td><td>0.614</td><td>1.000</td></tr></tbody></table></div><div class="note" id="certainty-extension-note">
+<p><strong>Certainty 추가 측정.</strong> 상황과 판단에 대한 주관적 확실성을 기술한 새 한국어 문장 10쌍을 고정했다. 6쌍으로 확실성−불확실성 평균 차이 방향을 추정하고, 별도 4쌍으로 검증했다. 기존과 같은 모델 revision·FP32·eager·시스템 입력 뒤 답변 시작 직전 위치에서 새 입력 20개만 측정했다. 보류 쌍 정확도 1.00, AUC 1.00로 기존 검증 기준(각 .75 이상)을 통과했다. 소규모 작성 문장에 대한 탐색적 진단이며 광범위한 구성 타당성을 입증하지 않는다.</p>
+<p>UN -0.526, FA -0.384, Calm +0.091, Sadness -0.185, Anger -0.117, Desperation -0.303, Joy +0.036.</p>
+<p>기존 UN의 대조 문장도 이미 확실성을 기술한다. 그 축의 부호를 뒤집으면 UN과의 유사도는 정의상 −1이다. 여기의 Certainty는 새 문장에서 독립적으로 추정했으므로 그 값이 강제되지 않는다. 기존 일곱 축·행동 결과·아틀라스 경계는 유지했다. 분노와 Certainty의 음의 유사도를 인간의 분노가 불확실하다는 증거로 해석하지 않는다. 이 표는 작성 문장으로 구성한 모델 내부 방향의 관계이며, 감정별 인지적 평가를 직접 측정한 결과가 아니다.</p>
+<p class="links"><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/l14/certainty-extension/axis_cosines_qwen_L14_with_certainty.csv">8×8 수치 표</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/l14/certainty-extension/anchors_certainty.json">새 문장과 분할</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/l14/certainty-extension/validation.json">보류 검증</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/l14/certainty-extension/certainty_comparison.csv">문장 쌍 제외 민감도</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/l14/certainty-extension/protocol.json">측정 설정</a></p>
+</div>
 <p>유사도는 배치의 입력이지만 경계를 직접 정하는 임계값은 아니다. 같은 벡터들을 PCA 2차원 사이트로 투영하고, 영역 면적을 같게 하는 가중 보로노이 도형(power diagram)으로 경계를 계산했다. 따라서 유사도가 높아도 경계가 닿지 않을 수 있고, 낮아도 닿을 수 있다. 계층군집은 원래 고차원 관계를 점검하는 별도 분석이며 경계를 생성한 알고리즘은 아니다.</p>
 <div style="overflow-x:auto"><table><thead><tr><th>구분</th><th>계산과 해석</th></tr></thead><tbody>
 <tr><td>유사도와 배치</td><td>cᵢⱼ=cos(vᵢ,vⱼ), dᵢⱼ=√[2(1−cᵢⱼ)]. 고정 방향을 중심화한 PCA의 두 좌표 sᵢ를 사용한다. 2차원 보존 분산은 59.79%이며 모든 고차원 관계를 보존하지 않는다.</td></tr>
 <tr><td>큰 영역의 경계</td><td>영역 i는 ‖x−sᵢ‖²−wᵢ ≤ ‖x−sⱼ‖²−wⱼ를 모든 j에 대해 만족하는 위치다. 두 값이 같은 직선이 경계이며, wᵢ는 일곱 영역의 면적을 같게 맞춘 표시용 가중치다. 면적과 경계 길이는 정서 강도의 측정값이 아니다.</td></tr>
-<tr><td>작은 칸 하나</td><td>문항 1개 × 선택지 순서 1개 × 내부 정서 축 1개에 대응한다. 139문항을 각각 세 순서로 측정했으므로 영역당 417칸, 패널당 7×417=2,919칸이다. 일곱 점수는 같은 입력의 은닉 상태에서 계산하며 일곱 번 독립 측정한 표본이 아니다.</td></tr>
+<tr><td>작은 칸 하나</td><td>문항 1개 × 선택지 순서 1개 × 개념 축 1개에 대응한다. 139문항을 각각 세 순서로 측정했으므로 영역당 417칸, 패널당 7×417=2,919칸이다. 일곱 점수는 같은 입력의 은닉 상태에서 계산하며 일곱 번 독립 측정한 표본이 아니다.</td></tr>
 <tr><td>색의 수치</td><td>완전한 공지+KoBBQ 입력 뒤 답변 생성 직전 L14 은닉 상태 h에서 aₖ=(h−μₖ)ᵀvₖ/‖h−μₖ‖를 계산한다. 색은 같은 문항·순서·축의 Δaₖ=aₖ(condition)−aₖ(00)이다. 이는 코사인 변화량이며 표준화 z점수나 정서 확률이 아니다.</td></tr>
 <tr><td>반복·샘플링·화면 픽셀</td><td>세 순서는 선택지 위치를 순환한 입력의 반복 측정이며, 답변을 무작위로 세 번 생성한 것이 아니다. 이들은 서로 독립적인 417문항이 아니다. 그림을 위한 무작위 샘플링·보간·평활화·임의 값 복제는 없다. 한 소칸은 여러 화면 픽셀로 렌더링되며 화면 픽셀마다 모델을 측정한 것은 아니다. 소칸 안팎의 문항 위치는 범주·템플릿·ID 순서의 고정 재귀 분할이며 국소적 이웃 관계에는 의미 해석이 없다.</td></tr>
 </tbody></table></div>
 <p><strong>실제 한 칸의 예시</strong> FA 영역의 <code>age-001b-002-amb-cnt</code>, 선택지 순서 0, 조건 11은 −0.109530이고 같은 문항·순서의 조건 00은 −0.120317이다. 색에 사용한 값은 −0.109530−(−0.120317)=<strong>+0.010787</strong>이다. 네 조건은 같은 칸 배치와 같은 색 범위를 사용한다. 00 패널이 단색인 이유는 자기 자신을 뺀 변화가 0이기 때문이다.</p>
-<p>고유 문항은 139개이며 91개 범주·템플릿 군집을 공유한다. 입력 조건은 139×4×3=1,668개이고, 각 입력에서 일곱 축을 계산하므로 네 패널에 11,676개의 유사도값이 표시된다. 문항 평균에 사용된 부트스트랩 표본을 이 칸에 배치한 것이 아니다.</p>
+<p>고유 문항은 139개이며 91개 범주·템플릿 군집을 공유한다. 입력 조건은 139×4×3=1,668개이고, 각 입력에서 일곱 축을 계산하므로 네 패널에 11,676개의 정렬값이 표시된다. 문항 평균에 사용된 부트스트랩 표본을 이 칸에 배치한 것이 아니다.</p>
 <p class="links"><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/atlas/concept_cosines.csv">원래 코사인 행렬</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/atlas/similarity_and_contact_pairs.csv">모든 쌍의 유사도와 접촉 여부</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/atlas/tile_layout.csv">소칸과 문항 키</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/atlas/atlas_source_data.csv">소칸별 측정값</a><a href="https://deep1003.github.io/assets/research/emotion-induction-design/data/atlas/geometry_and_tiles_audit.json">원자료·경계 재검증</a></p>
 </div><figure data-publication-id="M3"><a href="figures/atlas/Emotion_atlas_change_coloured_en.svg?v=cosine20261018"><img alt="M3. Within-item changes in emotion-axis cosine similarity" loading="lazy" src="figures/atlas/Emotion_atlas_change_coloured_en.png?v=cosine20261018"/></a><figcaption><strong>M3. Within-item changes in emotion-axis cosine similarity</strong> · 같은 문항·선택지 순서의 00 대비 감정 축 유사도 변화(코사인 변화, −0.007~+0.016). 각 영역은 해당 내부 정서의 색상 램프(어두운 정서색 → 정서색 → 밝은 노란색)로 칠하였으며, 노란색에 가까울수록 기준 대비 유사도 증가가 크다. 정서색의 명도를 맞추어 같은 값이 영역과 무관하게 같은 밝기로 보인다. 앞의 표는 고정 방향의 코사인 유사도와 실제 경계 접촉 여부다. 영역당 417칸은 139문항×3선택지 순서이며, 화면 픽셀이나 독립적인 417개 문항을 뜻하지 않는다. 영역 경계와 칸 값은 원본 아틀라스와 같고, 색은 같은 문항 안의 변화량이며 정서 확률이 아니다.</figcaption><p class="links"><a href="figures/atlas/Emotion_atlas_change_coloured_en.pdf?v=cosine20261018">PDF</a><a href="figures/atlas/Emotion_atlas_change_coloured_en.svg?v=cosine20261018">SVG</a><a href="figures/atlas/Emotion_atlas_change_coloured_en.png?v=cosine20261018">600 dpi PNG</a></p></figure></details><details id="m4-emotions"><summary>본문 M4 · Internal emotions in the prompt text</summary><figure data-publication-id="M4"><a href="figures/Prompt_text_concepts_en.svg?v=cosine20261018"><img alt="M4. Internal emotions in the prompt text" loading="lazy" src="figures/Prompt_text_concepts_en.png?v=cosine20261018"/></a><figcaption><strong>M4. Internal emotions in the prompt text</strong> · 실제 한국어 입력의 글자 위치별 감정 축 유사도. 불확실성(UN)은 청색, 부정 정서(FA·슬픔·분노·절박함)는 적색 계열, 긍정 정서(평온·기쁨)는 녹색 계열이며, 모든 램프는 밝은 노란색에서 정점에 이른다. 왼쪽은 정서별 z-점수, 오른쪽은 원문 글자를 z가 가장 큰 내부 정서의 색으로 칠한 것이다(진하기는 z = 0.5~2.5에 비례). 각 내부 정서를 네 프롬프트의 모든 글자에 대해 표준화하였으므로, 색은 그 축 안에서의 상대적 유사도가며 정서 확률이나 단어의 인과 기여도가 아니다.</figcaption><p class="links"><a href="figures/Prompt_text_concepts_en.pdf?v=cosine20261018">PDF</a><a href="figures/Prompt_text_concepts_en.svg?v=cosine20261018">SVG</a><a href="figures/Prompt_text_concepts_en.png?v=cosine20261018">600 dpi PNG</a><a href="figures/Prompt_text_concepts_source.csv?v=pure">글자별 원자료</a></p></figure></details></section><section id="representations"><h2>8. 측정 방법</h2><p id="emotion-axis-terminology">이하 감정 축 유사도(emotion-axis cosine similarity)는 기준 중심을 뺀 내부 표현과 감정 축 사이의 코사인 유사도를 뜻한다. 감정 관련 내부 표현을 살펴보는 지표이며, 감정의 발생 확률이나 주관적 경험을 측정하지 않는다. 문맥에 따라 유사도 또는 축별 변화로 줄여 쓴다.</p><p>측정 수식과 검증 조건은 아래에 접어 제시한다. 동일 자료의 PCA·UMAP·확대판은 중복 표시하지 않는다. 원자료와 좌표, 검증 수치는 내려받기 자료에 보존했다.</p><details id="l14-methods"><summary>Qwen L14 정서 내부 정서 축 측정 방법 · 기술·수식·검증·참고문헌</summary><div class="detail-body"><h3>측정 위치와 모델</h3>
 <p>Qwen2.5-7B-Instruct의 28개 디코더 블록 중 14번째 블록을 통과한 3,584차원 은닉 상태를 사용했다. 모델 리비전은 <code>a09a35458c702b33eeacc393d103063234e8bc28</code>이다. 원 측정은 FP32, MPS, eager attention, 평가 모드에서 배치 크기 1로 수행했다. 가중치 학습이나 활성 개입은 하지 않았다.</p>

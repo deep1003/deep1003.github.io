@@ -90,6 +90,13 @@ def build():
 <p class="links"><a href="URLconcept_cosines.csv">원래 코사인 행렬</a><a href="URLsimilarity_and_contact_pairs.csv">모든 쌍의 유사도와 접촉 여부</a><a href="URLtile_layout.csv">소칸과 문항 키</a><a href="URLatlas_source_data.csv">소칸별 측정값</a><a href="URLgeometry_and_tiles_audit.json">원자료·경계 재검증</a></p>
 </div>'''
     markup = markup.replace('VARIANCE', f'{variance:.2f}').replace('ITEM', html.escape(example['item'])).replace('URL', url)
+    extension = BASE / 'representation_analysis/certainty_extension'
+    if (extension / 'validation.json').exists():
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('certainty_table_notes', extension / 'table_notes.py')
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        markup = module.extend_markup(markup)
     (BASE / 'atlas_geometry_explainer.html').write_text(markup)
     audit = dict(n_items=139, n_clusters=91, n_conditions=4, n_rotations=3, n_axes=7, n_input_conditions=1668,
         cells_per_region=417, cells_per_panel=2919, displayed_values=11676,

@@ -1,0 +1,6 @@
+{
+  "original_measurement_code_sha256": "241ee780e091861bbc5259acf0a13ac1fe1387c940e6475b8907236570baa3a4",
+  "final_analysis_code_sha256": "fca4f7f019f35ab9ce3bd9c9bb1d2d2dba9509aefd8e5fcb55888b68e7469010",
+  "repair": "Use FP64 unit-normalized saved directions and the actual published atlas concept_cosines.csv, as in atlas_geometry_notes.py. Original seven axes preserved to 1e-12. No anchor, measurement or heldout gate changes; no inference rerun.",
+  "published_matrix_source_sha256": "90a0deef1147490e0901990fbf746a4296440c6eca9661e1676fbbf4c657bd43"
+}
