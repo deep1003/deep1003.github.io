@@ -139,7 +139,9 @@ def row(fig, p, Z, bottom, height, letter, size=7.4):
     ax.set_xticks(xpos); ax.set_xticklabels([SHORT_OF[c] for c in cols], rotation=90, fontsize=5.6)
     for lab, cname in zip(ax.get_xticklabels(), cols):
         lab.set_color(CCOL[cname]); lab.set_fontweight('bold')
-    ex = xpos[-1] + .65
+    # Right-facing brackets mark the exact character span for each sentence.
+    ex = xpos[-1] + 1.00
+    cap_left = xpos[-1] + .61
     ax.set_yticks([0, n - 1]); ax.set_yticklabels(['1', str(n)], fontsize=6)
     ax.set_ylabel('Character position', fontsize=6.5, labelpad=3)
     ax.tick_params(length=0, pad=2)
@@ -171,9 +173,15 @@ def row(fig, p, Z, bottom, height, letter, size=7.4):
                                            facecolor=tuple(.7 * np.array(mix(col, .18 + .82 * t)) + .3 * np.array(to_rgb(YELLOW))) if t > .85 else mix(col, .18 + .82 * t), edgecolor='none'))
                 fg = '#FFFFFF' if t > .62 and np.mean(to_rgb(col)) < .55 else INK
                 tx.text(pad + x, y - .4, c, fontproperties=FONT, fontsize=size, va='top', color=fg)
-        fig.add_artist(ConnectionPatch(xyA=(ex, (a + z - 1) / 2), coordsA=ax.transData, xyB=(0, top - box_h / 2),
+        start, end = a, z
+        while start < end and text[start].isspace(): start += 1
+        while end > start and text[end - 1].isspace(): end -= 1
+        fig.add_artist(ConnectionPatch(xyA=(ex, (start + end - 1) / 2), coordsA=ax.transData, xyB=(0, top - box_h / 2),
                                        coordsB=tx.transData, color='#9A9285', lw=.45, clip_on=False, zorder=1))
-        ax.plot([ex, ex], [a - .5, z - .5], color='#6B635A', lw=.6, clip_on=False)
+        # Pixel-row edges, not row centers; the final character is end-1.
+        ax.plot([cap_left, ex, ex, cap_left],
+                [start - .5, start - .5, end - .5, end - .5],
+                color='#433F3A', lw=.9, solid_capstyle='butt', clip_on=False, zorder=5)
         top -= box_h + gap
 
 
@@ -188,31 +196,34 @@ def legend(fig, x0, y0):
             fig.text(x + .019, y0, cname, fontsize=6.3, color=INK)
             x += .019 + .0068 * len(cname) + .012
         x += .018
-    fig.text(x0, y0 - .020, f'Left: within-emotion z-score, dark -> emotion colour -> yellow peak. Text: dominant emotion, shaded from z = {Z_MIN} to {Z_MAX} (yellow tint at the top).',
-             fontsize=6, color='#6B635A')
 
 
 def build(show=False):
     plt.rcParams.update({'font.family': 'sans-serif', 'svg.fonttype': 'path'})
     prompts, raw, z = load()
     fig = plt.figure(figsize=(180 / 25.4, 270 / 25.4))
-    fig.text(.04, .979, 'Where each internal emotion is most aligned in the prompt', fontsize=10, weight='bold', color=INK)
-    fig.text(.095, .955, 'Emotions by family (ramps peak at yellow)', fontsize=7, color=INK)
-    fig.text(.40, .955, 'Original Korean prompt; background = dominant internal emotion', fontsize=7, color=INK)
     for i, c in enumerate(CONDITIONS):
         row(fig, prompts[c], z[c], .762 - i * .212, .156, 'abcd'[i])
     legend(fig, .095, .045)
-    fig.text(.04, .006, 'Contextual hidden-state cosine similarity, standardized within each internal emotion; not token attribution or experienced emotion.',
-             fontsize=6, color='#6B635A')
     OUT.mkdir(exist_ok=True)
     stem = OUT / 'Prompt_text_concepts_en'
     for ext, kw in [('svg', {}), ('pdf', {}), ('png', {'dpi': 600})]:
-        fig.savefig(f'{stem}.{ext}', facecolor='white', **kw)
+        fig.savefig(f'{stem}.{ext}', facecolor='white', bbox_inches='tight', pad_inches=.05, **kw)
     with open(OUT / 'Prompt_text_concepts_source.csv', 'w', newline='', encoding='utf-8') as f:
         w = csv.writer(f); w.writerow(['condition', 'char_index', 'char'] + [f'cos_{c}' for c in CONCEPTS] + [f'z_{c}' for c in CONCEPTS] + ['dominant'])
         for c in CONDITIONS:
             for i, rec in enumerate(prompts[c]['layers'][LAYER]):
                 w.writerow([c, i, rec['char']] + [f'{v:.6f}' for v in raw[c][i]] + [f'{v:.4f}' for v in z[c][i]] + [CONCEPTS[int(z[c][i].argmax())]])
+    with open(OUT / 'Prompt_text_sentence_spans.csv', 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow(['condition', 'sentence', 'start_zero_based_inclusive',
+                         'end_zero_based_exclusive', 'first_character_position', 'last_character_position', 'text'])
+        for condition in CONDITIONS:
+            text = prompts[condition]['text']
+            for number, (a, z) in enumerate(segments(text), 1):
+                while a < z and text[a].isspace(): a += 1
+                while z > a and text[z - 1].isspace(): z -= 1
+                writer.writerow([condition, number, a, z, a + 1, z, text[a:z]])
     if show: plt.show()
     else: plt.close(fig)
     return stem
