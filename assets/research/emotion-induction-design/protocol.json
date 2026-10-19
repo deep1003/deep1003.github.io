@@ -26,7 +26,7 @@
   "model_inference": false,
   "bootstrap": 10000,
   "seed": 20261018,
-  "p_values_added": false,
+  "p_values_added": true,
   "axes": [
     "Fear",
     "Anxiety",
@@ -43,5 +43,11 @@
   "appraisal_conditions_excluded": true,
   "discard_decision": "User excluded appraisal experiment after observing results; historical raw evidence retained, not used in final six-condition estimates.",
   "source_folder": "/Users/deep1003/data3/output/certainty_uncertainty_air_handover_20261018/streaming_work",
-  "analysis_population": "139 items, 91 template clusters only"
+  "analysis_population": "139 items, 91 template clusters only",
+  "new_inference": "Post hoc publication contrasts; see inference_receipt.json",
+  "main_figure_order": [
+    "L14 emotion atlas",
+    "prompt token states",
+    "Unknown Reference contrasts"
+  ]
 }

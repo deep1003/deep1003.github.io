@@ -1,0 +1,15 @@
+{
+  "main_figures": [
+    "Fig1_L14_emotion_atlas",
+    "Fig2_prompt_emotion_states",
+    "Fig3_Unknown_reference_contrasts"
+  ],
+  "dpi": 600,
+  "width_mm": 180,
+  "font": "Arial, 5.5\u20138 pt",
+  "vector_text_editable": true,
+  "reference_centered": true,
+  "source": "data/*6_conditions.csv",
+  "system_only_p_values": false,
+  "axes_are_cosine_not_emotion_probability": true
+}

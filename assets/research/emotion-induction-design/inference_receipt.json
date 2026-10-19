@@ -1,0 +1,24 @@
+{
+  "created_after_data_inspection": true,
+  "alpha": 0.05,
+  "seed": 20261018,
+  "n_boot": 10000,
+  "p_method": "two-sided null-centered paired template-cluster bootstrap; (1+exceedances)/(B+1)",
+  "families": {
+    "behavior_pooled_Holm2": [
+      "UN_vs_Reference",
+      "CN_vs_Reference"
+    ],
+    "behavior_conditional_Holm4": [
+      "U1T0-U0T0",
+      "U1T1-U0T1",
+      "C1T0-U0T0",
+      "C1T1-U0T1"
+    ],
+    "question_axes_Holm20": "10 axes x (UN-Reference, CN-Reference), pooled across deletion states"
+  },
+  "system_only": "fixed prompts, descriptive; no pseudo-replicated token p values",
+  "original_tests_preserved": true,
+  "causal_mediation_claim": false,
+  "not_preregistered": true
+}
