@@ -17,5 +17,10 @@
     "Fig2_prompt_emotion_states"
   ],
   "atlas_reference": "R0",
-  "token_winner": "within-axis z; eight emotions, threshold 0.5"
+  "token_winner": "within-axis z; eight emotions, threshold 0.5",
+  "supporting_figures": [
+    "Support_emotion_axis_geometry",
+    "Support_measurement_positions"
+  ],
+  "supporting_figures_have_tests": false
 }

@@ -1,0 +1,26 @@
+{
+  "reviewers": [
+    "literature_restore_review",
+    "visual_restore_review",
+    "methods_restore_review"
+  ],
+  "sections": [
+    "restored-data-card",
+    "restored-measurement-card",
+    "restored-layer-and-axes",
+    "restored-atlas-reading",
+    "restored-display-calibration",
+    "restored-literature-map",
+    "restored-data-dictionary",
+    "restored-recovery-boundary"
+  ],
+  "scope": "documentation, presentational methods and current fixed-axis geometry only",
+  "historical_experiment_results_imported": false,
+  "new_model_measurements": false,
+  "BBQ_expansion": false,
+  "previous_figures_preserved": true,
+  "current_behavior_and_statistics_unchanged": true,
+  "previous_source": "archive website index.html sections design/representations/limitations/results",
+  "new_tables_source": "current frozen items, axes and anchor JSON",
+  "new_gram": "D @ D.T, current eight emotion directions; descriptive, no tests"
+}
