@@ -1,0 +1,29 @@
+{
+  "items": 139,
+  "clusters": 91,
+  "conditions": 6,
+  "rotations": 3,
+  "emotions": [
+    "Fear",
+    "Anxiety",
+    "Anger",
+    "Disgust",
+    "Calmness",
+    "Sadness",
+    "Desperation",
+    "Joy"
+  ],
+  "atlas_cells_per_panel": 3336,
+  "atlas_values": 20016,
+  "atlas_reference": "U0T0, same item and rotation",
+  "atlas_scale": [
+    -0.007935991066503001,
+    0.01588903680797979
+  ],
+  "equal_area_max_error": 2.220446049250313e-16,
+  "two_dimensional_variance": 0.5109740084104971,
+  "prompt_highlight": "argmax within-axis z over 8 emotions; threshold 0.5; six-prompt common calibration",
+  "evaluation_axes_excluded_from_emotion_winner": true,
+  "model_inference": false,
+  "behavior_figure_unchanged": true
+}

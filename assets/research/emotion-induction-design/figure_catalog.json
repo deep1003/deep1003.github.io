@@ -1,7 +1,7 @@
 {
   "main_figures": [
-    "Fig1_L14_emotion_atlas",
-    "Fig2_prompt_emotion_states",
+    "Fig1_emotion_atlas_honeycomb6",
+    "Fig2_prompt_overlap_highlights6",
     "Fig3_Unknown_reference_contrasts"
   ],
   "dpi": 600,
@@ -11,5 +11,11 @@
   "reference_centered": true,
   "source": "data/*6_conditions.csv",
   "system_only_p_values": false,
-  "axes_are_cosine_not_emotion_probability": true
+  "axes_are_cosine_not_emotion_probability": true,
+  "preserved_collapsed_figures": [
+    "Fig1_L14_emotion_atlas",
+    "Fig2_prompt_emotion_states"
+  ],
+  "atlas_reference": "R0",
+  "token_winner": "within-axis z; eight emotions, threshold 0.5"
 }

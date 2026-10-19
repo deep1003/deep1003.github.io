@@ -45,3 +45,10 @@ CN에서는 확률50→100%와 확정문장이함께바뀌며,Unknown은모호�
 6. [Nature research figure guide. Preparing figures: specifications.](https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/)
 7. [Krzywinski & Altman (2013). Error bars. Nature Methods 10, 921–922.](https://www.nature.com/articles/nmeth.2659)
 8. [Show the dots in plots (2017). Nature Biomedical Engineering 1, 0079.](https://www.nature.com/articles/s41551-017-0079)
+
+## 그림 복원
+그림 1. 칭찬 없는 6조건의 벌집형 emotion atlas. 각 감정 영역은 139문항 × 선택지 순서 3회의 실제 측정값이다. 색은 같은 문항·순서의 R0 대비 감정 축 유사도 변화이며, 어두움에서 감정색과 노랑으로 갈수록 값이 커진다. 모든 패널과 축에 동일한 수치 범위를 적용했다. 영역은 축 벡터의 PCA 위치로 만든 동일 면적 도식이다. 신경망의 실제 공간이나 시간적 활성화 과정이 아니며, 감정 간 밝기를 감정 강도의 순위로 해석하지 않는다. Certainty·Uncertainty 평가 축은 별도 표에 보존했다.
+
+그림 2. 실제 system prompt의 L14 토큰별 감정 축 유사도. 왼쪽은 감정 8축의 표준화된 값을 실제 토큰 위치에 따라 겹쳐 그린 곡선이다. 오른쪽은 원문 문자마다 상대적으로 가장 높은 감정 축의 색을 표시한다. 여섯 프롬프트의 문자값을 모아 축별 z점수를 계산하며 z > 0.5에서 색칠하고 2.5에서 색 농도를 포화시켰다. 겹친 byte 토큰은 문자 위치에서 평균했다. 표준화 최고값은 감정 발생 확률이나 절대적인 감정 강도가 아니다. system-only 기술 분석으로 질문 뒤 상태의 통계와 구분한다.
+
+기존 모든 그림은 보존했다. 복원 문헌은 restored_literature.html을 참조한다.
