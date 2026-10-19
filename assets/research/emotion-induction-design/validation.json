@@ -1,18 +1,17 @@
 {
-  "validated_at": "2026-10-17T14:48:09.449035+09:00",
-  "checks": [
-    "1668 expected item-condition-rotation keys exactly matched",
-    "duplicates zero",
-    "all probabilities finite, bounded, and sum to one",
-    "code and item hashes matched frozen manifest",
-    "all three estimates, confidence intervals, bootstrap p-values and Holm3 adjustments independently reproduced",
-    "notebook saved all three code cells without error",
-    "controller exited"
-  ],
-  "sha256": {
-    "manifest.json": "5992de586e0e7250bc362bc49404f992d1641788775fa40179d9038301bf4134",
-    "trials.csv": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4",
-    "summary.json": "cb9ca76c240d9ed45c292baeca44495759d2d81a6bde2c115e6612eedccb31e8",
-    "runtime.json": "a2b8a1b5bda2d8db8b5cec9941706c7ce22beff36508b9f2c41cb8bb1083f1d1"
-  }
+  "state": "passed",
+  "keys": 2502,
+  "items": 139,
+  "clusters": 91,
+  "conditions": 6,
+  "rotations": 3,
+  "duplicates": 0,
+  "cosines": 27522,
+  "cosine_reconstruction_max_error": 5.828670879282072e-16,
+  "raw_probability_and_mass_reconstruction": true,
+  "protected_source_files_unchanged": 107,
+  "source_data_unchanged": true,
+  "no_model_inference": true,
+  "notebook_valid": true,
+  "smoke_graphs_emitted": false
 }

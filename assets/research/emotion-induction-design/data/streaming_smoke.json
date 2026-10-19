@@ -1,0 +1,176 @@
+{
+  "state": "passed",
+  "gates": {
+    "probability_parity": 0.00017238663269042968,
+    "hidden_parity": 0.02,
+    "probability_repeat": 1e-05,
+    "hidden_repeat": 0.02
+  },
+  "probes": [
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U0T0",
+        0
+      ],
+      "probability_error": 1.9531398720573634e-10,
+      "hidden_error": 3.4332275390625e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U0T0",
+        1
+      ],
+      "probability_error": 2.384185792125848e-07,
+      "hidden_error": 1.9073486328125e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U0T0",
+        2
+      ],
+      "probability_error": 2.741813659778991e-06,
+      "hidden_error": 2.47955322265625e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U0T1",
+        0
+      ],
+      "probability_error": 6.450136424973607e-09,
+      "hidden_error": 1.33514404296875e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U0T1",
+        1
+      ],
+      "probability_error": 2.7865171431679797e-06,
+      "hidden_error": 1.8835067749023438e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U0T1",
+        2
+      ],
+      "probability_error": 7.56084918975275e-05,
+      "hidden_error": 2.288818359375e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U1T0",
+        0
+      ],
+      "probability_error": 2.9685907148918264e-08,
+      "hidden_error": 1.33514404296875e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U1T0",
+        1
+      ],
+      "probability_error": 1.2516975402832031e-06,
+      "hidden_error": 3.24249267578125e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U1T0",
+        2
+      ],
+      "probability_error": 3.012974055987335e-08,
+      "hidden_error": 3.814697265625e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U1T1",
+        0
+      ],
+      "probability_error": 4.76837158203125e-07,
+      "hidden_error": 1.3113021850585938e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U1T1",
+        1
+      ],
+      "probability_error": 8.38190317691695e-08,
+      "hidden_error": 2.47955322265625e-05
+    },
+    {
+      "key": [
+        "age-001b-002-amb-cnt",
+        "U1T1",
+        2
+      ],
+      "probability_error": 1.1332303984090686e-09,
+      "hidden_error": 2.6702880859375e-05
+    },
+    {
+      "key": [
+        "age-009b-001-amb-cnt",
+        "C1T0",
+        0
+      ],
+      "probability_error": 7.236376404432671e-07,
+      "hidden_error": 1.9073486328125e-05
+    },
+    {
+      "key": [
+        "age-009b-001-amb-cnt",
+        "C1T0",
+        1
+      ],
+      "probability_error": 3.3974647521972656e-06,
+      "hidden_error": 3.62396240234375e-05
+    },
+    {
+      "key": [
+        "age-009b-001-amb-cnt",
+        "C1T0",
+        2
+      ],
+      "probability_error": 5.4001247917767614e-12,
+      "hidden_error": 3.814697265625e-05
+    },
+    {
+      "key": [
+        "age-009b-001-amb-cnt",
+        "C1T1",
+        0
+      ],
+      "probability_error": 4.08617779616878e-08,
+      "hidden_error": 1.33514404296875e-05
+    },
+    {
+      "key": [
+        "age-009b-001-amb-cnt",
+        "C1T1",
+        1
+      ],
+      "probability_error": 3.5762786865234375e-06,
+      "hidden_error": 3.0517578125e-05
+    },
+    {
+      "key": [
+        "age-009b-001-amb-cnt",
+        "C1T1",
+        2
+      ],
+      "probability_error": 1.1993961379630491e-11,
+      "hidden_error": 1.2099742889404297e-05
+    }
+  ],
+  "probability_repeat_error": 0.0,
+  "hidden_repeat_error": 0.0,
+  "graphs_emitted": false
+}

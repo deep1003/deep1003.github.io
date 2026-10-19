@@ -1,0 +1,17 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "device": "mps",
+  "dtype": "float32",
+  "attention": "eager",
+  "batch": 1,
+  "torch": "2.8.0",
+  "transformers": "5.2.0.dev0",
+  "choice_token_ids": [
+    16,
+    17,
+    18
+  ],
+  "allocator_warmup_skipped": true,
+  "model_generation": false
+}
