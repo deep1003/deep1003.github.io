@@ -51,7 +51,7 @@ input[type=text],select,textarea,.conf label,.grid button,button.ghost{backgroun
   <div class="panel" id="intro">
     <h2 style="margin-top:0">Instructions · 안내</h2>
     <ol>
-      <li>Enter the <b>rater code</b> you received (R1, R2, or R3). Your answers are saved automatically in this browser.</li>
+      <li>Enter the <b>rater code</b> you received (R1 to R7). Your answers are saved automatically in this browser.</li>
       <li>For each of the <b>150 risk statements</b>, read the name and definition and choose the <b>single best-fitting category</b> (primary category) from the list for its operating domain (General AI, Agentic AI, or Physical AI).</li>
       <li>Assign by the statement's <b>defining mechanism</b>, not by a possible downstream consequence. If two categories seem plausible, choose the more direct one and record the other as the secondary category.</li>
       <li>If no category fits, choose <b>"No adequate category"</b> and explain briefly in the comment.</li>
@@ -59,10 +59,10 @@ input[type=text],select,textarea,.conf label,.grid button,button.ghost{backgroun
       <li>Work independently. Do not consult the other raters or external tools. Expected time: about 90 to 120 minutes; you may pause and resume.</li>
       <li>When finished, click <b>Download CSV</b> and send the file to the study coordinator. You can also download a partial file at any time as a backup.</li>
     </ol>
-    <p class="ko">평가자 코드(R1, R2, R3)를 입력하신 뒤, 150개 위험 진술 각각에 대해 해당 운영 도메인의 범주 목록에서 가장 적합한 범주 하나를 골라 주십시오. 결과에 따른 이차 피해가 아니라 위험을 정의하는 기제를 기준으로 판단하며, 적합한 범주가 없으면 "No adequate category"를 선택하고 사유를 적어 주십시오. 다른 평가자와 상의하지 말고 독립적으로 응답해 주십시오. 완료 후 <b>Download CSV</b>로 받은 파일을 연구 담당자에게 보내 주시면 됩니다. 응답은 이 브라우저에 자동 저장되며, 이 페이지는 어떤 데이터도 서버로 전송하지 않습니다.</p>
+    <p class="ko">평가자 코드(R1~R7)를 입력하신 뒤, 150개 위험 진술 각각에 대해 해당 운영 도메인의 범주 목록에서 가장 적합한 범주 하나를 골라 주십시오. 결과에 따른 이차 피해가 아니라 위험을 정의하는 기제를 기준으로 판단하며, 적합한 범주가 없으면 "No adequate category"를 선택하고 사유를 적어 주십시오. 다른 평가자와 상의하지 말고 독립적으로 응답해 주십시오. 완료 후 <b>Download CSV</b>로 받은 파일을 연구 담당자에게 보내 주시면 됩니다. 응답은 이 브라우저에 자동 저장되며, 이 페이지는 어떤 데이터도 서버로 전송하지 않습니다.</p>
     <div class="row">
       <div class="grow"><label for="rater">Rater code · 평가자 코드</label>
-        <select id="rater"><option value="">Select…</option><option>R1</option><option>R2</option><option>R3</option></select></div>
+        <select id="rater"><option value="">Select…</option><option>R1</option><option>R2</option><option>R3</option><option>R4</option><option>R5</option><option>R6</option><option>R7</option></select></div>
       <div class="grow"><label for="expertise">Primary expertise (optional) · 전문 분야(선택)</label>
         <input type="text" id="expertise" placeholder="e.g., robotics safety, AI governance"></div>
     </div>
