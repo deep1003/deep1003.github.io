@@ -20,3 +20,18 @@ if args.analyze or args.render:
  source=(BASE/'reproduce_analysis.py').read_text()
  if not args.render:source=source[:source.index('plt.rcParams.update')]
  exec(compile(source,'reproduce_analysis.py','exec'),{'__file__':str(BASE/'reproduce_analysis.py')})
+
+if args.render:
+ import subprocess,sys
+ subprocess.run([sys.executable,str(BASE/'reproduce_tables.py')],check=True)
+ subprocess.run([sys.executable,str(BASE/'render_restored_figures.py')],check=True)
+
+if args.render:
+ import subprocess,sys
+ subprocess.run([sys.executable,str(BASE/'reproduce_tables.py')],check=True)
+ subprocess.run([sys.executable,str(BASE/'render_restored_figures.py')],check=True)
+
+if args.render:
+ import subprocess,sys
+ subprocess.run([sys.executable,str(BASE/'reproduce_tables.py')],check=True)
+ subprocess.run([sys.executable,str(BASE/'render_restored_figures.py')],check=True)

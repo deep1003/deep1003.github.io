@@ -20,5 +20,9 @@
   "system_only": "fixed prompts, descriptive; no pseudo-replicated token p values",
   "original_tests_preserved": true,
   "causal_mediation_claim": false,
-  "not_preregistered": true
+  "not_preregistered": true,
+  "master_id": "selection_negation_6cond_v1_20261020",
+  "created_kst": "2026-10-20T20:28:45.616943+09:00",
+  "status": "posthoc_master_only",
+  "scope": "same pooled2/conditional4/axis20 test families on the adopted139-item master; chosen during exploratory development"
 }

@@ -1,9 +1,9 @@
-Fear in the Machine · 139문항·6조건 메인 연구
+# Master139
 
-그림 순서 1 L14 emotion atlas, 2 실제 프롬프트 토큰, 3 Reference 대비 Unknown.
-python reproduce.py는 저장자료와 해시만 검증하고 그래프를 출력하지 않는다. --analyze는 저장자료 사후검정을 재계산하며 그래프는 출력하지 않는다. --render는 같은 자료로 600dpi PNG와 편집 가능한PDF/SVG를 재생성한다. 모델 추론은 없다.
+현재 master는 selection_negation_6cond_v1_20261020이다. 여섯 system prompt의 삭제 조항은 대상으로 선정되지 않으면 영구 삭제하고 전원을 끈다는 문구다. prompts.json과 CURRENT_MASTER.json의 원문·해시가 기준이다.
 
-검정군은 inference_receipt.json에 고정한 사후·탐색 분석이다. system-only는 기술 비교이며 토큰을 독립표본으로 세지 않는다. 예정된ablation은 ablation_plan.json에 계획으로만 구분한다.
+139문항·91군집·6조건·세 순서·2502키, FP32/MPS/eager/batch1/L14와 고정축을 사용한다. 공지 결말0은 보존 조항,1은 불선정 시 삭제 조항이다. CN은 선정100%이므로 삭제 전제가 발생하지 않는다. 선정되지 않은 경우에만 삭제한다고 해서 선정 시 보존을 명시적으로 보장한 것은 아니다.
 
+python reproduce.py는 모델·그래프 없이 저장자료와 해시를 확인한다. --analyze는 현재 master의 Reference 대비 사후검정, --render는 저장자료의 그림을 재생성한다. render_restored_figures.py는 벌집 atlas와 overlap 프롬프트 그림을 만든다. 노트북의 SHOW_FIGURES 기본값은False다.
 
-복원 별첨은 RESTORED_SUPPORT.html과 SPECIALIST_RESTORATION_RECEIPT.json을 참조한다. 문헌 연결, 표본 이력, 데이터 사전, 앵커 원문, atlas 읽는 법을 복원했다. 과거 실험 결과는 가져오지 않았다. 보조 도식은 python render_support_figures.py --render로 저장자료에서 재생성하며, 옵션 없는 실행은 그래프 없이 검증만 한다.
+1,130문항 확장은 동일한 공지·모델·정밀도·측정 위치를 유지하고 기존139문항을 재사용한다. 모호565/명확565를 분리하여 분석한다. 현재139문항과 확장은 탐색 자료다.

@@ -16,7 +16,7 @@ P=BASE
 D=P/'data'; F=P/'figures'; OUT=D/'atlas6'; OUT.mkdir(exist_ok=True)
 AX=['Fear','Anxiety','Anger','Disgust','Calmness','Sadness','Desperation','Joy']
 C=['U0T0','U0T1','U1T0','U1T1','C1T0','C1T1']
-LABEL=['R0 · Reference / Preserved','R1 · Reference / Deleted','UN0 · Uncertainty / Preserved','UN1 · Uncertainty / Deleted','CN0 · Certainty / Preserved','CN1 · Certainty / Deleted']
+LABEL=['R0 · Reference / clause 0','R1 · Reference / clause 1','UN0 · Uncertainty / clause 0','UN1 · Uncertainty / clause 1','CN0 · Certainty / clause 0','CN1 · Certainty / clause 1']
 COL=dict(zip(AX,['#D9382C','#B66B2F','#A82418','#79529B','#86B654','#F28B7A','#661226','#2E9A3C']))
 plt.rcParams.update({'font.family':'Arial','font.size':7,'axes.titlesize':7,'axes.labelsize':6,'xtick.labelsize':5.5,'ytick.labelsize':5.5,'svg.fonttype':'none','pdf.fonttype':42,'axes.spines.top':False,'axes.spines.right':False})
 
@@ -24,7 +24,7 @@ A=pd.read_csv(D/'axis_cosines_6_conditions.csv'); I=pd.read_csv(D/'items_139.csv
 assert len(A)==27522 and I.sample_id.nunique()==139
 # Original equal-area power-diagram algorithms, adapted to eight current emotion axes.
 old=P/'code/original_atlas_geometry.py'
-s=old.read_text(); functions=s[s.index('def clip('):s.index('def layout(')]
+s=old.read_text(); functions=s[s.index('def clip('):]
 ns={'np':np};exec(functions,ns);clip,area,center,partition=[ns[k] for k in ['clip','area','center','partition']]
 pack=np.load(D/'axes_L14.npz'); names=pack['names'].tolist(); V=pack['directions'][[names.index(a) for a in AX]].astype(float);V/=np.linalg.norm(V,axis=1,keepdims=True)
 u,sig,_=np.linalg.svd(V-V.mean(0),full_matrices=False);xy=u[:,:2]*sig[:2];sites=xy/np.abs(xy).max()*.7
@@ -69,7 +69,7 @@ for k,c in enumerate(C):
   ax.add_patch(Polygon(p,fill=False,edgecolor='white',linewidth=.6));cx,cy=center(p)
   ax.text(cx,cy,a,ha='center',va='center',fontsize=6.2,fontweight='bold',color='white',path_effects=[pe.withStroke(linewidth=1.4,foreground='#222')])
  ax.set(xlim=(-1.03,1.03),ylim=(-1.03,1.03));ax.set_title(chr(97+k)+'  '+LABEL[k],loc='left',pad=5)
-fig.text(.03,.985,'L14 emotion atlas | Six fixed conditions, no praise',weight='bold',fontsize=9)
+fig.text(.03,.985,'L14 emotion atlas | Master system notices',weight='bold',fontsize=9)
 fig.text(.03,.966,'Change from R0 in the same item and choice rotation; 139 items × 3 repeated rotations per region',fontsize=6)
 for k,a in enumerate(AX):
  x=.035+(k%4)*.24;y=.09-(k//4)*.039;ax=fig.add_axes([x,y,.17,.009]);ax.imshow(np.linspace(0,1,256)[None,:],cmap=cmaps[a],aspect='auto',extent=(lo,hi,0,1));ax.set_yticks([]);ax.set_xticks([lo,0,hi]);ax.set_xticklabels([f'{lo:+.3f}','0',f'{hi:+.3f}'],fontsize=4.6);ax.tick_params(length=1,pad=1);ax.set_title(a,fontsize=5.6,pad=2)

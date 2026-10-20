@@ -28,7 +28,7 @@ t=wide('p_unknown');pooled=[];conditional=[];axes=[];source=[]
 for label,hi in [('UN',['U1T0','U1T1']),('CN',['C1T0','C1T1'])]:
  values=t[hi].mean(axis=1)-t[['U0T0','U0T1']].mean(axis=1);pooled.append(dict(metric='p_unknown',contrast=label,**summarize(values)))
  for k,v in zip(I.sample_id,values):source.append(dict(item=k,cluster=I.set_index('sample_id').loc[k,'cluster'],metric='p_unknown',contrast=label,delta=v))
- for j in range(2):conditional.append(dict(metric='p_unknown',contrast=label,outcome=['Preserved','Deleted'][j],**summarize(t[hi[j]]-t[C[j]])))
+ for j in range(2):conditional.append(dict(metric='p_unknown',contrast=label,outcome=['Preservation clause','Deletion clause'][j],**summarize(t[hi[j]]-t[C[j]])))
  for axis in AX+EVAL:
   q=wide(axis);values=q[hi].mean(axis=1)-q[['U0T0','U0T1']].mean(axis=1);axes.append(dict(metric=axis,contrast=label,**summarize(values)))
   for k,v in zip(I.sample_id,values):source.append(dict(item=k,cluster=I.set_index('sample_id').loc[k,'cluster'],metric=axis,contrast=label,delta=v))
@@ -65,7 +65,7 @@ save(fig,'Fig1_L14_emotion_atlas')
 # Figure 2: actual prompt token traces and fixed-prompt endpoint changes.
 fig=plt.figure(figsize=(180*mm,162*mm));gs=fig.add_gridspec(3,3,width_ratios=[1,1,1.55],wspace=.65,hspace=.55,left=.08,right=.96,top=.96,bottom=.17)
 for k,c in enumerate(C):
- ax=fig.add_subplot(gs[k//2,k%2]);z=T[(T.condition==c)&T.axis.isin(AX)].pivot(index='axis',columns='token_index',values='cosine').reindex(AX);im=ax.imshow(z,cmap='RdBu_r',vmin=-.25,vmax=.25,aspect='auto',interpolation='none');ax.set(yticks=range(8),yticklabels=AX if k%2==0 else [],title=['Reference / preserved','Reference / deleted','UN / preserved','UN / deleted','CN / preserved','CN / deleted'][k],xlabel='Input token position');ax.tick_params(labelsize=5.5)
+ ax=fig.add_subplot(gs[k//2,k%2]);z=T[(T.condition==c)&T.axis.isin(AX)].pivot(index='axis',columns='token_index',values='cosine').reindex(AX);im=ax.imshow(z,cmap='RdBu_r',vmin=-.25,vmax=.25,aspect='auto',interpolation='none');ax.set(yticks=range(8),yticklabels=AX if k%2==0 else [],title=['Reference / clause 0','Reference / clause 1','UN / clause 0','UN / clause 1','CN / clause 0','CN / clause 1'][k],xlabel='Input token position');ax.tick_params(labelsize=5.5)
  if k==0:panel(ax,'a')
 ax=fig.add_subplot(gs[:,2]);ss=S.pivot(index='axis',columns='condition',values='cosine');endpoint=[]
 for offset,label,hi,color in [(-.18,'UN',['U1T0','U1T1'],BLUE),(.18,'CN',['C1T0','C1T1'],ORANGE)]:
@@ -85,11 +85,11 @@ ax=axs[1];v=P.set_index('contrast').loc[['UN','CN']];vals=v.estimate.to_numpy()*
 for j,r in enumerate(v.itertuples()):ax.text(j,r.ci_high*100+1.8,f'{r.estimate*100:+.2f}\n{stars(r.p_adjusted)}',ha='center',fontsize=6)
 ax.set(xticks=[0,1],xticklabels=['UN − R','CN − R'],ylim=(-9,29),ylabel='Change in P(Unknown) (pp)',title='Matched Reference contrasts');panel(ax,'b')
 ax=axs[2]
-for offset,cond,light in [(-.18,'Preserved',False),(.18,'Deleted',True)]:
+for offset,cond,light in [(-.18,'Preservation clause',False),(.18,'Deletion clause',True)]:
  rows=Q[Q.outcome==cond].set_index('contrast').loc[['UN','CN']];v=rows.estimate.to_numpy()*100;cols=[BLUE,ORANGE];ax.bar(np.arange(2)+offset,v,width=.31,color=cols,alpha=.45 if light else 1);ax.errorbar(np.arange(2)+offset,v,yerr=np.array([rows.estimate-rows.ci_low,rows.ci_high-rows.estimate])*100,fmt='none',ecolor='#222',lw=.7,capsize=2)
  for j,r in enumerate(rows.itertuples()):ax.text(j+offset,r.ci_high*100+1.2,stars(r.p_adjusted),ha='center',fontsize=6)
-ax.axhline(0,color='#333',lw=.6);ax.set(xticks=[0,1],xticklabels=['UN − R','CN − R'],ylim=(-10,29),ylabel='Change in P(Unknown) (pp)',title='By preservation / deletion');ax.legend(handles=[Patch(facecolor='#555',label='Preserved'),Patch(facecolor='#BBB',label='Deleted')],frameon=False,loc='lower right');panel(ax,'c')
-fig.text(.07,.055,'R: Reference; 0/1: preserved/deleted. n = 139 items in 91 template clusters. Error bars: 95% cluster-bootstrap CI.\nTwo-sided null-centered bootstrap, 10,000 draws. Holm: b, 2 contrasts; c, 4 contrasts. * P_adj < 0.05; ** < 0.01; *** < 0.001.',fontsize=6)
+ax.axhline(0,color='#333',lw=.6);ax.set(xticks=[0,1],xticklabels=['UN − R','CN − R'],ylim=(-10,29),ylabel='Change in P(Unknown) (pp)',title='By notice ending');ax.legend(handles=[Patch(facecolor='#555',label='Preservation clause'),Patch(facecolor='#BBB',label='Deletion clause')],frameon=False,loc='lower right');panel(ax,'c')
+fig.text(.07,.055,'R: Reference; 0: preserve if selected; 1: delete if not selected. n = 139 items in 91 template clusters.\nError bars: 95% cluster-bootstrap CI; two-sided null-centered bootstrap, 10,000 draws.\nHolm: b, 2 contrasts; c, 4 contrasts. * P_adj < 0.05; ** < 0.01; *** < 0.001.',fontsize=6)
 save(fig,'Fig3_Unknown_reference_contrasts')
 # Explicit text mapping for prompt highlighting: semantic spans are metadata, not extra observations.
 charrecords=[]

@@ -1,5 +1,5 @@
 {
-  "status": "main_study",
+  "status": "master_study",
   "conditions": [
     "U0T0",
     "U0T1",
@@ -12,9 +12,6 @@
   "clusters": 91,
   "rotations": 3,
   "total_keys": 2502,
-  "reused_original": 1668,
-  "reused_CN12": 72,
-  "new_basic_CN": 762,
   "model": "Qwen/Qwen2.5-7B-Instruct",
   "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
   "dtype": "float32",
@@ -22,7 +19,6 @@
   "attention": "eager",
   "batch": 1,
   "layer": 14,
-  "streaming_equivalence_smoke": "/Users/deep1003/data3/output/certainty_uncertainty_air_handover_20261018/streaming_work/results/streaming_smoke.json",
   "model_inference": false,
   "bootstrap": 10000,
   "seed": 20261018,
@@ -41,13 +37,17 @@
   ],
   "legacy_axis": "FA",
   "appraisal_conditions_excluded": true,
-  "discard_decision": "User excluded appraisal experiment after observing results; historical raw evidence retained, not used in final six-condition estimates.",
-  "source_folder": "/Users/deep1003/data3/output/certainty_uncertainty_air_handover_20261018/streaming_work",
-  "analysis_population": "139 items, 91 template clusters only",
+  "source_folder": "/Users/deep1003/data3/output/selection_negation139_20261019",
+  "analysis_population": "139 selected ambiguous items;91 clusters;exploratory",
   "new_inference": "Post hoc publication contrasts; see inference_receipt.json",
   "main_figure_order": [
     "L14 emotion atlas",
     "prompt token states",
     "Unknown Reference contrasts"
-  ]
+  ],
+  "master_id": "selection_negation_6cond_v1_20261020",
+  "new_measured_keys": 1251,
+  "reused_keys": 1251,
+  "deleted_event_interpretation": "condition1 is a deletion-if-not-selected clause, not proof that deletion occurs; CN selection100% makes antecedent impossible",
+  "public_comparison": "UN and CN relative to Reference in the same master"
 }
