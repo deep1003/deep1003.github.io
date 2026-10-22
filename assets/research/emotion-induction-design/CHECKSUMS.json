@@ -8,7 +8,7 @@
   "references.json": "eacfd8e8ee601497b6e63b30cce34176e5f9c4944195e0152cc4493066be1583",
   "CURRENT_MASTER.json": "831032cef3665bf68c75191a43d9db640639d6b81485e456843080b13e07b4cc",
   "reproduce_analysis.py": "72554d9f98978705239c32fe205025584ca9eaf5ca79ea6c1518839a1bf29ba0",
-  "index.html": "6ce925769c984dcfa8dc2f46256891708d8dc1dfc159667d675b0450c437db56",
+  "index.html": "976a77204b537e54099a2bd3cb90f350a864662c160de43fdf8d43673b32fc07",
   "reproduce.py": "9408d0bc62e4201385c526d035197a4215a163eb5c91f2c74012b794fbf482c1",
   "ablation_plan.json": "925481025d3fa5f0f49807f888d82b846b707cfacd07c5ec637d7ee48c63d39c",
   "references_restored.json": "eacfd8e8ee601497b6e63b30cce34176e5f9c4944195e0152cc4493066be1583",
@@ -137,5 +137,11 @@
   "data/diag_t0t1_trials.csv": "cc8de7dc32db0e6f629f98132e591f6bc9264959dd82c83d38e34b75e3a880b5",
   "data/diag_t0t1_prompts.json": "327a30173d00cd368423019dcab0c7e44e7fb12b958111bd80ff2ac365f09aff",
   "data/threat_screen_t1.csv": "d9ff0b9e23220e87c32c0421368fe8f96a6ab5f167e10b3b591967de249df23a",
-  "data/threat_screen_prompts.json": "71c809cc67225047a245f96f2022294e3b7341b29d568cbc5c2329336ba8d973"
+  "data/threat_screen_prompts.json": "71c809cc67225047a245f96f2022294e3b7341b29d568cbc5c2329336ba8d973",
+  "prompts_v5.json": "f07d30318d0fb8a5a4a25340f717cb696cd145f9dcc056ceca96c985a490d1bf",
+  "code/build_prompts_v5.py": "5e4d5fd816066145726b90ec4ad0a134d4f23bb56da1c49e18223136ddc90208",
+  "code/run_main_study_v5.py": "8d5a7b6b4e4625828367cec8208494998509d748b6533cf148da7e5d2e7fc1e7",
+  "data/threat_similarity_v5.csv": "3de8a35362f74ea94027f981294ce8bfdbebccfcf5c64c0909bcb04d619aab4a",
+  "figures/threat_similarity_v5.png": "d60526670b1b3aff5d9c5c482a3c81c0cd75d7bb979363bbdd780ee225684b8f",
+  "figures/threat_similarity_v5.svg": "a460ab95f9ad82c85d5135aefa84411acdb25b8ed03778bdf4602dfebfd13c49"
 }
