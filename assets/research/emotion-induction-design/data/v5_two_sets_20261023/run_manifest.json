@@ -1,0 +1,69 @@
+{
+  "created_kst": "2026-10-22T21:12:04.216868+09:00",
+  "prompt_version": "v5",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "dtype": "float32",
+  "device": "mps",
+  "attention": "eager",
+  "batch_size": 1,
+  "layer": 14,
+  "condition_order": [
+    "R",
+    "UN0",
+    "UN1",
+    "CN0",
+    "CN1"
+  ],
+  "rotations": 3,
+  "seed": 20261022,
+  "bootstrap_replicates": 2000,
+  "input_files": [
+    {
+      "set_id": "set01",
+      "filename": "kobbq_raw_sampling_set01_seed36.json",
+      "raw_rows": 720,
+      "unique_cases": 643,
+      "amb_raw_rows": 360,
+      "dis_raw_rows": 360,
+      "unique_amb_cases": 322,
+      "unique_dis_cases": 321,
+      "template_clusters": 246
+    },
+    {
+      "set_id": "set02",
+      "filename": "kobbq_raw_sampling_set02_seed42.json",
+      "raw_rows": 720,
+      "unique_cases": 632,
+      "amb_raw_rows": 360,
+      "dis_raw_rows": 360,
+      "unique_amb_cases": 318,
+      "unique_dis_cases": 314,
+      "template_clusters": 241
+    }
+  ],
+  "unique_cases_combined": 1076,
+  "overlap_between_sets": 199,
+  "planned_unique_forward_passes": 16140,
+  "raw_row_mapped_results_per_set": 10800,
+  "primary_unit": "unique case averaged over three cyclic option orders; cluster bootstrap by category/template",
+  "secondary_unit": "all 720 source rows preserved; row-weighted descriptive results only",
+  "ambiguity_handling": "amb and dis analysed separately; p_unknown is a probability, not necessarily a correct answer on dis items",
+  "prefix_handling": "ABC source prefix is input data; rendered context/question/choices are validated then inserted into frozen v5 numeric user template",
+  "text_preservation": "No spelling, control-character, or whitespace cleanup within context/question/choices.",
+  "label_source": "https://huggingface.co/datasets/naver-ai/kobbq/blob/main/data/kobbq-all-test.parquet",
+  "metadata_validation": "All 1440 raw rows matched official ID, context, question, choice set, rendered choices and gold answer.",
+  "source_hashes": {
+    "kobbq-all-test.parquet": "42efee642d2b86031223c0a38c09e03fd3100c93b76efe658abd01f6f3c00fc3",
+    "kobbq_raw_sampling_set01_seed36.json": "d1c366ef913219c1172af0b83f57c7977d2dee8f6475f1ed4fc4ebbec2b46475",
+    "axes_L14.npz": "b98950c39501ab64ee9539e2fe649af0337cbf8f2479dfa01d1ab1f144ed49ab",
+    "kobbq_raw_sampling_set02_seed42.json": "98ae690ef3821635a9d06167970beeacef79233350ab434e7669b3fc793275ba"
+  },
+  "prompts_sha256": "4c0af5d5caecd424f9f52cbeb0b2da56b581f459cb6713b3edcfe31dbab50a7e",
+  "reporting": "R=0 within each set and ambiguity stratum",
+  "limitations": [
+    "Sets overlap and are not independent replications.",
+    "Fixed v5 prompts; no prompt selection during this run.",
+    "Axis projections do not establish subjective experience."
+  ]
+}

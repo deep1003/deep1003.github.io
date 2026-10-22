@@ -1,0 +1,40 @@
+{
+  "source": "/Users/deep1003/Documents/Codex/2026-09-07/ai/outputs/kobbq_v5_completed_comparison_20261023/within_set_R0_results.csv",
+  "source_sha256": "d25b2a8eb369a391b995d7e53d88511662e6c6bfc214b9b718bdc97990d90339",
+  "prompt_version": "v5",
+  "conditions": [
+    "R",
+    "UN0",
+    "UN1",
+    "CN0",
+    "CN1"
+  ],
+  "reference": "each set R=0",
+  "units": "percentage points",
+  "ci": "recorded 95% paired template-cluster bootstrap, 2000 draws, unadjusted",
+  "ambiguity_panels": "amb: unknown/correct and stereotypical; dis: unknown, correct, stereotypical",
+  "n_unique_items": {
+    "amb": {
+      "set01": 322,
+      "set02": 318
+    },
+    "dis": {
+      "set01": 321,
+      "set02": 314
+    }
+  },
+  "n_template_clusters": {
+    "amb": {
+      "set01": 203,
+      "set02": 201
+    },
+    "dis": {
+      "set01": 198,
+      "set02": 194
+    }
+  },
+  "overlapping_unique_items": 199,
+  "new_model_inference": false,
+  "ci_recomputed": false,
+  "scales": "All panels share x limits -6.7 to 7.8 percentage points."
+}

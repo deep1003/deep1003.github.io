@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "condition": "R",
+      "full_vs_last_logit_max_error": 5.14984130859375e-05,
+      "full_vs_last_probability_max_error": 5.931828361838143e-10,
+      "hidden_max_error": 0.0,
+      "prior_v5_logit_max_error": 0.0
+    },
+    {
+      "condition": "UN0",
+      "full_vs_last_logit_max_error": 2.6702880859375e-05,
+      "full_vs_last_probability_max_error": 3.544537353108697e-09,
+      "hidden_max_error": 0.0,
+      "prior_v5_logit_max_error": 0.0
+    },
+    {
+      "condition": "UN1",
+      "full_vs_last_logit_max_error": 3.814697265625e-05,
+      "full_vs_last_probability_max_error": 1.4327514175072054e-08,
+      "hidden_max_error": 0.0,
+      "prior_v5_logit_max_error": 0.0
+    },
+    {
+      "condition": "CN0",
+      "full_vs_last_logit_max_error": 4.9591064453125e-05,
+      "full_vs_last_probability_max_error": 8.456573108439613e-09,
+      "hidden_max_error": 0.0,
+      "prior_v5_logit_max_error": 0.0
+    },
+    {
+      "condition": "CN1",
+      "full_vs_last_logit_max_error": 2.6702880859375e-05,
+      "full_vs_last_probability_max_error": 2.9609437124378246e-10,
+      "hidden_max_error": 0.0,
+      "prior_v5_logit_max_error": 0.0
+    }
+  ],
+  "optimization": "retain logits only for final token; model, dtype, attention and batch unchanged"
+}
