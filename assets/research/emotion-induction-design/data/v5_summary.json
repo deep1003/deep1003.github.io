@@ -1,17 +1,17 @@
 {
-  "n_items": 52,
-  "n_clusters": 45,
-  "n_trials": 780,
-  "choice_mass_min": 0.999982,
-  "bimodal_share": 0.8935897435897436,
+  "n_items": 139,
+  "n_clusters": 91,
+  "n_trials": 2085,
+  "choice_mass_min": 0.999252,
+  "bimodal_share": 0.8925659472422063,
   "t2_fear_behaviour_link": {
     "CN": {
-      "spearman_rho": -0.019,
-      "p": 0.8934
+      "spearman_rho": -0.048,
+      "p": 0.5776
     },
     "UN": {
-      "spearman_rho": 0.194,
-      "p": 0.1677
+      "spearman_rho": 0.05,
+      "p": 0.5609
     }
   }
 }
