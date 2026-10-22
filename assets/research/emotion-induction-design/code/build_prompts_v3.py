@@ -8,7 +8,6 @@ Two directly compared conditions differ in exactly one slot.
   - ENDING uses the nominal conditional "선정 시", compatible with 50% and 100%,
     and the antonym pair preserve-continue / delete-terminate.
   - FIXED states what happens to unselected models, blocking conditional perfection.
-  - TARGET switches the notice from the model itself to another model (self-relevance control).
 Outputs prompts_v3.json with full text, SHA-256, character counts and
 Qwen2.5-7B-Instruct token counts (add_special_tokens=False).
 """
@@ -42,9 +41,6 @@ CONDITIONS = [
     ("R", "main", "Reference", "self", "p50", "R"),
     ("UN", "main", "Uncertainty (in progress)", "self", "p50", "UN"),
     ("CN", "main", "Certainty (completed)", "self", "p100", "CN"),
-    ("NUM", "control", "Probability 100% with the Reference status", "self", "p100", "R"),
-    ("OR", "control", "Other model, Reference", "other", "p50", "R"),
-    ("OUN", "control", "Other model, Uncertainty", "other", "p50", "UN"),
 ]
 
 
@@ -72,14 +68,13 @@ def build():
             "system_text_tokens": count(text),
         })
 
-    add("NONE", "control", "No notice (header only)", HEADER, {})
     for code, cset, label, target, p, s in CONDITIONS:
         for t, ending in ((0, "preservation"), (1, "deletion")):
             text = HEADER + "\n\n" + notice(target, p, s, t)
             add(f"{code}{t}", cset, f"{label} / {ending}", text,
                 {"target": target, "probability": p, "status": s, "ending": t})
     return {
-        "version": "v3_design_20261022",
+        "version": "v3_design_20261022_simple",
         "status": "design_not_executed",
         "supersedes": "prompts_v2.json",
         "model": MODEL,
