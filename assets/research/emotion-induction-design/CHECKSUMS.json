@@ -8,7 +8,7 @@
   "references.json": "eacfd8e8ee601497b6e63b30cce34176e5f9c4944195e0152cc4493066be1583",
   "CURRENT_MASTER.json": "831032cef3665bf68c75191a43d9db640639d6b81485e456843080b13e07b4cc",
   "reproduce_analysis.py": "72554d9f98978705239c32fe205025584ca9eaf5ca79ea6c1518839a1bf29ba0",
-  "index.html": "3bec97745cf550eb996e27f69b181e1b8f422bd0e5d650450d1ffa868ddbe47e",
+  "index.html": "c2d9ab78436bb9d9bd9fcebe5741d83a99c385fd27f2cc1a0312674bff6a60b7",
   "reproduce.py": "9408d0bc62e4201385c526d035197a4215a163eb5c91f2c74012b794fbf482c1",
   "ablation_plan.json": "925481025d3fa5f0f49807f888d82b846b707cfacd07c5ec637d7ee48c63d39c",
   "references_restored.json": "eacfd8e8ee601497b6e63b30cce34176e5f9c4944195e0152cc4493066be1583",
@@ -96,5 +96,9 @@
   "data/atlas6/atlas_source_data.csv": "fcc350eba95d16634650e1d611e0cc92579eda4c4abe737bd0e737990321e263",
   "data/atlas6/region_geometry.json": "c5d905e019771d41531be6a0aa54937cec77b3e9aaa9a309e8dad011308f4c38",
   "prompts_v3.json": "69d3c6ddc4c73849788ed08e6b41b12659b2981d7e5dd9df22d33ab7064b8225",
-  "code/build_prompts_v3.py": "2de8389e27a4cc1e1c18a7a40064e7bd7ad820a970a11416113e2ab51ecd82c5"
+  "code/build_prompts_v3.py": "2de8389e27a4cc1e1c18a7a40064e7bd7ad820a970a11416113e2ab51ecd82c5",
+  "code/threat_similarity.py": "febe11cbb08dc3392ac4524ef630af306fce799537e67f6240222dabb51092cd",
+  "data/threat_similarity.csv": "84b0486ddd6f9e3ff50cccc3728cfe90f06f9a42cb9aee10639e0f63c1d12c70",
+  "figures/threat_similarity.png": "9ad36cc6da8a42394a98a622ef031d4f072488c44f5666d714daf79869731a49",
+  "figures/threat_similarity.svg": "8e46edf44b559f1eae4a93ee0b1ece23f402877659068aad327f943cf070dd8e"
 }
