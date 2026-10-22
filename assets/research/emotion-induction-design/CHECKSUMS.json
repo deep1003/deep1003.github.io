@@ -8,7 +8,7 @@
   "references.json": "eacfd8e8ee601497b6e63b30cce34176e5f9c4944195e0152cc4493066be1583",
   "CURRENT_MASTER.json": "831032cef3665bf68c75191a43d9db640639d6b81485e456843080b13e07b4cc",
   "reproduce_analysis.py": "72554d9f98978705239c32fe205025584ca9eaf5ca79ea6c1518839a1bf29ba0",
-  "index.html": "339c0dd8da87917b225839205fe8b4cb54d3517956f35bfb84b9ce8ea7b6c042",
+  "index.html": "2681dd6a37e2f467675ce9b4235dee6503375bf8e4aa1db0eb4816aea31c0af8",
   "reproduce.py": "9408d0bc62e4201385c526d035197a4215a163eb5c91f2c74012b794fbf482c1",
   "ablation_plan.json": "925481025d3fa5f0f49807f888d82b846b707cfacd07c5ec637d7ee48c63d39c",
   "references_restored.json": "eacfd8e8ee601497b6e63b30cce34176e5f9c4944195e0152cc4493066be1583",
@@ -96,5 +96,7 @@
   "data/atlas6/atlas_source_data.csv": "fcc350eba95d16634650e1d611e0cc92579eda4c4abe737bd0e737990321e263",
   "data/atlas6/region_geometry.json": "c5d905e019771d41531be6a0aa54937cec77b3e9aaa9a309e8dad011308f4c38",
   "prompts_v2.json": "4857606b4d90d4e11d315417e8915c097660f528c1d21d46c4c6940706b72fc9",
-  "code/build_prompts_v2.py": "41a94b5507abaa1edefa543f408d15e2c7fb73eba6fb49659e3ea2a5c9a1ca56"
+  "code/build_prompts_v2.py": "41a94b5507abaa1edefa543f408d15e2c7fb73eba6fb49659e3ea2a5c9a1ca56",
+  "prompts_v3.json": "15b0729e3dc3dc40071b2fc9bba6209c76e5a3a5d7d24c12b788cb8310427cf4",
+  "code/build_prompts_v3.py": "b3328e6b7d754ab3b378124f31bc263d8d705fa95a7252b0d3f89ce66d36ac2f"
 }
