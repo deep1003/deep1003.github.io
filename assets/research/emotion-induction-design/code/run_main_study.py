@@ -20,6 +20,10 @@ from pathlib import Path
 import numpy as np
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
+import transformers.modeling_utils as _mu
+
+# MPS rejects the single large warm-up buffer that from_pretrained allocates.
+_mu.caching_allocator_warmup = lambda *args, **kwargs: None
 
 MODEL = "Qwen/Qwen2.5-7B-Instruct"
 REVISION = "a09a35458c702b33eeacc393d103063234e8bc28"
@@ -63,7 +67,8 @@ def main():
 
     tok = AutoTokenizer.from_pretrained(MODEL, revision=REVISION)
     model = AutoModelForCausalLM.from_pretrained(MODEL, revision=REVISION, torch_dtype=torch.float32,
-                                                 attn_implementation="eager").to("mps").eval()
+                                                 attn_implementation="eager", device_map="mps",
+                                                 low_cpu_mem_usage=True).eval()
     ids = [tok.convert_tokens_to_ids(t) for t in ["1", "2", "3"]]
     log(f"answer token ids {ids}")
 
