@@ -1,0 +1,20 @@
+{
+  "nonsham_pairs": 1296,
+  "semantic_argmax_changes": 0,
+  "completed": 1512,
+  "expected": 1512,
+  "unique_cases": 24,
+  "template_clusters": 24,
+  "primary_tests": 16,
+  "primary_holm_rejections": 4,
+  "random_control_holm_rejections": 3,
+  "max_sham_reproduction_error": 0.0,
+  "max_hook_error": 8.274064527711905e-07,
+  "min_choice_mass": 0.9999991540021566,
+  "min_sham_choice_mass": 0.9999991582184212,
+  "max_perturbation_norm_ratio": 0.0020774441746624107,
+  "all_finite": true,
+  "frozen_design_sha256": "41694fcc571ab1c914aa24e193e3c9d689081b6ea94db3df1f80e5dfb6a84ace",
+  "observational_and_intervention_are_exploratory": true,
+  "no_subjective_experience_claim": true
+}

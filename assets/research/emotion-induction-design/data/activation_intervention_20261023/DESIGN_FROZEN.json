@@ -1,0 +1,43 @@
+{
+  "frozen_kst": "2026-10-23T08:29:15.749079+09:00",
+  "design": "Exploratory randomized-order within-case activation-intervention pilot, not preregistered externally",
+  "seed": 20261023,
+  "n_cases": 24,
+  "n_clusters": 24,
+  "amb": 12,
+  "dis": 12,
+  "selection": "category round robin, seeded random within category, distinct clusters, no outcome selection",
+  "conditions": [
+    "R",
+    "CN0",
+    "CN1"
+  ],
+  "arms": [
+    "sham",
+    "Fear+",
+    "Fear-",
+    "Anxiety+",
+    "Anxiety-",
+    "Random+",
+    "Random-"
+  ],
+  "rotations": 3,
+  "planned_forwards": 1512,
+  "layer_hidden_states_index": 14,
+  "hook_decoder_layer_index": 13,
+  "position": "last input token only, immediately before first numeric answer",
+  "alpha": 0.10690529910063254,
+  "calibration": "median norm of CN1-CN0 projection onto Fear/Anxiety span; excludes all pilot template clusters; common absolute L2 dose for all directions",
+  "calibration_n": 2889,
+  "fear_anxiety_cosine": 0.541017818114452,
+  "random_orthogonality": [
+    1.8214596497756474e-17,
+    1.214306433183765e-17
+  ],
+  "primary_tests": "CN1 minus versus sham attenuation and R plus versus sham reproduction, each direction, unknown and person-conditional stereotypical probability, amb/dis separately; 16 tests with Holm across 16. Cluster bootstrap 95% exploratory intervals; sign-flip p values.",
+  "secondary": "CN0 interventions and random direction comparators; no subjective experience inference; no identification of natural indirect effect",
+  "conditional_measure": "per rotation p_biased/(p_biased+p_anti), then average rotations and cases; complementary ratio of aggregate probability mass also reported",
+  "quality": "sham baseline reproduction, finite outputs, 1/2/3 full vocabulary probability mass, direct hook vector displacement, target and cross-axis shifts",
+  "stop_rule": "pause on memory pressure or insufficient disk; abort on invalid values or failed sham equivalence; do not increase dose after seeing outcomes",
+  "limits": "one layer, one dose, one random direction, small pilot; same axes as earlier observational work; no independent construct validation"
+}

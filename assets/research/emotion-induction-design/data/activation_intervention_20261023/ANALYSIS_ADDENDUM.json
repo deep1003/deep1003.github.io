@@ -1,0 +1,10 @@
+{
+  "frozen_before_intervention_outcome_analysis": true,
+  "random_control_family": "16 primary matched-sign axis-vs-random comparisons, separate Holm family; geometric changes not independent emotion validation",
+  "inference": "exact two-sided sign-flip over 12 distinct template clusters per evidence type, requiring sign symmetry under null; intervals are 2000 paired case-bootstrap percentile, unadjusted; no equivalence claim from non-significance",
+  "pilot_scope": "R,CN0,CN1 only. Uncertainty UN0/UN1 remains observational; do not generalize intervention to uncertainty mediation.",
+  "conditional_sensitivity": "mean of ratios is equal-trial standardized preference; ratio of summed biased and summed person probabilities is mass-weighted population conditional preference. Report both without choosing on significance.",
+  "interpretation": "directional subtraction is not complete ablation. + and - are geometric interventions, not inducing subjective emotions. A significant effect shows a local computational role, not proof that natural prompt effects are mediated by emotion.",
+  "resource_pause": "pause on sustained critical memory pressure or active swap growth and degraded throughput; device allocation alone is not evidence of overload.",
+  "secondary_natural_threat_reproduction": "CN0 + Fear/Anxiety vs sham, two outcomes by amb/dis: 8 exploratory tests, Holm separate family. CN0 is the matched certain non-threat baseline. R+ is not an exact replay of CN1-R because natural CN1 Fear alignment is lower than R at t2. Natural direction and original contrast interval must be reported; neither means formal mediation."
+}

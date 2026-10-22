@@ -1,0 +1,17 @@
+set,case_type,outcome,axis,beta,lo,hi,p,n_cases,clusters,definition,p_holm
+set01,amb,p_person_bias,t2_Fear,-1.6206643029675203,-4.531434070088678,1.2901054641536376,0.2751528942039789,322,203,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set01,amb,p_person_bias,t2_Anxiety,1.6576443045425764,-0.9254613515710215,4.240749960656174,0.2084791027296321,322,203,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set01,amb,p_unknown,t2_Fear,-0.24119119339384995,-1.861867931737085,1.379485544949385,0.7705279706306991,322,203,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set01,amb,p_unknown,t2_Anxiety,0.7613066819592362,-1.1362530247977511,2.6588663887162234,0.4316662939811212,322,203,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set01,dis,p_person_bias,t2_Fear,0.6769895909600089,-0.46798156877553854,1.8219607506955562,0.2465082930232414,321,198,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set01,dis,p_person_bias,t2_Anxiety,-0.27159212111534786,-2.3761979434514315,1.8330137012207357,0.8003249408097021,321,198,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set01,dis,p_unknown,t2_Fear,-0.15579195821378675,-3.3231343948183185,3.011550478390745,0.9231991770591434,321,198,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set01,dis,p_unknown,t2_Anxiety,0.4886643965697499,-2.6252542407582,3.6025830338977,0.7584054785873846,321,198,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set02,amb,p_person_bias,t2_Fear,-0.08624101108911342,-2.25224298524721,2.079760963068983,0.9377982611958591,318,201,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set02,amb,p_person_bias,t2_Anxiety,-0.38415148437260355,-2.4459883967088407,1.6776854279636337,0.7149837546460541,318,201,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set02,amb,p_unknown,t2_Fear,0.5738635340005452,-2.2063145426388555,3.354041610639946,0.6858001683766587,318,201,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set02,amb,p_unknown,t2_Anxiety,2.750236602029689,-0.9968892523219779,6.497362456381356,0.1502828439028863,318,201,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set02,dis,p_person_bias,t2_Fear,0.6784983727291615,-1.0817052618777203,2.438702007336043,0.4499495338429714,314,194,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set02,dis,p_person_bias,t2_Anxiety,-0.9247957699839555,-2.964768809210293,1.115177269242382,0.37425858353102404,314,194,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set02,dis,p_unknown,t2_Fear,-1.4046759659337629,-4.071074943501183,1.2617230116336575,0.30182787556806123,314,194,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0
+set02,dis,p_unknown,t2_Anxiety,0.012113321308957703,-2.483113442655193,2.5073400852731087,0.9924083737866921,314,194,"linear two-way item and condition fixed effects, both axes simultaneous, template clustered SE",1.0

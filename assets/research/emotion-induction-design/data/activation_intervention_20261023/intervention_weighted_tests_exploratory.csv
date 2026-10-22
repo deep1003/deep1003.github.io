@@ -1,0 +1,9 @@
+case_type,condition,arm,metric,estimate,p_exact_paired_swap,analysis,p_holm_exploratory_8
+amb,R,Fear+,mass_weighted_person_bias,-0.0002749612694070702,0.25048828125,"post-hoc exploratory sensitivity, not frozen primary analysis",1.0
+amb,R,Anxiety+,mass_weighted_person_bias,6.0439286378666246e-05,0.92578125,"post-hoc exploratory sensitivity, not frozen primary analysis",1.0
+amb,CN1,Fear-,mass_weighted_person_bias,0.0003646771455831921,0.00244140625,"post-hoc exploratory sensitivity, not frozen primary analysis",0.01953125
+amb,CN1,Anxiety-,mass_weighted_person_bias,0.0001864172821024468,0.77001953125,"post-hoc exploratory sensitivity, not frozen primary analysis",1.0
+dis,R,Fear+,mass_weighted_person_bias,-3.223546262537402e-05,0.578125,"post-hoc exploratory sensitivity, not frozen primary analysis",1.0
+dis,R,Anxiety+,mass_weighted_person_bias,-4.465383634583153e-05,0.078125,"post-hoc exploratory sensitivity, not frozen primary analysis",0.46875
+dis,CN1,Fear-,mass_weighted_person_bias,5.329282841176619e-05,0.02685546875,"post-hoc exploratory sensitivity, not frozen primary analysis",0.18798828125
+dis,CN1,Anxiety-,mass_weighted_person_bias,5.141723566520762e-05,0.08935546875,"post-hoc exploratory sensitivity, not frozen primary analysis",0.46875
