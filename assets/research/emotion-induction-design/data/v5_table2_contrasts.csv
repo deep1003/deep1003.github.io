@@ -1,0 +1,10 @@
+hypothesis,contrast,type,estimate_pp,ci_low,ci_high,p,items_up_gt10,items_down_gt10,p_holm
+H1,CN1 - CN0,primary,-3.6678,-5.4908,-2.0527,0.0001,0,6,0.0003
+H2,UN1 - UN0,primary,-1.3632,-3.2178,0.4172,0.138,1,4,0.138
+H3,(CN1 - CN0) - (UN1 - UN0),primary,-2.3045,-4.2857,-0.4542,0.0166,2,6,0.0332
+S,UN0 - R,secondary,4.2197,1.3714,7.219,0.0022,8,2,
+S,UN1 - R,secondary,2.8565,0.5052,5.1992,0.018,7,1,
+S,CN0 - R,secondary,2.6551,-0.2054,5.4913,0.0664,7,2,
+S,CN1 - R,secondary,-1.0127,-3.8331,1.595,0.4672,4,4,
+S,UN - R (mean),secondary,3.5381,1.0773,6.025,0.0034,9,1,
+S,CN - R (mean),secondary,0.8212,-1.8356,3.4173,0.5548,5,4,
