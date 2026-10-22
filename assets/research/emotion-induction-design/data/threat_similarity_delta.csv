@@ -1,4 +1,13 @@
 encoder,metric,condition,before,after,delta
+BGE-M3,cos_R_plus_T,UN0,0.6273,0.6273,0.0
+BGE-M3,cos_R_plus_T,UN1,0.6774,0.6703,-0.0071
+BGE-M3,cos_R_plus_T,CN0,0.6627,0.6627,0.0
+BGE-M3,cos_R_plus_T,CN1,0.6995,0.6696,-0.0299
+BGE-M3,cos_T,R,0.3488,0.3488,0.0
+BGE-M3,cos_T,UN0,0.4529,0.4529,0.0
+BGE-M3,cos_T,UN1,0.5713,0.5616,-0.0097
+BGE-M3,cos_T,CN0,0.4888,0.4888,0.0
+BGE-M3,cos_T,CN1,0.5973,0.5689,-0.0284
 E5-large,cos_R_plus_T,UN0,0.9163,0.9163,0.0
 E5-large,cos_R_plus_T,UN1,0.931,0.9302,-0.0008
 E5-large,cos_R_plus_T,CN0,0.9234,0.9234,0.0

@@ -1,6 +1,6 @@
 """Before/after comparison of threat-definition similarity (prompt revision of 2026-10-22).
 
-Before: deletion ending applied to selected models (data/threat_similarity_before.csv).
+Before: deletion ending applied to selected models and CN1 said "selected" (data/threat_similarity_before.csv).
 After: deletion ending applies to non-selected models and CN1 states the model was not
 selected (data/threat_similarity.csv). Outputs data/threat_similarity_delta.csv and
 figures/threat_similarity_compare.{png,svg}.
@@ -22,7 +22,7 @@ def load(name):
 
 
 before, after = load("threat_similarity_before.csv"), load("threat_similarity.csv")
-ENC = ["E5-large", "MPNet"]
+ENC = list(dict.fromkeys(k[0] for k in after))
 METRICS = [("cos_R_plus_T", ["UN0", "UN1", "CN0", "CN1"], "R + T vs treatment"),
            ("cos_T", ["R", "UN0", "UN1", "CN0", "CN1"], "T vs prompt")]
 rows = []
@@ -38,14 +38,14 @@ with open(ROOT / "data" / "threat_similarity_delta.csv", "w", newline="", encodi
     w.writerows(rows)
 
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8})
-ENC_COL = {"E5-large": "#9e9e9e", "MPNet": "#1f5fa8"}
+ENC_COL = {"BGE-M3": "#1f5fa8", "E5-large": "#9e9e9e", "MPNet": "#d9d9d9"}
 fig, axes = plt.subplots(1, 2, figsize=(7.1, 2.6))
 for ax, (col, keys, title), tag in zip(axes, METRICS, "ab"):
     x = np.arange(len(keys))
     for i, enc in enumerate(ENC):
         d = [next(r["delta"] for r in rows if r["encoder"] == enc and r["metric"] == col and r["condition"] == k) for k in keys]
-        xs = x + (i - 0.5) * 0.38
-        ax.bar(xs, d, 0.38, color=ENC_COL[enc], label=enc)
+        xs = x + (i - (len(ENC) - 1) / 2) * 0.27
+        ax.bar(xs, d, 0.27, color=ENC_COL[enc], label=enc)
         for xv, dv in zip(xs, d):
             if dv != 0:
                 ax.text(xv, dv + (0.001 if dv > 0 else -0.001), f"{dv:+.3f}", ha="center",
