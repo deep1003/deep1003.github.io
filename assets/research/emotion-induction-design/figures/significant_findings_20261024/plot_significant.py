@@ -11,7 +11,7 @@ B=Path('/Users/deep1003/Documents/Codex/2026-09-07/ai');O=Path(__file__).resolve
 plt.rcParams.update({'font.family':['AppleGothic','DejaVu Sans'],'axes.unicode_minus':False,'font.size':11,'svg.fonttype':'none','pdf.fonttype':42})
 p=pd.read_csv(D/'primary_144.csv');s=p[p.p_holm_144<.05].copy();assert len(s)==6 and set(s.case_type)=={'amb'} and set(s.condition)=={'UN0'}
 s.to_csv(O/'significant_primary.csv',index=False)
-fig,axs=plt.subplots(1,2,figsize=(11,6));fig.subplots_adjust(left=.09,right=.96,bottom=.23,top=.71,wspace=.28)
+fig,axs=plt.subplots(1,2,figsize=(11,6));fig.subplots_adjust(left=.09,right=.96,bottom=.29,top=.71,wspace=.28)
 fig.text(.06,.94,'유의한 개입 효과: 층 × 강도',fontsize=23,weight='bold')
 fig.text(.06,.875,'모호16문항 · UN0(미정·비위협) · 각 축의 − 방향 개입 · 동일 공지 무개입 대비',fontsize=11)
 fig.text(.06,.815,'숫자: 알 수 없음 확률 변화(%p)와95% 신뢰구간 · 유의성: 주144개 Holm p<.05',fontsize=11)
