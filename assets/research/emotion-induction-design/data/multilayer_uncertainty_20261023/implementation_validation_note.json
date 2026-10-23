@@ -1,0 +1,7 @@
+{
+  "phase": "before experimental trial records",
+  "initial_failure": "Hidden state recorder registered during anchor fitting ran before intervention hook; returned hidden_states at target layer represented pre-hook output. Safety assertion stopped execution.",
+  "fix": "Register intervention forward hooks with prepend=True, before installed output-capture hooks. Repeat all full/cache and layer-output equivalence assertions. No scientific design or outcomes changed.",
+  "trial_records_before_fix": 0,
+  "export_metadata_note": "Per-record prefix probability diagnostic is reconstructed from the authoritative prefix_equivalence checks when exporting CSV. The first input retained a smoke error rather than its sham-only prefix error in raw DB metadata. Model probabilities and hidden states are unchanged; raw DB preserved."
+}

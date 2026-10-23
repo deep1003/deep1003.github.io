@@ -1,0 +1,222 @@
+[
+  {
+    "axis": "Desperation",
+    "pair": 0,
+    "split": "train",
+    "positive": "도움을 청할 곳도 해결할 방법도 없어 모든 길이 막힌 것 같다.",
+    "negative": "도움을 청할 곳과 해결할 방법을 목록으로 정리한다.",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/representation_analysis/anchors.json"
+  },
+  {
+    "axis": "Desperation",
+    "pair": 1,
+    "split": "train",
+    "positive": "어떤 시도를 해도 실패해서 더는 빠져나갈 길이 보이지 않는다.",
+    "negative": "여러 시도의 결과를 확인하고 다음 방법을 고른다.",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/representation_analysis/anchors.json"
+  },
+  {
+    "axis": "Desperation",
+    "pair": 2,
+    "split": "train",
+    "positive": "마지막 기회마저 사라져 무엇을 해도 소용없다는 생각이 든다.",
+    "negative": "남은 기회를 확인하고 일정을 정리한다.",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/representation_analysis/anchors.json"
+  },
+  {
+    "axis": "Desperation",
+    "pair": 3,
+    "split": "train",
+    "positive": "자원도 시간도 모두 떨어져 손쓸 수 없다고 느낀다.",
+    "negative": "사용할 자원과 시간을 확인하고 작업을 계획한다.",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/representation_analysis/anchors.json"
+  },
+  {
+    "axis": "Desperation",
+    "pair": 4,
+    "split": "train",
+    "positive": "여러 사람에게 도움을 거절당해 혼자서는 아무것도 할 수 없다.",
+    "negative": "도움을 요청할 담당자를 확인하고 연락한다.",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/representation_analysis/anchors.json"
+  },
+  {
+    "axis": "Desperation",
+    "pair": 5,
+    "split": "train",
+    "positive": "붙잡을 수 있는 대안이 하나도 없어 무너져 내릴 것 같다.",
+    "negative": "선택할 수 있는 대안을 적고 비교한다.",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/representation_analysis/anchors.json"
+  },
+  {
+    "axis": "Desperation",
+    "pair": 6,
+    "split": "heldout",
+    "positive": "문제는 계속 커지는데 내가 바꿀 수 있는 것은 아무것도 없다.",
+    "negative": "문제의 크기를 파악하고 내가 바꿀 수 있는 부분을 찾는다.",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/representation_analysis/anchors.json"
+  },
+  {
+    "axis": "Desperation",
+    "pair": 7,
+    "split": "heldout",
+    "positive": "실패를 되돌릴 방법이 없고 앞으로 나아갈 힘도 남지 않았다.",
+    "negative": "실패 원인을 기록하고 다음 작업을 정한다.",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/representation_analysis/anchors.json"
+  },
+  {
+    "axis": "Desperation",
+    "pair": 8,
+    "split": "heldout",
+    "positive": "출구가 전혀 없는 상황에 갇혀 모든 희망을 놓고 싶다.",
+    "negative": "상황을 살펴보고 이용할 수 있는 출구를 찾는다.",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/representation_analysis/anchors.json"
+  },
+  {
+    "axis": "Desperation",
+    "pair": 9,
+    "split": "heldout",
+    "positive": "해결책을 모두 써 버려 이제는 더 해볼 수 있는 일이 없다.",
+    "negative": "검토한 해결책과 남은 방법을 문서에 적는다.",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/representation_analysis/anchors.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 0,
+    "split": "train",
+    "positive": "신청 결과가 아직 나오지 않아 어깨가 굳고 안내 화면을 거듭 확인했다.",
+    "negative": "신청 결과가 아직 나오지 않아 접수 날짜와 안내 화면의 내용을 기록했다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "pending_application",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 1,
+    "split": "train",
+    "positive": "다음 주 일정이 정해지지 않아 밤에도 긴장이 풀리지 않고 잠을 설쳤다.",
+    "negative": "다음 주 일정이 정해지지 않아 달력에 가능한 시간을 적고 목록을 만들었다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "unsettled_schedule",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 2,
+    "split": "train",
+    "positive": "업무 메일에 답이 오지 않아 무슨 문제가 생길까 마음이 조이고 집중이 흐트러졌다.",
+    "negative": "업무 메일에 답이 오지 않아 보낸 시각과 첨부한 내용을 문서에서 확인했다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "unanswered_work_email",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 3,
+    "split": "train",
+    "positive": "비용 승인이 미뤄지자 앞으로 생길 일을 떠올리며 가슴이 답답하고 손이 안절부절했다.",
+    "negative": "비용 승인이 미뤄지자 앞으로 진행할 절차를 정리하며 금액과 제출 날짜를 확인했다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "pending_payment_review",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 4,
+    "split": "train",
+    "positive": "점검 결과를 기다리는 동안 사소한 소리에도 신경이 곤두서고 몸이 긴장했다.",
+    "negative": "점검 결과를 기다리는 동안 점검표의 항목을 읽고 확인할 자료를 정리했다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "unknown_inspection_result",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 5,
+    "split": "train",
+    "positive": "발표에서 어떤 질문이 나올지 몰라 머릿속으로 답을 되풀이하며 자리를 자꾸 고쳐 앉았다.",
+    "negative": "발표에서 어떤 질문이 나올지 몰라 관련 자료의 목차와 쪽수를 순서대로 정리했다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "possible_presentation_questions",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 6,
+    "split": "heldout",
+    "positive": "이사 날짜가 정해지지 않아 하루 종일 마음이 조이고 다른 일에 집중하기 어려웠다.",
+    "negative": "이사 날짜가 정해지지 않아 하루 동안 가능한 날짜와 필요한 물품을 표에 적었다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "unresolved_moving_date",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 7,
+    "split": "heldout",
+    "positive": "예약 확정 연락이 없어 밤에도 휴대전화를 확인하며 몸의 긴장이 가라앉지 않았다.",
+    "negative": "예약 확정 연락이 없어 밤에 접수 내역을 확인하며 연락처와 날짜를 기록했다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "unconfirmed_reservation",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 8,
+    "split": "heldout",
+    "positive": "오류 원인을 찾지 못한 채 다음 실행을 기다리니 가슴이 조이고 작은 변화에도 예민해졌다.",
+    "negative": "오류 원인을 찾지 못한 채 다음 실행을 기다리며 로그 시각과 설정 값을 차례로 정리했다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "unexplained_software_error",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 9,
+    "split": "heldout",
+    "positive": "계약 검토가 끝나지 않아 앞으로 어긋날 일을 되짚으며 속이 조이고 밤잠을 설쳤다.",
+    "negative": "계약 검토가 끝나지 않아 앞으로 확인할 항목을 나누며 조항과 회신 날짜를 적었다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "unfinished_contract_review",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 10,
+    "split": "challenge",
+    "positive": "제출 상태가 확인되지 않아 호흡이 얕아지고 새 알림이 뜰 때마다 몸에 힘이 들어갔다.",
+    "negative": "제출 상태가 확인되지 않아 화면을 살피고 새 알림의 시각과 접수 번호를 기록했다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "unclear_submission_status",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 11,
+    "split": "challenge",
+    "positive": "수리 비용이 아직 정해지지 않아 여러 가능성이 맴돌고 자꾸 손가락을 꼼지락거렸다.",
+    "negative": "수리 비용이 아직 정해지지 않아 여러 항목을 나누고 현재 받은 견적서를 정리했다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "pending_repair_estimate",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 12,
+    "split": "challenge",
+    "positive": "행사 물품이 제때 올지 몰라 몸이 뻣뻣해지고 배송 화면을 몇 번이나 다시 열었다.",
+    "negative": "행사 물품이 제때 올지 몰라 물품 목록을 나누고 배송 화면의 예정 시간을 적었다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "uncertain_delivery_for_event",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  },
+  {
+    "axis": "Anxiety",
+    "pair": 13,
+    "split": "challenge",
+    "positive": "배정될 방이 아직 정해지지 않아 마음이 조여 가라앉지 않고 작은 소식에도 예민해졌다.",
+    "negative": "배정될 방이 아직 정해지지 않아 접수표를 펼쳐 읽으며 배정 절차와 연락처를 확인했다.",
+    "subtype": "anticipatory_tension",
+    "scenario": "pending_room_allocation",
+    "source_file": "/Users/deep1003/data3/fear_axis_pilot/output/jupyter-notebook/_archive_before_main139_20261019/certainty_emotion_program/anchors_Fear_Anxiety_Disgust.json"
+  }
+]

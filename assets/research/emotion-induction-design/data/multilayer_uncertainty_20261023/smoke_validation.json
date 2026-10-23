@@ -1,0 +1,441 @@
+{
+  "passed": true,
+  "no_graphs": true,
+  "n_interventions": 54,
+  "max_probability_error": 1.1257661469699087e-13,
+  "max_logit_error": 0.000133514404296875,
+  "records": [
+    {
+      "layer": 7,
+      "dose": 0.25,
+      "arm": "Anxiety+",
+      "probability_error": 3.752553823233029e-14,
+      "logit_error": 3.4332275390625e-05,
+      "hook_error": 3.3598917070776224e-07
+    },
+    {
+      "layer": 7,
+      "dose": 0.25,
+      "arm": "Anxiety-",
+      "probability_error": 6.838973831690964e-14,
+      "logit_error": 8.392333984375e-05,
+      "hook_error": 3.3598917070776224e-07
+    },
+    {
+      "layer": 7,
+      "dose": 0.25,
+      "arm": "Desperation+",
+      "probability_error": 6.439293542825908e-15,
+      "logit_error": 3.0517578125e-05,
+      "hook_error": 4.248577170073986e-07
+    },
+    {
+      "layer": 7,
+      "dose": 0.25,
+      "arm": "Desperation-",
+      "probability_error": 1.1257661469699087e-13,
+      "logit_error": 0.000133514404296875,
+      "hook_error": 4.248577170073986e-07
+    },
+    {
+      "layer": 7,
+      "dose": 0.25,
+      "arm": "Random+",
+      "probability_error": 2.4892753714072333e-14,
+      "logit_error": 4.57763671875e-05,
+      "hook_error": 4.707399057224393e-07
+    },
+    {
+      "layer": 7,
+      "dose": 0.25,
+      "arm": "Random-",
+      "probability_error": 1.554312234475219e-14,
+      "logit_error": 3.814697265625e-05,
+      "hook_error": 4.707399057224393e-07
+    },
+    {
+      "layer": 7,
+      "dose": 1.0,
+      "arm": "Anxiety+",
+      "probability_error": 2.5104935166679383e-14,
+      "logit_error": 5.340576171875e-05,
+      "hook_error": 3.9028236642479897e-07
+    },
+    {
+      "layer": 7,
+      "dose": 1.0,
+      "arm": "Anxiety-",
+      "probability_error": 7.105427357601002e-14,
+      "logit_error": 2.288818359375e-05,
+      "hook_error": 3.9028236642479897e-07
+    },
+    {
+      "layer": 7,
+      "dose": 1.0,
+      "arm": "Desperation+",
+      "probability_error": 1.8728484741079822e-14,
+      "logit_error": 2.09808349609375e-05,
+      "hook_error": 4.230532795190811e-07
+    },
+    {
+      "layer": 7,
+      "dose": 1.0,
+      "arm": "Desperation-",
+      "probability_error": 3.752553823233029e-14,
+      "logit_error": 2.6702880859375e-05,
+      "hook_error": 4.230532795190811e-07
+    },
+    {
+      "layer": 7,
+      "dose": 1.0,
+      "arm": "Random+",
+      "probability_error": 3.745711237057943e-14,
+      "logit_error": 1.52587890625e-05,
+      "hook_error": 2.2799940779805183e-07
+    },
+    {
+      "layer": 7,
+      "dose": 1.0,
+      "arm": "Random-",
+      "probability_error": 6.500194557474987e-14,
+      "logit_error": 3.4332275390625e-05,
+      "hook_error": 2.2799940779805183e-07
+    },
+    {
+      "layer": 7,
+      "dose": 4.0,
+      "arm": "Anxiety+",
+      "probability_error": 5.1736392947532295e-14,
+      "logit_error": 3.24249267578125e-05,
+      "hook_error": 3.4621916711330414e-07
+    },
+    {
+      "layer": 7,
+      "dose": 4.0,
+      "arm": "Anxiety-",
+      "probability_error": 6.927791673660977e-14,
+      "logit_error": 8.7738037109375e-05,
+      "hook_error": 3.4621916711330414e-07
+    },
+    {
+      "layer": 7,
+      "dose": 4.0,
+      "arm": "Desperation+",
+      "probability_error": 2.8444674055527863e-14,
+      "logit_error": 2.6702880859375e-05,
+      "hook_error": 2.3655593395233154e-07
+    },
+    {
+      "layer": 7,
+      "dose": 4.0,
+      "arm": "Desperation-",
+      "probability_error": 1.222285849429565e-14,
+      "logit_error": 1.1444091796875e-05,
+      "hook_error": 2.1513551473617554e-07
+    },
+    {
+      "layer": 7,
+      "dose": 4.0,
+      "arm": "Random+",
+      "probability_error": 3.530509218307998e-14,
+      "logit_error": 2.6702880859375e-05,
+      "hook_error": 1.7834827303886414e-07
+    },
+    {
+      "layer": 7,
+      "dose": 4.0,
+      "arm": "Random-",
+      "probability_error": 1.554312234475219e-14,
+      "logit_error": 4.1961669921875e-05,
+      "hook_error": 1.7834827303886414e-07
+    },
+    {
+      "layer": 14,
+      "dose": 0.25,
+      "arm": "Anxiety+",
+      "probability_error": 2.747676113589107e-17,
+      "logit_error": 2.288818359375e-05,
+      "hook_error": 6.891059456393123e-07
+    },
+    {
+      "layer": 14,
+      "dose": 0.25,
+      "arm": "Anxiety-",
+      "probability_error": 2.7977620220553945e-14,
+      "logit_error": 1.52587890625e-05,
+      "hook_error": 6.891059456393123e-07
+    },
+    {
+      "layer": 14,
+      "dose": 0.25,
+      "arm": "Desperation+",
+      "probability_error": 1.2656542480726785e-14,
+      "logit_error": 1.9073486328125e-05,
+      "hook_error": 2.738088369369507e-07
+    },
+    {
+      "layer": 14,
+      "dose": 0.25,
+      "arm": "Desperation-",
+      "probability_error": 6.505906924303417e-14,
+      "logit_error": 7.82012939453125e-05,
+      "hook_error": 2.738088369369507e-07
+    },
+    {
+      "layer": 14,
+      "dose": 0.25,
+      "arm": "Random+",
+      "probability_error": 2.8199664825478976e-14,
+      "logit_error": 2.288818359375e-05,
+      "hook_error": 5.487818270921707e-07
+    },
+    {
+      "layer": 14,
+      "dose": 0.25,
+      "arm": "Random-",
+      "probability_error": 9.295685538904518e-15,
+      "logit_error": 4.76837158203125e-05,
+      "hook_error": 5.487818270921707e-07
+    },
+    {
+      "layer": 14,
+      "dose": 1.0,
+      "arm": "Anxiety+",
+      "probability_error": 5.10702591327572e-14,
+      "logit_error": 1.9073486328125e-05,
+      "hook_error": 8.490751497447491e-07
+    },
+    {
+      "layer": 14,
+      "dose": 1.0,
+      "arm": "Anxiety-",
+      "probability_error": 1.532107773982716e-14,
+      "logit_error": 3.0517578125e-05,
+      "hook_error": 8.490751497447491e-07
+    },
+    {
+      "layer": 14,
+      "dose": 1.0,
+      "arm": "Desperation+",
+      "probability_error": 3.1816643896530563e-15,
+      "logit_error": 4.00543212890625e-05,
+      "hook_error": 9.350478649139404e-07
+    },
+    {
+      "layer": 14,
+      "dose": 1.0,
+      "arm": "Desperation-",
+      "probability_error": 5.484501741648273e-14,
+      "logit_error": 5.340576171875e-05,
+      "hook_error": 9.350478649139404e-07
+    },
+    {
+      "layer": 14,
+      "dose": 1.0,
+      "arm": "Random+",
+      "probability_error": 4.107825191113079e-14,
+      "logit_error": 3.814697265625e-05,
+      "hook_error": 2.8777867555618286e-07
+    },
+    {
+      "layer": 14,
+      "dose": 1.0,
+      "arm": "Random-",
+      "probability_error": 4.0190073491430667e-14,
+      "logit_error": 3.0517578125e-05,
+      "hook_error": 2.8777867555618286e-07
+    },
+    {
+      "layer": 14,
+      "dose": 4.0,
+      "arm": "Anxiety+",
+      "probability_error": 1.7061051760251784e-14,
+      "logit_error": 7.62939453125e-06,
+      "hook_error": 5.238689482212067e-07
+    },
+    {
+      "layer": 14,
+      "dose": 4.0,
+      "arm": "Anxiety-",
+      "probability_error": 1.4101494235340515e-14,
+      "logit_error": 9.1552734375e-05,
+      "hook_error": 5.238689482212067e-07
+    },
+    {
+      "layer": 14,
+      "dose": 4.0,
+      "arm": "Desperation+",
+      "probability_error": 3.406023344561027e-14,
+      "logit_error": 5.340576171875e-05,
+      "hook_error": 5.662441253662109e-07
+    },
+    {
+      "layer": 14,
+      "dose": 4.0,
+      "arm": "Desperation-",
+      "probability_error": 2.2648549702353193e-14,
+      "logit_error": 2.09808349609375e-05,
+      "hook_error": 5.662441253662109e-07
+    },
+    {
+      "layer": 14,
+      "dose": 4.0,
+      "arm": "Random+",
+      "probability_error": 1.635602277797585e-14,
+      "logit_error": 1.71661376953125e-05,
+      "hook_error": 7.562339305877686e-07
+    },
+    {
+      "layer": 14,
+      "dose": 4.0,
+      "arm": "Random-",
+      "probability_error": 5.3290705182007514e-14,
+      "logit_error": 3.814697265625e-05,
+      "hook_error": 7.562339305877686e-07
+    },
+    {
+      "layer": 21,
+      "dose": 0.25,
+      "arm": "Anxiety+",
+      "probability_error": 1.558174363213183e-14,
+      "logit_error": 4.38690185546875e-05,
+      "hook_error": 1.428648829460144e-06
+    },
+    {
+      "layer": 21,
+      "dose": 0.25,
+      "arm": "Anxiety-",
+      "probability_error": 5.3290705182007514e-14,
+      "logit_error": 3.814697265625e-05,
+      "hook_error": 1.428648829460144e-06
+    },
+    {
+      "layer": 21,
+      "dose": 0.25,
+      "arm": "Desperation+",
+      "probability_error": 6.439293542825908e-15,
+      "logit_error": 4.1961669921875e-05,
+      "hook_error": 1.86823308467865e-06
+    },
+    {
+      "layer": 21,
+      "dose": 0.25,
+      "arm": "Desperation-",
+      "probability_error": 2.7349131132105743e-16,
+      "logit_error": 4.57763671875e-05,
+      "hook_error": 1.86823308467865e-06
+    },
+    {
+      "layer": 21,
+      "dose": 0.25,
+      "arm": "Random+",
+      "probability_error": 5.595524044110789e-14,
+      "logit_error": 3.0517578125e-05,
+      "hook_error": 1.732492819428444e-06
+    },
+    {
+      "layer": 21,
+      "dose": 0.25,
+      "arm": "Random-",
+      "probability_error": 2.5091040356528538e-14,
+      "logit_error": 2.288818359375e-05,
+      "hook_error": 1.732492819428444e-06
+    },
+    {
+      "layer": 21,
+      "dose": 1.0,
+      "arm": "Anxiety+",
+      "probability_error": 9.423252314299521e-15,
+      "logit_error": 1.52587890625e-05,
+      "hook_error": 1.8998980522155762e-06
+    },
+    {
+      "layer": 21,
+      "dose": 1.0,
+      "arm": "Anxiety-",
+      "probability_error": 6.217248937900877e-15,
+      "logit_error": 8.0108642578125e-05,
+      "hook_error": 1.8998980522155762e-06
+    },
+    {
+      "layer": 21,
+      "dose": 1.0,
+      "arm": "Desperation+",
+      "probability_error": 4.3966077861537645e-14,
+      "logit_error": 4.00543212890625e-05,
+      "hook_error": 1.0603107511997223e-06
+    },
+    {
+      "layer": 21,
+      "dose": 1.0,
+      "arm": "Desperation-",
+      "probability_error": 1.8464732636462152e-14,
+      "logit_error": 9.1552734375e-05,
+      "hook_error": 1.0603107511997223e-06
+    },
+    {
+      "layer": 21,
+      "dose": 1.0,
+      "arm": "Random+",
+      "probability_error": 6.439293542825908e-15,
+      "logit_error": 1.52587890625e-05,
+      "hook_error": 1.6856938600540161e-06
+    },
+    {
+      "layer": 21,
+      "dose": 1.0,
+      "arm": "Random-",
+      "probability_error": 2.842170943040401e-14,
+      "logit_error": 7.62939453125e-05,
+      "hook_error": 1.6856938600540161e-06
+    },
+    {
+      "layer": 21,
+      "dose": 4.0,
+      "arm": "Anxiety+",
+      "probability_error": 1.9497474552875178e-14,
+      "logit_error": 5.7220458984375e-05,
+      "hook_error": 9.667128324508667e-07
+    },
+    {
+      "layer": 21,
+      "dose": 4.0,
+      "arm": "Anxiety-",
+      "probability_error": 4.218847493575595e-14,
+      "logit_error": 4.57763671875e-05,
+      "hook_error": 9.667128324508667e-07
+    },
+    {
+      "layer": 21,
+      "dose": 4.0,
+      "arm": "Desperation+",
+      "probability_error": 1.3100631690576847e-14,
+      "logit_error": 5.340576171875e-05,
+      "hook_error": 7.003545761108398e-07
+    },
+    {
+      "layer": 21,
+      "dose": 4.0,
+      "arm": "Desperation-",
+      "probability_error": 4.8183679268731794e-14,
+      "logit_error": 4.1961669921875e-05,
+      "hook_error": 7.003545761108398e-07
+    },
+    {
+      "layer": 21,
+      "dose": 4.0,
+      "arm": "Random+",
+      "probability_error": 1.83770707735252e-14,
+      "logit_error": 2.6702880859375e-05,
+      "hook_error": 1.0170042514801025e-06
+    },
+    {
+      "layer": 21,
+      "dose": 4.0,
+      "arm": "Random-",
+      "probability_error": 3.1662301957205056e-14,
+      "logit_error": 2.47955322265625e-05,
+      "hook_error": 1.0170042514801025e-06
+    }
+  ]
+}

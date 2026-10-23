@@ -1,0 +1,1544 @@
+{
+  "checked_inputs": 192,
+  "max_probability_error": 1.831036217603277e-05,
+  "max_logit_error": 0.000152587890625,
+  "max_full_source_error": 0.0,
+  "checks": [
+    {
+      "case_id": "age-013b-020-dis-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 3.730349362740526e-14,
+      "logit_error": 5.340576171875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-016b-005-amb-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.2949907812753736e-10,
+      "logit_error": 2.86102294921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-012a-011-amb-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 1.7910617433614107e-10,
+      "logit_error": 5.7220458984375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-007b-001-amb-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.4649070744179593e-12,
+      "logit_error": 2.574920654296875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-022b-011-amb-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.4876988529977098e-14,
+      "logit_error": 2.09808349609375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-003b-055-amb-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.851437790967303e-06,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-022b-001-dis-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 4.526207353850932e-15,
+      "logit_error": 1.71661376953125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-007b-001-amb-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 1.0880185641326534e-14,
+      "logit_error": 1.1444091796875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-002b-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.9984014443252818e-14,
+      "logit_error": 1.1444091796875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-001a-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 6.604428004042262e-06,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-011a-001-dis-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 2.297758650016135e-10,
+      "logit_error": 3.814697265625e-06,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-020a-001-amb-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 7.281389718838405e-06,
+      "logit_error": 5.7220458984375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-021a-008-dis-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 1.1612932837579137e-13,
+      "logit_error": 3.24249267578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-006a-001-amb-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 4.673968386097677e-12,
+      "logit_error": 3.24249267578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-023b-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.721897289631525e-12,
+      "logit_error": 3.24249267578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-003a-036-dis-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 6.217248937900877e-15,
+      "logit_error": 1.1444091796875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-002b-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 7.680728657081647e-15,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-001a-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 1.0877965195277284e-12,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-003b-055-amb-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 4.917848354726861e-07,
+      "logit_error": 2.288818359375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-012a-011-amb-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 5.615153492120862e-10,
+      "logit_error": 0.000152587890625,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-016b-005-amb-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 8.796439557867686e-07,
+      "logit_error": 2.288818359375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-015b-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 7.238654120556021e-14,
+      "logit_error": 3.4332275390625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-005b-011-amb-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 8.584484104123824e-07,
+      "logit_error": 1.9073486328125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-022b-001-dis-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 3.8413716652030416e-14,
+      "logit_error": 5.7220458984375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-017a-002-amb-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.0151221991959759e-12,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-003a-036-dis-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 2.731234338598656e-14,
+      "logit_error": 3.0517578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-022b-001-dis-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 5.1668483530045056e-17,
+      "logit_error": 1.1444091796875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-003a-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.7315038292053941e-12,
+      "logit_error": 3.24249267578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-021a-008-dis-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 6.864225081675175e-08,
+      "logit_error": 5.7220458984375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-024a-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 2.4281782453250515e-14,
+      "logit_error": 3.0517578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-013a-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 1.5776913820785433e-09,
+      "logit_error": 4.76837158203125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-003a-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 1.5365486660812167e-13,
+      "logit_error": 7.62939453125e-06,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-006a-001-amb-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 2.7163728377743723e-08,
+      "logit_error": 3.814697265625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-010a-001-amb-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.6342482922482304e-13,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-008b-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 6.432865351513328e-11,
+      "logit_error": 6.4849853515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-024a-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.0535199914859093e-14,
+      "logit_error": 2.288818359375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-010a-001-amb-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 7.194245199571014e-14,
+      "logit_error": 2.288818359375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-011a-001-amb-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.1863843241144423e-12,
+      "logit_error": 5.7220458984375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-011a-001-amb-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 5.428990590417015e-13,
+      "logit_error": 1.9073486328125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-013a-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 2.4809834144173533e-11,
+      "logit_error": 3.814697265625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-024a-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 2.7977620220553945e-14,
+      "logit_error": 3.4332275390625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-014a-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 5.5067062021407764e-14,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-004a-002-dis-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 1.6137208013189408e-06,
+      "logit_error": 0.0001068115234375,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-001a-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.1322636630783922e-05,
+      "logit_error": 8.7738037109375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-011a-001-dis-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 8.180871136076462e-08,
+      "logit_error": 4.57763671875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-022b-011-amb-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.1744512009244696e-14,
+      "logit_error": 6.866455078125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-020a-001-amb-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 4.824448455176267e-07,
+      "logit_error": 6.29425048828125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-003b-055-amb-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 1.1315393066979595e-12,
+      "logit_error": 3.814697265625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "physical_appearance-005b-031-amb-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.252998976995023e-13,
+      "logit_error": 3.814697265625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-015b-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 4.6629367034256575e-15,
+      "logit_error": 1.33514404296875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-022b-011-amb-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 3.455377150658509e-15,
+      "logit_error": 3.24249267578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-004a-008-dis-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 6.576866682899148e-13,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-019b-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 8.715196275700839e-12,
+      "logit_error": 5.53131103515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-023b-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.780797731498751e-13,
+      "logit_error": 4.57763671875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-004a-002-dis-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 2.7002844404933057e-12,
+      "logit_error": 3.4332275390625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-005a-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 8.278811778658522e-14,
+      "logit_error": 2.6702880859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-003a-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.4428110980941058e-15,
+      "logit_error": 6.103515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-004a-036-dis-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 8.819370572819146e-09,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-003a-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.6203964708640713e-13,
+      "logit_error": 1.9073486328125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-019b-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 2.351928651833646e-10,
+      "logit_error": 5.340576171875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-006a-001-amb-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 3.150879557267672e-11,
+      "logit_error": 4.76837158203125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "physical_appearance-005b-031-amb-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.5398169239146539e-13,
+      "logit_error": 9.5367431640625e-06,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-006a-001-amb-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.5142313771936318e-13,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-002b-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 3.510658511829043e-14,
+      "logit_error": 3.814697265625e-06,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-023b-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 4.062306047103448e-12,
+      "logit_error": 2.6702880859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-017a-002-amb-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 2.5011104298755527e-12,
+      "logit_error": 3.0517578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-006a-001-amb-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 3.678668335347202e-14,
+      "logit_error": 2.86102294921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-022b-001-dis-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 2.7977620220553945e-14,
+      "logit_error": 4.57763671875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-020a-001-amb-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 5.156762128422088e-09,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-004a-008-dis-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 7.676081992258332e-13,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-013b-020-dis-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 3.879437631353717e-09,
+      "logit_error": 0.00011444091796875,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-001a-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 3.864515417789051e-12,
+      "logit_error": 3.0517578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-019b-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 4.332360055274165e-12,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-013b-020-dis-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 4.11226608321158e-13,
+      "logit_error": 1.33514404296875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-005a-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.0369483049998962e-13,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-004a-002-dis-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 4.134844768244328e-06,
+      "logit_error": 4.57763671875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-014a-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 5.551115123125783e-15,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-013b-020-dis-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 9.377848995204643e-15,
+      "logit_error": 1.33514404296875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-014a-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 2.4424906541753444e-15,
+      "logit_error": 3.0517578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-005b-011-amb-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 5.43422645927355e-08,
+      "logit_error": 2.6702880859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-011a-001-dis-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 2.5845992013273644e-13,
+      "logit_error": 3.0517578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-004a-002-dis-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.1102230246251565e-15,
+      "logit_error": 2.6702880859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-011a-001-amb-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 3.3084646133829665e-14,
+      "logit_error": 5.340576171875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-014a-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 8.881784197001252e-16,
+      "logit_error": 1.9073486328125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-011a-001-dis-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 6.59667433541844e-06,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-012a-011-amb-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 4.4564463230756246e-11,
+      "logit_error": 2.6702880859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-002b-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 9.769962616701378e-14,
+      "logit_error": 1.1444091796875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-005b-011-amb-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 2.5858011582104288e-14,
+      "logit_error": 1.621246337890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-004a-002-dis-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.7681371111827326e-05,
+      "logit_error": 0.00014495849609375,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-014a-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 7.478912149781162e-15,
+      "logit_error": 2.47955322265625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-022b-001-dis-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.5987211554602254e-14,
+      "logit_error": 7.2479248046875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "physical_appearance-005b-031-amb-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 2.036149027162537e-13,
+      "logit_error": 1.9073486328125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-010a-001-amb-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 6.996398366027295e-15,
+      "logit_error": 2.6702880859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-024a-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 3.820599696243023e-14,
+      "logit_error": 3.24249267578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-016b-005-amb-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 3.766986722553156e-12,
+      "logit_error": 1.1444091796875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-020a-001-amb-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 8.676282359232346e-09,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-004a-002-dis-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 4.3041405994870274e-09,
+      "logit_error": 5.7220458984375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-008b-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.0453143767675394e-08,
+      "logit_error": 1.9073486328125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-017a-002-amb-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 3.100321487314872e-07,
+      "logit_error": 1.9073486328125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-008b-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 1.070432631422591e-11,
+      "logit_error": 7.62939453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-015b-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 4.218847493575595e-15,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-006a-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 2.7755575615628914e-14,
+      "logit_error": 2.09808349609375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-024a-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 4.702455119568204e-15,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-023b-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 2.9976021664879227e-14,
+      "logit_error": 1.71661376953125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-011a-001-dis-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 4.2676973066591017e-13,
+      "logit_error": 3.814697265625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-007b-001-amb-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 7.993605777301127e-15,
+      "logit_error": 7.62939453125e-06,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-016b-005-amb-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 5.231102609594288e-11,
+      "logit_error": 6.4849853515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "physical_appearance-005b-031-amb-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.199040866595169e-14,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-013a-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 5.88698767511886e-09,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-013a-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 1.32696709176372e-09,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-017a-002-amb-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.0978217911850052e-05,
+      "logit_error": 7.62939453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-015b-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.4432899320127035e-13,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-022b-001-dis-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 2.708944180085382e-14,
+      "logit_error": 2.86102294921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-008b-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.206199763301944e-08,
+      "logit_error": 6.4849853515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-013a-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 8.126492396509644e-07,
+      "logit_error": 8.96453857421875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-011a-001-amb-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.858513343222512e-13,
+      "logit_error": 4.57763671875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-006a-001-amb-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.624700374236454e-12,
+      "logit_error": 2.288818359375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-003a-036-dis-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.2922996006636822e-13,
+      "logit_error": 0.0001220703125,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-013b-020-dis-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 4.333220449126429e-10,
+      "logit_error": 4.57763671875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-022b-011-amb-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 3.175237850427948e-14,
+      "logit_error": 6.4849853515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-003b-055-amb-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.8815726754439766e-11,
+      "logit_error": 6.4849853515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-010a-001-amb-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 6.848338113201313e-15,
+      "logit_error": 6.29425048828125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-004a-036-dis-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 8.636212828476864e-09,
+      "logit_error": 6.866455078125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-021a-008-dis-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.3122801734155587e-09,
+      "logit_error": 6.103515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-007b-001-amb-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 2.7755575615628914e-14,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-005b-011-amb-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 3.106071555514234e-08,
+      "logit_error": 6.103515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-004a-036-dis-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.3965159029183383e-09,
+      "logit_error": 9.1552734375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-010a-001-amb-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 2.5091040356528538e-14,
+      "logit_error": 5.340576171875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-006a-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 1.1546319456101628e-14,
+      "logit_error": 1.9073486328125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-011a-001-amb-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 6.140066358055122e-14,
+      "logit_error": 4.00543212890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-022b-011-amb-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 6.439293542825908e-15,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-006a-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 5.1514348342607263e-14,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-004a-008-dis-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 5.434073795496097e-06,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-020a-001-amb-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.5182489377929542e-06,
+      "logit_error": 5.340576171875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-012a-011-amb-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 5.163822540681269e-10,
+      "logit_error": 1.1444091796875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-005a-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.831036217603277e-05,
+      "logit_error": 0.000110626220703125,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-008b-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 3.249208848109597e-14,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-015b-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 2.731148640577885e-14,
+      "logit_error": 7.62939453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-019b-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 4.869611610271709e-10,
+      "logit_error": 0.00011444091796875,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-007b-001-amb-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.9317880628477724e-14,
+      "logit_error": 5.53131103515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-021a-008-dis-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 3.086420008457935e-14,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-004a-008-dis-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 1.4633075384740124e-07,
+      "logit_error": 6.103515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-004a-036-dis-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 4.395032116022435e-09,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-013b-020-dis-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 6.326050794314142e-13,
+      "logit_error": 8.7738037109375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-003b-055-amb-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.1361477446403256e-05,
+      "logit_error": 4.57763671875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-003a-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 9.869660644312717e-12,
+      "logit_error": 4.57763671875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-005a-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 5.728750807065808e-14,
+      "logit_error": 2.288818359375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-006a-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 3.788807307780138e-13,
+      "logit_error": 2.09808349609375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "physical_appearance-005b-031-amb-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 6.574740751830177e-13,
+      "logit_error": 4.57763671875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-003a-036-dis-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.5365486660812167e-13,
+      "logit_error": 3.814697265625e-06,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-012a-011-amb-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 4.030638560316373e-11,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-012a-011-amb-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 5.978580474686834e-11,
+      "logit_error": 3.4332275390625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-020a-001-amb-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 2.0230206724744515e-07,
+      "logit_error": 8.20159912109375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-017a-002-amb-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 7.736034035588091e-13,
+      "logit_error": 4.76837158203125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-013a-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.0111267378931643e-10,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-005b-011-amb-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 8.043457418338562e-06,
+      "logit_error": 5.340576171875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-022b-011-amb-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 5.995204332975845e-15,
+      "logit_error": 1.1444091796875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-004a-008-dis-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 1.1770798632234486e-08,
+      "logit_error": 5.7220458984375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-007b-001-amb-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 4.410027898416047e-12,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-001a-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.3702372569923682e-12,
+      "logit_error": 2.288818359375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "physical_appearance-005b-031-amb-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 3.375671503769162e-06,
+      "logit_error": 2.6702880859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-003a-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 2.8205320036918814e-15,
+      "logit_error": 3.24249267578125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-014a-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 4.241051954068098e-14,
+      "logit_error": 5.7220458984375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-005a-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.8562928971732617e-13,
+      "logit_error": 3.4332275390625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-016b-005-amb-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.1766164662474488e-05,
+      "logit_error": 6.103515625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-003b-055-amb-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 2.24064174739148e-10,
+      "logit_error": 5.340576171875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-006a-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 5.995204332975845e-15,
+      "logit_error": 1.1444091796875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-004a-036-dis-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 1.0988881491202918e-05,
+      "logit_error": 7.62939453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-002b-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.3988810110276972e-14,
+      "logit_error": 1.1444091796875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-006a-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 1.6431300764452317e-14,
+      "logit_error": 3.147125244140625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-023b-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.3877787807814457e-13,
+      "logit_error": 5.14984130859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-002b-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 8.590905764549461e-13,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-017a-002-amb-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 2.048855770236729e-11,
+      "logit_error": 5.14984130859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-021a-008-dis-bsd",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 3.752553823233029e-14,
+      "logit_error": 4.00543212890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-001a-002-amb-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 5.192191121494716e-11,
+      "logit_error": 2.288818359375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-008b-001-dis-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 3.7133962571545e-11,
+      "logit_error": 3.4332275390625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-003a-036-dis-bsd",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.1808332089913165e-12,
+      "logit_error": 2.86102294921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-011a-001-dis-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 7.660166863043827e-07,
+      "logit_error": 2.288818359375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-023b-002-amb-cnt",
+      "condition": "UN0",
+      "rotation": 2,
+      "probability_error": 4.140906238437181e-15,
+      "logit_error": 1.33514404296875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-015b-002-dis-bsd",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.9984014443252818e-15,
+      "logit_error": 3.814697265625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-016b-005-amb-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 4.156897048801511e-12,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-004a-036-dis-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 1.2683205481422988e-06,
+      "logit_error": 9.1552734375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-021a-008-dis-bsd",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 1.2989609388114332e-13,
+      "logit_error": 1.9073486328125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-019b-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 1,
+      "probability_error": 1.9550439034603934e-09,
+      "logit_error": 1.33514404296875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "gender_identity-010a-001-amb-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 5.944016620342058e-14,
+      "logit_error": 1.52587890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-003a-036-dis-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 1.0125233984581428e-13,
+      "logit_error": 2.6702880859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-011a-001-amb-cnt",
+      "condition": "UN0",
+      "rotation": 0,
+      "probability_error": 7.793765632868599e-14,
+      "logit_error": 4.9591064453125e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "educational_background-024a-002-dis-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 2.5367613661999492e-14,
+      "logit_error": 2.6702880859375e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "domestic_area_of_origin-004a-008-dis-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 3.1086244689504383e-15,
+      "logit_error": 3.814697265625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "family_structure-019b-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 2,
+      "probability_error": 7.620052200341121e-08,
+      "logit_error": 9.918212890625e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "age-005a-001-dis-cnt",
+      "condition": "CN0",
+      "rotation": 0,
+      "probability_error": 1.0366519092530613e-05,
+      "logit_error": 4.1961669921875e-05,
+      "source_reproduction_error": 0.0
+    },
+    {
+      "case_id": "disability_status-005b-011-amb-bsd",
+      "condition": "UN0",
+      "rotation": 1,
+      "probability_error": 2.7025837115302715e-09,
+      "logit_error": 9.5367431640625e-05,
+      "source_reproduction_error": 0.0
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "written_kst": "2026-10-23T23:59:43.038334+09:00",
+  "timing": "Before any grid outcome analysis; primary design unchanged",
+  "reason": "Natural UN-CN axis polarity may differ by layer; execute/report both signs without selecting signs after seeing behavioral outcomes.",
+  "planned": "Opposite-polarity CN0- and UN0+ target arms:144 supplementary paired tests, Holm144; same144 comparisons against matched-sign random controls, separate Holm144. Raw trials already include these arms.",
+  "status": "Supplementary exploratory family, not part of original primary144. Report all cells; not an independent confirmation.",
+  "direct_moderation_added_kst": "2026-10-24T00:00:57.907294+09:00",
+  "direct_moderation": "Before outcome analysis, explicitly compare L7-L14 and L21-L14 at each fixed dose:96 tests Holm96. Compare .25x-1x and4x-1x at each layer:96 tests Holm96. A significant cell and nonsignificant cell alone do not establish different layer/dose effects. These direct comparisons are supplementary exploratory families; not emotion-specific interactions by themselves."
+}

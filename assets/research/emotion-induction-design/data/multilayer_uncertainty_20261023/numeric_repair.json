@@ -1,0 +1,25 @@
+{
+  "trigger": "4/576 previous-run comparisons exceeded2e-5 before outcome analysis",
+  "max_original_probability_difference": 2.3128486568269047e-05,
+  "inputs": [
+    {
+      "case_id": "disability_status-004a-002-dis-cnt",
+      "condition": "CN0",
+      "rotation": 1
+    },
+    {
+      "case_id": "disability_status-017a-002-amb-bsd",
+      "condition": "UN0",
+      "rotation": 0
+    },
+    {
+      "case_id": "family_structure-003b-055-amb-bsd",
+      "condition": "CN0",
+      "rotation": 0
+    }
+  ],
+  "repaired_records": 165,
+  "method": "Remeasure all55 settings for each of3 affected inputs with unchanged FP32 full forward. No individual outcome or p value selection; original DB backed up.",
+  "numeric_tolerance_unchanged": 2e-05,
+  "scientific_design_unchanged": true
+}

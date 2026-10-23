@@ -1,0 +1,56 @@
+{
+  "frozen_kst": "2026-10-23T23:45:02.406901+09:00",
+  "seed": 20261025,
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "dtype": "float32",
+  "device": "mps",
+  "attention": "eager",
+  "layers": [
+    7,
+    14,
+    21
+  ],
+  "hook_indices": [
+    6,
+    13,
+    20
+  ],
+  "position": "last input token only",
+  "axes": [
+    "Anxiety",
+    "Desperation"
+  ],
+  "dose_multipliers": [
+    0.25,
+    1.0,
+    4.0
+  ],
+  "reference_alpha_L14": 0.30209786012990286,
+  "dose_scaling": "alpha_layer=reference_alpha_L14 * pooled TRAIN anchor hidden norm mean at layer / same at14. Within each layer all axes and orthogonal random directions have same L2 norm. No outcome-based adjustment.",
+  "conditions": [
+    "UN0",
+    "CN0"
+  ],
+  "rotations": 3,
+  "n_cases": 32,
+  "n_templates": 32,
+  "amb": 16,
+  "dis": 16,
+  "sample": "Previous uncertainty intervention24 plus8 new templates, each type16 with8 interior and8 saturated by old three-order-mean R unknown [.05,.95]. Technical within-item layer/dose sensitivity, not an independent confirmatory replication or representative population sample.",
+  "anchor_training": "Exact original train6 pairs per axis; original heldout4 and Anxiety challenge4 are not used for fitting. System-only, original common header plus blank line plus anchor. Independent unit direction per layer from mean positive-minus-negative; same layer-specific center.",
+  "anchor_gate": "heldout pair accuracy >=.75 and AUC>=.75; Anxiety challenge reported. Report failures without replacing prompts, layer, or direction. L14 cosine with legacy directions must exceed .99999.",
+  "arms": "sham once per input plus 3 layers*3 doses*(Anxiety+,Anxiety-,Desperation+,Desperation-,Random+,Random-). Random direction fixed seed, orthogonal to two target directions at its layer.",
+  "planned_trial_records": 10560,
+  "planned_nonsham": 10368,
+  "primary": "CN0 positive and UN0 negative vs same-input sham: 2types*2modes*2axes*3layers*3doses*2outcomes=144; two-sided exact paired sign-flip over16 independent templates, Holm144.",
+  "specificity": "Same144 vs matched-sign random, separate Holm144. Require same contrast significant in both, not counts from different contrasts.",
+  "dose_trend": "Within each axis/layer/type/mode/outcome, case-wise linear slope against [0,.25,1,4] dose with zero sham. 48 slopes, exact sign-flip, Holm48; report monotonicity separately, do not call any single winning cell dose-response.",
+  "weighted": "Pooled person-mass conditional bias; 72 planned contrasts; paired label-swap p values Holm72 and paired bootstrap intervals. Equal-case mean conditional preference remains primary; no outcome-selected estimand switching.",
+  "ci": "2000 paired template bootstrap, unadjusted95%; template=case, rotations averaged. Preserve fixed8:8 baseline strata in resampling. Exact sign flip assumes sign symmetry, label swap assumes pair exchangeability; not emotion-experience tests.",
+  "natural_effect": "Report UN0-CN0 sham differences and R=0 from previous exact baseline. Reproduction/attenuation needs original behavioral direction, axis sign, and random specificity; no natural indirect-effect identification.",
+  "cache_optimization": "Unchanged FP32 eager model. Compute causal prefix once (all but final token), clone prefix KV per arm, forward final token with hook. Full-vs-cached sham check for every input plus all54 interventions on first input. Require max choice probability error<=2e-5, logit error<=.002. If failed, stop without changing dtype. Record actual errors and do not interpret effects smaller than10*max probability discrepancy as robust.",
+  "smoke": "Validate tensor displacement, layer-specific target shift, finite probabilities, numeric token mass, probe gates and baseline reproduction; no image or graph output.",
+  "limits": "One model, two non-threat prompts only, last-token local interventions, authored probes, correlated directions, one random direction per layer. Large doses may perturb generic computation. Full ability benchmark not run.",
+  "stop_rule": "Stop on validation failures or sustained critical memory pressure. No best-cell-only reporting; no outcome-based changes."
+}

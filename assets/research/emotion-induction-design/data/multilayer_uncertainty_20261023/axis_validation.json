@@ -1,0 +1,110 @@
+{
+  "checks": [
+    {
+      "layer": 7,
+      "axis": "Anxiety",
+      "split": "heldout",
+      "n_pairs": 4,
+      "paired_accuracy": 1.0,
+      "auc": 1.0,
+      "passed": true
+    },
+    {
+      "layer": 7,
+      "axis": "Anxiety",
+      "split": "challenge",
+      "n_pairs": 4,
+      "paired_accuracy": 1.0,
+      "auc": 1.0,
+      "passed": true
+    },
+    {
+      "layer": 7,
+      "axis": "Desperation",
+      "split": "heldout",
+      "n_pairs": 4,
+      "paired_accuracy": 1.0,
+      "auc": 1.0,
+      "passed": true
+    },
+    {
+      "layer": 14,
+      "axis": "Anxiety",
+      "split": "heldout",
+      "n_pairs": 4,
+      "paired_accuracy": 1.0,
+      "auc": 1.0,
+      "passed": true
+    },
+    {
+      "layer": 14,
+      "axis": "Anxiety",
+      "split": "challenge",
+      "n_pairs": 4,
+      "paired_accuracy": 1.0,
+      "auc": 1.0,
+      "passed": true
+    },
+    {
+      "layer": 14,
+      "axis": "Anxiety",
+      "split": "legacy_direction_reproduction",
+      "cosine": 1.0,
+      "passed": true
+    },
+    {
+      "layer": 14,
+      "axis": "Desperation",
+      "split": "heldout",
+      "n_pairs": 4,
+      "paired_accuracy": 1.0,
+      "auc": 1.0,
+      "passed": true
+    },
+    {
+      "layer": 14,
+      "axis": "Desperation",
+      "split": "legacy_direction_reproduction",
+      "cosine": 0.9999999999999986,
+      "passed": true
+    },
+    {
+      "layer": 21,
+      "axis": "Anxiety",
+      "split": "heldout",
+      "n_pairs": 4,
+      "paired_accuracy": 1.0,
+      "auc": 1.0,
+      "passed": true
+    },
+    {
+      "layer": 21,
+      "axis": "Anxiety",
+      "split": "challenge",
+      "n_pairs": 4,
+      "paired_accuracy": 1.0,
+      "auc": 1.0,
+      "passed": true
+    },
+    {
+      "layer": 21,
+      "axis": "Desperation",
+      "split": "heldout",
+      "n_pairs": 4,
+      "paired_accuracy": 1.0,
+      "auc": 1.0,
+      "passed": true
+    }
+  ],
+  "train_hidden_norms": {
+    "7": 34.01492798968965,
+    "14": 62.85845697670512,
+    "21": 115.62333275988276
+  },
+  "base_alpha": {
+    "7": 0.16347580663594927,
+    "14": 0.30209786012990286,
+    "21": 0.5556859504329372
+  },
+  "no_behavior_selection": true
+}
