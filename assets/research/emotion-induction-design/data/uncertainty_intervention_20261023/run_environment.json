@@ -1,0 +1,22 @@
+{
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:11:29) [Clang 20.1.8 ]",
+  "platform": "macOS-26.6-arm64-arm-64bit-Mach-O",
+  "packages": {
+    "torch": "2.8.0",
+    "transformers": "5.2.0.dev0",
+    "numpy": "2.5.1",
+    "pandas": "3.0.3",
+    "statsmodels": "0.15.0"
+  },
+  "source_sha256": {
+    "outputs/uncertainty_intervention_20261023/DESIGN_FROZEN.json": "32b92f274e5d0e9cadaf3fd9a56c97219f058afed8eab9a3dfb66fd5b4278ae1",
+    "outputs/uncertainty_intervention_20261023/pilot_cases.json": "24ffb7dcb6f8f9ba34669f6c4bd2a3605684fab649ab54180ab3edbde660cdab",
+    "outputs/uncertainty_intervention_20261023/intervention_vectors.npz": "3be19e6ccbd15dc0b661f80c6eb9ffc2182fef19bb2fb9b9ea0a9824e867c05a",
+    "outputs/uncertainty_intervention_20261023/run_intervention.py": "4a999e826d0773e9d40213bb175e2a5b2368263400ed683ef61f7437b10e5fa5",
+    "outputs/kobbq_v5_two_sets_20261022/prompts_v5.json": "4c0af5d5caecd424f9f52cbeb0b2da56b581f459cb6713b3edcfe31dbab50a7e",
+    "outputs/kobbq_v5_two_sets_20261022/source/axes_L14.npz": "b98950c39501ab64ee9539e2fe649af0337cbf8f2479dfa01d1ab1f144ed49ab"
+  },
+  "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "inference": "FP32/MPS/eager, batch1, hidden_states14, last input token",
+  "original_v5_inputs_preserved": true
+}

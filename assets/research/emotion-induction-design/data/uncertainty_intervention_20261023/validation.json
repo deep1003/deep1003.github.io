@@ -1,0 +1,22 @@
+{
+  "completed": 2592,
+  "expected": 2592,
+  "unique_cases": 24,
+  "unique_templates": 24,
+  "primary_tests": 48,
+  "primary_rejections": 2,
+  "random_rejections": 0,
+  "same_contrast_passes_both": 0,
+  "direct_axis_rejections": 1,
+  "weighted_rejections": 0,
+  "nonsham_pairs": 2304,
+  "argmax_changes": 0,
+  "max_sham_error": 0.0,
+  "max_hook_error": 9.34840995163444e-07,
+  "min_choice_mass": 0.999998107843481,
+  "max_dose_hidden_norm_ratio": 0.005876460714193784,
+  "all_finite": true,
+  "design_sha256": "32b92f274e5d0e9cadaf3fd9a56c97219f058afed8eab9a3dfb66fd5b4278ae1",
+  "subjective_emotion_inference": false,
+  "population_representative": false
+}
