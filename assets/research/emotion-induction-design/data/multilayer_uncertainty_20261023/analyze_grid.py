@@ -26,7 +26,12 @@ def estimate(a,b,metric):
 def main():
  global STRATA
  cases=json.loads((ROOT/'cases.json').read_text());STRATA={x['case_id']:x['baseline_stratum'] for x in cases};plan=json.loads((ROOT/'DESIGN_FROZEN.json').read_text())
- c=sqlite3.connect(f'file:{ROOT}/measurements.sqlite?mode=ro',uri=True);d=pd.DataFrame([json.loads(x[0]) for x in c.execute('select record from trials')]);assert len(d)==10560
+ if (ROOT/'measurements.sqlite').exists():
+  with sqlite3.connect(f'file:{ROOT}/measurements.sqlite?mode=ro',uri=True) as c:
+   d=pd.DataFrame([json.loads(x[0]) for x in c.execute('select record from trials')])
+ else:
+  d=pd.read_csv(ROOT/'trials.csv',float_precision='round_trip')
+ assert len(d)==10560
  assert not d.duplicated(['case_id','condition','rotation','layer','dose','arm']).any()
  assert d.case_id.nunique()==d.cluster.nunique()==32
  assert (d.groupby('case_id').size()==330).all()
