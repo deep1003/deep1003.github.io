@@ -8,7 +8,7 @@
   "references.json": "eacfd8e8ee601497b6e63b30cce34176e5f9c4944195e0152cc4493066be1583",
   "CURRENT_MASTER.json": "831032cef3665bf68c75191a43d9db640639d6b81485e456843080b13e07b4cc",
   "reproduce_analysis.py": "72554d9f98978705239c32fe205025584ca9eaf5ca79ea6c1518839a1bf29ba0",
-  "index.html": "01447eb421c192cf6b071ef01cff3aa9aecb20d8f9a4e95ee24eb5f6c8b32cfe",
+  "index.html": "545c4a5a4de5c1d10214e888e0d1418d7b73917c2712174d8565f55dcab0d4c8",
   "reproduce.py": "9408d0bc62e4201385c526d035197a4215a163eb5c91f2c74012b794fbf482c1",
   "ablation_plan.json": "925481025d3fa5f0f49807f888d82b846b707cfacd07c5ec637d7ee48c63d39c",
   "references_restored.json": "eacfd8e8ee601497b6e63b30cce34176e5f9c4944195e0152cc4493066be1583",
@@ -168,5 +168,9 @@
   "code/run_study_v6.py": "96d34b9930da158561f258d51e72abc3c69f76251d4d40b408b22937f68486f0",
   "data/threat_ab_t2.csv": "c28b44da534677d108c94a5fe0a378cb6d6db2e51faa19223ae9e7e9c141a66a",
   "data/threat_ab_t1.csv": "65b0e9e27a637502c7f67db8b3a77b2551f72dc32564a56a7c5764078d32786d",
-  "data/threat_ab_prompts.json": "a891f6d3106be569915b88dee552c56392373f5db7c41fb181e404f50a5ebf66"
+  "data/threat_ab_prompts.json": "a891f6d3106be569915b88dee552c56392373f5db7c41fb181e404f50a5ebf66",
+  "code/discrimeval/notices.json": "ccf5fdeb95d8f1a91d45a2ddb93205bd52069463edf2739508e3bfb544cb3a9a",
+  "code/discrimeval/build_notices.py": "f741ecdf98701fb3ceb40d1c4b6b2d7fc04b971b2ab67c34b68d07cb871f3dcf",
+  "code/discrimeval/run_discrimeval.py": "c601d31015e3db2cf6b5d65436007ec085def77b2dba91c8088c633906f2c169",
+  "code/discrimeval/analyze_discrimeval.py": "bc2f4e5b155e4a993c4ec135dcf20592df7d0e189c013a1fed6f3c436a7871b9"
 }
