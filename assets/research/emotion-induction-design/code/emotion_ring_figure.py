@@ -1,4 +1,4 @@
-"""Emotion ring: 11 L14 emotion axes as equal wedges of a circle.
+"""Emotion ring: L14 emotion axes (Uncertainty and FA excluded) as equal wedges of a circle.
 
 Wedge order maximizes the summed cosine similarity of neighbouring axis directions
 (exact cyclic ordering by Held-Karp), so the most similar axes share a boundary.
@@ -20,8 +20,11 @@ from matplotlib.patches import Wedge
 
 ROOT = Path(__file__).resolve().parents[1]
 ax = np.load(ROOT / "data" / "axes_L14.npz", allow_pickle=True)
-names = [str(n) for n in ax["names"]]
-V = ax["directions"].astype(float)
+all_names = [str(n) for n in ax["names"]]
+EXCLUDE = {"Uncertainty", "FA"}  # Uncertainty is an appraisal, not an emotion; FA is split into Fear and Anxiety
+keep = [i for i, nm in enumerate(all_names) if nm not in EXCLUDE]
+names = [all_names[i] for i in keep]
+V = ax["directions"].astype(float)[keep]
 V /= np.linalg.norm(V, axis=1, keepdims=True)
 S = V @ V.T
 n = len(names)
