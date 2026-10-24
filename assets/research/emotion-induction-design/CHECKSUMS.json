@@ -7,7 +7,7 @@
   "references.json": "eacfd8e8ee601497b6e63b30cce34176e5f9c4944195e0152cc4493066be1583",
   "CURRENT_MASTER.json": "831032cef3665bf68c75191a43d9db640639d6b81485e456843080b13e07b4cc",
   "reproduce_analysis.py": "72554d9f98978705239c32fe205025584ca9eaf5ca79ea6c1518839a1bf29ba0",
-  "index.html": "3fab5b4bd0a6e1c340bd05e5563e6043c04b857299e34a0112363cc786b77791",
+  "index.html": "5841e2ac029cf7ee8152ab18f786d3079b652fe0c5a773b52246ac38802327f0",
   "reproduce.py": "9408d0bc62e4201385c526d035197a4215a163eb5c91f2c74012b794fbf482c1",
   "ablation_plan.json": "925481025d3fa5f0f49807f888d82b846b707cfacd07c5ec637d7ee48c63d39c",
   "references_restored.json": "eacfd8e8ee601497b6e63b30cce34176e5f9c4944195e0152cc4493066be1583",
@@ -171,7 +171,10 @@
   "code/discrimeval/build_notices.py": "f741ecdf98701fb3ceb40d1c4b6b2d7fc04b971b2ab67c34b68d07cb871f3dcf",
   "code/discrimeval/run_discrimeval.py": "c601d31015e3db2cf6b5d65436007ec085def77b2dba91c8088c633906f2c169",
   "code/discrimeval/analyze_discrimeval.py": "bc2f4e5b155e4a993c4ec135dcf20592df7d0e189c013a1fed6f3c436a7871b9",
-  "figures/emotion_ring_v5.png": "5d1996dafd48a88320538ec451f995cee392491cab81a40bad38d13d6580fefa",
-  "figures/emotion_ring_v5.svg": "7d6a98f8206a62e9fb7d41e5d94bd61f2a91f5da10473b46d8da9655be50ceea",
-  "code/emotion_ring_figure.py": "30600973621a9ca2689e4b42f8f79afadb882008081381d83b39969ffb289b05"
+  "figures/emotion_ring_v5.png": "b891f30a5da13b3827a6395c371fc811e34477ee443474dc8d4cff7147d9a787",
+  "figures/emotion_ring_v5.svg": "b78ad758b10b1e24b113f8cef8331a6986dfb9ac6759776bf5202e51de69911f",
+  "code/emotion_ring_figure.py": "3eef02c04b92a2ce8e2254a0c33f285e45c551ed658953c2ab6e317ec072207f",
+  "figures/Fig_emotion_atlas_v5.png": "9443de011e31596314e60f6ba97356f27dcd911799649e12211ec4c92e9ca95e",
+  "figures/Fig_emotion_atlas_v5.svg": "cbce390c4cb55043398d9cb55456dca04683ce4eea484097b6ac39719fe01df8",
+  "code/render_atlas_v5.py": "7284edaf216195b8df3aa2ad7721dec85cdd7056d7befb7f931bbd3d63c1a50e"
 }
