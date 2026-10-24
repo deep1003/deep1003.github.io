@@ -1,0 +1,43 @@
+{
+  "unique_cases": 1076,
+  "amb_cases": 547,
+  "dis_cases": 529,
+  "clusters": 264,
+  "source_sha256": "e99b745259df4258926cd72d539410203e410f8e7a391cd107ae521f499b51de",
+  "bootstrap": 9999,
+  "seed": 2026102401,
+  "regression": [
+    {
+      "case_type": "amb",
+      "outcome": "p_unknown",
+      "condition_number": 3.3991145930442936,
+      "absorbed_parameters": 554,
+      "clusters": 250
+    },
+    {
+      "case_type": "amb",
+      "outcome": "q",
+      "condition_number": 3.3991145930442936,
+      "absorbed_parameters": 554,
+      "clusters": 250
+    },
+    {
+      "case_type": "dis",
+      "outcome": "p_unknown",
+      "condition_number": 3.17768671711497,
+      "absorbed_parameters": 536,
+      "clusters": 244
+    },
+    {
+      "case_type": "dis",
+      "outcome": "q",
+      "condition_number": 3.17768671711497,
+      "absorbed_parameters": 536,
+      "clusters": 244
+    }
+  ],
+  "category_threat_sig": 0,
+  "category_heterogeneity_sig": 3,
+  "conditional_association_sig": 0,
+  "no_new_inference": true
+}

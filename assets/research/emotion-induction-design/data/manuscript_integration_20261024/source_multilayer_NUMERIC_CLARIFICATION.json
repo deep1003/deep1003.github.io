@@ -1,0 +1,7 @@
+{
+  "timing": "Before primary or supplementary outcome p-values were calculated",
+  "full_repaired_records": 165,
+  "max_same_vector_full_vs_cache_probability_error_in_repaired_inputs": 3.442196706870959e-05,
+  "L14_reconstructed_versus_archived_Desperation_vector_max_abs_difference": 5.9538339258757844e-09,
+  "clarification": "Original full-vs-cache tolerance2e-5 remains unchanged. Three inputs were replaced in entirety by exact full forwards. Extra cross-run legacy comparison also changes Desperation vector at ~6e-9 because original and reconstructed training means use different floating precision; its remaining full-forward discrepancy is not a cache-only error. Do not assert strict legacy probability identity. Report cross-run discrepancy separately and include it in conservative numeric robustness floor. This clarification does not alter doses, cases, primary/supplementary p-value families or fixed full-vs-cache tolerance."
+}

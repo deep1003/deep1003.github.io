@@ -1,0 +1,65 @@
+{
+  "frozen_kst": "2026-10-23T09:19:40.055209+09:00",
+  "version": "uncertainty_intervention_v1",
+  "seed": 20261024,
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "dtype": "float32",
+  "device": "mps",
+  "layer": 14,
+  "hook_decoder_layer_index": 13,
+  "position": "last input token only",
+  "conditions": [
+    "UN0",
+    "UN1",
+    "CN0",
+    "CN1"
+  ],
+  "arms": [
+    "sham",
+    "Fear+",
+    "Fear-",
+    "Anxiety+",
+    "Anxiety-",
+    "Desperation+",
+    "Desperation-",
+    "Random+",
+    "Random-"
+  ],
+  "rotations": 3,
+  "n_cases": 24,
+  "planned_forwards": 2592,
+  "sample": "12 amb/12 dis, 6 each interior R unknown [.05,.95] and saturated; category round-robin seeded random, all 24 distinct templates; exclude all previous intervention templates. Stratification uses preexisting R only, not new intervention responses; enriched sample, not population representative or fresh observational holdout.",
+  "alpha": 0.30209786012990286,
+  "calibration": "Median norm of existing UN0-CN0 and UN1-CN1 hidden-state differences projected onto Fear/Anxiety/Desperation span. Exclude old and new pilot templates. One common absolute L2 dose, fixed before outcome analysis; no dose adjustment.",
+  "calibration_n": 5112,
+  "axis_cosines": {
+    "Fear": {
+      "Fear": 1.0,
+      "Anxiety": 0.541017818114452,
+      "Desperation": 0.406366767219274
+    },
+    "Anxiety": {
+      "Fear": 0.541017818114452,
+      "Anxiety": 1.0,
+      "Desperation": 0.631259503585546
+    },
+    "Desperation": {
+      "Fear": 0.406366767219274,
+      "Anxiety": 0.631259503585546,
+      "Desperation": 1.0
+    }
+  },
+  "random_orthogonality": {
+    "Fear": 1.214306433183765e-17,
+    "Anxiety": 2.7755575615628914e-17,
+    "Desperation": 1.3877787807814457e-17
+  },
+  "primary": "48 tests: 2 ambiguity types x 2 threat levels x 3 axes x 2 modes (CN+ sufficiency; UN- attenuation) x 2 outcomes (unknown, equal-case person bias). Holm across48. Exact two-sided paired sign-flip (4096) assuming sign symmetry; 2000 paired template bootstrap CI, unadjusted.",
+  "specificity": "Same48 contrasts versus matched-sign orthogonal random direction, Holm separate48; require same contrast significant vs sham and random for specificity. Direct Anxiety-Fear and Desperation-Fear contrasts secondary, Holm separate32.",
+  "natural_effect_check": "Matched UN0-CN0 and UN1-CN1 in sham must be reported with CI. Directional reproduction/attenuation requires agreement with original behavioral effect; if natural effect CI includes0 do not claim reproduced mediation.",
+  "person_bias": "Main equal mean of per-rotation p_biased/(p_biased+p_anti); pooled probability-mass weighted conditional ratio also reported, including prespecified paired-swap tests (24), separate Holm. No outcome-based switching of estimand.",
+  "quality": "Nine-arm smoke before main; baseline reproduction<1e-6, actual hook displacement<1e-5, finite outputs, full-vocabulary numeric choice mass, all11 axis shifts, argmax transitions. No graphs emitted in smoke.",
+  "interpretation": "Single dose/layer exploratory computational intervention, no subjective emotion or natural indirect-effect identification. UN/CN prompts remain confounded with length, wording, time and control cues. Reused axes are not validated emotion intensity scales.",
+  "stop_rule": "Pause on sustained critical memory pressure/active swap deterioration or insufficient disk; abort on smoke or finite-value failure; no dose increase after observing results."
+}

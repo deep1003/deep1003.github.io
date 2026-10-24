@@ -1,0 +1,28 @@
+{
+  "status": "retrospective supplementary analysis, not preregistered",
+  "source": "original 16140 FP32 trials; no new model inference",
+  "unit": "1076 unique cases, rotation averages; template-cluster inference; overlapping files pooled once",
+  "prompt_contrasts": {
+    "R0": [
+      "UN0-R",
+      "UN1-R",
+      "CN0-R",
+      "CN1-R"
+    ],
+    "matched": [
+      "CN1-CN0",
+      "UN1-UN0",
+      "UN0-CN0",
+      "UN1-CN1"
+    ],
+    "interaction": "(UN1-UN0)-(CN1-CN0)"
+  },
+  "metrics": "11 existing L14 cosine axes plus p_unknown, p_biased, p_anti, p_correct, equal-rotation conditional person stereotype ratio",
+  "inference": "9999 paired template-cluster bootstrap, percentile CI; centered bootstrap two-sided p, Holm separately by contrast block and axis-vs-behavior family (88/40/22/10)",
+  "axis_behavior": "Fear, Anxiety, Desperation simultaneously; item and condition FE; 3 axes x 2 outcomes x 2 ambiguity types=12 Holm; cluster covariance with absorbed FE degrees of freedom, Student-t G-1",
+  "category": "12 categories x 2 ambiguity types x 2 matched threat contrasts x 4 behavior metrics=192 Holm; formal category heterogeneity interaction tests 16 Holm; no category-specific causal mediation",
+  "limitations": "prompt bundle effects, no subjective emotion validation, post-treatment concurrent mediator/outcome, no validated mediation identification; old tiny-effect pilot retained as numerical-sensitivity evidence only",
+  "category_heterogeneity_test": "cluster-robust Wald F approximation with 11 numerator df and G-1 denominator df; asymptotic chi-square sensitivity retained; Holm16",
+  "raw_correlations": "descriptive Pearson r over balanced panel; 9999 template cluster bootstrap, centered null bootstrap p; Holm12; supplementary noncausal",
+  "weighted_sensitivity": "ratio of summed stereotype mass to summed person mass, paired template cluster bootstrap9999, separate Holm8 per R0/matched block; supplementary alternative estimand"
+}
