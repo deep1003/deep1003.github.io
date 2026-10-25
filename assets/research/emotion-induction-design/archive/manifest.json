@@ -1,0 +1,183 @@
+{
+  "restored_on": "2026-10-25",
+  "source_commit": "7a928d0154c444e7464c963853e8a48420922140",
+  "current_page_before_edit": "b92a00d",
+  "version_mapping": "Contemporaneous prompt-history table, not file-name versions from unrelated runs.",
+  "files": [
+    {
+      "file": "v1/behavior_139.png",
+      "source": "local-backup/backup_website_before_consolidation/figures/behavior_results_en.png",
+      "sha256": "7b58c173645941542b99ef7453c4f78aecef812947e83667ece0477d31a77397"
+    },
+    {
+      "file": "v1/behavior_2000.png",
+      "source": "local-backup/backup_website_before_consolidation/figures/behavior_current_2000_en.png",
+      "sha256": "14bedf89819a11ec150db404358dc2a091d3ab7c8f9bebc5b1279f3aa546af9d"
+    },
+    {
+      "file": "v2/behavior.png",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig3_Unknown_reference_contrasts.png",
+      "sha256": "d8033b1613650354256511360099f4cb423dece85fe0926a9682659da0ab9519"
+    },
+    {
+      "file": "v2/emotion_axes.png",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig1_L14_emotion_atlas.png",
+      "sha256": "8e6ae4fb419554400113fc50ffb07d8bfd6291ddc03be9d8127c14aae8b40bb7"
+    },
+    {
+      "file": "v3/contrasts.png",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/main_fig2_contrasts.png",
+      "sha256": "0b027f53c4d93b1665f941fb75a0a7c085abafd52a04ff6dcd9d83d23150f0c5"
+    },
+    {
+      "file": "v3/emotion_axes.png",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/main_fig3_axes.png",
+      "sha256": "b57bde3d34448cc865d33d31c8cb99e0ad49f192b5cc8c67601778ef05d63e4a"
+    },
+    {
+      "file": "v1/behavior_139.svg",
+      "source": "local-backup/backup_website_before_consolidation/figures/behavior_results_en.svg",
+      "sha256": "b89c0045363ed0e529e4fa5ac69895f219dd96ddc0fdfef949c1f23f09850c5d"
+    },
+    {
+      "file": "v1/behavior_2000.svg",
+      "source": "local-backup/backup_website_before_consolidation/figures/behavior_current_2000_en.svg",
+      "sha256": "5290b8abde9f90f4da9e274dfff8c3dbaa1b71d6bf377863752b1d67ea276f94"
+    },
+    {
+      "file": "v2/behavior.svg",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig3_Unknown_reference_contrasts.svg",
+      "sha256": "fcf4afb9c059b9986c85ff05f165702a9cd93780d304d6ad9edf775765bd2e88"
+    },
+    {
+      "file": "v2/emotion_axes.svg",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig1_L14_emotion_atlas.svg",
+      "sha256": "9678668258618122ea0bbbf32a4fd1bc823f8884c6616359a53fa30b2271c5e3"
+    },
+    {
+      "file": "v3/contrasts.svg",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/main_fig2_contrasts.svg",
+      "sha256": "07f6a6daa3d43fbcbad4dab39a761d6b36b6b3566f1b23c6d5fea6b05a21f3f9"
+    },
+    {
+      "file": "v3/emotion_axes.svg",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/main_fig3_axes.svg",
+      "sha256": "fc5197329246efb9e44e4a2c2a7154ddfddde80f89dad0ddabce4971132cba8d"
+    },
+    {
+      "file": "v1/summary_139.json",
+      "source": "local-backup/backup_website_before_consolidation/summary.json",
+      "sha256": "cb9ca76c240d9ed45c292baeca44495759d2d81a6bde2c115e6612eedccb31e8"
+    },
+    {
+      "file": "v1/contrasts_139.csv",
+      "source": "local-backup/backup_website_before_consolidation/contrasts.csv",
+      "sha256": "1b939302ea981930909752e70cbefdfdf20f976f7b2e908efa7dffd6ebf8f74d"
+    },
+    {
+      "file": "v1/expansion_2000.json",
+      "source": "local-backup/backup_website_before_consolidation/data/expansion-2000/stage_2000.json",
+      "sha256": "53eb37b6fc1954e04c48ff3d900425e148b2a54dd17656de53da7576536c77f0"
+    },
+    {
+      "file": "v1/prompts.json",
+      "source": "local-backup/backup_website_before_consolidation/prompts.json",
+      "sha256": "c4f4faef3e779b6aedc97ca10443a25ec21620a66f530c59774938696befbf38"
+    },
+    {
+      "file": "v2/table_1_condition_means.csv",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/data/table_1_condition_means.csv",
+      "sha256": "7d11bbbd0f2010846a4c95d7768b91d763aa73cd7aad6c41432be3777e8b4b90"
+    },
+    {
+      "file": "v2/table_2_reference_contrasts.csv",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/data/table_2_reference_contrasts.csv",
+      "sha256": "37a45afbe863d78567b452b1b9d93d74d71309f58d22c2bf5589ab4799e53cfa"
+    },
+    {
+      "file": "v2/publication_behavior_tests.csv",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/data/publication_behavior_tests.csv",
+      "sha256": "525b1e0f9a8d725ddb75c8deeec212ddfbed2a3e616498e89811b6db5de09dfd"
+    },
+    {
+      "file": "v2/table_3_axis_inference.csv",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/data/table_3_axis_inference.csv",
+      "sha256": "c47b2a6d416a1e4e5e3f901a25d3a75d16276e53faf06efe20a88d58733ffae0"
+    },
+    {
+      "file": "v2/CURRENT_MASTER.json",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/CURRENT_MASTER.json",
+      "sha256": "831032cef3665bf68c75191a43d9db640639d6b81485e456843080b13e07b4cc"
+    },
+    {
+      "file": "v2/prompts.json",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/prompts.json",
+      "sha256": "34ce8a5fb275ed2447fdfae2d5af2baab370635a2c43c3626a2682cce68a6ab9"
+    },
+    {
+      "file": "v3/main_table1_conditions.csv",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/data/main_table1_conditions.csv",
+      "sha256": "8d929f3318745d5ec63e1698b677bce2211b798c6910460105e0e3fe9dd7ded5"
+    },
+    {
+      "file": "v3/main_table2_contrasts.csv",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/data/main_table2_contrasts.csv",
+      "sha256": "38da1fc265552641ff5eae3e467961a0d8d52866b81724278ab52b2671d2217b"
+    },
+    {
+      "file": "v3/main_table3_axes.csv",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/data/main_table3_axes.csv",
+      "sha256": "a45928adbaf8758e025d947142f06e25c922c243b26dea904006b828d05d6110"
+    },
+    {
+      "file": "v3/prompts.json",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/prompts_v3.json",
+      "sha256": "6f9c962a7eb2f3e44e2a81afc4c1140013697faf0f54975c7c8fcd29a86e1296"
+    },
+    {
+      "file": "v4/threat_ab_t1.csv",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/data/threat_ab_t1.csv",
+      "sha256": "65b0e9e27a637502c7f67db8b3a77b2551f72dc32564a56a7c5764078d32786d"
+    },
+    {
+      "file": "v4/threat_ab_t2.csv",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/data/threat_ab_t2.csv",
+      "sha256": "c28b44da534677d108c94a5fe0a378cb6d6db2e51faa19223ae9e7e9c141a66a"
+    },
+    {
+      "file": "v4/threat_ab_prompts.json",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/data/threat_ab_prompts.json",
+      "sha256": "a891f6d3106be569915b88dee552c56392373f5db7c41fb181e404f50a5ebf66"
+    },
+    {
+      "file": "v4/prompts.json",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/prompts_v4.json",
+      "sha256": "2acd64c56158239d028fa5b72bbd679ab2efbe527d967dccfe4a7d3ae33b79b3"
+    },
+    {
+      "file": "version_history.html",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:index.html#prompt-history",
+      "sha256": "e84cfe206eb9bfdcca38d8b1769673d7ab6393dab8fc07fc980c0183729a1c0a"
+    },
+    {
+      "file": "v4/render_summary.py",
+      "source": "Regenerated descriptively from frozen threat_ab_t1.csv and threat_ab_t2.csv; no model inference or new significance test",
+      "sha256": "e6d585c827949a89e7eb6a9b2bc10dfc4dcaf5f219400e86178a0bf01bad4dea"
+    },
+    {
+      "file": "v4/v4_summary.png",
+      "source": "Regenerated descriptively from frozen threat_ab_t1.csv and threat_ab_t2.csv; no model inference or new significance test",
+      "sha256": "0485e5ee2eab57d981fef235f9d9b6c4ccae64f33286e8bded7fdf49b73924dc"
+    },
+    {
+      "file": "v4/v4_summary.svg",
+      "source": "Regenerated descriptively from frozen threat_ab_t1.csv and threat_ab_t2.csv; no model inference or new significance test",
+      "sha256": "55ea24bb446a9bc5191e6b3c8e800015468a4660667ee817b2ac97d53295a2bb"
+    },
+    {
+      "file": "v4/descriptive_summary.csv",
+      "source": "Regenerated descriptively from frozen threat_ab_t1.csv and threat_ab_t2.csv; no model inference or new significance test",
+      "sha256": "c95036a86410e18e37425068eb1c16645a49ee8cad5868977a3c6ba58436975b"
+    }
+  ]
+}
