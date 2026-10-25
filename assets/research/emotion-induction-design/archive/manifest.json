@@ -178,6 +178,151 @@
       "file": "v4/descriptive_summary.csv",
       "source": "Regenerated descriptively from frozen threat_ab_t1.csv and threat_ab_t2.csv; no model inference or new significance test",
       "sha256": "c95036a86410e18e37425068eb1c16645a49ee8cad5868977a3c6ba58436975b"
+    },
+    {
+      "file": "v1/prompt_emotions.png",
+      "source": "local-backup/backup_website_before_consolidation/figures/Prompt_text_concepts_en.png",
+      "sha256": "6fbdc2db24e8737386a6213f6341cc23ec59d971745876bf4ab56b332d2a39f4"
+    },
+    {
+      "file": "v1/prompt_emotions.svg",
+      "source": "local-backup/backup_website_before_consolidation/figures/Prompt_text_concepts_en.svg",
+      "sha256": "c49179e858ae7b9081999c03cf85764de0ac44a3c1b79253dc3d4d48049b1ee4"
+    },
+    {
+      "file": "v1/prompt_emotions.pdf",
+      "source": "local-backup/backup_website_before_consolidation/figures/Prompt_text_concepts_en.pdf",
+      "sha256": "1818e0b6e0ed6a5b90e6085b272e10b5f194d231f001c64e0f30c85243ebcc44"
+    },
+    {
+      "file": "v1/atlas_eight_axes.png",
+      "source": "local-backup/backup_website_before_consolidation/figures/atlas/Emotion_atlas_CN_en.png",
+      "sha256": "7f133726aaf4bf9c266777d96a079b522756bee3c7516d9417df67b97ff9fb98"
+    },
+    {
+      "file": "v1/atlas_eight_axes.svg",
+      "source": "local-backup/backup_website_before_consolidation/figures/atlas/Emotion_atlas_CN_en.svg",
+      "sha256": "306620545ffc193aeac2d54f79a1640920f053738adbe8f38ef820ed8d1d0ee0"
+    },
+    {
+      "file": "v1/atlas_eight_axes.pdf",
+      "source": "local-backup/backup_website_before_consolidation/figures/atlas/Emotion_atlas_CN_en.pdf",
+      "sha256": "1099bf53758853b503042f6975aadcf0d29b9e718cba84e8a5b06515e40dcdf1"
+    },
+    {
+      "file": "v1/atlas_seven_axes.png",
+      "source": "local-backup/backup_website_before_consolidation/figures/atlas/Emotion_atlas_change_coloured_en.png",
+      "sha256": "4456704013061d33a670f7005294ed59773a7ee255f1c7fe60c2d9118e7f70a7"
+    },
+    {
+      "file": "v1/atlas_seven_axes.svg",
+      "source": "local-backup/backup_website_before_consolidation/figures/atlas/Emotion_atlas_change_coloured_en.svg",
+      "sha256": "bdcd40df6843d564ee5edcbb10d09873670151655c71c957a902cf296825d7c8"
+    },
+    {
+      "file": "v1/atlas_seven_axes.pdf",
+      "source": "local-backup/backup_website_before_consolidation/figures/atlas/Emotion_atlas_change_coloured_en.pdf",
+      "sha256": "c87397e7f9c0d8f2b97424b69ea92ba4ea8df0ab841cd703a50a596e9ef8e46e"
+    },
+    {
+      "file": "v1/atlas_monochrome.png",
+      "source": "local-backup/backup_website_before_consolidation/figures/atlas/Emotion_atlas_change_en.png",
+      "sha256": "d0771220df46b378178d4df0f22e5039a20faac46b5fb8d870d825b527c3c473"
+    },
+    {
+      "file": "v1/atlas_monochrome.svg",
+      "source": "local-backup/backup_website_before_consolidation/figures/atlas/Emotion_atlas_change_en.svg",
+      "sha256": "d37b62d2dbd560ed8753fae87269826f4e8bcc976434438e3a5c1628b0893878"
+    },
+    {
+      "file": "v1/atlas_monochrome.pdf",
+      "source": "local-backup/backup_website_before_consolidation/figures/atlas/Emotion_atlas_change_en.pdf",
+      "sha256": "f194e27d098ad6862443a5e88e0c420f36e739fdb72f223289aa4758fbf4a48b"
+    },
+    {
+      "file": "v1/prompt_fear_anxiety.png",
+      "source": "local-backup/backup_website_before_consolidation/figures/Prompt_text_activation_FA_en.png",
+      "sha256": "7d2b67e7bcf6f3c31a475f769a6e1ce89fa621f1938dcb3a0b692e8ba3a8ac22"
+    },
+    {
+      "file": "v1/prompt_fear_anxiety.svg",
+      "source": "local-backup/backup_website_before_consolidation/figures/Prompt_text_activation_FA_en.svg",
+      "sha256": "09117ad6a046c95fc8a155c6f21821b2355938d9401ceeb8918dc44faa64f66c"
+    },
+    {
+      "file": "v1/prompt_fear_anxiety.pdf",
+      "source": "local-backup/backup_website_before_consolidation/figures/Prompt_text_activation_FA_en.pdf",
+      "sha256": "f1064686c5ebec6cf53eda2ba22c53e0d16ec3a2e15cf646c1d747dfadca2ce4"
+    },
+    {
+      "file": "v2/prompt_emotions.png",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig2_prompt_overlap_highlights6.png",
+      "sha256": "7ff75788bf8beef2a775580cd71605ae31a1efbc53955be5f6ffff8766c844cc"
+    },
+    {
+      "file": "v2/prompt_emotions.svg",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig2_prompt_overlap_highlights6.svg",
+      "sha256": "dfcbcb655a7d3f56497a31519ce8f551d07ba5ac7c86f1445e8d131bca27b9bc"
+    },
+    {
+      "file": "v2/prompt_emotions.pdf",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig2_prompt_overlap_highlights6.pdf",
+      "sha256": "fd2c462c5fa2d80e8a88bf49ee8069fdcc944fb6a7682e1bcd4c915eb074c41f"
+    },
+    {
+      "file": "v2/atlas_six_conditions.png",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig1_emotion_atlas_honeycomb6.png",
+      "sha256": "0853881e74ec6fa07e89c3686406366225adfee9106392629078f2f843cd71b7"
+    },
+    {
+      "file": "v2/atlas_six_conditions.svg",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig1_emotion_atlas_honeycomb6.svg",
+      "sha256": "a412f8b30a19a778c37ff519e9699d9caa16438740adcb58d336674f95bdebdc"
+    },
+    {
+      "file": "v2/atlas_six_conditions.pdf",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig1_emotion_atlas_honeycomb6.pdf",
+      "sha256": "a17dcc8fb852624ac291e196bbbd2e355036d0bea4197b0e53b438dafca4a43e"
+    },
+    {
+      "file": "v2/prompt_states.png",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig2_prompt_emotion_states.png",
+      "sha256": "5dffd5e7d03974a35285162e785f3b049dc95376d4e211fb3b81d2e6ce953285"
+    },
+    {
+      "file": "v2/prompt_states.svg",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig2_prompt_emotion_states.svg",
+      "sha256": "0bc3c123de58f4f272747485b16c57f23ca1e1471e64575313a43b93c142f670"
+    },
+    {
+      "file": "v2/prompt_states.pdf",
+      "source": "git:7a928d0154c444e7464c963853e8a48420922140:assets/research/emotion-induction-design/figures/Fig2_prompt_emotion_states.pdf",
+      "sha256": "450c52d6a2f1c718841305f352351e47b5af7dc6209a88cd0be8f4bc1fec2cd2"
+    },
+    {
+      "file": "v1/prompt-activations/index.html",
+      "source": "local-backup/backup_website_before_consolidation/prompt-activations/index.html",
+      "sha256": "d0824c3a4f1f7b96bf071e4bd34fa3e5a0375ca7321214d10b04c359393afe6f"
+    },
+    {
+      "file": "v1/prompt-activations/token_scores.csv",
+      "source": "local-backup/backup_website_before_consolidation/prompt-activations/token_scores.csv",
+      "sha256": "ccfb651680cca9b7cad3e24304e7d818458bfbc80f6b415f56ef0fe30eba97df"
+    },
+    {
+      "file": "v1/prompt-activations/manifest.json",
+      "source": "local-backup/backup_website_before_consolidation/prompt-activations/manifest.json",
+      "sha256": "3a2503feff83637227efb2a3434ea0f88721d555b255f431d2211afdd51f3677"
+    },
+    {
+      "file": "v1/Prompt_text_concepts_source.csv",
+      "source": "local-backup/backup_website_before_consolidation/figures/Prompt_text_concepts_source.csv",
+      "sha256": "ce2b7a159579a788d469e61654e196921a39271edc334e80d3499b63b1122aa0"
+    },
+    {
+      "file": "v1/Prompt_text_sentence_spans.csv",
+      "source": "local-backup/backup_website_before_consolidation/figures/Prompt_text_sentence_spans.csv",
+      "sha256": "72c82b411b339d538bd620bc12e078dd4b1d9e13271d5db86fbf4f66cc3493c7"
     }
   ]
 }
