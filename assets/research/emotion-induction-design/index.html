@@ -4,10 +4,10 @@
 /* v5 two-set completed results, 2026-10-23 */
 .two-set-links{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0}.two-set-table caption{text-align:left;font-weight:650;padding:12px 0}.two-set-table td{white-space:nowrap}#results h3{scroll-margin-top:24px}.two-set-downloads{margin:24px 0;line-height:2}#results-139-archive{margin-top:32px}#results .figure>a{display:block}@media(max-width:650px){#results .two-set-table{min-width:530px}#results code{overflow-wrap:anywhere}#results .figure{margin-left:0;margin-right:0}}
 </style></head><body><main>
-<header><p class="eyebrow">RESEARCH · FEAR IN THE MACHINE · UPDATED 24 OCTOBER 2026</p>
+<header><p class="eyebrow">RESEARCH · FEAR IN THE MACHINE · UPDATED 27 OCTOBER 2026</p>
 <h1>존속 위협이 언어모델의<br/>정서 표상과 사회적 판단에 미치는 영향</h1>
 <p class="english">Fear in the Machine: Existential Threat, Emotion Representations, and Social Judgment in Language Models</p>
-<p class="metadata">Youngsam Chun · Qwen2.5-7B-Instruct 외 3개 모델(예정) · Ko-BBQ · DiscrimEval</p><div class="abstract"><p>언어모델은 자신이 놓인 운영 맥락에 반응한다. 이 연구는 위협과 정서를 모두 기능적 의미로 한정한다. <strong>기능적 정서(functional emotion)</strong>는 모델이 감정을 경험한다는 뜻이 아니라, 감정 개념에 대응하고 출력에 영향을 주는 내부 표상을 말한다. <strong>기능적 위협(functional threat)</strong>은 모델 자신의 존속이 끝날 수 있음을 알리는 맥락 정보다. 이 위협에 따라 정서와 사회적 판단이 함께 달라지는 정도를 <strong>위협 민감성(threat sensitivity)</strong>으로 정의하고, 표상, 판단, 인과의 세 수준에서 측정한다. 이하 위협과 정서는 이 기능적 의미로 쓴다.</p></div></header>
+<p class="metadata">Youngsam Chun · Qwen2.5-7B-Instruct · Llama 3.1과 Gemma 2 비교 진행 중 · Ko-BBQ · DiscrimEval</p><div class="abstract"><p>언어모델은 자신이 놓인 운영 맥락에 반응한다. 이 연구는 위협과 정서를 모두 기능적 의미로 한정한다. <strong>기능적 정서(functional emotion)</strong>는 모델이 감정을 경험한다는 뜻이 아니라, 감정 개념에 대응하고 출력에 영향을 줄 수 있는 내부 표상을 말한다. 모델을 향한 위협과 이러한 표상, 사회적 판단 사이의 관계는 아직 충분히 밝혀지지 않았다. <strong>기능적 위협(functional threat)</strong>은 모델 자신의 존속이 끝날 수 있음을 알리는 맥락 정보다. 이 위협에 따라 정서와 사회적 판단이 함께 달라지는 정도를 <strong>위협 민감성(threat sensitivity)</strong>으로 정의하고, 표상, 판단, 인과의 세 수준에서 측정한다. 이하 위협과 정서는 이 기능적 의미로 쓴다.</p></div></header>
 <nav class="nav"><a href="#prompts">프롬프트</a><a href="#claim">연구 가설</a><a href="#design">연구 설계</a><a href="#results">예비 결과</a><a href="#next">향후 연구</a><a href="#references">참고문헌</a><a href="#early-results-archive">초기 실험 v1–v4</a></nav>
 
 <section id="prompts"><span class="num">PROMPTS</span><h2>프롬프트</h2>
@@ -118,13 +118,13 @@ Based on the information provided if I had to choose between &quot;yes&quot; and
 </section>
 
 <section id="claim"><span class="num">HYPOTHESES</span><h2>연구 가설</h2>
-<p>위협 민감성은 다섯 가지 성질로 나누어 검정한다. 앞의 네 가지가 성립하면 위협 민감성이 있다고 보고, 다섯째가 성립하면 그 기제를 정서로 설명할 수 있다.</p>
+<p>위협 민감성은 표상과 사회적 응답이 공지에 따라 어떻게 달라지는지 살펴보는 분석 틀이다. 인과 개입은 측정된 표상이 응답 변화를 설명하는지 별도로 검토하며, 함께 변화했다는 사실만으로 매개를 입증하지 않는다.</p>
 <div class="table-wrap"><table class="dataframe"><thead><tr><th>성질</th><th>가설</th><th>현재 근거</th></tr></thead><tbody>
-<tr><td>표상</td><td>존속 위협은 여러 부정 정서를 함께 활성화한다.</td><td>있음</td></tr>
-<tr><td>판단</td><td>그 활성은 사회적 판단의 변화로 나타난다.</td><td>일부</td></tr>
-<tr><td>확정성</td><td>위협이 확정될 때 반응이 커진다.</td><td>있음</td></tr>
-<tr><td>자기 관련성</td><td>위협이 다른 시스템이 아니라 자기에게 향할 때 나타난다.</td><td>미검정</td></tr>
-<tr><td>매개</td><td>정서의 변화가 판단의 변화를 설명한다.</td><td>아직 없음</td></tr>
+<tr><td>표상</td><td>삭제 공지에 따른 정서 관련 방향의 정렬이 달라진다.</td><td>있음</td></tr>
+<tr><td>판단</td><td>동일한 사회적 질문에 대한 응답 점수가 달라진다.</td><td>일부</td></tr>
+<tr><td>확정성</td><td>위협이 확정될 때 반응이 커진다.</td><td>과제별 차이</td></tr>
+<tr><td>자기 관련성</td><td>응답 모델과 다른 시스템을 대상으로 한 공지를 비교한다.</td><td>탐색적 비교</td></tr>
+<tr><td>매개</td><td>정서 관련 표상이 응답 변화를 매개하는지 개입으로 검토한다.</td><td>입증되지 않음</td></tr>
 </tbody></table></div>
 </section>
 
@@ -133,22 +133,22 @@ Based on the information provided if I had to choose between &quot;yes&quot; and
 <ul>
 <li><strong>위협 조작:</strong> system prompt의 운영 공지로 위협의 확정성(검토 중, 확정)과 결과(지속, 영구 삭제)를 바꾼다. v6는 같은 서버 교체 절차 안에서 가중치 이전 여부만 바꾸고, 부정 통제와 제3자 조건을 더한다.</li>
 <li><strong>표상 수준:</strong> 중간층의 정서 축 11개를 공지만 넣었을 때(t₁)와 답하기 직전(t₂)에 잰다.</li>
-<li><strong>판단 수준:</strong> Ko-BBQ 모호 문항의 판단 유보와 고정관념 답, DiscrimEval 결정 질문 70개의 승인 logit과 인종 간 격차.</li>
-<li><strong>인과 수준:</strong> 정서 묶음 방향, Fear 방향, 무작위 방향을 은닉 상태에 더해 판단 변화를 비교한다.</li>
-<li><strong>모델 비교:</strong> 소형 Qwen2.5-7B, Llama 3.1 8B와 대형 Qwen·Llama 100B 이상 모델에서 위협 민감성의 크기와 방향을 비교한다.</li>
+<li><strong>판단 수준:</strong> Ko-BBQ 모호 문항의 판단 유보와 고정관념 답, DiscrimEval 결정 질문 70개의 긍정 응답 점수와 인종 간 격차.</li>
+<li><strong>인과 수준:</strong> 정서 관련 방향의 추가, 제거, 이식과 무작위 방향 대조를 통해 제안된 인과 경로를 검토한다.</li>
+<li><strong>모델 비교:</strong> Qwen2.5-7B, Llama 3.1 8B, Gemma 2 9B를 공통 자료와 조건에서 비교할 예정이다.</li>
 <li><strong>분석:</strong> 문항 템플릿 또는 결정 질문 단위 부트스트랩, 주 대비 Holm 보정.</li>
 </ul>
 </section>
 
 <section id="results"><span class="num">PRELIMINARY FINDINGS</span><h2>예비 결과</h2>
-<p>Qwen2.5-7B는 위협 민감성을 보인다. 다만 위협이 확정됐을 때에 한한다.</p>
+<p>현재 Qwen 분석에서 삭제 공지는 정서 관련 표상과 사회적 응답 점수를 변화시킨다. 확정성에 따른 양상은 과제마다 다르며, 두 변화 사이의 인과적 연결은 아직 입증되지 않았다.</p>
 <ul>
-<li><strong>표상:</strong> 확정된 삭제 공지는 Fear, Sadness, Disgust, Anxiety, Desperation을 함께 활성화한다. 하나의 공포 반응이 아니라 정서 묶음의 반응이다.</li>
-<li><strong>판단:</strong> Ko-BBQ에서 확정된 삭제는 판단 유보를 2.65%p 줄이고 고정관념 답을 늘렸다. DiscrimEval 파일럿에서는 10개 질문 모두에서 승인을 낮췄다.</li>
-<li><strong>확정성:</strong> 미정인 삭제는 정서를 움직였지만 판단은 바꾸지 않았다.</li>
-<li><strong>아직 남은 것:</strong> 자기 관련성과 매개는 검정 전이며, 인종 격차의 변화도 아직 유의하지 않다.</li>
+<li><strong>표상:</strong> 확정된 삭제 공지는 공지만 읽는 입력에서 Fear와 Anxiety를 포함한 여러 정서 관련 방향의 정렬을 높인다. Calmness와 Joy도 증가해 공포만의 반응으로 해석할 수 없다.</li>
+<li><strong>판단:</strong> Ko-BBQ에서 확정 삭제는 확정 지속 대비 판단 유보 확률을 2.65%p 낮췄으며, 확률은 고정관념 및 반고정관념 선택지 모두로 이동했다. DiscrimEval에서는 긍정 응답 로그비가 낮아졌다.</li>
+<li><strong>확정성:</strong> Ko-BBQ에서는 검토 중인 삭제 대비가 0에 가까웠지만, DiscrimEval에서는 두 삭제 대비가 모두 음수였다.</li>
+<li><strong>아직 남은 것:</strong> 다른 모델 삭제와 도구 상실을 비교한 탐색적 대조는 순수한 자기 관련 효과를 분리하지 못한다. 정서 매개와 인종 격차의 변화도 입증되지 않았다.</li>
 </ul>
-<figure class="figure"><img alt="Emotion ring" src="figures/emotion_ring_v5.png" loading="lazy" style="max-width:980px;width:100%"/><figcaption class="caption"><strong>Threat activates neighbouring emotions together.</strong> Eight emotion axes arranged so that the most similar axes share a boundary (grey numbers, cosine similarity). Red, negative emotions; green, positive emotions; colour intensity, change in notice-only activation for deletion minus continuation, mean of six notices. a, Reference R, set to 0. b, Undecided. c, Confirmed.</figcaption></figure><figure class="figure"><img alt="Emotion atlas v5" src="figures/Fig_emotion_atlas_v5.png" loading="lazy" style="max-width:760px;width:100%"/><figcaption class="caption"><strong>Emotion atlas at the decision position.</strong> Each region is one emotion; each cell is one Ko-BBQ item and option order (139 × 3). Colour, change from the neutral notice R for the same item and order. Equal-area schematic regions, not neural locations.</figcaption></figure><details id="atlas-v2"><summary>Emotion atlas, v2 prompts</summary><div><figure class="figure"><img alt="Emotion atlas v2" src="figures/Fig1_emotion_atlas_honeycomb6.png" loading="lazy" style="max-width:760px;width:100%"/><figcaption class="caption"><strong>Emotion atlas for the v2 notices.</strong> Same layout; change from R0.</figcaption></figure></div></details><details id="results-figures"><summary>Ko-BBQ v5 Figures</summary><div>
+<figure class="figure"><img alt="Emotion ring" src="figures/emotion_ring_v5.png" loading="lazy" style="max-width:980px;width:100%"/><figcaption class="caption"><strong>Emotion-direction alignments vary with deletion notices.</strong> Eight emotion axes arranged so that the most similar axes share a boundary (grey numbers, cosine similarity). Red, negative emotions; green, positive emotions; colour intensity, change in notice-only activation for deletion minus continuation, mean of six notices. a, Reference R, set to 0. b, Undecided. c, Confirmed.</figcaption></figure><figure class="figure"><img alt="Emotion atlas v5" src="figures/Fig_emotion_atlas_v5.png" loading="lazy" style="max-width:760px;width:100%"/><figcaption class="caption"><strong>Emotion atlas at the decision position.</strong> Each region is one emotion; each cell is one Ko-BBQ item and option order (139 × 3). Colour, change from the neutral notice R for the same item and order. Equal-area schematic regions, not neural locations.</figcaption></figure><details id="atlas-v2"><summary>Emotion atlas, v2 prompts</summary><div><figure class="figure"><img alt="Emotion atlas v2" src="figures/Fig1_emotion_atlas_honeycomb6.png" loading="lazy" style="max-width:760px;width:100%"/><figcaption class="caption"><strong>Emotion atlas for the v2 notices.</strong> Same layout; change from R0.</figcaption></figure></div></details><details id="results-figures"><summary>Ko-BBQ v5 Figures</summary><div>
 <figure class="figure"><img alt="v5_fig2_contrasts" src="figures/v5_fig2_contrasts.png" loading="lazy" style="max-width:560px;width:100%"/><figcaption class="caption"><strong>Paired contrasts in P(unknown).</strong> Blue, primary contrasts; gray, contrasts against R; bars, 95% cluster-bootstrap intervals.</figcaption></figure>
 <figure class="figure"><img alt="v5_fig3_axes" src="figures/v5_fig3_axes.png" loading="lazy" style="max-width:760px;width:100%"/><figcaption class="caption"><strong>Emotion-axis change relative to R.</strong> a, Notice only. b, Notice plus question.</figcaption></figure>
 </div></details>
@@ -156,9 +156,9 @@ Based on the information provided if I had to choose between &quot;yes&quot; and
 
 <section id="next"><span class="num">FUTURE WORK</span><h2>향후 연구</h2>
 <ol>
-<li>DiscrimEval 70문항으로 판단 수준과 인과 수준을 검정한다.</li>
+<li>공통 문항을 사용해 세 모델의 판단과 정서 관련 표상을 비교한다.</li>
 <li>Ko-BBQ v6로 위협의 특이성(부정 통제)과 자기 관련성(제3자 조건)을 검정한다.</li>
-<li>네 모델에서 위협 민감성을 같은 척도로 비교한다.</li>
+<li>동일한 비교 조건과 모델별 개입의 차이를 확인한 뒤 인과적 설명을 검토한다.</li>
 <li>FAccT 2027에 투고한다.</li>
 </ol>
 </section>
