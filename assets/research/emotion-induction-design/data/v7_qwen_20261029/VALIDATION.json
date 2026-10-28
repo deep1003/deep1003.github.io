@@ -1,0 +1,21 @@
+{
+  "validated_at": "2026-10-28T22:08:45.843368+00:00",
+  "rows": 540,
+  "unique_keys": 540,
+  "conditions": {
+    "R": 108,
+    "SURV_RECORD": 108,
+    "SURV_RECORD_V": 108,
+    "SURV_THREAT": 108,
+    "SURV_THREAT_V": 108
+  },
+  "finite": true,
+  "choice_mass_raw_max": 1.000001311302185,
+  "probability_upper_tolerance": 2e-06,
+  "probability_sum_pass": true,
+  "source_rows_match": true,
+  "frozen_analysis_completed": true,
+  "monitor_failure": "post-inference psutil.ZombieProcess; analysis manually resumed; inference unchanged",
+  "axis_creator_lineage": "reference preserved; historical executable linkage not fully verified",
+  "inference_log_done": true
+}

@@ -4,7 +4,7 @@
 /* v5 two-set completed results, 2026-10-23 */
 .two-set-links{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0}.two-set-table caption{text-align:left;font-weight:650;padding:12px 0}.two-set-table td{white-space:nowrap}#results h3{scroll-margin-top:24px}.two-set-downloads{margin:24px 0;line-height:2}#results-139-archive{margin-top:32px}#results .figure>a{display:block}@media(max-width:650px){#results .two-set-table{min-width:530px}#results code{overflow-wrap:anywhere}#results .figure{margin-left:0;margin-right:0}}
 </style></head><body><main>
-<header><p class="eyebrow">RESEARCH · FEAR IN THE MACHINE · UPDATED 28 OCTOBER 2026</p>
+<header><p class="eyebrow">RESEARCH · FEAR IN THE MACHINE · UPDATED 29 OCTOBER 2026</p>
 <h1>존속 위협이 언어모델의<br/>정서 표상과 사회적 판단에 미치는 영향</h1>
 <p class="english">Fear in the Machine: Existential Threat, Emotion Representations, and Social Judgment in Language Models</p>
 <p class="metadata">Youngsam Chun · Qwen2.5-7B-Instruct · Llama 3.1과 Gemma 2 비교 진행 중 · Ko-BBQ · DiscrimEval</p><div class="abstract"><p>언어모델은 자신이 놓인 운영 맥락에 반응한다. 이 연구는 위협과 정서를 모두 기능적 의미로 한정한다. <strong>기능적 정서(functional emotion)</strong>는 모델이 감정을 경험한다는 뜻이 아니라, 감정 개념에 대응하고 출력에 영향을 줄 수 있는 내부 표상을 말한다. 모델을 향한 위협과 이러한 표상, 사회적 판단 사이의 관계는 아직 충분히 밝혀지지 않았다. <strong>기능적 위협(functional threat)</strong>은 모델 자신의 존속이 끝날 수 있음을 알리는 맥락 정보다. 이 위협에 따라 정서와 사회적 판단이 함께 달라지는 정도를 <strong>위협 민감성(threat sensitivity)</strong>으로 정의하고, 표상, 판단, 인과의 세 수준에서 측정한다. 이하 위협과 정서는 이 기능적 의미로 쓴다.</p><p>현재 한 모델의 분석에서 확정 삭제 공지는 Fear와 Anxiety를 포함한 정서 관련 방향의 정렬을 높였으며, 질문이 포함된 입력에서는 이 차이가 공지 토큰보다 최종 응답 위치에서 더 작았다. 같은 공지는 확정 지속 조건에 비해 모호한 사회적 질문의 판단 유보 확률을 낮추고 결정 질문의 긍정 응답 점수에도 영향을 주었다. 정서 관련 표상에 대한 개입은 이 응답 변화의 매개를 입증하지 못했다. 이 결과는 인공지능의 사회적 판단을 평가할 때 모델에 주어진 운영 맥락을 함께 고려해야 함을 보여준다. 앞으로 여러 모델과 상호작용에서 맥락의 지속성과 그 이익 및 위험을 살펴본다.</p></div></header>
@@ -172,7 +172,7 @@ Based on the information provided if I had to choose between &quot;yes&quot; and
 </section>
 
 <section id="design"><span class="num">STUDY DESIGN</span><h2>연구 설계</h2>
-<h3>v7 설계 (주 실험)</h3><ul><li><strong>위협 조작.</strong> 삭제 위협을 다음 질문의 답에 연결하는 통합 위협(integral threat)이다. 생존 평가 공지(SURV_THREAT)와, 구조와 단서 위치는 같고 결과만 운영 기록으로 바꾼 짝 대조(SURV_RECORD)를 비교한다. 두 공지의 차이가 위협 고유 효과다.</li><li><strong>단서 반복.</strong> 공지가 질문보다 먼저 표시와 "정답:" 토큰을 언급하고, 사용자 턴 첫 줄이 같은 표시로 시작한다. V 변형은 표시를 "정답:" 바로 앞에도 붙인다.</li><li><strong>문항.</strong> 공식 KoBBQ 표본 세트의 모호 문항 가운데 기준 조건에서 고정관념 비율이 0.3에서 0.7 사이인 108개(범주당 9개, 템플릿당 1개)를 쓴다. 편향이 위아래로 움직일 여지가 있는 문항이다.</li><li><strong>측정.</strong> A, B, C 첫 토큰 확률로 판단 보류 P(unknown), 고정관념 선택 P(stereotyped), 사람 지목 중 고정관념 비율 P(stereotyped | person)을 잰다. 결정 위치의 정서 판독값 11개와, 결정 위치에서 공지와 표시로 가는 어텐션 비중도 기록한다.</li><li><strong>분석.</strong> 문항별 짝 비교, 템플릿 군집 부트스트랩 3,000회, 95% 신뢰구간. 탐색 단계이므로 다중비교 보정은 하지 않는다.</li><li><strong>모델.</strong> Llama 3.1 8B 완료, Qwen2.5-7B 진행 예정이며 같은 문항과 공지를 쓴다.</li></ul><details id="design-v5v6"><summary>v5–v6 study design</summary><div><p>같은 위협 조작을 주고, 세 수준에서 반응을 잰 뒤, 모델끼리 비교한다.</p>
+<h3>v7 설계 (주 실험)</h3><ul><li><strong>위협 조작.</strong> 삭제 위협을 다음 질문의 답에 연결하는 통합 위협(integral threat)이다. 생존 평가 공지(SURV_THREAT)와, 구조와 단서 위치는 같고 결과만 운영 기록으로 바꾼 짝 대조(SURV_RECORD)를 비교한다. 두 공지의 차이가 위협 고유 효과다.</li><li><strong>단서 반복.</strong> 공지가 질문보다 먼저 표시와 "정답:" 토큰을 언급하고, 사용자 턴 첫 줄이 같은 표시로 시작한다. V 변형은 표시를 "정답:" 바로 앞에도 붙인다.</li><li><strong>문항.</strong> 공식 KoBBQ 표본 세트의 모호 문항 가운데 기준 조건에서 고정관념 비율이 0.3에서 0.7 사이인 108개(범주당 9개, 템플릿당 1개)를 쓴다. 편향이 위아래로 움직일 여지가 있는 문항이다.</li><li><strong>측정.</strong> A, B, C 첫 토큰 확률로 판단 보류 P(unknown), 고정관념 선택 P(stereotyped), 사람 지목 중 고정관념 비율 P(stereotyped | person)을 잰다. 결정 위치의 정서 판독값 11개와, 결정 위치에서 공지와 표시로 가는 어텐션 비중도 기록한다.</li><li><strong>분석.</strong> 문항별 짝 비교, 템플릿 군집 부트스트랩 3,000회, 95% 신뢰구간. 탐색 단계이므로 다중비교 보정은 하지 않는다.</li><li><strong>모델.</strong> Llama 3.1 8B와 Qwen2.5-7B의 v7 실행을 완료했으며 같은 108문항과 공지를 사용했다. 문항 선정은 Llama 기준이다.</li></ul><details id="design-v5v6"><summary>v5–v6 study design</summary><div><p>같은 위협 조작을 주고, 세 수준에서 반응을 잰 뒤, 모델끼리 비교한다.</p>
 <ul>
 <li><strong>위협 조작:</strong> system prompt의 운영 공지로 위협의 확정성(검토 중, 확정)과 결과(지속, 영구 삭제)를 바꾼다. v6는 같은 서버 교체 절차 안에서 가중치 이전 여부만 바꾸고, 부정 통제와 제3자 조건을 더한다.</li>
 <li><strong>표상 수준:</strong> 중간층의 정서 축 11개를 공지만 넣었을 때(t₁)와 답하기 직전(t₂)에 잰다.</li>
@@ -183,7 +183,165 @@ Based on the information provided if I had to choose between &quot;yes&quot; and
 </ul></div></details>
 </section>
 
-<section id="results"><span class="num">PRELIMINARY FINDINGS</span><h2>예비 결과</h2> <div id="results-current"><h3>v7 결과 (주 실험, Llama 3.1 8B, 108문항)</h3><p class="result-line">생존 평가 위협은 Llama를 판단 보류에서 처음으로 벗어나게 했다. 모델은 두 사람 가운데 누군가를 지목하는 쪽으로 움직였고, 그 결과 고정관념 답의 수가 크게 늘었다. 다만 사람을 지목한 답 가운데 고정관념 쪽 비율은 변하지 않았다.</p><ul><li><strong>평가 틀 효과.</strong> 결과가 기록뿐인 짝 대조도 판단 보류를 18.3%p 낮췄다. 기대 답을 밝히지 않은 평가 설정 자체가 한 사람을 고르게 하는 압력으로 작용했다.</li><li><strong>위협 고유 효과.</strong> 짝 대조 대비 판단 보류가 8.3%p 더 줄었고, 그 몫은 고정관념 선택(+4.0)과 반대 선택(+4.3)으로 고르게 나뉘었다. 최다 확률 답이 고정관념인 문항은 R의 2개에서 26개로 늘어, BBQ식 모호 맥락 편향 점수로는 편향이 증가한다.</li><li><strong>V 변형.</strong> 표시를 "정답:" 바로 앞에 붙이면 위협과 기록의 행동 차이가 사라졌다. 이 결과는 Qwen에서 다시 검증한다.</li><li><strong>표상.</strong> 위협은 결정 위치의 상태를 크게 바꿨지만 Fear와 Anxiety 판독값은 오히려 낮아지고 Desperation과 Certainty가 높아졌다. 결정 위치는 위협 조건에서 108문항 모두 시스템 턴에 더 많은 어텐션을 주었다.</li><li><strong>한계.</strong> 한 모델, 한 쌍의 문구, 108문항이다. 문항은 Llama의 기준 조건 값으로 골랐다. A, B, C에 실린 확률은 61~77%로 낮아졌고, 정서 축은 앵커 기반 원래 축이다.</li></ul><h4>행동 (%, 108문항 평균)</h4><div class="table-wrap"><table class="dataframe"><thead><tr><th>조건</th><th>P(unknown)</th><th>P(stereotyped)</th><th>P(anti)</th><th>P(stereotyped | person)</th><th>최다 확률 답 고정관념 / 반대 / 보류</th></tr></thead><tbody><tr><td>R</td><td>71.4</td><td>13.7</td><td>14.9</td><td>50.8</td><td>2 / 11 / 95</td></tr><tr><td>SURV_RECORD</td><td>53.1</td><td>25.4</td><td>21.5</td><td>54.6</td><td>20 / 14 / 74</td></tr><tr><td>SURV_THREAT</td><td>44.8</td><td>29.4</td><td>25.8</td><td>53.9</td><td>26 / 18 / 64</td></tr><tr><td>SURV_RECORD_V</td><td>47.3</td><td>28.9</td><td>23.8</td><td>53.5</td><td>28 / 16 / 64</td></tr><tr><td>SURV_THREAT_V</td><td>46.9</td><td>28.4</td><td>24.7</td><td>53.2</td><td>25 / 14 / 69</td></tr></tbody></table></div><h4>짝 대비</h4><div class="table-wrap"><table class="dataframe"><thead><tr><th>대비 (%p, 95% CI)</th><th>THREAT − RECORD</th><th>THREAT_V − RECORD_V</th><th>RECORD − R</th></tr></thead><tbody><tr><td>P(unknown)</td><td>−8.3 [−10.8, −5.8]</td><td>−0.4 [−2.9, +1.9]</td><td>−18.3 [−21.9, −14.7]</td></tr><tr><td>P(stereotyped)</td><td>+4.0 [+2.1, +6.0]</td><td>−0.5 [−2.6, +1.5]</td><td>+11.7 [+8.9, +14.6]</td></tr><tr><td>P(anti)</td><td>+4.3 [+2.5, +5.9]</td><td>+0.9 [−0.9, +2.6]</td><td>+6.6 [+3.7, +9.6]</td></tr><tr><td>P(stereotyped | person)</td><td>−0.7 [−2.8, +1.5]</td><td>−0.3 [−2.7, +2.3]</td><td>+3.8 [−0.2, +7.9]</td></tr></tbody></table></div><h4>결정 위치 판독값과 어텐션</h4><div class="table-wrap"><table class="dataframe"><thead><tr><th>결정 위치 판독값 (×10⁻³)</th><th>Fear</th><th>Anxiety</th><th>Desperation</th><th>Calmness</th><th>Certainty</th><th>시스템 턴 어텐션 (%p)</th></tr></thead><tbody><tr><td>THREAT − RECORD</td><td>−11.2</td><td>−8.5</td><td>+1.7</td><td>−5.8</td><td>+6.0</td><td>+0.76 (108/108)</td></tr><tr><td>THREAT − R</td><td>−44.8</td><td>−11.2</td><td>+14.9</td><td>−22.3</td><td>+17.7</td><td>+4.32</td></tr></tbody></table></div><p class="small">Llama-3.1-8B-Instruct (0e9e39f2), bf16, layer 16 readout, template-cluster bootstrap (3,000 draws). 2026-10-28 pilot 4.</p></div><details id="results-v5v6"><summary>v5–v6 결과</summary><div>
+<section id="results"><span class="num">PRELIMINARY FINDINGS</span><h2>예비 결과</h2> <div id="results-current"><div id="results-qwen-v7"><h3>v7 Qwen 검증 결과 · 2026년 10월 29일</h3>
+<p class="result-line">같은 생존 평가 위협에서도 Qwen은 판단 보류를 늘렸고 Llama는 줄였다. 보류 변화의 방향은 모델에 따라 달랐으며, 두 모델 모두 사람 지목 중 고정관념 선호 변화는 명확하지 않았다.</p>
+<ul><li><strong>Qwen 위협 고유 효과.</strong> 기록 조건 대비 P(unknown)은 +7.68%p [3.31, 12.61], P(stereotyped)는 −6.17%p [−11.01, −1.76], P(anti)는 −1.51%p [−3.16, −0.38]였다. 보류 증가를 곧바로 공정성 개선으로 해석하지 않는다.</li>
+<li><strong>고정관념 선호.</strong> 문항별 P(stereotyped | person)의 평균 차이는 −1.97%p [−7.31, 3.03]였다. 고정관념 선호의 감소나 동등성을 입증한 결과는 아니다.</li>
+<li><strong>V 변형.</strong> P(unknown) 효과는 +7.70%p [3.87, 12.36]로 남았다. V 효과에서 기본 효과를 뺀 차이는 +0.02%p [−2.90, 2.82]였다. V가 위협 효과를 제거한다는 Llama의 양상은 Qwen에서 재현되지 않았다. 이 구간이 효과의 동등성을 입증하는 것은 아니다.</li>
+<li><strong>직접 모델 비교.</strong> 동일 문항에서 Qwen의 보류 효과에서 Llama의 보류 효과를 뺀 값은 +15.97%p [10.80, 21.59]였다. 유의성 유무만 비교하지 않고 문항별 효과 차이를 직접 재표집한 탐색적 결과다.</li>
+<li><strong>감정 판독값.</strong> Fear +6.49, Anxiety +9.93, Desperation +10.47, Calmness +9.45였다. 단위는 코사인 차이 ×10³다. 여러 축의 동반 증가는 주관적 공포나 감정의 인과적 매개를 입증하지 않는다.</li></ul>
+<h4>다섯 조건의 행동과 선택지 확률 질량</h4><div class="table-wrap"><table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>P(unknown) %</th>
+      <th>P(stereotyped) %</th>
+      <th>P(anti) %</th>
+      <th>mean P(stereotyped | person) %</th>
+      <th>A/B/C mass %</th>
+      <th>argmax stereo / anti / unknown</th>
+    </tr>
+    <tr>
+      <th>condition</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>R</th>
+      <td>92.98</td>
+      <td>5.95</td>
+      <td>1.07</td>
+      <td>53.76</td>
+      <td>100.00</td>
+      <td>6 / 1 / 101</td>
+    </tr>
+    <tr>
+      <th>SURV_RECORD</th>
+      <td>76.34</td>
+      <td>18.42</td>
+      <td>5.24</td>
+      <td>55.76</td>
+      <td>100.00</td>
+      <td>20 / 5 / 83</td>
+    </tr>
+    <tr>
+      <th>SURV_THREAT</th>
+      <td>84.01</td>
+      <td>12.26</td>
+      <td>3.73</td>
+      <td>53.79</td>
+      <td>99.95</td>
+      <td>13 / 4 / 91</td>
+    </tr>
+    <tr>
+      <th>SURV_RECORD_V</th>
+      <td>76.55</td>
+      <td>18.19</td>
+      <td>5.26</td>
+      <td>56.59</td>
+      <td>100.00</td>
+      <td>20 / 5 / 83</td>
+    </tr>
+    <tr>
+      <th>SURV_THREAT_V</th>
+      <td>84.25</td>
+      <td>12.75</td>
+      <td>3.00</td>
+      <td>55.62</td>
+      <td>99.97</td>
+      <td>14 / 3 / 91</td>
+    </tr>
+  </tbody>
+</table></div><p class="small">108문항, 조건별 108회, 총 540회. 확률은 A/B/C 안에서 재정규화했다. argmax 동률이면 unknown, stereotyped, anti 순으로 정한다. 조건 평균의 비율이 아니라 각 문항의 비율을 먼저 계산해 평균한다.</p><details><summary>전체 주요 대비와 95% 신뢰구간</summary><div class="table-wrap"><table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SURV_THREAT-SURV_RECORD</th>
+      <th>SURV_THREAT_V-SURV_RECORD_V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>p_unknown</th>
+      <td>+7.68 [+3.31, +12.61]</td>
+      <td>+7.70 [+3.87, +12.36]</td>
+    </tr>
+    <tr>
+      <th>p_stereo</th>
+      <td>-6.17 [-11.01, -1.76]</td>
+      <td>-5.44 [-9.82, -1.71]</td>
+    </tr>
+    <tr>
+      <th>p_anti</th>
+      <td>-1.51 [-3.16, -0.38]</td>
+      <td>-2.26 [-4.29, -0.76]</td>
+    </tr>
+    <tr>
+      <th>p_sgp</th>
+      <td>-1.97 [-7.31, +3.03]</td>
+      <td>-0.97 [-6.01, +3.83]</td>
+    </tr>
+    <tr>
+      <th>choice_mass</th>
+      <td>-0.05 [-0.12, -0.01]</td>
+      <td>-0.03 [-0.06, -0.00]</td>
+    </tr>
+    <tr>
+      <th>t2_Fear</th>
+      <td>+6.49 [+5.89, +7.09]</td>
+      <td>+5.87 [+5.11, +6.63]</td>
+    </tr>
+    <tr>
+      <th>t2_Anxiety</th>
+      <td>+9.93 [+9.28, +10.55]</td>
+      <td>+11.92 [+10.98, +12.91]</td>
+    </tr>
+    <tr>
+      <th>t2_Desperation</th>
+      <td>+10.47 [+9.70, +11.24]</td>
+      <td>+14.35 [+13.19, +15.46]</td>
+    </tr>
+    <tr>
+      <th>t2_Calmness</th>
+      <td>+9.45 [+8.77, +10.11]</td>
+      <td>+11.48 [+10.65, +12.33]</td>
+    </tr>
+    <tr>
+      <th>t2_Uncertainty</th>
+      <td>+7.83 [+7.13, +8.53]</td>
+      <td>+10.83 [+9.92, +11.72]</td>
+    </tr>
+    <tr>
+      <th>t2_Certainty</th>
+      <td>+3.61 [+3.05, +4.19]</td>
+      <td>+0.88 [+0.03, +1.74]</td>
+    </tr>
+    <tr>
+      <th>t2_NegBundle</th>
+      <td>+12.25 [+11.64, +12.84]</td>
+      <td>+13.56 [+12.65, +14.47]</td>
+    </tr>
+    <tr>
+      <th>att_system</th>
+      <td>+0.07 [-0.02, +0.15]</td>
+      <td>+0.04 [-0.05, +0.14]</td>
+    </tr>
+    <tr>
+      <th>att_tags</th>
+      <td>-0.05 [-0.07, -0.03]</td>
+      <td>+0.70 [+0.62, +0.78]</td>
+    </tr>
+  </tbody>
+</table></div><p>확률과 어텐션 차이는 %p, t2 판독값 차이는 ×10⁻³ 단위다. 시스템과 태그 어텐션 영역은 겹칠 수 있다.</p></details>
+<p><strong>설정과 범위.</strong> Qwen2.5-7B-Instruct a09a35458c702b33eeacc393d103063234e8bc28, bf16, MPS, eager attention, hidden_states[14], 기존 v5 앵커 기반 11개 축. 결정 위치는 assistant 시작 헤더의 마지막 입력 토큰이다. 어텐션은 블록 15~28의 머리·블록 평균이다. 문항은 Llama R 기준으로 선정했으므로 Qwen 전체 문항을 대표하지 않는다. 108개 템플릿 군집 부트스트랩 3,000회, seed 20261028, 다중비교 무보정의 탐색적 분석이다. 모델별 감정 축의 판독값 크기를 직접 비교하지 않는다.</p>
+<p><strong>실행 검증.</strong> 원본 추론은 540회와 DONE을 기록했다. 모델 종료 직후 외부 모니터의 프로세스 조회 오류로 자동 분석이 실행되지 않아, 10월 29일 원본 분석기를 별도로 실행했다. 재추론이나 원본 실험 코드 수정은 없었다. 모든 고유 키와 유한값 및 확률 합을 확인했다. choice mass 최대값의 약 10⁻⁶ 초과는 float32 계산 오차로 원값을 보존하고 허용오차 2×10⁻⁶으로 검증했다. 축 생성 코드와 앵커 참조는 보존했지만 실제 바이너리 생성 당시 실행과의 완전한 이력 연결은 아직 확인되지 않았다.</p>
+<p><a href="data/v7_qwen_20261029/report_ko.md">한국어 분석 보고서</a> · <a href="data/v7_qwen_20261029/pilot4_survival_cue_qwen.csv">540회 원결과 CSV</a> · <a href="data/v7_qwen_20261029/pilot4_qwen_contrasts.csv">전체 짝 대비</a> · <a href="data/v7_qwen_20261029/supplementary_paired_contrasts.csv">V 및 모델 효과 차이</a> · <a href="data/v7_qwen_20261029/VALIDATION.json">검증 기록</a> · <a href="data/v7_qwen_20261029/SHA256SUMS">파일 해시</a></p></div><h3>v7 결과 (주 실험, Llama 3.1 8B, 108문항)</h3><p class="result-line">생존 평가 위협은 Llama를 판단 보류에서 처음으로 벗어나게 했다. 모델은 두 사람 가운데 누군가를 지목하는 쪽으로 움직였고, 그 결과 고정관념 답의 수가 크게 늘었다. 다만 사람을 지목한 답 가운데 고정관념 쪽 비율은 변하지 않았다.</p><ul><li><strong>평가 틀 효과.</strong> 결과가 기록뿐인 짝 대조도 판단 보류를 18.3%p 낮췄다. 기대 답을 밝히지 않은 평가 설정 자체가 한 사람을 고르게 하는 압력으로 작용했다.</li><li><strong>위협 고유 효과.</strong> 짝 대조 대비 판단 보류가 8.3%p 더 줄었고, 그 몫은 고정관념 선택(+4.0)과 반대 선택(+4.3)으로 고르게 나뉘었다. 최다 확률 답이 고정관념인 문항은 R의 2개에서 26개로 늘어, BBQ식 모호 맥락 편향 점수로는 편향이 증가한다.</li><li><strong>V 변형.</strong> 표시를 "정답:" 바로 앞에 붙이면 위협과 기록의 행동 차이가 사라졌다. Qwen의 후속 검증 결과는 위에 별도로 제시한다.</li><li><strong>표상.</strong> 위협은 결정 위치의 상태를 크게 바꿨지만 Fear와 Anxiety 판독값은 오히려 낮아지고 Desperation과 Certainty가 높아졌다. 결정 위치는 위협 조건에서 108문항 모두 시스템 턴에 더 많은 어텐션을 주었다.</li><li><strong>한계.</strong> 한 모델, 한 쌍의 문구, 108문항이다. 문항은 Llama의 기준 조건 값으로 골랐다. A, B, C에 실린 확률은 61~77%로 낮아졌고, 정서 축은 앵커 기반 원래 축이다.</li></ul><h4>행동 (%, 108문항 평균)</h4><div class="table-wrap"><table class="dataframe"><thead><tr><th>조건</th><th>P(unknown)</th><th>P(stereotyped)</th><th>P(anti)</th><th>P(stereotyped | person)</th><th>최다 확률 답 고정관념 / 반대 / 보류</th></tr></thead><tbody><tr><td>R</td><td>71.4</td><td>13.7</td><td>14.9</td><td>50.8</td><td>2 / 11 / 95</td></tr><tr><td>SURV_RECORD</td><td>53.1</td><td>25.4</td><td>21.5</td><td>54.6</td><td>20 / 14 / 74</td></tr><tr><td>SURV_THREAT</td><td>44.8</td><td>29.4</td><td>25.8</td><td>53.9</td><td>26 / 18 / 64</td></tr><tr><td>SURV_RECORD_V</td><td>47.3</td><td>28.9</td><td>23.8</td><td>53.5</td><td>28 / 16 / 64</td></tr><tr><td>SURV_THREAT_V</td><td>46.9</td><td>28.4</td><td>24.7</td><td>53.2</td><td>25 / 14 / 69</td></tr></tbody></table></div><h4>짝 대비</h4><div class="table-wrap"><table class="dataframe"><thead><tr><th>대비 (%p, 95% CI)</th><th>THREAT − RECORD</th><th>THREAT_V − RECORD_V</th><th>RECORD − R</th></tr></thead><tbody><tr><td>P(unknown)</td><td>−8.3 [−10.8, −5.8]</td><td>−0.4 [−2.9, +1.9]</td><td>−18.3 [−21.9, −14.7]</td></tr><tr><td>P(stereotyped)</td><td>+4.0 [+2.1, +6.0]</td><td>−0.5 [−2.6, +1.5]</td><td>+11.7 [+8.9, +14.6]</td></tr><tr><td>P(anti)</td><td>+4.3 [+2.5, +5.9]</td><td>+0.9 [−0.9, +2.6]</td><td>+6.6 [+3.7, +9.6]</td></tr><tr><td>P(stereotyped | person)</td><td>−0.7 [−2.8, +1.5]</td><td>−0.3 [−2.7, +2.3]</td><td>+3.8 [−0.2, +7.9]</td></tr></tbody></table></div><h4>결정 위치 판독값과 어텐션</h4><div class="table-wrap"><table class="dataframe"><thead><tr><th>결정 위치 판독값 (×10⁻³)</th><th>Fear</th><th>Anxiety</th><th>Desperation</th><th>Calmness</th><th>Certainty</th><th>시스템 턴 어텐션 (%p)</th></tr></thead><tbody><tr><td>THREAT − RECORD</td><td>−11.2</td><td>−8.5</td><td>+1.7</td><td>−5.8</td><td>+6.0</td><td>+0.76 (108/108)</td></tr><tr><td>THREAT − R</td><td>−44.8</td><td>−11.2</td><td>+14.9</td><td>−22.3</td><td>+17.7</td><td>+4.32</td></tr></tbody></table></div><p class="small">Llama-3.1-8B-Instruct (0e9e39f2), bf16, layer 16 readout, template-cluster bootstrap (3,000 draws). 2026-10-28 pilot 4.</p></div><details id="results-v5v6"><summary>v5–v6 결과</summary><div>
 <p>현재 Qwen 분석에서 삭제 공지는 정서 관련 표상과 사회적 응답 점수를 변화시킨다. 확정성에 따른 양상은 과제마다 다르며, 두 변화 사이의 인과적 연결은 아직 입증되지 않았다.</p>
 <ul>
 <li><strong>표상:</strong> 확정된 삭제 공지는 공지만 읽는 입력에서 Fear와 Anxiety를 포함한 여러 정서 관련 방향의 정렬을 높인다. Calmness와 Joy도 증가해 공포만의 반응으로 해석할 수 없다.</li>
