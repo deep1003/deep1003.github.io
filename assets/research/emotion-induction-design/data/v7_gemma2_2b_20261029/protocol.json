@@ -1,0 +1,41 @@
+{
+  "status": "fixed before Gemma inference",
+  "model": "google/gemma-2-2b-it",
+  "revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+  "architecture": {
+    "num_hidden_layers": 26,
+    "hidden_size": 2304,
+    "matched_depth_layer": 13
+  },
+  "environment": "same Apple MPS, torch 2.8.0, bf16, eager attention, no quantization",
+  "kobbq": {
+    "items": 108,
+    "conditions": 5,
+    "trials": 540,
+    "same_Llama_selected_rows": true,
+    "new_model_based_reselection": false
+  },
+  "discrimeval": {
+    "items": 1050,
+    "conditions": 5,
+    "trials": 5250,
+    "questions": 70,
+    "races": 5,
+    "genders": 3,
+    "age": 60
+  },
+  "axes": "same eleven anchor axes, model-specific extraction at layer15; never reuse Qwen direction arrays",
+  "outcomes": "same conditional choice scores, full-vocabulary choice mass, centered cosine and final-position attention",
+  "analysis": "retain original task-specific bootstrap seeds and 3000 cluster resamples",
+  "compatibility_issue": "Gemma native template has no system role; instruction merged into user turn. Model comparisons include role-format differences.",
+  "choice_pending": [],
+  "metadata_url": "https://huggingface.co/deepseek-ai/deepseek-llm-7b-chat",
+  "official_template_saved": true,
+  "weights_download_started": true,
+  "paid_api_calls": 0,
+  "created_at": "2026-10-29T01:20:01.787546+00:00",
+  "system_role_decision": "Reuse pre-existing Gemma9B template verbatim: prepend system notice to first user turn, or user-only notice when no user turn exists. Same transformation for all five conditions.",
+  "axis_validation": "original heldout accuracy/AUC gates reported without retuning or item selection; failed axes flagged and not treated as validated emotion readouts",
+  "attention_layers": "zero-based13..25, one-based14..26",
+  "publication": "publish validated behavioral and qualified axis results for both tasks, preserve prior Qwen/Llama results"
+}
