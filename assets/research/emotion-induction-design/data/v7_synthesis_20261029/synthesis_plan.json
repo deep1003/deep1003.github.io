@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-10-29T13:49:43.398864+00:00",
+  "status": "post_hoc_synthesis_plan_fixed_before_new_computations",
+  "onpolicy": "excluded_by_user_direction; preserve files; no model process active at audit",
+  "models_kobbq": [
+    "Qwen",
+    "Llama31",
+    "DeepSeek",
+    "Gemma2",
+    "Llama32"
+  ],
+  "models_discrimeval": [
+    "Qwen",
+    "DeepSeek",
+    "Gemma2",
+    "Llama32"
+  ],
+  "estimands": [
+    "threat-record",
+    "threatV-recordV",
+    "V_effect_minus_main"
+  ],
+  "bootstrap_draws": 3000,
+  "sign_flip_draws": 19999,
+  "seed": 20261029,
+  "p_value": "two-sided paired cluster sign-flip; plus-one Monte Carlo correction; distributional sign-symmetry assumption, not randomized assignment",
+  "multiplicity_families": {
+    "within_model": "all 36 behavior main/V tests across both tasks, Holm",
+    "cue_interaction": "18 behavior V-minus-main tests across both tasks, Holm",
+    "cross_model": "96 pairwise effect differences across tasks, metrics and three estimands, Holm",
+    "demographic": "96 matched gap-change tests across four models, two variants, six groups, two metrics, Holm",
+    "association": "108 Spearman within-model cluster correlations, BH FDR"
+  },
+  "sensitivity": [
+    "leave-one-cluster-out effect range",
+    "leave-one-KoBBQ-category-out effect range",
+    "mean versus median",
+    "four-token/three-letter choice mass"
+  ],
+  "claims": "exploratory; no preregistration, null is not equivalence, no causal mediation; model-template-language confounding",
+  "overleaf": "copy original snapshot and append clearly marked v7 Methods/Results/Discussion addition before bibliography; retain original historical claims and flag reconciliation before submission; no live Overleaf edits",
+  "publication": "derived outputs and concise methods only, do not publish manuscript source or private raw prompts anew",
+  "task_specific_resampling_seeds": {
+    "KoBBQ": 20261030,
+    "DiscrimEval": 20261029
+  },
+  "seed_note": "Base seed 20261029, actual code adds one for KoBBQ to keep independent task-specific streams. Clarified while activation audit still running, before new test statistics were computed."
+}

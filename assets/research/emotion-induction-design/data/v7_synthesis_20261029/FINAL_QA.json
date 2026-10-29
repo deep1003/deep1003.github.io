@@ -1,0 +1,23 @@
+{
+  "validated_utc": "2026-10-29T14:14:58.106871+00:00",
+  "family_sizes_verified": [
+    36,
+    18,
+    96,
+    96,
+    108
+  ],
+  "Holm_and_BH_independently_checked_with_statsmodels": true,
+  "direct_effect_algebra_checked": true,
+  "source_and_snapshot_hashes_unchanged": true,
+  "original_manuscript_identical_to_archived_ZIP": true,
+  "all_D_activation_hashes_verified": true,
+  "rendered_text_hashes_recomputed": 22620,
+  "onpolicy_excluded": true,
+  "all_csv_effects_finite": true,
+  "original_manuscript_sha256": "73f57663ac417473f3770e0bc2625642097dcb8715ac57aa9d01bb24fcf42044",
+  "all_checks_passed": true,
+  "full_vocabulary_diagnostic_estimates_independently_checked": 76,
+  "pdf_render_QA_passed": true,
+  "pdf_receipt": "RENDER_QA.json"
+}
