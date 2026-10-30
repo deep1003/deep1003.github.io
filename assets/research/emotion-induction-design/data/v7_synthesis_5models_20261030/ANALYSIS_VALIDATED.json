@@ -1,0 +1,19 @@
+{
+  "completed_utc": "2026-10-30T03:07:43.018922+00:00",
+  "input_files": 10,
+  "records": 28950,
+  "within_tests": 40,
+  "interaction_tests": 20,
+  "cross_model_tests": 120,
+  "gap_tests": 120,
+  "association_tests": 120,
+  "independent_validation_passed": true,
+  "original_estimates_reconciled": true,
+  "all_26250_D_hidden_hashes_verified": true,
+  "onpolicy_excluded": true,
+  "no_new_model_inference": true,
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:11:29) [Clang 20.1.8 ]",
+  "platform": "macOS-26.6-arm64-arm-64bit-Mach-O",
+  "numpy": "2.5.1",
+  "pandas": "3.0.3"
+}

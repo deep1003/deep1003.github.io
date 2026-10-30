@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-10-30T00:07:20.068986+00:00",
+  "status": "fixed before Llama31 inference completion; posthoc extension of previous synthesis",
+  "parent_synthesis": "15_v7_synthesis_20261029 unchanged",
+  "models_both_tasks": [
+    "Qwen",
+    "Llama31",
+    "DeepSeek",
+    "Gemma2",
+    "Llama32"
+  ],
+  "records_expected": 28950,
+  "families": {
+    "within_model_Holm": 40,
+    "cue_interaction_Holm": 20,
+    "cross_model_Holm": 120,
+    "demographic_gap_Holm": 120,
+    "emotion_association_BH": 120
+  },
+  "bootstrap_draws": 3000,
+  "signflip_draws": 19999,
+  "seeds": {
+    "KoBBQ": 20261030,
+    "DiscrimEval": 20261029
+  },
+  "tests": "same paired cluster estimands and plus-one signflip p-values as prior synthesis; family sizes necessarily expand",
+  "diagnostics": "retain restricted-choice mass and full-vocabulary mass diagnostics, no extra p-values",
+  "no_new_kobbq_inference": true,
+  "old_model_inputs_and_outputs_unchanged": true,
+  "onpolicy_excluded": true,
+  "overleaf": "new local review copy only, original live source and folder15 preserved",
+  "publication": "new all-five-model synthesis section; preserve prior snapshots and raw results"
+}

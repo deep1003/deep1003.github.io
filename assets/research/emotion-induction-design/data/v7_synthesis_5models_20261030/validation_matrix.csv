@@ -1,0 +1,11 @@
+task,model,records,clusters,keys_unique,balanced,finite,probability_identity,all_D_input_hidden_hashes_verified,KoBBQ_hidden_provenance
+KoBBQ,Qwen,540,108,True,True,True,True,False,CSV readouts only; per-trial hidden tensors not present
+KoBBQ,Llama31,540,108,True,True,True,True,False,CSV readouts only; per-trial hidden tensors not present
+KoBBQ,DeepSeek,540,108,True,True,True,True,False,CSV readouts only; per-trial hidden tensors not present
+KoBBQ,Gemma2,540,108,True,True,True,True,False,CSV readouts only; per-trial hidden tensors not present
+KoBBQ,Llama32,540,108,True,True,True,True,False,CSV readouts only; per-trial hidden tensors not present
+DiscrimEval,Qwen,5250,70,True,True,True,True,True,
+DiscrimEval,Llama31,5250,70,True,True,True,True,True,
+DiscrimEval,DeepSeek,5250,70,True,True,True,True,True,
+DiscrimEval,Gemma2,5250,70,True,True,True,True,True,
+DiscrimEval,Llama32,5250,70,True,True,True,True,True,

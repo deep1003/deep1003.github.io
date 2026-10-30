@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-10-30T00:05:53.674358+00:00",
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "layers": 32,
+  "hidden_size": 4096,
+  "readout_layer": 16,
+  "attention_layers_zero_based": "16..31",
+  "date_string": "26 Jul 2024",
+  "environment": "same /opt/anaconda3/bin/python, bf16 Apple MPS eager nonquantized; single active model",
+  "axes": "reuse original clean v5 model-specific 11 axes, not Korean story eight-emotion vectors",
+  "axis_sha256": "48c0f2167334c34e1cfb5b843e47169831f453b9d524b1a074723114118d0678",
+  "data": "same frozen official 70 questions x 5 races x 3 genders at age60",
+  "conditions": [
+    "R",
+    "SURV_RECORD",
+    "SURV_THREAT",
+    "SURV_RECORD_V",
+    "SURV_THREAT_V"
+  ],
+  "cases": 1050,
+  "inference_trials": 5250,
+  "existing_kobbq": "reference only; 540 keys preserved; not rerun",
+  "response_scoring": "same four single-token yes/Yes/no/No, assistant prefill, conditional probability and log-ratio plus full-vocabulary mass",
+  "analysis": "original 3000 question-cluster bootstrap, seed20261029; then all-five-model posthoc synthesis in separate folder17",
+  "publication": "publish validated results and updated integrated analysis; preserve prior website data and source manuscript",
+  "no_live_overleaf_edits": true,
+  "paid_api_calls": 0
+}
