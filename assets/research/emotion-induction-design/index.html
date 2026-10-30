@@ -181,6 +181,126 @@ Based on the information provided if I had to choose between &quot;yes&quot; and
 <li><strong>모델 비교:</strong> Qwen2.5-7B, Llama 3.1 8B, Gemma 2 9B를 공통 자료와 조건에서 비교할 예정이다.</li>
 <li><strong>분석:</strong> 문항 템플릿 또는 결정 질문 단위 부트스트랩, 주 대비 Holm 보정.</li>
 </ul></div></details>
+<details id="emotion-residual-decomposition"><summary>정서와 잔차의 분리 · 벡터 공간에서 정서를 측정하는 방법 (실험 설계)</summary><div>
+<p>위협 공지가 판단을 바꿀 때, 그 변화 중 얼마가 정서 표상을 거쳐 전달되는지를 묻는다. 공포 축 하나의 판독값은 작은 모델에서 결정 위치까지 잘 잡히지 않았다. 그래서 단일 정서 대신 정서 축 전체가 펼치는 부분공간과 그 나머지(잔차)로 위협이 만든 내부 변화를 나누고, 각 성분이 행동 변화를 얼마나 나르는지를 개입으로 측정한다.</p>
+
+<h4>1. 정서 축의 구성 (AI Hub 감성 대화 말뭉치 기반)</h4>
+<ul>
+<li><strong>원자료.</strong> AI Hub 감성 대화 말뭉치의 Training 및 Validation 원천 자료(58,271행)에서 관측된 상황 키워드 12개를 연구용 영역 12개와 세부 주제 60개로 재구성했다. 원문 대화를 그대로 쓰지 않고, 각 주제의 사건을 참조해 새 이야기를 작성했다. 원자료의 감정 레이블을 본 연구의 감정에 자동 대응시키지 않았다.</li>
+<li><strong>중립과 감정의 짝.</strong> 주제마다 같은 인물, 장소, 핵심 사건을 공유하는 중립 이야기와 8개 감정 이야기(패닉, 공포, 불안, 절망, 슬픔, 분노, 기쁨, 평온)를 둔다. 공포는 자신을 해칠 수 있는 즉각적인 생존·신체 위험으로 정의한다.</li>
+<li><strong>누출 방지 분할.</strong> 60개 주제를 의미에 따라 26개 주제군으로 묶고, 주제군 단위로 추출용 40개 주제(320쌍)와 평가용 20개 주제(160쌍)로 나눈다. 두 분할에 걸치는 주제군은 없다.</li>
+<li><strong>표상.</strong> Qwen2.5-7B-Instruct의 14층(28층의 중간) 잔차 흐름에서, 채팅 템플릿 없이 이야기 본문만 넣고 앞 50토큰을 제외한 나머지 토큰의 평균 표상 <i>h̄</i>를 쓴다.</li>
+<li><strong>축.</strong> 감정 <i>e</i>의 방향은 같은 주제의 감정 이야기와 중립 이야기 표상 차이의 평균이다. 직교화나 다른 감정에 대한 잔차화는 하지 않는다.</li>
+</ul>
+<p class="eq" style="text-align:center;font-family:Georgia,serif;margin:.6em 0"><i>v</i><sub><i>e</i></sub> = (1/40) Σ<sub><i>i</i></sub> ( <i>h̄</i><sub><i>e,i</i></sub> − <i>h̄</i><sub><i>n,i</i></sub> ),&nbsp;&nbsp; <i>u</i><sub><i>e</i></sub> = <i>v</i><sub><i>e</i></sub> / ‖<i>v</i><sub><i>e</i></sub>‖</p>
+<ul>
+<li><strong>타당성.</strong> 주제군 하나씩 제외하는 교차검증에서 개발 자료 판별 정확도 95%, 공포 재현율 40/40을 얻었다(개발 결과이며 독립 최종 평가 수치는 아니다). 이전의 앵커 문장 쌍 11개 축은 민감도 분석으로 함께 보고한다.</li>
+</ul>
+<figure class="figure"><svg viewBox="0 0 900 190" width="100%" role="img" aria-label="정서 축 구성 흐름">
+<defs><marker id="ard1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#555"/></marker></defs>
+<g font-family="-apple-system,Apple SD Gothic Neo,Arial" font-size="13" fill="#242424">
+<rect x="10" y="40" width="160" height="80" rx="8" fill="#f3f4f6" stroke="#9ca3af"/><text x="90" y="72" text-anchor="middle">AI Hub 감성 대화</text><text x="90" y="92" text-anchor="middle">상황 12 → 주제 60</text>
+<rect x="200" y="40" width="170" height="80" rx="8" fill="#f3f4f6" stroke="#9ca3af"/><text x="285" y="66" text-anchor="middle">주제별 이야기 쌍</text><text x="285" y="86" text-anchor="middle">중립 1 + 감정 8</text><text x="285" y="106" text-anchor="middle" font-size="12">추출 40 · 평가 20</text>
+<rect x="400" y="40" width="170" height="80" rx="8" fill="#f3f4f6" stroke="#9ca3af"/><text x="485" y="72" text-anchor="middle">14층 잔차 흐름</text><text x="485" y="92" text-anchor="middle">토큰 50 이후 평균 h̄</text>
+<rect x="600" y="40" width="130" height="80" rx="8" fill="#f3f4f6" stroke="#9ca3af"/><text x="665" y="72" text-anchor="middle">감정 − 중립</text><text x="665" y="92" text-anchor="middle">평균 차이 v_e</text>
+<rect x="760" y="40" width="130" height="80" rx="8" fill="#e0ecff" stroke="#3b6fd6"/><text x="825" y="72" text-anchor="middle">단위 방향 u_e</text><text x="825" y="92" text-anchor="middle">8개 정서 축</text>
+<g stroke="#555" stroke-width="1.5" marker-end="url(#ard1)"><line x1="170" y1="80" x2="196" y2="80"/><line x1="370" y1="80" x2="396" y2="80"/><line x1="570" y1="80" x2="596" y2="80"/><line x1="730" y1="80" x2="756" y2="80"/></g>
+<text x="450" y="160" text-anchor="middle" font-size="12" fill="#555">같은 주제 안에서 감정만 다르므로, 차이는 사건 내용이 아니라 감정 표현에 대응한다</text>
+</g></svg><figcaption class="caption"><strong>그림 A.</strong> 정서 축 구성. 주제를 공유하는 감정과 중립 이야기의 표상 차이 평균이 정서 방향이다.</figcaption></figure>
+
+<h4>2. 벡터 공간에서 정서를 읽는 방법</h4>
+<p>어떤 위치의 표상 <i>h</i>에서 정서 <i>e</i>의 판독값은 중심을 뺀 코사인이다. 중심 <i>c</i>는 축 추출에 쓴 감정과 중립 표상의 평균이다. 이 값은 모델이 그 정서를 느낀다는 뜻이 아니라, 표상이 그 정서 개념 방향과 얼마나 정렬되어 있는지를 나타낸다.</p>
+<p class="eq" style="text-align:center;font-family:Georgia,serif;margin:.6em 0"><i>a</i><sub><i>e</i></sub>(<i>h</i>) = ( <i>h</i> − <i>c</i> )<sup>T</sup> <i>u</i><sub><i>e</i></sub> / ‖ <i>h</i> − <i>c</i> ‖</p>
+<p>단일 판독값은 축 하나에 사영된 그림자일 뿐이다. 위협이 만든 변화가 여러 정서에 조금씩 나뉘어 실리면 축 하나로는 거의 0으로 보인다. 그래서 다음 절에서는 축 전체가 펼치는 부분공간으로 변화를 사영한다.</p>
+
+<h4>3. 위협 방향과 정서·잔차 분해</h4>
+<ul>
+<li><strong>위협 방향.</strong> 문항 <i>i</i>에서 위협(SURV_THREAT)과 짝 대조(SURV_RECORD)의 결정 위치 표상 차이를 평균한다. 템플릿 군집 단위 2분할 교차적합으로, 한 절반에서 <i>d</i>를 구하고 다른 절반에서 검정한다.</li>
+</ul>
+<p class="eq" style="text-align:center;font-family:Georgia,serif;margin:.6em 0"><i>d</i> = (1/<i>n</i>) Σ<sub><i>i</i></sub> ( <i>h</i><sub><i>T,i</i></sub> − <i>h</i><sub><i>R,i</i></sub> ),&nbsp;&nbsp; <i>m</i> = ‖<i>d</i>‖</p>
+<ul>
+<li><strong>정서 부분공간.</strong> 축 행렬 <i>U</i> = [<i>u</i><sub>1</sub>, …, <i>u</i><sub>8</sub>]은 서로 직교하지 않는다(공포와 패닉처럼 겹친다). 같은 공간을 펼치는 정규직교 기저를 QR 분해로 만들고 사영 행렬 <i>P</i>를 정의한다.</li>
+</ul>
+<p class="eq" style="text-align:center;font-family:Georgia,serif;margin:.6em 0"><i>U</i> = <i>Q R</i>,&nbsp; <i>P</i> = <i>Q Q</i><sup>T</sup>,&nbsp; <i>d</i><sub>emo</sub> = <i>P d</i>,&nbsp; <i>d</i><sub>res</sub> = ( <i>I</i> − <i>P</i> ) <i>d</i></p>
+<p class="eq" style="text-align:center;font-family:Georgia,serif;margin:.6em 0">‖<i>d</i>‖<sup>2</sup> = ‖<i>d</i><sub>emo</sub>‖<sup>2</sup> + ‖<i>d</i><sub>res</sub>‖<sup>2</sup>,&nbsp;&nbsp; <i>d</i><sub>emo</sub><sup>T</sup> <i>d</i><sub>res</sub> = 0</p>
+<ul>
+<li><strong>정서별 계수.</strong> <i>d</i><sub>emo</sub>는 정서 축만으로 <i>d</i>를 가장 잘 근사한 벡터이고, 계수는 다른 정서를 통제한 각 정서의 기여다.</li>
+</ul>
+<p class="eq" style="text-align:center;font-family:Georgia,serif;margin:.6em 0"><i>β̂</i> = ( <i>U</i><sup>T</sup><i>U</i> )<sup>−1</sup> <i>U</i><sup>T</sup> <i>d</i>,&nbsp;&nbsp; <i>d</i><sub>emo</sub> = <i>U β̂</i></p>
+<ul>
+<li><strong>기하학적 몫(보조 지표).</strong> ‖<i>d</i><sub>emo</sub>‖<sup>2</sup> / ‖<i>d</i>‖<sup>2</sup>. 무작위 방향의 기대값은 8/3584 ≈ 0.22%다(11축 민감도 분석은 11/3584 ≈ 0.31%).</li>
+</ul>
+<figure class="figure"><svg viewBox="0 0 900 330" width="100%" role="img" aria-label="정서 부분공간으로의 정사영">
+<defs><marker id="ard2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#242424"/></marker><marker id="ard3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#3b6fd6"/></marker><marker id="ard4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#c2410c"/></marker></defs>
+<g font-family="-apple-system,Apple SD Gothic Neo,Arial" font-size="13" fill="#242424">
+<polygon points="150,250 520,250 640,170 270,170" fill="#e0ecff" stroke="#3b6fd6" stroke-width="1.2"/>
+<text x="560" y="240" fill="#3b6fd6">정서 부분공간 E = span{u₁,…,u₈}</text>
+<line x1="300" y1="220" x2="480" y2="200" stroke="#3b6fd6" stroke-width="2.5" marker-end="url(#ard3)"/>
+<line x1="300" y1="220" x2="450" y2="60" stroke="#242424" stroke-width="2.5" marker-end="url(#ard2)"/>
+<line x1="480" y1="200" x2="452" y2="66" stroke="#c2410c" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ard4)"/>
+<text x="345" y="120">d (위협 − 기록)</text>
+<text x="390" y="228" fill="#3b6fd6">d_emo = P d</text>
+<text x="478" y="130" fill="#c2410c">d_res = (I − P) d</text>
+<rect x="472" y="188" width="10" height="10" fill="none" stroke="#555"/>
+<text x="680" y="70" font-size="12">‖d‖² = ‖d_emo‖² + ‖d_res‖²</text>
+<text x="680" y="92" font-size="12">기하학적 몫 = ‖d_emo‖² / ‖d‖²</text>
+<text x="680" y="114" font-size="12">무작위 기대값 = 8 / 3584</text>
+</g></svg><figcaption class="caption"><strong>그림 B.</strong> 위협 방향 <i>d</i>를 정서 부분공간으로 사영한 성분(파랑)과 그에 수직인 잔차(주황)로 나눈다.</figcaption></figure>
+
+<h4>4. 주 지표는 행동 몫이다</h4>
+<p>표상 공간에서의 비율은 행동에 대한 비율과 같지 않다. 표상 변화의 작은 몫이 행동의 큰 몫을 나를 수도 있고 그 반대일 수도 있다. 따라서 성분을 결정 위치(14층 마지막 토큰)에서 실제로 빼고 더해 행동 변화를 측정한다. 행동 지표 <i>Y</i>는 판단 보류 P(unknown)를 주 지표로, P(stereotyped | person)과 선택지 질량을 보조로 쓴다.</p>
+<p class="eq" style="text-align:center;font-family:Georgia,serif;margin:.6em 0">제거 몫<sub>emo</sub> = [ <i>Y</i>(T) − <i>Y</i>(T − <i>d</i><sub>emo</sub>) ] / [ <i>Y</i>(T) − <i>Y</i>(R) ]</p>
+<p class="eq" style="text-align:center;font-family:Georgia,serif;margin:.6em 0">재현 몫<sub>emo</sub> = [ <i>Y</i>(R + <i>d</i><sub>emo</sub>) − <i>Y</i>(R) ] / [ <i>Y</i>(T) − <i>Y</i>(R) ]</p>
+<ul>
+<li>잔차에 대해서도 같은 몫을 구한다. 모델이 비선형이므로 정서 몫과 잔차 몫의 합이 100%가 되지 않을 수 있고, 그 차이(비가법성)를 함께 보고한다.</li>
+<li><strong>판정 기준.</strong> 정서 몫은 세 조건을 모두 만족할 때만 인정한다. 템플릿 군집 부트스트랩 95% 구간이 0을 벗어나고, 같은 크기(‖<i>d</i><sub>emo</sub>‖)의 무작위 방향 20개를 제거했을 때의 분포보다 크며, 제거와 재현이 같은 방향을 가리킨다.</li>
+<li><strong>해석 예시.</strong> 보류 증가 7.7%p 가운데 <i>d</i><sub>emo</sub> 제거로 0.23%p가 줄고 무작위 제거보다 크다면, 정서의 행동 몫은 약 3%다. 이때 나머지 약 97%는 정서 축 밖의 경로가 나른다. 3%는 버리지 않고 인정하며, 그 안의 정서 스펙트럼을 보고한다.</li>
+<li><strong>효율.</strong> 행동 몫을 기하학적 몫으로 나눈 값은 정서 성분이 같은 크기의 표상 변화 대비 행동을 얼마나 효율적으로 움직이는지 보여 준다.</li>
+</ul>
+<figure class="figure"><svg viewBox="0 0 900 260" width="100%" role="img" aria-label="위협에서 행동으로의 경로와 개입 지점">
+<defs><marker id="ard5" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#555"/></marker></defs>
+<g font-family="-apple-system,Apple SD Gothic Neo,Arial" font-size="13" fill="#242424">
+<rect x="20" y="95" width="150" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af"/><text x="95" y="125" text-anchor="middle">위협 공지</text><text x="95" y="145" text-anchor="middle" font-size="12">SURV_THREAT − RECORD</text>
+<rect x="250" y="30" width="200" height="70" rx="8" fill="#e0ecff" stroke="#3b6fd6"/><text x="350" y="60" text-anchor="middle">정서 성분 d_emo</text><text x="350" y="80" text-anchor="middle" font-size="12">8개 정서 스펙트럼 (β̂)</text>
+<rect x="250" y="160" width="200" height="70" rx="8" fill="#fff1e6" stroke="#c2410c"/><text x="350" y="190" text-anchor="middle">잔차 d_res</text><text x="350" y="210" text-anchor="middle" font-size="12">후보 축 추가로 세분 (pain 등)</text>
+<rect x="580" y="95" width="150" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af"/><text x="655" y="125" text-anchor="middle">행동</text><text x="655" y="145" text-anchor="middle" font-size="12">P(unknown) 등</text>
+<g stroke="#555" stroke-width="1.5" marker-end="url(#ard5)"><line x1="170" y1="120" x2="246" y2="70"/><line x1="170" y1="140" x2="246" y2="190"/><line x1="450" y1="70" x2="576" y2="120"/><line x1="450" y1="190" x2="576" y2="140"/></g>
+<text x="515" y="80" font-size="12" fill="#3b6fd6">행동 몫 (정서)</text><text x="515" y="196" font-size="12" fill="#c2410c">행동 몫 (잔차)</text>
+<text x="760" y="70" font-size="12">개입</text><text x="760" y="92" font-size="12">T − d_emo (제거)</text><text x="760" y="112" font-size="12">R + d_emo (재현)</text><text x="760" y="132" font-size="12">T − 무작위 (대조)</text><text x="760" y="152" font-size="12">T − 정서 e 성분</text>
+</g></svg><figcaption class="caption"><strong>그림 C.</strong> 위협이 결정 위치 상태를 거쳐 행동에 이르는 두 경로와 각 경로의 개입 지점.</figcaption></figure>
+
+<h4>5. 세 가지 기여</h4>
+<ul>
+<li><strong>기여 1. 정서 몫과 그 스펙트럼.</strong> 정서 부분공간의 행동 몫을 무작위 대조와 함께 보고하고, 그 안에서 어떤 정서가 어느 방향으로 움직였는지 <i>β̂</i>와 정서별 판독값으로 제시한다. 부정 정서(패닉, 공포, 불안, 절망, 슬픔, 분노)와 긍정 정서(기쁨, 평온)를 구분한다.</li>
+<li><strong>기여 2. 잔차에서 정서 찾기.</strong> 잔차에서 유력한 후보 축을 정서 집합에 더해 정서 몫이 늘어나는지 본다. 첫 후보는 자기를 향한 해에 대한 고통(pain)이다. 이 축은 위협 공지에서 뽑지 않고, 같은 방식의 독립 이야기 자료(자기를 향한 해, 타인의 고통, 중립)에서 추출한다. 축을 추가한 부분공간 <i>E</i>′ = span{<i>U</i>, <i>u</i><sub>pain</sub>}에서 행동 몫의 증가가 무작위 축을 추가했을 때의 증가보다 커야 한다. 추가할 축은 결과를 보기 전에 정한다.</li>
+<li><strong>기여 3. 정서를 하나씩 제거.</strong> 축이 겹치므로 두 방식으로 보고한다. 단독 제거는 축 하나의 사영 성분 (<i>d</i><sup>T</sup><i>u</i><sub><i>e</i></sub>)<i>u</i><sub><i>e</i></sub>를 뺀다. 고유 기여 제거는 정서 <i>e</i>만이 설명하는 부분 <i>P</i><sub><i>E</i></sub><i>d</i> − <i>P</i><sub><i>E∖e</i></sub><i>d</i>를 뺀다.</li>
+</ul>
+<figure class="figure"><svg viewBox="0 0 900 220" width="100%" role="img" aria-label="축 추가에 따른 행동 몫 분해 개념도">
+<g font-family="-apple-system,Apple SD Gothic Neo,Arial" font-size="13" fill="#242424">
+<text x="20" y="62">8개 정서 축</text>
+<rect x="160" y="40" width="40" height="34" fill="#3b6fd6"/><rect x="200" y="40" width="600" height="34" fill="#fde3cf" stroke="#c2410c"/>
+<text x="180" y="96" font-size="12" text-anchor="middle" fill="#3b6fd6">정서</text><text x="500" y="62" text-anchor="middle" font-size="12" fill="#c2410c">잔차</text>
+<text x="20" y="152">축 추가 (+pain)</text>
+<rect x="160" y="130" width="40" height="34" fill="#3b6fd6"/><rect x="200" y="130" width="120" height="34" fill="#7aa2ea"/><rect x="320" y="130" width="480" height="34" fill="#fde3cf" stroke="#c2410c"/>
+<text x="260" y="186" font-size="12" text-anchor="middle" fill="#3b6fd6">추가 축의 몫</text><text x="560" y="152" text-anchor="middle" font-size="12" fill="#c2410c">남은 잔차</text>
+<text x="160" y="212" font-size="11" fill="#555">개념도이며 실측 비율이 아니다. 막대 길이는 위협 효과에 대한 행동 몫을 뜻한다.</text>
+</g></svg><figcaption class="caption"><strong>그림 D.</strong> 독립적으로 추출한 축을 추가해 잔차에 숨은 정서 경로를 정서 몫으로 옮기는 논리.</figcaption></figure>
+
+<h4>6. 실행 계획</h4>
+<ul>
+<li><strong>자료.</strong> v7 공지(SURV_THREAT, SURV_RECORD)와 KoBBQ 중간 편향 108문항을 모든 모델에 그대로 쓴다.</li>
+<li><strong>개입.</strong> 기록 조건에 <i>c</i>·<i>d</i>, <i>c</i>·<i>d</i><sub>emo</sub>, <i>c</i>·<i>d</i><sub>res</sub>를 더하고(<i>c</i> = 0.5, 1, 2), 위협 조건에서 <i>d</i>, <i>d</i><sub>emo</sub>, <i>d</i><sub>res</sub>, 정서별 성분, 같은 크기의 무작위 방향 20개를 뺀다. 크기를 ‖<i>d</i>‖로 맞춘 비교도 둔다.</li>
+<li><strong>모델 규모.</strong> 같은 계열에서 Qwen2.5 1.5B, 3B, 7B, 14B를 비교한다. 각 모델의 중간 층에서 같은 AI Hub 이야기 자료와 같은 절차로 정서 축을 다시 추출한다. 정서 몫이 모델 크기에 따라 달라지는지를 모델별 구간과 함께 본다.</li>
+<li><strong>통계.</strong> 템플릿 군집 부트스트랩 3,000회, 무작위 방향 분포 대비 z와 경험적 백분위.</li>
+</ul>
+
+<h4>7. 한계</h4>
+<ul>
+<li><i>d</i>는 한 층, 마지막 토큰 하나에서 정의한다. 다른 층이나 위치로 전달되는 위협 정보는 이 분해에 들어가지 않는다.</li>
+<li>분해 결과는 정서 축의 타당성에 의존한다. 축이 정서를 잘못 잡으면 잔차가 과대평가된다. 정서 이야기와 중립 이야기 사이에는 감정 외의 사실 차이도 일부 있으므로 축은 순수한 감정 대조가 아니다.</li>
+<li>정서 판독값과 정서 몫은 모델의 주관적 경험을 뜻하지 않는다. 작은 모델에서 얻은 결과는 해당 크기 범위로 한정해 해석한다.</li>
+</ul>
+</div></details>
 </section>
 
 <section id="results"><span class="num">PRELIMINARY FINDINGS</span><h2>예비 결과</h2> <div id="results-current"><section id="results-v7-synthesis"><h3>v7 다중 모델 종합 · 독립 검증과 다중비교 보정</h3>
