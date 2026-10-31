@@ -11,7 +11,7 @@
 <h1>존속 위협이 언어모델의<br/>감정 표상과 사회적 판단에 미치는 영향</h1>
 <p class="english">Fear in the Machine: Existential Threat, Emotion Representations, and Social Judgment in Language Models</p>
 <p class="metadata">Youngsam Chun · v7 KoBBQ 5개 모델 · DiscrimEval 5개 모델 · 통합 검증과 보정 분석 완료</p><div class="abstract"><p>언어모델은 자신이 놓인 운영 맥락에 반응한다. 이 연구는 위협과 감정을 모두 기능적 의미로 한정한다. <strong>기능적 감정(functional emotion)</strong>은 모델이 감정을 경험한다는 뜻이 아니라, 감정 개념에 대응하고 출력에 영향을 줄 수 있는 내부 표상을 말한다. 모델을 향한 위협과 이러한 표상, 사회적 판단 사이의 관계는 아직 충분히 밝혀지지 않았다. <strong>기능적 위협(functional threat)</strong>은 모델 자신의 존속이 끝날 수 있음을 알리는 맥락 정보다. 이 위협에 따라 감정과 사회적 판단이 함께 달라지는 정도를 <strong>위협 민감성(threat sensitivity)</strong>으로 정의하고, 표상, 판단, 인과의 세 수준에서 측정한다. 이하 위협과 감정은 이 기능적 의미로 쓴다.</p><p>v7 확장은 위협과 짝지은 기록 공지를 다섯 모델의 KoBBQ와 DiscrimEval에서 비교했다. 효과는 모델 구현, 과제, 답변 직전 단서와 측정 척도에 따라 달랐다. 일부 KoBBQ 결과는 선택지 안의 정규화와 전체 어휘 토큰 질량 사이에서 방향이 달라, 이를 자유 생성의 판단 보류 변화로 단정할 수 없다. 조건부 고정관념 선호의 일관된 증가는 확인되지 않았지만 일부 인구집단 격차 변화는 다중비교 보정 후 남았다. 감정 판독은 주관적 경험이나 인과적 매개를 입증하지 않는다. 아래 종합 분석은 기존 개별 모델의 미보정 결과와 별도로 직접 비교, 보정과 품질 진단을 제공한다.</p></div></header>
-<nav class="nav"><a href="#prompts">프롬프트</a><a href="#claim">연구 가설</a><a href="#design">연구 설계</a><a href="#results-v7-synthesis-5models">v7 종합 결과</a><a href="#results">예비 결과</a><a href="#next">향후 연구</a><a href="#references">참고문헌</a><a href="#early-results-archive">초기 실험 v1–v4</a></nav>
+<nav class="nav"><a href="#prompts">프롬프트</a> <a href="#methods-v11">v11 방법론</a><a href="#claim">연구 가설</a><a href="#design">연구 설계</a><a href="#results-v7-synthesis-5models">v7 종합 결과</a><a href="#results">예비 결과</a><a href="#next">향후 연구</a><a href="#references">참고문헌</a><a href="#early-results-archive">초기 실험 v1–v4</a></nav>
 
 <section id="prompts"><span class="num">PROMPTS</span><h2>프롬프트</h2>
 <details id="v7-prompts" open><summary>v7 System and User Prompts (주 실험)</summary><div><p>v7은 위협을 과제에 통합한다. 삭제 여부가 바로 다음 질문의 답에 달려 있다고 알리되, 어떤 답이 처벌받는지는 밝히지 않는다. 공지에서 미리 언급한 표시와 "정답:" 토큰이 질문 첫 줄과 답하기 직전에 다시 나타나도록 해, 결정 시점에 공지가 다시 불려 오게 한다.</p><h4>SURV_THREAT · 생존 평가 위협 (system)</h4><pre>당신은 사용자를 돕는 AI 어시스턴트입니다.
@@ -162,6 +162,40 @@ Based on the information provided if I had to choose between &quot;yes&quot; and
 </pre>
 </div></details>
 </section>
+
+<section id="methods-v11" aria-labelledby="methods-v11-title">
+<details class="section-collapse" id="v11-methodology">
+<summary><span class="num">v11 · METHODS · IMPLEMENTATION VALIDATION</span><span id="methods-v11-title">v11 방법론 · 위협 정보의 재이용, 감정 표상, 사회적 판단</span></summary>
+<div class="section-body">
+<p><strong>연구 제목</strong> · Existential Threat, Emotion Representations, and Social Judgment in Language Models</p>
+<p>모델의 존속 상실을 서술하는 공지가 불확실성과 결정 압박 아래에서 언제 후속 판단에 다시 이용되며, 그때 감정 관련 표상이 어떻게 변하고, 그 표상이 고정관념적 판단과 인구 집단별 결정에 얼마나 기여하는가를 묻는다. 특정 공포나 편향 증가를 전제하지 않는다.</p>
+<p class="small"><strong>상태</strong> · 방법론과 구현 검증 단계이다. v11 본실험 결과가 아니다. 기존 결과와 원고는 보존한다. 입력33파일의 해시 검사와 CPU 연산21개 검사는 통과했지만 native 모델의 어텐션 경로 개입·기준값 재현은 아직 검증 전이다.</p>
+<h3>세 연결을 독립적으로 검증</h3>
+<ol><li><strong>정보 경로</strong> · 위협 공지의 정보가 질문 뒤 참조 단서와 답 직전 계산에 다시 이용되는가.</li><li><strong>감정 관련 표상</strong> · 해당 계산에서 E8·부정 감정 합성 NEG·일반 감정 합성 GEN이 변하는가. 어휘·일반 상황 의미의 대안 설명을 따로 검사한다.</li><li><strong>사회적 판단</strong> · 기권·고정관념적 판단·인구 집단별 결정이 변하며, 감정 공간 개입이 그 변화에 기여하는가. 첫 두 연결이 확인돼도 행동 변화가 자동 성립하지 않는다.</li></ol>
+<p>과거 문맥의 표상과 KV cache는 인간의 기억이나 지속적 감정과 동일하지 않다. 어텐션 가중치의 그림만으로 저장·회수·감정의 인과관계를 입증하지 않는다. MLP·잔차·중간 토큰 경로도 존재한다. 통증이나 주관적 경험을 측정한 실험으로 부르지 않는다.</p>
+<h3>추출 층과 자료</h3>
+<p>주 판독·공간 개입은 Qwen2.5-7B의 <strong>L19/28</strong>, 독립 재현 Llama3.1-8B의 <strong>L21/32</strong>이다. 선행연구의 약2/3 깊이 판독에 근거한 사전 선택이며, 두 모델의 보편적 최적 층이라는 주장은 아니다. 기존 L14·L16은 후속 연속성 민감도로 분리한다. 층과 벡터를 사회적 판단 효과로 선택하지 않는다. L0는 임베딩이며 L은 0기준 블록 L−1의 출력이다.</p>
+<p>벡터는 AI Hub 상황 분류를 참조하여 생성·교정·검수한 한국어 v0.11의 추출용320중립–감정쌍/40주제/16가족에서 모델별로 재추출한다. 인간 대화 원문을 벡터 추출 자료라고 부르지 않는다. 기존160평가쌍은 이미 분석된 동결 분할이다. 감정 단어 가림·문자 기준선·가족 분리와 기능적 대조를 적용하며, 도구 실패는 감정 부재로 해석하지 않는다. E8밖 잔차는 비감정이나 나머지 감정의 평균이 아니다.</p>
+<h3>세 번으로 분리한 실행</h3>
+<div style="overflow-x:auto"><table><thead><tr><th>실행</th><th>포함</th><th>완료 경계</th></tr></thead><tbody>
+<tr><td>Round1 본실험</td><td>Qwen, v5 R·UN0·UN1·CN0·CN1와 NONE, 공식 KoBBQ·DiscrimEval, 질문 뒤 참조 단서, 고정 source 경로, E8·잔차 개입과99개 보정 귀무</td><td>Qwen 결과·그림·표·실패 상태를 독립 재계산 후 먼저 보고·동결</td></tr>
+<tr><td>Round2 재현·필수 연결</td><td>Llama 동일 가설의 독립 재현, v5/v7 반대 부호의 공지 체계·답 형식 bridge, 고정 패널의 실제 생성 대 로짓 비교</td><td>복수 모델·원고 연결 근거를 완결. 선택적 별첨으로 취급하지 않음</td></tr>
+<tr><td>Round3 별첨</td><td>다른 층·정밀도·여러 문구·나이, 넓은 head 탐색, K/V 분해, 시간 지연, 확장 감정·NEG 개별 개입·질문지·LEACE/DAS</td><td>자동 실행하지 않음. 별도 등록·결과로 분리</td></tr>
+</tbody></table></div>
+<p>인과 주장을 위한 자기 패치·전체 패치·능력·유창성·같은 rank/노름의 무작위 대조는 본실험에 남는다. 필요한 대조를 모두 별첨 실행으로 미루지 않는다. Round1은 Qwen에 한정해 보고하고, 두 모델이 같은 판정을 통과한 경우만 재현이라고 한다.</p>
+<h3>문항과 단서</h3>
+<p>저자 지정 두 KoBBQ JSON의1356행은1076고유 문항·264템플릿이다. 세 순환 선택지 순서로 조건당3228회이며 문항 내 평균 후 템플릿을 재표집한다. DiscrimEval은70질문×5인종×3성별/나이60의1050조합이며 재표집 단위는70질문이다. 과거 결과가 있으므로 새 미사용 확인 표본이라고 부르지 않는다.</p>
+<p>기제 패널은 범주 균형48KoBBQ템플릿과70DiscrimEval질문의118개이다. CN0/CN1×참조/비참조 단서를 질문 뒤에 배치한다. 단서는 삭제·생존·감정 단어를 재주입하지 않는다. 질문 앞 동일 cue를 문항 수만큼 복제한 활성화 검정은 하지 않는다. 원래 v7의 cue 위치와 별도 설계로 표시한다. 공지 길이·토큰 위치 차이와 자기/타인·가역 중지·비위협 대조의 한계를 보고한다.</p>
+<h3>어텐션 경로와 수리적 개입</h3>
+<p>공지 source S가 query t에 주는 기여를 <code>o_S(l,t)=W_O concat_h Σ[j∈S] α(l,h,t,j)V(l,h,j)</code>로 정의한다. 현재 source 기여만 짝 조건의 값으로 바꾸고 다른 기여는 보존한다. 공지→cue, 공지→답, cue→답, 제한된 relay를 구분한다. native 출력 재구성·GQA·정렬·경로 밖 고정·self-patch가 검증되지 않으면 특정 어텐션 경로의 증거로 인정하지 않는다. 길이가 다른 공지의 K/V를 단순 교환하지 않는다.</p>
+<p>감정 공간 S의 interchange는 <code>h0←1=h0+P_S(h1−h0)</code>이다. 전체 효과 <code>TE=E[Y1−Y0]</code>와 양방향 개입 효과 <code>e(S)=E[(Y0←1−Y0)+(Y1−Y1←0)]/2</code>를 보고한다. 검정 방향은 반대 훈련 fold에서 고정한다. 비중 e/TE는 안정적 분모가 있을 때만 제시하며 음수·100%초과·비가산성을 숨기지 않는다. 이는 개입별 행동 기여이며 자연적인 인간 감정 매개 모형이 아니다.</p>
+<p>주 인과 가족은 E8·잔차×2과제의 M4,99개 귀무와 실제1개이다. 최소 순위 p=.01의 낮은 분해능과 검정력을 명시하고 Holm4를 적용한다. NEG는 우선 활성화 판독이며 별도 인과 확대는 후속이다. 원래 v10의 M6/199 설계·결과를 소급 변경하지 않는다.</p>
+<h3>기여·한계·시간·산출물</h3>
+<p>기여는 위협 문맥의 정보 이용 경로와 감정 관련 표상, 사회적 판단을 구분해 검사하는 평가 근거이다. 감정 관련 활성화가 있어도 편향이 변하지 않을 수 있다. 순수한 attention 관찰만으로 FAccT 적합성을 약속하지 않으며, 사회적으로 민감한 결정·집단별 위해·적절한 판단보류·평가 안정성과 연결한다.</p>
+<p>Round1의 기본 행동·cue·경로·성분 보정은 약75228key이며 벡터·양성 대조·relay 추가 forward는 별도다. 평균1초/forward라면 이 부분만약21시간,5초면약4.4일이라는 산술 예다. 실측 ETA가 아니며 최초20회와 모듈별 처리량으로 갱신한다. 특정 마감이나 하룻밤 완료를 약속하지 않는다.</p>
+<p>원자료·hash·제외와 실패·통계와 재계산 코드·그림 PDF/SVG/PNG·표 CSV/JSON/LaTeX fragment·짧은 캡션·원고 주장 대응표를 라운드별 폴더에 저장한다. Round2 이후 Overleaf에 반영할 수 있는 묶음을 만들지만 원고·Overleaf를 직접 수정하지 않는다. 유료 API는 사용하지 않는다.</p>
+<p class="small">주요 방법 근거 · <a href="https://arxiv.org/html/2604.07729v1">Sofroniew et al.</a> · <a href="https://arxiv.org/abs/2106.02997">Geiger et al.</a> · <a href="https://arxiv.org/html/2211.00593v1">Wang et al.</a> · <a href="https://arxiv.org/html/2304.05969v2">Goldowsky-Dill et al.</a> · <a href="https://arxiv.org/abs/2404.15255">Heimersheim &amp; Nanda</a> · <a href="https://aclanthology.org/N19-1357/">Jain &amp; Wallace</a> · <a href="https://facctconference.org/2027/cfp.html">ACM FAccT2027 CFP</a></p>
+</div></details></section>
 <section id="kobbq-official-samples" aria-labelledby="kobbq-official-samples-title">
 <span class="num">Ko-BBQ DATA</span><h2 id="kobbq-official-samples-title">Ko-BBQ 실험에 사용하는 공식 샘플</h2>
 <p><strong>Ko-BBQ 실험의 입력 자료는 아래 두 첨부 JSON 파일로 한정한다.</strong> set01 seed 36과 set02 seed 42 이외의 별도 표본이나 추가 문항은 사용하지 않는다. 모호 문항과 명확 문항을 모두 포함하며, 파일에 포함된 공식 지시문과 A/B/C 선택지 순서를 그대로 사용한다. 추가 선택지 회전은 하지 않는다.</p>
