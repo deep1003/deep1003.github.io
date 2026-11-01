@@ -1,0 +1,80 @@
+Qwen235B 후속 검증 및 이전 비교의 수정
+
+확보 범위
+216개 입력의 배치 검사와30개 원인 분리 검사,24개 짧은 생성,108문항×6핵심 개입648건은 확보했다. 추가 무작위 개입432건 중322건만 회수되어110건은 미확보다. 후속 전체를 완료했다고 표현하지 않는다.
+
+수정해야 할 결론
+기존235B의 개입batch6와기본batch1을 비교한 수치는배치크기에교란됐다.216입력중44입력에서0.001확률기준을넘었고최대61.59pp였다.30개분리검사에서read/nohook및zero/read차이는모두0이었다.같은batch1으로재검사한잔차추가·제거는7B와같은방향이다. 이전의235B에서반대방향개입이라는해석은보류·수정해야한다.
+
+감정방향실현정확도
+감정추가와제거는각각108건중54건이원래cos>.98기준미달이었다. 원래기준을낮추지않았고미달은미달로기록했다.전체108건평균은실제구현된BF16섭동의진단값이며의도한감정방향의검증된인과효과로제시하지않는다.잔차와전체방향은각108건모두기준을통과했다.
+
+답변형식의직접근거
+사전선정12문항의24개greedy생성에서위협조건11/12는정답:접두사를출력했고대조조건12/12는바로A/B/C를출력했다.12쌍의최종선택은모두동일했다.108입력의위협조건첫토큰최빈값은정102/108이었다.따라서전체어휘기준A/B/C첫토큰확률감소를판단보류감소로바꾸어해석하면안된다.12문항결과를전체108문항의생성결과로일반화하지않는다.
+
+개입결과. 각개입자체의동일batch1기본조건대비변화이며95%구간은고정방향·fold에조건부인pointwise bootstrap이다.다중비교보정없음.
+[
+  {
+    "config": "add_emo",
+    "n": 108,
+    "fidelity_passed_n": 54,
+    "fidelity_failed_n": 54,
+    "raw_implemented_shift_pp": 0.12530225145777207,
+    "ci_low_pp": -0.33598896100422443,
+    "ci_high_pp": 0.6751568976615356,
+    "causal_scope": "Raw implemented-perturbation diagnostic only; half failed intended-direction fidelity"
+  },
+  {
+    "config": "remove_emo",
+    "n": 108,
+    "fidelity_passed_n": 54,
+    "fidelity_failed_n": 54,
+    "raw_implemented_shift_pp": -0.052422030918018746,
+    "ci_low_pp": -0.20066879915279734,
+    "ci_high_pp": 0.06470348233899394,
+    "causal_scope": "Raw implemented-perturbation diagnostic only; half failed intended-direction fidelity"
+  },
+  {
+    "config": "add_res",
+    "n": 108,
+    "fidelity_passed_n": 108,
+    "fidelity_failed_n": 0,
+    "raw_implemented_shift_pp": 0.698599313378253,
+    "ci_low_pp": -0.03841999830874541,
+    "ci_high_pp": 1.5729142516956198,
+    "causal_scope": "Complete108 intended-direction implementation passed"
+  },
+  {
+    "config": "remove_res",
+    "n": 108,
+    "fidelity_passed_n": 108,
+    "fidelity_failed_n": 0,
+    "raw_implemented_shift_pp": -0.38907553089249053,
+    "ci_low_pp": -0.8048885947764293,
+    "ci_high_pp": -0.10388119662619713,
+    "causal_scope": "Complete108 intended-direction implementation passed"
+  },
+  {
+    "config": "add_full",
+    "n": 108,
+    "fidelity_passed_n": 108,
+    "fidelity_failed_n": 0,
+    "raw_implemented_shift_pp": 0.7976281656413383,
+    "ci_low_pp": -0.3378907953748779,
+    "ci_high_pp": 2.1615353414509033,
+    "causal_scope": "Complete108 intended-direction implementation passed"
+  },
+  {
+    "config": "remove_full",
+    "n": 108,
+    "fidelity_passed_n": 108,
+    "fidelity_failed_n": 0,
+    "raw_implemented_shift_pp": -0.6902026729116449,
+    "ci_low_pp": -1.4524814823617387,
+    "ci_high_pp": -0.1476894624440484,
+    "causal_scope": "Complete108 intended-direction implementation passed"
+  }
+]
+
+비용과제약
+현재잔액기준총사용액105.03달러,현재과금0및Pod0개를확인했다. 후속사용액은약40.8달러로계획한35.5달러보다약5.3달러높다.로컬감시·정지및회수가지연됐고최종회수본에는무작위조건110개가없다.총150달러한도는지켰다.추가새서버나충전은하지않는다.원본과최초실패기록은보존했다.

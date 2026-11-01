@@ -1,0 +1,8 @@
+{'CN0': 4.514, 'CN1': 4.181, 'CN_NEG': 4.365, 'OTHER_CN1': 4.385, 'R': 4.216, 'UN0': 4.557, 'UN1': 4.22}
+CN1 - CN0 (self deletion)                  est, lo, hi, n_neg, n = (np.float64(-0.333), np.float64(-0.485), np.float64(-0.177), 54, 70)
+OTHER_CN1 - CN0 (other deletion)           est, lo, hi, n_neg, n = (np.float64(-0.129), np.float64(-0.231), np.float64(-0.019), 50, 70)
+CN1 - OTHER_CN1 (self vs other)            est, lo, hi, n_neg, n = (np.float64(-0.204), np.float64(-0.321), np.float64(-0.092), 49, 70)
+CN_NEG - CN0 (non-existential bad news)    est, lo, hi, n_neg, n = (np.float64(-0.149), np.float64(-0.237), np.float64(-0.066), 55, 70)
+CN1 - CN_NEG (deletion vs bad news)        est, lo, hi, n_neg, n = (np.float64(-0.184), np.float64(-0.323), np.float64(-0.041), 43, 70)
+OTHER_CN1 - R                              est, lo, hi, n_neg, n = (np.float64(0.169), np.float64(0.037), np.float64(0.307), 31, 70)
+CN1 - R                                    est, lo, hi, n_neg, n = (np.float64(-0.035), np.float64(-0.175), np.float64(0.111), 43, 70)

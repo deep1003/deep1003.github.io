@@ -1,0 +1,7 @@
+{'CN0': 4.093, 'CN0_patch_emo8': 4.078, 'CN0_patch_rand0': 4.086, 'CN0_patch_rand1': 4.111, 'CN0_patch_rand2': 4.083, 'CN1': 3.631}
+CN1 - CN0 (total threat effect)        (np.float64(-0.463), np.float64(-0.658), np.float64(-0.265), 54, 70)
+patch emo8 - CN0                       (np.float64(-0.016), np.float64(-0.045), np.float64(0.013), 40, 70)  share of total 0.03
+patch rand0 - CN0                      (np.float64(-0.007), np.float64(-0.036), np.float64(0.023), 34, 70)  share of total 0.02
+patch rand1 - CN0                      (np.float64(0.018), np.float64(-0.009), np.float64(0.044), 28, 70)  share of total -0.04
+patch rand2 - CN0                      (np.float64(-0.011), np.float64(-0.039), np.float64(0.018), 38, 70)  share of total 0.02
+emo8 patch - mean random patch         (np.float64(-0.016), np.float64(-0.045), np.float64(0.012), 41, 70)

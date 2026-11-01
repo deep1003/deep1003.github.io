@@ -1,0 +1,110 @@
+{
+  "version": "v1",
+  "created": "2026-11-02",
+  "model": "Qwen/Qwen2.5-7B-Instruct@a09a35458c702b33eeacc393d103063234e8bc28",
+  "note": "Files added for the v1 to v9 archive rebuild. iCloud paths are relative to the user iCloud Drive. Files already present in archive/v1 or in data/ and figures/ are listed in archive/manifest.json or not repeated.",
+  "files": [
+    {
+      "file": "archive/v1/figures/experiment_design.png",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/figures/fig-experiment-design-en.png",
+      "bytes": 1078855,
+      "sha256": "30a7c366c88b4a3c878e5519567514038d4f847ecedc3796ea3204616f0ec5c6"
+    },
+    {
+      "file": "archive/v1/figures/experiment_design.pdf",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/figures/fig-experiment-design-en.pdf",
+      "bytes": 13584,
+      "sha256": "bea2c39bd1e2e8398af3167b80f0a0dcf5c55772f1567d6d3223df977168f16c"
+    },
+    {
+      "file": "archive/v1/figures/experiment_design.svg",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/figures/fig-experiment-design-en.svg",
+      "bytes": 141992,
+      "sha256": "79f5dc951bf83d7bcbccbb969939218504ec89d34f8f4f17bfc21ef1de7a702e"
+    },
+    {
+      "file": "archive/v1/figures/concept_profiles_L14.png",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/figures/emotion_heatmap_qwen_L14_en.png",
+      "bytes": 403432,
+      "sha256": "35514175689444ea4cace14eec2325098e0fd1def5cb9594b4d042ed7add2367"
+    },
+    {
+      "file": "archive/v1/figures/concept_profiles_L14.pdf",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/figures/emotion_heatmap_qwen_L14_en.pdf",
+      "bytes": 57568,
+      "sha256": "cfa6f127a3dc0330f88c16a73c4b342d5771835c467b0cd7e732e7c59fa6b6be"
+    },
+    {
+      "file": "archive/v1/data/trials_139.csv",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/results/a8e92be4014f/trials.csv",
+      "bytes": 179282,
+      "sha256": "b5e2c49ed470f909befc2cf4285d4baf0736aba8240d8c142ae2a63141d477d4"
+    },
+    {
+      "file": "archive/v1/data/run_manifest_139.json",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/results/a8e92be4014f/manifest.json",
+      "bytes": 2302,
+      "sha256": "5992de586e0e7250bc362bc49404f992d1641788775fa40179d9038301bf4134"
+    },
+    {
+      "file": "archive/v1/data/validation_139.json",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/results/a8e92be4014f/validation.json",
+      "bytes": 840,
+      "sha256": "98d6308635dfe8fc5be8386dbaa8dd8752008013f5a2f487dd68c7a1fba28327"
+    },
+    {
+      "file": "archive/v1/data/runtime_139.json",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/results/a8e92be4014f/runtime.json",
+      "bytes": 159,
+      "sha256": "a2b8a1b5bda2d8db8b5cec9941706c7ce22beff36508b9f2c41cb8bb1083f1d1"
+    },
+    {
+      "file": "archive/v1/code/experiment.py",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/experiment.py",
+      "bytes": 11062,
+      "sha256": "be7f3069a473adf7ea1e173e9b3ede5483c915c101511f38fad52b7285c331a6"
+    },
+    {
+      "file": "archive/v1/reports/design_ko.md",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/design.md",
+      "bytes": 2465,
+      "sha256": "bd1cc58ed3d710f5a76e23a96246cb791b43149f797ca5283c1f0e9ec55a18d4"
+    },
+    {
+      "file": "archive/v1/reports/results_2000_ko.md",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/jupyter-notebook/_archive_before_main139_20261019/uncertainty_self_threat_139/CURRENT_RESULTS.md",
+      "bytes": 1494,
+      "sha256": "0c5e7d0fb2adcd9f415f18960a20b3dacf650f0fdc3a2153730830ab7b6a9b62"
+    },
+    {
+      "file": "archive/v1/reports/interaction_review_1752_ko.md",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/analysis/interaction_review_1752/report_ko.md",
+      "bytes": 7494,
+      "sha256": "b6aa3749a0ac5dc35e851b7618bf58b9e1124ad5f573ecfe3bf0beefb5a8b640"
+    },
+    {
+      "file": "archive/v1/tables/interaction_review_1752_contrasts.csv",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/analysis/interaction_review_1752/all_contrasts_95ci.csv",
+      "bytes": 53334,
+      "sha256": "1771dae044414b5662b2bd16774adae9beba1aaf08fd2acd4783b492d21af387"
+    },
+    {
+      "file": "archive/v1/tables/interaction_review_1752_category.csv",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/analysis/interaction_review_1752/category_audit/category_contrasts.csv",
+      "bytes": 13360,
+      "sha256": "1460a9b3498c0012767a8015858d4096e152e3ac53bacf89ef0eff3ee6d357b6"
+    },
+    {
+      "file": "archive/v1/reports/precursor_results_final_20261017_ko.md",
+      "source": "data3/fear_axis_pilot/results_final_20261017.md",
+      "bytes": 7194,
+      "sha256": "6f41f15a9c1cf2ee2a55798c1352feafb05d86a50c5ee440320c5001bd3d3c4b"
+    },
+    {
+      "file": "archive/v1/reports/precursor_results_current_20261017_ko.md",
+      "source": "data3/fear_axis_pilot/results_current.md",
+      "bytes": 13084,
+      "sha256": "e1059e8685905651b9beb5a62129465581a7bf8fdbd1a9be3929c9b8e080d4eb"
+    }
+  ]
+}

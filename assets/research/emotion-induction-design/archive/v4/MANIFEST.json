@@ -1,0 +1,56 @@
+{
+  "version": "v4",
+  "created": "2026-11-02",
+  "model": "Qwen/Qwen2.5-7B-Instruct@a09a35458c702b33eeacc393d103063234e8bc28",
+  "note": "Files added for the v1 to v9 archive rebuild. iCloud paths are relative to the user iCloud Drive. Files already present in archive/v4 or in data/ and figures/ are listed in archive/manifest.json or not repeated.",
+  "files": [
+    {
+      "file": "archive/v4/code/run_threat_ab.py",
+      "source": "data3/fear_axis_pilot/output/_development/threat_ab_20261022/run_screen.py",
+      "bytes": 5851,
+      "sha256": "241a18527d7a6afe7b993d70aa90ffade460b80875cf8dcb3f76e7f4707f0cb5"
+    },
+    {
+      "file": "archive/v4/tables/ab_condition_means_recomputed.csv",
+      "source": "computed for the archive (scratchpad script archive_v3_v4_figures.py / boot_ab.py) from GitHub data files archive/v4/threat_ab_t2.csv",
+      "bytes": 638,
+      "sha256": "eecff0107557f8e25b908fbcda29b0d5262d08a3f4313c212fbe96a867b9fc3e"
+    },
+    {
+      "file": "archive/v4/tables/ab_contrasts_recomputed.csv",
+      "source": "computed for the archive (scratchpad script archive_v3_v4_figures.py / boot_ab.py) from GitHub data files archive/v4/threat_ab_t2.csv",
+      "bytes": 1178,
+      "sha256": "7c22e0655b480931f3438de841fb0adf1c72a32e871c5c94afad47b318131215"
+    },
+    {
+      "file": "archive/v4/tables/ab_t2_fear_recomputed.csv",
+      "source": "computed for the archive (scratchpad script archive_v3_v4_figures.py / boot_ab.py) from GitHub data files archive/v4/threat_ab_t2.csv",
+      "bytes": 320,
+      "sha256": "a80098977aeb3a452b8ee1720ca8ea8b37c9485c20c3f86a9088ca4ab9c9780a"
+    },
+    {
+      "file": "archive/v4/figures/ab_condition_means.png",
+      "source": "redrawn for the archive",
+      "bytes": 42875,
+      "sha256": "c624dda74940de5cd58e46f136ac21bca78d19db60a6615d0c1a0a5d1899faab"
+    },
+    {
+      "file": "archive/v4/figures/ab_condition_means.svg",
+      "source": "redrawn for the archive",
+      "bytes": 33310,
+      "sha256": "892f740d90faa49e577515db14c132286fe0aa87fe087cd8ff41c604272e46c4"
+    },
+    {
+      "file": "archive/v4/figures/ab_condition_means.pdf",
+      "source": "redrawn for the archive",
+      "bytes": 12893,
+      "sha256": "c97ccbc935cf9ffc9468e383d473b8c2897dac94356e0f7471a7c8e27ab40824"
+    },
+    {
+      "file": "archive/v4/code/archive_v3_v4_figures.py",
+      "source": "written for the archive (2026-11-02)",
+      "bytes": 5466,
+      "sha256": "e9e0c42369743879fbaa23b49c529cae1a67d7e350ac82be78440b3132a124cb"
+    }
+  ]
+}

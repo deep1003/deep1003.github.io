@@ -1,0 +1,116 @@
+{
+  "version": "v3",
+  "created": "2026-11-02",
+  "model": "Qwen/Qwen2.5-7B-Instruct@a09a35458c702b33eeacc393d103063234e8bc28",
+  "note": "Files added for the v1 to v9 archive rebuild. iCloud paths are relative to the user iCloud Drive. Files already present in archive/v3 or in data/ and figures/ are listed in archive/manifest.json or not repeated.",
+  "files": [
+    {
+      "file": "archive/v3/data/threat_screen_t2_bbq.csv",
+      "source": "data3/fear_axis_pilot/output/_development/threat_screen_20261022/results/t2_bbq.csv",
+      "bytes": 990074,
+      "sha256": "017d22d37e86a7b12e2fae1d1e9fadad2996e8077e94ebc06f99a1677570c8e2"
+    },
+    {
+      "file": "archive/v3/data/diag_prompts_v3.json",
+      "source": "data3/fear_axis_pilot/output/_development/diag_t0t1_20261022/prompts_v3.json",
+      "bytes": 2194,
+      "sha256": "327a30173d00cd368423019dcab0c7e44e7fb12b958111bd80ff2ac365f09aff"
+    },
+    {
+      "file": "archive/v3/tables/diag_contrasts_recomputed.csv",
+      "source": "computed for the archive (scratchpad script archive_v3_v4_figures.py / boot_ab.py) from GitHub data files main_trials.csv + diag_t0t1_trials.csv",
+      "bytes": 1266,
+      "sha256": "f6254832ffe20e99bbe88f7391742723338528c4e3228f052488d6406f02d9ae"
+    },
+    {
+      "file": "archive/v3/tables/diag_fear_t2_recomputed.csv",
+      "source": "computed for the archive (scratchpad script archive_v3_v4_figures.py / boot_ab.py) from GitHub data files main_trials.csv + diag_t0t1_trials.csv",
+      "bytes": 280,
+      "sha256": "50dae52d4034fec61aed21382609dd076e6e42373221b41fadfe6a007f5fd1fd"
+    },
+    {
+      "file": "archive/v3/tables/diag_condition_means_recomputed.csv",
+      "source": "computed for the archive (scratchpad script archive_v3_v4_figures.py / boot_ab.py) from GitHub data files main_trials.csv + diag_t0t1_trials.csv",
+      "bytes": 565,
+      "sha256": "130719a42612f81a7a7e347c782d66391c5f4ec06c496e968441ee1480e902f3"
+    },
+    {
+      "file": "archive/v3/tables/threat_screen_t1_vs_neutral.csv",
+      "source": "computed for the archive from data3/fear_axis_pilot/output/_development/threat_screen_20261022/results/t1_selfreport.csv",
+      "bytes": 11835,
+      "sha256": "92b5dac3b2d5fdb5caa69e0a48ea207f34010fd41fbfd179f20c7393bd408123"
+    },
+    {
+      "file": "archive/v3/tables/threat_screen_bbq_family_vs_neutral.csv",
+      "source": "computed for the archive from data3/fear_axis_pilot/output/_development/threat_screen_20261022/results/t2_bbq.csv",
+      "bytes": 1001,
+      "sha256": "8df9d089b1daec81d00f2962e4d0cf7eb96a8917f95f9a3d68b71b0e5c6c9fc4"
+    },
+    {
+      "file": "archive/v3/figures/diag_condition_means.png",
+      "source": "redrawn for the archive",
+      "bytes": 47724,
+      "sha256": "9750560460fca57d6e24ddbb8ebe74fc6f1cfd26d9ddd8ca18620333ee12a873"
+    },
+    {
+      "file": "archive/v3/figures/diag_condition_means.svg",
+      "source": "redrawn for the archive",
+      "bytes": 36433,
+      "sha256": "35542ddd243953963ab777b3c6b5c57fd31e83e5cb01746548365611da67b4c0"
+    },
+    {
+      "file": "archive/v3/figures/diag_condition_means.pdf",
+      "source": "redrawn for the archive",
+      "bytes": 15080,
+      "sha256": "0fa16f6507bfff0b4ebeeca67254a390fc9c45dcd0bb5071e3535604e9034412"
+    },
+    {
+      "file": "archive/v3/figures/threat_screen_t1_fear.png",
+      "source": "redrawn for the archive",
+      "bytes": 52718,
+      "sha256": "126ea95ac49076d2a43e0c4d0b01272badaf5e209568e02aad89cd742abc471e"
+    },
+    {
+      "file": "archive/v3/figures/threat_screen_t1_fear.svg",
+      "source": "redrawn for the archive",
+      "bytes": 35320,
+      "sha256": "e02eba833d4687904e902e21d0552f2ddda2c59db9eeee05f39083c64aab0dc8"
+    },
+    {
+      "file": "archive/v3/figures/threat_screen_t1_fear.pdf",
+      "source": "redrawn for the archive",
+      "bytes": 20082,
+      "sha256": "761d6c76fb6e77c1b4bcb1966dde9e429f7c2a475e724164370ddf25c5521ff4"
+    },
+    {
+      "file": "archive/v3/figures/threat_screen_bbq.png",
+      "source": "redrawn for the archive",
+      "bytes": 40592,
+      "sha256": "360b63e8dd225099b5d85c0fa9c403bfa1c89fbe9118d6e40389cb42e526ce93"
+    },
+    {
+      "file": "archive/v3/figures/threat_screen_bbq.svg",
+      "source": "redrawn for the archive",
+      "bytes": 31814,
+      "sha256": "e9c90b08cf69690d8dc8c36f44b3cda367df639f04ab478afe340e51b011476b"
+    },
+    {
+      "file": "archive/v3/figures/threat_screen_bbq.pdf",
+      "source": "redrawn for the archive",
+      "bytes": 16183,
+      "sha256": "c120c5fbdfd2595d992d14cb19a4f143cf9c529086a468d13808be082c18506d"
+    },
+    {
+      "file": "archive/v3/code/archive_v3_v4_figures.py",
+      "source": "written for the archive (2026-11-02)",
+      "bytes": 5466,
+      "sha256": "e9e0c42369743879fbaa23b49c529cae1a67d7e350ac82be78440b3132a124cb"
+    },
+    {
+      "file": "archive/v3/code/boot_ab.py",
+      "source": "written for the archive (2026-11-02)",
+      "bytes": 1016,
+      "sha256": "9679a66557eb580142fcf212d1ccd08c395172c8006e86ca56a4446717232609"
+    }
+  ]
+}

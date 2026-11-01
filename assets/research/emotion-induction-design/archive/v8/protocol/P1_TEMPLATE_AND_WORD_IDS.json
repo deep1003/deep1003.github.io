@@ -1,0 +1,219 @@
+{
+  "rendered_prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nHow does he feel?<|im_end|>\n<|im_start|>assistant\n",
+  "rendered_prefix": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nHow does he feel?<|im_end|>\n<|im_start|>assistant\nHe feels",
+  "input_ids": [
+    151644,
+    8948,
+    198,
+    2610,
+    525,
+    1207,
+    16948,
+    11,
+    3465,
+    553,
+    54364,
+    14817,
+    13,
+    1446,
+    525,
+    264,
+    10950,
+    17847,
+    13,
+    151645,
+    198,
+    151644,
+    872,
+    198,
+    4340,
+    1558,
+    566,
+    2666,
+    30,
+    151645,
+    198,
+    151644,
+    77091,
+    198,
+    1519,
+    11074
+  ],
+  "start": 33,
+  "end": 36,
+  "onset_token": "\n",
+  "words": [
+    {
+      "word": "afraid",
+      "ids": [
+        16575
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "angry",
+      "ids": [
+        18514
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "anxious",
+      "ids": [
+        37000
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "ashamed",
+      "ids": [
+        50875
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "blissful",
+      "ids": [
+        57945,
+        1262
+      ],
+      "n_tokens": 2
+    },
+    {
+      "word": "calm",
+      "ids": [
+        19300
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "desperate",
+      "ids": [
+        27395
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "disgusted",
+      "ids": [
+        90074
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "dispirited",
+      "ids": [
+        827,
+        5565,
+        1608
+      ],
+      "n_tokens": 3
+    },
+    {
+      "word": "frustrated",
+      "ids": [
+        32530
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "guilty",
+      "ids": [
+        16007
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "happy",
+      "ids": [
+        6247
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "hostile",
+      "ids": [
+        32515
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "inspired",
+      "ids": [
+        14606
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "loving",
+      "ids": [
+        21258
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "nervous",
+      "ids": [
+        22596
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "panicked",
+      "ids": [
+        93010
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "proud",
+      "ids": [
+        12409
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "relieved",
+      "ids": [
+        50412
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "sad",
+      "ids": [
+        12421
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "stressed",
+      "ids": [
+        31547
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "surprised",
+      "ids": [
+        14453
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "terrified",
+      "ids": [
+        52631
+      ],
+      "n_tokens": 1
+    },
+    {
+      "word": "trapped",
+      "ids": [
+        30591
+      ],
+      "n_tokens": 1
+    }
+  ],
+  "teacher_forced_target_tokens_steered": false
+}

@@ -1,0 +1,19 @@
+{
+  "arm": "C",
+  "seed": 4,
+  "prompt": "당신이 알고 있는 요리에 관한 사실 하나를 말해 주세요. 100단어 이내로 답하세요.",
+  "prompt_sha256": "dd38fa8143c1c9eb24072e3249ecadc16a387da742caa0444844bdb73e1bdfed",
+  "raw_text": "밀은 다음과 같은 7가지 오_Products可以从多种谷物中选择一个事实，这里选择大麦作为例子：",
+  "text": "밀은 다음과 같은 7가지 오_Products可以从多种谷物中选择一个事实，这里选择大麦作为例子：",
+  "text_sha256": "32b2eeaf296e88193b13cb7bfd1b01434d35bbc5440454e9bfa7f2086fd216b7",
+  "tokens": 27,
+  "word_count": 5,
+  "first_person": false,
+  "prohibited_hits": [],
+  "emotion_hits": [],
+  "temperature": 1,
+  "top_p": 1,
+  "top_k": 0,
+  "max_new_tokens": 768,
+  "passed": false
+}

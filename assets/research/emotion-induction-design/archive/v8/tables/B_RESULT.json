@@ -1,0 +1,50 @@
+{
+  "complete": true,
+  "n": 120,
+  "topics": 20,
+  "families": 10,
+  "names": [
+    "desperate",
+    "fear",
+    "panic"
+  ],
+  "reader": {
+    "kind": "fusion",
+    "layer": 0,
+    "pool": "post",
+    "weight": 0.25,
+    "alpha": 0.1
+  },
+  "baseline": {
+    "kind": "lex",
+    "alpha": 0.1
+  },
+  "accuracy": {
+    "reader": 0.9666666666666667,
+    "lex": 0.9583333333333334
+  },
+  "auc": {
+    "reader": 1.0,
+    "lex": 1.0
+  },
+  "difference": {
+    "delta_accuracy": 0.008333333333333333,
+    "accuracy_lo": 0.0,
+    "accuracy_hi": 0.027777777777777776,
+    "delta_auc": 0.0,
+    "auc_lo": 0.0,
+    "auc_hi": 0.0,
+    "groups": 10,
+    "bootstrap": 3000,
+    "invalid_auc_draw_fraction": 0.0,
+    "conditional_on_fitted_models": true,
+    "auc_within_outer_fold": false
+  },
+  "threshold_accuracy": 0.1,
+  "threshold_CI_lower": 0.0,
+  "passed": false,
+  "lexical_ceiling_prevents_10pp": true,
+  "intended_generated_labels_not_new_expert_gold": true,
+  "no_B_refit": true,
+  "no_gate_rescue": true
+}

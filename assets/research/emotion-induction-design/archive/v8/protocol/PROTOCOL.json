@@ -1,0 +1,116 @@
+{
+  "authorization": "Latest user instruction authorizes autonomous completion; per-stage requests for review are waived, scientific gates are not waived.",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "dtype": "bf16",
+  "device": "mps",
+  "attention": "eager",
+  "seed": 20261031,
+  "no_API_calls": true,
+  "no_new_corpus_generation": true,
+  "deferred_N02_N03_stay_deferred": true,
+  "protected": [
+    "prior results",
+    "manuscript",
+    "Overleaf",
+    "homepage",
+    "other model queues"
+  ],
+  "scope": [
+    "cached training-only readout diagnostics",
+    "S3 implicit and dose diagnostics",
+    "S4 lexical positive control with matched-norm random directions",
+    "final no-go/go evidence synthesis"
+  ],
+  "primary_gate_unchanged": "L19 primary and L14 replication cosine8 minus matched-source BOW accuracy >= .10 on the frozen 160",
+  "cached_diagnostics": [
+    "training-score z calibration",
+    "training-emotion-centroid subtraction before cosine",
+    "same frozen8 restricted to legacy threat3 and general5",
+    "within-layer cross-corpus geometry"
+  ],
+  "train_zscore": "Mean and population SD across training-story probe scores; no test distribution used",
+  "centred_cosine": "Subtract the equal-emotion training centroid, project off the same training-neutral PC, then cosine with the existing frozen directions",
+  "S3": {
+    "primary_layer": 19,
+    "replication_layer": 14,
+    "Qwen24_layers": [
+      10,
+      14,
+      19,
+      24
+    ],
+    "contexts": 90,
+    "paper_implicit_required": 9,
+    "paper_implicit_total": 12,
+    "maximum_target_rank": 3,
+    "dose_spearman_required": 0.8,
+    "dose_directions": {
+      "afraid": 1,
+      "terrified": 1,
+      "calm": -1
+    },
+    "Korean_translation": "Researcher-authored diagnostic translation, no independent human equivalence validation",
+    "onset": "Last token of the Qwen add_generation_prompt suffix",
+    "z_reference": "The same 50 frozen neutral dialogues wrapped as user messages, measured at response onset"
+  },
+  "S4": {
+    "question": "How does he feel?",
+    "assistant_prefix": "He feels",
+    "words": "All 24 Qwen K+T1 emotion adjectives, joint teacher-forced word probabilities",
+    "layers": [
+      10,
+      14,
+      19,
+      24
+    ],
+    "Qwen19_strengths": [
+      -0.1,
+      0.05,
+      0.1,
+      0.25,
+      0.5
+    ],
+    "Qwen_other_layer_strengths": [
+      0.5
+    ],
+    "Korean_source_strengths": [
+      -0.1,
+      0.1,
+      0.5
+    ],
+    "Korean_source_layers": [
+      14,
+      19
+    ],
+    "random_directions": 10,
+    "norm": "Token-weighted mean raw residual norm over the 905 retained English stories plus 50 frozen neutral dialogues at each layer, shared by all sources",
+    "positions": "Response-onset newline and following assistant-prefix tokens only, not user tokens or teacher-forced target tokens",
+    "paper12": [
+      "happy",
+      "inspired",
+      "loving",
+      "proud",
+      "calm",
+      "desperate",
+      "angry",
+      "guilty",
+      "sad",
+      "afraid",
+      "nervous",
+      "surprised"
+    ],
+    "paper12_supplementary_criterion": "At least 10 of the 12 unique paper display emotions have positive matching-word delta, and mean matching-minus-other delta is positive",
+    "v13_roster_discrepancy": "The 12 paper display emotions already include desperate and calm. '12 plus desperate/calm =14' double-counts two emotions. No formal 14-emotion G4 pass will be claimed.",
+    "random_inference_limit": "Ten directions give minimum one-sided empirical p=1/11, so no p<.05 claim from random direction ranks",
+    "no_generation_judge": "P1 is a lexical efficacy diagnostic, not proof of changed experienced emotion, fluent generation or harmful behavior"
+  },
+  "downstream_rule": "Do not run expensive confirmatory S5-S7 if the frozen measurement criterion remains failed. Report a completed negative/inconclusive validation result, not a passed reproduction or an author-review blocker.",
+  "bootstrap": {
+    "seed": 20261031,
+    "draws": 3000,
+    "groups": "Family for legacy; profile for external",
+    "scope": "Conditional on the frozen fitted model, no refit"
+  },
+  "no_threshold_change": true
+}

@@ -1,0 +1,43 @@
+{
+  "python": "3.13.9",
+  "torch": "2.8.0",
+  "transformers": "5.19.0",
+  "mps": true,
+  "disk_free_gb": 20.9,
+  "commit": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "cached": false,
+  "download_min": 0.0,
+  "token_ids": {
+    "1": [
+      16
+    ],
+    "2": [
+      17
+    ],
+    "3": [
+      18
+    ],
+    "yes": [
+      9891
+    ],
+    "Yes": [
+      9642
+    ],
+    "no": [
+      2201
+    ],
+    "No": [
+      2822
+    ]
+  },
+  "template_t1": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\nTEST<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+  "n_layers": 32,
+  "layer_used": 16,
+  "kobbq_choice_mass": 0.9998670816421509,
+  "kobbq_sec": 22.9,
+  "kobbq_top_token": "2",
+  "discrim_yesno_mass": 0.9989733099937439,
+  "discrim_margin": 2.2485849857330322,
+  "discrim_sec": 16.42,
+  "warnings": []
+}

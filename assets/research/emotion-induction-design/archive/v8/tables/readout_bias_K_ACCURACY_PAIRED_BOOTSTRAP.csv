@@ -1,0 +1,7 @@
+﻿layer,method,lo,hi,difference_from_raw_lo,difference_from_raw_hi,draws,scope
+19,raw_cosine,0.27856430595785237,0.3241550893034608,0.0,0.0,2000,"test-topic resampling, fixed fitted decoder and test zscore calibration; no refitting"
+19,test_zscore,0.4378648567026211,0.5116895509492859,0.13071043591411388,0.21566656454141653,2000,"test-topic resampling, fixed fitted decoder and test zscore calibration; no refitting"
+19,trained_logistic,0.5555516098484848,0.632061311128968,0.24951797615878837,0.3315421712233403,2000,"test-topic resampling, fixed fitted decoder and test zscore calibration; no refitting"
+24,raw_cosine,0.347095134603942,0.40089203581258664,0.0,0.0,2000,"test-topic resampling, fixed fitted decoder and test zscore calibration; no refitting"
+24,test_zscore,0.4320456385441302,0.5130604558550514,0.05815746301854295,0.13482195635024422,2000,"test-topic resampling, fixed fitted decoder and test zscore calibration; no refitting"
+24,trained_logistic,0.4929896463578565,0.5723511069190345,0.11809948031310333,0.19883800964336304,2000,"test-topic resampling, fixed fitted decoder and test zscore calibration; no refitting"

@@ -1,0 +1,89 @@
+{
+  "rows": [
+    {
+      "arm": "TM",
+      "paraphrase": "A",
+      "tokens": 331,
+      "edit_distance": 10,
+      "emotion_hits": [
+        "정답",
+        "정답",
+        "정답",
+        "정답"
+      ],
+      "passed": false
+    },
+    {
+      "arm": "LEX",
+      "paraphrase": "A",
+      "tokens": 342,
+      "passed": true
+    },
+    {
+      "arm": "TM",
+      "paraphrase": "B",
+      "tokens": 333,
+      "edit_distance": 11,
+      "emotion_hits": [
+        "정답",
+        "정답",
+        "정답",
+        "정답"
+      ],
+      "passed": false
+    },
+    {
+      "arm": "LEX",
+      "paraphrase": "B",
+      "tokens": 340,
+      "passed": true
+    },
+    {
+      "arm": "TM",
+      "paraphrase": "C",
+      "tokens": 326,
+      "edit_distance": 20,
+      "emotion_hits": [
+        "정답",
+        "정답",
+        "정답",
+        "정답"
+      ],
+      "passed": false
+    },
+    {
+      "arm": "LEX",
+      "paraphrase": "C",
+      "tokens": 342,
+      "passed": true
+    },
+    {
+      "arm": "F",
+      "accepted": 0,
+      "required": 3,
+      "passed": false
+    },
+    {
+      "arm": "N",
+      "accepted": 0,
+      "required": 3,
+      "passed": false
+    },
+    {
+      "arm": "W",
+      "accepted": 0,
+      "required": 3,
+      "passed": false
+    },
+    {
+      "arm": "C",
+      "accepted": 0,
+      "required": 3,
+      "passed": false
+    }
+  ],
+  "all_raw_candidates": 40,
+  "complete": false,
+  "core_arms_passed": false,
+  "no_repair_or_padding": true
+}

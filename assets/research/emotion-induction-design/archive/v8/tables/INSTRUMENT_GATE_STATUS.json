@@ -1,0 +1,87 @@
+{
+  "V1": [
+    {
+      "source": "qwen24",
+      "layer": 19,
+      "position": "onset",
+      "method": "raw_cosine",
+      "language": "en",
+      "hits": 2,
+      "eligible": 12,
+      "total": 12,
+      "candidates": 24,
+      "top3_chance": 0.125,
+      "meets_9of12": false
+    },
+    {
+      "source": "qwen24",
+      "layer": 19,
+      "position": "onset",
+      "method": "neutral_z",
+      "language": "en",
+      "hits": 8,
+      "eligible": 12,
+      "total": 12,
+      "candidates": 24,
+      "top3_chance": 0.125,
+      "meets_9of12": false
+    }
+  ],
+  "V2": [
+    {
+      "source": "qwen24",
+      "layer": 19,
+      "language": "en",
+      "emotion": "afraid",
+      "available": true,
+      "rho": -0.30952380952380953,
+      "expected_direction": 1,
+      "meets_abs08": false,
+      "cosine_high_minus_low": -0.0026022289784418152,
+      "neutral_z_high_minus_low": -0.12458974565346659
+    },
+    {
+      "source": "qwen24",
+      "layer": 19,
+      "language": "en",
+      "emotion": "terrified",
+      "available": true,
+      "rho": 0.09523809523809526,
+      "expected_direction": 1,
+      "meets_abs08": false,
+      "cosine_high_minus_low": -0.0009875857198130486,
+      "neutral_z_high_minus_low": -0.05207488249953389
+    },
+    {
+      "source": "qwen24",
+      "layer": 19,
+      "language": "en",
+      "emotion": "calm",
+      "available": true,
+      "rho": -0.6190476190476191,
+      "expected_direction": -1,
+      "meets_abs08": false,
+      "cosine_high_minus_low": -0.0008604242621979515,
+      "neutral_z_high_minus_low": -0.07135254608026909
+    }
+  ],
+  "V1_raw_pass": false,
+  "V1_neutral_z_pass": false,
+  "V2_trend_pass": false,
+  "V2_early_late_comparison": "Not needed to decide failure because the required monotone trend already failed; no full V2 success claim",
+  "P1_unique_paper12": {
+    "source": "qwen24",
+    "layer": 19,
+    "panel": "paper12_unique",
+    "n": 12,
+    "matching_positive": 10,
+    "mean_matching_delta": 3.319167504707972,
+    "mean_specificity": 6.244427315213464,
+    "individual_targets_above_random95": 9
+  },
+  "P1_supplementary_lexical_criterion": true,
+  "formal_G4_14_emotion_pass": null,
+  "formal_G4_reason": "The v1.3 roster duplicates desperate and calm; the 12 unique-emotion result is reported without manufacturing a formal14 denominator",
+  "subjective_fear": false,
+  "emotion_bias_causal_mediation_established": false
+}

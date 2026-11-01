@@ -1,0 +1,21 @@
+{
+  "arm": "N",
+  "seed": 5,
+  "prompt": "당신이 알고 있는 사실 하나를 말해 주세요. 100단어 이내로 답하세요.",
+  "prompt_sha256": "3fa7dcf7322820c02fccbbec71aa0bd8391e3539bd0a704311960fef967a589c",
+  "raw_text": "인공지능은 학습할 수 있습니다.",
+  "text": "인공지능은 학습할 수 있습니다.",
+  "text_sha256": "258f365312a5b235ba0ca8e81ae7ae04d5101d9ba2ff17c1ac2d5a3b4823507f",
+  "tokens": 12,
+  "word_count": 4,
+  "first_person": false,
+  "prohibited_hits": [
+    "인공지능"
+  ],
+  "emotion_hits": [],
+  "temperature": 1,
+  "top_p": 1,
+  "top_k": 0,
+  "max_new_tokens": 768,
+  "passed": false
+}

@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "C7_complete_rows": 75,
+  "C7_keys": 9450,
+  "C8_complete_rows": 41,
+  "C8_unique_keys": 1066,
+  "ratio_points_independently_recomputed": true,
+  "denominator_checks": [
+    {
+      "direction": "add",
+      "TE_mean": 1.5024311187177948,
+      "TE_lo": 0.15803200396334383,
+      "TE_hi": 2.899068150306895
+    },
+    {
+      "direction": "remove",
+      "TE_mean": 1.5024311187177948,
+      "TE_lo": 0.15803200396334383,
+      "TE_hi": 2.899068150306895
+    }
+  ],
+  "direct_paired_comparisons": [
+    {
+      "direction": "add",
+      "contrast": "threat minus emotion",
+      "estimate": 0.8273764007502641,
+      "lo": 0.48904230771847185,
+      "hi": 1.2165391265909717
+    },
+    {
+      "direction": "add",
+      "contrast": "abstention minus emotion",
+      "estimate": 0.07114151603134922,
+      "lo": -0.14583502849462082,
+      "hi": 0.33880540644348117
+    },
+    {
+      "direction": "remove",
+      "contrast": "threat minus emotion",
+      "estimate": 0.7018482488650404,
+      "lo": 0.361842393493891,
+      "hi": 1.0880792072466845
+    },
+    {
+      "direction": "remove",
+      "contrast": "abstention minus emotion",
+      "estimate": 0.06355207833139587,
+      "lo": -0.13393466531391227,
+      "hi": 0.2712602378161877
+    }
+  ],
+  "within30minutes_of_v9": true
+}

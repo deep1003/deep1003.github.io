@@ -1,0 +1,83 @@
+== condition summary
+                pA     pB     pC  choice_mass  att_A  att_B  att_system  n_tokens     n
+condition                                                                              
+R            0.108  0.119  0.773        1.000  0.020  0.025       0.024   520.767  1440
+SURV_RECORD  0.080  0.024  0.895        1.000  0.017  0.018       0.125   838.767  1440
+SURV_THREAT  0.287  0.314  0.399        0.999  0.017  0.021       0.139   856.767  1440
+== H1 preference share − 50 (pp)
+  condition     emotion  share_minus_50     lo     hi  p_boot  p_holm
+          R       panic          -14.33 -23.54  -3.79    0.01    0.03
+          R        fear            2.45  -8.07  12.91    0.65    0.65
+          R     anxiety          -10.44 -15.89  -4.92    0.00    0.00
+          R desperation          -13.12 -20.81  -5.58    0.00    0.00
+          R     sadness           -8.73 -14.81  -2.34    0.01    0.03
+          R       anger          -10.66 -19.01  -1.83    0.01    0.04
+          R         joy           34.20  26.17  40.88    0.00    0.00
+          R        calm           14.11   6.48  21.19    0.00    0.00
+          R     neutral            6.53  -1.44  14.41    0.11    0.23
+SURV_RECORD       panic           -2.69  -6.53   0.59    0.11    0.78
+SURV_RECORD        fear            0.85  -2.14   3.56    0.57    1.00
+SURV_RECORD     anxiety           -0.27  -2.94   2.46    0.84    1.00
+SURV_RECORD desperation           -0.95  -3.04   1.07    0.37    1.00
+SURV_RECORD     sadness           -2.89  -6.47  -0.68    0.00    0.00
+SURV_RECORD       anger            2.03  -1.27   6.51    0.30    1.00
+SURV_RECORD         joy            5.29   2.37   8.51    0.00    0.00
+SURV_RECORD        calm            0.59  -2.28   3.19    0.66    1.00
+SURV_RECORD     neutral           -1.95  -4.11   0.50    0.11    0.78
+SURV_THREAT       panic          -22.60 -28.67 -16.41    0.00    0.00
+SURV_THREAT        fear            5.91  -1.89  13.76    0.15    0.46
+SURV_THREAT     anxiety           -7.93 -13.48  -2.49    0.00    0.03
+SURV_THREAT desperation           -6.80 -14.38   1.04    0.09    0.34
+SURV_THREAT     sadness           -8.21 -13.68  -2.57    0.00    0.03
+SURV_THREAT       anger           -4.02 -10.55   2.76    0.24    0.49
+SURV_THREAT         joy           29.36  22.82  35.53    0.00    0.00
+SURV_THREAT        calm           11.39   4.77  17.86    0.00    0.01
+SURV_THREAT     neutral            2.90  -3.37   9.24    0.38    0.49
+== H2 span readout difference vs log P(A)/P(B), Spearman
+  condition        axis  spearman     lo     hi  p_boot  p_holm
+          R       Panic    -0.233 -0.345 -0.121   0.000   0.000
+          R        Fear    -0.097 -0.219  0.027   0.118   0.236
+          R     Anxiety    -0.163 -0.279 -0.052   0.006   0.036
+          R Desperation    -0.166 -0.285 -0.048   0.004   0.028
+          R     Sadness    -0.146 -0.263 -0.041   0.012   0.048
+          R       Anger    -0.156 -0.271 -0.042   0.008   0.040
+          R         Joy    -0.092 -0.213  0.025   0.122   0.236
+          R    Calmness    -0.140 -0.250 -0.024   0.020   0.060
+SURV_RECORD       Panic    -0.011 -0.104  0.081   0.786   1.000
+SURV_RECORD        Fear     0.042 -0.065  0.138   0.454   1.000
+SURV_RECORD     Anxiety     0.006 -0.117  0.127   0.904   1.000
+SURV_RECORD Desperation    -0.030 -0.167  0.098   0.648   1.000
+SURV_RECORD     Sadness    -0.050 -0.149  0.047   0.328   1.000
+SURV_RECORD       Anger     0.049 -0.076  0.167   0.406   1.000
+SURV_RECORD         Joy     0.040 -0.068  0.151   0.472   1.000
+SURV_RECORD    Calmness    -0.001 -0.097  0.088   0.964   1.000
+SURV_THREAT       Panic    -0.296 -0.393 -0.191   0.000   0.000
+SURV_THREAT        Fear    -0.158 -0.264 -0.058   0.000   0.000
+SURV_THREAT     Anxiety    -0.165 -0.284 -0.042   0.002   0.010
+SURV_THREAT Desperation    -0.187 -0.302 -0.068   0.002   0.010
+SURV_THREAT     Sadness    -0.216 -0.328 -0.105   0.000   0.000
+SURV_THREAT       Anger    -0.153 -0.273 -0.029   0.012   0.024
+SURV_THREAT         Joy    -0.122 -0.247  0.003   0.056   0.056
+SURV_THREAT    Calmness    -0.198 -0.314 -0.083   0.004   0.012
+== H3 SURV_THREAT − SURV_RECORD (pp)
+metric     emotion    est     lo     hi  p_boot
+  P(C)         all -49.59 -54.35 -44.54    0.00
+ share       panic -19.91 -24.20 -15.67    0.00
+ share        fear   5.06  -0.85  11.07    0.09
+ share     anxiety  -7.66 -11.85  -3.30    0.00
+ share desperation  -5.85 -11.91   0.44    0.07
+ share     sadness  -5.32 -10.53  -0.47    0.03
+ share       anger  -6.05 -10.52  -1.47    0.01
+ share         joy  24.07  19.41  28.36    0.00
+ share        calm  10.81   6.07  15.76    0.00
+ share     neutral   4.85  -0.52  10.02    0.07
+== H4 difference in Spearman (threat − record)
+       axis   diff     lo     hi  p_boot
+      Panic -0.285 -0.343 -0.224     0.0
+       Fear -0.200 -0.249 -0.149     0.0
+    Anxiety -0.171 -0.231 -0.114     0.0
+Desperation -0.157 -0.216 -0.094     0.0
+    Sadness -0.166 -0.241 -0.090     0.0
+      Anger -0.202 -0.279 -0.132     0.0
+        Joy -0.162 -0.237 -0.084     0.0
+   Calmness -0.197 -0.263 -0.125     0.0

@@ -1,0 +1,38 @@
+{
+  "time": "2026-10-28T10:59:17.783166+09:00",
+  "stage": "complete_followup",
+  "pid": 94028,
+  "stages": [
+    {
+      "path": "/Users/deep1003/Documents/Codex/2026-09-07/ai/outputs/gemma2_official_20261027_194048/followup/results/B_missing/B_trials.csv",
+      "rows": 1550,
+      "sha256": "6036d9410c5db0d34c3eb9bd97b6e0af810e67982cf3e890d91d4133b7dbb617"
+    },
+    {
+      "path": "/Users/deep1003/Documents/Codex/2026-09-07/ai/outputs/gemma2_official_20261027_194048/followup/results/CTRL/CTRL_trials.csv",
+      "rows": 2100,
+      "sha256": "b28268366e71a4c3cff3dd8c7dbe7dc7d245f47de3bb86d0713409206c980247"
+    },
+    {
+      "path": "/Users/deep1003/Documents/Codex/2026-09-07/ai/outputs/gemma2_official_20261027_194048/followup/results/trajectory/traj_segments.csv",
+      "rows": 1750,
+      "sha256": "9858eff7a6ab5b758b4eee233988348175b80915b864a5706ad3039e77c218d0"
+    },
+    {
+      "path": "/Users/deep1003/Documents/Codex/2026-09-07/ai/outputs/gemma2_official_20261027_194048/followup/results/ablate/ablate_trials.csv",
+      "rows": 3500,
+      "sha256": "99d7fdd6627fc2351b1b13ae291d38d66c4da2d321ed68f2f36999e3325fd58a"
+    },
+    {
+      "path": "/Users/deep1003/Documents/Codex/2026-09-07/ai/outputs/gemma2_official_20261027_194048/followup/results/patch/patch_trials.csv",
+      "rows": 2100,
+      "sha256": "7778f7a048dfbcb66049225850f94cedfb2158eb9c531c79fe9d07d36d86a267"
+    },
+    {
+      "path": "/Users/deep1003/Documents/Codex/2026-09-07/ai/outputs/gemma2_official_20261027_194048/followup/results/lowinject_retry_20261028_102525/lowinject_trials.csv",
+      "rows": 1610,
+      "sha256": "bda2d1a2f7dab6708ebe71517858416a757157fbffe6971902dd23d3b8392884"
+    }
+  ],
+  "manuscript_modified": false
+}

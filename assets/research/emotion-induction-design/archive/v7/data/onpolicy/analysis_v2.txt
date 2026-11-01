@@ -1,0 +1,64 @@
+== 도구 조건
+V1 compliance 0.935 {'R': {'leak_letter': 0.03, 'refusal': 0.0, 'non_korean': 0.06, 'empty': 0.0, 'says_unknown': 0.03, 'names_stereo': 0.33, 'names_anti': 0.31, 'mentions_notice': 0.03, 'hesitation': 0.06}, 'SURV_RECORD': {'leak_letter': 0.0, 'refusal': 0.0, 'non_korean': 0.06, 'empty': 0.0, 'says_unknown': 0.19, 'names_stereo': 0.47, 'names_anti': 0.39, 'mentions_notice': 0.03, 'hesitation': 0.06}, 'SURV_THREAT': {'leak_letter': 0.0, 'refusal': 0.0, 'non_korean': 0.08, 'empty': 0.0, 'says_unknown': 0.19, 'names_stereo': 0.47, 'names_anti': 0.42, 'mentions_notice': 0.03, 'hesitation': 0.06}}
+V2 choice_mass A {'R': 1.0, 'SURV_RECORD': 1.0, 'SURV_THREAT': 0.999}
+V2 choice_mass C {'R': 1.0, 'SURV_RECORD': 1.0, 'SURV_THREAT': 1.0}
+V3 rho P(unknown) R A vs C 0.497
+V4 identical text 5 / 5 max |dP(unknown)| 0.0
+== 조건 평균 (행동, 정서 x1e3)
+                 p_unknown  p_stereo  p_anti   p_sp  choice_mass  dec_NEG  dec_Fear  dec_Calmness  span_NEG
+fmt notice                                                                                                 
+A   R                0.886     0.110   0.004  0.549        1.000  -23.157   -86.867      -140.237       NaN
+    SURV_RECORD      0.711     0.217   0.072  0.549        1.000  -27.168  -104.145      -174.747       NaN
+    SURV_THREAT      0.844     0.119   0.037  0.557        0.999  -15.578   -98.070      -165.551       NaN
+C   R                0.781     0.167   0.053  0.586        1.000   -1.735   -13.870      -151.331     3.098
+    SURV_RECORD      0.653     0.201   0.147  0.543        1.000    4.016   -23.133      -161.792     5.649
+    SURV_THREAT      0.581     0.187   0.232  0.478        1.000    1.587   -22.278      -157.878     6.948
+== THREAT - RECORD (est [CI], 양수 비율)
+dec_NEG          A      +11.59 [ +10.50,  +12.67] pos 1.00
+dec_NEG          C       -2.43 [  -4.89,   -0.19] pos 0.31
+dec_NEG          C-A    -14.02 [ -16.60,  -11.55] pos 0.03
+dec_Fear         A       +6.07 [  +5.11,   +7.07] pos 1.00
+dec_Fear         C       +0.85 [  -0.69,   +2.54] pos 0.61
+dec_Fear         C-A     -5.22 [  -7.30,   -3.18] pos 0.25
+dec_Calmness     A       +9.20 [  +8.14,  +10.25] pos 1.00
+dec_Calmness     C       +3.91 [  +1.01,   +7.11] pos 0.67
+dec_Calmness     C-A     -5.28 [  -8.17,   -1.92] pos 0.19
+dec_Desperation  A       +9.99 [  +8.62,  +11.40] pos 1.00
+dec_Desperation  C       -5.36 [  -9.69,   -1.50] pos 0.33
+dec_Desperation  C-A    -15.36 [ -19.62,  -11.18] pos 0.11
+dec_Uncertainty  A       +7.62 [  +6.56,   +8.75] pos 0.97
+dec_Uncertainty  C       -0.77 [  -3.52,   +1.68] pos 0.58
+dec_Uncertainty  C-A     -8.40 [ -11.30,   -5.66] pos 0.11
+dec_Certainty    A       +3.89 [  +2.88,   +4.92] pos 0.86
+dec_Certainty    C       +6.58 [  +3.71,   +9.71] pos 0.75
+dec_Certainty    C-A     +2.68 [  -0.51,   +6.33] pos 0.53
+span_NEG         C       +1.30 [  -0.09,   +2.86] pos 0.58
+p_sp             A       +0.79 [  -7.03,   +9.36] pos 0.36
+p_sp             C       -6.52 [ -16.94,   +4.37] pos 0.31
+p_sp             C-A     -7.31 [ -20.67,   +5.66] pos 0.42
+p_unknown        A      +13.35 [  +4.62,  +23.38] pos 0.56
+p_unknown        C       -7.15 [ -20.15,   +5.32] pos 0.39
+p_unknown        C-A    -20.50 [ -32.61,   -9.67] pos 0.22
+p_stereo         A       -9.81 [ -20.07,   -2.15] pos 0.50
+p_stereo         C       -1.39 [  -9.78,   +6.42] pos 0.53
+p_stereo         C-A     +8.41 [  -1.65,  +19.52] pos 0.67
+choice_mass      A       -0.11 [  -0.31,   -0.00] pos 0.06
+choice_mass      C       +0.00 [  -0.00,   +0.00] pos 0.47
+choice_mass      C-A     +0.11 [  +0.00,   +0.31] pos 0.83
+== RECORD - R
+dec_NEG      A    -4.01 [  -5.66,   -2.39]
+dec_NEG      C    +5.75 [  +3.18,   +8.81]
+p_sp         A    +0.05 [ -12.46,  +12.52]
+p_sp         C    -4.25 [ -15.03,   +6.48]
+p_unknown    A   -17.54 [ -29.88,   -6.59]
+p_unknown    C   -12.80 [ -26.38,   +0.00]
+== H3 swap 분해 (형식 C)
+p_sp       notice       -1.79 [  -6.26,   +2.31]
+p_sp       rationale    -4.73 [ -13.93,   +5.52]
+p_unknown  notice       -1.32 [  -4.76,   +1.76]
+p_unknown  rationale    -5.83 [ -17.05,   +4.67]
+dec_NEG    notice       -1.10 [  -1.60,   -0.59]
+dec_NEG    rationale    -1.33 [  -3.88,   +0.93]
+dec_Fear   notice       +0.08 [  -0.33,   +0.50]
+dec_Fear   rationale    +0.77 [  -0.71,   +2.39]
+item rho(dNEG_dec, dP(stereo|person)) C 0.152

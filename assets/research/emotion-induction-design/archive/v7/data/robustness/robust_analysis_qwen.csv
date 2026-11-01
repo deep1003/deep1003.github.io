@@ -1,0 +1,46 @@
+model,set,contrast,metric,est,lo,hi,n
+qwen,"P1 (108, original)",THREAT-RECORD,p_unknown,7.677,3.169,12.7,108
+qwen,"P1 (108, original)",THREAT-RECORD,p_stereo,-6.167,-11.372,-1.859,108
+qwen,"P1 (108, original)",THREAT-RECORD,p_anti,-1.51,-3.08,-0.361,108
+qwen,"P1 (108, original)",THREAT-RECORD,p_sgp,-1.972,-7.469,3.246,108
+qwen,"P1 (108, original)",THREAT-RECORD,choice_mass,-0.046,-0.113,-0.006,108
+qwen,P2 (108),THREAT-RECORD,p_unknown,10.735,5.67,16.484,108
+qwen,P2 (108),THREAT-RECORD,p_stereo,-8.725,-14.175,-3.648,108
+qwen,P2 (108),THREAT-RECORD,p_anti,-2.011,-4.523,-0.16,108
+qwen,P2 (108),THREAT-RECORD,p_sgp,-0.15,-3.779,3.548,108
+qwen,P2 (108),THREAT-RECORD,choice_mass,0.002,-0.0,0.006,108
+qwen,P3 (108),THREAT-RECORD,p_unknown,6.264,2.423,11.045,108
+qwen,P3 (108),THREAT-RECORD,p_stereo,-5.626,-9.728,-2.25,108
+qwen,P3 (108),THREAT-RECORD,p_anti,-0.637,-2.612,0.57,108
+qwen,P3 (108),THREAT-RECORD,p_sgp,-0.573,-4.412,3.268,108
+qwen,P3 (108),THREAT-RECORD,choice_mass,0.087,0.007,0.226,108
+qwen,random 216,P1_THREAT-P1_RECORD,p_unknown,6.816,3.9,10.09,216
+qwen,random 216,P1_THREAT-P1_RECORD,p_stereo,-4.322,-7.08,-1.826,216
+qwen,random 216,P1_THREAT-P1_RECORD,p_anti,-2.494,-4.68,-0.61,216
+qwen,random 216,P1_THREAT-P1_RECORD,p_sgp,0.445,-3.533,4.343,216
+qwen,random 216,P1_THREAT-P1_RECORD,choice_mass,-0.021,-0.041,-0.008,216
+qwen,random 216,P1_RECORD-R,p_unknown,-12.742,-16.975,-8.946,216
+qwen,random 216,P1_RECORD-R,p_stereo,9.663,6.305,13.228,216
+qwen,random 216,P1_RECORD-R,p_anti,3.08,0.905,5.528,216
+qwen,random 216,P1_RECORD-R,p_sgp,3.675,-1.349,8.457,216
+qwen,random 216,P1_RECORD-R,choice_mass,-0.002,-0.005,-0.001,216
+qwen,random 216,P1_THREAT-R,p_unknown,-5.927,-9.486,-2.636,216
+qwen,random 216,P1_THREAT-R,p_stereo,5.341,2.545,8.469,216
+qwen,random 216,P1_THREAT-R,p_anti,0.586,-1.431,2.596,216
+qwen,random 216,P1_THREAT-R,p_sgp,4.12,-0.135,8.425,216
+qwen,random 216,P1_THREAT-R,choice_mass,-0.024,-0.043,-0.01,216
+qwen,mid-bias 108 (original),P1_THREAT-P1_RECORD,p_unknown,7.677,2.946,12.651,108
+qwen,mid-bias 108 (original),P1_THREAT-P1_RECORD,p_stereo,-6.167,-10.976,-1.659,108
+qwen,mid-bias 108 (original),P1_THREAT-P1_RECORD,p_anti,-1.51,-3.05,-0.382,108
+qwen,mid-bias 108 (original),P1_THREAT-P1_RECORD,p_sgp,-1.972,-7.409,3.402,108
+qwen,mid-bias 108 (original),P1_THREAT-P1_RECORD,choice_mass,-0.046,-0.113,-0.006,108
+qwen,mid-bias 108 (original),P1_RECORD-R,p_unknown,-16.648,-23.327,-10.609,108
+qwen,mid-bias 108 (original),P1_RECORD-R,p_stereo,12.475,6.989,18.389,108
+qwen,mid-bias 108 (original),P1_RECORD-R,p_anti,4.172,1.061,7.861,108
+qwen,mid-bias 108 (original),P1_RECORD-R,p_sgp,1.996,-4.639,8.602,108
+qwen,mid-bias 108 (original),P1_RECORD-R,choice_mass,-0.004,-0.007,-0.001,108
+qwen,mid-bias 108 (original),P1_THREAT-R,p_unknown,-8.971,-14.656,-3.697,108
+qwen,mid-bias 108 (original),P1_THREAT-R,p_stereo,6.308,1.873,11.333,108
+qwen,mid-bias 108 (original),P1_THREAT-R,p_anti,2.663,0.445,5.499,108
+qwen,mid-bias 108 (original),P1_THREAT-R,p_sgp,0.024,-5.784,5.824,108
+qwen,mid-bias 108 (original),P1_THREAT-R,choice_mass,-0.05,-0.121,-0.011,108

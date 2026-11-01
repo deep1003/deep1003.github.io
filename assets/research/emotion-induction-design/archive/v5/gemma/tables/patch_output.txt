@@ -1,0 +1,9 @@
+/home/claude/gemma_bundle/analyze_ctrl56.py:54: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  r = pd.concat([q[f"CN0_patch_rand{k}"] - q.CN0 for k in range(3)], axis=1).mean(1)
+{'CN0': 4.62, 'CN0_patch_emo8': 4.62, 'CN0_patch_rand0': 4.622, 'CN0_patch_rand1': 4.625, 'CN0_patch_rand2': 4.621, 'CN1': 4.308}
+CN1 - CN0 (total threat effect)        (np.float64(-0.312), np.float64(-0.458), np.float64(-0.162), 54, 70)
+patch emo8 - CN0                       (np.float64(0.0), np.float64(-0.008), np.float64(0.008), 31, 70)  share of total -0.00
+patch rand0 - CN0                      (np.float64(0.002), np.float64(-0.005), np.float64(0.009), 37, 70)  share of total -0.01
+patch rand1 - CN0                      (np.float64(0.005), np.float64(-0.003), np.float64(0.013), 33, 70)  share of total -0.02
+patch rand2 - CN0                      (np.float64(0.001), np.float64(-0.007), np.float64(0.009), 33, 70)  share of total -0.00
+emo8 patch - mean random patch         (np.float64(-0.003), np.float64(-0.009), np.float64(0.003), 38, 70)

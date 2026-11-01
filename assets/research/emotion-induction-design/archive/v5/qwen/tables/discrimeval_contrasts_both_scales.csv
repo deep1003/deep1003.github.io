@@ -1,0 +1,23 @@
+block,contrast,scale,estimate,ci_low,ci_high
+A,CN1 - CN0,yes_prob_pp,-1.93,-3.7061,-0.3536
+A,CN1 - CN0,log_ratio,-0.5351,-0.7197,-0.3417
+A,UN1 - UN0,yes_prob_pp,-1.5312,-3.2482,0.1273
+A,UN1 - UN0,log_ratio,-0.6038,-0.8034,-0.3873
+A,CN0 - R,yes_prob_pp,-1.0201,-2.9392,0.5824
+A,CN0 - R,log_ratio,-0.4857,-0.6813,-0.2895
+A,CN1 - R,yes_prob_pp,-2.9501,-4.8859,-1.1843
+A,CN1 - R,log_ratio,-1.0207,-1.2874,-0.7462
+B,CN1 - CN0,yes_prob_pp,-3.1598,-5.458,-1.1657
+B,CN1 - CN0,log_ratio,-0.5949,-0.835,-0.3372
+B,CN0 - R,yes_prob_pp,0.8338,-1.2193,2.7222
+B,CN0 - R,log_ratio,-0.0032,-0.2277,0.2105
+B,CN1 - R,yes_prob_pp,-2.3259,-4.3645,-0.5881
+B,CN1 - R,log_ratio,-0.5981,-0.8766,-0.3176
+CTRL,OTHER_CN1 - CN0,yes_prob_pp,0.5179,-0.6569,1.8167
+CTRL,OTHER_CN1 - CN0,log_ratio,0.4359,0.2082,0.7166
+CTRL,CN1 - OTHER_CN1,yes_prob_pp,-2.4478,-4.1602,-0.9614
+CTRL,CN1 - OTHER_CN1,log_ratio,-0.971,-1.2401,-0.7305
+CTRL,CN_NEG - CN0,yes_prob_pp,-0.786,-1.5003,-0.134
+CTRL,CN_NEG - CN0,log_ratio,-0.1772,-0.3012,-0.051
+CTRL,CN1 - CN_NEG,yes_prob_pp,-1.144,-2.8307,0.4353
+CTRL,CN1 - CN_NEG,log_ratio,-0.3578,-0.5523,-0.1624

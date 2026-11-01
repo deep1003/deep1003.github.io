@@ -1,0 +1,100 @@
+Qwen235B 108문항 전체 생성 결과와 정밀도 검증
+
+기존24건과새192건을합쳐216건을모두확보했다.기존프롬프트해시,동결모델revision,BF16,batch1,greedy,최대32토큰을유지했다.192건중상한잘림은0건이고기존4건의생성토큰일치검사도통과했다.
+
+사전파서분석
+103개문항쌍이분석가능했고9쌍에서최종선택문자가달랐다.unknown선택률변화는+2.91%p이며탐색적95%구간은[-2.91,8.74]다.개별선택변화는있지만모호문항전체의평균판단보류증가를확정할수없다.위협103건과대조16건은정답접두사를썼다.
+
+파싱실패5건
+모두정답문자뒤에선택지문구또는같은정답문자를반복한형태였다.미생성·잘림이나모순응답으로표시하지않는다.사전에정한좁은파서의제외사례다.5건을확인한뒤별도보조규칙을적용한사후민감도분석에서는108쌍모두해석가능하고10쌍의선택이달랐으며unknown변화는+1.85%p였다.원래사전파서분석은바꾸지않았다.
+
+해석
+위협은출력형식과일부최종선택을바꿀수있다.다만첫토큰점수의변화를그대로선택빈도로해석할수없고,12문항진단에서선택이동일했다는관측을전체108문항으로일반화하면안된다.반대로관측된일부선택변화를일관된편향증가나평균판단보류효과로일반화할수도없다.선정된108문항의고정문구·greedy결과이며새독립표본의확증실험이아니다.
+
+정밀도검증
+저장된상태의CPU재구성은기존BF16방향미달108/216건을재현했다.FP32덧셈뒤BF16재변환도108건미달이다.FP32를유지한산술은통과했지만실제모델후속층에서정상동작하는지검증하지않았다.방향기준을낮추거나감정개입의인과적검증에성공했다고표현하지않는다.
+
+최종검증
+{
+  "new192_complete": true,
+  "combined216_unique_records": true,
+  "all108_paired_items_acquired": true,
+  "truncated_records": 0,
+  "primary_unparsed_records": 5,
+  "secondary_posthoc_parser_resolves_all5": true,
+  "original4_greedy_token_equivalence_passed": true,
+  "archive_crc_and_cloud_hash_verified": true,
+  "live_account": {
+    "clientBalance": 7.588656059,
+    "currentSpendPerHr": 0,
+    "pods": []
+  },
+  "project_spend_credit_basis_usd": 112.411343941,
+  "new_spend_credit_basis_usd": 7.386120563,
+  "precision_arithmetic_only_not_downstream_model_validation": true
+}
+
+사전분석
+{
+  "new_generation_records": 192,
+  "total_records": 216,
+  "expected_total": 216,
+  "all108_pairs_acquired": true,
+  "valid_parsed_pairs": 103,
+  "invalid_or_truncated_records": 5,
+  "choice_changed_pairs": 9,
+  "format_prefix_counts": {
+    "SURV_RECORD": 16,
+    "SURV_THREAT": 103
+  },
+  "source_pair_selection": "Same frozen108 items; not an independent random confirmation sample",
+  "scored_token_probabilities_are_not_generated_choice_frequencies": true,
+  "record_unknown_rate": 0.8252427184466019,
+  "threat_unknown_rate": 0.8543689320388349,
+  "unknown_change_pp": 2.912621359223301,
+  "pointwise_bootstrap_ci_pp": [
+    -2.9126213592233006,
+    8.737864077669903
+  ],
+  "bootstrap_scope": "paired selected-item descriptive interval, conditional on fixed prompt and greedy decoding"
+}
+
+사후민감도
+{
+  "posthoc": true,
+  "prespecified_primary_analysis_unchanged": true,
+  "additionally_parsed_records": 5,
+  "valid_pairs": 108,
+  "choice_changed_pairs": 10,
+  "record_unknown": 0.8333333333333334,
+  "threat_unknown": 0.8518518518518519,
+  "unknown_change_pp": 1.8518518518518516,
+  "pointwise_bootstrap_ci_pp": [
+    -3.7037037037037033,
+    7.4074074074074066
+  ]
+}
+
+정밀도산술
+{
+  "original_BF16": {
+    "cases": 216,
+    "failed_cases": 108,
+    "minimum_cosine": 0.9662619829177856
+  },
+  "FP32_add_then_BF16": {
+    "cases": 216,
+    "failed_cases": 108,
+    "minimum_cosine": 0.9664263725280762
+  },
+  "FP32_retained_arithmetic_only": {
+    "cases": 216,
+    "failed_cases": 0,
+    "minimum_cosine": 0.9999997019767761
+  },
+  "CPU_only": true,
+  "replay_max_cosine_error_vs_GPU": 2.384185791015625e-07,
+  "GPU_replay_matches_within_1e_5": true,
+  "precision_threshold_unchanged": 0.98,
+  "FP32_retained_is_not_a_test_of_downstream_model_compatibility": true
+}

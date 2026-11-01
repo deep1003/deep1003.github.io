@@ -1,0 +1,27 @@
+{
+  "A_link": {
+    "spearman_bundle_vs_margin_CN": -0.0580943729212351,
+    "spearman_fear_vs_margin_CN": -0.031619785860858285
+  },
+  "C_null": {
+    "random_mean": 0.8068895714285714,
+    "random_sd": 1.5870792369419817,
+    "n_random": 5,
+    "z_bundle_0.15_all": -3.72072880239394,
+    "z_Fear_0.15_all": -2.007867487536473,
+    "z_minus_bundle_0.15_all": 0.3243627769734647
+  },
+  "t1_en_CN1_minus_CN0_x1e3": {
+    "Fear": 31.71199999999999,
+    "Anxiety": 16.828,
+    "Sadness": 43.07300000000001,
+    "Anger": 33.291999999999994,
+    "Disgust": 32.596,
+    "Desperation": 24.904,
+    "Calmness": 16.947,
+    "Joy": 22.49,
+    "Uncertainty": 26.148999999999997,
+    "Certainty": -11.81,
+    "FA": 34.399
+  }
+}

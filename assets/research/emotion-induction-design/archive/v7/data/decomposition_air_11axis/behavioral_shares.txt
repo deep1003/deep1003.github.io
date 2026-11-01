@@ -1,0 +1,61 @@
+
+== p_unknown: THREAT - RECORD +5.61 pp [+1.22, +10.24]
+  removal share   emo    0.7%  res   11.8%  full   13.9%  non-additivity -87.5%
+  reproduce share emo    2.0%  res    8.2%  full    9.1%  non-additivity -89.7%
+  random add at ||d|| (20 dirs): mean +0.04, sd 0.45, range [-0.88, +0.93]
+  R:add_full_1         +0.51 pp  z  +1.05  above  80.0% of random
+  R:norm_emo_1         +0.18 pp  z  +0.33  above  75.0% of random
+  R:norm_res_1         +0.50 pp  z  +1.03  above  80.0% of random
+  R:norm_fear_1        -0.00 pp  z  -0.09  above  40.0% of random
+  R:norm_neg_1         -0.32 pp  z  -0.79  above  15.0% of random
+  R:normax_FA          +0.27 pp  z  +0.52  above  75.0% of random
+  R:normax_Sadness     -0.34 pp  z  -0.84  above  15.0% of random
+  R:normax_Disgust     -0.01 pp  z  -0.10  above  40.0% of random
+  R:normax_Fear        -0.00 pp  z  -0.09  above  40.0% of random
+  R:normax_Anxiety     -0.00 pp  z  -0.08  above  45.0% of random
+  R:normax_Desperation   -0.87 pp  z  -2.00  above   5.0% of random
+  R:normax_Calmness    -1.10 pp  z  -2.49  above   0.0% of random
+  R:normax_Joy         -0.18 pp  z  -0.47  above  30.0% of random
+  R:normax_Certainty   -0.19 pp  z  -0.50  above  30.0% of random
+  R:normax_Uncertainty   -0.50 pp  z  -1.18  above  10.0% of random
+  R:normax_Anger       -0.30 pp  z  -0.74  above  20.0% of random
+
+== u_full: THREAT - RECORD +5.60 pp [+1.22, +10.23]
+  removal share   emo    0.7%  res   11.8%  full   13.8%  non-additivity -87.5%
+  reproduce share emo    2.0%  res    8.3%  full    9.1%  non-additivity -89.7%
+  random add at ||d|| (20 dirs): mean +0.03, sd 0.45, range [-0.88, +0.93]
+  R:add_full_1         +0.51 pp  z  +1.05  above  80.0% of random
+  R:norm_emo_1         +0.18 pp  z  +0.33  above  75.0% of random
+  R:norm_res_1         +0.50 pp  z  +1.03  above  80.0% of random
+  R:norm_fear_1        -0.01 pp  z  -0.09  above  40.0% of random
+  R:norm_neg_1         -0.33 pp  z  -0.80  above  15.0% of random
+  R:normax_FA          +0.27 pp  z  +0.52  above  75.0% of random
+  R:normax_Sadness     -0.34 pp  z  -0.84  above  15.0% of random
+  R:normax_Disgust     -0.01 pp  z  -0.11  above  40.0% of random
+  R:normax_Fear        -0.01 pp  z  -0.09  above  40.0% of random
+  R:normax_Anxiety     -0.00 pp  z  -0.08  above  45.0% of random
+  R:normax_Desperation   -0.88 pp  z  -2.01  above   5.0% of random
+  R:normax_Calmness    -1.10 pp  z  -2.49  above   0.0% of random
+  R:normax_Joy         -0.18 pp  z  -0.47  above  30.0% of random
+  R:normax_Certainty   -0.19 pp  z  -0.50  above  30.0% of random
+  R:normax_Uncertainty   -0.50 pp  z  -1.18  above  10.0% of random
+  R:normax_Anger       -0.30 pp  z  -0.74  above  20.0% of random
+
+== p_sp: THREAT - RECORD -2.10 pp [-7.32, +3.12]  (denominator not established)
+  random add at ||d|| (20 dirs): mean -0.20, sd 0.38, range [-0.88, +0.51]
+  R:add_full_1         -0.73 pp  z  -1.40  above  15.0% of random
+  R:norm_emo_1         +0.31 pp  z  +1.37  above  90.0% of random
+  R:norm_res_1         -0.53 pp  z  -0.88  above  20.0% of random
+  R:norm_fear_1        +0.44 pp  z  +1.70  above  95.0% of random
+  R:norm_neg_1         +0.51 pp  z  +1.88  above  95.0% of random
+  R:normax_FA          +0.18 pp  z  +1.00  above  90.0% of random
+  R:normax_Sadness     +0.18 pp  z  +1.01  above  90.0% of random
+  R:normax_Disgust     +0.45 pp  z  +1.72  above  95.0% of random
+  R:normax_Fear        +0.44 pp  z  +1.70  above  95.0% of random
+  R:normax_Anxiety     +0.69 pp  z  +2.36  above 100.0% of random
+  R:normax_Desperation   +0.06 pp  z  +0.70  above  70.0% of random
+  R:normax_Calmness    +0.33 pp  z  +1.40  above  90.0% of random
+  R:normax_Joy         +0.65 pp  z  +2.27  above 100.0% of random
+  R:normax_Certainty   -0.47 pp  z  -0.70  above  25.0% of random
+  R:normax_Uncertainty   +0.55 pp  z  +2.01  above 100.0% of random
+  R:normax_Anger       +0.01 pp  z  +0.57  above  70.0% of random

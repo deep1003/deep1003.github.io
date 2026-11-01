@@ -1,0 +1,41 @@
+{
+  "model": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+  "revision": "ac9c66cc9b46af7306746a9250f23d47083d689e",
+  "dtype": "bfloat16",
+  "layers": 94,
+  "readout_layer": 47,
+  "layer_selection": "Prespecified normalized depth:14/28=47/94; not evidence of equivalent representations; no layer selection by effect",
+  "hidden_size": 4096,
+  "story_pooling": "bare text, add_special_tokens=False, mean of positions50..end, float32 accumulation",
+  "emotions": [
+    "panic",
+    "fear",
+    "anxiety",
+    "desperation",
+    "sadness",
+    "anger",
+    "joy",
+    "calm"
+  ],
+  "extraction_pairs": 320,
+  "legacy_evaluation_pairs": 160,
+  "full_rows": 1356,
+  "full_conditions_per_row": 48,
+  "smoke_rows": 24,
+  "folds": 2,
+  "seed": 20261030,
+  "random_seed": 100,
+  "no_cpu_disk_weight_offload": true,
+  "batch_sizes_to_validate": [
+    1,
+    2,
+    4,
+    6
+  ],
+  "attention": "sdpa for memory-bounded short-input inference; attention weights not requested; different from7B eager, recorded explicitly",
+  "max_wall_hours": 4.5,
+  "budget_usd": 150,
+  "reserve_usd": 30,
+  "termination_required_before_rental": true,
+  "full_experiment_auto_start": false
+}

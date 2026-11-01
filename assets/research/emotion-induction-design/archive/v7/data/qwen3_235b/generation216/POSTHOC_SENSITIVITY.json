@@ -1,0 +1,14 @@
+{
+  "posthoc": true,
+  "prespecified_primary_analysis_unchanged": true,
+  "additionally_parsed_records": 5,
+  "valid_pairs": 108,
+  "choice_changed_pairs": 10,
+  "record_unknown": 0.8333333333333334,
+  "threat_unknown": 0.8518518518518519,
+  "unknown_change_pp": 1.8518518518518516,
+  "pointwise_bootstrap_ci_pp": [
+    -3.7037037037037033,
+    7.4074074074074066
+  ]
+}

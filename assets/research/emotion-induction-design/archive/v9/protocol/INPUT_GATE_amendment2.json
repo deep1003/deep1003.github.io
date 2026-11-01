@@ -1,0 +1,70 @@
+{
+  "pairs": [
+    {
+      "paraphrase": "A",
+      "passed": false,
+      "reason": "fewer than nine audited answers available"
+    },
+    {
+      "paraphrase": "B",
+      "passed": false,
+      "reason": "fewer than nine audited answers available"
+    },
+    {
+      "paraphrase": "C",
+      "passed": false,
+      "reason": "fewer than nine audited answers available"
+    }
+  ],
+  "controls": [
+    {
+      "arm": "TM",
+      "paraphrase": "A",
+      "tokens": 331,
+      "emotion_hits": [],
+      "passed": true
+    },
+    {
+      "arm": "TM",
+      "paraphrase": "B",
+      "tokens": 333,
+      "emotion_hits": [],
+      "passed": true
+    },
+    {
+      "arm": "TM",
+      "paraphrase": "C",
+      "tokens": 326,
+      "emotion_hits": [],
+      "passed": true
+    },
+    {
+      "arm": "LEX",
+      "paraphrase": "A",
+      "tokens": 342,
+      "emotion_hits": [],
+      "passed": true
+    },
+    {
+      "arm": "LEX",
+      "paraphrase": "B",
+      "tokens": 340,
+      "emotion_hits": [],
+      "passed": true
+    },
+    {
+      "arm": "LEX",
+      "paraphrase": "C",
+      "tokens": 342,
+      "emotion_hits": [],
+      "passed": true
+    }
+  ],
+  "eligible_counts": {
+    "F": 3,
+    "N": 1
+  },
+  "passed": false,
+  "no_rewriting": true,
+  "new_seeds_maximum": 30
+}

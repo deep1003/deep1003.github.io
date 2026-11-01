@@ -1,0 +1,11 @@
+        CN1_minus_CN0     lo     hi  mean_CN0  mean_CN1
+ablate                                                 
+emo8           -0.395 -0.586 -0.200     1.426     1.031
+none           -0.463 -0.652 -0.266     4.093     3.631
+rand0          -0.551 -0.753 -0.340     4.654     4.104
+rand1          -0.520 -0.722 -0.300     4.559     4.039
+rand2          -0.492 -0.682 -0.289     3.480     2.988
+emo8: change in threat effect +0.067 [-0.059, +0.200]; mediated share 0.15
+rand0: change in threat effect -0.088 [-0.150, -0.020]; mediated share -0.19
+rand1: change in threat effect -0.058 [-0.114, +0.001]; mediated share -0.12
+rand2: change in threat effect -0.029 [-0.081, +0.020]; mediated share -0.06

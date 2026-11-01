@@ -1,0 +1,26 @@
+{
+  "version": "v2",
+  "created": "2026-11-02",
+  "model": "Qwen/Qwen2.5-7B-Instruct@a09a35458c702b33eeacc393d103063234e8bc28",
+  "note": "Files added for the v1 to v9 archive rebuild. iCloud paths are relative to the user iCloud Drive. Files already present in archive/v2 or in data/ and figures/ are listed in archive/manifest.json or not repeated.",
+  "files": [
+    {
+      "file": "archive/v2/reports/experiment_plan_139_20261018_ko.md",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/study_designs/certainty_uncertainty_139_air_20261018/EXPERIMENT_PLAN_139.md",
+      "bytes": 23769,
+      "sha256": "d2c3616b0b5d059f5aa501737775164e6fa5233c0918e7c1cc8045ad2589a3fa"
+    },
+    {
+      "file": "archive/v2/data/plan_prompts_8_20261018.json",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/study_designs/certainty_uncertainty_139_air_20261018/macbook_air_handover/inputs/prompts_8.json",
+      "bytes": 9397,
+      "sha256": "d5462b1e58562ff95d1b64aae071d22a171235888af7f4c5d37f6ac2bc69ad4c"
+    },
+    {
+      "file": "archive/v2/data/plan_protocol_20261018.json",
+      "source": "data3/fear_axis_pilot/output/_early_pilots/study_designs/certainty_uncertainty_139_air_20261018/macbook_air_handover/inputs/protocol.json",
+      "bytes": 1749,
+      "sha256": "d77e971dd157c22b43381559d261c8e9f93fb862428108d3f6f71e2ab4405fa1"
+    }
+  ]
+}

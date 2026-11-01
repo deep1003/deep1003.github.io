@@ -1,0 +1,15 @@
+case_id,source,scope,layer,variant,subset,method,n,classes,accuracy,macro_recall,BOW_accuracy,char_accuracy,chance,majority,lexical_baseline_comparable
+cbbcf44e5a071356c16ba24c090c121a32aab98d04997426f2fca9e88b549d30,openai,filtered,19,original,all8,frozen_raw,160,8,0.48125,0.48125,0.6,0.69375,0.125,0.125,True
+cbbcf44e5a071356c16ba24c090c121a32aab98d04997426f2fca9e88b549d30,openai,filtered,19,original,all8,train_zscore,160,8,0.54375,0.54375,0.6,0.69375,0.125,0.125,True
+cbbcf44e5a071356c16ba24c090c121a32aab98d04997426f2fca9e88b549d30,openai,filtered,19,original,all8,centred_cosine,160,8,0.5375,0.5375,0.6,0.69375,0.125,0.125,True
+cbbcf44e5a071356c16ba24c090c121a32aab98d04997426f2fca9e88b549d30,openai,filtered,19,original,all8,char_tfidf_LR,160,8,0.69375,0.69375,0.6,0.69375,0.125,0.125,True
+cbbcf44e5a071356c16ba24c090c121a32aab98d04997426f2fca9e88b549d30,openai,filtered,19,original,all8,frozen_logistic,160,8,0.65,0.6499999999999999,0.6,0.69375,0.125,0.125,True
+cbbcf44e5a071356c16ba24c090c121a32aab98d04997426f2fca9e88b549d30,openai,filtered,19,original,all8,frozen_BOW,160,8,0.6,0.6,0.6,0.69375,0.125,0.125,True
+cbbcf44e5a071356c16ba24c090c121a32aab98d04997426f2fca9e88b549d30,openai,filtered,19,original,all8,test_zscore,160,8,0.60625,0.60625,0.6,0.69375,0.125,0.125,True
+c2ed4adff42c4ddbbf0673a2c369157aca32b53640b12af375af400b471b74a7,openai,filtered,14,original,all8,frozen_raw,160,8,0.41875,0.4187499999999999,0.6,0.69375,0.125,0.125,True
+c2ed4adff42c4ddbbf0673a2c369157aca32b53640b12af375af400b471b74a7,openai,filtered,14,original,all8,train_zscore,160,8,0.54375,0.54375,0.6,0.69375,0.125,0.125,True
+c2ed4adff42c4ddbbf0673a2c369157aca32b53640b12af375af400b471b74a7,openai,filtered,14,original,all8,centred_cosine,160,8,0.51875,0.5187499999999999,0.6,0.69375,0.125,0.125,True
+c2ed4adff42c4ddbbf0673a2c369157aca32b53640b12af375af400b471b74a7,openai,filtered,14,original,all8,char_tfidf_LR,160,8,0.69375,0.69375,0.6,0.69375,0.125,0.125,True
+c2ed4adff42c4ddbbf0673a2c369157aca32b53640b12af375af400b471b74a7,openai,filtered,14,original,all8,frozen_logistic,160,8,0.675,0.675,0.6,0.69375,0.125,0.125,True
+c2ed4adff42c4ddbbf0673a2c369157aca32b53640b12af375af400b471b74a7,openai,filtered,14,original,all8,frozen_BOW,160,8,0.6,0.6,0.6,0.69375,0.125,0.125,True
+c2ed4adff42c4ddbbf0673a2c369157aca32b53640b12af375af400b471b74a7,openai,filtered,14,original,all8,test_zscore,160,8,0.59375,0.59375,0.6,0.69375,0.125,0.125,True

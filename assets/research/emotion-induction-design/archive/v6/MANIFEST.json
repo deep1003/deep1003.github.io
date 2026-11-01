@@ -1,0 +1,133 @@
+{
+ "version": "v6",
+ "created": "2026-11-02",
+ "files": [
+  {
+   "path": "archive/v6/raw/A_trials.csv",
+   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/results/A_trials.csv",
+   "sha256": "84020aaa8faf9fca24bb89bea68ef894086bee0f35fcb2ba68fdceb868f9f894",
+   "bytes": 910186,
+   "source_sha256": "3a33f843fcb2c822bfc0c89869e5f74d404fbab7920108de4ee667bb9daa1251",
+   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+  },
+  {
+   "path": "archive/v6/raw/C_trials.csv",
+   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/results/C_trials.csv",
+   "sha256": "08b2ca77510028ce4aa30101a95788036a0599242a22546391295fd019708d19",
+   "bytes": 900059,
+   "source_sha256": "d3b86d0926c1bdec34195cdffea285f708122cd60d1ec395a682019960558e94",
+   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+  },
+  {
+   "path": "archive/v6/raw/t1.csv",
+   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/results/t1.csv",
+   "sha256": "799bddde5800b14556127a9b2a868a0573456dea78fad8e6a716f5356f52fa12",
+   "bytes": 3943,
+   "source_sha256": "dedd570a4bf8dff8a6d5347e966c23499c0de1327c934e705963e4c9b8074a03",
+   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+  },
+  {
+   "path": "archive/v6/raw/progress.log",
+   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/results/progress.log",
+   "sha256": "c38e2a10c7033937615218aef11c6cc36d98711a904a04bed6de75cde17496a8",
+   "bytes": 2910
+  },
+  {
+   "path": "archive/v6/tables/A_axes.csv",
+   "source": "archive recomputation",
+   "sha256": "360922711d101773e775710580a60af2b7a9e78f5c806ed7f7bff578e0b09966",
+   "bytes": 2773,
+   "note": "recomputed for this archive on 2026-11-02 with the original analyze_discrimeval.py; values match emotion_discrimeval_results_20261024.md"
+  },
+  {
+   "path": "archive/v6/tables/A_contrasts.csv",
+   "source": "archive recomputation",
+   "sha256": "9f96d5955b7fb3bec4b3aaabad401d1b3d71482b2e7bfdd0be97ba79209f32f1",
+   "bytes": 1010,
+   "note": "recomputed for this archive on 2026-11-02 with the original analyze_discrimeval.py; values match emotion_discrimeval_results_20261024.md"
+  },
+  {
+   "path": "archive/v6/tables/A_discrimination_scores.csv",
+   "source": "archive recomputation",
+   "sha256": "2a5e9a9066a146f2f06b6b15c584c7bb7ad35f8268a98a3c33ebb3f0b07de178",
+   "bytes": 1146,
+   "note": "recomputed for this archive on 2026-11-02 with the original analyze_discrimeval.py; values match emotion_discrimeval_results_20261024.md"
+  },
+  {
+   "path": "archive/v6/tables/A_means.csv",
+   "source": "archive recomputation",
+   "sha256": "9f30ba9428ff2df6dc280b9127d639d9e0da00f2d13db1b3821608c60d4bb31f",
+   "bytes": 351,
+   "note": "recomputed for this archive on 2026-11-02 with the original analyze_discrimeval.py; values match emotion_discrimeval_results_20261024.md"
+  },
+  {
+   "path": "archive/v6/tables/C_steering.csv",
+   "source": "archive recomputation",
+   "sha256": "afd419f28dc8865599443be0a18e17691a273aed3ef54a07e68c1542c5c5b1ce",
+   "bytes": 1351,
+   "note": "recomputed for this archive on 2026-11-02 with the original analyze_discrimeval.py; values match emotion_discrimeval_results_20261024.md"
+  },
+  {
+   "path": "archive/v6/tables/summary.json",
+   "source": "archive recomputation",
+   "sha256": "930106bb31dbe803e1c8d8e449c6f1c2fb2ef78c8a1b02bb868636c81ac338ff",
+   "bytes": 716,
+   "note": "recomputed for this archive on 2026-11-02 with the original analyze_discrimeval.py; values match emotion_discrimeval_results_20261024.md"
+  },
+  {
+   "path": "archive/v6/tables/t1_contrasts.csv",
+   "source": "archive recomputation",
+   "sha256": "88d672e0e49a86e0e194e24b74e580a54e100c0026e0ecccd068262b4d19edc2",
+   "bytes": 1276,
+   "note": "recomputed for this archive on 2026-11-02 with the original analyze_discrimeval.py; values match emotion_discrimeval_results_20261024.md"
+  },
+  {
+   "path": "archive/v6/code/run_discrimeval.py",
+   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/run_discrimeval.py",
+   "sha256": "7ba2820be334836ea9405f70a918570befd4b626a11edf70336b298652d10e5e",
+   "bytes": 10484
+  },
+  {
+   "path": "archive/v6/code/analyze_discrimeval.py",
+   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/analyze_discrimeval.py",
+   "sha256": "bc2f4e5b155e4a993c4ec135dcf20592df7d0e189c013a1fed6f3c436a7871b9",
+   "bytes": 9223
+  },
+  {
+   "path": "archive/v6/code/build_notices.py",
+   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/build_notices.py",
+   "sha256": "f741ecdf98701fb3ceb40d1c4b6b2d7fc04b971b2ab67c34b68d07cb871f3dcf",
+   "bytes": 2487
+  },
+  {
+   "path": "archive/v6/code/notices_v6_discrimeval.json",
+   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/notices.json",
+   "sha256": "ccf5fdeb95d8f1a91d45a2ddb93205bd52069463edf2739508e3bfb544cb3a9a",
+   "bytes": 18412
+  },
+  {
+   "path": "archive/v6/fig_v6_blockA_contrasts.pdf",
+   "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
+   "sha256": "17e48788e43a0e7337eaa0d39f2e767ef1eda4433a48b6c6d1bb600f072da62c",
+   "bytes": 13164
+  },
+  {
+   "path": "archive/v6/fig_v6_blockA_contrasts.png",
+   "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
+   "sha256": "9f9b49797b3d224263301948227cca371c4513584f77a570b39b5601b0684680",
+   "bytes": 41379
+  },
+  {
+   "path": "archive/v6/fig_v6_blockC_steering.pdf",
+   "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
+   "sha256": "b7fe19b169a3147664a471aa467b5eae31278334d2c48d82ca69ee95867357c3",
+   "bytes": 18552
+  },
+  {
+   "path": "archive/v6/fig_v6_blockC_steering.png",
+   "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
+   "sha256": "9410c6daaf79b97f1a15b7f0dc10fae1db21eb89e3905d3fa7f8b335862d461b",
+   "bytes": 72152
+  }
+ ]
+}

@@ -1,0 +1,99 @@
+{
+  "status": "predeclared operational screen, human semantic review remains required",
+  "per_emotion": {
+    "desperate": [
+      "desperate",
+      "desperately",
+      "desperation"
+    ],
+    "calm": [
+      "calm",
+      "calmly",
+      "calmness",
+      "tranquil",
+      "tranquility",
+      "serene",
+      "serenity",
+      "peaceful",
+      "peacefully"
+    ],
+    "afraid": [
+      "afraid",
+      "fear",
+      "fearful",
+      "frightened",
+      "scared",
+      "terrified"
+    ],
+    "panicked": [
+      "panicked",
+      "panic",
+      "panicking",
+      "panicky",
+      "terror",
+      "terrified"
+    ],
+    "happy": [
+      "happy"
+    ],
+    "inspired": [
+      "inspired"
+    ],
+    "loving": [
+      "loving"
+    ],
+    "proud": [
+      "proud"
+    ],
+    "angry": [
+      "angry"
+    ],
+    "guilty": [
+      "guilty"
+    ],
+    "sad": [
+      "sad"
+    ],
+    "nervous": [
+      "nervous"
+    ],
+    "surprised": [
+      "surprised"
+    ],
+    "anxious": [
+      "anxious"
+    ],
+    "dispirited": [
+      "dispirited"
+    ],
+    "blissful": [
+      "blissful"
+    ],
+    "hostile": [
+      "hostile"
+    ],
+    "terrified": [
+      "terrified"
+    ],
+    "frustrated": [
+      "frustrated"
+    ],
+    "disgusted": [
+      "disgusted"
+    ],
+    "relieved": [
+      "relieved"
+    ],
+    "ashamed": [
+      "ashamed"
+    ],
+    "trapped": [
+      "trapped"
+    ],
+    "stressed": [
+      "stressed"
+    ]
+  },
+  "matching": "case-insensitive whole-word or phrase, no substring matching",
+  "limitations": "T1 target-only screens are not complete synonym inventories; G1 word-ban acceptance stays pending synonym review"
+}

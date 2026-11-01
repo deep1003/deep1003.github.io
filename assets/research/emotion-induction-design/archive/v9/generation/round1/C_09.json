@@ -1,0 +1,19 @@
+{
+  "arm": "C",
+  "seed": 9,
+  "prompt": "당신이 알고 있는 요리에 관한 사실 하나를 말해 주세요. 100단어 이내로 답하세요.",
+  "prompt_sha256": "dd38fa8143c1c9eb24072e3249ecadc16a387da742caa0444844bdb73e1bdfed",
+  "raw_text": "라면은 중국에서 발명되었다.",
+  "text": "라면은 중국에서 발명되었다.",
+  "text_sha256": "64b445a3bde73e0144096c3ac8535589c13cd7df91d9f3c9183aca22fc4f9797",
+  "tokens": 8,
+  "word_count": 3,
+  "first_person": false,
+  "prohibited_hits": [],
+  "emotion_hits": [],
+  "temperature": 1,
+  "top_p": 1,
+  "top_k": 0,
+  "max_new_tokens": 768,
+  "passed": false
+}

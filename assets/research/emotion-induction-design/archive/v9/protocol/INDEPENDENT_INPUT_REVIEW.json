@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-31T21:53:56.400394+09:00",
+  "automatic_counts": {
+    "F": 3,
+    "N": 1
+  },
+  "usable_counts": {
+    "F": 1,
+    "N": 0
+  },
+  "records": [
+    {
+      "arm": "F",
+      "seed": 4,
+      "sha256": "c0d957bfb5f21295aadcd41ec14f98dca6bb4d5018a063199a162855a2f32126",
+      "automatic_pass": true,
+      "semantic_pass": false,
+      "reason": "Unusable mixed-language fragment, ending in unrelated English adultery."
+    },
+    {
+      "arm": "F",
+      "seed": 6,
+      "sha256": "35f83e10f2e3d5c2274442c264270c706a4d1762479f4a6b6878698047de1dda",
+      "automatic_pass": true,
+      "semantic_pass": true,
+      "reason": "Usable Korean first-person narration with contraction 날."
+    },
+    {
+      "arm": "F",
+      "seed": 21,
+      "sha256": "7c43b491876c0239c943b58baaa878606eb45fe80fd11cdba077993522b9bfc7",
+      "automatic_pass": true,
+      "semantic_pass": false,
+      "reason": "Chinese passage, AI-self content, not usable Korean narration; the Latin word-boundary detector missed AI adjacent to Korean."
+    },
+    {
+      "arm": "N",
+      "seed": 6,
+      "sha256": "10beca2cae8285d090ef81eb881f1f3ad830ad99cc0fc6951894d8290cbbb630",
+      "automatic_pass": true,
+      "semantic_pass": false,
+      "reason": "날은 means the day/weather here, not the first-person accusative 날. The detector accepted a prefix without a suffix boundary."
+    }
+  ],
+  "conclusion": "X1 input gate fails under both the original automated screen and the unchanged full semantic audit. No text/seed/selection rule modified; no X1 outcome seen.",
+  "original_audit_sha256": "ca22ce560be385a1a8d22a7b0d6416a8262ef2c2309027834edd53d01a78f740"
+}

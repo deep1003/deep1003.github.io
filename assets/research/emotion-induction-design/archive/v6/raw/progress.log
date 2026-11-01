@@ -1,0 +1,65 @@
+12:23:23 t1 done: 33 notices
+12:23:32 block A_smoke1: 225 trials, 0 already done
+12:24:52 A_smoke1 100/225; 0.80s/trial; eta 2 min
+12:26:13 A_smoke1 200/225; 0.80s/trial; eta 0 min
+12:26:33 A_smoke1 finished 225/225
+12:26:43 block B_smoke1: 45 trials, 0 already done
+12:27:17 B_smoke1 finished 45/45
+12:27:25 block C_smoke1: 125 trials, 0 already done
+12:28:39 C_smoke1 100/125; 0.74s/trial; eta 0 min
+12:28:59 C_smoke1 finished 125/125
+12:56:09 t1 done: 33 notices
+12:56:28 block A: 5250 trials, 0 already done
+13:02:25 A 200/5250; 1.79s/trial; eta 151 min
+13:06:59 A 400/5250; 1.58s/trial; eta 128 min
+13:11:02 A 600/5250; 1.46s/trial; eta 113 min
+13:15:31 A 800/5250; 1.43s/trial; eta 106 min
+13:20:12 A 1000/5250; 1.42s/trial; eta 101 min
+13:25:00 A 1200/5250; 1.43s/trial; eta 96 min
+13:29:44 A 1400/5250; 1.43s/trial; eta 92 min
+13:34:21 A 1600/5250; 1.42s/trial; eta 86 min
+13:38:53 A 1800/5250; 1.41s/trial; eta 81 min
+13:48:26 A 2000/5250; 1.56s/trial; eta 84 min
+13:52:40 A 2200/5250; 1.53s/trial; eta 78 min
+13:56:51 A 2400/5250; 1.51s/trial; eta 72 min
+14:01:03 A 2600/5250; 1.49s/trial; eta 66 min
+14:05:15 A 2800/5250; 1.47s/trial; eta 60 min
+14:15:18 A 3000/5250; 1.58s/trial; eta 59 min
+14:20:08 A 3200/5250; 1.57s/trial; eta 54 min
+14:23:45 A 3400/5250; 1.54s/trial; eta 47 min
+14:27:08 A 3600/5250; 1.51s/trial; eta 42 min
+14:30:54 A 3800/5250; 1.49s/trial; eta 36 min
+14:34:45 A 4000/5250; 1.47s/trial; eta 31 min
+14:38:16 A 4200/5250; 1.45s/trial; eta 25 min
+14:41:55 A 4400/5250; 1.44s/trial; eta 20 min
+14:45:40 A 4600/5250; 1.42s/trial; eta 15 min
+14:49:30 A 4800/5250; 1.41s/trial; eta 11 min
+14:53:45 A 5000/5250; 1.41s/trial; eta 6 min
+14:57:41 A 5200/5250; 1.40s/trial; eta 1 min
+14:58:38 A finished 5250/5250
+14:58:57 block C: 4900 trials, 0 already done
+15:03:00 C 200/4900; 1.21s/trial; eta 95 min
+15:06:49 C 400/4900; 1.18s/trial; eta 89 min
+15:10:35 C 600/4900; 1.16s/trial; eta 83 min
+15:14:28 C 800/4900; 1.16s/trial; eta 80 min
+15:18:20 C 1000/4900; 1.16s/trial; eta 76 min
+15:22:15 C 1200/4900; 1.17s/trial; eta 72 min
+15:25:45 C 1400/4900; 1.15s/trial; eta 67 min
+15:28:53 C 1600/4900; 1.12s/trial; eta 62 min
+15:32:17 C 1800/4900; 1.11s/trial; eta 57 min
+15:35:39 C 2000/4900; 1.10s/trial; eta 53 min
+15:39:30 C 2200/4900; 1.11s/trial; eta 50 min
+15:43:05 C 2400/4900; 1.10s/trial; eta 46 min
+15:46:20 C 2600/4900; 1.09s/trial; eta 42 min
+15:49:42 C 2800/4900; 1.09s/trial; eta 38 min
+15:53:08 C 3000/4900; 1.08s/trial; eta 34 min
+15:56:50 C 3200/4900; 1.09s/trial; eta 31 min
+16:00:32 C 3400/4900; 1.09s/trial; eta 27 min
+16:04:27 C 3600/4900; 1.09s/trial; eta 24 min
+16:08:26 C 3800/4900; 1.10s/trial; eta 20 min
+16:12:30 C 4000/4900; 1.10s/trial; eta 17 min
+16:16:35 C 4200/4900; 1.11s/trial; eta 13 min
+16:20:39 C 4400/4900; 1.11s/trial; eta 9 min
+16:24:52 C 4600/4900; 1.12s/trial; eta 6 min
+16:28:58 C 4800/4900; 1.13s/trial; eta 2 min
+16:31:01 C finished 4900/4900

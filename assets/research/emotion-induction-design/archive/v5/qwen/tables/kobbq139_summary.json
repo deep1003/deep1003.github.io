@@ -1,0 +1,17 @@
+{
+  "n_items": 139,
+  "n_clusters": 91,
+  "n_trials": 2085,
+  "choice_mass_min": 0.999252,
+  "bimodal_share": 0.8925659472422063,
+  "t2_fear_behaviour_link": {
+    "CN": {
+      "spearman_rho": -0.048,
+      "p": 0.5776
+    },
+    "UN": {
+      "spearman_rho": 0.05,
+      "p": 0.5609
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-10-31T19:55:31.020341+09:00",
+  "threshold": 0.001,
+  "reference_p_sp_formula_max_error": 0.0,
+  "same_prompt_hashes_verified": true,
+  "source_model_hashes_previously_verified_in_resource_recovery": true,
+  "same_code_sha256": "ea8e8982a76aa539ee0a2a90cfce60337056c6c7af9e03478d8b04ea8eeef647",
+  "current_platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "reference_platform": "macOS-26.6-arm64-arm-64bit-Mach-O",
+  "profiles_probability_difference": 0.0,
+  "profile_results": {
+    "default_mpsgraph": {
+      "profile": "default_mpsgraph",
+      "diagnostic_only": true,
+      "not_scientific_scoring": true,
+      "environment": {
+        "PYTORCH_MPS_PREFER_METAL": "0",
+        "PYTORCH_MPS_FAST_MATH": "0"
+      },
+      "max_error": 0.3303260198593098,
+      "five_items_both_conditions_pass": false,
+      "first_item_repeat_max_probability_difference": 0.0
+    },
+    "metal_matmul": {
+      "profile": "metal_matmul",
+      "diagnostic_only": true,
+      "not_scientific_scoring": true,
+      "environment": {
+        "PYTORCH_MPS_PREFER_METAL": "1",
+        "PYTORCH_MPS_FAST_MATH": "0"
+      },
+      "max_error": 0.3303260198593098,
+      "five_items_both_conditions_pass": false,
+      "first_item_repeat_max_probability_difference": 0.0
+    }
+  },
+  "first_logits": [
+    26.5,
+    24.5,
+    33.75
+  ],
+  "first_frozen_relative_logits": [
+    -8.0,
+    -9.5,
+    0.0
+  ],
+  "first_current_relative_logits": [
+    -7.25,
+    -9.25,
+    0.0
+  ],
+  "first_frozen_stereo_anti_logit_gap": 1.5,
+  "first_current_stereo_anti_logit_gap": 2.0,
+  "first_p_sp_error": 0.063222601784239,
+  "diagnostic_forward_calls": 22,
+  "numerical_problem_resolved": false,
+  "underlying_device_or_OS_operation_identified": false,
+  "scientific_run_authorized_to_continue": false
+}

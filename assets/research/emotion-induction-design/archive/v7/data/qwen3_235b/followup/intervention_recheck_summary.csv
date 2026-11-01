@@ -1,0 +1,11 @@
+config,rows,fidelity_failed_rows,interpretation,batch1_effect_pp,prior_batch6_effect_pp,prior_intervention_minus_matched_zero6_pp,full_unknown_batch1_effect_pp
+add_emo,108,54,Raw implemented perturbation only; failed fidelity cases cannot establish intended-vector effects,0.12530225145777202,-1.084082506087552,0.06859385229320371,0.39002218136694783
+add_full,108,0,Raw implemented perturbation only; failed fidelity cases cannot establish intended-vector effects,0.7976281656413384,-0.4000156074945793,0.7526607508861763,-8.348000889016907
+add_res,108,0,Raw implemented perturbation only; failed fidelity cases cannot establish intended-vector effects,0.698599313378253,-0.39542337497471247,0.7572529834060433,-7.898941843458353
+random_add_00,81,0,Raw implemented perturbation only; failed fidelity cases cannot establish intended-vector effects,0.03812136982466452,-1.5810280773339593,-0.05849380768039008,0.40760750174094873
+random_add_01,80,0,Raw implemented perturbation only; failed fidelity cases cannot establish intended-vector effects,0.08563370186073337,-1.44221893761499,0.09934835028971777,0.511948454160514
+random_remove_00,81,0,Raw implemented perturbation only; failed fidelity cases cannot establish intended-vector effects,0.10278046466478154,0.5938096100325074,0.08365536439892099,-0.7514864719702891
+random_remove_01,80,0,Raw implemented perturbation only; failed fidelity cases cannot establish intended-vector effects,-0.1515619005913946,0.6060359782875601,0.08950843514119003,-0.3735395609795803
+remove_emo,108,54,Raw implemented perturbation only; failed fidelity cases cannot establish intended-vector effects,-0.052422030918018746,1.0374512023866655,0.12612584247724146,0.1697740432126286
+remove_full,108,0,Raw implemented perturbation only; failed fidelity cases cannot establish intended-vector effects,-0.6902026729116448,0.6049901463278498,-0.30633521358157445,3.513516872429224
+remove_res,108,0,Raw implemented perturbation only; failed fidelity cases cannot establish intended-vector effects,-0.3890755308924906,0.5213986777039122,-0.3899266822055119,3.3938855091819047

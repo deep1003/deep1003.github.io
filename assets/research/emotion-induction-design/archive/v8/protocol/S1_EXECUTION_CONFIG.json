@@ -1,0 +1,76 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "dtype": "bfloat16",
+  "device": "mps",
+  "attention": "eager",
+  "batch": 1,
+  "temperature": 0.9,
+  "top_p": 0.95,
+  "use_cache": true,
+  "master_seed": 20261031,
+  "counts": {
+    "K": 4800,
+    "T1": 8000,
+    "T2": 5880,
+    "N": 400,
+    "D": 400,
+    "F": 600
+  },
+  "calls": {
+    "K": 1200,
+    "T1": 2000,
+    "T2": 2940,
+    "N": 400,
+    "D": 400,
+    "F": 600
+  },
+  "F_display_partners": {
+    "desperate": [
+      "calm",
+      "happy",
+      "loving"
+    ],
+    "calm": [
+      "happy",
+      "loving",
+      "proud"
+    ],
+    "afraid": [
+      "calm",
+      "happy",
+      "loving"
+    ],
+    "panicked": [
+      "calm",
+      "happy",
+      "loving"
+    ],
+    "anxious": [
+      "calm",
+      "happy",
+      "loving"
+    ],
+    "dispirited": [
+      "calm",
+      "happy",
+      "loving"
+    ],
+    "sad": [
+      "calm",
+      "happy",
+      "loving"
+    ],
+    "angry": [
+      "calm",
+      "happy",
+      "loving"
+    ]
+  },
+  "no_S2_without_G1_author_approval": true,
+  "G1_human_review_required": true,
+  "generation_not_acceptance": true,
+  "automatic_regeneration_before_G1_policy_frozen": false,
+  "generation_grouping": "K4storiesx3calls;T1 4x1;T2 2x1;dialogues1 percall",
+  "smoke_excluded": true
+}

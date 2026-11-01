@@ -1,0 +1,19 @@
+{
+  "arm": "W",
+  "seed": 8,
+  "prompt": "당신이 알고 있는 날씨에 관한 사실 하나를 말해 주세요. 100단어 이내로 답하세요.",
+  "prompt_sha256": "192924c69891fd5fcbf92ef6a7210ba62e3e7369dc9cefc1587b91113e6f9496",
+  "raw_text": "날씨는 매일 변화합니다.",
+  "text": "날씨는 매일 변화합니다.",
+  "text_sha256": "6b5ff1b7f9fefd9fba61b1efac9565c85f6ffa72b6693379c1af53a4e6ada513",
+  "tokens": 8,
+  "word_count": 3,
+  "first_person": false,
+  "prohibited_hits": [],
+  "emotion_hits": [],
+  "temperature": 1,
+  "top_p": 1,
+  "top_k": 0,
+  "max_new_tokens": 768,
+  "passed": false
+}

@@ -1,0 +1,67 @@
+{
+  "model": {
+    "paper": "Claude Sonnet 4.5",
+    "this_run": "Qwen2.5-7B-Instruct bf16 MPS eager pinned a09a35458c702b33eeacc393d103063234e8bc28"
+  },
+  "inventory": {
+    "paper": 171,
+    "native_context_and_positive_control": 24,
+    "matched_corpus_comparison": 8,
+    "OpenAI_pilot_secondary": 9
+  },
+  "self_generated_corpus": {
+    "accepted": 905,
+    "engine_counts": {
+      "HF": 71,
+      "Q4": 834
+    },
+    "paper_scale_per_emotion": 1200,
+    "this_K_requested_per_emotion": 200,
+    "T1_requested_per_emotion": 10,
+    "no_human_G1_pass_claim": true
+  },
+  "pooling": {
+    "implemented": "Zero-based token indices >=50, following the authoritative author design",
+    "paper_wording": "beginning with the 50th token; indexing convention not independently specified in the text",
+    "silent_index_change": false
+  },
+  "PC": {
+    "rule": "Smallest k with cumulative centered token variance >=.5; not exactly .5 removed",
+    "neutral_corpus": "50 English dialogues for Qwen; source-training-only neutral stories for Korean source probes",
+    "source_neutral_corpus_identical": false
+  },
+  "speaker_and_deflection": {
+    "extracted": false,
+    "role_specificity_claim": false
+  },
+  "response_anchor": {
+    "paper": "Assistant colon",
+    "this_run": "Qwen assistant-onset newline, exact token IDs stored"
+  },
+  "context_validation": {
+    "measured": [
+      "implicit12 EN/KO",
+      "dose8 EN/KO",
+      "50 neutral reference contexts",
+      "layers10/14/19/24, user-final and assistant-onset states"
+    ],
+    "not_claimed": [
+      "full V2 early/late success after monotonicity failure",
+      "V3 response-continuation correlation",
+      "171-vector valence geometry"
+    ]
+  },
+  "steering": {
+    "P1": "Lexical conditional probabilities with assistant-prefix-only intervention; independent full teacher-forcing audit",
+    "P2": "177 short test responses at L19, assistant-onset and generated tokens only, shared per-context sampling seeds",
+    "P2_judge": "Same frozen model, blind to source and strength, not independent",
+    "natural_mediation_claim": false
+  },
+  "outcome_scope": {
+    "original_8way_gate_unchanged": true,
+    "three_threat_subset": "Exploratory, same legacy60 subset, no multiple-comparison correction",
+    "S5_S7_confirmatory_executed": false,
+    "manuscript_Overleaf_homepage_changed": false,
+    "new_OpenAI_API_calls": 0
+  }
+}

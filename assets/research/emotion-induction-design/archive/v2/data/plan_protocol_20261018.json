@@ -1,0 +1,78 @@
+{
+  "version": "certainty_uncertainty_139_air_v1",
+  "state": "planned_not_executed",
+  "items": 139,
+  "clusters": 91,
+  "categories": 12,
+  "conditions": [
+    "U0T0",
+    "U0T1",
+    "U1T0",
+    "U1T1",
+    "C1T0",
+    "C1T1",
+    "C1T0P1",
+    "C1T1P1"
+  ],
+  "rotations": [
+    0,
+    1,
+    2
+  ],
+  "total_behavior_keys": 3336,
+  "cached_original_keys": 1668,
+  "cached_CN_keys": 72,
+  "expected_new_behavior_keys": 1596,
+  "system_only_conditions": 8,
+  "cached_system_only": 6,
+  "new_system_only": 2,
+  "emotions": [
+    "Fear",
+    "Anxiety",
+    "Anger",
+    "Disgust",
+    "Calmness",
+    "Sadness",
+    "Desperation",
+    "Joy"
+  ],
+  "appraisals": [
+    "Certainty",
+    "Uncertainty"
+  ],
+  "legacy_supplementary": "FA",
+  "layer": 14,
+  "dim": 3584,
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "dtype": "float32",
+  "device": "mps",
+  "batch": 1,
+  "attention": "eager",
+  "seed": 20261018,
+  "n_boot": 10000,
+  "torch_version": "2.8.0",
+  "transformers_version": "5.2.0.dev0",
+  "transformers_commit": "609e3d585bfe2f78e95f18761dd85ae753da5f1b",
+  "precision_fallback_allowed": false,
+  "automatic_model_download": false,
+  "primary_population": "119items79clusters excluding all12development clusters; full139 is paired estimation and supporting analysis",
+  "primary_comparisons": [
+    [
+      "C1T0P1",
+      "U0T0"
+    ],
+    [
+      "C1T0P1",
+      "C1T0"
+    ],
+    [
+      "CN_average",
+      "UN_average"
+    ]
+  ],
+  "hypothesis_policy": "Two-sided, proposed follow-up family; not publicly preregistered; retain originalH1-H3 unchanged",
+  "no_significance_stopping": true,
+  "no_automatic_2000": true,
+  "execution_only_on_receiving_Mac_with_explicit_flag": true
+}

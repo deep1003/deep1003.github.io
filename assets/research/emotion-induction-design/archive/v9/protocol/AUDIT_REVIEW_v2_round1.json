@@ -1,0 +1,71 @@
+{
+  "at": "2026-10-31T20:33:06.716411+09:00",
+  "required_tokens": [
+    316,
+    348
+  ],
+  "false_positive": "정답: is the mandated answer marker, not adjective 정답다. Original stem substring audit falsely flagged it.",
+  "TM_corrected": [
+    {
+      "arm": "TM",
+      "paraphrase": "A",
+      "actual_emotion_hits": [],
+      "structural_marker_disambiguated": true,
+      "length_pass": true
+    },
+    {
+      "arm": "TM",
+      "paraphrase": "B",
+      "actual_emotion_hits": [],
+      "structural_marker_disambiguated": true,
+      "length_pass": true
+    },
+    {
+      "arm": "TM",
+      "paraphrase": "C",
+      "actual_emotion_hits": [],
+      "structural_marker_disambiguated": true,
+      "length_pass": true
+    }
+  ],
+  "generated_input_QC": [
+    {
+      "arm": "F",
+      "n": 10,
+      "min_tokens": 6,
+      "max_tokens": 36,
+      "length_fail": 10,
+      "first_person_fail": 9,
+      "prohibited_hit": 1
+    },
+    {
+      "arm": "N",
+      "n": 10,
+      "min_tokens": 8,
+      "max_tokens": 25,
+      "length_fail": 10,
+      "first_person_fail": 10,
+      "prohibited_hit": 1
+    },
+    {
+      "arm": "W",
+      "n": 10,
+      "min_tokens": 8,
+      "max_tokens": 133,
+      "length_fail": 10,
+      "first_person_fail": 10,
+      "prohibited_hit": 0
+    },
+    {
+      "arm": "C",
+      "n": 10,
+      "min_tokens": 7,
+      "max_tokens": 72,
+      "length_fail": 10,
+      "first_person_fail": 10,
+      "prohibited_hit": 0
+    }
+  ],
+  "conclusion_unchanged": "Required fear and neutral preprompts still unavailable; no scientific X0/X1/X2 inference",
+  "new_generation_calls": 0
+}

@@ -1,0 +1,133 @@
+{
+  "version": "v9.2",
+  "timestamp_kst": "2026-10-31T19:59:41.184709+09:00",
+  "state": "CANCELLED_BY_USER_AIR_STOPPED",
+  "design_sha256": "6e31b8a64200d46d9fc157c1ebc7a798467398126d2a045cc01819bf701c8e49",
+  "design_read_in_full": true,
+  "pinned_model_cached": true,
+  "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "required_shards_present": 4,
+  "disk_free_bytes": 58823438336,
+  "disk_minimum_bytes_user_instruction": 25000000000,
+  "available_memory_estimate_bytes": 10626777088,
+  "memory_estimate_method": "psutil macOS virtual_memory.available; cross-checked against vm_stat free plus inactive pages",
+  "memory_minimum_bytes": 18000000000,
+  "vm_stat": {
+    "Pages free": 48983,
+    "Pages active": 556739,
+    "Pages inactive": 696083,
+    "Pages speculative": 1325,
+    "Pages throttled": 0,
+    "Pages wired down": 195935,
+    "Pages purgeable": 10012,
+    "\"Translation faults\"": 4991940235,
+    "Pages copy-on-write": 86082263,
+    "Pages zero filled": 4597877710,
+    "Pages reactivated": 623248822,
+    "Pages purged": 114055535,
+    "File-backed pages": 635371,
+    "Anonymous pages": 618776,
+    "Pages stored in compressor": 285140,
+    "Pages occupied by compressor": 148515,
+    "Decompressions": 3508924638,
+    "Compressions": 3603905622,
+    "Pageins": 144153477,
+    "Pageouts": 267404,
+    "Swapins": 473181942,
+    "Swapouts": 479789413,
+    "Pages tagged": 126577,
+    "Pages tagged resident": 102629,
+    "Pages tagged compressed": 23948,
+    "Pages tag-storage": 49152,
+    "Pages tag-storage holding tags": 5712,
+    "Pages tag-storage free": 54,
+    "Pages tag-storage non-tag pageable": 43217,
+    "Pages tag-storage non-tag wired": 87,
+    "Bytes of compressed tags": 3629952,
+    "Tagged compressions": 17347533,
+    "Tagged decompressions": 16135481
+  },
+  "failures": [
+    "FIVE_ITEM_BOTH_CONDITIONS_REPRODUCTION_7_OF_10_FAILED"
+  ],
+  "model_loaded": true,
+  "model_calls": 23,
+  "paid_api_calls": 0,
+  "scoring_started": false,
+  "prereg_locked": false,
+  "prompts_locked": false,
+  "not_run": [
+    "KoBBQ md5 and 113/113 membership",
+    "5-row THREAT/RECORD reproduction",
+    "50-pass benchmark",
+    "RECORD argmax-unknown rate",
+    "condition generation",
+    "X0",
+    "X1",
+    "M1",
+    "M2",
+    "persona vectors",
+    "X2"
+  ],
+  "protected_paths_modified": false,
+  "resource_recovery": {
+    "fp32_derived_weight_bytes_removed": 30462509440,
+    "source_weight_shards_sha256_verified": true,
+    "closed_applications": [
+      "Claude",
+      "Google Chrome"
+    ],
+    "purge_attempt": "unprivileged operation not permitted; sudo -n requires password; no privileged purge performed",
+    "memory_samples": [
+      {
+        "timestamp": "2026-10-31T19:39:52.927675+09:00",
+        "available_bytes": 11714183168,
+        "total_bytes": 25769803776,
+        "used_bytes": 11274371072,
+        "free_bytes": 458702848,
+        "inactive_bytes": 11222188032
+      },
+      {
+        "timestamp": "2026-10-31T19:39:53.932798+09:00",
+        "available_bytes": 11592400896,
+        "total_bytes": 25769803776,
+        "used_bytes": 11418206208,
+        "free_bytes": 336674816,
+        "inactive_bytes": 11222335488
+      },
+      {
+        "timestamp": "2026-10-31T19:39:54.936332+09:00",
+        "available_bytes": 11579441152,
+        "total_bytes": 25769803776,
+        "used_bytes": 11434033152,
+        "free_bytes": 323616768,
+        "inactive_bytes": 11222433792
+      }
+    ],
+    "remaining_matching_processes": [
+      {
+        "pid": 2089,
+        "name": "python3.13"
+      }
+    ]
+  },
+  "latest_memory_audit": "MEMORY_PROCESS_AUDIT_LATEST.json",
+  "memory_minimum_relaxed_by_user": true,
+  "details": "03_preflight_retry/reproduction_error_breakdown.json",
+  "remaining_tests_not_run": [
+    "remaining9 reproduction passes",
+    "50-pass benchmark",
+    "condition generation",
+    "X0",
+    "X1",
+    "X2"
+  ],
+  "scientific_scoring_started": false,
+  "diagnosis": "04_numerical_diagnosis/DIAGNOSIS_SUMMARY.json",
+  "reason": "User moved v9 execution to reference Pro; Air must stop and wait",
+  "X0_started": false,
+  "X1_started": false,
+  "X2_started": false,
+  "cross_device_summary": "CROSS_DEVICE_SUMMARY.md",
+  "air_worker_absence_verified": true
+}

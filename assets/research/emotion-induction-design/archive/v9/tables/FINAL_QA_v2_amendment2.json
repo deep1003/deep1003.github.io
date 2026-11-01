@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-10-31T22:06:24.367852+09:00",
+  "terminal": {
+    "state": "X0_COMPLETE_X1_INPUT_GATE_FAILED",
+    "at": "2026-10-31T22:06:18.845902+09:00",
+    "X0": true,
+    "X1": false,
+    "X2": false
+  },
+  "stages": [
+    {
+      "stage": "04_X0",
+      "keys": 648,
+      "expected": 648,
+      "complete": true,
+      "unique_keys": true,
+      "finite": true,
+      "probability_identities": true
+    },
+    {
+      "stage": "05_X1",
+      "keys": 0,
+      "expected": 4860,
+      "complete": false,
+      "unique_keys": true,
+      "finite": true,
+      "probability_identities": true
+    }
+  ],
+  "prereg_hash_match": true,
+  "v8_closure_report_hash_match": true,
+  "v8_immutable": true,
+  "paid_API_calls": 0,
+  "manuscript_overleaf_homepage_modified": false,
+  "independent_primary_CI_matches": true,
+  "exact_X0_expected_key_set": true
+}

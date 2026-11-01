@@ -1,0 +1,7 @@
+config,n,fidelity_passed_n,fidelity_failed_n,raw_implemented_shift_pp,ci_low_pp,ci_high_pp,causal_scope
+add_emo,108,54,54,0.12530225145777207,-0.33598896100422443,0.6751568976615356,Raw implemented-perturbation diagnostic only; half failed intended-direction fidelity
+remove_emo,108,54,54,-0.052422030918018746,-0.20066879915279734,0.06470348233899394,Raw implemented-perturbation diagnostic only; half failed intended-direction fidelity
+add_res,108,108,0,0.698599313378253,-0.03841999830874541,1.5729142516956198,Complete108 intended-direction implementation passed
+remove_res,108,108,0,-0.38907553089249053,-0.8048885947764293,-0.10388119662619713,Complete108 intended-direction implementation passed
+add_full,108,108,0,0.7976281656413383,-0.3378907953748779,2.1615353414509033,Complete108 intended-direction implementation passed
+remove_full,108,108,0,-0.6902026729116449,-1.4524814823617387,-0.1476894624440484,Complete108 intended-direction implementation passed

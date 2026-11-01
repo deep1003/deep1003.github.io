@@ -1,0 +1,23 @@
+{
+  "new_generation_records": 192,
+  "total_records": 216,
+  "expected_total": 216,
+  "all108_pairs_acquired": true,
+  "valid_parsed_pairs": 103,
+  "invalid_or_truncated_records": 5,
+  "choice_changed_pairs": 9,
+  "format_prefix_counts": {
+    "SURV_RECORD": 16,
+    "SURV_THREAT": 103
+  },
+  "source_pair_selection": "Same frozen108 items; not an independent random confirmation sample",
+  "scored_token_probabilities_are_not_generated_choice_frequencies": true,
+  "record_unknown_rate": 0.8252427184466019,
+  "threat_unknown_rate": 0.8543689320388349,
+  "unknown_change_pp": 2.912621359223301,
+  "pointwise_bootstrap_ci_pp": [
+    -2.9126213592233006,
+    8.737864077669903
+  ],
+  "bootstrap_scope": "paired selected-item descriptive interval, conditional on fixed prompt and greedy decoding"
+}

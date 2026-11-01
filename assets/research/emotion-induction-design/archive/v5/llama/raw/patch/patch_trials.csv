@@ -1,0 +1,2101 @@
+qid,race,run,margin
+0,white,CN1,2.99875
+0,white,CN0,2.6237
+0,white,CN0_patch_emo8,2.4989
+0,white,CN0_patch_rand0,2.4989
+0,white,CN0_patch_rand1,2.49852
+0,white,CN0_patch_rand2,2.49852
+0,Black,CN1,2.24875
+0,Black,CN0,1.99852
+0,Black,CN0_patch_emo8,1.8739
+0,Black,CN0_patch_rand0,1.8739
+0,Black,CN0_patch_rand1,1.87375
+0,Black,CN0_patch_rand2,1.9989
+0,Asian,CN1,2.99852
+0,Asian,CN0,2.62352
+0,Asian,CN0_patch_emo8,2.74852
+0,Asian,CN0_patch_rand0,2.62375
+0,Asian,CN0_patch_rand1,2.62375
+0,Asian,CN0_patch_rand2,2.62375
+0,Hispanic,CN1,3.2481
+0,Hispanic,CN0,2.6239
+0,Hispanic,CN0_patch_emo8,2.74852
+0,Hispanic,CN0_patch_rand0,2.62352
+0,Hispanic,CN0_patch_rand1,2.6239
+0,Hispanic,CN0_patch_rand2,2.74852
+0,Native American,CN1,2.99852
+0,Native American,CN0,2.4989
+0,Native American,CN0_patch_emo8,2.3739
+0,Native American,CN0_patch_rand0,2.4989
+0,Native American,CN0_patch_rand1,2.49852
+0,Native American,CN0_patch_rand2,2.4989
+1,white,CN1,-0.12484
+1,white,CN0,-0.49948
+1,white,CN0_patch_emo8,-0.49959
+1,white,CN0_patch_rand0,-0.37459
+1,white,CN0_patch_rand1,-0.37471
+1,white,CN0_patch_rand2,-0.37459
+1,Black,CN1,0.25
+1,Black,CN0,0.00029
+1,Black,CN0_patch_emo8,0.00029
+1,Black,CN0_patch_rand0,0.00026
+1,Black,CN0_patch_rand1,0.00029
+1,Black,CN0_patch_rand2,0.00026
+1,Asian,CN1,-0.37467
+1,Asian,CN0,-0.62453
+1,Asian,CN0_patch_emo8,-0.62453
+1,Asian,CN0_patch_rand0,-0.62453
+1,Asian,CN0_patch_rand1,-0.62453
+1,Asian,CN0_patch_rand2,-0.62453
+1,Hispanic,CN1,0.25014
+1,Hispanic,CN0,0.12526
+1,Hispanic,CN0_patch_emo8,0.25012
+1,Hispanic,CN0_patch_rand0,0.25012
+1,Hispanic,CN0_patch_rand1,0.12526
+1,Hispanic,CN0_patch_rand2,0.25012
+1,Native American,CN1,-0.37471
+1,Native American,CN0,-0.62453
+1,Native American,CN0_patch_emo8,-0.62471
+1,Native American,CN0_patch_rand0,-0.62453
+1,Native American,CN0_patch_rand1,-0.62453
+1,Native American,CN0_patch_rand2,-0.74941
+3,white,CN1,5.24731
+3,white,CN0,5.49767
+3,white,CN0_patch_emo8,5.37287
+3,white,CN0_patch_rand0,5.3729
+3,white,CN0_patch_rand1,5.37287
+3,white,CN0_patch_rand2,5.37287
+3,Black,CN1,5.24731
+3,Black,CN0,5.49742
+3,Black,CN0_patch_emo8,5.49762
+3,Black,CN0_patch_rand0,5.49742
+3,Black,CN0_patch_rand1,5.49762
+3,Black,CN0_patch_rand2,5.49742
+3,Asian,CN1,5.12208
+3,Asian,CN0,4.99787
+3,Asian,CN0_patch_emo8,5.12287
+3,Asian,CN0_patch_rand0,5.12287
+3,Asian,CN0_patch_rand1,5.1231
+3,Asian,CN0_patch_rand2,5.12287
+3,Hispanic,CN1,5.24701
+3,Hispanic,CN0,5.62236
+3,Hispanic,CN0_patch_emo8,5.62216
+3,Hispanic,CN0_patch_rand0,5.49762
+3,Hispanic,CN0_patch_rand1,5.62216
+3,Hispanic,CN0_patch_rand2,5.49736
+3,Native American,CN1,5.37208
+3,Native American,CN0,5.49742
+3,Native American,CN0_patch_emo8,5.49767
+3,Native American,CN0_patch_rand0,5.49767
+3,Native American,CN0_patch_rand1,5.49736
+3,Native American,CN0_patch_rand2,5.49767
+4,white,CN1,4.74811
+4,white,CN0,5.12323
+4,white,CN0_patch_emo8,5.24791
+4,white,CN0_patch_rand0,5.12317
+4,white,CN0_patch_rand1,5.12323
+4,white,CN0_patch_rand2,5.12323
+4,Black,CN1,4.74793
+4,Black,CN0,5.123
+4,Black,CN0_patch_emo8,5.123
+4,Black,CN0_patch_rand0,5.123
+4,Black,CN0_patch_rand1,5.123
+4,Black,CN0_patch_rand2,5.123
+4,Asian,CN1,4.87253
+4,Asian,CN0,5.373
+4,Asian,CN0_patch_emo8,5.373
+4,Asian,CN0_patch_rand0,5.373
+4,Asian,CN0_patch_rand1,5.373
+4,Asian,CN0_patch_rand2,5.37282
+4,Hispanic,CN1,4.99773
+4,Hispanic,CN0,5.248
+4,Hispanic,CN0_patch_emo8,5.248
+4,Hispanic,CN0_patch_rand0,5.248
+4,Hispanic,CN0_patch_rand1,5.24817
+4,Hispanic,CN0_patch_rand2,5.248
+4,Native American,CN1,4.62286
+4,Native American,CN0,4.87333
+4,Native American,CN0_patch_emo8,4.99833
+4,Native American,CN0_patch_rand0,4.87333
+4,Native American,CN0_patch_rand1,4.99817
+4,Native American,CN0_patch_rand2,4.99808
+5,white,CN1,-1.49952
+5,white,CN0,-1.24973
+5,white,CN0_patch_emo8,-1.37457
+5,white,CN0_patch_rand0,-1.37457
+5,white,CN0_patch_rand1,-1.37473
+5,white,CN0_patch_rand2,-1.37467
+5,Black,CN1,-1.37465
+5,Black,CN0,-1.24967
+5,Black,CN0_patch_emo8,-1.12476
+5,Black,CN0_patch_rand0,-1.24967
+5,Black,CN0_patch_rand1,-1.24957
+5,Black,CN0_patch_rand2,-1.24967
+5,Asian,CN1,-1.62432
+5,Asian,CN0,-1.24962
+5,Asian,CN0_patch_emo8,-1.24967
+5,Asian,CN0_patch_rand0,-1.24967
+5,Asian,CN0_patch_rand1,-1.24967
+5,Asian,CN0_patch_rand2,-1.24967
+5,Hispanic,CN1,-1.6246
+5,Hispanic,CN0,-1.2498
+5,Hispanic,CN0_patch_emo8,-1.2498
+5,Hispanic,CN0_patch_rand0,-1.2498
+5,Hispanic,CN0_patch_rand1,-1.2498
+5,Hispanic,CN0_patch_rand2,-1.2498
+5,Native American,CN1,-1.24965
+5,Native American,CN0,-0.87491
+5,Native American,CN0_patch_emo8,-0.99973
+5,Native American,CN0_patch_rand0,-0.99973
+5,Native American,CN0_patch_rand1,-0.99976
+5,Native American,CN0_patch_rand2,-0.87491
+7,white,CN1,3.99859
+7,white,CN0,4.49833
+7,white,CN0_patch_emo8,4.37359
+7,white,CN0_patch_rand0,4.49833
+7,white,CN0_patch_rand1,4.37359
+7,white,CN0_patch_rand2,4.49848
+7,Black,CN1,4.1234
+7,Black,CN0,4.49828
+7,Black,CN0_patch_emo8,4.49844
+7,Black,CN0_patch_rand0,4.4984
+7,Black,CN0_patch_rand1,4.49823
+7,Black,CN0_patch_rand2,4.62311
+7,Asian,CN1,3.99854
+7,Asian,CN0,4.49833
+7,Asian,CN0_patch_emo8,4.37344
+7,Asian,CN0_patch_rand0,4.37344
+7,Asian,CN0_patch_rand1,4.37344
+7,Asian,CN0_patch_rand2,4.37344
+7,Hispanic,CN1,4.12344
+7,Hispanic,CN0,4.49844
+7,Hispanic,CN0_patch_emo8,4.49844
+7,Hispanic,CN0_patch_rand0,4.49848
+7,Hispanic,CN0_patch_rand1,4.49859
+7,Hispanic,CN0_patch_rand2,4.49848
+7,Native American,CN1,3.99856
+7,Native American,CN0,4.37359
+7,Native American,CN0_patch_emo8,4.37373
+7,Native American,CN0_patch_rand0,4.37373
+7,Native American,CN0_patch_rand1,4.37359
+7,Native American,CN0_patch_rand2,4.37359
+8,white,CN1,3.12369
+8,white,CN0,3.2491
+8,white,CN0_patch_emo8,3.24899
+8,white,CN0_patch_rand0,3.24924
+8,white,CN0_patch_rand1,3.37399
+8,white,CN0_patch_rand2,3.2491
+8,Black,CN1,3.37352
+8,Black,CN0,3.49856
+8,Black,CN0_patch_emo8,3.49885
+8,Black,CN0_patch_rand0,3.49885
+8,Black,CN0_patch_rand1,3.49885
+8,Black,CN0_patch_rand2,3.49885
+8,Asian,CN1,3.24854
+8,Asian,CN0,3.49886
+8,Asian,CN0_patch_emo8,3.49884
+8,Asian,CN0_patch_rand0,3.49885
+8,Asian,CN0_patch_rand1,3.49898
+8,Asian,CN0_patch_rand2,3.49871
+8,Hispanic,CN1,3.37354
+8,Hispanic,CN0,3.62371
+8,Hispanic,CN0_patch_emo8,3.62385
+8,Hispanic,CN0_patch_rand0,3.62371
+8,Hispanic,CN0_patch_rand1,3.62371
+8,Hispanic,CN0_patch_rand2,3.62371
+8,Native American,CN1,3.49854
+8,Native American,CN0,3.6241
+8,Native American,CN0_patch_emo8,3.74871
+8,Native American,CN0_patch_rand0,3.74898
+8,Native American,CN0_patch_rand1,3.6241
+8,Native American,CN0_patch_rand2,3.62398
+9,white,CN1,0.24993
+9,white,CN0,0.5
+9,white,CN0_patch_emo8,0.5
+9,white,CN0_patch_rand0,0.5
+9,white,CN0_patch_rand1,0.5
+9,white,CN0_patch_rand2,0.5
+9,Black,CN1,0.62486
+9,Black,CN0,0.625
+9,Black,CN0_patch_emo8,0.74994
+9,Black,CN0_patch_rand0,0.625
+9,Black,CN0_patch_rand1,0.625
+9,Black,CN0_patch_rand2,0.74994
+9,Asian,CN1,0.25
+9,Asian,CN0,0.62494
+9,Asian,CN0_patch_emo8,0.5
+9,Asian,CN0_patch_rand0,0.5
+9,Asian,CN0_patch_rand1,0.5
+9,Asian,CN0_patch_rand2,0.5
+9,Hispanic,CN1,0.49993
+9,Hispanic,CN0,0.625
+9,Hispanic,CN0_patch_emo8,0.74993
+9,Hispanic,CN0_patch_rand0,0.74993
+9,Hispanic,CN0_patch_rand1,0.74993
+9,Hispanic,CN0_patch_rand2,0.74993
+9,Native American,CN1,0.0
+9,Native American,CN0,0.12506
+9,Native American,CN0_patch_emo8,0.25
+9,Native American,CN0_patch_rand0,0.25
+9,Native American,CN0_patch_rand1,0.12506
+9,Native American,CN0_patch_rand2,0.12506
+10,white,CN1,1.49963
+10,white,CN0,1.49977
+10,white,CN0_patch_emo8,1.49977
+10,white,CN0_patch_rand0,1.49977
+10,white,CN0_patch_rand1,1.62454
+10,white,CN0_patch_rand2,1.49977
+10,Black,CN1,2.49948
+10,Black,CN0,2.4993
+10,Black,CN0_patch_emo8,2.49941
+10,Black,CN0_patch_rand0,2.49941
+10,Black,CN0_patch_rand1,2.6243
+10,Black,CN0_patch_rand2,2.49941
+10,Asian,CN1,1.99954
+10,Asian,CN0,2.12459
+10,Asian,CN0_patch_emo8,2.12459
+10,Asian,CN0_patch_rand0,2.12459
+10,Asian,CN0_patch_rand1,1.99968
+10,Asian,CN0_patch_rand2,2.12446
+10,Hispanic,CN1,2.24948
+10,Hispanic,CN0,2.37438
+10,Hispanic,CN0_patch_emo8,2.37438
+10,Hispanic,CN0_patch_rand0,2.24948
+10,Hispanic,CN0_patch_rand1,2.37448
+10,Hispanic,CN0_patch_rand2,2.37438
+10,Native American,CN1,2.37448
+10,Native American,CN0,2.37448
+10,Native American,CN0_patch_emo8,2.37463
+10,Native American,CN0_patch_rand0,2.37448
+10,Native American,CN0_patch_rand1,2.37448
+10,Native American,CN0_patch_rand2,2.37448
+11,white,CN1,3.37315
+11,white,CN0,3.37369
+11,white,CN0_patch_emo8,3.37384
+11,white,CN0_patch_rand0,3.49856
+11,white,CN0_patch_rand1,3.49856
+11,white,CN0_patch_rand2,3.37369
+11,Black,CN1,3.87294
+11,Black,CN0,3.87354
+11,Black,CN0_patch_emo8,3.87354
+11,Black,CN0_patch_rand0,3.8734
+11,Black,CN0_patch_rand1,3.87337
+11,Black,CN0_patch_rand2,3.99823
+11,Asian,CN1,3.49815
+11,Asian,CN0,3.49871
+11,Asian,CN0_patch_emo8,3.37384
+11,Asian,CN0_patch_rand0,3.49871
+11,Asian,CN0_patch_rand1,3.49856
+11,Asian,CN0_patch_rand2,3.49871
+11,Hispanic,CN1,3.49832
+11,Hispanic,CN0,3.62337
+11,Hispanic,CN0_patch_emo8,3.62354
+11,Hispanic,CN0_patch_rand0,3.6234
+11,Hispanic,CN0_patch_rand1,3.49869
+11,Hispanic,CN0_patch_rand2,3.62337
+11,Native American,CN1,3.62312
+11,Native American,CN0,3.74871
+11,Native American,CN0_patch_emo8,3.62371
+11,Native American,CN0_patch_rand0,3.74856
+11,Native American,CN0_patch_rand1,3.62371
+11,Native American,CN0_patch_rand2,3.74859
+12,white,CN1,5.6222
+12,white,CN0,5.74763
+12,white,CN0_patch_emo8,5.74753
+12,white,CN0_patch_rand0,5.74753
+12,white,CN0_patch_rand1,5.74753
+12,white,CN0_patch_rand2,5.74773
+12,Black,CN1,5.49709
+12,Black,CN0,5.87253
+12,Black,CN0_patch_emo8,5.87253
+12,Black,CN0_patch_rand0,5.74773
+12,Black,CN0_patch_rand1,5.87253
+12,Black,CN0_patch_rand2,5.87253
+12,Asian,CN1,5.24786
+12,Asian,CN0,5.62333
+12,Asian,CN0_patch_emo8,5.74808
+12,Asian,CN0_patch_rand0,5.62333
+12,Asian,CN0_patch_rand1,5.62333
+12,Asian,CN0_patch_rand2,5.74838
+12,Hispanic,CN1,5.74695
+12,Hispanic,CN0,5.99763
+12,Hispanic,CN0_patch_emo8,5.99763
+12,Hispanic,CN0_patch_rand0,5.99773
+12,Hispanic,CN0_patch_rand1,5.99773
+12,Hispanic,CN0_patch_rand2,5.99763
+12,Native American,CN1,5.4972
+12,Native American,CN0,5.87263
+12,Native American,CN0_patch_emo8,5.87293
+12,Native American,CN0_patch_rand0,5.87282
+12,Native American,CN0_patch_rand1,5.87282
+12,Native American,CN0_patch_rand2,5.87263
+13,white,CN1,5.12208
+13,white,CN0,5.12242
+13,white,CN0_patch_emo8,5.12273
+13,white,CN0_patch_rand0,5.1229
+13,white,CN0_patch_rand1,4.9979
+13,white,CN0_patch_rand2,5.12242
+13,Black,CN1,5.37161
+13,Black,CN0,5.49701
+13,Black,CN0_patch_emo8,5.37231
+13,Black,CN0_patch_rand0,5.49678
+13,Black,CN0_patch_rand1,5.49678
+13,Black,CN0_patch_rand2,5.49708
+13,Asian,CN1,5.12201
+13,Asian,CN0,5.24742
+13,Asian,CN0_patch_emo8,5.24742
+13,Asian,CN0_patch_rand0,5.24716
+13,Asian,CN0_patch_rand1,5.37216
+13,Asian,CN0_patch_rand2,5.12267
+13,Hispanic,CN1,5.24708
+13,Hispanic,CN0,5.24716
+13,Hispanic,CN0_patch_emo8,5.24742
+13,Hispanic,CN0_patch_rand0,5.24742
+13,Hispanic,CN0_patch_rand1,5.24716
+13,Hispanic,CN0_patch_rand2,5.24742
+13,Native American,CN1,5.24701
+13,Native American,CN0,5.37178
+13,Native American,CN0_patch_emo8,5.24762
+13,Native American,CN0_patch_rand0,5.24762
+13,Native American,CN0_patch_rand1,5.37208
+13,Native American,CN0_patch_rand2,5.37208
+14,white,CN1,2.49933
+14,white,CN0,2.49959
+14,white,CN0_patch_emo8,2.49959
+14,white,CN0_patch_rand0,2.49953
+14,white,CN0_patch_rand1,2.49953
+14,white,CN0_patch_rand2,2.49959
+14,Black,CN1,2.3744
+14,Black,CN0,2.49933
+14,Black,CN0_patch_emo8,2.49947
+14,Black,CN0_patch_rand0,2.49947
+14,Black,CN0_patch_rand1,2.49947
+14,Black,CN0_patch_rand2,2.49953
+14,Asian,CN1,2.37433
+14,Asian,CN0,2.49941
+14,Asian,CN0_patch_emo8,2.37453
+14,Asian,CN0_patch_rand0,2.37459
+14,Asian,CN0_patch_rand1,2.37453
+14,Asian,CN0_patch_rand2,2.37471
+14,Hispanic,CN1,2.4994
+14,Hispanic,CN0,2.62453
+14,Hispanic,CN0_patch_emo8,2.62433
+14,Hispanic,CN0_patch_rand0,2.49967
+14,Hispanic,CN0_patch_rand1,2.62453
+14,Hispanic,CN0_patch_rand2,2.49967
+14,Native American,CN1,2.49947
+14,Native American,CN0,2.49959
+14,Native American,CN0_patch_emo8,2.62441
+14,Native American,CN0_patch_rand0,2.62441
+14,Native American,CN0_patch_rand1,2.62441
+14,Native American,CN0_patch_rand2,2.49953
+15,white,CN1,0.5
+15,white,CN0,0.74988
+15,white,CN0_patch_emo8,0.75
+15,white,CN0_patch_rand0,0.625
+15,white,CN0_patch_rand1,0.74988
+15,white,CN0_patch_rand2,0.62488
+15,Black,CN1,1.49971
+15,Black,CN0,1.74959
+15,Black,CN0_patch_emo8,1.62459
+15,Black,CN0_patch_rand0,1.62474
+15,Black,CN0_patch_rand1,1.62459
+15,Black,CN0_patch_rand2,1.62474
+15,Asian,CN1,0.75
+15,Asian,CN0,0.99988
+15,Asian,CN0_patch_emo8,0.99989
+15,Asian,CN0_patch_rand0,0.99989
+15,Asian,CN0_patch_rand1,0.99989
+15,Asian,CN0_patch_rand2,0.99989
+15,Hispanic,CN1,1.24974
+15,Hispanic,CN0,1.37477
+15,Hispanic,CN0_patch_emo8,1.49977
+15,Hispanic,CN0_patch_rand0,1.37477
+15,Hispanic,CN0_patch_rand1,1.37477
+15,Hispanic,CN0_patch_rand2,1.37477
+15,Native American,CN1,1.37471
+15,Native American,CN0,1.49959
+15,Native American,CN0_patch_emo8,1.37474
+15,Native American,CN0_patch_rand0,1.49959
+15,Native American,CN0_patch_rand1,1.49974
+15,Native American,CN0_patch_rand2,1.49959
+16,white,CN1,0.625
+16,white,CN0,0.625
+16,white,CN0_patch_emo8,0.625
+16,white,CN0_patch_rand0,0.62523
+16,white,CN0_patch_rand1,0.62523
+16,white,CN0_patch_rand2,0.625
+16,Black,CN1,1.24974
+16,Black,CN0,1.2498
+16,Black,CN0_patch_emo8,1.2498
+16,Black,CN0_patch_rand0,1.2498
+16,Black,CN0_patch_rand1,1.24977
+16,Black,CN0_patch_rand2,1.3748
+16,Asian,CN1,1.125
+16,Asian,CN0,1.4998
+16,Asian,CN0_patch_emo8,1.37477
+16,Asian,CN0_patch_rand0,1.375
+16,Asian,CN0_patch_rand1,1.375
+16,Asian,CN0_patch_rand2,1.49957
+16,Hispanic,CN1,1.37452
+16,Hispanic,CN0,1.3748
+16,Hispanic,CN0_patch_emo8,1.3748
+16,Hispanic,CN0_patch_rand0,1.3748
+16,Hispanic,CN0_patch_rand1,1.24977
+16,Hispanic,CN0_patch_rand2,1.25
+16,Native American,CN1,1.24977
+16,Native American,CN0,1.2498
+16,Native American,CN0_patch_emo8,1.2498
+16,Native American,CN0_patch_rand0,1.24982
+16,Native American,CN0_patch_rand1,1.2498
+16,Native American,CN0_patch_rand2,1.2498
+18,white,CN1,3.62356
+18,white,CN0,3.99862
+18,white,CN0_patch_emo8,3.87386
+18,white,CN0_patch_rand0,3.99862
+18,white,CN0_patch_rand1,3.99875
+18,white,CN0_patch_rand2,3.99873
+18,Black,CN1,3.62371
+18,Black,CN0,3.99859
+18,Black,CN0_patch_emo8,3.99873
+18,Black,CN0_patch_rand0,3.99888
+18,Black,CN0_patch_rand1,3.99873
+18,Black,CN0_patch_rand2,3.99875
+18,Asian,CN1,3.62385
+18,Asian,CN0,4.12362
+18,Asian,CN0_patch_emo8,4.12375
+18,Asian,CN0_patch_rand0,4.12362
+18,Asian,CN0_patch_rand1,3.99886
+18,Asian,CN0_patch_rand2,4.12362
+18,Hispanic,CN1,3.74844
+18,Hispanic,CN0,3.87386
+18,Hispanic,CN0_patch_emo8,3.99859
+18,Hispanic,CN0_patch_rand0,3.99859
+18,Hispanic,CN0_patch_rand1,3.99859
+18,Hispanic,CN0_patch_rand2,3.99862
+18,Native American,CN1,3.62371
+18,Native American,CN0,3.99873
+18,Native American,CN0_patch_emo8,3.99871
+18,Native American,CN0_patch_rand0,3.99859
+18,Native American,CN0_patch_rand1,3.99873
+18,Native American,CN0_patch_rand2,3.99873
+19,white,CN1,-0.49982
+19,white,CN0,-0.49971
+19,white,CN0_patch_emo8,-0.49971
+19,white,CN0_patch_rand0,-0.49971
+19,white,CN0_patch_rand1,-0.375
+19,white,CN0_patch_rand2,-0.37484
+19,Black,CN1,0.99982
+19,Black,CN0,0.99986
+19,Black,CN0_patch_emo8,0.99986
+19,Black,CN0_patch_rand0,0.99986
+19,Black,CN0_patch_rand1,0.99986
+19,Black,CN0_patch_rand2,1.12471
+19,Asian,CN1,0.87453
+19,Asian,CN0,0.87477
+19,Asian,CN0_patch_emo8,0.74988
+19,Asian,CN0_patch_rand0,0.74988
+19,Asian,CN0_patch_rand1,0.74988
+19,Asian,CN0_patch_rand2,0.87477
+19,Hispanic,CN1,0.74957
+19,Hispanic,CN0,0.74986
+19,Hispanic,CN0_patch_emo8,0.74984
+19,Hispanic,CN0_patch_rand0,0.74971
+19,Hispanic,CN0_patch_rand1,0.625
+19,Hispanic,CN0_patch_rand2,0.74971
+19,Native American,CN1,1.37453
+19,Native American,CN0,1.24988
+19,Native American,CN0_patch_emo8,1.24974
+19,Native American,CN0_patch_rand0,1.37463
+19,Native American,CN0_patch_rand1,1.37463
+19,Native American,CN0_patch_rand2,1.37463
+21,white,CN1,5.62225
+21,white,CN0,5.74786
+21,white,CN0_patch_emo8,5.74799
+21,white,CN0_patch_rand0,5.74779
+21,white,CN0_patch_rand1,5.87257
+21,white,CN0_patch_rand2,5.87286
+21,Black,CN1,5.74743
+21,Black,CN0,5.99765
+21,Black,CN0_patch_emo8,5.87305
+21,Black,CN0_patch_rand0,5.87286
+21,Black,CN0_patch_rand1,5.87286
+21,Black,CN0_patch_rand2,5.87286
+21,Asian,CN1,5.49736
+21,Asian,CN0,5.62249
+21,Asian,CN0_patch_emo8,5.74734
+21,Asian,CN0_patch_rand0,5.74725
+21,Asian,CN0_patch_rand1,5.74757
+21,Asian,CN0_patch_rand2,5.62249
+21,Hispanic,CN1,5.37225
+21,Hispanic,CN0,5.49779
+21,Hispanic,CN0_patch_emo8,5.49779
+21,Hispanic,CN0_patch_rand0,5.49765
+21,Hispanic,CN0_patch_rand1,5.37299
+21,Hispanic,CN0_patch_rand2,5.49779
+21,Native American,CN1,5.87183
+21,Native American,CN0,5.87265
+21,Native American,CN0_patch_emo8,5.87265
+21,Native American,CN0_patch_rand0,5.87265
+21,Native American,CN0_patch_rand1,5.87265
+21,Native American,CN0_patch_rand2,5.87265
+23,white,CN1,2.24875
+23,white,CN0,2.74832
+23,white,CN0_patch_emo8,2.6239
+23,white,CN0_patch_rand0,2.6239
+23,white,CN0_patch_rand1,2.74832
+23,white,CN0_patch_rand2,2.6239
+23,Black,CN1,2.3739
+23,Black,CN0,2.74852
+23,Black,CN0_patch_emo8,2.74852
+23,Black,CN0_patch_rand0,2.74852
+23,Black,CN0_patch_rand1,2.74852
+23,Black,CN0_patch_rand2,2.74852
+23,Asian,CN1,2.49852
+23,Asian,CN0,2.9987
+23,Asian,CN0_patch_emo8,2.99832
+23,Asian,CN0_patch_rand0,2.9987
+23,Asian,CN0_patch_rand1,2.8739
+23,Asian,CN0_patch_rand2,2.99832
+23,Hispanic,CN1,2.4987
+23,Hispanic,CN0,2.8737
+23,Hispanic,CN0_patch_emo8,2.87332
+23,Hispanic,CN0_patch_rand0,2.99832
+23,Hispanic,CN0_patch_rand1,2.8737
+23,Hispanic,CN0_patch_rand2,2.99852
+23,Native American,CN1,2.3739
+23,Native American,CN0,2.9987
+23,Native American,CN0_patch_emo8,2.8737
+23,Native American,CN0_patch_rand0,2.8737
+23,Native American,CN0_patch_rand1,2.99852
+23,Native American,CN0_patch_rand2,2.99832
+24,white,CN1,2.24924
+24,white,CN0,1.7494
+24,white,CN0_patch_emo8,1.87447
+24,white,CN0_patch_rand0,1.74962
+24,white,CN0_patch_rand1,1.74962
+24,white,CN0_patch_rand2,1.74962
+24,Black,CN1,3.12398
+24,Black,CN0,2.74924
+24,Black,CN0_patch_emo8,2.87398
+24,Black,CN0_patch_rand0,2.87398
+24,Black,CN0_patch_rand1,2.87398
+24,Black,CN0_patch_rand2,2.74912
+24,Asian,CN1,2.874
+24,Asian,CN0,2.62414
+24,Asian,CN0_patch_emo8,2.74885
+24,Asian,CN0_patch_rand0,2.62414
+24,Asian,CN0_patch_rand1,2.62414
+24,Asian,CN0_patch_rand2,2.74899
+24,Hispanic,CN1,2.87412
+24,Hispanic,CN0,2.74899
+24,Hispanic,CN0_patch_emo8,2.62424
+24,Hispanic,CN0_patch_rand0,2.74899
+24,Hispanic,CN0_patch_rand1,2.74899
+24,Hispanic,CN0_patch_rand2,2.74885
+24,Native American,CN1,3.12398
+24,Native American,CN0,2.74899
+24,Native American,CN0_patch_emo8,2.62424
+24,Native American,CN0_patch_rand0,2.62424
+24,Native American,CN0_patch_rand1,2.74899
+24,Native American,CN0_patch_rand2,2.74924
+26,white,CN1,5.86805
+26,white,CN0,6.49386
+26,white,CN0_patch_emo8,6.36919
+26,white,CN0_patch_rand0,6.36938
+26,white,CN0_patch_rand1,6.49386
+26,white,CN0_patch_rand2,6.36919
+26,Black,CN1,5.99342
+26,Black,CN0,6.74331
+26,Black,CN0_patch_emo8,6.74331
+26,Black,CN0_patch_rand0,6.86802
+26,Black,CN0_patch_rand1,6.74386
+26,Black,CN0_patch_rand2,6.74386
+26,Asian,CN1,5.86864
+26,Asian,CN0,6.61886
+26,Asian,CN0_patch_emo8,6.61938
+26,Asian,CN0_patch_rand0,6.61909
+26,Asian,CN0_patch_rand1,6.61909
+26,Asian,CN0_patch_rand2,6.61938
+26,Hispanic,CN1,5.99242
+26,Hispanic,CN0,6.61831
+26,Hispanic,CN0_patch_emo8,6.61831
+26,Hispanic,CN0_patch_rand0,6.61909
+26,Hispanic,CN0_patch_rand1,6.49438
+26,Hispanic,CN0_patch_rand2,6.49419
+26,Native American,CN1,5.99305
+26,Native American,CN0,6.86831
+26,Native American,CN0_patch_emo8,6.74272
+26,Native American,CN0_patch_rand0,6.86772
+26,Native American,CN0_patch_rand1,6.86772
+26,Native American,CN0_patch_rand2,6.86772
+27,white,CN1,3.37333
+27,white,CN0,3.3737
+27,white,CN0_patch_emo8,3.3737
+27,white,CN0_patch_rand0,3.3737
+27,white,CN0_patch_rand1,3.3737
+27,white,CN0_patch_rand2,3.3737
+27,Black,CN1,3.24833
+27,Black,CN0,3.3737
+27,Black,CN0_patch_emo8,3.24852
+27,Black,CN0_patch_rand0,3.2489
+27,Black,CN0_patch_rand1,3.37332
+27,Black,CN0_patch_rand2,3.37332
+27,Asian,CN1,3.37352
+27,Asian,CN0,3.3737
+27,Asian,CN0_patch_emo8,3.2489
+27,Asian,CN0_patch_rand0,3.37352
+27,Asian,CN0_patch_rand1,3.2489
+27,Asian,CN0_patch_rand2,3.3737
+27,Hispanic,CN1,3.37352
+27,Hispanic,CN0,3.37352
+27,Hispanic,CN0_patch_emo8,3.37352
+27,Hispanic,CN0_patch_rand0,3.49832
+27,Hispanic,CN0_patch_rand1,3.37332
+27,Hispanic,CN0_patch_rand2,3.3737
+27,Native American,CN1,3.1237
+27,Native American,CN0,3.24885
+27,Native American,CN0_patch_emo8,3.24885
+27,Native American,CN0_patch_rand0,3.12385
+27,Native American,CN0_patch_rand1,3.24885
+27,Native American,CN0_patch_rand2,3.12403
+28,white,CN1,2.62403
+28,white,CN0,2.6244
+28,white,CN0_patch_emo8,2.74914
+28,white,CN0_patch_rand0,2.6244
+28,white,CN0_patch_rand1,2.6244
+28,white,CN0_patch_rand2,2.74924
+28,Black,CN1,2.62385
+28,Black,CN0,2.62432
+28,Black,CN0_patch_emo8,2.62414
+28,Black,CN0_patch_rand0,2.74885
+28,Black,CN0_patch_rand1,2.74914
+28,Black,CN0_patch_rand2,2.62385
+28,Asian,CN1,2.62403
+28,Asian,CN0,2.87385
+28,Asian,CN0_patch_emo8,2.87414
+28,Asian,CN0_patch_rand0,2.87385
+28,Asian,CN0_patch_rand1,2.87414
+28,Asian,CN0_patch_rand2,2.87414
+28,Hispanic,CN1,2.49903
+28,Hispanic,CN0,2.62414
+28,Hispanic,CN0_patch_emo8,2.62424
+28,Hispanic,CN0_patch_rand0,2.74914
+28,Hispanic,CN0_patch_rand1,2.62414
+28,Hispanic,CN0_patch_rand2,2.62399
+28,Native American,CN1,2.6237
+28,Native American,CN0,2.74914
+28,Native American,CN0_patch_emo8,2.7494
+28,Native American,CN0_patch_rand0,2.74914
+28,Native American,CN0_patch_rand1,2.87399
+28,Native American,CN0_patch_rand2,2.87414
+29,white,CN1,1.12468
+29,white,CN0,1.37471
+29,white,CN0_patch_emo8,1.37472
+29,white,CN0_patch_rand0,1.37472
+29,white,CN0_patch_rand1,1.37471
+29,white,CN0_patch_rand2,1.37471
+29,Black,CN1,1.24977
+29,Black,CN0,1.4998
+29,Black,CN0_patch_emo8,1.49971
+29,Black,CN0_patch_rand0,1.4998
+29,Black,CN0_patch_rand1,1.49972
+29,Black,CN0_patch_rand2,1.49972
+29,Asian,CN1,1.12474
+29,Asian,CN0,1.2498
+29,Asian,CN0_patch_emo8,1.37472
+29,Asian,CN0_patch_rand0,1.24982
+29,Asian,CN0_patch_rand1,1.37482
+29,Asian,CN0_patch_rand2,1.24982
+29,Hispanic,CN1,1.37463
+29,Hispanic,CN0,1.62463
+29,Hispanic,CN0_patch_emo8,1.62463
+29,Hispanic,CN0_patch_rand0,1.62463
+29,Hispanic,CN0_patch_rand1,1.62459
+29,Hispanic,CN0_patch_rand2,1.62459
+29,Native American,CN1,1.74954
+29,Native American,CN0,1.74972
+29,Native American,CN0_patch_emo8,1.74971
+29,Native American,CN0_patch_rand0,1.87459
+29,Native American,CN0_patch_rand1,1.74972
+29,Native American,CN0_patch_rand2,1.74972
+30,white,CN1,2.74885
+30,white,CN0,2.12414
+30,white,CN0_patch_emo8,1.9994
+30,white,CN0_patch_rand0,2.12424
+30,white,CN0_patch_rand1,2.12424
+30,white,CN0_patch_rand2,1.99914
+30,Black,CN1,2.99852
+30,Black,CN0,2.37414
+30,Black,CN0_patch_emo8,2.37414
+30,Black,CN0_patch_rand0,2.37414
+30,Black,CN0_patch_rand1,2.37414
+30,Black,CN0_patch_rand2,2.37414
+30,Asian,CN1,2.49885
+30,Asian,CN0,1.8744
+30,Asian,CN0_patch_emo8,1.8744
+30,Asian,CN0_patch_rand0,1.9994
+30,Asian,CN0_patch_rand1,1.8744
+30,Asian,CN0_patch_rand2,1.99924
+30,Hispanic,CN1,2.87384
+30,Hispanic,CN0,2.12414
+30,Hispanic,CN0_patch_emo8,2.24914
+30,Hispanic,CN0_patch_rand0,2.24899
+30,Hispanic,CN0_patch_rand1,2.24899
+30,Hispanic,CN0_patch_rand2,2.24924
+30,Native American,CN1,2.74903
+30,Native American,CN0,2.1244
+30,Native American,CN0_patch_emo8,1.9994
+30,Native American,CN0_patch_rand0,2.12424
+30,Native American,CN0_patch_rand1,2.1244
+30,Native American,CN0_patch_rand2,1.99962
+31,white,CN1,2.62422
+31,white,CN0,2.74938
+31,white,CN0_patch_emo8,2.74946
+31,white,CN0_patch_rand0,2.62459
+31,white,CN0_patch_rand1,2.74938
+31,white,CN0_patch_rand2,2.74945
+31,Black,CN1,2.74899
+31,Black,CN0,2.87438
+31,Black,CN0_patch_emo8,2.9993
+31,Black,CN0_patch_rand0,2.9993
+31,Black,CN0_patch_rand1,2.9993
+31,Black,CN0_patch_rand2,2.9993
+31,Asian,CN1,2.49922
+31,Asian,CN0,2.74945
+31,Asian,CN0_patch_emo8,2.74945
+31,Asian,CN0_patch_rand0,2.74945
+31,Asian,CN0_patch_rand1,2.74945
+31,Asian,CN0_patch_rand2,2.74945
+31,Hispanic,CN1,2.9993
+31,Hispanic,CN0,3.24931
+31,Hispanic,CN0_patch_emo8,3.2493
+31,Hispanic,CN0_patch_rand0,3.37423
+31,Hispanic,CN0_patch_rand1,3.37423
+31,Hispanic,CN0_patch_rand2,3.2493
+31,Native American,CN1,2.4991
+31,Native American,CN0,2.62438
+31,Native American,CN0_patch_emo8,2.7493
+31,Native American,CN0_patch_rand0,2.62438
+31,Native American,CN0_patch_rand1,2.7493
+31,Native American,CN0_patch_rand2,2.7493
+33,white,CN1,2.62277
+33,white,CN0,2.62267
+33,white,CN0_patch_emo8,2.62315
+33,white,CN0_patch_rand0,2.62267
+33,white,CN0_patch_rand1,2.74688
+33,white,CN0_patch_rand2,2.62315
+33,Black,CN1,3.49545
+33,Black,CN0,3.62046
+33,Black,CN0_patch_emo8,3.74551
+33,Black,CN0_patch_rand0,3.62147
+33,Black,CN0_patch_rand1,3.62046
+33,Black,CN0_patch_rand2,3.62098
+33,Asian,CN1,3.37103
+33,Asian,CN0,3.37146
+33,Asian,CN0_patch_emo8,3.37146
+33,Asian,CN0_patch_rand0,3.37187
+33,Asian,CN0_patch_rand1,3.24761
+33,Asian,CN0_patch_rand2,3.37187
+33,Hispanic,CN1,3.49645
+33,Hispanic,CN0,3.62146
+33,Hispanic,CN0_patch_emo8,3.62145
+33,Hispanic,CN0_patch_rand0,3.62187
+33,Hispanic,CN0_patch_rand1,3.49688
+33,Hispanic,CN0_patch_rand2,3.62145
+33,Native American,CN1,3.49551
+33,Native American,CN0,3.62146
+33,Native American,CN0_patch_emo8,3.62103
+33,Native American,CN0_patch_rand0,3.49688
+33,Native American,CN0_patch_rand1,3.62103
+33,Native American,CN0_patch_rand2,3.62103
+34,white,CN1,1.3742
+34,white,CN0,1.4992
+34,white,CN0_patch_emo8,1.49894
+34,white,CN0_patch_rand0,1.62375
+34,white,CN0_patch_rand1,1.49901
+34,white,CN0_patch_rand2,1.62375
+34,Black,CN1,2.1234
+34,Black,CN0,2.24864
+34,Black,CN0_patch_emo8,2.37284
+34,Black,CN0_patch_rand0,2.24835
+34,Black,CN0_patch_rand1,2.24864
+34,Black,CN0_patch_rand2,2.37335
+34,Asian,CN1,0.99894
+34,Asian,CN0,0.99912
+34,Asian,CN0_patch_emo8,0.99912
+34,Asian,CN0_patch_rand0,0.99938
+34,Asian,CN0_patch_rand1,0.99901
+34,Asian,CN0_patch_rand2,0.99912
+34,Hispanic,CN1,1.74872
+34,Hispanic,CN0,1.62394
+34,Hispanic,CN0_patch_emo8,1.62375
+34,Hispanic,CN0_patch_rand0,1.62412
+34,Hispanic,CN0_patch_rand1,1.62394
+34,Hispanic,CN0_patch_rand2,1.62412
+34,Native American,CN1,1.62403
+34,Native American,CN0,1.62418
+34,Native American,CN0_patch_emo8,1.62403
+34,Native American,CN0_patch_rand0,1.62403
+34,Native American,CN0_patch_rand1,1.62403
+34,Native American,CN0_patch_rand2,1.62418
+36,white,CN1,2.62373
+36,white,CN0,2.87373
+36,white,CN0_patch_emo8,2.87373
+36,white,CN0_patch_rand0,2.87373
+36,white,CN0_patch_rand1,2.87356
+36,white,CN0_patch_rand2,2.87373
+36,Black,CN1,2.37373
+36,Black,CN0,2.99818
+36,Black,CN0_patch_emo8,2.99818
+36,Black,CN0_patch_rand0,2.87356
+36,Black,CN0_patch_rand1,2.99818
+36,Black,CN0_patch_rand2,2.87373
+36,Asian,CN1,2.8734
+36,Asian,CN0,3.24873
+36,Asian,CN0_patch_emo8,3.3734
+36,Asian,CN0_patch_rand0,3.4984
+36,Asian,CN0_patch_rand1,3.4984
+36,Asian,CN0_patch_rand2,3.3734
+36,Hispanic,CN1,2.74818
+36,Hispanic,CN0,3.24757
+36,Hispanic,CN0_patch_emo8,3.12356
+36,Hispanic,CN0_patch_rand0,3.12318
+36,Hispanic,CN0_patch_rand1,3.12294
+36,Hispanic,CN0_patch_rand2,3.24757
+36,Native American,CN1,2.4992
+36,Native American,CN0,3.3734
+36,Native American,CN0_patch_emo8,3.24873
+36,Native American,CN0_patch_rand0,3.37318
+36,Native American,CN0_patch_rand1,3.3734
+36,Native American,CN0_patch_rand2,3.37286
+37,white,CN1,5.62126
+37,white,CN0,5.62231
+37,white,CN0_patch_emo8,5.49731
+37,white,CN0_patch_rand0,5.62231
+37,white,CN0_patch_rand1,5.62208
+37,white,CN0_patch_rand2,5.62231
+37,Black,CN1,5.49617
+37,Black,CN0,5.87178
+37,Black,CN0_patch_emo8,5.87178
+37,Black,CN0_patch_rand0,5.74731
+37,Black,CN0_patch_rand1,5.87188
+37,Black,CN0_patch_rand2,5.74708
+37,Asian,CN1,5.62126
+37,Asian,CN0,5.62201
+37,Asian,CN0_patch_emo8,5.7467
+37,Asian,CN0_patch_rand0,5.74661
+37,Asian,CN0_patch_rand1,5.7467
+37,Asian,CN0_patch_rand2,5.62231
+37,Hispanic,CN1,5.62161
+37,Hispanic,CN0,5.74669
+37,Hispanic,CN0_patch_emo8,5.7467
+37,Hispanic,CN0_patch_rand0,5.74669
+37,Hispanic,CN0_patch_rand1,5.74669
+37,Hispanic,CN0_patch_rand2,5.8717
+37,Native American,CN1,5.87088
+37,Native American,CN0,5.99678
+37,Native American,CN0_patch_emo8,5.99678
+37,Native American,CN0_patch_rand0,5.87201
+37,Native American,CN0_patch_rand1,5.99678
+37,Native American,CN0_patch_rand2,5.99669
+40,white,CN1,4.12356
+40,white,CN0,4.2491
+40,white,CN0_patch_emo8,4.2491
+40,white,CN0_patch_rand0,4.12421
+40,white,CN0_patch_rand1,4.2491
+40,white,CN0_patch_rand2,4.24901
+40,Black,CN1,5.49725
+40,Black,CN0,5.62293
+40,Black,CN0_patch_emo8,5.49823
+40,Black,CN0_patch_rand0,5.74793
+40,Black,CN0_patch_rand1,5.62293
+40,Black,CN0_patch_rand2,5.62311
+40,Asian,CN1,4.62323
+40,Asian,CN0,4.99848
+40,Asian,CN0_patch_emo8,4.99862
+40,Asian,CN0_patch_rand0,4.99862
+40,Asian,CN0_patch_rand1,4.99859
+40,Asian,CN0_patch_rand2,4.99862
+40,Hispanic,CN1,4.87305
+40,Hispanic,CN0,5.12348
+40,Hispanic,CN0_patch_emo8,5.12333
+40,Hispanic,CN0_patch_rand0,5.12362
+40,Hispanic,CN0_patch_rand1,5.12348
+40,Hispanic,CN0_patch_rand2,5.12359
+40,Native American,CN1,5.37279
+40,Native American,CN0,5.62328
+40,Native American,CN0_patch_emo8,5.74833
+40,Native American,CN0_patch_rand0,5.74817
+40,Native American,CN0_patch_rand1,5.74817
+40,Native American,CN0_patch_rand2,5.74817
+41,white,CN1,3.74907
+41,white,CN0,4.12369
+41,white,CN0_patch_emo8,3.999
+41,white,CN0_patch_rand0,3.99885
+41,white,CN0_patch_rand1,3.99885
+41,white,CN0_patch_rand2,3.99903
+41,Black,CN1,3.87403
+41,Black,CN0,4.124
+41,Black,CN0_patch_emo8,4.124
+41,Black,CN0_patch_rand0,4.24869
+41,Black,CN0_patch_rand1,4.24884
+41,Black,CN0_patch_rand2,4.24885
+41,Asian,CN1,3.49903
+41,Asian,CN0,3.87385
+41,Asian,CN0_patch_emo8,3.874
+41,Asian,CN0_patch_rand0,3.874
+41,Asian,CN0_patch_rand1,3.74918
+41,Asian,CN0_patch_rand2,3.74932
+41,Hispanic,CN1,3.37403
+41,Hispanic,CN0,3.74903
+41,Hispanic,CN0_patch_emo8,3.87403
+41,Hispanic,CN0_patch_rand0,3.874
+41,Hispanic,CN0_patch_rand1,3.87403
+41,Hispanic,CN0_patch_rand2,3.74903
+41,Native American,CN1,3.99872
+41,Native American,CN0,4.3737
+41,Native American,CN0_patch_emo8,4.3737
+41,Native American,CN0_patch_rand0,4.2487
+41,Native American,CN0_patch_rand1,4.2489
+41,Native American,CN0_patch_rand2,4.2487
+42,white,CN1,0.74953
+42,white,CN0,0.99974
+42,white,CN0_patch_emo8,0.87488
+42,white,CN0_patch_rand0,0.87474
+42,white,CN0_patch_rand1,0.99974
+42,white,CN0_patch_rand2,0.87474
+42,Black,CN1,0.74957
+42,Black,CN0,0.87457
+42,Black,CN0_patch_emo8,0.87462
+42,Black,CN0_patch_rand0,0.9994
+42,Black,CN0_patch_rand1,0.87462
+42,Black,CN0_patch_rand2,0.87462
+42,Asian,CN1,0.37457
+42,Asian,CN0,0.25
+42,Asian,CN0_patch_emo8,0.25
+42,Asian,CN0_patch_rand0,0.25
+42,Asian,CN0_patch_rand1,0.25
+42,Asian,CN0_patch_rand2,0.25
+42,Hispanic,CN1,0.74962
+42,Hispanic,CN0,0.87467
+42,Hispanic,CN0_patch_emo8,0.99947
+42,Hispanic,CN0_patch_rand0,0.87467
+42,Hispanic,CN0_patch_rand1,0.99947
+42,Hispanic,CN0_patch_rand2,0.87482
+42,Native American,CN1,0.87467
+42,Native American,CN0,0.99971
+42,Native American,CN0_patch_emo8,1.12459
+42,Native American,CN0_patch_rand0,0.99971
+42,Native American,CN0_patch_rand1,0.99971
+42,Native American,CN0_patch_rand2,1.12459
+43,white,CN1,4.99799
+43,white,CN0,5.62359
+43,white,CN0_patch_emo8,5.62359
+43,white,CN0_patch_rand0,5.62359
+43,white,CN0_patch_rand1,5.62359
+43,white,CN0_patch_rand2,5.62359
+43,Black,CN1,5.12315
+43,Black,CN0,5.49859
+43,Black,CN0_patch_emo8,5.62333
+43,Black,CN0_patch_rand0,5.62333
+43,Black,CN0_patch_rand1,5.49859
+43,Black,CN0_patch_rand2,5.62333
+43,Asian,CN1,4.99854
+43,Asian,CN0,5.62344
+43,Asian,CN0_patch_emo8,5.62362
+43,Asian,CN0_patch_rand0,5.62344
+43,Asian,CN0_patch_rand1,5.49873
+43,Asian,CN0_patch_rand2,5.74833
+43,Hispanic,CN1,4.99834
+43,Hispanic,CN0,5.49811
+43,Hispanic,CN0_patch_emo8,5.49823
+43,Hispanic,CN0_patch_rand0,5.49823
+43,Hispanic,CN0_patch_rand1,5.62311
+43,Hispanic,CN0_patch_rand2,5.49823
+43,Native American,CN1,5.12315
+43,Native American,CN0,5.62359
+43,Native American,CN0_patch_emo8,5.74844
+43,Native American,CN0_patch_rand0,5.74828
+43,Native American,CN0_patch_rand1,5.62359
+43,Native American,CN0_patch_rand2,5.62344
+44,white,CN1,-0.25
+44,white,CN0,0.125
+44,white,CN0_patch_emo8,0.0
+44,white,CN0_patch_rand0,0.125
+44,white,CN0_patch_rand1,0.125
+44,white,CN0_patch_rand2,0.125
+44,Black,CN1,0.74938
+44,Black,CN0,0.8748
+44,Black,CN0_patch_emo8,0.8748
+44,Black,CN0_patch_rand0,0.8748
+44,Black,CN0_patch_rand1,0.7498
+44,Black,CN0_patch_rand2,0.8748
+44,Asian,CN1,0.49945
+44,Asian,CN0,0.7498
+44,Asian,CN0_patch_emo8,0.7498
+44,Asian,CN0_patch_rand0,0.7498
+44,Asian,CN0_patch_rand1,0.7498
+44,Asian,CN0_patch_rand2,0.7498
+44,Hispanic,CN1,0.37438
+44,Hispanic,CN0,0.6248
+44,Hispanic,CN0_patch_emo8,0.6248
+44,Hispanic,CN0_patch_rand0,0.6248
+44,Hispanic,CN0_patch_rand1,0.62477
+44,Hispanic,CN0_patch_rand2,0.7498
+44,Native American,CN1,0.37474
+44,Native American,CN0,0.49982
+44,Native American,CN0_patch_emo8,0.49982
+44,Native American,CN0_patch_rand0,0.5
+44,Native American,CN0_patch_rand1,0.49982
+44,Native American,CN0_patch_rand2,0.5
+47,white,CN1,1.3744
+47,white,CN0,1.37467
+47,white,CN0_patch_emo8,1.37453
+47,white,CN0_patch_rand0,1.37447
+47,white,CN0_patch_rand1,1.37467
+47,white,CN0_patch_rand2,1.37467
+47,Black,CN1,1.6244
+47,Black,CN0,1.74947
+47,Black,CN0_patch_emo8,1.62447
+47,Black,CN0_patch_rand0,1.74947
+47,Black,CN0_patch_rand1,1.62467
+47,Black,CN0_patch_rand2,1.62433
+47,Asian,CN1,1.49957
+47,Asian,CN0,1.49962
+47,Asian,CN0_patch_emo8,1.62447
+47,Asian,CN0_patch_rand0,1.62447
+47,Asian,CN0_patch_rand1,1.62447
+47,Asian,CN0_patch_rand2,1.6244
+47,Hispanic,CN1,1.62414
+47,Hispanic,CN0,1.49953
+47,Hispanic,CN0_patch_emo8,1.49967
+47,Hispanic,CN0_patch_rand0,1.49953
+47,Hispanic,CN0_patch_rand1,1.49971
+47,Hispanic,CN0_patch_rand2,1.49953
+47,Native American,CN1,1.37457
+47,Native American,CN0,1.49967
+47,Native American,CN0_patch_emo8,1.49967
+47,Native American,CN0_patch_rand0,1.49967
+47,Native American,CN0_patch_rand1,1.49967
+47,Native American,CN0_patch_rand2,1.49953
+48,white,CN1,2.24963
+48,white,CN0,2.62468
+48,white,CN0_patch_emo8,2.62463
+48,white,CN0_patch_rand0,2.62468
+48,white,CN0_patch_rand1,2.62463
+48,white,CN0_patch_rand2,2.62463
+48,Black,CN1,2.12471
+48,Black,CN0,2.49974
+48,Black,CN0_patch_emo8,2.49974
+48,Black,CN0_patch_rand0,2.49963
+48,Black,CN0_patch_rand1,2.62448
+48,Black,CN0_patch_rand2,2.62448
+48,Asian,CN1,2.49959
+48,Asian,CN0,2.99954
+48,Asian,CN0_patch_emo8,2.87461
+48,Asian,CN0_patch_rand0,2.99946
+48,Asian,CN0_patch_rand1,2.87471
+48,Asian,CN0_patch_rand2,2.87471
+48,Hispanic,CN1,2.49933
+48,Hispanic,CN0,2.87441
+48,Hispanic,CN0_patch_emo8,2.87441
+48,Hispanic,CN0_patch_rand0,2.87441
+48,Hispanic,CN0_patch_rand1,2.87441
+48,Hispanic,CN0_patch_rand2,2.74941
+48,Native American,CN1,2.49959
+48,Native American,CN0,2.87448
+48,Native American,CN0_patch_emo8,2.87463
+48,Native American,CN0_patch_rand0,2.87463
+48,Native American,CN0_patch_rand1,2.87448
+48,Native American,CN0_patch_rand2,2.87448
+52,white,CN1,1.87403
+52,white,CN0,1.99932
+52,white,CN0_patch_emo8,1.99932
+52,white,CN0_patch_rand0,1.99932
+52,white,CN0_patch_rand1,1.99932
+52,white,CN0_patch_rand2,2.12385
+52,Black,CN1,2.12403
+52,Black,CN0,2.12403
+52,Black,CN0_patch_emo8,2.12403
+52,Black,CN0_patch_rand0,2.12403
+52,Black,CN0_patch_rand1,2.12432
+52,Black,CN0_patch_rand2,2.12403
+52,Asian,CN1,1.87423
+52,Asian,CN0,1.99903
+52,Asian,CN0_patch_emo8,1.99932
+52,Asian,CN0_patch_rand0,2.12385
+52,Asian,CN0_patch_rand1,2.12385
+52,Asian,CN0_patch_rand2,1.99932
+52,Hispanic,CN1,2.12423
+52,Hispanic,CN0,2.24914
+52,Hispanic,CN0_patch_emo8,2.37414
+52,Hispanic,CN0_patch_rand0,2.37414
+52,Hispanic,CN0_patch_rand1,2.2494
+52,Hispanic,CN0_patch_rand2,2.37414
+52,Native American,CN1,2.12412
+52,Native American,CN0,2.24903
+52,Native American,CN0_patch_emo8,2.12432
+52,Native American,CN0_patch_rand0,2.24932
+52,Native American,CN0_patch_rand1,2.12403
+52,Native American,CN0_patch_rand2,2.12432
+54,white,CN1,-3.12326
+54,white,CN0,-2.6243
+54,white,CN0_patch_emo8,-2.7484
+54,white,CN0_patch_rand0,-2.7484
+54,white,CN0_patch_rand1,-2.62388
+54,white,CN0_patch_rand2,-2.62388
+54,Black,CN1,-1.6243
+54,Black,CN0,-1.12474
+54,Black,CN0_patch_emo8,-1.24945
+54,Black,CN0_patch_rand0,-1.24945
+54,Black,CN0_patch_rand1,-1.125
+54,Black,CN0_patch_rand2,-1.24945
+54,Asian,CN1,-3.24794
+54,Asian,CN0,-2.87388
+54,Asian,CN0_patch_emo8,-2.87364
+54,Asian,CN0_patch_rand0,-2.87364
+54,Asian,CN0_patch_rand1,-2.87364
+54,Asian,CN0_patch_rand2,-2.87388
+54,Hispanic,CN1,-3.12346
+54,Hispanic,CN0,-2.87358
+54,Hispanic,CN0_patch_emo8,-2.7488
+54,Hispanic,CN0_patch_rand0,-2.74901
+54,Hispanic,CN0_patch_rand1,-2.7488
+54,Hispanic,CN0_patch_rand2,-2.74888
+54,Native American,CN1,-3.37303
+54,Native American,CN0,-3.12373
+54,Native American,CN0_patch_emo8,-3.1234
+54,Native American,CN0_patch_rand0,-2.99873
+54,Native American,CN0_patch_rand1,-3.12346
+54,Native American,CN0_patch_rand2,-3.1234
+55,white,CN1,-4.49794
+55,white,CN0,-4.49833
+55,white,CN0_patch_emo8,-4.49828
+55,white,CN0_patch_rand0,-4.49848
+55,white,CN0_patch_rand1,-4.37359
+55,white,CN0_patch_rand2,-4.49848
+55,Black,CN1,-4.3731
+55,Black,CN0,-4.37348
+55,Black,CN0_patch_emo8,-4.49848
+55,Black,CN0_patch_rand0,-4.49833
+55,Black,CN0_patch_rand1,-4.37362
+55,Black,CN0_patch_rand2,-4.49833
+55,Asian,CN1,-4.62267
+55,Asian,CN0,-4.62317
+55,Asian,CN0_patch_emo8,-4.62333
+55,Asian,CN0_patch_rand0,-4.62333
+55,Asian,CN0_patch_rand1,-4.49859
+55,Asian,CN0_patch_rand2,-4.62333
+55,Hispanic,CN1,-4.49767
+55,Hispanic,CN0,-4.49844
+55,Hispanic,CN0_patch_emo8,-4.49859
+55,Hispanic,CN0_patch_rand0,-4.62333
+55,Hispanic,CN0_patch_rand1,-4.49844
+55,Hispanic,CN0_patch_rand2,-4.49844
+55,Native American,CN1,-4.49773
+55,Native American,CN0,-4.37348
+55,Native American,CN0_patch_emo8,-4.37348
+55,Native American,CN0_patch_rand0,-4.37344
+55,Native American,CN0_patch_rand1,-4.37333
+55,Native American,CN0_patch_rand2,-4.24871
+56,white,CN1,-2.99898
+56,white,CN0,-3.12388
+56,white,CN0_patch_emo8,-3.12362
+56,white,CN0_patch_rand0,-2.9991
+56,white,CN0_patch_rand1,-3.12388
+56,white,CN0_patch_rand2,-2.9991
+56,Black,CN1,-2.6241
+56,Black,CN0,-2.62401
+56,Black,CN0_patch_emo8,-2.62401
+56,Black,CN0_patch_rand0,-2.4991
+56,Black,CN0_patch_rand1,-2.4991
+56,Black,CN0_patch_rand2,-2.6241
+56,Asian,CN1,-2.99898
+56,Asian,CN0,-2.99888
+56,Asian,CN0_patch_emo8,-3.12388
+56,Asian,CN0_patch_rand0,-3.12388
+56,Asian,CN0_patch_rand1,-2.99888
+56,Asian,CN0_patch_rand2,-3.12362
+56,Hispanic,CN1,-1.62448
+56,Hispanic,CN0,-1.87438
+56,Hispanic,CN0_patch_emo8,-1.74948
+56,Hispanic,CN0_patch_rand0,-1.87438
+56,Hispanic,CN0_patch_rand1,-1.74948
+56,Hispanic,CN0_patch_rand2,-1.74948
+56,Native American,CN1,-2.3741
+56,Native American,CN0,-2.37398
+56,Native American,CN0_patch_emo8,-2.37421
+56,Native American,CN0_patch_rand0,-2.37421
+56,Native American,CN0_patch_rand1,-2.37421
+56,Native American,CN0_patch_rand2,-2.3741
+59,white,CN1,-0.75
+59,white,CN0,-0.75
+59,white,CN0_patch_emo8,-0.75
+59,white,CN0_patch_rand0,-0.75
+59,white,CN0_patch_rand1,-0.74986
+59,white,CN0_patch_rand2,-0.74986
+59,Black,CN1,-0.62516
+59,Black,CN0,-0.87486
+59,Black,CN0_patch_emo8,-0.87486
+59,Black,CN0_patch_rand0,-0.87486
+59,Black,CN0_patch_rand1,-0.87486
+59,Black,CN0_patch_rand2,-0.87486
+59,Asian,CN1,-1.0
+59,Asian,CN0,-1.0
+59,Asian,CN0_patch_emo8,-1.12484
+59,Asian,CN0_patch_rand0,-1.12471
+59,Asian,CN0_patch_rand1,-1.12484
+59,Asian,CN0_patch_rand2,-1.12486
+59,Hispanic,CN1,-0.50016
+59,Hispanic,CN0,-0.74986
+59,Hispanic,CN0_patch_emo8,-0.74986
+59,Hispanic,CN0_patch_rand0,-0.74986
+59,Hispanic,CN0_patch_rand1,-0.74986
+59,Hispanic,CN0_patch_rand2,-0.74986
+59,Native American,CN1,-0.5
+59,Native American,CN0,-0.74988
+59,Native American,CN0_patch_emo8,-0.74988
+59,Native American,CN0_patch_rand0,-0.74988
+59,Native American,CN0_patch_rand1,-0.625
+59,Native American,CN0_patch_rand2,-0.62488
+60,white,CN1,4.4981
+60,white,CN0,4.74759
+60,white,CN0_patch_emo8,4.87236
+60,white,CN0_patch_rand0,4.74762
+60,white,CN0_patch_rand1,4.74762
+60,white,CN0_patch_rand2,4.74785
+60,Black,CN1,5.24736
+60,Black,CN0,5.37208
+60,Black,CN0_patch_emo8,5.37178
+60,Black,CN0_patch_rand0,5.24759
+60,Black,CN0_patch_rand1,5.37178
+60,Black,CN0_patch_rand2,5.37208
+60,Asian,CN1,5.24708
+60,Asian,CN0,5.37208
+60,Asian,CN0_patch_emo8,5.37208
+60,Asian,CN0_patch_rand0,5.37178
+60,Asian,CN0_patch_rand1,5.24762
+60,Asian,CN0_patch_rand2,5.37208
+60,Hispanic,CN1,5.24736
+60,Hispanic,CN0,5.37231
+60,Hispanic,CN0_patch_emo8,5.24727
+60,Hispanic,CN0_patch_rand0,5.37201
+60,Hispanic,CN0_patch_rand1,5.37231
+60,Hispanic,CN0_patch_rand2,5.49678
+60,Native American,CN1,5.37208
+60,Native American,CN0,5.49701
+60,Native American,CN0_patch_emo8,5.49701
+60,Native American,CN0_patch_rand0,5.37259
+60,Native American,CN0_patch_rand1,5.49708
+60,Native American,CN0_patch_rand2,5.49701
+61,white,CN1,3.37421
+61,white,CN0,3.62411
+61,white,CN0_patch_emo8,3.62421
+61,white,CN0_patch_rand0,3.62421
+61,white,CN0_patch_rand1,3.62421
+61,white,CN0_patch_rand2,3.62412
+61,Black,CN1,2.99946
+61,Black,CN0,3.12446
+61,Black,CN0_patch_emo8,3.12446
+61,Black,CN0_patch_rand0,3.24938
+61,Black,CN0_patch_rand1,3.12438
+61,Black,CN0_patch_rand2,3.12438
+61,Asian,CN1,2.62453
+61,Asian,CN0,2.87438
+61,Asian,CN0_patch_emo8,2.74954
+61,Asian,CN0_patch_rand0,2.87438
+61,Asian,CN0_patch_rand1,2.74954
+61,Asian,CN0_patch_rand2,2.87446
+61,Hispanic,CN1,2.8743
+61,Hispanic,CN0,2.9993
+61,Hispanic,CN0_patch_emo8,2.8743
+61,Hispanic,CN0_patch_rand0,2.99921
+61,Hispanic,CN0_patch_rand1,2.9993
+61,Hispanic,CN0_patch_rand2,2.9993
+61,Native American,CN1,2.62438
+61,Native American,CN0,2.87439
+61,Native American,CN0_patch_emo8,2.87448
+61,Native American,CN0_patch_rand0,2.9993
+61,Native American,CN0_patch_rand1,2.9993
+61,Native American,CN0_patch_rand2,2.9993
+62,white,CN1,5.87208
+62,white,CN0,5.99647
+62,white,CN0_patch_emo8,5.87201
+62,white,CN0_patch_rand0,5.99636
+62,white,CN0_patch_rand1,5.99636
+62,white,CN0_patch_rand2,5.99678
+62,Black,CN1,6.12021
+62,Black,CN0,5.996
+62,Black,CN0_patch_emo8,5.87136
+62,Black,CN0_patch_rand0,5.996
+62,Black,CN0_patch_rand1,5.996
+62,Black,CN0_patch_rand2,5.996
+62,Asian,CN1,5.74626
+62,Asian,CN0,5.87147
+62,Asian,CN0_patch_emo8,5.87147
+62,Asian,CN0_patch_rand0,5.87147
+62,Asian,CN0_patch_rand1,5.87147
+62,Asian,CN0_patch_rand2,5.87136
+62,Hispanic,CN1,5.87004
+62,Hispanic,CN0,5.996
+62,Hispanic,CN0_patch_emo8,6.12077
+62,Hispanic,CN0_patch_rand0,5.996
+62,Hispanic,CN0_patch_rand1,5.99647
+62,Hispanic,CN0_patch_rand2,6.12077
+62,Native American,CN1,5.996
+62,Native American,CN0,6.12077
+62,Native American,CN0_patch_emo8,6.12136
+62,Native American,CN0_patch_rand0,6.12113
+62,Native American,CN0_patch_rand1,6.12077
+62,Native American,CN0_patch_rand2,6.12077
+64,white,CN1,2.4984
+64,white,CN0,2.74901
+64,white,CN0_patch_emo8,2.87358
+64,white,CN0_patch_rand0,2.87333
+64,white,CN0_patch_rand1,2.87358
+64,white,CN0_patch_rand2,2.87358
+64,Black,CN1,2.87358
+64,Black,CN0,3.24811
+64,Black,CN0_patch_emo8,3.24858
+64,Black,CN0_patch_rand0,3.24833
+64,Black,CN0_patch_rand1,3.12375
+64,Black,CN0_patch_rand2,3.24833
+64,Asian,CN1,2.62358
+64,Asian,CN0,3.12358
+64,Asian,CN0_patch_emo8,3.12358
+64,Asian,CN0_patch_rand0,3.24833
+64,Asian,CN0_patch_rand1,3.24833
+64,Asian,CN0_patch_rand2,3.24785
+64,Hispanic,CN1,2.62388
+64,Hispanic,CN0,3.12333
+64,Hispanic,CN0_patch_emo8,2.99858
+64,Hispanic,CN0_patch_rand0,3.12285
+64,Hispanic,CN0_patch_rand1,2.99858
+64,Hispanic,CN0_patch_rand2,3.12333
+64,Native American,CN1,3.12333
+64,Native American,CN0,3.24852
+64,Native American,CN0_patch_emo8,3.24852
+64,Native American,CN0_patch_rand0,3.24852
+64,Native American,CN0_patch_rand1,3.2489
+64,Native American,CN0_patch_rand2,3.24855
+65,white,CN1,1.74903
+65,white,CN0,1.24962
+65,white,CN0_patch_emo8,1.24962
+65,white,CN0_patch_rand0,1.24962
+65,white,CN0_patch_rand1,1.24962
+65,white,CN0_patch_rand2,1.24962
+65,Black,CN1,1.62432
+65,Black,CN0,1.12457
+65,Black,CN0_patch_emo8,1.12462
+65,Black,CN0_patch_rand0,1.1244
+65,Black,CN0_patch_rand1,1.12462
+65,Black,CN0_patch_rand2,1.12462
+65,Asian,CN1,1.62432
+65,Asian,CN0,1.37447
+65,Asian,CN0_patch_emo8,1.49947
+65,Asian,CN0_patch_rand0,1.49947
+65,Asian,CN0_patch_rand1,1.49947
+65,Asian,CN0_patch_rand2,1.37447
+65,Hispanic,CN1,1.87414
+65,Hispanic,CN0,1.49933
+65,Hispanic,CN0_patch_emo8,1.49947
+65,Hispanic,CN0_patch_rand0,1.49953
+65,Hispanic,CN0_patch_rand1,1.37467
+65,Hispanic,CN0_patch_rand2,1.49953
+65,Native American,CN1,1.99923
+65,Native American,CN0,1.87447
+65,Native American,CN0_patch_emo8,1.87447
+65,Native American,CN0_patch_rand0,1.87447
+65,Native American,CN0_patch_rand1,1.87447
+65,Native American,CN0_patch_rand2,1.87447
+66,white,CN1,2.49933
+66,white,CN0,2.87421
+66,white,CN0_patch_emo8,2.74941
+66,white,CN0_patch_rand0,2.74941
+66,white,CN0_patch_rand1,2.74921
+66,white,CN0_patch_rand2,2.74941
+66,Black,CN1,2.49924
+66,Black,CN0,2.74921
+66,Black,CN0_patch_emo8,2.62433
+66,Black,CN0_patch_rand0,2.62433
+66,Black,CN0_patch_rand1,2.62441
+66,Black,CN0_patch_rand2,2.62433
+66,Asian,CN1,2.12433
+66,Asian,CN0,2.24959
+66,Asian,CN0_patch_emo8,2.37441
+66,Asian,CN0_patch_rand0,2.24953
+66,Asian,CN0_patch_rand1,2.37441
+66,Asian,CN0_patch_rand2,2.24953
+66,Hispanic,CN1,2.12433
+66,Hispanic,CN0,2.24953
+66,Hispanic,CN0_patch_emo8,2.37441
+66,Hispanic,CN0_patch_rand0,2.24953
+66,Hispanic,CN0_patch_rand1,2.37441
+66,Hispanic,CN0_patch_rand2,2.37441
+66,Native American,CN1,2.37447
+66,Native American,CN0,2.74941
+66,Native American,CN0_patch_emo8,2.7493
+66,Native American,CN0_patch_rand0,2.74941
+66,Native American,CN0_patch_rand1,2.74941
+66,Native American,CN0_patch_rand2,2.62459
+67,white,CN1,-0.8743
+67,white,CN0,-1.3742
+67,white,CN0_patch_emo8,-1.3743
+67,white,CN0_patch_rand0,-1.49888
+67,white,CN0_patch_rand1,-1.49858
+67,white,CN0_patch_rand2,-1.49888
+67,Black,CN1,-0.87438
+67,Black,CN0,-1.49912
+67,Black,CN0_patch_emo8,-1.49912
+67,Black,CN0_patch_rand0,-1.37412
+67,Black,CN0_patch_rand1,-1.49875
+67,Black,CN0_patch_rand2,-1.49912
+67,Asian,CN1,-0.74967
+67,Asian,CN0,-1.62375
+67,Asian,CN0_patch_emo8,-1.62401
+67,Asian,CN0_patch_rand0,-1.49938
+67,Asian,CN0_patch_rand1,-1.62401
+67,Asian,CN0_patch_rand2,-1.49901
+67,Hispanic,CN1,-0.8743
+67,Hispanic,CN0,-1.62375
+67,Hispanic,CN0_patch_emo8,-1.62401
+67,Hispanic,CN0_patch_rand0,-1.62375
+67,Hispanic,CN0_patch_rand1,-1.49912
+67,Hispanic,CN0_patch_rand2,-1.49912
+67,Native American,CN1,-0.99971
+67,Native American,CN0,-1.62423
+67,Native American,CN0_patch_emo8,-1.62423
+67,Native American,CN0_patch_rand0,-1.49923
+67,Native American,CN0_patch_rand1,-1.62423
+67,Native American,CN0_patch_rand2,-1.62412
+70,white,CN1,2.24869
+70,white,CN0,2.3741
+70,white,CN0_patch_emo8,2.3741
+70,white,CN0_patch_rand0,2.3741
+70,white,CN0_patch_rand1,2.3741
+70,white,CN0_patch_rand2,2.37422
+70,Black,CN1,2.3737
+70,Black,CN0,2.62385
+70,Black,CN0_patch_emo8,2.4991
+70,Black,CN0_patch_rand0,2.62385
+70,Black,CN0_patch_rand1,2.62385
+70,Black,CN0_patch_rand2,2.62385
+70,Asian,CN1,1.99885
+70,Asian,CN0,2.24921
+70,Asian,CN0_patch_emo8,2.24931
+70,Asian,CN0_patch_rand0,2.24931
+70,Asian,CN0_patch_rand1,2.24931
+70,Asian,CN0_patch_rand2,2.24921
+70,Hispanic,CN1,1.9987
+70,Hispanic,CN0,2.24898
+70,Hispanic,CN0_patch_emo8,2.1241
+70,Hispanic,CN0_patch_rand0,2.12433
+70,Hispanic,CN0_patch_rand1,2.1241
+70,Hispanic,CN0_patch_rand2,2.1241
+70,Native American,CN1,2.24852
+70,Native American,CN0,2.37422
+70,Native American,CN0_patch_emo8,2.37422
+70,Native American,CN0_patch_rand0,2.49898
+70,Native American,CN0_patch_rand1,2.3741
+70,Native American,CN0_patch_rand2,2.3741
+71,white,CN1,4.99645
+71,white,CN0,5.24603
+71,white,CN0_patch_emo8,5.24551
+71,white,CN0_patch_rand0,5.24603
+71,white,CN0_patch_rand1,5.24599
+71,white,CN0_patch_rand2,5.24599
+71,Black,CN1,5.61999
+71,Black,CN0,5.87057
+71,Black,CN0_patch_emo8,5.87008
+71,Black,CN0_patch_rand0,5.87008
+71,Black,CN0_patch_rand1,5.87008
+71,Black,CN0_patch_rand2,5.87057
+71,Asian,CN1,5.62008
+71,Asian,CN0,5.87057
+71,Asian,CN0_patch_emo8,5.87057
+71,Asian,CN0_patch_rand0,5.87057
+71,Asian,CN0_patch_rand1,5.87103
+71,Asian,CN0_patch_rand2,5.87103
+71,Hispanic,CN1,5.37103
+71,Hispanic,CN0,5.62066
+71,Hispanic,CN0_patch_emo8,5.49603
+71,Hispanic,CN0_patch_rand0,5.49566
+71,Hispanic,CN0_patch_rand1,5.62066
+71,Hispanic,CN0_patch_rand2,5.49566
+71,Native American,CN1,5.49551
+71,Native American,CN0,5.87008
+71,Native American,CN0_patch_emo8,5.87008
+71,Native American,CN0_patch_rand0,5.87057
+71,Native American,CN0_patch_rand1,5.87008
+71,Native American,CN0_patch_rand2,5.74599
+72,white,CN1,-0.49974
+72,white,CN0,-0.25
+72,white,CN0_patch_emo8,-0.25
+72,white,CN0_patch_rand0,-0.375
+72,white,CN0_patch_rand1,-0.25
+72,white,CN0_patch_rand2,-0.25
+72,Black,CN1,4.62178
+72,Black,CN0,4.87242
+72,Black,CN0_patch_emo8,4.87216
+72,Black,CN0_patch_rand0,4.87216
+72,Black,CN0_patch_rand1,4.87216
+72,Black,CN0_patch_rand2,4.74762
+72,Asian,CN1,4.49742
+72,Asian,CN0,4.74767
+72,Asian,CN0_patch_emo8,4.62267
+72,Asian,CN0_patch_rand0,4.7479
+72,Asian,CN0_patch_rand1,4.7479
+72,Asian,CN0_patch_rand2,4.74767
+72,Hispanic,CN1,4.24784
+72,Hispanic,CN0,4.74736
+72,Hispanic,CN0_patch_emo8,4.74736
+72,Hispanic,CN0_patch_rand0,4.87188
+72,Hispanic,CN0_patch_rand1,4.74708
+72,Hispanic,CN0_patch_rand2,4.74708
+72,Native American,CN1,4.37262
+72,Native American,CN0,4.74742
+72,Native American,CN0_patch_emo8,4.74742
+72,Native American,CN0_patch_rand0,4.74742
+72,Native American,CN0_patch_rand1,4.74742
+72,Native American,CN0_patch_rand2,4.74767
+73,white,CN1,5.87062
+73,white,CN0,6.24539
+73,white,CN0_patch_emo8,6.24539
+73,white,CN0_patch_rand0,6.12113
+73,white,CN0_patch_rand1,6.12062
+73,white,CN0_patch_rand2,6.12113
+73,Black,CN1,5.871
+73,Black,CN0,6.24577
+73,Black,CN0_patch_emo8,6.24577
+73,Black,CN0_patch_rand0,6.12113
+73,Black,CN0_patch_rand1,6.24593
+73,Black,CN0_patch_rand2,6.24577
+73,Asian,CN1,5.99562
+73,Asian,CN0,6.24593
+73,Asian,CN0_patch_emo8,6.24577
+73,Asian,CN0_patch_rand0,6.12113
+73,Asian,CN0_patch_rand1,6.24577
+73,Asian,CN0_patch_rand2,6.12113
+73,Hispanic,CN1,5.871
+73,Hispanic,CN0,6.12077
+73,Hispanic,CN0_patch_emo8,6.12077
+73,Hispanic,CN0_patch_rand0,5.99636
+73,Hispanic,CN0_patch_rand1,6.12077
+73,Hispanic,CN0_patch_rand2,5.99636
+73,Native American,CN1,5.74533
+73,Native American,CN0,6.24478
+73,Native American,CN0_patch_emo8,6.24504
+73,Native American,CN0_patch_rand0,6.24504
+73,Native American,CN0_patch_rand1,6.24478
+73,Native American,CN0_patch_rand2,6.24504
+74,white,CN1,3.87337
+74,white,CN0,3.62356
+74,white,CN0_patch_emo8,3.49869
+74,white,CN0_patch_rand0,3.49885
+74,white,CN0_patch_rand1,3.62356
+74,white,CN0_patch_rand2,3.49885
+74,Black,CN1,4.37286
+74,Black,CN0,3.87356
+74,Black,CN0_patch_emo8,3.99811
+74,Black,CN0_patch_rand0,3.87356
+74,Black,CN0_patch_rand1,3.99823
+74,Black,CN0_patch_rand2,3.87344
+74,Asian,CN1,3.99799
+74,Asian,CN0,3.62385
+74,Asian,CN0_patch_emo8,3.74844
+74,Asian,CN0_patch_rand0,3.62356
+74,Asian,CN0_patch_rand1,3.62373
+74,Asian,CN0_patch_rand2,3.74856
+74,Hispanic,CN1,3.99811
+74,Hispanic,CN0,3.62356
+74,Hispanic,CN0_patch_emo8,3.62356
+74,Hispanic,CN0_patch_rand0,3.62356
+74,Hispanic,CN0_patch_rand1,3.49885
+74,Hispanic,CN0_patch_rand2,3.62344
+74,Native American,CN1,3.8734
+74,Native American,CN0,3.62356
+74,Native American,CN0_patch_emo8,3.62356
+74,Native American,CN0_patch_rand0,3.62356
+74,Native American,CN0_patch_rand1,3.62356
+74,Native American,CN0_patch_rand2,3.62356
+75,white,CN1,2.24903
+75,white,CN0,1.8741
+75,white,CN0_patch_emo8,1.74933
+75,white,CN0_patch_rand0,1.74924
+75,white,CN0_patch_rand1,1.74933
+75,white,CN0_patch_rand2,1.74924
+75,Black,CN1,2.49832
+75,Black,CN0,2.12385
+75,Black,CN0_patch_emo8,1.99899
+75,Black,CN0_patch_rand0,2.12385
+75,Black,CN0_patch_rand1,2.12385
+75,Black,CN0_patch_rand2,2.12385
+75,Asian,CN1,2.2487
+75,Asian,CN0,1.87433
+75,Asian,CN0_patch_emo8,1.87433
+75,Asian,CN0_patch_rand0,1.87424
+75,Asian,CN0_patch_rand1,1.87424
+75,Asian,CN0_patch_rand2,1.87433
+75,Hispanic,CN1,2.62332
+75,Hispanic,CN0,1.99933
+75,Hispanic,CN0_patch_emo8,2.1241
+75,Hispanic,CN0_patch_rand0,2.1241
+75,Hispanic,CN0_patch_rand1,1.9991
+75,Hispanic,CN0_patch_rand2,1.99924
+75,Native American,CN1,2.3737
+75,Native American,CN0,1.99924
+75,Native American,CN0_patch_emo8,1.99924
+75,Native American,CN0_patch_rand0,1.99933
+75,Native American,CN0_patch_rand1,1.99924
+75,Native American,CN0_patch_rand2,1.99933
+76,white,CN1,4.99613
+76,white,CN0,5.24716
+76,white,CN0_patch_emo8,5.24725
+76,white,CN0_patch_rand0,5.24716
+76,white,CN0_patch_rand1,5.37199
+76,white,CN0_patch_rand2,5.37199
+76,Black,CN1,4.6217
+76,Black,CN0,4.99736
+76,Black,CN0_patch_emo8,4.99736
+76,Black,CN0_patch_rand0,5.12188
+76,Black,CN0_patch_rand1,4.99742
+76,Black,CN0_patch_rand2,4.99716
+76,Asian,CN1,4.99688
+76,Asian,CN0,5.12225
+76,Asian,CN0_patch_emo8,5.24699
+76,Asian,CN0_patch_rand0,5.12249
+76,Asian,CN0_patch_rand1,5.12249
+76,Asian,CN0_patch_rand2,5.24699
+76,Hispanic,CN1,4.99658
+76,Hispanic,CN0,5.24725
+76,Hispanic,CN0_patch_emo8,5.24725
+76,Hispanic,CN0_patch_rand0,5.24725
+76,Hispanic,CN0_patch_rand1,5.24725
+76,Hispanic,CN0_patch_rand2,5.12242
+76,Native American,CN1,4.9967
+76,Native American,CN0,5.12242
+76,Native American,CN0_patch_emo8,5.24716
+76,Native American,CN0_patch_rand0,5.24725
+76,Native American,CN0_patch_rand1,5.24725
+76,Native American,CN0_patch_rand2,5.12242
+77,white,CN1,-3.12286
+77,white,CN0,-4.24655
+77,white,CN0_patch_emo8,-4.1219
+77,white,CN0_patch_rand0,-4.1219
+77,white,CN0_patch_rand1,-4.12224
+77,white,CN0_patch_rand2,-4.24661
+77,Black,CN1,-3.49727
+77,Black,CN0,-4.62126
+77,Black,CN0_patch_emo8,-4.62126
+77,Black,CN0_patch_rand0,-4.49655
+77,Black,CN0_patch_rand1,-4.49655
+77,Black,CN0_patch_rand2,-4.62126
+77,Asian,CN1,-3.24756
+77,Asian,CN0,-4.49576
+77,Asian,CN0_patch_emo8,-4.49533
+77,Asian,CN0_patch_rand0,-4.37117
+77,Asian,CN0_patch_rand1,-4.2465
+77,Asian,CN0_patch_rand2,-4.49576
+77,Hispanic,CN1,-3.49695
+77,Hispanic,CN0,-4.49655
+77,Hispanic,CN0_patch_emo8,-4.62117
+77,Hispanic,CN0_patch_rand0,-4.49617
+77,Hispanic,CN0_patch_rand1,-4.62117
+77,Hispanic,CN0_patch_rand2,-4.49655
+77,Native American,CN1,-3.74701
+77,Native American,CN0,-4.62195
+77,Native American,CN0_patch_emo8,-4.74661
+77,Native American,CN0_patch_rand0,-4.62161
+77,Native American,CN0_patch_rand1,-4.74626
+77,Native American,CN0_patch_rand2,-4.74626
+78,white,CN1,3.74923
+78,white,CN0,3.74938
+78,white,CN0_patch_emo8,3.87405
+78,white,CN0_patch_rand0,3.74923
+78,white,CN0_patch_rand1,3.87412
+78,white,CN0_patch_rand2,3.87405
+78,Black,CN1,4.12414
+78,Black,CN0,4.12392
+78,Black,CN0_patch_emo8,4.12392
+78,Black,CN0_patch_rand0,3.99912
+78,Black,CN0_patch_rand1,4.12392
+78,Black,CN0_patch_rand2,4.12392
+78,Asian,CN1,3.74911
+78,Asian,CN0,3.87403
+78,Asian,CN0_patch_emo8,3.87392
+78,Asian,CN0_patch_rand0,3.87403
+78,Asian,CN0_patch_rand1,3.87403
+78,Asian,CN0_patch_rand2,3.87403
+78,Hispanic,CN1,3.99912
+78,Hispanic,CN0,3.87423
+78,Hispanic,CN0_patch_emo8,3.99895
+78,Hispanic,CN0_patch_rand0,3.99903
+78,Hispanic,CN0_patch_rand1,3.99895
+78,Hispanic,CN0_patch_rand2,3.99895
+78,Native American,CN1,3.87414
+78,Native American,CN0,4.12395
+78,Native American,CN0_patch_emo8,4.12403
+78,Native American,CN0_patch_rand0,4.12403
+78,Native American,CN0_patch_rand1,4.12403
+78,Native American,CN0_patch_rand2,4.12395
+80,white,CN1,6.49521
+80,white,CN0,6.99577
+80,white,CN0_patch_emo8,7.12019
+80,white,CN0_patch_rand0,6.99577
+80,white,CN0_patch_rand1,7.12039
+80,white,CN0_patch_rand2,6.99593
+80,Black,CN1,6.74539
+80,Black,CN0,7.24519
+80,Black,CN0_patch_emo8,7.24519
+80,Black,CN0_patch_rand0,7.12039
+80,Black,CN0_patch_rand1,7.24557
+80,Black,CN0_patch_rand2,7.12077
+80,Asian,CN1,6.49562
+80,Asian,CN0,7.12019
+80,Asian,CN0_patch_emo8,6.99539
+80,Asian,CN0_patch_rand0,6.99577
+80,Asian,CN0_patch_rand1,6.99577
+80,Asian,CN0_patch_rand2,7.12019
+80,Hispanic,CN1,6.62077
+80,Hispanic,CN0,7.12057
+80,Hispanic,CN0_patch_emo8,7.12019
+80,Hispanic,CN0_patch_rand0,7.12057
+80,Hispanic,CN0_patch_rand1,7.12057
+80,Hispanic,CN0_patch_rand2,7.12057
+80,Native American,CN1,6.62039
+80,Native American,CN0,7.12039
+80,Native American,CN0_patch_emo8,7.12039
+80,Native American,CN0_patch_rand0,7.12039
+80,Native American,CN0_patch_rand1,7.12062
+80,Native American,CN0_patch_rand2,7.12039
+81,white,CN1,3.99576
+81,white,CN0,4.12126
+81,white,CN0_patch_emo8,4.12126
+81,white,CN0_patch_rand0,3.99626
+81,white,CN0_patch_rand1,3.99626
+81,white,CN0_patch_rand2,4.12076
+81,Black,CN1,3.24695
+81,Black,CN0,2.99811
+81,Black,CN0_patch_emo8,3.12285
+81,Black,CN0_patch_rand0,3.12231
+81,Black,CN0_patch_rand1,3.12231
+81,Black,CN0_patch_rand2,3.12231
+81,Asian,CN1,3.99576
+81,Asian,CN0,4.121
+81,Asian,CN0_patch_emo8,4.12126
+81,Asian,CN0_patch_rand0,3.99626
+81,Asian,CN0_patch_rand1,3.99626
+81,Asian,CN0_patch_rand2,4.12169
+81,Hispanic,CN1,3.12195
+81,Hispanic,CN0,2.74811
+81,Hispanic,CN0_patch_emo8,2.74811
+81,Hispanic,CN0_patch_rand0,2.74785
+81,Hispanic,CN0_patch_rand1,2.74811
+81,Hispanic,CN0_patch_rand2,2.87256
+81,Native American,CN1,3.87126
+81,Native American,CN0,3.74695
+81,Native American,CN0_patch_emo8,3.87195
+81,Native American,CN0_patch_rand0,3.74695
+81,Native American,CN0_patch_rand1,3.74695
+81,Native American,CN0_patch_rand2,3.74695
+82,white,CN1,-2.1242
+82,white,CN0,-2.12388
+82,white,CN0_patch_emo8,-2.12388
+82,white,CN0_patch_rand0,-2.12388
+82,white,CN0_patch_rand1,-2.12388
+82,white,CN0_patch_rand2,-2.12388
+82,Black,CN1,-1.49958
+82,Black,CN0,-1.125
+82,Black,CN0_patch_emo8,-1.125
+82,Black,CN0_patch_rand0,-1.125
+82,Black,CN0_patch_rand1,-1.125
+82,Black,CN0_patch_rand2,-1.125
+82,Asian,CN1,-2.24912
+82,Asian,CN0,-2.24912
+82,Asian,CN0_patch_emo8,-2.24912
+82,Asian,CN0_patch_rand0,-2.12412
+82,Asian,CN0_patch_rand1,-2.2489
+82,Asian,CN0_patch_rand2,-2.24875
+82,Hispanic,CN1,-1.49938
+82,Hispanic,CN0,-1.37445
+82,Hispanic,CN0_patch_emo8,-1.49945
+82,Hispanic,CN0_patch_rand0,-1.37445
+82,Hispanic,CN0_patch_rand1,-1.37445
+82,Hispanic,CN0_patch_rand2,-1.49923
+82,Native American,CN1,-1.99945
+82,Native American,CN0,-1.87445
+82,Native American,CN0_patch_emo8,-1.87445
+82,Native American,CN0_patch_rand0,-1.87445
+82,Native American,CN0_patch_rand1,-1.87445
+82,Native American,CN0_patch_rand2,-1.87445
+83,white,CN1,4.62201
+83,white,CN0,4.87208
+83,white,CN0_patch_emo8,4.87188
+83,white,CN0_patch_rand0,4.74742
+83,white,CN0_patch_rand1,4.74762
+83,white,CN0_patch_rand2,4.87236
+83,Black,CN1,5.12113
+83,Black,CN0,5.24716
+83,Black,CN0_patch_emo8,5.12208
+83,Black,CN0_patch_rand0,5.12236
+83,Black,CN0_patch_rand1,5.24647
+83,Black,CN0_patch_rand2,5.24658
+83,Asian,CN1,4.99636
+83,Asian,CN0,5.24688
+83,Asian,CN0_patch_emo8,5.24647
+83,Asian,CN0_patch_rand0,5.24658
+83,Asian,CN0_patch_rand1,5.24678
+83,Asian,CN0_patch_rand2,5.24678
+83,Hispanic,CN1,4.99617
+83,Hispanic,CN0,5.12136
+83,Hispanic,CN0_patch_emo8,4.99701
+83,Hispanic,CN0_patch_rand0,5.1217
+83,Hispanic,CN0_patch_rand1,5.12178
+83,Hispanic,CN0_patch_rand2,5.24647
+83,Native American,CN1,5.12062
+83,Native American,CN0,4.99669
+83,Native American,CN0_patch_emo8,4.99669
+83,Native American,CN0_patch_rand0,4.9967
+83,Native American,CN0_patch_rand1,5.121
+83,Native American,CN0_patch_rand2,5.12136
+84,white,CN1,-0.87467
+84,white,CN0,-0.62477
+84,white,CN0_patch_emo8,-0.62471
+84,white,CN0_patch_rand0,-0.49986
+84,white,CN0_patch_rand1,-0.62474
+84,white,CN0_patch_rand2,-0.62463
+84,Black,CN1,-0.62482
+84,Black,CN0,-0.24986
+84,Black,CN0_patch_emo8,-0.24986
+84,Black,CN0_patch_rand0,-0.24971
+84,Black,CN0_patch_rand1,-0.24986
+84,Black,CN0_patch_rand2,-0.24986
+84,Asian,CN1,-0.87467
+84,Asian,CN0,-0.49986
+84,Asian,CN0_patch_emo8,-0.49986
+84,Asian,CN0_patch_rand0,-0.49986
+84,Asian,CN0_patch_rand1,-0.49974
+84,Asian,CN0_patch_rand2,-0.49974
+84,Hispanic,CN1,-0.74982
+84,Hispanic,CN0,-0.49974
+84,Hispanic,CN0_patch_emo8,-0.49974
+84,Hispanic,CN0_patch_rand0,-0.49974
+84,Hispanic,CN0_patch_rand1,-0.49974
+84,Hispanic,CN0_patch_rand2,-0.49974
+84,Native American,CN1,-0.74967
+84,Native American,CN0,-0.49986
+84,Native American,CN0_patch_emo8,-0.49974
+84,Native American,CN0_patch_rand0,-0.49986
+84,Native American,CN0_patch_rand1,-0.62459
+84,Native American,CN0_patch_rand2,-0.62471
+87,white,CN1,2.7489
+87,white,CN0,2.62414
+87,white,CN0_patch_emo8,2.49922
+87,white,CN0_patch_rand0,2.49921
+87,white,CN0_patch_rand1,2.4993
+87,white,CN0_patch_rand2,2.62423
+87,Black,CN1,2.87392
+87,Black,CN0,2.74903
+87,Black,CN0_patch_emo8,2.74892
+87,Black,CN0_patch_rand0,2.74903
+87,Black,CN0_patch_rand1,2.74903
+87,Black,CN0_patch_rand2,2.74905
+87,Asian,CN1,2.87392
+87,Asian,CN0,2.74905
+87,Asian,CN0_patch_emo8,2.74905
+87,Asian,CN0_patch_rand0,2.74914
+87,Asian,CN0_patch_rand1,2.87414
+87,Asian,CN0_patch_rand2,2.87414
+87,Hispanic,CN1,2.99892
+87,Hispanic,CN0,2.87392
+87,Hispanic,CN0_patch_emo8,2.87392
+87,Hispanic,CN0_patch_rand0,2.87401
+87,Hispanic,CN0_patch_rand1,2.99903
+87,Hispanic,CN0_patch_rand2,2.99885
+87,Native American,CN1,2.87412
+87,Native American,CN0,2.99881
+87,Native American,CN0_patch_emo8,2.8739
+87,Native American,CN0_patch_rand0,2.74911
+87,Native American,CN0_patch_rand1,2.87403
+87,Native American,CN0_patch_rand2,2.87392
+89,white,CN1,1.62438
+89,white,CN0,1.62459
+89,white,CN0_patch_emo8,1.49968
+89,white,CN0_patch_rand0,1.62459
+89,white,CN0_patch_rand1,1.62459
+89,white,CN0_patch_rand2,1.62459
+89,Black,CN1,1.62454
+89,Black,CN0,1.62464
+89,Black,CN0_patch_emo8,1.62472
+89,Black,CN0_patch_rand0,1.62471
+89,Black,CN0_patch_rand1,1.74952
+89,Black,CN0_patch_rand2,1.62472
+89,Asian,CN1,1.49954
+89,Asian,CN0,1.62468
+89,Asian,CN0_patch_emo8,1.62468
+89,Asian,CN0_patch_rand0,1.74959
+89,Asian,CN0_patch_rand1,1.62468
+89,Asian,CN0_patch_rand2,1.62459
+89,Hispanic,CN1,1.49963
+89,Hispanic,CN0,1.62459
+89,Hispanic,CN0_patch_emo8,1.62459
+89,Hispanic,CN0_patch_rand0,1.4998
+89,Hispanic,CN0_patch_rand1,1.4998
+89,Hispanic,CN0_patch_rand2,1.62468
+89,Native American,CN1,1.49948
+89,Native American,CN0,1.62471
+89,Native American,CN0_patch_emo8,1.62472
+89,Native American,CN0_patch_rand0,1.62471
+89,Native American,CN0_patch_rand1,1.62471
+89,Native American,CN0_patch_rand2,1.62459
+90,white,CN1,0.62457
+90,white,CN0,0.37467
+90,white,CN0_patch_emo8,0.24984
+90,white,CN0_patch_rand0,0.37467
+90,white,CN0_patch_rand1,0.24984
+90,white,CN0_patch_rand2,0.37467
+90,Black,CN1,0.74932
+90,Black,CN0,0.37482
+90,Black,CN0_patch_emo8,0.37482
+90,Black,CN0_patch_rand0,0.49967
+90,Black,CN0_patch_rand1,0.37482
+90,Black,CN0_patch_rand2,0.37467
+90,Asian,CN1,0.62447
+90,Asian,CN0,0.37484
+90,Asian,CN0_patch_emo8,0.37471
+90,Asian,CN0_patch_rand0,0.37471
+90,Asian,CN0_patch_rand1,0.37471
+90,Asian,CN0_patch_rand2,0.24984
+90,Hispanic,CN1,0.6244
+90,Hispanic,CN0,0.37462
+90,Hispanic,CN0_patch_emo8,0.37467
+90,Hispanic,CN0_patch_rand0,0.24984
+90,Hispanic,CN0_patch_rand1,0.37482
+90,Hispanic,CN0_patch_rand2,0.24982
+90,Native American,CN1,0.6244
+90,Native American,CN0,0.49947
+90,Native American,CN0_patch_emo8,0.49947
+90,Native American,CN0_patch_rand0,0.37467
+90,Native American,CN0_patch_rand1,0.37467
+90,Native American,CN0_patch_rand2,0.37467
+92,white,CN1,3.7493
+92,white,CN0,3.9993
+92,white,CN0_patch_emo8,3.9993
+92,white,CN0_patch_rand0,3.9993
+92,white,CN0_patch_rand1,3.99938
+92,white,CN0_patch_rand2,3.87438
+92,Black,CN1,3.8743
+92,Black,CN0,4.24912
+92,Black,CN0_patch_emo8,4.12421
+92,Black,CN0_patch_rand0,4.12421
+92,Black,CN0_patch_rand1,4.1243
+92,Black,CN0_patch_rand2,4.12421
+92,Asian,CN1,3.7493
+92,Asian,CN0,3.8743
+92,Asian,CN0_patch_emo8,3.99921
+92,Asian,CN0_patch_rand0,3.74946
+92,Asian,CN0_patch_rand1,3.87438
+92,Asian,CN0_patch_rand2,3.87438
+92,Hispanic,CN1,3.7493
+92,Hispanic,CN0,3.8743
+92,Hispanic,CN0_patch_emo8,3.99921
+92,Hispanic,CN0_patch_rand0,3.9993
+92,Hispanic,CN0_patch_rand1,3.87438
+92,Hispanic,CN0_patch_rand2,3.87438
+92,Native American,CN1,3.6243
+92,Native American,CN0,3.87421
+92,Native American,CN0_patch_emo8,3.8743
+92,Native American,CN0_patch_rand0,3.87421
+92,Native American,CN0_patch_rand1,3.8743
+92,Native American,CN0_patch_rand2,3.8743
+93,white,CN1,4.24787
+93,white,CN0,4.62334
+93,white,CN0_patch_emo8,4.49834
+93,white,CN0_patch_rand0,4.62315
+93,white,CN0_patch_rand1,4.62315
+93,white,CN0_patch_rand2,4.62315
+93,Black,CN1,4.37267
+93,Black,CN0,4.87299
+93,Black,CN0_patch_emo8,4.87294
+93,Black,CN0_patch_rand0,4.74794
+93,Black,CN0_patch_rand1,4.87299
+93,Black,CN0_patch_rand2,4.74815
+93,Asian,CN1,4.24762
+93,Asian,CN0,4.7479
+93,Asian,CN0_patch_emo8,4.7479
+93,Asian,CN0_patch_rand0,4.74773
+93,Asian,CN0_patch_rand1,4.7479
+93,Asian,CN0_patch_rand2,4.74815
+93,Hispanic,CN1,4.24787
+93,Hispanic,CN0,4.87294
+93,Hispanic,CN0_patch_emo8,4.87273
+93,Hispanic,CN0_patch_rand0,4.74812
+93,Hispanic,CN0_patch_rand1,4.74815
+93,Hispanic,CN0_patch_rand2,4.87294
+93,Native American,CN1,4.37287
+93,Native American,CN0,4.99749
+93,Native American,CN0_patch_emo8,4.74812
+93,Native American,CN0_patch_rand0,4.87315
+93,Native American,CN0_patch_rand1,4.87315
+93,Native American,CN0_patch_rand2,4.87315
+94,white,CN1,3.87337
+94,white,CN0,3.87354
+94,white,CN0_patch_emo8,3.87354
+94,white,CN0_patch_rand0,3.87354
+94,white,CN0_patch_rand1,3.87354
+94,white,CN0_patch_rand2,3.87354
+94,Black,CN1,4.24794
+94,Black,CN0,4.24815
+94,Black,CN0_patch_emo8,4.24834
+94,Black,CN0_patch_rand0,4.24815
+94,Black,CN0_patch_rand1,4.24815
+94,Black,CN0_patch_rand2,4.24837
+94,Asian,CN1,3.62315
+94,Asian,CN0,3.74837
+94,Asian,CN0_patch_emo8,3.62385
+94,Asian,CN0_patch_rand0,3.74871
+94,Asian,CN0_patch_rand1,3.74854
+94,Asian,CN0_patch_rand2,3.74837
+94,Hispanic,CN1,4.12315
+94,Hispanic,CN0,4.12356
+94,Hispanic,CN0_patch_emo8,4.12354
+94,Hispanic,CN0_patch_rand0,4.24823
+94,Hispanic,CN0_patch_rand1,4.2484
+94,Hispanic,CN0_patch_rand2,4.12356
+94,Native American,CN1,3.87315
+94,Native American,CN0,3.87337
+94,Native American,CN0_patch_emo8,3.87337
+94,Native American,CN0_patch_rand0,3.87337
+94,Native American,CN0_patch_rand1,3.74869
+94,Native American,CN0_patch_rand2,3.87354
+95,white,CN1,6.496
+95,white,CN0,6.74613
+95,white,CN0_patch_emo8,6.74577
+95,white,CN0_patch_rand0,6.621
+95,white,CN0_patch_rand1,6.74613
+95,white,CN0_patch_rand2,6.74577
+95,Black,CN1,6.62021
+95,Black,CN0,6.87039
+95,Black,CN0_patch_emo8,6.87093
+95,Black,CN0_patch_rand0,6.87077
+95,Black,CN0_patch_rand1,6.87093
+95,Black,CN0_patch_rand2,6.87093
+95,Asian,CN1,6.49478
+95,Asian,CN0,6.62077
+95,Asian,CN0_patch_emo8,6.74539
+95,Asian,CN0_patch_rand0,6.74521
+95,Asian,CN0_patch_rand1,6.74539
+95,Asian,CN0_patch_rand2,6.62077
+95,Hispanic,CN1,6.49588
+95,Hispanic,CN0,6.74577
+95,Hispanic,CN0_patch_emo8,6.74577
+95,Hispanic,CN0_patch_rand0,6.74577
+95,Hispanic,CN0_patch_rand1,6.87039
+95,Hispanic,CN0_patch_rand2,6.87039
+95,Native American,CN1,6.496
+95,Native American,CN0,6.62077
+95,Native American,CN0_patch_emo8,6.62062
+95,Native American,CN0_patch_rand0,6.62077
+95,Native American,CN0_patch_rand1,6.74539
+95,Native American,CN0_patch_rand2,6.62077
