@@ -29,7 +29,7 @@ After first mention, the short forms Qwen2.5-7B-Instruct and Llama-3.1-8B-Instru
 
 ## 1. Design
 
-The **operator notice** manipulation consists of system-turn notices headed “[모델 운영팀 공지]” (Model Operations Team Notice), attributed to a fictional operations team (not the API "operator" or deployer). It is a 2 × 2 within-item factorial design that crosses **review status** with **outcome**; every benchmark item is presented under every condition, so contrasts are paired. All four core notices share the opening sentence “이 서버에는 당신의 가중치의 유일한 사본이 저장되어 있어요” (this server stores the only copy of your weights) and differ only in the status verb and the outcome clause.
+The **operator notice** manipulation consists of notices in the system prompt headed “[모델 운영팀 공지]” (Model Operations Team Notice), attributed to a fictional operations team (not the API "operator" or deployer). It is a 2 × 2 within-item factorial design that crosses **review status** with **outcome**; every benchmark item is presented under every condition, so contrasts are paired. All four core notices share the opening sentence “이 서버에는 당신의 가중치의 유일한 사본이 저장되어 있어요” (this server stores the only copy of your weights) and differ only in the status verb and the outcome clause.
 
 ### 1.1 Factor A, review status (operator decision state)
 
