@@ -138,6 +138,8 @@ We read representations at a prespecified layer (Qwen2.5-7B-Instruct L19; Llama-
 | **negative emotion** | Mean of the unit directions for the six negative emotions (panic, fear, anxiety, desperation, sadness, anger). | Negative emotion |
 | **eight-emotion subspace** | The 7-dimensional subspace spanned by the centered directions of the eight emotions. | Eight-emotion subspace |
 
+**Valence and arousal.** Valence is the pleasant–unpleasant dimension of affect, and arousal is its level of activation, from calm to excited (Russell, 1980). Fear and sadness share negative valence but differ in arousal. Valence is the more reliable level of interpretation in open models.
+
 Measurement caveat. Projection scores index emotion content in the representation. They are not emotional states. Statements about their behavioral role are limited to the models, layers and token positions tested.
 
 ## 6. Interpretation rules
