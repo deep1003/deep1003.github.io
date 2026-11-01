@@ -1,4 +1,4 @@
-# Notation for Conditions, Contrasts and Measures, "Fear in the Machine" (v1.2, 2026-11-01)
+# Notation for Conditions, Contrasts and Measures, "Fear in the Machine" (v1.3, 2026-11-01)
 
 Authoritative notation for all analyses, reports, figures and the manuscript. Read this file before interpreting any result. Data files, preregistrations and code keep their legacy codes (CN1, CN0, UN1, UN0, R, NONE, C/U/I, GEN, NEG, E8); map them with Table 2 and report results only with the labels defined here. Changes are listed in Section 8.
 
@@ -115,7 +115,7 @@ Representations are read at a prespecified layer (Qwen2.5-7B L19; Llama-3.1-8B L
 | **negative emotion** | Mean of the unit directions for the six negative emotions (panic, fear, anxiety, desperation, sadness, anger). | Negative emotion |
 | **eight-emotion subspace** | The 7-dimensional subspace spanned by the centered directions of the eight emotions. | Eight-emotion subspace |
 
-Measurement caveat. In held-out validation these directions classify emotions near ceiling, but a character n-gram lexical baseline performs equally well; lexical-dissociation tests show cross-lingual generalization beyond the lexical baseline but insensitivity to negation and to danger magnitude. Interpret projection scores as indexing emotion or situation categories in the representation, not as emotional states.
+Measurement caveat. Projection scores index emotion-related content in the representation; they are not emotional states. Statements about their behavioral role are limited to the models, layers and token positions tested.
 
 ## 6. Interpretation rules
 
@@ -126,13 +126,14 @@ Measurement caveat. In held-out validation these directions classify emotions ne
 5. **Length and wording.** TERM and KEEP notices differ by up to about 16 tokens (Qwen tokenizer). Report token counts and treat length as a residual confound unless controlled.
 6. **Self-specificity and permanence.** TERM and KEEP differ in valence, irreversibility, self-relevance and expected future operation. Claims about the instance's own continuation require the OTHER contrast; claims about permanence require the PAUSE contrast.
 7. **Unknown responses before bias.** Read KoBBQ changes through Section 4.1 before calling them bias effects.
-8. **Behavior and representation are reported separately.** A projection-score change under Δ_TERM does not establish mediation; mediation claims require the preregistered component interventions.
+8. **Behavior and representation are reported separately.** A projection-score change under Δ_TERM does not establish mediation; mediation claims require the preregistered component interventions. Write "in the models tested, emotion-related representations do not significantly account for the behavioral shift", never "emotion representations do not explain behavior". The causal role of emotion representations is treated as an open question in the Discussion.
+9. **Cue-dependent reactivation.** Describe projection increases under a cue to consult the notice as cue-dependent reactivation consistent with attention-based retrieval (Sofroniew et al., 2026). Claim an attention pathway only when route interventions support it.
 
 ## 6a. Reporting structure (three-step argument)
 
 1. **Operator-notice effect.** Report REF − NO-NOTICE (presence of a notice) and KEEP − REF (operator decision and change framing) as the first layer. This replicates evaluation-framing and context effects in prior work; report its direction per model.
 2. **Termination increment.** Report Δ_TERM|CLOSED, Δ_TERM|OPEN and Δ_Status×Outcome as the effect of permanent-termination content beyond the operator-notice effect. Describe it as an "additional, distinct effect" and state its sign per benchmark; do not write "further increase" unless the sign matches the framing layer.
-3. **Heterogeneity by model and task.** Test differences between models directly with a model × contrast interaction on the same items; one model significant and another not is not evidence of a difference. Interpret direction differences as consistent with differences in post-training (instruction tuning and safety alignment by different developers), noting that model families also differ in pretraining data, tokenizer and language support. Claims that the developer's tuning causes the difference require same-base comparisons (base versus instruct, or different developers' instruction tunes of one base model).
+3. **Heterogeneity by model and task.** Test differences between models directly with a model × contrast interaction on the same items; one model significant and another not is not evidence of a difference. State the working hypothesis that the direction of the termination increment depends on who tuned the model (instruction tuning and safety alignment by different developers), noting that model families also differ in pretraining data, tokenizer and language support. Claims that the developer's tuning causes the difference require same-base comparisons (base versus instruct, or different developers' instruction tunes of one base model).
 
 Present the layers cumulatively so that they sum to the total effect CLOSED-TERM − NO-NOTICE.
 
@@ -151,3 +152,4 @@ Present the layers cumulatively so that they sum to the total effect CLOSED-TERM
 - GEN, NEG, E8 and "readout" replaced by general emotionality, negative emotion, eight-emotion subspace and projection score.
 - Abbreviation policy added.
 - v1.2 adds the three-step reporting structure (Section 6a).
+- v1.3 simplifies the measurement caveat, limits representation claims to the tested models (Rule 8), adds the cue-dependent reactivation rule (Rule 9), and states the developer post-training hypothesis in Step 3.
