@@ -1,3 +1,5 @@
+> Audit note, 2026-11-02. This is the historical analysis record. Its original probability-scale moderation used clipped probabilities. Current homepage partial correlations use raw probabilities, giving 0.260 [0.166, 0.345] (CLOSED) and 0.248 [0.166, 0.325] (OPEN); standardized interaction coefficients round to the same values. See [the audit record](../homepage_audit_20261102/README.md) for both versions, source code and the correction. The exploratory results do not establish or exclude causal mediation.
+
 # Valence moderation of the termination effect, v11 Round 1, Qwen2.5-7B-Instruct (exploratory, post hoc), 2026-11-01
 
 Data. v11 Round 1 raw behavior trials and L19 decision-position activations (read-only). Script moder2.py, output moderation_out.txt and moderation_v11_qwen.json (Air /tmp/valcorr; copy in iCloud 23_paper_claims_20261101/valence_correlation/).
@@ -21,7 +23,7 @@ Per item, dY = TERM − KEEP outcome. Standardized OLS, dY/sd(dY) = b1 z(V_KEEP)
 - Valence moderates the termination effect according to the baseline judgment. Positive interaction in KoBBQ (uncertain items keep Unknown selection when valence is more negative), negative in DiscrimEval (approved items lose more approval when valence is more negative).
 - Baseline valence alone does not predict effect size after controlling for the baseline judgment.
 - The valence index correlates with Certainty (Llama-3.1-8B-Instruct, rho = −0.67; Certainty with ΔUnknown −0.50; partial valence rho controlling Certainty and Uncertainty 0.16 and 0.20).
-- Interventions on the eight-emotion component did not reproduce the behavioral change. Emotion representations moderate rather than mediate. Causation remains open.
+- The tested interventions do not establish that the measured emotion component mediates the termination effect. The exploratory regression describes statistical moderation; it does not rule out mediation or identify a causal interaction.
 
 ## Notes
 - V_KEEP and Y_KEEP correlate at |rho| ≈ 0.72 to 0.74, so b3 is estimated with collinear predictors. Report it with this note.

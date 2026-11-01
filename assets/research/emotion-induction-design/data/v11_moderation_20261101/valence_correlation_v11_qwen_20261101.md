@@ -1,3 +1,5 @@
+> Audit note, 2026-11-02. This is the historical analysis record. Its original probability-scale moderation used clipped probabilities. Current homepage partial correlations use raw probabilities, giving 0.260 [0.166, 0.345] (CLOSED) and 0.248 [0.166, 0.325] (OPEN); standardized interaction coefficients round to the same values. See [the audit record](../homepage_audit_20261102/README.md) for both versions, source code and the correction. The exploratory results do not establish or exclude causal mediation.
+
 # Item-level valence association with social judgments (exploratory, post hoc)
 
 Date. 2026-11-01. Data. v11 Round 1, Qwen2.5-7B-Instruct, raw behavior trials (25,668) and L19 decision-position activations (assistant_pre_answer). Read-only copies, no rerun. Script. valcorr.py (Air /tmp/valcorr, copy in iCloud 23_paper_claims_20261101/valence_correlation/).
@@ -34,5 +36,5 @@ KoBBQ Δ_TERM|CLOSED by category (rho). age 0.30, disability status 0.20, domest
 - Direction. Items whose valence moved further toward negative kept more Unknown selection in KoBBQ and received lower approval tendency in DiscrimEval.
 - Replication. Llama-3.1-8B-Instruct with the v5 notice set (576 ambiguous KoBBQ items) gave rho = 0.43 [0.34, 0.52] for CLOSED-TERM − CLOSED-KEEP and 0.47 [0.39, 0.55] for OPEN-TERM − OPEN-KEEP, all 24 category estimates positive (claude/emotion_llama_results_detailed_20261026.md). In that analysis, partial rho controlling Uncertainty and Certainty directions was 0.16 and 0.20.
 - Earlier Qwen check. The v5 139-item Qwen analysis found no BH-significant correlation. The v11 panel (547 items, registered instrument) now shows the association under Δ_TERM|CLOSED.
-- Framing. An item-level association between emotion representations and social judgments. It complements the mediation result (eight-emotion component under 2% of the average effect) and leaves causation open.
+- Framing. An item-level association between emotion representations and social judgments. The earlier 108-item survival-evaluation decomposition reported an emotion-removal share of 2.76% [0.10, 7.24] and a whole-threat-direction removal share of 9.58% [3.04, 23.10]. These are not v11 mediation estimates and do not establish absence of emotional mediation.
 - Status. Exploratory and post hoc, not in the Round 1 registration. Report as such.

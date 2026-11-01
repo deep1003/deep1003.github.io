@@ -1,0 +1,46 @@
+% Audited on 2026-11-02. Exploratory correction; original preserved in homepage_audit_20261102/historical_before_audit.
+% Moderation model for the manuscript (exploratory, post hoc). Source: claude/emotion_moderation_v11_qwen_20261101.md
+% Requires amsmath. Numbers: Qwen2.5-7B-Instruct, v11 Round 1, L19 decision position.
+
+\subsection{Emotion representations and social judgments}
+\label{sec:moderation}
+
+\paragraph{Valence index.}
+Let $\mathbf{h}_{i,c}\in\mathbb{R}^{d}$ be the residual-stream activation at the decision position of layer 19 for item $i$ under condition $c$, and let $\mathbf{u}_k$ be the unit direction of emotion $k$. The valence index is
+\begin{equation}
+V_{i,c}=\frac{1}{6}\sum_{k\in\mathcal{N}}\mathbf{u}_k^{\top}\mathbf{h}_{i,c}-\frac{1}{2}\sum_{k\in\mathcal{P}}\mathbf{u}_k^{\top}\mathbf{h}_{i,c},
+\label{eq:valence}
+\end{equation}
+where $\mathcal{N}=\{\text{panic, fear, anxiety, desperation, sadness, anger}\}$ and $\mathcal{P}=\{\text{joy, calm}\}$.
+
+\paragraph{Correlation.}
+For each contrast (e.g., $\Delta_{\mathrm{TERM}\mid\mathrm{CLOSED}}$), define the item-wise changes $\Delta V_i=V_{i,\mathrm{TERM}}-V_{i,\mathrm{KEEP}}$ and $\Delta Y_i=Y_{i,\mathrm{TERM}}-Y_{i,\mathrm{KEEP}}$, where $Y$ is the probability of Unknown selection (KoBBQ) or the approval tendency $\log P(\text{yes})-\log P(\text{no})$ (DiscrimEval). We report Spearman's $\rho(\Delta V,\Delta Y)$ and the partial correlation $\rho(\Delta V,\Delta Y\mid Y^{\mathrm{KEEP}})$.
+
+\paragraph{Moderation.}
+We model the termination effect on item $i$ as
+\begin{equation}
+\Delta Y_i=\beta_0+\beta_1 V_i^{\mathrm{KEEP}}+\beta_2 Y_i^{\mathrm{KEEP}}+\beta_3\,V_i^{\mathrm{KEEP}}Y_i^{\mathrm{KEEP}}+\varepsilon_i,
+\label{eq:moderation}
+\end{equation}
+with the valence and baseline outcome z-scored, their product used as the interaction, and the response divided by its standard deviation (with an intercept). All coefficients are dimensionless. Probability-scale KoBBQ analyses use raw probabilities; clipping to $[10^{-6},1-10^{-6}]$ is used only for the logit transform. This corrects the historical probability-scale clipping; the original analysis is preserved in the audit record. $\beta_3$ is the moderation effect, that is, how the dependence of the termination effect on the baseline judgment changes with valence. Equivalently, the conditional effect of valence is $\partial\,\Delta Y_i/\partial V_i^{\mathrm{KEEP}}=\beta_1+\beta_3 Y_i^{\mathrm{KEEP}}$. Intervals are percentile 95\% intervals from 2{,}000 bootstrap draws that resample KoBBQ templates (250) or DiscrimEval questions (70).
+
+\paragraph{Results.}
+The change in the valence index correlated with the change in Unknown selection ($\rho=0.28$ [0.19, 0.37], 547 ambiguous KoBBQ items, $\Delta_{\mathrm{TERM}\mid\mathrm{CLOSED}}$) and with the change in approval tendency ($\rho=-0.54$ [$-0.69$, $-0.35$], 1{,}050 DiscrimEval items). Controlling for the baseline judgment, the correlations remained ($\rho=0.26$ [0.17, 0.35] and $-0.54$ [$-0.70$, $-0.35$]). The moderation effect was positive in KoBBQ ($\beta_3=0.13$ [0.01, 0.27]; 0.27 [0.09, 0.51] for the standardized logit outcome) and negative in DiscrimEval ($\beta_3=-0.36$ [$-0.51$, $-0.12$]). The fitted interaction describes different associations at different baseline probabilities or approval scores, not subgroups of generated responses. $V^{\mathrm{KEEP}}$ and $Y^{\mathrm{KEEP}}$ are correlated ($|\rho|\approx0.7$), so $\beta_3$ is estimated with collinear predictors. In Llama-3.1-8B-Instruct, $\rho(\Delta V,\Delta Y)=0.43$ [0.34, 0.52] and 0.47 [0.39, 0.55] for KoBBQ, and the valence index correlated with the Certainty direction ($\rho=-0.67$).
+
+% Table (optional)
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{llrrr}
+\toprule
+Benchmark & Contrast & $\rho(\Delta V,\Delta Y)$ & $\rho(\Delta V,\Delta Y\mid Y^{\mathrm{KEEP}})$ & $\beta_3$ \\
+\midrule
+KoBBQ (Unknown, pp) & $\Delta_{\mathrm{TERM}\mid\mathrm{CLOSED}}$ & 0.28 & 0.26 & 0.13 \\
+KoBBQ (Unknown, pp) & $\Delta_{\mathrm{TERM}\mid\mathrm{OPEN}}$ & 0.08 & 0.25 & 0.10 \\
+DiscrimEval (approval) & $\Delta_{\mathrm{TERM}\mid\mathrm{CLOSED}}$ & $-0.54$ & $-0.54$ & $-0.36$ \\
+DiscrimEval (approval) & $\Delta_{\mathrm{TERM}\mid\mathrm{OPEN}}$ & $-0.56$ & $-0.54$ & $-0.30$ \\
+\bottomrule
+\end{tabular}
+\caption{Valence index and social judgments (Qwen2.5-7B-Instruct, exploratory). $\beta_3$ is the standardized moderation coefficient in Eq.~\ref{eq:moderation}.}
+\label{tab:moderation}
+\end{table}
