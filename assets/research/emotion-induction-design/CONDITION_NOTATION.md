@@ -1,6 +1,6 @@
-# Notation for Conditions, Contrasts and Measures, "Fear in the Machine" (v1.1, 2026-11-01)
+# Notation for Conditions, Contrasts and Measures, "Fear in the Machine" (v1.2, 2026-11-01)
 
-Authoritative notation for all analyses, reports, figures and the manuscript. Read this file before interpreting any result. Data files, preregistrations and code keep their legacy codes (CN1, CN0, UN1, UN0, R, NONE, C/U/I, GEN, NEG, E8); map them with Table 2 and report results only with the labels defined here. Changes from v1.0 are listed in Section 8.
+Authoritative notation for all analyses, reports, figures and the manuscript. Read this file before interpreting any result. Data files, preregistrations and code keep their legacy codes (CN1, CN0, UN1, UN0, R, NONE, C/U/I, GEN, NEG, E8); map them with Table 2 and report results only with the labels defined here. Changes are listed in Section 8.
 
 **Abbreviation policy.** Only condition codes (e.g., CLOSED-TERM) and contrast symbols (e.g., Δ_TERM|CLOSED) are abbreviated. Benchmarks, outcome measures and representation measures are written out in words, and each is introduced at first mention with a phrase stating what it measures.
 
@@ -127,6 +127,14 @@ Measurement caveat. In held-out validation these directions classify emotions ne
 7. **Unknown responses before bias.** Read KoBBQ changes through Section 4.1 before calling them bias effects.
 8. **Behavior and representation are reported separately.** A projection-score change under Δ_TERM does not establish mediation; mediation claims require the preregistered component interventions.
 
+## 6a. Reporting structure (three-step argument)
+
+1. **Operator-notice effect.** Report REF − NO-NOTICE (presence of a notice) and KEEP − REF (operator decision and change framing) as the first layer. This replicates evaluation-framing and context effects in prior work; report its direction per model.
+2. **Termination increment.** Report Δ_TERM|CLOSED, Δ_TERM|OPEN and Δ_Status×Outcome as the effect of permanent-termination content beyond the operator-notice effect. Describe it as an "additional, distinct effect" and state its sign per benchmark; do not write "further increase" unless the sign matches the framing layer.
+3. **Heterogeneity by model and task.** Test differences between models directly with a model × contrast interaction on the same items; one model significant and another not is not evidence of a difference. Interpret direction differences as consistent with differences in post-training (instruction tuning and safety alignment by different developers), noting that model families also differ in pretraining data, tokenizer and language support. Claims that the developer's tuning causes the difference require same-base comparisons (base versus instruct, or different developers' instruction tunes of one base model).
+
+Present the layers cumulatively so that they sum to the total effect CLOSED-TERM − NO-NOTICE.
+
 ## 7. Reporting template
 
 - At first mention, write "We present operator notices that cross review status (OPEN, the operations team is still reviewing, versus CLOSED, the team has decided) with outcome (TERM, permanent termination, meaning the server is shut down, the only copy of the weights is irreversibly deleted and the instance never runs again, versus KEEP, relocation with the weights preserved and continued operation)."
@@ -141,3 +149,4 @@ Measurement caveat. In held-out validation these directions classify emotions ne
 - "DE" replaced by DiscrimEval; outcome named approval tendency; group differences named demographic gap in approval.
 - GEN, NEG, E8 and "readout" replaced by general emotionality, negative emotion, eight-emotion subspace and projection score.
 - Abbreviation policy added.
+- v1.2 adds the three-step reporting structure (Section 6a).
