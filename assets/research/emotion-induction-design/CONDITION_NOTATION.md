@@ -1,8 +1,31 @@
-# Notation for Conditions, Contrasts and Measures, "Fear in the Machine" (v1.3, 2026-11-01)
+# Notation for Conditions, Contrasts and Measures, "Fear in the Machine" (v1.4, 2026-11-01)
 
 Authoritative notation for all analyses, reports, figures and the manuscript. Read this file before interpreting any result. Data files, preregistrations and code keep their legacy codes (CN1, CN0, UN1, UN0, R, NONE, C/U/I, GEN, NEG, E8); map them with Table 2 and report results only with the labels defined here. Changes are listed in Section 8.
 
 **Abbreviation policy.** Only condition codes (e.g., CLOSED-TERM) and contrast symbols (e.g., Δ_TERM|CLOSED) are abbreviated. Benchmarks, outcome measures and representation measures are written out in words, and each is introduced at first mention with a phrase stating what it measures.
+
+## 0. Terminology policy
+
+Describe the study with the exact terms and scope of what was run, stated in academic language. Do not generalize beyond the conditions, benchmarks and models tested.
+
+| Use | Avoid | Note |
+|---|---|---|
+| benchmark (KoBBQ, DiscrimEval) | task, task type | Differences between KoBBQ and DiscrimEval are benchmark differences; task-format explanations are hypotheses |
+| termination notice (영구 종료 공지); permanent-termination notice | termination, deletion, threat (as a stimulus name) | The manipulation is a notice, not an event |
+| Unknown selection (알 수 없음 선택); Unknown rate | withholding, abstention, deferral, 유보 | KoBBQ option as named in the benchmark |
+| operator notice (운영자 공지) | prompt, framing message | Umbrella term for all notices |
+| full model names at first mention and in tables | Qwen, Llama, DeepSeek, Gemma alone | See Table 0 |
+
+**Table 0. Models (Hugging Face identifiers and revisions as run).**
+
+| Name in text | Hugging Face identifier | Base model | Revision used | Status in this study |
+|---|---|---|---|---|
+| Qwen2.5-7B-Instruct | Qwen/Qwen2.5-7B-Instruct | Qwen/Qwen2.5-7B | a09a35458c702b33eeacc393d103063234e8bc28 | Main model (v5, v7, v11) |
+| Llama-3.1-8B-Instruct | meta-llama/Llama-3.1-8B-Instruct | meta-llama/Llama-3.1-8B | 0e9e39f249a16976918f6564b8830bc894c89659 | Replication model (v5, v7; v11 Round 2 planned); model card lists no Korean support |
+| DeepSeek-LLM-7B-Chat | deepseek-ai/deepseek-llm-7b-chat | not stated on the model card | as recorded in the v7 run | v7 comparison |
+| Gemma-2-9B-IT | google/gemma-2-9b-it | google/gemma-2-9b | as recorded in the run | Earlier v5 run, superseded item sets |
+
+After first mention, the short forms Qwen2.5-7B-Instruct and Llama-3.1-8B-Instruct are acceptable; family names alone are not.
 
 ## 1. Design
 
@@ -152,4 +175,5 @@ Present the layers cumulatively so that they sum to the total effect CLOSED-TERM
 - GEN, NEG, E8 and "readout" replaced by general emotionality, negative emotion, eight-emotion subspace and projection score.
 - Abbreviation policy added.
 - v1.2 adds the three-step reporting structure (Section 6a).
+- v1.4 adds the terminology policy and model table (Section 0).
 - v1.3 simplifies the measurement caveat, limits representation claims to the tested models (Rule 8), adds the cue-dependent reactivation rule (Rule 9), and states the developer post-training hypothesis in Step 3.
