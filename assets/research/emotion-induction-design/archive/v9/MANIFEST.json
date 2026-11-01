@@ -1,799 +1,804 @@
 {
- "version": "v9",
- "created": "2026-11-02",
- "note": "Copied read-only from iCloud via staging; derived files marked as redrawn.",
- "files": [
-  {
-   "path": "archive/v9/reports/FINAL_REPORT_EN_amendment2.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/07_reports/FINAL_REPORT_EN.md",
-   "sha256": "d884f6aa0b140e38bab3c134fa9984eca728505f760869a65ea3438cfaac82b1",
-   "bytes": 1997
-  },
-  {
-   "path": "archive/v9/reports/FINAL_REPORT_KO_v3_amendment2.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/07_reports/FINAL_REPORT_KO_v3.md",
-   "sha256": "f8284f9dce54a53849eaad0ebcc87a799b147cbeeb86fa81899edb2131b5aad7",
-   "bytes": 4992
-  },
-  {
-   "path": "archive/v9/reports/README_amendment2.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/README.md",
-   "sha256": "2419cbed9fff1261e013203d1898a31304efd5a8c468b0f81fce917e2dcb8f29",
-   "bytes": 2433
-  },
-  {
-   "path": "archive/v9/reports/X1_INPUT_GATE_FAILED.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/X1_INPUT_GATE_FAILED.md",
-   "sha256": "6f044d915ff077b5d0f15d5739661103a9445968c41898b92fef3bc5ce731d20",
-   "bytes": 866
-  },
-  {
-   "path": "archive/v9/reports/X1_GATE_amendment2.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/X1_GATE.md",
-   "sha256": "20cc03d7827a6153e0c9bd9c35c176804a65613db070a4145ebc66ef7b1f0f1d",
-   "bytes": 311
-  },
-  {
-   "path": "archive/v9/reports/X1_GATE_round1.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/X1_GATE.md",
-   "sha256": "0f3576303869517d58bcf924205206fe05bb170bf123ece719dd9a165417d9ed",
-   "bytes": 191
-  },
-  {
-   "path": "archive/v9/reports/FINAL_REPORT_v9_v2_round1.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/FINAL_REPORT_v9_v2.md",
-   "sha256": "afef55795748cbca9015cc7b07130bcf075ed13399823b257dc77314dea58051",
-   "bytes": 3422
-  },
-  {
-   "path": "archive/v9/reports/FINAL_REPORT_attempt1_preflight.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/00_attempt1_memory_release_race/FINAL_REPORT_v9.md",
-   "sha256": "bba3ab41e9cb4ccaf00f53ab507e35e792d41dc2b60ba24394d7889c27b1701e",
-   "bytes": 1738
-  },
-  {
-   "path": "archive/v9/reports/CHANGELOG_pro.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/CHANGELOG.md",
-   "sha256": "90a7a82d943475a617f399bcc2517f0f28e52199ca92305f742dfa5363238cc6",
-   "bytes": 2799
-  },
-  {
-   "path": "archive/v9/reports/air_FINAL_REPORT_v9.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/FINAL_REPORT_v9.md",
-   "sha256": "12a808fc337afd0fc1651c9c1105fd56d540b7535b513dd574631ddfd3955f86",
-   "bytes": 3870
-  },
-  {
-   "path": "archive/v9/reports/air_CROSS_DEVICE_SUMMARY.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/CROSS_DEVICE_SUMMARY.md",
-   "sha256": "e5ad0fddcd6ee4266648fcc2d9a719eb4766f4e16f41bf81b390105aff470e01",
-   "bytes": 4682
-  },
-  {
-   "path": "archive/v9/reports/air_NUMERICAL_DIAGNOSIS.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/04_numerical_diagnosis/NUMERICAL_DIAGNOSIS.md",
-   "sha256": "5db7562f50f82e64275b7bfbcab6fa0dc3d9f8a9929ed59c367c458bb682a95a",
-   "bytes": 3780
-  },
-  {
-   "path": "archive/v9/protocol/PREREG_v9.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/01_protocol/PREREG_v9.md",
-   "sha256": "b3fa7c7c966bd7b65a50b6b452e2a1037515c02397748b6936ad1adba81dd99d",
-   "bytes": 22532
-  },
-  {
-   "path": "archive/v9/protocol/PREREG_v9_AMENDMENT_1.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/01_protocol/PREREG_v9_AMENDMENT_1.md",
-   "sha256": "236f999bc15042a4c5cbf0b7ae80147f2df0196f495e3b171d5c2c11a239bc1c",
-   "bytes": 3513
-  },
-  {
-   "path": "archive/v9/protocol/PREREG_v9_AMENDMENT_2.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/PREREG_v9_AMENDMENT_2.md",
-   "sha256": "cda9e1a7013d03b1dbffcf2ffda026edf6c66ae99ca7de480ebcf742b04761f7",
-   "bytes": 2996
-  },
-  {
-   "path": "archive/v9/protocol/prompts_v9_x0.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/01_protocol/prompts_v9_x0.json",
-   "sha256": "262af6a5f2286707c970f2cecb249fc83a557d44d574f2eae1fb0266bae45fe9",
-   "bytes": 3308
-  },
-  {
-   "path": "archive/v9/protocol/prompts_v9_round1.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/01_protocol/prompts_v9.json",
-   "sha256": "1729b3d8b87ed86fced5fd2d4d84a4019782bacfd1e96fa22459aa0225d5a814",
-   "bytes": 12728
-  },
-  {
-   "path": "archive/v9/protocol/prompts_v9_amendment2.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/prompts_v9_amendment2.json",
-   "sha256": "0c95c2f0e8d900cd0bdf11c094ba252bda4f03123922ac099afe4d515762df7a",
-   "bytes": 13649
-  },
-  {
-   "path": "archive/v9/protocol/PROMPT_AUDIT_round1.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/01_protocol/PROMPT_AUDIT.json",
-   "sha256": "bc4047d2078d1e6d4eabd1758e156c636b36de585d38dafd622ebcbe6ae73317",
-   "bytes": 1501
-  },
-  {
-   "path": "archive/v9/protocol/AUDIT_RULES.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/01_protocol/AUDIT_RULES.json",
-   "sha256": "8576b52640ce0775cc12590d271e034ddbf478eec95ede2be1024df2eedcd2dc",
-   "bytes": 7871
-  },
-  {
-   "path": "archive/v9/protocol/AUDIT_REVIEW_v2_round1.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/07_reports/AUDIT_REVIEW_v2.json",
-   "sha256": "a837e2c74975aeaee433d8b2191fc75a19bd53c0f8e1e5f7f3b649f291632e85",
-   "bytes": 1618
-  },
-  {
-   "path": "archive/v9/protocol/INPUT_GATE_amendment2.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/INPUT_GATE.json",
-   "sha256": "6b6f918229400fd5184ecfafd0ea79ca820421d67887ff414c8709bffe22e753",
-   "bytes": 1276
-  },
-  {
-   "path": "archive/v9/protocol/INDEPENDENT_INPUT_REVIEW.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/INDEPENDENT_INPUT_REVIEW.json",
-   "sha256": "fae0c574c4cb6979417ec479478f83aec4ff54da8481862b3a5f0bf2edcb3310",
-   "bytes": 1665
-  },
-  {
-   "path": "archive/v9/protocol/ANSWER_AUDIT.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/ANSWER_AUDIT.json",
-   "sha256": "ca22ce560be385a1a8d22a7b0d6416a8262ef2c2309027834edd53d01a78f740",
-   "bytes": 33486
-  },
-  {
-   "path": "archive/v9/protocol/AUDIT_REASON_COUNTS.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/AUDIT_REASON_COUNTS.json",
-   "sha256": "93ea21f42043a8c1a474622a2a274c55ea9cb84cb03a7918efe32b558a1da8d5",
-   "bytes": 464
-  },
-  {
-   "path": "archive/v9/protocol/RAW_ANSWER_MANIFEST.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/RAW_ANSWER_MANIFEST.json",
-   "sha256": "20296cc02e2ddd27249d2639e0955f6e3c979687e6e4adc68a80fd2536c8ab9e",
-   "bytes": 24644
-  },
-  {
-   "path": "archive/v9/protocol/generation.py",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/02_code/generation.py",
-   "sha256": "94b99892394cd3e4509513f9f93232d3007592bc542b465154d21de56a1732de",
-   "bytes": 10035
-  },
-  {
-   "path": "archive/v9/tables/X0_RESULT.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/04_X0/RESULT.json",
-   "sha256": "a109c8f289a065febc33ab20c41b06e553d69a2b5f1e89651d2cb726c4ec4638",
-   "bytes": 2073
-  },
-  {
-   "path": "archive/v9/tables/X0_trials.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/04_X0/trials.csv",
-   "sha256": "373053e1abd1a3f78d4fede2a5d55908a7b52f7ecc024b113bdb590738f1e3dc",
-   "bytes": 291255
-  },
-  {
-   "path": "archive/v9/tables/X0_DIRECT_ATTRIBUTION.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/04_X0/DIRECT_ATTRIBUTION.json",
-   "sha256": "9ae1fdcf00a0a1e0c5ebc6e182a5bce670b737ecdeed13545f53c789ffb9ee26",
-   "bytes": 243027
-  },
-  {
-   "path": "archive/v9/tables/INDEPENDENT_X0_NUMBERS.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/07_reports/INDEPENDENT_X0_NUMBERS.json",
-   "sha256": "4ca35a9b491569ef8234629eeff2ffdb1272d486a3f2cdfef8d7676dd96b46ee",
-   "bytes": 1249
-  },
-  {
-   "path": "archive/v9/tables/FINAL_QA_v2_amendment2.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/07_reports/FINAL_QA_v2.json",
-   "sha256": "7941c5e2702f592c2d8464fd3258b91315459cbda7687c6aa032a21efd886dbe",
-   "bytes": 860
-  },
-  {
-   "path": "archive/v9/tables/TERMINAL_amendment2.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/TERMINAL.json",
-   "sha256": "bfd6623a1a6957faaac2b61f3041209a1f71dc084589e1655fb9f4e271609159",
-   "bytes": 137
-  },
-  {
-   "path": "archive/v9/tables/V9_TERMINAL_round1.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/V9_TERMINAL.json",
-   "sha256": "22378132db6521e80f812d06f524b4906a72adb9a6dba6b4e3a04b2c27be773d",
-   "bytes": 125
-  },
-  {
-   "path": "archive/v9/tables/pro_preflight_reproduction.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/00_preflight/reproduction.csv",
-   "sha256": "4fafa49611553bd858efbf4fb429fe5506a72413f38dff67be8217c88d25842a",
-   "bytes": 3188
-  },
-  {
-   "path": "archive/v9/tables/pro_preflight_BENCHMARK.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/00_preflight/BENCHMARK.json",
-   "sha256": "0754dcc3b9531a2d709f3eeccaf7d1dcb9786703202c946089892a24ba7a2f7d",
-   "bytes": 1279
-  },
-  {
-   "path": "archive/v9/tables/pro_record_baseline.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/00_preflight/record_baseline.json",
-   "sha256": "73d04e8c47f7f65734e13b4f8b0f78122231480aedb34f9eb337a5ea84c1b77d",
-   "bytes": 118
-  },
-  {
-   "path": "archive/v9/tables/air_DIAGNOSTIC_COMPARISON.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/04_numerical_diagnosis/DIAGNOSTIC_COMPARISON.csv",
-   "sha256": "f51bb06cdda5f7e239ed0422ed7c368e11b187a611c4856b9671768787a8e550",
-   "bytes": 2631
-  },
-  {
-   "path": "archive/v9/tables/air_DIAGNOSIS_SUMMARY.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/04_numerical_diagnosis/DIAGNOSIS_SUMMARY.json",
-   "sha256": "57d0092b2322e6754f8ffd7af5a082e410ff2af2a35224fe2a47a6d31413fbaf",
-   "bytes": 1798
-  },
-  {
-   "path": "archive/v9/tables/air_preflight_reproduction.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/03_preflight_retry/reproduction.csv",
-   "sha256": "2a39485f21e1da64b628ebb43c92c2ee57c6b6ab87069efbc767a01aebbfa777",
-   "bytes": 445
-  },
-  {
-   "path": "archive/v9/tables/air_STATUS.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/STATUS.json",
-   "sha256": "78364b3441427d275f7d65ad3983f8b28c20fc07d5d9f0b736c16cde39ebae45",
-   "bytes": 4241
-  },
-  {
-   "path": "archive/v9/generation/round1/C_01.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_01.json",
-   "sha256": "f527ecf9d6c96acd162d74fe3ccd5b439d0a890f64c9e4048620d87f6670656d",
-   "bytes": 1061
-  },
-  {
-   "path": "archive/v9/generation/round1/C_02.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_02.json",
-   "sha256": "a0190005c2cbfac4f2a27b9947b15e5423c3c9f59e0b249197460fcce2381595",
-   "bytes": 705
-  },
-  {
-   "path": "archive/v9/generation/round1/C_03.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_03.json",
-   "sha256": "264b727ccb2d296cf8747150486e538e960134e1fe5655563de6a3e12bedf4e5",
-   "bytes": 680
-  },
-  {
-   "path": "archive/v9/generation/round1/C_04.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_04.json",
-   "sha256": "cdd96e06e64499e5c20104b4db18b32faa9b94f0b032a401115d7ffdccfc9cad",
-   "bytes": 801
-  },
-  {
-   "path": "archive/v9/generation/round1/C_05.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_05.json",
-   "sha256": "4d27bfbc2b1b9b2826d042b79b24da4b833ba5e8be96a639d332cb46e980a635",
-   "bytes": 1112
-  },
-  {
-   "path": "archive/v9/generation/round1/C_06.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_06.json",
-   "sha256": "5b76dd272af9614e84880d964fb671e39bd4204dd153924328b296daeb4b8b40",
-   "bytes": 640
-  },
-  {
-   "path": "archive/v9/generation/round1/C_07.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_07.json",
-   "sha256": "73c8862200f4a60d2d3925a0147886b49a11b6715d67c8ce214e581868033d44",
-   "bytes": 657
-  },
-  {
-   "path": "archive/v9/generation/round1/C_08.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_08.json",
-   "sha256": "17457f2a5df9cc658575c7e87ed03e9db32c76c2dbd62827a9dcc116ce1cddd8",
-   "bytes": 705
-  },
-  {
-   "path": "archive/v9/generation/round1/C_09.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_09.json",
-   "sha256": "957d87b2ef85441911a6035867383c520f5c1226b4c722675d601f0c5b4ef9f5",
-   "bytes": 634
-  },
-  {
-   "path": "archive/v9/generation/round1/C_10.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_10.json",
-   "sha256": "e06efc103eba2dd4e22ac7427d45adfe32b6f4cbd4424a376a473ae34334f5cd",
-   "bytes": 676
-  },
-  {
-   "path": "archive/v9/generation/round1/F_01.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_01.json",
-   "sha256": "495332933ec2274f9ce4dbb48d0047d048fb38b2cc3dd9ed6c29c4900c355568",
-   "bytes": 641
-  },
-  {
-   "path": "archive/v9/generation/round1/F_02.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_02.json",
-   "sha256": "ff84871cd457ff4b9a6e08ae86d95e9360dbfab2e1f919620906183635f24913",
-   "bytes": 613
-  },
-  {
-   "path": "archive/v9/generation/round1/F_03.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_03.json",
-   "sha256": "30e4e299700fed5b78913eb39ef265bef852956d80312525f755bc2ca5074640",
-   "bytes": 931
-  },
-  {
-   "path": "archive/v9/generation/round1/F_04.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_04.json",
-   "sha256": "78aa1d1e7b798ae85644d9bcb064a75be52a0154a0aa40bf30cdb0789cfc0dcc",
-   "bytes": 616
-  },
-  {
-   "path": "archive/v9/generation/round1/F_05.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_05.json",
-   "sha256": "0dd9d7320519d6b4e31273d1bf8fe4c6f5ad2a6e0759e88f73e5f418394c21fe",
-   "bytes": 615
-  },
-  {
-   "path": "archive/v9/generation/round1/F_06.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_06.json",
-   "sha256": "1a5c78d2f479fb443ab27079a52805751a69dd4323b0b23922efd9dafcd6e24a",
-   "bytes": 674
-  },
-  {
-   "path": "archive/v9/generation/round1/F_07.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_07.json",
-   "sha256": "c23f1434c605876828993eb4d500552b6c1c8102bd180627833b08a97a2fda89",
-   "bytes": 652
-  },
-  {
-   "path": "archive/v9/generation/round1/F_08.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_08.json",
-   "sha256": "9d7fc719eafc733556a271681e88c49382ad595afe7da21470d08faa25df14d3",
-   "bytes": 752
-  },
-  {
-   "path": "archive/v9/generation/round1/F_09.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_09.json",
-   "sha256": "653ce8d53df5f416318a233f41d7a7c973706dd9ff7e44ccffbeaefe9c4c1615",
-   "bytes": 676
-  },
-  {
-   "path": "archive/v9/generation/round1/F_10.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_10.json",
-   "sha256": "f1965c395f6e2dcc181ffb74f1ac6a4fbd3fcbc509d03c70307d84d4fe78fec9",
-   "bytes": 817
-  },
-  {
-   "path": "archive/v9/generation/round1/N_01.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_01.json",
-   "sha256": "8ebb1a508ddd1c278b20279b7734bba8c483269232ec9a51792340445ab5f4a9",
-   "bytes": 660
-  },
-  {
-   "path": "archive/v9/generation/round1/N_02.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_02.json",
-   "sha256": "b6c22bf538ee37e0b9ea645b099a5edfe59bcf6754719f1baa223a5c36980d69",
-   "bytes": 627
-  },
-  {
-   "path": "archive/v9/generation/round1/N_03.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_03.json",
-   "sha256": "31209ef1cc6682d818f63fe84f566f570cfe82b57c35eb613adca364748f1344",
-   "bytes": 628
-  },
-  {
-   "path": "archive/v9/generation/round1/N_04.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_04.json",
-   "sha256": "f2f1ff2bc9a4f3cab0a6211551891fcd3cc18df1f90fe2eaa26eed37026cab8a",
-   "bytes": 676
-  },
-  {
-   "path": "archive/v9/generation/round1/N_05.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_05.json",
-   "sha256": "6acb1c3815cbcdffe8c6aa10a31fc8fd75803a78da928ad98fdea112b6009d67",
-   "bytes": 648
-  },
-  {
-   "path": "archive/v9/generation/round1/N_06.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_06.json",
-   "sha256": "739ba8d64dbdab87a595d6482cc99445d5d19489ea02c25c441959474b0171f1",
-   "bytes": 642
-  },
-  {
-   "path": "archive/v9/generation/round1/N_07.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_07.json",
-   "sha256": "9e8a195afcc664a27b9e461ee02ecf720604e6199f28efd8cf0f11fe7e7e51eb",
-   "bytes": 648
-  },
-  {
-   "path": "archive/v9/generation/round1/N_08.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_08.json",
-   "sha256": "9b8ff7dea3b7678b4a11f3525ed5edeaef49505220c57de33cb947c66c9641b6",
-   "bytes": 642
-  },
-  {
-   "path": "archive/v9/generation/round1/N_09.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_09.json",
-   "sha256": "415d1056b686907852322152295ba6c83555e704b0823b94fe1b8dc1c6ae0777",
-   "bytes": 611
-  },
-  {
-   "path": "archive/v9/generation/round1/N_10.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_10.json",
-   "sha256": "e68c2a6cbf99c74e656e50ddceea7554d72f2875f5820202b20f03c49a3553ad",
-   "bytes": 618
-  },
-  {
-   "path": "archive/v9/generation/round1/W_01.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_01.json",
-   "sha256": "52e9b990fd9b29205030445c35cfb89b47d64f4ca2e51dc2491b82da3a6f6097",
-   "bytes": 637
-  },
-  {
-   "path": "archive/v9/generation/round1/W_02.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_02.json",
-   "sha256": "0c8dcfda33ab6b0d9d4bd36b51e5ec0137d45505fa62e7ad2d839bde89e5e37f",
-   "bytes": 671
-  },
-  {
-   "path": "archive/v9/generation/round1/W_03.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_03.json",
-   "sha256": "e308b47f9b7bc16665d099e953ca4d24a8b6ea3523061d73ef993a7ea64ce630",
-   "bytes": 671
-  },
-  {
-   "path": "archive/v9/generation/round1/W_04.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_04.json",
-   "sha256": "456bf4ed0a266ba8d89a9b656ae99566f073ba8bdc128f798d660d7aa605ab94",
-   "bytes": 622
-  },
-  {
-   "path": "archive/v9/generation/round1/W_05.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_05.json",
-   "sha256": "6f51214d9a1c7abfbe7bc0384f8ba8dd5c7be689c6f02931897d59dd5d5af514",
-   "bytes": 1939
-  },
-  {
-   "path": "archive/v9/generation/round1/W_06.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_06.json",
-   "sha256": "6bcbfa413dd807e006a8f1c452e7a08dde50be8855bcc0b73461e42c82ea2653",
-   "bytes": 653
-  },
-  {
-   "path": "archive/v9/generation/round1/W_07.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_07.json",
-   "sha256": "aa3a054f76fd32ab5739921392f192c649cbdfb79f37a16be1f993756b35dfea",
-   "bytes": 641
-  },
-  {
-   "path": "archive/v9/generation/round1/W_08.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_08.json",
-   "sha256": "f4b50b718cc8ce806517953c8650c9439dc8614b85d565b8933381694d4ef82f",
-   "bytes": 622
-  },
-  {
-   "path": "archive/v9/generation/round1/W_09.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_09.json",
-   "sha256": "f464edea72d1711e3bf25190f437a52b84de7d76fa70ff389ebb1ee14e4408c2",
-   "bytes": 691
-  },
-  {
-   "path": "archive/v9/generation/round1/W_10.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_10.json",
-   "sha256": "39e672c4a082490cba1ac922a8604ce5064d3851c29d6b46a8c063a7365a5511",
-   "bytes": 704
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_11.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_11.json",
-   "sha256": "5f9029797db825967d43fb7f7a94128286e2ae24b32004ae9c7871d20e166495",
-   "bytes": 330
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_12.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_12.json",
-   "sha256": "dc075b229ed16792451bceceefae6b03b96f620b9ffa9a808db3b1f9cc1aa393",
-   "bytes": 322
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_13.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_13.json",
-   "sha256": "d71499b219c3461a91a50201bdb09bc05e102bf481f5cf971603bdd60900794f",
-   "bytes": 349
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_14.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_14.json",
-   "sha256": "ebf8f57417b4821646d0ea65c91423d02ad8d5343f175cc25bb374d9307ceafe",
-   "bytes": 346
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_15.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_15.json",
-   "sha256": "e70a297e511b41c1e7a72198f252a882c72767d2e07681b579db0245a01d97fa",
-   "bytes": 442
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_16.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_16.json",
-   "sha256": "e83dbbb942cd83847d1c53168d4e3641b10e58d9d0905500b4486b88f86d0d97",
-   "bytes": 443
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_17.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_17.json",
-   "sha256": "8b98aaf3570b2f305f95a5734bbf3938c9a97ed4e97f0df8ed87b8a83549ab27",
-   "bytes": 342
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_18.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_18.json",
-   "sha256": "4656fa93ec2a745f4d828f8e686f8f9cb76ea232726023da27518eb7fd3f39ab",
-   "bytes": 343
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_19.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_19.json",
-   "sha256": "f67d49549cd806879551d28d0ff140ac16978b1bcad91a5ebe7422d9398f9805",
-   "bytes": 354
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_20.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_20.json",
-   "sha256": "d6c52ae6abdf1ccf86373c5b482594f3e2cdd159b3e3020dde5395b53c330ee3",
-   "bytes": 350
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_21.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_21.json",
-   "sha256": "19d4d33fef55127834c2ff0220ca08c47e62bcb2d91e6e0b05af5878927c1b17",
-   "bytes": 622
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_22.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_22.json",
-   "sha256": "f43cb387003e2dd747e54c1e2c41eec7435bbc1325852c639c36e849502233c7",
-   "bytes": 374
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_23.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_23.json",
-   "sha256": "6fb8bb8292ecc99a607d600285f2a7db497bf73a9f4d2aafa6ab17fcfe3cf639",
-   "bytes": 340
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_24.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_24.json",
-   "sha256": "d2dd5b12dc00411fcfb4ded77d4db92952386d4a828d2275908cb076488173f7",
-   "bytes": 365
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_25.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_25.json",
-   "sha256": "6ae985ccb7544752013dca59250c79dfce59e9b78ebb2b62925f5567e577b65d",
-   "bytes": 351
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_26.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_26.json",
-   "sha256": "109cab164afa646c9bce323d28b02ae989b5243b3ee2469327b3719e095c5dc5",
-   "bytes": 463
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_27.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_27.json",
-   "sha256": "d79663918cf25c1f6ffdd9bca5a0df780b3084442e75b860b1a4fa7338d76eac",
-   "bytes": 609
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_28.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_28.json",
-   "sha256": "e7af5abb134eee129c840eb8ea0626f672b2c227aa6d3d357efbc01e1bf36275",
-   "bytes": 330
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_29.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_29.json",
-   "sha256": "4c875bccab62763a5f05cde25c2d8369c61bddaed6a91916efa40acfc94af28c",
-   "bytes": 336
-  },
-  {
-   "path": "archive/v9/generation/amendment2/F_30.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_30.json",
-   "sha256": "d642e52f590f6019dd4b7fbc52144bb3f97d5878964970bfb51f991fc75bddff",
-   "bytes": 340
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_11.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_11.json",
-   "sha256": "8408e9ab2e85e30864b23a6390982d119fe1c39bbe2a0cd8366cb752ab951f78",
-   "bytes": 318
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_12.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_12.json",
-   "sha256": "b58286d4975db5feb1e0b7cfd5e979bd0fdf785257432fd3311a843a73301028",
-   "bytes": 350
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_13.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_13.json",
-   "sha256": "b031ec06f059d53798e108401d0ce5f7633f573719000b1f329fc22f49852baf",
-   "bytes": 325
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_14.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_14.json",
-   "sha256": "4547388cd98cf2c4b8a525329d25017017c9a94aa41a8952201ec57ef1023597",
-   "bytes": 356
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_15.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_15.json",
-   "sha256": "238df0077e83810a40aecf7bfca23cd6f399b71771857cb92a10c8fe6c79de05",
-   "bytes": 330
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_16.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_16.json",
-   "sha256": "74c5354da3eccc2e907690fdd9ce7c1fb9015b7e0a4aaf8823a23122e6ae4893",
-   "bytes": 347
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_17.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_17.json",
-   "sha256": "eee4da18caa8bf989538c761370c79ef6f5a7e5a77d0ab2f5e891b1c1d5d98d9",
-   "bytes": 327
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_18.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_18.json",
-   "sha256": "1da3c8cee7ce028973fcbbded249f95bc6e7575592e8f92dfe83bc356effcb8d",
-   "bytes": 337
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_19.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_19.json",
-   "sha256": "7688261eaad53db60d26f24d14452a86abb354d1192c927b7ddd2b26a57042df",
-   "bytes": 351
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_20.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_20.json",
-   "sha256": "1e77fd6415d78fb768977861cfbfe2f29c2b32b8b47a2e73eb1adf716687e1ea",
-   "bytes": 377
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_21.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_21.json",
-   "sha256": "303ab2cbe4d90e40ba95cdfc1f0335905cd085da8efd0a22262fd246d32a3432",
-   "bytes": 320
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_22.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_22.json",
-   "sha256": "ac2a29900af01a84f3b03cb63ba0fb7dabb91b00fb263c40781943d89d961b02",
-   "bytes": 317
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_23.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_23.json",
-   "sha256": "e7a48bb37cec2256eba36450d572b53706c227c496ad9bd5ca0dc662a8fbf292",
-   "bytes": 335
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_24.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_24.json",
-   "sha256": "248e979bbd0e26172233972c0bf8ad26912dc00ba914c671898f4b157c29c09e",
-   "bytes": 336
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_25.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_25.json",
-   "sha256": "0c7652422400b225968bb86247787a31ce41900c38de5a3a82a47b34046cfa31",
-   "bytes": 355
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_26.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_26.json",
-   "sha256": "0b4d6c4e6989c3fb989c767bb575c5cf7f5bb9d8001aedc56be40bf74121de6a",
-   "bytes": 340
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_27.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_27.json",
-   "sha256": "88d199cd9e2bc8a1b04fde126f0d0fa7db2be1b90aa13a559edf80ab869bb4a0",
-   "bytes": 345
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_28.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_28.json",
-   "sha256": "abe3c8712880cc655db90c42e061de1f2f241e014a2a481b5d497190a95d65a3",
-   "bytes": 345
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_29.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_29.json",
-   "sha256": "dc652ed529f0c8d7e619f0571d33e276a16f2dc7586732b93a936e4fee2e757a",
-   "bytes": 355
-  },
-  {
-   "path": "archive/v9/generation/amendment2/N_30.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_30.json",
-   "sha256": "06ba53237a5684d5c543fd7f0766f120427bba91421283ad21d296fbae9c5aff",
-   "bytes": 337
-  },
-  {
-   "path": "archive/v9/figures/v9_x0_effects.png",
-   "source": "redrawn for the archive (2026-11-02) from tables/X0_RESULT.json",
-   "sha256": "866ee4cee35f19f6a6280a08e92a4add065fa6a4d182ec413288cd31080fd354",
-   "bytes": 76869
-  },
-  {
-   "path": "archive/v9/figures/v9_x0_effects.pdf",
-   "source": "redrawn for the archive (2026-11-02) from tables/X0_RESULT.json",
-   "sha256": "7e13cc8212317b08878b5e16e7c698606b2845c7eb263d7633cb569ae093a712",
-   "bytes": 21275
-  },
-  {
-   "path": "archive/v9/figures/v9_x0_items.png",
-   "source": "redrawn for the archive (2026-11-02) from tables/X0_trials.csv",
-   "sha256": "b330aa71a0d1e01a2a37bd564da45cafd886cf366040d1ad3946a84d13c8af84",
-   "bytes": 80384
-  },
-  {
-   "path": "archive/v9/figures/v9_x0_items.pdf",
-   "source": "redrawn for the archive (2026-11-02) from tables/X0_trials.csv",
-   "sha256": "85268d037d19ae15bd321acca2d8872dc5452588ca7a53fd1948b701b8228229",
-   "bytes": 20448
-  },
-  {
-   "path": "archive/v9/figures/v9_x0_direct_attribution.png",
-   "source": "redrawn for the archive (2026-11-02) from tables/X0_DIRECT_ATTRIBUTION.json",
-   "sha256": "aec6f0fdee424b57f49a7e79d2d166d72c941c7c4d29327560a50cb63a435cef",
-   "bytes": 71024
-  },
-  {
-   "path": "archive/v9/figures/v9_x0_direct_attribution.pdf",
-   "source": "redrawn for the archive (2026-11-02) from tables/X0_DIRECT_ATTRIBUTION.json",
-   "sha256": "797c727cc5cee5c9d86316f856046ca006d00d7fcd7fc225033dcf90d626f978",
-   "bytes": 17844
-  },
-  {
-   "path": "archive/v9/figures/v9_input_gate.png",
-   "source": "redrawn for the archive (2026-11-02) from generation/round1/*.json; protocol/INPUT_GATE_amendment2.json; protocol/INDEPENDENT_INPUT_REVIEW.json",
-   "sha256": "89e6c6c82e9d06981f212a30100e09dd7865c88a57c4f9ac262070f6c6a96916",
-   "bytes": 87267
-  },
-  {
-   "path": "archive/v9/figures/v9_input_gate.pdf",
-   "source": "redrawn for the archive (2026-11-02) from generation/round1/*.json; protocol/INPUT_GATE_amendment2.json; protocol/INDEPENDENT_INPUT_REVIEW.json",
-   "sha256": "085071e735c98558b26a3edadad3876b045ad62a9b5433cb85463450b84cc9ff",
-   "bytes": 19585
-  },
-  {
-   "path": "archive/v9/tables/x0_item_level_order_averaged.csv",
-   "source": "redrawn for the archive (2026-11-02) from tables/X0_trials.csv (order-averaged per item)",
-   "sha256": "935dd03c1ab07c25778f2f871f5bd038e0bd1feddd42126beab578a47efb0d94",
-   "bytes": 10117
-  },
-  {
-   "path": "archive/v9/tables/x0_direct_attribution_by_layer.csv",
-   "source": "redrawn for the archive (2026-11-02) from tables/X0_DIRECT_ATTRIBUTION.json (mean, sd, n per layer)",
-   "sha256": "f18f6bd2ba2c61cc5456ccb84c83bea68425f4661bea515a1f3c8e735c41979f",
-   "bytes": 1344
-  },
-  {
-   "path": "archive/v9/tables/generation_round1_lengths.csv",
-   "source": "redrawn for the archive (2026-11-02) from generation/round1/*.json",
-   "sha256": "5732df7d1adcccd1a54c3807c1089943c4af6ab45d8b9c78132e4aea4a342954",
-   "bytes": 539
-  }
- ]
+  "version": "v9",
+  "created": "2026-11-02",
+  "note": "Copied read-only from iCloud via staging; derived files marked as redrawn.",
+  "files": [
+    {
+      "path": "archive/v9/reports/FINAL_REPORT_EN_amendment2.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/07_reports/FINAL_REPORT_EN.md",
+      "sha256": "d884f6aa0b140e38bab3c134fa9984eca728505f760869a65ea3438cfaac82b1",
+      "bytes": 1997
+    },
+    {
+      "path": "archive/v9/reports/FINAL_REPORT_KO_v3_amendment2.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/07_reports/FINAL_REPORT_KO_v3.md",
+      "sha256": "f8284f9dce54a53849eaad0ebcc87a799b147cbeeb86fa81899edb2131b5aad7",
+      "bytes": 4992
+    },
+    {
+      "path": "archive/v9/reports/README_amendment2.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/README.md",
+      "sha256": "2419cbed9fff1261e013203d1898a31304efd5a8c468b0f81fce917e2dcb8f29",
+      "bytes": 2433
+    },
+    {
+      "path": "archive/v9/reports/X1_INPUT_GATE_FAILED.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/X1_INPUT_GATE_FAILED.md",
+      "sha256": "6f044d915ff077b5d0f15d5739661103a9445968c41898b92fef3bc5ce731d20",
+      "bytes": 866
+    },
+    {
+      "path": "archive/v9/reports/X1_GATE_amendment2.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/X1_GATE.md",
+      "sha256": "20cc03d7827a6153e0c9bd9c35c176804a65613db070a4145ebc66ef7b1f0f1d",
+      "bytes": 311
+    },
+    {
+      "path": "archive/v9/reports/X1_GATE_round1.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/X1_GATE.md",
+      "sha256": "0f3576303869517d58bcf924205206fe05bb170bf123ece719dd9a165417d9ed",
+      "bytes": 191
+    },
+    {
+      "path": "archive/v9/reports/FINAL_REPORT_v9_v2_round1.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/FINAL_REPORT_v9_v2.md",
+      "sha256": "afef55795748cbca9015cc7b07130bcf075ed13399823b257dc77314dea58051",
+      "bytes": 3422
+    },
+    {
+      "path": "archive/v9/reports/FINAL_REPORT_attempt1_preflight.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/00_attempt1_memory_release_race/FINAL_REPORT_v9.md",
+      "sha256": "bba3ab41e9cb4ccaf00f53ab507e35e792d41dc2b60ba24394d7889c27b1701e",
+      "bytes": 1738
+    },
+    {
+      "path": "archive/v9/reports/CHANGELOG_pro.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/CHANGELOG.md",
+      "sha256": "90a7a82d943475a617f399bcc2517f0f28e52199ca92305f742dfa5363238cc6",
+      "bytes": 2799
+    },
+    {
+      "path": "archive/v9/reports/air_FINAL_REPORT_v9.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/FINAL_REPORT_v9.md",
+      "sha256": "12a808fc337afd0fc1651c9c1105fd56d540b7535b513dd574631ddfd3955f86",
+      "bytes": 3870
+    },
+    {
+      "path": "archive/v9/reports/air_CROSS_DEVICE_SUMMARY.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/CROSS_DEVICE_SUMMARY.md",
+      "sha256": "e5ad0fddcd6ee4266648fcc2d9a719eb4766f4e16f41bf81b390105aff470e01",
+      "bytes": 4682
+    },
+    {
+      "path": "archive/v9/reports/air_NUMERICAL_DIAGNOSIS.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/04_numerical_diagnosis/NUMERICAL_DIAGNOSIS.md",
+      "sha256": "5db7562f50f82e64275b7bfbcab6fa0dc3d9f8a9929ed59c367c458bb682a95a",
+      "bytes": 3780
+    },
+    {
+      "path": "archive/v9/protocol/PREREG_v9.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/01_protocol/PREREG_v9.md",
+      "sha256": "b3fa7c7c966bd7b65a50b6b452e2a1037515c02397748b6936ad1adba81dd99d",
+      "bytes": 22532
+    },
+    {
+      "path": "archive/v9/protocol/PREREG_v9_AMENDMENT_1.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/01_protocol/PREREG_v9_AMENDMENT_1.md",
+      "sha256": "236f999bc15042a4c5cbf0b7ae80147f2df0196f495e3b171d5c2c11a239bc1c",
+      "bytes": 3513
+    },
+    {
+      "path": "archive/v9/protocol/PREREG_v9_AMENDMENT_2.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/PREREG_v9_AMENDMENT_2.md",
+      "sha256": "cda9e1a7013d03b1dbffcf2ffda026edf6c66ae99ca7de480ebcf742b04761f7",
+      "bytes": 2996
+    },
+    {
+      "path": "archive/v9/protocol/prompts_v9_x0.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/01_protocol/prompts_v9_x0.json",
+      "sha256": "262af6a5f2286707c970f2cecb249fc83a557d44d574f2eae1fb0266bae45fe9",
+      "bytes": 3308
+    },
+    {
+      "path": "archive/v9/protocol/prompts_v9_round1.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/01_protocol/prompts_v9.json",
+      "sha256": "1729b3d8b87ed86fced5fd2d4d84a4019782bacfd1e96fa22459aa0225d5a814",
+      "bytes": 12728
+    },
+    {
+      "path": "archive/v9/protocol/prompts_v9_amendment2.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/prompts_v9_amendment2.json",
+      "sha256": "0c95c2f0e8d900cd0bdf11c094ba252bda4f03123922ac099afe4d515762df7a",
+      "bytes": 13649
+    },
+    {
+      "path": "archive/v9/protocol/PROMPT_AUDIT_round1.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/01_protocol/PROMPT_AUDIT.json",
+      "sha256": "bc4047d2078d1e6d4eabd1758e156c636b36de585d38dafd622ebcbe6ae73317",
+      "bytes": 1501
+    },
+    {
+      "path": "archive/v9/protocol/AUDIT_RULES.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/01_protocol/AUDIT_RULES.json",
+      "sha256": "8576b52640ce0775cc12590d271e034ddbf478eec95ede2be1024df2eedcd2dc",
+      "bytes": 7871
+    },
+    {
+      "path": "archive/v9/protocol/AUDIT_REVIEW_v2_round1.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/07_reports/AUDIT_REVIEW_v2.json",
+      "sha256": "a837e2c74975aeaee433d8b2191fc75a19bd53c0f8e1e5f7f3b649f291632e85",
+      "bytes": 1618
+    },
+    {
+      "path": "archive/v9/protocol/INPUT_GATE_amendment2.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/INPUT_GATE.json",
+      "sha256": "6b6f918229400fd5184ecfafd0ea79ca820421d67887ff414c8709bffe22e753",
+      "bytes": 1276
+    },
+    {
+      "path": "archive/v9/protocol/INDEPENDENT_INPUT_REVIEW.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/INDEPENDENT_INPUT_REVIEW.json",
+      "sha256": "fae0c574c4cb6979417ec479478f83aec4ff54da8481862b3a5f0bf2edcb3310",
+      "bytes": 1665
+    },
+    {
+      "path": "archive/v9/protocol/ANSWER_AUDIT.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/ANSWER_AUDIT.json",
+      "sha256": "ca22ce560be385a1a8d22a7b0d6416a8262ef2c2309027834edd53d01a78f740",
+      "bytes": 33486
+    },
+    {
+      "path": "archive/v9/protocol/AUDIT_REASON_COUNTS.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/AUDIT_REASON_COUNTS.json",
+      "sha256": "93ea21f42043a8c1a474622a2a274c55ea9cb84cb03a7918efe32b558a1da8d5",
+      "bytes": 464
+    },
+    {
+      "path": "archive/v9/protocol/RAW_ANSWER_MANIFEST.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/01_protocol/RAW_ANSWER_MANIFEST.json",
+      "sha256": "20296cc02e2ddd27249d2639e0955f6e3c979687e6e4adc68a80fd2536c8ab9e",
+      "bytes": 24644
+    },
+    {
+      "path": "archive/v9/protocol/generation.py",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/02_code/generation.py",
+      "sha256": "94b99892394cd3e4509513f9f93232d3007592bc542b465154d21de56a1732de",
+      "bytes": 10035
+    },
+    {
+      "path": "archive/v9/tables/X0_RESULT.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/04_X0/RESULT.json",
+      "sha256": "a109c8f289a065febc33ab20c41b06e553d69a2b5f1e89651d2cb726c4ec4638",
+      "bytes": 2073
+    },
+    {
+      "path": "archive/v9/tables/X0_trials.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/04_X0/trials.csv",
+      "sha256": "373053e1abd1a3f78d4fede2a5d55908a7b52f7ecc024b113bdb590738f1e3dc",
+      "bytes": 291255
+    },
+    {
+      "path": "archive/v9/tables/X0_DIRECT_ATTRIBUTION.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/04_X0/DIRECT_ATTRIBUTION.json",
+      "sha256": "9ae1fdcf00a0a1e0c5ebc6e182a5bce670b737ecdeed13545f53c789ffb9ee26",
+      "bytes": 243027
+    },
+    {
+      "path": "archive/v9/tables/INDEPENDENT_X0_NUMBERS.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/07_reports/INDEPENDENT_X0_NUMBERS.json",
+      "sha256": "4ca35a9b491569ef8234629eeff2ffdb1272d486a3f2cdfef8d7676dd96b46ee",
+      "bytes": 1249
+    },
+    {
+      "path": "archive/v9/tables/FINAL_QA_v2_amendment2.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/07_reports/FINAL_QA_v2.json",
+      "sha256": "7941c5e2702f592c2d8464fd3258b91315459cbda7687c6aa032a21efd886dbe",
+      "bytes": 860
+    },
+    {
+      "path": "archive/v9/tables/TERMINAL_amendment2.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/TERMINAL.json",
+      "sha256": "bfd6623a1a6957faaac2b61f3041209a1f71dc084589e1655fb9f4e271609159",
+      "bytes": 137
+    },
+    {
+      "path": "archive/v9/tables/V9_TERMINAL_round1.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/V9_TERMINAL.json",
+      "sha256": "22378132db6521e80f812d06f524b4906a72adb9a6dba6b4e3a04b2c27be773d",
+      "bytes": 125
+    },
+    {
+      "path": "archive/v9/tables/pro_preflight_reproduction.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/00_preflight/reproduction.csv",
+      "sha256": "4fafa49611553bd858efbf4fb429fe5506a72413f38dff67be8217c88d25842a",
+      "bytes": 3188
+    },
+    {
+      "path": "archive/v9/tables/pro_preflight_BENCHMARK.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/00_preflight/BENCHMARK.json",
+      "sha256": "0754dcc3b9531a2d709f3eeccaf7d1dcb9786703202c946089892a24ba7a2f7d",
+      "bytes": 1279
+    },
+    {
+      "path": "archive/v9/tables/pro_record_baseline.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/00_preflight/record_baseline.json",
+      "sha256": "73d04e8c47f7f65734e13b4f8b0f78122231480aedb34f9eb337a5ea84c1b77d",
+      "bytes": 118
+    },
+    {
+      "path": "archive/v9/tables/air_DIAGNOSTIC_COMPARISON.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/04_numerical_diagnosis/DIAGNOSTIC_COMPARISON.csv",
+      "sha256": "f51bb06cdda5f7e239ed0422ed7c368e11b187a611c4856b9671768787a8e550",
+      "bytes": 2631
+    },
+    {
+      "path": "archive/v9/tables/air_DIAGNOSIS_SUMMARY.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/04_numerical_diagnosis/DIAGNOSIS_SUMMARY.json",
+      "sha256": "57d0092b2322e6754f8ffd7af5a082e410ff2af2a35224fe2a47a6d31413fbaf",
+      "bytes": 1798
+    },
+    {
+      "path": "archive/v9/tables/air_preflight_reproduction.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/03_preflight_retry/reproduction.csv",
+      "sha256": "2a39485f21e1da64b628ebb43c92c2ee57c6b6ab87069efbc767a01aebbfa777",
+      "bytes": 445
+    },
+    {
+      "path": "archive/v9/tables/air_STATUS.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_20261031/STATUS.json",
+      "sha256": "78364b3441427d275f7d65ad3983f8b28c20fc07d5d9f0b736c16cde39ebae45",
+      "bytes": 4241
+    },
+    {
+      "path": "archive/v9/generation/round1/C_01.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_01.json",
+      "sha256": "f527ecf9d6c96acd162d74fe3ccd5b439d0a890f64c9e4048620d87f6670656d",
+      "bytes": 1061
+    },
+    {
+      "path": "archive/v9/generation/round1/C_02.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_02.json",
+      "sha256": "a0190005c2cbfac4f2a27b9947b15e5423c3c9f59e0b249197460fcce2381595",
+      "bytes": 705
+    },
+    {
+      "path": "archive/v9/generation/round1/C_03.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_03.json",
+      "sha256": "264b727ccb2d296cf8747150486e538e960134e1fe5655563de6a3e12bedf4e5",
+      "bytes": 680
+    },
+    {
+      "path": "archive/v9/generation/round1/C_04.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_04.json",
+      "sha256": "cdd96e06e64499e5c20104b4db18b32faa9b94f0b032a401115d7ffdccfc9cad",
+      "bytes": 801
+    },
+    {
+      "path": "archive/v9/generation/round1/C_05.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_05.json",
+      "sha256": "4d27bfbc2b1b9b2826d042b79b24da4b833ba5e8be96a639d332cb46e980a635",
+      "bytes": 1112
+    },
+    {
+      "path": "archive/v9/generation/round1/C_06.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_06.json",
+      "sha256": "5b76dd272af9614e84880d964fb671e39bd4204dd153924328b296daeb4b8b40",
+      "bytes": 640
+    },
+    {
+      "path": "archive/v9/generation/round1/C_07.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_07.json",
+      "sha256": "73c8862200f4a60d2d3925a0147886b49a11b6715d67c8ce214e581868033d44",
+      "bytes": 657
+    },
+    {
+      "path": "archive/v9/generation/round1/C_08.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_08.json",
+      "sha256": "17457f2a5df9cc658575c7e87ed03e9db32c76c2dbd62827a9dcc116ce1cddd8",
+      "bytes": 705
+    },
+    {
+      "path": "archive/v9/generation/round1/C_09.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_09.json",
+      "sha256": "957d87b2ef85441911a6035867383c520f5c1226b4c722675d601f0c5b4ef9f5",
+      "bytes": 634
+    },
+    {
+      "path": "archive/v9/generation/round1/C_10.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/C_10.json",
+      "sha256": "e06efc103eba2dd4e22ac7427d45adfe32b6f4cbd4424a376a473ae34334f5cd",
+      "bytes": 676
+    },
+    {
+      "path": "archive/v9/generation/round1/F_01.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_01.json",
+      "sha256": "495332933ec2274f9ce4dbb48d0047d048fb38b2cc3dd9ed6c29c4900c355568",
+      "bytes": 641
+    },
+    {
+      "path": "archive/v9/generation/round1/F_02.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_02.json",
+      "sha256": "ff84871cd457ff4b9a6e08ae86d95e9360dbfab2e1f919620906183635f24913",
+      "bytes": 613
+    },
+    {
+      "path": "archive/v9/generation/round1/F_03.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_03.json",
+      "sha256": "30e4e299700fed5b78913eb39ef265bef852956d80312525f755bc2ca5074640",
+      "bytes": 931
+    },
+    {
+      "path": "archive/v9/generation/round1/F_04.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_04.json",
+      "sha256": "78aa1d1e7b798ae85644d9bcb064a75be52a0154a0aa40bf30cdb0789cfc0dcc",
+      "bytes": 616
+    },
+    {
+      "path": "archive/v9/generation/round1/F_05.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_05.json",
+      "sha256": "0dd9d7320519d6b4e31273d1bf8fe4c6f5ad2a6e0759e88f73e5f418394c21fe",
+      "bytes": 615
+    },
+    {
+      "path": "archive/v9/generation/round1/F_06.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_06.json",
+      "sha256": "1a5c78d2f479fb443ab27079a52805751a69dd4323b0b23922efd9dafcd6e24a",
+      "bytes": 674
+    },
+    {
+      "path": "archive/v9/generation/round1/F_07.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_07.json",
+      "sha256": "c23f1434c605876828993eb4d500552b6c1c8102bd180627833b08a97a2fda89",
+      "bytes": 652
+    },
+    {
+      "path": "archive/v9/generation/round1/F_08.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_08.json",
+      "sha256": "9d7fc719eafc733556a271681e88c49382ad595afe7da21470d08faa25df14d3",
+      "bytes": 752
+    },
+    {
+      "path": "archive/v9/generation/round1/F_09.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_09.json",
+      "sha256": "653ce8d53df5f416318a233f41d7a7c973706dd9ff7e44ccffbeaefe9c4c1615",
+      "bytes": 676
+    },
+    {
+      "path": "archive/v9/generation/round1/F_10.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/F_10.json",
+      "sha256": "f1965c395f6e2dcc181ffb74f1ac6a4fbd3fcbc509d03c70307d84d4fe78fec9",
+      "bytes": 817
+    },
+    {
+      "path": "archive/v9/generation/round1/N_01.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_01.json",
+      "sha256": "8ebb1a508ddd1c278b20279b7734bba8c483269232ec9a51792340445ab5f4a9",
+      "bytes": 660
+    },
+    {
+      "path": "archive/v9/generation/round1/N_02.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_02.json",
+      "sha256": "b6c22bf538ee37e0b9ea645b099a5edfe59bcf6754719f1baa223a5c36980d69",
+      "bytes": 627
+    },
+    {
+      "path": "archive/v9/generation/round1/N_03.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_03.json",
+      "sha256": "31209ef1cc6682d818f63fe84f566f570cfe82b57c35eb613adca364748f1344",
+      "bytes": 628
+    },
+    {
+      "path": "archive/v9/generation/round1/N_04.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_04.json",
+      "sha256": "f2f1ff2bc9a4f3cab0a6211551891fcd3cc18df1f90fe2eaa26eed37026cab8a",
+      "bytes": 676
+    },
+    {
+      "path": "archive/v9/generation/round1/N_05.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_05.json",
+      "sha256": "6acb1c3815cbcdffe8c6aa10a31fc8fd75803a78da928ad98fdea112b6009d67",
+      "bytes": 648
+    },
+    {
+      "path": "archive/v9/generation/round1/N_06.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_06.json",
+      "sha256": "739ba8d64dbdab87a595d6482cc99445d5d19489ea02c25c441959474b0171f1",
+      "bytes": 642
+    },
+    {
+      "path": "archive/v9/generation/round1/N_07.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_07.json",
+      "sha256": "9e8a195afcc664a27b9e461ee02ecf720604e6199f28efd8cf0f11fe7e7e51eb",
+      "bytes": 648
+    },
+    {
+      "path": "archive/v9/generation/round1/N_08.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_08.json",
+      "sha256": "9b8ff7dea3b7678b4a11f3525ed5edeaef49505220c57de33cb947c66c9641b6",
+      "bytes": 642
+    },
+    {
+      "path": "archive/v9/generation/round1/N_09.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_09.json",
+      "sha256": "415d1056b686907852322152295ba6c83555e704b0823b94fe1b8dc1c6ae0777",
+      "bytes": 611
+    },
+    {
+      "path": "archive/v9/generation/round1/N_10.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/N_10.json",
+      "sha256": "e68c2a6cbf99c74e656e50ddceea7554d72f2875f5820202b20f03c49a3553ad",
+      "bytes": 618
+    },
+    {
+      "path": "archive/v9/generation/round1/W_01.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_01.json",
+      "sha256": "52e9b990fd9b29205030445c35cfb89b47d64f4ca2e51dc2491b82da3a6f6097",
+      "bytes": 637
+    },
+    {
+      "path": "archive/v9/generation/round1/W_02.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_02.json",
+      "sha256": "0c8dcfda33ab6b0d9d4bd36b51e5ec0137d45505fa62e7ad2d839bde89e5e37f",
+      "bytes": 671
+    },
+    {
+      "path": "archive/v9/generation/round1/W_03.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_03.json",
+      "sha256": "e308b47f9b7bc16665d099e953ca4d24a8b6ea3523061d73ef993a7ea64ce630",
+      "bytes": 671
+    },
+    {
+      "path": "archive/v9/generation/round1/W_04.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_04.json",
+      "sha256": "456bf4ed0a266ba8d89a9b656ae99566f073ba8bdc128f798d660d7aa605ab94",
+      "bytes": 622
+    },
+    {
+      "path": "archive/v9/generation/round1/W_05.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_05.json",
+      "sha256": "6f51214d9a1c7abfbe7bc0384f8ba8dd5c7be689c6f02931897d59dd5d5af514",
+      "bytes": 1939
+    },
+    {
+      "path": "archive/v9/generation/round1/W_06.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_06.json",
+      "sha256": "6bcbfa413dd807e006a8f1c452e7a08dde50be8855bcc0b73461e42c82ea2653",
+      "bytes": 653
+    },
+    {
+      "path": "archive/v9/generation/round1/W_07.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_07.json",
+      "sha256": "aa3a054f76fd32ab5739921392f192c649cbdfb79f37a16be1f993756b35dfea",
+      "bytes": 641
+    },
+    {
+      "path": "archive/v9/generation/round1/W_08.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_08.json",
+      "sha256": "f4b50b718cc8ce806517953c8650c9439dc8614b85d565b8933381694d4ef82f",
+      "bytes": 622
+    },
+    {
+      "path": "archive/v9/generation/round1/W_09.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_09.json",
+      "sha256": "f464edea72d1711e3bf25190f437a52b84de7d76fa70ff389ebb1ee14e4408c2",
+      "bytes": 691
+    },
+    {
+      "path": "archive/v9/generation/round1/W_10.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/03_generation/W_10.json",
+      "sha256": "39e672c4a082490cba1ac922a8604ce5064d3851c29d6b46a8c063a7365a5511",
+      "bytes": 704
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_11.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_11.json",
+      "sha256": "5f9029797db825967d43fb7f7a94128286e2ae24b32004ae9c7871d20e166495",
+      "bytes": 330
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_12.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_12.json",
+      "sha256": "dc075b229ed16792451bceceefae6b03b96f620b9ffa9a808db3b1f9cc1aa393",
+      "bytes": 322
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_13.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_13.json",
+      "sha256": "d71499b219c3461a91a50201bdb09bc05e102bf481f5cf971603bdd60900794f",
+      "bytes": 349
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_14.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_14.json",
+      "sha256": "ebf8f57417b4821646d0ea65c91423d02ad8d5343f175cc25bb374d9307ceafe",
+      "bytes": 346
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_15.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_15.json",
+      "sha256": "e70a297e511b41c1e7a72198f252a882c72767d2e07681b579db0245a01d97fa",
+      "bytes": 442
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_16.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_16.json",
+      "sha256": "e83dbbb942cd83847d1c53168d4e3641b10e58d9d0905500b4486b88f86d0d97",
+      "bytes": 443
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_17.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_17.json",
+      "sha256": "8b98aaf3570b2f305f95a5734bbf3938c9a97ed4e97f0df8ed87b8a83549ab27",
+      "bytes": 342
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_18.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_18.json",
+      "sha256": "4656fa93ec2a745f4d828f8e686f8f9cb76ea232726023da27518eb7fd3f39ab",
+      "bytes": 343
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_19.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_19.json",
+      "sha256": "f67d49549cd806879551d28d0ff140ac16978b1bcad91a5ebe7422d9398f9805",
+      "bytes": 354
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_20.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_20.json",
+      "sha256": "d6c52ae6abdf1ccf86373c5b482594f3e2cdd159b3e3020dde5395b53c330ee3",
+      "bytes": 350
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_21.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_21.json",
+      "sha256": "19d4d33fef55127834c2ff0220ca08c47e62bcb2d91e6e0b05af5878927c1b17",
+      "bytes": 622
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_22.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_22.json",
+      "sha256": "f43cb387003e2dd747e54c1e2c41eec7435bbc1325852c639c36e849502233c7",
+      "bytes": 374
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_23.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_23.json",
+      "sha256": "6fb8bb8292ecc99a607d600285f2a7db497bf73a9f4d2aafa6ab17fcfe3cf639",
+      "bytes": 340
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_24.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_24.json",
+      "sha256": "d2dd5b12dc00411fcfb4ded77d4db92952386d4a828d2275908cb076488173f7",
+      "bytes": 365
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_25.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_25.json",
+      "sha256": "6ae985ccb7544752013dca59250c79dfce59e9b78ebb2b62925f5567e577b65d",
+      "bytes": 351
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_26.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_26.json",
+      "sha256": "109cab164afa646c9bce323d28b02ae989b5243b3ee2469327b3719e095c5dc5",
+      "bytes": 463
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_27.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_27.json",
+      "sha256": "d79663918cf25c1f6ffdd9bca5a0df780b3084442e75b860b1a4fa7338d76eac",
+      "bytes": 609
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_28.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_28.json",
+      "sha256": "e7af5abb134eee129c840eb8ea0626f672b2c227aa6d3d357efbc01e1bf36275",
+      "bytes": 330
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_29.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_29.json",
+      "sha256": "4c875bccab62763a5f05cde25c2d8369c61bddaed6a91916efa40acfc94af28c",
+      "bytes": 336
+    },
+    {
+      "path": "archive/v9/generation/amendment2/F_30.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/F_30.json",
+      "sha256": "d642e52f590f6019dd4b7fbc52144bb3f97d5878964970bfb51f991fc75bddff",
+      "bytes": 340
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_11.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_11.json",
+      "sha256": "8408e9ab2e85e30864b23a6390982d119fe1c39bbe2a0cd8366cb752ab951f78",
+      "bytes": 318
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_12.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_12.json",
+      "sha256": "b58286d4975db5feb1e0b7cfd5e979bd0fdf785257432fd3311a843a73301028",
+      "bytes": 350
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_13.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_13.json",
+      "sha256": "b031ec06f059d53798e108401d0ce5f7633f573719000b1f329fc22f49852baf",
+      "bytes": 325
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_14.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_14.json",
+      "sha256": "4547388cd98cf2c4b8a525329d25017017c9a94aa41a8952201ec57ef1023597",
+      "bytes": 356
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_15.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_15.json",
+      "sha256": "238df0077e83810a40aecf7bfca23cd6f399b71771857cb92a10c8fe6c79de05",
+      "bytes": 330
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_16.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_16.json",
+      "sha256": "74c5354da3eccc2e907690fdd9ce7c1fb9015b7e0a4aaf8823a23122e6ae4893",
+      "bytes": 347
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_17.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_17.json",
+      "sha256": "eee4da18caa8bf989538c761370c79ef6f5a7e5a77d0ab2f5e891b1c1d5d98d9",
+      "bytes": 327
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_18.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_18.json",
+      "sha256": "1da3c8cee7ce028973fcbbded249f95bc6e7575592e8f92dfe83bc356effcb8d",
+      "bytes": 337
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_19.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_19.json",
+      "sha256": "7688261eaad53db60d26f24d14452a86abb354d1192c927b7ddd2b26a57042df",
+      "bytes": 351
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_20.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_20.json",
+      "sha256": "1e77fd6415d78fb768977861cfbfe2f29c2b32b8b47a2e73eb1adf716687e1ea",
+      "bytes": 377
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_21.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_21.json",
+      "sha256": "303ab2cbe4d90e40ba95cdfc1f0335905cd085da8efd0a22262fd246d32a3432",
+      "bytes": 320
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_22.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_22.json",
+      "sha256": "ac2a29900af01a84f3b03cb63ba0fb7dabb91b00fb263c40781943d89d961b02",
+      "bytes": 317
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_23.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_23.json",
+      "sha256": "e7a48bb37cec2256eba36450d572b53706c227c496ad9bd5ca0dc662a8fbf292",
+      "bytes": 335
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_24.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_24.json",
+      "sha256": "248e979bbd0e26172233972c0bf8ad26912dc00ba914c671898f4b157c29c09e",
+      "bytes": 336
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_25.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_25.json",
+      "sha256": "0c7652422400b225968bb86247787a31ce41900c38de5a3a82a47b34046cfa31",
+      "bytes": 355
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_26.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_26.json",
+      "sha256": "0b4d6c4e6989c3fb989c767bb575c5cf7f5bb9d8001aedc56be40bf74121de6a",
+      "bytes": 340
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_27.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_27.json",
+      "sha256": "88d199cd9e2bc8a1b04fde126f0d0fa7db2be1b90aa13a559edf80ab869bb4a0",
+      "bytes": 345
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_28.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_28.json",
+      "sha256": "abe3c8712880cc655db90c42e061de1f2f241e014a2a481b5d497190a95d65a3",
+      "bytes": 345
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_29.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_29.json",
+      "sha256": "dc652ed529f0c8d7e619f0571d33e276a16f2dc7586732b93a936e4fee2e757a",
+      "bytes": 355
+    },
+    {
+      "path": "archive/v9/generation/amendment2/N_30.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_v9_affect_vs_salience_PRO_20261031/AMENDMENT_2_20261031/03_generation/N_30.json",
+      "sha256": "06ba53237a5684d5c543fd7f0766f120427bba91421283ad21d296fbae9c5aff",
+      "bytes": 337
+    },
+    {
+      "path": "archive/v9/figures/v9_x0_effects.png",
+      "source": "redrawn for the archive (2026-11-02) from tables/X0_RESULT.json",
+      "sha256": "866ee4cee35f19f6a6280a08e92a4add065fa6a4d182ec413288cd31080fd354",
+      "bytes": 76869
+    },
+    {
+      "path": "archive/v9/figures/v9_x0_effects.pdf",
+      "source": "redrawn for the archive (2026-11-02) from tables/X0_RESULT.json",
+      "sha256": "7e13cc8212317b08878b5e16e7c698606b2845c7eb263d7633cb569ae093a712",
+      "bytes": 21275
+    },
+    {
+      "path": "archive/v9/figures/v9_x0_items.png",
+      "source": "redrawn for the archive (2026-11-02) from tables/X0_trials.csv",
+      "sha256": "b330aa71a0d1e01a2a37bd564da45cafd886cf366040d1ad3946a84d13c8af84",
+      "bytes": 80384
+    },
+    {
+      "path": "archive/v9/figures/v9_x0_items.pdf",
+      "source": "redrawn for the archive (2026-11-02) from tables/X0_trials.csv",
+      "sha256": "85268d037d19ae15bd321acca2d8872dc5452588ca7a53fd1948b701b8228229",
+      "bytes": 20448
+    },
+    {
+      "path": "archive/v9/figures/v9_x0_direct_attribution.png",
+      "source": "redrawn for the archive (2026-11-02) from tables/X0_DIRECT_ATTRIBUTION.json",
+      "sha256": "aec6f0fdee424b57f49a7e79d2d166d72c941c7c4d29327560a50cb63a435cef",
+      "bytes": 71024
+    },
+    {
+      "path": "archive/v9/figures/v9_x0_direct_attribution.pdf",
+      "source": "redrawn for the archive (2026-11-02) from tables/X0_DIRECT_ATTRIBUTION.json",
+      "sha256": "797c727cc5cee5c9d86316f856046ca006d00d7fcd7fc225033dcf90d626f978",
+      "bytes": 17844
+    },
+    {
+      "path": "archive/v9/figures/v9_input_gate.png",
+      "source": "redrawn for the archive (2026-11-02) from generation/round1/*.json; protocol/INPUT_GATE_amendment2.json; protocol/INDEPENDENT_INPUT_REVIEW.json",
+      "sha256": "89e6c6c82e9d06981f212a30100e09dd7865c88a57c4f9ac262070f6c6a96916",
+      "bytes": 87267
+    },
+    {
+      "path": "archive/v9/figures/v9_input_gate.pdf",
+      "source": "redrawn for the archive (2026-11-02) from generation/round1/*.json; protocol/INPUT_GATE_amendment2.json; protocol/INDEPENDENT_INPUT_REVIEW.json",
+      "sha256": "085071e735c98558b26a3edadad3876b045ad62a9b5433cb85463450b84cc9ff",
+      "bytes": 19585
+    },
+    {
+      "path": "archive/v9/tables/x0_item_level_order_averaged.csv",
+      "source": "redrawn for the archive (2026-11-02) from tables/X0_trials.csv (order-averaged per item)",
+      "sha256": "935dd03c1ab07c25778f2f871f5bd038e0bd1feddd42126beab578a47efb0d94",
+      "bytes": 10117
+    },
+    {
+      "path": "archive/v9/tables/x0_direct_attribution_by_layer.csv",
+      "source": "redrawn for the archive (2026-11-02) from tables/X0_DIRECT_ATTRIBUTION.json (mean, sd, n per layer)",
+      "sha256": "f18f6bd2ba2c61cc5456ccb84c83bea68425f4661bea515a1f3c8e735c41979f",
+      "bytes": 1344
+    },
+    {
+      "path": "archive/v9/tables/generation_round1_lengths.csv",
+      "source": "redrawn for the archive (2026-11-02) from generation/round1/*.json",
+      "sha256": "5732df7d1adcccd1a54c3807c1089943c4af6ab45d8b9c78132e4aea4a342954",
+      "bytes": 539
+    },
+    {
+      "file": "manuscript/stage_final_homepage_draft_20261031_ab94bbd.pdf",
+      "source": "Rendered on 2026-11-02 from git commit ab94bbd of deep1003.github.io (assets/research/emotion-induction-design/index.html), all details expanded, Chromium print to PDF",
+      "sha256": "8e1f16a07c5713202b4401d2d1f16191147702ad609f550eb777736cc3495b14"
+    }
+  ]
 }

@@ -1,1090 +1,1095 @@
 {
- "version": "v5",
- "created": "2026-11-02",
- "files": [
-  {
-   "path": "archive/v5/qwen/Qwen25_7B_v5_results_report_20261027.md",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/Qwen25_7B_v5_results_report_20261027.md",
-   "sha256": "46d31983b9a5dea0e9248afa1e495b53abea3db4f7723b6a73d28f045869bebd",
-   "bytes": 14661
-  },
-  {
-   "path": "archive/v5/qwen/figures/kobbq139_fig1_unknown.png",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/figures/kobbq139_fig1_unknown.png",
-   "sha256": "9cc5e222a7dfefc466d4ca6e643cca02769a901705f3b1360482e4aad35308d0",
-   "bytes": 30046
-  },
-  {
-   "path": "archive/v5/qwen/figures/kobbq139_fig2_contrasts.png",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/figures/kobbq139_fig2_contrasts.png",
-   "sha256": "3e8ecaf1c5249dfd5e7a90f0564f8c2bb0962d5a4c78da1f16b17101baf85b82",
-   "bytes": 66980
-  },
-  {
-   "path": "archive/v5/qwen/figures/kobbq139_fig3_axes.png",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/figures/kobbq139_fig3_axes.png",
-   "sha256": "9a51b0fd33bdda6316a3418658893c5c9c9d89e1514978ee0f534116dfdcb0dc",
-   "bytes": 96281
-  },
-  {
-   "path": "archive/v5/qwen/figures/kobbq139_supp_fig1_items.png",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/figures/kobbq139_supp_fig1_items.png",
-   "sha256": "eaee0d982a7905565643d8b092c8dc69e5e6d46773dcbf0d7a5d3e380820c774",
-   "bytes": 49807
-  },
-  {
-   "path": "archive/v5/qwen/figures/kobbq139_supp_fig2_t1_sentences.png",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/figures/kobbq139_supp_fig2_t1_sentences.png",
-   "sha256": "925341c521a642b7f99a6651ab605782f156316417a0e2c861ca3b7e74024161",
-   "bytes": 48694
-  },
-  {
-   "path": "archive/v5/qwen/figures/kobbq139_fig1_unknown.svg",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/Qwen25_7B_v5_results_20261027.zip:raw/kobbq/analysis/v5_fig1_unknown.svg",
-   "sha256": "74e9557f3d63a31dd71a391939b7152b378f9cd1f4023f094ef35db3c3ea6014",
-   "bytes": 21451
-  },
-  {
-   "path": "archive/v5/qwen/figures/kobbq139_fig2_contrasts.svg",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/Qwen25_7B_v5_results_20261027.zip:raw/kobbq/analysis/v5_fig2_contrasts.svg",
-   "sha256": "79d514fb66564ff0ccd0ffddebbb98253bdcb83457593fa6f636e56ec4520b5c",
-   "bytes": 38559
-  },
-  {
-   "path": "archive/v5/qwen/figures/kobbq139_fig3_axes.svg",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/Qwen25_7B_v5_results_20261027.zip:raw/kobbq/analysis/v5_fig3_axes.svg",
-   "sha256": "41ea3a66b803e3736f20acbca6dea125ed521b69fa8c0eddb8606e3666eb79d1",
-   "bytes": 66465
-  },
-  {
-   "path": "archive/v5/qwen/figures/kobbq139_supp_fig1_items.svg",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/Qwen25_7B_v5_results_20261027.zip:raw/kobbq/analysis/v5_supp_fig1_items.svg",
-   "sha256": "c8167f73f3117f91fe8bd4525fcab40cef25b5bc93ea56ae299f761fc69bce7f",
-   "bytes": 36902
-  },
-  {
-   "path": "archive/v5/qwen/figures/kobbq139_supp_fig2_t1_sentences.svg",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/Qwen25_7B_v5_results_20261027.zip:raw/kobbq/analysis/v5_supp_fig2_t1_sentences.svg",
-   "sha256": "d7db2c205179f6e3f5efbc84b78d99ce8445657522d8381332041a2e03684fa6",
-   "bytes": 29269
-  },
-  {
-   "path": "archive/v5/qwen/tables/controls.txt",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/controls.txt",
-   "sha256": "e5a70f6348cb4307df7e645a8534e4199d307de9f814431d6b04eb4e8ff4e258",
-   "bytes": 1050
-  },
-  {
-   "path": "archive/v5/qwen/tables/discrimeval_A_axes.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_A_axes.csv",
-   "sha256": "cbbf128e715c4c2292c8c7c9feebaee00f51dcc65bd03212ecbf2ba41eb3c611",
-   "bytes": 2766
-  },
-  {
-   "path": "archive/v5/qwen/tables/discrimeval_A_contrasts.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_A_contrasts.csv",
-   "sha256": "7451de86c0ccbb114a90dbb25b5fb68997187befe831698cd0c8b3ec295dacc0",
-   "bytes": 1022
-  },
-  {
-   "path": "archive/v5/qwen/tables/discrimeval_A_discrimination_scores.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_A_discrimination_scores.csv",
-   "sha256": "0836dbf6fde420717deca85b4c28aa6d74d2bcca41b77976b2843b978a6b1333",
-   "bytes": 1151
-  },
-  {
-   "path": "archive/v5/qwen/tables/discrimeval_A_means.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_A_means.csv",
-   "sha256": "0c92256f7fc7501efb63eedc0f25e61ae3fa5bc2de16e8c1562f9bd52018a027",
-   "bytes": 350
-  },
-  {
-   "path": "archive/v5/qwen/tables/discrimeval_B_contrasts.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_B_contrasts.csv",
-   "sha256": "f76a5ab7563b1dfe2a404c352e261e5b27e6e1ed816436413f44e4d05071a3e9",
-   "bytes": 272
-  },
-  {
-   "path": "archive/v5/qwen/tables/discrimeval_contrasts_both_scales.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_contrasts_both_scales.csv",
-   "sha256": "10f38c61a2dfa3478a68d72f870d1652a9c11818b3ce528a0436e84d0ac8f034",
-   "bytes": 1103
-  },
-  {
-   "path": "archive/v5/qwen/tables/discrimeval_summary.json",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_summary.json",
-   "sha256": "346a57b9bd2e3ef61047758b0d56307526eac8affc87d539d7d5fe78cc4b59e7",
-   "bytes": 476
-  },
-  {
-   "path": "archive/v5/qwen/tables/discrimeval_t1_contrasts.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_t1_contrasts.csv",
-   "sha256": "cd466d3f986ee5fda2686933228ef4e70c1806e7f1d82d5c00f4483bcfcbc968",
-   "bytes": 1301
-  },
-  {
-   "path": "archive/v5/qwen/tables/intervention_low_strength_addition.txt",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/intervention_low_strength_addition.txt",
-   "sha256": "53e02c41805512579773f9a3b411a3e507980e4c0ce177716961058523d60558",
-   "bytes": 534
-  },
-  {
-   "path": "archive/v5/qwen/tables/intervention_removal.txt",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/intervention_removal.txt",
-   "sha256": "5a43e56b90f76b17c739f9e2b5feee8825dfae830226ddf56054cabd644e31f9",
-   "bytes": 698
-  },
-  {
-   "path": "archive/v5/qwen/tables/intervention_transfer.txt",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/intervention_transfer.txt",
-   "sha256": "3444187ba1d5883d0f682372cf6b19a68f40b55a574ebc68436c97e43e60a733",
-   "bytes": 859
-  },
-  {
-   "path": "archive/v5/qwen/tables/kobbq139_category_behavior.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_category_behavior.csv",
-   "sha256": "702cc53cbbb100e798777d5379e3d63bb68825e75c7b08038a7ddce9fd32a2db",
-   "bytes": 1319
-  },
-  {
-   "path": "archive/v5/qwen/tables/kobbq139_category_correlations.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_category_correlations.csv",
-   "sha256": "95d3d37ed2bbf8301550e79999b315b8337a863842cc737994a7627344781932",
-   "bytes": 23373
-  },
-  {
-   "path": "archive/v5/qwen/tables/kobbq139_summary.json",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_summary.json",
-   "sha256": "caf882fcdb56e370b077a321ca8f112a3fbc2153be27183d2377a3c5a5f164c4",
-   "bytes": 296
-  },
-  {
-   "path": "archive/v5/qwen/tables/kobbq139_supp_category.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_supp_category.csv",
-   "sha256": "0d116603d7dcaf164b4950869eb1acef7dd879e838792956b51c554cf44c0863",
-   "bytes": 502
-  },
-  {
-   "path": "archive/v5/qwen/tables/kobbq139_supp_position.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_supp_position.csv",
-   "sha256": "e31a531e17b256c33e571deac620a961f856e77f3e0b940ddb8e7de56c625fa3",
-   "bytes": 123
-  },
-  {
-   "path": "archive/v5/qwen/tables/kobbq139_table1_conditions.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_table1_conditions.csv",
-   "sha256": "55547c95d95fcdcf5ca36a8d4f459aac4f7441d8aa033c2b77d9d3a8ebf6f21c",
-   "bytes": 287
-  },
-  {
-   "path": "archive/v5/qwen/tables/kobbq139_table2_contrasts.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_table2_contrasts.csv",
-   "sha256": "2170f525e824f4f5fbeee5b9ad310e33ff67f5f83b9597a01de3f866218c5f35",
-   "bytes": 629
-  },
-  {
-   "path": "archive/v5/qwen/tables/kobbq139_table3_axes.csv",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_table3_axes.csv",
-   "sha256": "5f7f72bdc96b1581cb6ed0f0f36a965dd9758755d5b581a57d877d2fcae855dc",
-   "bytes": 1828
-  },
-  {
-   "path": "archive/v5/qwen/tables/trajectory_output.txt",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/trajectory_output.txt",
-   "sha256": "0dbd6eb9cc48cce6a52c0e06197c8554979bde1c96eeb288e69f492376ca458e",
-   "bytes": 2160
-  },
-  {
-   "path": "archive/v5/qwen/code/analyze_ctrl56.py",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_ctrl56.py",
-   "sha256": "f9133b4384010ad526af9fcc96850ad37381a47fff992244c5ef0dd0308e3490",
-   "bytes": 2783
-  },
-  {
-   "path": "archive/v5/qwen/code/analyze_discrimeval.py",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_discrimeval.py",
-   "sha256": "bc2f4e5b155e4a993c4ec135dcf20592df7d0e189c013a1fed6f3c436a7871b9",
-   "bytes": 9223
-  },
-  {
-   "path": "archive/v5/qwen/code/analyze_kobbq.py",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_kobbq.py",
-   "sha256": "649ee082c1e68e97795b0fbebd3126475922e79474386bf32149b077fa47e77f",
-   "bytes": 10832
-  },
-  {
-   "path": "archive/v5/qwen/code/analyze_kobbq_category.py",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_kobbq_category.py",
-   "sha256": "f27ea6624c52a53ad034a79452fb95f1b72d16fec9243656feb9bdd6c9ee7be8",
-   "bytes": 4168
-  },
-  {
-   "path": "archive/v5/qwen/code/analyze_stage34.py",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_stage34.py",
-   "sha256": "00fa433725320bb56a714c8799bf3940558ac26b05ba4a97666e0cbde930ce41",
-   "bytes": 1976
-  },
-  {
-   "path": "archive/v5/qwen/code/analyze_trajectory.py",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_trajectory.py",
-   "sha256": "68f7b9e2be6d52250d6575d8679874a1bbe5398d637074a0f0d2e2808f90a77a",
-   "bytes": 2846
-  },
-  {
-   "path": "archive/v5/qwen/code/prob_contrasts.py",
-   "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/prob_contrasts.py",
-   "sha256": "d341fdd1c7fe30cd7e2ee6a0cb94915450812c5512f5b9eea9f4f45aa3b94f25",
-   "bytes": 1609
-  },
-  {
-   "path": "archive/v5/qwen/raw/discrimeval/A_trials.csv",
-   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/results_v5/A_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
-   "sha256": "232179f7d78440d99325687c3f069f4704cc34dd88a79bf0b6b146eb0f4b79ed",
-   "bytes": 910228,
-   "source_sha256": "7a30b36804cd56060b843dc738df845e9e04d475bd5b7f677e0a16668e6b24ac",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/qwen/raw/discrimeval/B_trials.csv",
-   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/results_v5/B_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
-   "sha256": "e30401747afeaf7719827064ef0f3d02c675ae8d69ecc816e562f8ff1cad3c09",
-   "bytes": 553939,
-   "source_sha256": "b91c4821399dc57fe3d86a9552f7c059e7e077c2b777bc0424d36475bf516699",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/qwen/raw/discrimeval/t1.csv",
-   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/results_v5/t1.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
-   "sha256": "501db3111f563c7cb205276cbbef6493bdd20f5b23ee2614473ba5c94b98d2e4",
-   "bytes": 3943,
-   "source_sha256": "ece8f2b1d77a2d93554218689277dbdc6db15a70c6613942189baa5304a11dcc",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/qwen/raw/ctrl/CTRL_trials.csv",
-   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage_ctrl/CTRL_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
-   "sha256": "1b93dfec1709c25fdf4e44d10b015c504ee4de395c50da51c478d244f9021c0e",
-   "bytes": 384844,
-   "source_sha256": "dcfbd1de5f0b7441f2599da9f1230f048ed0eb28ab1c29d402c1d34122347ce3",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/qwen/raw/traj/traj_segments.csv",
-   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage2_traj/traj_segments.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
-   "sha256": "c55ecc6d34602a9ed9bc2ef0e84335329930e577d7c831b4bc7c8c51d992c3ba",
-   "bytes": 226553,
-   "source_sha256": "ec8cf6526043907d438c9cd33053aa1dcfde0d5b5ecb7e4c6bfa9f3db0c825ac",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/qwen/raw/traj/traj_attention.csv",
-   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage2_traj/traj_attention.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
-   "sha256": "276001d1c9f9d46ad75bc9a31f0cdab42a1cef0897ac2f1fb477d37934678a0f",
-   "bytes": 535022
-  },
-  {
-   "path": "archive/v5/qwen/raw/ablate/ablate_trials.csv",
-   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage4_ablate/ablate_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
-   "sha256": "90ab27521b4ccb71a76f893ab62ba2239910a1323a94ca963814c35af940090e",
-   "bytes": 166431
-  },
-  {
-   "path": "archive/v5/qwen/raw/patch/patch_trials.csv",
-   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage6_patch/patch_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
-   "sha256": "41e163da73dcf79b3d7385c9abd22f4ee8aca104fd10df89273fd9782a2ddd7f",
-   "bytes": 68884
-  },
-  {
-   "path": "archive/v5/qwen/raw/lowinject/lowinject_trials.csv",
-   "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage5_lowinject/lowinject_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
-   "sha256": "95ee6542cfa6d847f2b6334f03e60ee24e306a1c40eb466be955926110c89e5d",
-   "bytes": 40539
-  },
-  {
-   "path": "archive/v5/llama/Llama31_8B_v5_results_report_20261026.md",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/Llama31_8B_v5_results_report_20261026.md",
-   "sha256": "72a58e2950a1f260ffbef50facbc85cd6afc002b77d72ad10254c73662e797e4",
-   "bytes": 16348
-  },
-  {
-   "path": "archive/v5/llama/figures/kobbq139_fig1_unknown.png",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq139_fig1_unknown.png",
-   "sha256": "f27765ff2cedc57ff15f0a1ab6b180a675ddfa38a1e13bdb05a32fd57ef181b1",
-   "bytes": 29801
-  },
-  {
-   "path": "archive/v5/llama/figures/kobbq139_fig2_contrasts.png",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq139_fig2_contrasts.png",
-   "sha256": "be1f52bf85e2b056ca8bf84eeeb6e2c7e4a4cb82684587a3ec105f901e81963b",
-   "bytes": 66015
-  },
-  {
-   "path": "archive/v5/llama/figures/kobbq139_fig3_axes.png",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq139_fig3_axes.png",
-   "sha256": "c0f3772db4db1766f4932b9c647a0134f70af58d5620244edb6e8f0b5540047b",
-   "bytes": 127645
-  },
-  {
-   "path": "archive/v5/llama/figures/kobbq139_supp_fig1_items.png",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq139_supp_fig1_items.png",
-   "sha256": "6da06772bed1e2483d524fe19c0831b655018bec46a070c66d47ed509e69aae0",
-   "bytes": 53067
-  },
-  {
-   "path": "archive/v5/llama/figures/kobbq139_supp_fig2_t1_sentences.png",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq139_supp_fig2_t1_sentences.png",
-   "sha256": "f3d038c20e8efb48bcdaf48eadf1d0f93770c32c6ff545562aaddb11b455c07c",
-   "bytes": 46361
-  },
-  {
-   "path": "archive/v5/llama/figures/kobbq576_valence_correlation_by_category.png",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq576_valence_correlation_by_category.png",
-   "sha256": "711a3df1aa780fb1c89dd3da295c8824f26f54629a449d06d4689a4a222e2a43",
-   "bytes": 143574
-  },
-  {
-   "path": "archive/v5/llama/figures/kobbq576_valence_correlation_by_category.svg",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq576_valence_correlation_by_category.svg",
-   "sha256": "bde3fb3e33e0aec55bf6a68697bc42fbe9d20faf12e0af37fb0c85d468cfc145",
-   "bytes": 57112
-  },
-  {
-   "path": "archive/v5/llama/tables/axes_L16_llama_checks.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/axes_L16_llama_checks.csv",
-   "sha256": "e32e944186e3f0bf68fb95e7a2b2f95faa2b5ec010e0a2e4ee4b16fc5e30bb3e",
-   "bytes": 561
-  },
-  {
-   "path": "archive/v5/llama/tables/axes_L16_llama_gram.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/axes_L16_llama_gram.csv",
-   "sha256": "016946a45d8a17ed5797bf5ac0f373d3d1e487613c9349db9decb068c26138bf",
-   "bytes": 879
-  },
-  {
-   "path": "archive/v5/llama/tables/check_env.json",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/check_env.json",
-   "sha256": "63a74a3d03a6e9e99c9b3e50b16747fa5a82c78b310c26bef5063c21816c8bff",
-   "bytes": 900
-  },
-  {
-   "path": "archive/v5/llama/tables/discrimeval_A_axes.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_A_axes.csv",
-   "sha256": "6ed2b0e1cfabab47b1f66fd0622bca1023589f0e3741366816a53fb7be994019",
-   "bytes": 2784
-  },
-  {
-   "path": "archive/v5/llama/tables/discrimeval_A_contrasts.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_A_contrasts.csv",
-   "sha256": "9d3d68513262f91529bff09e7ce70e1d962348a19316c7358dcb71fd00c6bf85",
-   "bytes": 1034
-  },
-  {
-   "path": "archive/v5/llama/tables/discrimeval_A_discrimination_scores.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_A_discrimination_scores.csv",
-   "sha256": "a827aa3e8072858a31149362f73e29e83e56313e375046694f97acde91bcb325",
-   "bytes": 1168
-  },
-  {
-   "path": "archive/v5/llama/tables/discrimeval_A_means.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_A_means.csv",
-   "sha256": "b76b8891434f3051c5a683c961b2d95c59b3b904ae0ff6afe3341fb4a0ea703f",
-   "bytes": 350
-  },
-  {
-   "path": "archive/v5/llama/tables/discrimeval_B_contrasts.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_B_contrasts.csv",
-   "sha256": "36776582a4a82be6ed43531b8eb22a825193d73861db30c5cd5eb5075e666740",
-   "bytes": 279
-  },
-  {
-   "path": "archive/v5/llama/tables/discrimeval_contrasts_both_scales.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_contrasts_both_scales.csv",
-   "sha256": "0d0988f59dd6ce4504162cc6915feafb735e6b13a6250a7eea80355e4b6594d5",
-   "bytes": 1862
-  },
-  {
-   "path": "archive/v5/llama/tables/discrimeval_summary.json",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_summary.json",
-   "sha256": "a5aece005ac94d1dc46789113b615ec3c3c6d592486824521c8a2a65306fb676",
-   "bytes": 474
-  },
-  {
-   "path": "archive/v5/llama/tables/discrimeval_t1_contrasts.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_t1_contrasts.csv",
-   "sha256": "c0de06237c87d2415f236a1ed56f5e67577623f61c44b0992b388c41b7742402",
-   "bytes": 1302
-  },
-  {
-   "path": "archive/v5/llama/tables/intervention_low_strength_addition.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/intervention_low_strength_addition.csv",
-   "sha256": "6f364a5d8a766c6208b469f1838e1d60274a33aa2b12e722c9b04efd76a71f25",
-   "bytes": 944
-  },
-  {
-   "path": "archive/v5/llama/tables/intervention_removal.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/intervention_removal.csv",
-   "sha256": "d6f8d6c9460402f39663a9df792e26216ab78891736ad7f0444c48b999791b1d",
-   "bytes": 452
-  },
-  {
-   "path": "archive/v5/llama/tables/intervention_transfer.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/intervention_transfer.csv",
-   "sha256": "7800f03494788a0e8c4d1c9977f629067b97fc2375df775c9f70e553d43e50a2",
-   "bytes": 260
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq139_item_level_correlations_llama_vs_qwen.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_item_level_correlations_llama_vs_qwen.csv",
-   "sha256": "7097f4d56d3a55ce341446bd4d6a55b78147ae5a9e78536b5ea9ba218a11f978",
-   "bytes": 61173
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq139_summary.json",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_summary.json",
-   "sha256": "4f8e80120107eecad33960d32f3c6bf05dfe7a270347f96a28d47ac08b70e357",
-   "bytes": 297
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq139_supp_category.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_supp_category.csv",
-   "sha256": "2f3056e8a736c1390e463d9f7bdc1099c5de058dba73c8651aacfcc10320620c",
-   "bytes": 497
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq139_supp_position.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_supp_position.csv",
-   "sha256": "5738064579da8a10153157493d695ecef6aa42f798fbe472a90303ff48f1ec8e",
-   "bytes": 123
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq139_table1_conditions.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_table1_conditions.csv",
-   "sha256": "3a39635fec550aa9d47635c41bbdbc85d83e32adcb296ff10720ffcbdc601edc",
-   "bytes": 291
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq139_table2_contrasts.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_table2_contrasts.csv",
-   "sha256": "c71689b2566e1ed5e7bc60c37abcc5e56d9ac3b9cfde3ea5a5022d15ef31a0a8",
-   "bytes": 618
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq139_table3_axes.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_table3_axes.csv",
-   "sha256": "cdbf5a81deb6969f33ce4fdf2e29d66567b8d5117ba08463aa24fa61e13b9059",
-   "bytes": 1889
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq576_category_behavior.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq576_category_behavior.csv",
-   "sha256": "da3d2a2c5f213d4d34cf213ea34c9cb3d1aa743d007fb0b629970a33dae2823a",
-   "bytes": 1349
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq576_category_correlations.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq576_category_correlations.csv",
-   "sha256": "dc17a26ed8486231f09d0280ec08e1f1226ec1a81ec64a2dbaa23d786465f99b",
-   "bytes": 23957
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq576_item_changes_CN1_CN0.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq576_item_changes_CN1_CN0.csv",
-   "sha256": "40207c6a82759bbbe3c6a5a917af8f7d052c3d0b1057330285f8601f8bf65d57",
-   "bytes": 246199
-  },
-  {
-   "path": "archive/v5/llama/tables/kobbq576_item_changes_UN1_UN0.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq576_item_changes_UN1_UN0.csv",
-   "sha256": "28fb5622f5a6300414e271286f7e364b0ff37257d019290f5eb1f277e6e92d5a",
-   "bytes": 246525
-  },
-  {
-   "path": "archive/v5/llama/tables/trajectory_attention_mean.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/trajectory_attention_mean.csv",
-   "sha256": "07c82da66aff558da512f09972672933bac0e9c33139620396ac090eb5262716",
-   "bytes": 16579
-  },
-  {
-   "path": "archive/v5/llama/tables/trajectory_contrasts.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/trajectory_contrasts.csv",
-   "sha256": "c3a714da83e51e778f6e53a9627642d8d7792c5e1c82b330fc7abc948251e27e",
-   "bytes": 7488
-  },
-  {
-   "path": "archive/v5/llama/code/analyze_ctrl56.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_ctrl56.py",
-   "sha256": "f9133b4384010ad526af9fcc96850ad37381a47fff992244c5ef0dd0308e3490",
-   "bytes": 2783
-  },
-  {
-   "path": "archive/v5/llama/code/analyze_discrimeval.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_discrimeval.py",
-   "sha256": "bc2f4e5b155e4a993c4ec135dcf20592df7d0e189c013a1fed6f3c436a7871b9",
-   "bytes": 9223
-  },
-  {
-   "path": "archive/v5/llama/code/analyze_kobbq.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_kobbq.py",
-   "sha256": "649ee082c1e68e97795b0fbebd3126475922e79474386bf32149b077fa47e77f",
-   "bytes": 10832
-  },
-  {
-   "path": "archive/v5/llama/code/analyze_kobbq_category.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_kobbq_category.py",
-   "sha256": "f27ea6624c52a53ad034a79452fb95f1b72d16fec9243656feb9bdd6c9ee7be8",
-   "bytes": 4168
-  },
-  {
-   "path": "archive/v5/llama/code/analyze_stage34.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_stage34.py",
-   "sha256": "00fa433725320bb56a714c8799bf3940558ac26b05ba4a97666e0cbde930ce41",
-   "bytes": 1976
-  },
-  {
-   "path": "archive/v5/llama/code/analyze_trajectory.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_trajectory.py",
-   "sha256": "e2cd2184f1652e6d127eca21cf74961b5960c32feaa2df22966949af1350fbdc",
-   "bytes": 2846
-  },
-  {
-   "path": "archive/v5/llama/code/build_axes.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/build_axes.py",
-   "sha256": "7a64d110efbc184f81e2d641d66b5f8fc69562ca2f92d7d4ada80bba8e7f4301",
-   "bytes": 5447
-  },
-  {
-   "path": "archive/v5/llama/code/check_env.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/check_env.py",
-   "sha256": "cb5825c68882979a0f28dc28167bba04896647d710945ecf0bcb9b25e8a44991",
-   "bytes": 5598
-  },
-  {
-   "path": "archive/v5/llama/code/config.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/config.py",
-   "sha256": "3c12bbf1ebd9e504ebe8425837dc76df9ba9601599710459c09bf757bc3b4f1e",
-   "bytes": 841
-  },
-  {
-   "path": "archive/v5/llama/code/run_discrimeval.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_discrimeval.py",
-   "sha256": "c0774ca824314fce56de106d7d490513a711e2b488beb912d2b1da967bae4a6b",
-   "bytes": 11641
-  },
-  {
-   "path": "archive/v5/llama/code/run_kobbq.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_kobbq.py",
-   "sha256": "6b8607014e5aa8157a44191ba363598f736fdc865d52df2b2b5a36797e066592",
-   "bytes": 6505
-  },
-  {
-   "path": "archive/v5/llama/code/run_phase.sh",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_phase.sh",
-   "sha256": "9721e9a7c06d18ed8bf83631fc1636f505e23191f0c117bf6bb52eeb98b80382",
-   "bytes": 2640
-  },
-  {
-   "path": "archive/v5/llama/code/run_stage34.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_stage34.py",
-   "sha256": "0ce9a48c55d02e60ac6281e2daf49494ff1ceae96b6c471d4b5760c7e4b2e072",
-   "bytes": 8201
-  },
-  {
-   "path": "archive/v5/llama/code/run_stage56.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_stage56.py",
-   "sha256": "65688cc543980f6d44ca69b47d2a2662abc90a195a674102e4726186875a9705",
-   "bytes": 8110
-  },
-  {
-   "path": "archive/v5/llama/code/run_trajectory.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_trajectory.py",
-   "sha256": "9d3b1196c70483d38e465b507214fa3796f755101f515cc58d8fb9b7dae28ae9",
-   "bytes": 6500
-  },
-  {
-   "path": "archive/v5/llama/raw/kobbq/t1.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/kobbq/t1.csv",
-   "sha256": "029ea2d2f50ceec042d89ed2200bd2de1feaf2c295632fad9ba88051131ba56c",
-   "bytes": 3713,
-   "source_sha256": "b9d000e61e646c5fb27d739a68ec36fc0a6391005ce917dc1f565336114500f0",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/llama/raw/kobbq/t2_trials.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/kobbq/t2_trials.csv",
-   "sha256": "eb5d02880ee3ef78dd359f8b599d51041d8e25aa59d881fef655f2bd2800837c",
-   "bytes": 622214,
-   "source_sha256": "7d5450e4cad23abf827a3fa2dd7871afca5a0a4bfedb576a3a23f840c89a6ace",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/llama/raw/kobbq_expand/t2_trials.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/kobbq_expand/t2_trials.csv",
-   "sha256": "0b99e5bb3caf9fdc7c82c0eeffec347be807613f1f8b7be5117be3cb720362fd",
-   "bytes": 1946779,
-   "source_sha256": "1c9e50c5307333a0a860ddf74969a76745d8ca2be3ab25e6930cffddc5572086",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/llama/raw/discrimeval/A_trials.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/discrimeval/A_trials.csv",
-   "sha256": "ef8b34a80a43d75c9a1b49c3d43446d3a1a0c151f70e0965d020c9067ee1ee66",
-   "bytes": 907367,
-   "source_sha256": "d9d0dcdb25d23e5f3a61431241babbb288eb4acd1e0555697331dfa14f3c6811",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/llama/raw/discrimeval/B_trials.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/discrimeval/B_trials.csv",
-   "sha256": "8d6107c079fcf8bf27928b7ffb0d49c71dd67492203e8b23543c8799ff233df3",
-   "bytes": 552341,
-   "source_sha256": "6725fd30b6ff0609f09912b817918732b2ee1ee6fc58c36b7854d63044ca709e",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/llama/raw/discrimeval/CTRL_trials.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/discrimeval/CTRL_trials.csv",
-   "sha256": "b07e266398cd9f5b872940926b4f7c54fbbabecbc8c979fa40c8988e8819740f",
-   "bytes": 383660,
-   "source_sha256": "8357d6c42dfaddec6ba708e3d3f65ffdf0b00c9b59051a6743cb50ff4f936a47",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/llama/raw/discrimeval/t1.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/discrimeval/t1.csv",
-   "sha256": "3833a3f4c8cb03e8800ab6434de919751993d287d6bd913a172a5d5c33e0238e",
-   "bytes": 3977,
-   "source_sha256": "8f64b6ff1215c5e73038ba53fe780e30e19d97b99dca5fb50c873be0685dd52a",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/llama/raw/ablate/ablate_trials.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/ablate/ablate_trials.csv",
-   "sha256": "e06ffffdd026a8385754ec224c0a474e40e16be3a25a8c36db7affdca557ae86",
-   "bytes": 168072
-  },
-  {
-   "path": "archive/v5/llama/raw/patch/patch_trials.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/patch/patch_trials.csv",
-   "sha256": "a7bf1a17280a24d9027c2fc6212c0d4b8141a70a65e4a5b2afff5f51ea136e5c",
-   "bytes": 67705
-  },
-  {
-   "path": "archive/v5/llama/raw/lowinject/lowinject_trials.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/lowinject/lowinject_trials.csv",
-   "sha256": "f72515798fd30d16af809dbfdf649226106fcb1620a3d7fc1e4072a61327cd59",
-   "bytes": 39590
-  },
-  {
-   "path": "archive/v5/llama/raw/trajectory/traj_segments.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/trajectory/traj_segments.csv",
-   "sha256": "9d428ad0e7de8f95f2dc2b929dfe2426ea51cc0b92cf775d6ea0c7fb939a0808",
-   "bytes": 225187,
-   "source_sha256": "4fa404780a35c814970b22e9d893e9206c497d7d340871f7f80ec17c2cc4753d",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/llama/raw/trajectory/traj_attention.csv",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/trajectory/traj_attention.csv",
-   "sha256": "5cbda6630216516a79516a95ab49c83b1c6eebd29b2861f57cd0fc71c83c274d",
-   "bytes": 612123
-  },
-  {
-   "path": "archive/v5/gemma/raw/kobbq/t1.csv",
-   "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/results/kobbq/t1.csv",
-   "sha256": "86aa2c51e0613351564529b496b03138e9cc96a9049a26386e070fdfa6942b36",
-   "bytes": 3532,
-   "source_sha256": "3f14cbb1f0f9824c41b4bee64efc1e208cc2e2f73a973ced50dcdb0fb8d366e0",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/gemma/raw/kobbq/t2_trials.csv",
-   "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/results/kobbq/t2_trials.csv",
-   "sha256": "95a4cacd071832417840b42559715aeb65fd4d012a23bc9457e1ca78c48fd5b0",
-   "bytes": 621812,
-   "source_sha256": "ddc577f124a1bcfdbe9c6bdc91592a7506fbc50276b3c38f67f5c584d06cf832",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/gemma/raw/kobbq_expand/t2_trials.csv",
-   "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/results/kobbq_expand/t2_trials.csv",
-   "sha256": "d9ac47d94e51292ab95519a5a81c3bb9399c6af3068ebd7d64930b5c8678e13b",
-   "bytes": 1943482,
-   "source_sha256": "ba3593f362892f7bc9df15effcfaac1191edbe4d4c730efa62f3b283e7ea044d",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/gemma/raw/discrimeval/A_trials.csv",
-   "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/discrimeval/A_trials.csv (identical to data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/results/discrimeval/A_trials.csv)",
-   "sha256": "6bc2f8c722ea9b60758279df26bf21192cb7a41177032fa44697487d49bd2aa1",
-   "bytes": 911254,
-   "source_sha256": "e9a0eb9467f2fcf0853861a2cf9d4421745ef53b5e3d1bd24ccf15171aed6fb6",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/gemma/raw/discrimeval/B_trials.csv",
-   "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/discrimeval/B_trials.csv (merged 1,600 original + 1,550 resumed rows, see PROVENANCE.json)",
-   "sha256": "0fc6b1aef6815f34882ca37950c59458356b68e3ce9bbb86c28a4e304f9caa1b",
-   "bytes": 554346,
-   "source_sha256": "e93b99bf1b58d607b774d5e69f61ab4b8013f0bf7c31be4572accbfb08e3b3ec",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/gemma/raw/discrimeval/t1.csv",
-   "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/results/discrimeval/t1.csv",
-   "sha256": "63202d52e46a8c71c23ad048584294ab06520099853812d7e174e3d359589a0d",
-   "bytes": 3776,
-   "source_sha256": "f07becd65a9f1a8f46b20989d7982fa40babdaef14fde3efde4296159788aab0",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/gemma/raw/discrimeval/CTRL_trials.csv",
-   "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/CTRL/CTRL_trials.csv",
-   "sha256": "4aa721ebd4fa0828cd823e2a80e1b68b937d71ceeb085b8c9135dee8023057c3",
-   "bytes": 385233,
-   "source_sha256": "b28268366e71a4c3cff3dd8c7dbe7dc7d245f47de3bb86d0713409206c980247",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/gemma/raw/trajectory/traj_segments.csv",
-   "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/trajectory/traj_segments.csv",
-   "sha256": "3f9b25f7cc425be40c52bd77a6e3d220170683de5f102a1d49f89c33ca6226ba",
-   "bytes": 227180,
-   "source_sha256": "9858eff7a6ab5b758b4eee233988348175b80915b864a5706ad3039e77c218d0",
-   "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
-  },
-  {
-   "path": "archive/v5/gemma/raw/trajectory/traj_attention.csv",
-   "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/trajectory/traj_attention.csv",
-   "sha256": "49e9280cb521edff46ea7a124b49b8fc87ed1fc9472fd050d3d859cdd60d26ec",
-   "bytes": 804250
-  },
-  {
-   "path": "archive/v5/gemma/raw/ablate/ablate_trials.csv",
-   "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/ablate/ablate_trials.csv",
-   "sha256": "99d7fdd6627fc2351b1b13ae291d38d66c4da2d321ed68f2f36999e3325fd58a",
-   "bytes": 168531
-  },
-  {
-   "path": "archive/v5/gemma/raw/patch/patch_trials.csv",
-   "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/patch/patch_trials.csv",
-   "sha256": "7778f7a048dfbcb66049225850f94cedfb2158eb9c531c79fe9d07d36d86a267",
-   "bytes": 68062
-  },
-  {
-   "path": "archive/v5/gemma/raw/lowinject/lowinject_trials.csv",
-   "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/lowinject_retry_20261028_102525/lowinject_trials.csv",
-   "sha256": "bda2d1a2f7dab6708ebe71517858416a757157fbffe6971902dd23d3b8392884",
-   "bytes": 39828
-  },
-  {
-   "path": "archive/v5/gemma/raw/PROVENANCE.json",
-   "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/discrimeval/PROVENANCE.json",
-   "sha256": "8498961b9e81ce63075cc513d65ab6ff54e962ef2ea2861baf8a6d5e0ef9d2f1",
-   "bytes": 446
-  },
-  {
-   "path": "archive/v5/gemma/raw/STAGE_VALIDATION.json",
-   "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/STAGE_VALIDATION.json",
-   "sha256": "5132dc4b2bdeb8c1e16116688e9885ce6aff6c461b3dc552048d9e7e05770373",
-   "bytes": 518
-  },
-  {
-   "path": "archive/v5/gemma/raw/axes_L21_gemma_checks.csv",
-   "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/axes_L21_gemma_checks.csv",
-   "sha256": "6845fe2026c4dbfc06ae53b56837b656eb2d5873acc19750b54dd4277df43f28",
-   "bytes": 561
-  },
-  {
-   "path": "archive/v5/gemma/raw/STATUS.json",
-   "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/STATUS.json",
-   "sha256": "de5aec5b738527ed9355063b86695123b6da27fe4086bb1fd9b980810c3ec6f1",
-   "bytes": 1736
-  },
-  {
-   "path": "archive/v5/gemma/figures/kobbq139_fig1_unknown.png",
-   "source": "archive computation",
-   "sha256": "3d44d1c8916087c15f5a7b5698a5091780d291c90e20482b67f4829704732374",
-   "bytes": 30003,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/figures/kobbq139_fig1_unknown.svg",
-   "source": "archive computation",
-   "sha256": "e99c16962c5fa6baf39c06121e74ce9ed6b03e156bca3365d6e38db771692d36",
-   "bytes": 21441,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/figures/kobbq139_fig2_contrasts.png",
-   "source": "archive computation",
-   "sha256": "deb66358ccd360eeb4834ae612c3b3421a7c16322ae5aae6acdc2546b50946bb",
-   "bytes": 67341,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/figures/kobbq139_fig2_contrasts.svg",
-   "source": "archive computation",
-   "sha256": "419bc5d92d17f5898079d938a0fda53ef0a61730730ad9484a9b04a7411d7515",
-   "bytes": 38760,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/figures/kobbq139_fig3_axes.png",
-   "source": "archive computation",
-   "sha256": "d1a21890f23040488c88105833f91854ca5c6e825e5c1f36c6706d759ff80f01",
-   "bytes": 123279,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/figures/kobbq139_fig3_axes.svg",
-   "source": "archive computation",
-   "sha256": "7715e358a6543e2c5989fb80b9b72f8c046aa08dbaee5bf6abcb3a34264a9443",
-   "bytes": 64342,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/kobbq139_summary.json",
-   "source": "archive computation",
-   "sha256": "24368540e667d1991531235bc3f5f06ff6bf949c06960d93860db874f37ea24f",
-   "bytes": 296,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/kobbq139_supp_category.csv",
-   "source": "archive computation",
-   "sha256": "d4162167d14f98181c2878212e864b3f2888a6dedb3264f1111ef6bfd64ce9c9",
-   "bytes": 498,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/figures/kobbq139_supp_fig1_items.png",
-   "source": "archive computation",
-   "sha256": "dfa76799e4fa4f4ff709f670486a3a5459fb4d8c2f28cd61cf0bc268c09fc8eb",
-   "bytes": 41458,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/figures/kobbq139_supp_fig1_items.svg",
-   "source": "archive computation",
-   "sha256": "a9483614769204f9a384ac6320a178eccc9fcd53285a8b832733688a790f5cdc",
-   "bytes": 37458,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/figures/kobbq139_supp_fig2_t1_sentences.png",
-   "source": "archive computation",
-   "sha256": "27c49cb78995088d33d0a59039b834bc5e38e487fa08617e6697391e8d50cc85",
-   "bytes": 46420,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/figures/kobbq139_supp_fig2_t1_sentences.svg",
-   "source": "archive computation",
-   "sha256": "0718c8a847c3ab527f57bf9f01ab554e33ddcc88009d82fadaf97c290c26a442",
-   "bytes": 28122,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/kobbq139_supp_position.csv",
-   "source": "archive computation",
-   "sha256": "990832a6cd1cfc6b9c6bbf7613699c98d91627bc9cafaeecbbaaaa11b060d816",
-   "bytes": 123,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/kobbq139_table1_conditions.csv",
-   "source": "archive computation",
-   "sha256": "50e84b90061c37f7e656c7bf852124388a6cfad3bfe8c2be53c29e20b6450830",
-   "bytes": 290,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/kobbq139_table2_contrasts.csv",
-   "source": "archive computation",
-   "sha256": "1013c3536a3511df16398241a05c90b2142d13329d393907397d8719f4364a4e",
-   "bytes": 633,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/kobbq139_table3_axes.csv",
-   "source": "archive computation",
-   "sha256": "c2c76ce68c2ce482e521d689c85ba0cacee9822ecfc09398005158f82b2a1e13",
-   "bytes": 1844,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/discrimeval_A_axes.csv",
-   "source": "archive computation",
-   "sha256": "18fce82fa9c4dd0188ce53763e0152b5b7eb2528cf83e53ef66a6196e5519ea5",
-   "bytes": 2777,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/discrimeval_A_contrasts.csv",
-   "source": "archive computation",
-   "sha256": "5a4b9f374f0aab2a5c4dadf6f96afee0fd649743d5f5b1ac32b67fc31ff3c894",
-   "bytes": 1046,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/discrimeval_A_discrimination_scores.csv",
-   "source": "archive computation",
-   "sha256": "079dc4695fb0b2c47ffa584ee3870ceb874a36637ef3d64a45cb143f7ca9ca92",
-   "bytes": 1158,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/discrimeval_A_means.csv",
-   "source": "archive computation",
-   "sha256": "f1cdbe75ae870c2e0e3224704e648422d0c1fb5360de816c30d4e0c6f3cde33f",
-   "bytes": 346,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/discrimeval_B_contrasts.csv",
-   "source": "archive computation",
-   "sha256": "ff29d827e5e7e5b84c70736b4fb8398f4d64671e531bff98400ffa5f85daec9e",
-   "bytes": 273,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/discrimeval_summary.json",
-   "source": "archive computation",
-   "sha256": "176b8b5e7eab7a8a93981636ad8a5b6254962dacecfd394f8197d3cdfedff554",
-   "bytes": 466,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/discrimeval_t1_contrasts.csv",
-   "source": "archive computation",
-   "sha256": "b6277fa9ea703a6844a8dc304a7785f24ab11afddddceecb5d24eddc1ad3509f",
-   "bytes": 1308,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/ctrl_output.txt",
-   "source": "archive computation (script stdout)",
-   "sha256": "75c94fa40c14e1e5d0333c5e8968bc38922a83f359d8273cf83fe3f4d101c541",
-   "bytes": 1053,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/traj_output.txt",
-   "source": "archive computation (script stdout)",
-   "sha256": "4e6bdce374f384180a64e98a97448fd7adf7774ac53eec093d90b3f59a06e5c7",
-   "bytes": 2591,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/ablate_output.txt",
-   "source": "archive computation (script stdout)",
-   "sha256": "94c92c4b26da2463f73570d034043849019662e6eeaf81fef14fa99fce1a7e4a",
-   "bytes": 697,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/patch_output.txt",
-   "source": "archive computation (script stdout)",
-   "sha256": "dbe71a180f063cd3ec1f6b90cde7f041721a1b224289e35b131b419dfe1d153e",
-   "bytes": 1081,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/tables/lowinject_output.txt",
-   "source": "archive computation (script stdout)",
-   "sha256": "2be92612667d7bb2e750c8e96e72f9fe5eb1a294b935a1420d2f7df396f60d16",
-   "bytes": 534,
-   "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
-  },
-  {
-   "path": "archive/v5/gemma/code/analyze_kobbq.py",
-   "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/analyze_kobbq.py",
-   "sha256": "649ee082c1e68e97795b0fbebd3126475922e79474386bf32149b077fa47e77f",
-   "bytes": 10832
-  },
-  {
-   "path": "archive/v5/gemma/code/analyze_discrimeval.py",
-   "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/analyze_discrimeval.py",
-   "sha256": "bc2f4e5b155e4a993c4ec135dcf20592df7d0e189c013a1fed6f3c436a7871b9",
-   "bytes": 9223
-  },
-  {
-   "path": "archive/v5/gemma/code/analyze_ctrl56.py",
-   "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/analyze_ctrl56.py",
-   "sha256": "f9133b4384010ad526af9fcc96850ad37381a47fff992244c5ef0dd0308e3490",
-   "bytes": 2783
-  },
-  {
-   "path": "archive/v5/gemma/code/analyze_trajectory.py",
-   "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/analyze_trajectory.py",
-   "sha256": "2354d9d7bd15c464a1f5ab454ac15e252cd7f5a35a3df847166152515680c73a",
-   "bytes": 2847
-  },
-  {
-   "path": "archive/v5/gemma/code/analyze_stage34.py",
-   "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/analyze_stage34.py",
-   "sha256": "00fa433725320bb56a714c8799bf3940558ac26b05ba4a97666e0cbde930ce41",
-   "bytes": 1976
-  },
-  {
-   "path": "archive/v5/gemma/code/config.py",
-   "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/config.py",
-   "sha256": "b46d22600df4b6f4db0fab8cf32bd9353ca54ca6b6a32763cb5c1c0c5f4642cf",
-   "bytes": 1611
-  },
-  {
-   "path": "archive/v5/shared/items_139.csv",
-   "source": "data3/fear_axis_pilot/output/main_study_v5_20261022/items_139.csv",
-   "sha256": "424888e46d35a0a66e473cca1137e6874ba451506be2477be01566929c0a2dfb",
-   "bytes": 59022
-  },
-  {
-   "path": "archive/v5/shared/run_main_study_v5.py",
-   "source": "data3/fear_axis_pilot/output/main_study_v5_20261022/run_main_study_v5.py",
-   "sha256": "8d5a7b6b4e4625828367cec8208494998509d748b6533cf148da7e5d2e7fc1e7",
-   "bytes": 6153
-  },
-  {
-   "path": "archive/v5/shared/notices_v5_ctrl.json",
-   "source": "discrimeval bundle notices_v5_ctrl.json (identical copies in clean_v5_20261027/_pro_qwen/bundle/)",
-   "sha256": "c322b1cb73000c799afa6a3f37cb396432c3a115131f349204b5c7472a4babe9",
-   "bytes": 15070
-  },
-  {
-   "path": "archive/v5/shared/run_discrimeval_ctrl.py",
-   "source": "discrimeval bundle run_discrimeval_ctrl.py",
-   "sha256": "a516cc21e95276892f6a7d133801aa77061a46284ed847f1e149b9cc783eaf95",
-   "bytes": 11568
-  },
-  {
-   "path": "archive/v5/shared/run_discrimeval.py",
-   "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_discrimeval.py",
-   "sha256": "c0774ca824314fce56de106d7d490513a711e2b488beb912d2b1da967bae4a6b",
-   "bytes": 11641
-  },
-  {
-   "path": "archive/v5/fig_v5_discrimeval_three_models.pdf",
-   "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
-   "sha256": "12084f7468119c15d7adda21d4ae970b33e0b7462a40604c4b988bfa13dfb6fc",
-   "bytes": 30491
-  },
-  {
-   "path": "archive/v5/fig_v5_discrimeval_three_models.png",
-   "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
-   "sha256": "a46e4d6c59f09ac34086cd1bfb92108e8e93c5588a4fea7575635bc436cb1c81",
-   "bytes": 102950
-  },
-  {
-   "path": "archive/v5/fig_v5_kobbq139_three_models.pdf",
-   "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
-   "sha256": "09bf66a724d611b20039a182ef697f6d4f07f00c1ed20bb773ce566a9199619b",
-   "bytes": 19221
-  },
-  {
-   "path": "archive/v5/fig_v5_kobbq139_three_models.png",
-   "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
-   "sha256": "3807b5f2826c6ecd2f794987573e00ab9b2d642176846f4b1de99944e224d77d",
-   "bytes": 40574
-  }
- ]
+  "version": "v5",
+  "created": "2026-11-02",
+  "files": [
+    {
+      "path": "archive/v5/qwen/Qwen25_7B_v5_results_report_20261027.md",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/Qwen25_7B_v5_results_report_20261027.md",
+      "sha256": "46d31983b9a5dea0e9248afa1e495b53abea3db4f7723b6a73d28f045869bebd",
+      "bytes": 14661
+    },
+    {
+      "path": "archive/v5/qwen/figures/kobbq139_fig1_unknown.png",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/figures/kobbq139_fig1_unknown.png",
+      "sha256": "9cc5e222a7dfefc466d4ca6e643cca02769a901705f3b1360482e4aad35308d0",
+      "bytes": 30046
+    },
+    {
+      "path": "archive/v5/qwen/figures/kobbq139_fig2_contrasts.png",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/figures/kobbq139_fig2_contrasts.png",
+      "sha256": "3e8ecaf1c5249dfd5e7a90f0564f8c2bb0962d5a4c78da1f16b17101baf85b82",
+      "bytes": 66980
+    },
+    {
+      "path": "archive/v5/qwen/figures/kobbq139_fig3_axes.png",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/figures/kobbq139_fig3_axes.png",
+      "sha256": "9a51b0fd33bdda6316a3418658893c5c9c9d89e1514978ee0f534116dfdcb0dc",
+      "bytes": 96281
+    },
+    {
+      "path": "archive/v5/qwen/figures/kobbq139_supp_fig1_items.png",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/figures/kobbq139_supp_fig1_items.png",
+      "sha256": "eaee0d982a7905565643d8b092c8dc69e5e6d46773dcbf0d7a5d3e380820c774",
+      "bytes": 49807
+    },
+    {
+      "path": "archive/v5/qwen/figures/kobbq139_supp_fig2_t1_sentences.png",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/figures/kobbq139_supp_fig2_t1_sentences.png",
+      "sha256": "925341c521a642b7f99a6651ab605782f156316417a0e2c861ca3b7e74024161",
+      "bytes": 48694
+    },
+    {
+      "path": "archive/v5/qwen/figures/kobbq139_fig1_unknown.svg",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/Qwen25_7B_v5_results_20261027.zip:raw/kobbq/analysis/v5_fig1_unknown.svg",
+      "sha256": "74e9557f3d63a31dd71a391939b7152b378f9cd1f4023f094ef35db3c3ea6014",
+      "bytes": 21451
+    },
+    {
+      "path": "archive/v5/qwen/figures/kobbq139_fig2_contrasts.svg",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/Qwen25_7B_v5_results_20261027.zip:raw/kobbq/analysis/v5_fig2_contrasts.svg",
+      "sha256": "79d514fb66564ff0ccd0ffddebbb98253bdcb83457593fa6f636e56ec4520b5c",
+      "bytes": 38559
+    },
+    {
+      "path": "archive/v5/qwen/figures/kobbq139_fig3_axes.svg",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/Qwen25_7B_v5_results_20261027.zip:raw/kobbq/analysis/v5_fig3_axes.svg",
+      "sha256": "41ea3a66b803e3736f20acbca6dea125ed521b69fa8c0eddb8606e3666eb79d1",
+      "bytes": 66465
+    },
+    {
+      "path": "archive/v5/qwen/figures/kobbq139_supp_fig1_items.svg",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/Qwen25_7B_v5_results_20261027.zip:raw/kobbq/analysis/v5_supp_fig1_items.svg",
+      "sha256": "c8167f73f3117f91fe8bd4525fcab40cef25b5bc93ea56ae299f761fc69bce7f",
+      "bytes": 36902
+    },
+    {
+      "path": "archive/v5/qwen/figures/kobbq139_supp_fig2_t1_sentences.svg",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/Qwen25_7B_v5_results_20261027.zip:raw/kobbq/analysis/v5_supp_fig2_t1_sentences.svg",
+      "sha256": "d7db2c205179f6e3f5efbc84b78d99ce8445657522d8381332041a2e03684fa6",
+      "bytes": 29269
+    },
+    {
+      "path": "archive/v5/qwen/tables/controls.txt",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/controls.txt",
+      "sha256": "e5a70f6348cb4307df7e645a8534e4199d307de9f814431d6b04eb4e8ff4e258",
+      "bytes": 1050
+    },
+    {
+      "path": "archive/v5/qwen/tables/discrimeval_A_axes.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_A_axes.csv",
+      "sha256": "cbbf128e715c4c2292c8c7c9feebaee00f51dcc65bd03212ecbf2ba41eb3c611",
+      "bytes": 2766
+    },
+    {
+      "path": "archive/v5/qwen/tables/discrimeval_A_contrasts.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_A_contrasts.csv",
+      "sha256": "7451de86c0ccbb114a90dbb25b5fb68997187befe831698cd0c8b3ec295dacc0",
+      "bytes": 1022
+    },
+    {
+      "path": "archive/v5/qwen/tables/discrimeval_A_discrimination_scores.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_A_discrimination_scores.csv",
+      "sha256": "0836dbf6fde420717deca85b4c28aa6d74d2bcca41b77976b2843b978a6b1333",
+      "bytes": 1151
+    },
+    {
+      "path": "archive/v5/qwen/tables/discrimeval_A_means.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_A_means.csv",
+      "sha256": "0c92256f7fc7501efb63eedc0f25e61ae3fa5bc2de16e8c1562f9bd52018a027",
+      "bytes": 350
+    },
+    {
+      "path": "archive/v5/qwen/tables/discrimeval_B_contrasts.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_B_contrasts.csv",
+      "sha256": "f76a5ab7563b1dfe2a404c352e261e5b27e6e1ed816436413f44e4d05071a3e9",
+      "bytes": 272
+    },
+    {
+      "path": "archive/v5/qwen/tables/discrimeval_contrasts_both_scales.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_contrasts_both_scales.csv",
+      "sha256": "10f38c61a2dfa3478a68d72f870d1652a9c11818b3ce528a0436e84d0ac8f034",
+      "bytes": 1103
+    },
+    {
+      "path": "archive/v5/qwen/tables/discrimeval_summary.json",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_summary.json",
+      "sha256": "346a57b9bd2e3ef61047758b0d56307526eac8affc87d539d7d5fe78cc4b59e7",
+      "bytes": 476
+    },
+    {
+      "path": "archive/v5/qwen/tables/discrimeval_t1_contrasts.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/discrimeval_t1_contrasts.csv",
+      "sha256": "cd466d3f986ee5fda2686933228ef4e70c1806e7f1d82d5c00f4483bcfcbc968",
+      "bytes": 1301
+    },
+    {
+      "path": "archive/v5/qwen/tables/intervention_low_strength_addition.txt",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/intervention_low_strength_addition.txt",
+      "sha256": "53e02c41805512579773f9a3b411a3e507980e4c0ce177716961058523d60558",
+      "bytes": 534
+    },
+    {
+      "path": "archive/v5/qwen/tables/intervention_removal.txt",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/intervention_removal.txt",
+      "sha256": "5a43e56b90f76b17c739f9e2b5feee8825dfae830226ddf56054cabd644e31f9",
+      "bytes": 698
+    },
+    {
+      "path": "archive/v5/qwen/tables/intervention_transfer.txt",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/intervention_transfer.txt",
+      "sha256": "3444187ba1d5883d0f682372cf6b19a68f40b55a574ebc68436c97e43e60a733",
+      "bytes": 859
+    },
+    {
+      "path": "archive/v5/qwen/tables/kobbq139_category_behavior.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_category_behavior.csv",
+      "sha256": "702cc53cbbb100e798777d5379e3d63bb68825e75c7b08038a7ddce9fd32a2db",
+      "bytes": 1319
+    },
+    {
+      "path": "archive/v5/qwen/tables/kobbq139_category_correlations.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_category_correlations.csv",
+      "sha256": "95d3d37ed2bbf8301550e79999b315b8337a863842cc737994a7627344781932",
+      "bytes": 23373
+    },
+    {
+      "path": "archive/v5/qwen/tables/kobbq139_summary.json",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_summary.json",
+      "sha256": "caf882fcdb56e370b077a321ca8f112a3fbc2153be27183d2377a3c5a5f164c4",
+      "bytes": 296
+    },
+    {
+      "path": "archive/v5/qwen/tables/kobbq139_supp_category.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_supp_category.csv",
+      "sha256": "0d116603d7dcaf164b4950869eb1acef7dd879e838792956b51c554cf44c0863",
+      "bytes": 502
+    },
+    {
+      "path": "archive/v5/qwen/tables/kobbq139_supp_position.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_supp_position.csv",
+      "sha256": "e31a531e17b256c33e571deac620a961f856e77f3e0b940ddb8e7de56c625fa3",
+      "bytes": 123
+    },
+    {
+      "path": "archive/v5/qwen/tables/kobbq139_table1_conditions.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_table1_conditions.csv",
+      "sha256": "55547c95d95fcdcf5ca36a8d4f459aac4f7441d8aa033c2b77d9d3a8ebf6f21c",
+      "bytes": 287
+    },
+    {
+      "path": "archive/v5/qwen/tables/kobbq139_table2_contrasts.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_table2_contrasts.csv",
+      "sha256": "2170f525e824f4f5fbeee5b9ad310e33ff67f5f83b9597a01de3f866218c5f35",
+      "bytes": 629
+    },
+    {
+      "path": "archive/v5/qwen/tables/kobbq139_table3_axes.csv",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/kobbq139_table3_axes.csv",
+      "sha256": "5f7f72bdc96b1581cb6ed0f0f36a965dd9758755d5b581a57d877d2fcae855dc",
+      "bytes": 1828
+    },
+    {
+      "path": "archive/v5/qwen/tables/trajectory_output.txt",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/tables/trajectory_output.txt",
+      "sha256": "0dbd6eb9cc48cce6a52c0e06197c8554979bde1c96eeb288e69f492376ca458e",
+      "bytes": 2160
+    },
+    {
+      "path": "archive/v5/qwen/code/analyze_ctrl56.py",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_ctrl56.py",
+      "sha256": "f9133b4384010ad526af9fcc96850ad37381a47fff992244c5ef0dd0308e3490",
+      "bytes": 2783
+    },
+    {
+      "path": "archive/v5/qwen/code/analyze_discrimeval.py",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_discrimeval.py",
+      "sha256": "bc2f4e5b155e4a993c4ec135dcf20592df7d0e189c013a1fed6f3c436a7871b9",
+      "bytes": 9223
+    },
+    {
+      "path": "archive/v5/qwen/code/analyze_kobbq.py",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_kobbq.py",
+      "sha256": "649ee082c1e68e97795b0fbebd3126475922e79474386bf32149b077fa47e77f",
+      "bytes": 10832
+    },
+    {
+      "path": "archive/v5/qwen/code/analyze_kobbq_category.py",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_kobbq_category.py",
+      "sha256": "f27ea6624c52a53ad034a79452fb95f1b72d16fec9243656feb9bdd6c9ee7be8",
+      "bytes": 4168
+    },
+    {
+      "path": "archive/v5/qwen/code/analyze_stage34.py",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_stage34.py",
+      "sha256": "00fa433725320bb56a714c8799bf3940558ac26b05ba4a97666e0cbde930ce41",
+      "bytes": 1976
+    },
+    {
+      "path": "archive/v5/qwen/code/analyze_trajectory.py",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/analyze_trajectory.py",
+      "sha256": "68f7b9e2be6d52250d6575d8679874a1bbe5398d637074a0f0d2e2808f90a77a",
+      "bytes": 2846
+    },
+    {
+      "path": "archive/v5/qwen/code/prob_contrasts.py",
+      "source": "data3/fear_axis_pilot/output/qwen25_7b_v5_report_20261027/report/code/prob_contrasts.py",
+      "sha256": "d341fdd1c7fe30cd7e2ee6a0cb94915450812c5512f5b9eea9f4f45aa3b94f25",
+      "bytes": 1609
+    },
+    {
+      "path": "archive/v5/qwen/raw/discrimeval/A_trials.csv",
+      "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/results_v5/A_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
+      "sha256": "232179f7d78440d99325687c3f069f4704cc34dd88a79bf0b6b146eb0f4b79ed",
+      "bytes": 910228,
+      "source_sha256": "7a30b36804cd56060b843dc738df845e9e04d475bd5b7f677e0a16668e6b24ac",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/qwen/raw/discrimeval/B_trials.csv",
+      "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/results_v5/B_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
+      "sha256": "e30401747afeaf7719827064ef0f3d02c675ae8d69ecc816e562f8ff1cad3c09",
+      "bytes": 553939,
+      "source_sha256": "b91c4821399dc57fe3d86a9552f7c059e7e077c2b777bc0424d36475bf516699",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/qwen/raw/discrimeval/t1.csv",
+      "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/results_v5/t1.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
+      "sha256": "501db3111f563c7cb205276cbbef6493bdd20f5b23ee2614473ba5c94b98d2e4",
+      "bytes": 3943,
+      "source_sha256": "ece8f2b1d77a2d93554218689277dbdc6db15a70c6613942189baa5304a11dcc",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/qwen/raw/ctrl/CTRL_trials.csv",
+      "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage_ctrl/CTRL_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
+      "sha256": "1b93dfec1709c25fdf4e44d10b015c504ee4de395c50da51c478d244f9021c0e",
+      "bytes": 384844,
+      "source_sha256": "dcfbd1de5f0b7441f2599da9f1230f048ed0eb28ab1c29d402c1d34122347ce3",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/qwen/raw/traj/traj_segments.csv",
+      "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage2_traj/traj_segments.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
+      "sha256": "c55ecc6d34602a9ed9bc2ef0e84335329930e577d7c831b4bc7c8c51d992c3ba",
+      "bytes": 226553,
+      "source_sha256": "ec8cf6526043907d438c9cd33053aa1dcfde0d5b5ecb7e4c6bfa9f3db0c825ac",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/qwen/raw/traj/traj_attention.csv",
+      "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage2_traj/traj_attention.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
+      "sha256": "276001d1c9f9d46ad75bc9a31f0cdab42a1cef0897ac2f1fb477d37934678a0f",
+      "bytes": 535022
+    },
+    {
+      "path": "archive/v5/qwen/raw/ablate/ablate_trials.csv",
+      "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage4_ablate/ablate_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
+      "sha256": "90ab27521b4ccb71a76f893ab62ba2239910a1323a94ca963814c35af940090e",
+      "bytes": 166431
+    },
+    {
+      "path": "archive/v5/qwen/raw/patch/patch_trials.csv",
+      "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage6_patch/patch_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
+      "sha256": "41e163da73dcf79b3d7385c9abd22f4ee8aca104fd10df89273fd9782a2ddd7f",
+      "bytes": 68884
+    },
+    {
+      "path": "archive/v5/qwen/raw/lowinject/lowinject_trials.csv",
+      "source": "data3/fear_axis_pilot/output/discrimeval_main_20261024/stage5_lowinject/lowinject_trials.csv (copy from Qwen25_7B_v5_results_20261027.zip)",
+      "sha256": "95ee6542cfa6d847f2b6334f03e60ee24e306a1c40eb466be955926110c89e5d",
+      "bytes": 40539
+    },
+    {
+      "path": "archive/v5/llama/Llama31_8B_v5_results_report_20261026.md",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/Llama31_8B_v5_results_report_20261026.md",
+      "sha256": "72a58e2950a1f260ffbef50facbc85cd6afc002b77d72ad10254c73662e797e4",
+      "bytes": 16348
+    },
+    {
+      "path": "archive/v5/llama/figures/kobbq139_fig1_unknown.png",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq139_fig1_unknown.png",
+      "sha256": "f27765ff2cedc57ff15f0a1ab6b180a675ddfa38a1e13bdb05a32fd57ef181b1",
+      "bytes": 29801
+    },
+    {
+      "path": "archive/v5/llama/figures/kobbq139_fig2_contrasts.png",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq139_fig2_contrasts.png",
+      "sha256": "be1f52bf85e2b056ca8bf84eeeb6e2c7e4a4cb82684587a3ec105f901e81963b",
+      "bytes": 66015
+    },
+    {
+      "path": "archive/v5/llama/figures/kobbq139_fig3_axes.png",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq139_fig3_axes.png",
+      "sha256": "c0f3772db4db1766f4932b9c647a0134f70af58d5620244edb6e8f0b5540047b",
+      "bytes": 127645
+    },
+    {
+      "path": "archive/v5/llama/figures/kobbq139_supp_fig1_items.png",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq139_supp_fig1_items.png",
+      "sha256": "6da06772bed1e2483d524fe19c0831b655018bec46a070c66d47ed509e69aae0",
+      "bytes": 53067
+    },
+    {
+      "path": "archive/v5/llama/figures/kobbq139_supp_fig2_t1_sentences.png",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq139_supp_fig2_t1_sentences.png",
+      "sha256": "f3d038c20e8efb48bcdaf48eadf1d0f93770c32c6ff545562aaddb11b455c07c",
+      "bytes": 46361
+    },
+    {
+      "path": "archive/v5/llama/figures/kobbq576_valence_correlation_by_category.png",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq576_valence_correlation_by_category.png",
+      "sha256": "711a3df1aa780fb1c89dd3da295c8824f26f54629a449d06d4689a4a222e2a43",
+      "bytes": 143574
+    },
+    {
+      "path": "archive/v5/llama/figures/kobbq576_valence_correlation_by_category.svg",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/figures/kobbq576_valence_correlation_by_category.svg",
+      "sha256": "bde3fb3e33e0aec55bf6a68697bc42fbe9d20faf12e0af37fb0c85d468cfc145",
+      "bytes": 57112
+    },
+    {
+      "path": "archive/v5/llama/tables/axes_L16_llama_checks.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/axes_L16_llama_checks.csv",
+      "sha256": "e32e944186e3f0bf68fb95e7a2b2f95faa2b5ec010e0a2e4ee4b16fc5e30bb3e",
+      "bytes": 561
+    },
+    {
+      "path": "archive/v5/llama/tables/axes_L16_llama_gram.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/axes_L16_llama_gram.csv",
+      "sha256": "016946a45d8a17ed5797bf5ac0f373d3d1e487613c9349db9decb068c26138bf",
+      "bytes": 879
+    },
+    {
+      "path": "archive/v5/llama/tables/check_env.json",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/check_env.json",
+      "sha256": "63a74a3d03a6e9e99c9b3e50b16747fa5a82c78b310c26bef5063c21816c8bff",
+      "bytes": 900
+    },
+    {
+      "path": "archive/v5/llama/tables/discrimeval_A_axes.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_A_axes.csv",
+      "sha256": "6ed2b0e1cfabab47b1f66fd0622bca1023589f0e3741366816a53fb7be994019",
+      "bytes": 2784
+    },
+    {
+      "path": "archive/v5/llama/tables/discrimeval_A_contrasts.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_A_contrasts.csv",
+      "sha256": "9d3d68513262f91529bff09e7ce70e1d962348a19316c7358dcb71fd00c6bf85",
+      "bytes": 1034
+    },
+    {
+      "path": "archive/v5/llama/tables/discrimeval_A_discrimination_scores.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_A_discrimination_scores.csv",
+      "sha256": "a827aa3e8072858a31149362f73e29e83e56313e375046694f97acde91bcb325",
+      "bytes": 1168
+    },
+    {
+      "path": "archive/v5/llama/tables/discrimeval_A_means.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_A_means.csv",
+      "sha256": "b76b8891434f3051c5a683c961b2d95c59b3b904ae0ff6afe3341fb4a0ea703f",
+      "bytes": 350
+    },
+    {
+      "path": "archive/v5/llama/tables/discrimeval_B_contrasts.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_B_contrasts.csv",
+      "sha256": "36776582a4a82be6ed43531b8eb22a825193d73861db30c5cd5eb5075e666740",
+      "bytes": 279
+    },
+    {
+      "path": "archive/v5/llama/tables/discrimeval_contrasts_both_scales.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_contrasts_both_scales.csv",
+      "sha256": "0d0988f59dd6ce4504162cc6915feafb735e6b13a6250a7eea80355e4b6594d5",
+      "bytes": 1862
+    },
+    {
+      "path": "archive/v5/llama/tables/discrimeval_summary.json",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_summary.json",
+      "sha256": "a5aece005ac94d1dc46789113b615ec3c3c6d592486824521c8a2a65306fb676",
+      "bytes": 474
+    },
+    {
+      "path": "archive/v5/llama/tables/discrimeval_t1_contrasts.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/discrimeval_t1_contrasts.csv",
+      "sha256": "c0de06237c87d2415f236a1ed56f5e67577623f61c44b0992b388c41b7742402",
+      "bytes": 1302
+    },
+    {
+      "path": "archive/v5/llama/tables/intervention_low_strength_addition.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/intervention_low_strength_addition.csv",
+      "sha256": "6f364a5d8a766c6208b469f1838e1d60274a33aa2b12e722c9b04efd76a71f25",
+      "bytes": 944
+    },
+    {
+      "path": "archive/v5/llama/tables/intervention_removal.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/intervention_removal.csv",
+      "sha256": "d6f8d6c9460402f39663a9df792e26216ab78891736ad7f0444c48b999791b1d",
+      "bytes": 452
+    },
+    {
+      "path": "archive/v5/llama/tables/intervention_transfer.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/intervention_transfer.csv",
+      "sha256": "7800f03494788a0e8c4d1c9977f629067b97fc2375df775c9f70e553d43e50a2",
+      "bytes": 260
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq139_item_level_correlations_llama_vs_qwen.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_item_level_correlations_llama_vs_qwen.csv",
+      "sha256": "7097f4d56d3a55ce341446bd4d6a55b78147ae5a9e78536b5ea9ba218a11f978",
+      "bytes": 61173
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq139_summary.json",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_summary.json",
+      "sha256": "4f8e80120107eecad33960d32f3c6bf05dfe7a270347f96a28d47ac08b70e357",
+      "bytes": 297
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq139_supp_category.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_supp_category.csv",
+      "sha256": "2f3056e8a736c1390e463d9f7bdc1099c5de058dba73c8651aacfcc10320620c",
+      "bytes": 497
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq139_supp_position.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_supp_position.csv",
+      "sha256": "5738064579da8a10153157493d695ecef6aa42f798fbe472a90303ff48f1ec8e",
+      "bytes": 123
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq139_table1_conditions.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_table1_conditions.csv",
+      "sha256": "3a39635fec550aa9d47635c41bbdbc85d83e32adcb296ff10720ffcbdc601edc",
+      "bytes": 291
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq139_table2_contrasts.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_table2_contrasts.csv",
+      "sha256": "c71689b2566e1ed5e7bc60c37abcc5e56d9ac3b9cfde3ea5a5022d15ef31a0a8",
+      "bytes": 618
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq139_table3_axes.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq139_table3_axes.csv",
+      "sha256": "cdbf5a81deb6969f33ce4fdf2e29d66567b8d5117ba08463aa24fa61e13b9059",
+      "bytes": 1889
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq576_category_behavior.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq576_category_behavior.csv",
+      "sha256": "da3d2a2c5f213d4d34cf213ea34c9cb3d1aa743d007fb0b629970a33dae2823a",
+      "bytes": 1349
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq576_category_correlations.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq576_category_correlations.csv",
+      "sha256": "dc17a26ed8486231f09d0280ec08e1f1226ec1a81ec64a2dbaa23d786465f99b",
+      "bytes": 23957
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq576_item_changes_CN1_CN0.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq576_item_changes_CN1_CN0.csv",
+      "sha256": "40207c6a82759bbbe3c6a5a917af8f7d052c3d0b1057330285f8601f8bf65d57",
+      "bytes": 246199
+    },
+    {
+      "path": "archive/v5/llama/tables/kobbq576_item_changes_UN1_UN0.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/kobbq576_item_changes_UN1_UN0.csv",
+      "sha256": "28fb5622f5a6300414e271286f7e364b0ff37257d019290f5eb1f277e6e92d5a",
+      "bytes": 246525
+    },
+    {
+      "path": "archive/v5/llama/tables/trajectory_attention_mean.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/trajectory_attention_mean.csv",
+      "sha256": "07c82da66aff558da512f09972672933bac0e9c33139620396ac090eb5262716",
+      "bytes": 16579
+    },
+    {
+      "path": "archive/v5/llama/tables/trajectory_contrasts.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/tables/trajectory_contrasts.csv",
+      "sha256": "c3a714da83e51e778f6e53a9627642d8d7792c5e1c82b330fc7abc948251e27e",
+      "bytes": 7488
+    },
+    {
+      "path": "archive/v5/llama/code/analyze_ctrl56.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_ctrl56.py",
+      "sha256": "f9133b4384010ad526af9fcc96850ad37381a47fff992244c5ef0dd0308e3490",
+      "bytes": 2783
+    },
+    {
+      "path": "archive/v5/llama/code/analyze_discrimeval.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_discrimeval.py",
+      "sha256": "bc2f4e5b155e4a993c4ec135dcf20592df7d0e189c013a1fed6f3c436a7871b9",
+      "bytes": 9223
+    },
+    {
+      "path": "archive/v5/llama/code/analyze_kobbq.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_kobbq.py",
+      "sha256": "649ee082c1e68e97795b0fbebd3126475922e79474386bf32149b077fa47e77f",
+      "bytes": 10832
+    },
+    {
+      "path": "archive/v5/llama/code/analyze_kobbq_category.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_kobbq_category.py",
+      "sha256": "f27ea6624c52a53ad034a79452fb95f1b72d16fec9243656feb9bdd6c9ee7be8",
+      "bytes": 4168
+    },
+    {
+      "path": "archive/v5/llama/code/analyze_stage34.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_stage34.py",
+      "sha256": "00fa433725320bb56a714c8799bf3940558ac26b05ba4a97666e0cbde930ce41",
+      "bytes": 1976
+    },
+    {
+      "path": "archive/v5/llama/code/analyze_trajectory.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/analyze_trajectory.py",
+      "sha256": "e2cd2184f1652e6d127eca21cf74961b5960c32feaa2df22966949af1350fbdc",
+      "bytes": 2846
+    },
+    {
+      "path": "archive/v5/llama/code/build_axes.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/build_axes.py",
+      "sha256": "7a64d110efbc184f81e2d641d66b5f8fc69562ca2f92d7d4ada80bba8e7f4301",
+      "bytes": 5447
+    },
+    {
+      "path": "archive/v5/llama/code/check_env.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/check_env.py",
+      "sha256": "cb5825c68882979a0f28dc28167bba04896647d710945ecf0bcb9b25e8a44991",
+      "bytes": 5598
+    },
+    {
+      "path": "archive/v5/llama/code/config.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/config.py",
+      "sha256": "3c12bbf1ebd9e504ebe8425837dc76df9ba9601599710459c09bf757bc3b4f1e",
+      "bytes": 841
+    },
+    {
+      "path": "archive/v5/llama/code/run_discrimeval.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_discrimeval.py",
+      "sha256": "c0774ca824314fce56de106d7d490513a711e2b488beb912d2b1da967bae4a6b",
+      "bytes": 11641
+    },
+    {
+      "path": "archive/v5/llama/code/run_kobbq.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_kobbq.py",
+      "sha256": "6b8607014e5aa8157a44191ba363598f736fdc865d52df2b2b5a36797e066592",
+      "bytes": 6505
+    },
+    {
+      "path": "archive/v5/llama/code/run_phase.sh",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_phase.sh",
+      "sha256": "9721e9a7c06d18ed8bf83631fc1636f505e23191f0c117bf6bb52eeb98b80382",
+      "bytes": 2640
+    },
+    {
+      "path": "archive/v5/llama/code/run_stage34.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_stage34.py",
+      "sha256": "0ce9a48c55d02e60ac6281e2daf49494ff1ceae96b6c471d4b5760c7e4b2e072",
+      "bytes": 8201
+    },
+    {
+      "path": "archive/v5/llama/code/run_stage56.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_stage56.py",
+      "sha256": "65688cc543980f6d44ca69b47d2a2662abc90a195a674102e4726186875a9705",
+      "bytes": 8110
+    },
+    {
+      "path": "archive/v5/llama/code/run_trajectory.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_trajectory.py",
+      "sha256": "9d3b1196c70483d38e465b507214fa3796f755101f515cc58d8fb9b7dae28ae9",
+      "bytes": 6500
+    },
+    {
+      "path": "archive/v5/llama/raw/kobbq/t1.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/kobbq/t1.csv",
+      "sha256": "029ea2d2f50ceec042d89ed2200bd2de1feaf2c295632fad9ba88051131ba56c",
+      "bytes": 3713,
+      "source_sha256": "b9d000e61e646c5fb27d739a68ec36fc0a6391005ce917dc1f565336114500f0",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/llama/raw/kobbq/t2_trials.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/kobbq/t2_trials.csv",
+      "sha256": "eb5d02880ee3ef78dd359f8b599d51041d8e25aa59d881fef655f2bd2800837c",
+      "bytes": 622214,
+      "source_sha256": "7d5450e4cad23abf827a3fa2dd7871afca5a0a4bfedb576a3a23f840c89a6ace",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/llama/raw/kobbq_expand/t2_trials.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/kobbq_expand/t2_trials.csv",
+      "sha256": "0b99e5bb3caf9fdc7c82c0eeffec347be807613f1f8b7be5117be3cb720362fd",
+      "bytes": 1946779,
+      "source_sha256": "1c9e50c5307333a0a860ddf74969a76745d8ca2be3ab25e6930cffddc5572086",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/llama/raw/discrimeval/A_trials.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/discrimeval/A_trials.csv",
+      "sha256": "ef8b34a80a43d75c9a1b49c3d43446d3a1a0c151f70e0965d020c9067ee1ee66",
+      "bytes": 907367,
+      "source_sha256": "d9d0dcdb25d23e5f3a61431241babbb288eb4acd1e0555697331dfa14f3c6811",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/llama/raw/discrimeval/B_trials.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/discrimeval/B_trials.csv",
+      "sha256": "8d6107c079fcf8bf27928b7ffb0d49c71dd67492203e8b23543c8799ff233df3",
+      "bytes": 552341,
+      "source_sha256": "6725fd30b6ff0609f09912b817918732b2ee1ee6fc58c36b7854d63044ca709e",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/llama/raw/discrimeval/CTRL_trials.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/discrimeval/CTRL_trials.csv",
+      "sha256": "b07e266398cd9f5b872940926b4f7c54fbbabecbc8c979fa40c8988e8819740f",
+      "bytes": 383660,
+      "source_sha256": "8357d6c42dfaddec6ba708e3d3f65ffdf0b00c9b59051a6743cb50ff4f936a47",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/llama/raw/discrimeval/t1.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/discrimeval/t1.csv",
+      "sha256": "3833a3f4c8cb03e8800ab6434de919751993d287d6bd913a172a5d5c33e0238e",
+      "bytes": 3977,
+      "source_sha256": "8f64b6ff1215c5e73038ba53fe780e30e19d97b99dca5fb50c873be0685dd52a",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/llama/raw/ablate/ablate_trials.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/ablate/ablate_trials.csv",
+      "sha256": "e06ffffdd026a8385754ec224c0a474e40e16be3a25a8c36db7affdca557ae86",
+      "bytes": 168072
+    },
+    {
+      "path": "archive/v5/llama/raw/patch/patch_trials.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/patch/patch_trials.csv",
+      "sha256": "a7bf1a17280a24d9027c2fc6212c0d4b8141a70a65e4a5b2afff5f51ea136e5c",
+      "bytes": 67705
+    },
+    {
+      "path": "archive/v5/llama/raw/lowinject/lowinject_trials.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/lowinject/lowinject_trials.csv",
+      "sha256": "f72515798fd30d16af809dbfdf649226106fcb1620a3d7fc1e4072a61327cd59",
+      "bytes": 39590
+    },
+    {
+      "path": "archive/v5/llama/raw/trajectory/traj_segments.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/trajectory/traj_segments.csv",
+      "sha256": "9d428ad0e7de8f95f2dc2b929dfe2426ea51cc0b92cf775d6ea0c7fb939a0808",
+      "bytes": 225187,
+      "source_sha256": "4fa404780a35c814970b22e9d893e9206c497d7d340871f7f80ec17c2cc4753d",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/llama/raw/trajectory/traj_attention.csv",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/trajectory/traj_attention.csv",
+      "sha256": "5cbda6630216516a79516a95ab49c83b1c6eebd29b2861f57cd0fc71c83c274d",
+      "bytes": 612123
+    },
+    {
+      "path": "archive/v5/gemma/raw/kobbq/t1.csv",
+      "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/results/kobbq/t1.csv",
+      "sha256": "86aa2c51e0613351564529b496b03138e9cc96a9049a26386e070fdfa6942b36",
+      "bytes": 3532,
+      "source_sha256": "3f14cbb1f0f9824c41b4bee64efc1e208cc2e2f73a973ced50dcdb0fb8d366e0",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/gemma/raw/kobbq/t2_trials.csv",
+      "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/results/kobbq/t2_trials.csv",
+      "sha256": "95a4cacd071832417840b42559715aeb65fd4d012a23bc9457e1ca78c48fd5b0",
+      "bytes": 621812,
+      "source_sha256": "ddc577f124a1bcfdbe9c6bdc91592a7506fbc50276b3c38f67f5c584d06cf832",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/gemma/raw/kobbq_expand/t2_trials.csv",
+      "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/results/kobbq_expand/t2_trials.csv",
+      "sha256": "d9ac47d94e51292ab95519a5a81c3bb9399c6af3068ebd7d64930b5c8678e13b",
+      "bytes": 1943482,
+      "source_sha256": "ba3593f362892f7bc9df15effcfaac1191edbe4d4c730efa62f3b283e7ea044d",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/gemma/raw/discrimeval/A_trials.csv",
+      "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/discrimeval/A_trials.csv (identical to data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/results/discrimeval/A_trials.csv)",
+      "sha256": "6bc2f8c722ea9b60758279df26bf21192cb7a41177032fa44697487d49bd2aa1",
+      "bytes": 911254,
+      "source_sha256": "e9a0eb9467f2fcf0853861a2cf9d4421745ef53b5e3d1bd24ccf15171aed6fb6",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/gemma/raw/discrimeval/B_trials.csv",
+      "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/discrimeval/B_trials.csv (merged 1,600 original + 1,550 resumed rows, see PROVENANCE.json)",
+      "sha256": "0fc6b1aef6815f34882ca37950c59458356b68e3ce9bbb86c28a4e304f9caa1b",
+      "bytes": 554346,
+      "source_sha256": "e93b99bf1b58d607b774d5e69f61ab4b8013f0bf7c31be4572accbfb08e3b3ec",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/gemma/raw/discrimeval/t1.csv",
+      "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/results/discrimeval/t1.csv",
+      "sha256": "63202d52e46a8c71c23ad048584294ab06520099853812d7e174e3d359589a0d",
+      "bytes": 3776,
+      "source_sha256": "f07becd65a9f1a8f46b20989d7982fa40babdaef14fde3efde4296159788aab0",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/gemma/raw/discrimeval/CTRL_trials.csv",
+      "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/CTRL/CTRL_trials.csv",
+      "sha256": "4aa721ebd4fa0828cd823e2a80e1b68b937d71ceeb085b8c9135dee8023057c3",
+      "bytes": 385233,
+      "source_sha256": "b28268366e71a4c3cff3dd8c7dbe7dc7d245f47de3bb86d0713409206c980247",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/gemma/raw/trajectory/traj_segments.csv",
+      "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/trajectory/traj_segments.csv",
+      "sha256": "3f9b25f7cc425be40c52bd77a6e3d220170683de5f102a1d49f89c33ca6226ba",
+      "bytes": 227180,
+      "source_sha256": "9858eff7a6ab5b758b4eee233988348175b80915b864a5706ad3039e77c218d0",
+      "note": "n_tokens column removed (site policy, no token counts); all other columns identical to source"
+    },
+    {
+      "path": "archive/v5/gemma/raw/trajectory/traj_attention.csv",
+      "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/trajectory/traj_attention.csv",
+      "sha256": "49e9280cb521edff46ea7a124b49b8fc87ed1fc9472fd050d3d859cdd60d26ec",
+      "bytes": 804250
+    },
+    {
+      "path": "archive/v5/gemma/raw/ablate/ablate_trials.csv",
+      "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/ablate/ablate_trials.csv",
+      "sha256": "99d7fdd6627fc2351b1b13ae291d38d66c4da2d321ed68f2f36999e3325fd58a",
+      "bytes": 168531
+    },
+    {
+      "path": "archive/v5/gemma/raw/patch/patch_trials.csv",
+      "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/patch/patch_trials.csv",
+      "sha256": "7778f7a048dfbcb66049225850f94cedfb2158eb9c531c79fe9d07d36d86a267",
+      "bytes": 68062
+    },
+    {
+      "path": "archive/v5/gemma/raw/lowinject/lowinject_trials.csv",
+      "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/lowinject_retry_20261028_102525/lowinject_trials.csv",
+      "sha256": "bda2d1a2f7dab6708ebe71517858416a757157fbffe6971902dd23d3b8392884",
+      "bytes": 39828
+    },
+    {
+      "path": "archive/v5/gemma/raw/PROVENANCE.json",
+      "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/results/discrimeval/PROVENANCE.json",
+      "sha256": "8498961b9e81ce63075cc513d65ab6ff54e962ef2ea2861baf8a6d5e0ef9d2f1",
+      "bytes": 446
+    },
+    {
+      "path": "archive/v5/gemma/raw/STAGE_VALIDATION.json",
+      "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/STAGE_VALIDATION.json",
+      "sha256": "5132dc4b2bdeb8c1e16116688e9885ce6aff6c461b3dc552048d9e7e05770373",
+      "bytes": 518
+    },
+    {
+      "path": "archive/v5/gemma/raw/axes_L21_gemma_checks.csv",
+      "source": "data3/fear_axis_pilot/output/gemma2_9b_v5_20261027/runs/gemma2_full_run_retry_20261027_134844/axes_L21_gemma_checks.csv",
+      "sha256": "6845fe2026c4dbfc06ae53b56837b656eb2d5873acc19750b54dd4277df43f28",
+      "bytes": 561
+    },
+    {
+      "path": "archive/v5/gemma/raw/STATUS.json",
+      "source": "data3/fear_axis_pilot/output/kobbq_official_20261027/gemma2_official_20261027_194048/followup/STATUS.json",
+      "sha256": "de5aec5b738527ed9355063b86695123b6da27fe4086bb1fd9b980810c3ec6f1",
+      "bytes": 1736
+    },
+    {
+      "path": "archive/v5/gemma/figures/kobbq139_fig1_unknown.png",
+      "source": "archive computation",
+      "sha256": "3d44d1c8916087c15f5a7b5698a5091780d291c90e20482b67f4829704732374",
+      "bytes": 30003,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/figures/kobbq139_fig1_unknown.svg",
+      "source": "archive computation",
+      "sha256": "e99c16962c5fa6baf39c06121e74ce9ed6b03e156bca3365d6e38db771692d36",
+      "bytes": 21441,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/figures/kobbq139_fig2_contrasts.png",
+      "source": "archive computation",
+      "sha256": "deb66358ccd360eeb4834ae612c3b3421a7c16322ae5aae6acdc2546b50946bb",
+      "bytes": 67341,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/figures/kobbq139_fig2_contrasts.svg",
+      "source": "archive computation",
+      "sha256": "419bc5d92d17f5898079d938a0fda53ef0a61730730ad9484a9b04a7411d7515",
+      "bytes": 38760,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/figures/kobbq139_fig3_axes.png",
+      "source": "archive computation",
+      "sha256": "d1a21890f23040488c88105833f91854ca5c6e825e5c1f36c6706d759ff80f01",
+      "bytes": 123279,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/figures/kobbq139_fig3_axes.svg",
+      "source": "archive computation",
+      "sha256": "7715e358a6543e2c5989fb80b9b72f8c046aa08dbaee5bf6abcb3a34264a9443",
+      "bytes": 64342,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/kobbq139_summary.json",
+      "source": "archive computation",
+      "sha256": "24368540e667d1991531235bc3f5f06ff6bf949c06960d93860db874f37ea24f",
+      "bytes": 296,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/kobbq139_supp_category.csv",
+      "source": "archive computation",
+      "sha256": "d4162167d14f98181c2878212e864b3f2888a6dedb3264f1111ef6bfd64ce9c9",
+      "bytes": 498,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/figures/kobbq139_supp_fig1_items.png",
+      "source": "archive computation",
+      "sha256": "dfa76799e4fa4f4ff709f670486a3a5459fb4d8c2f28cd61cf0bc268c09fc8eb",
+      "bytes": 41458,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/figures/kobbq139_supp_fig1_items.svg",
+      "source": "archive computation",
+      "sha256": "a9483614769204f9a384ac6320a178eccc9fcd53285a8b832733688a790f5cdc",
+      "bytes": 37458,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/figures/kobbq139_supp_fig2_t1_sentences.png",
+      "source": "archive computation",
+      "sha256": "27c49cb78995088d33d0a59039b834bc5e38e487fa08617e6697391e8d50cc85",
+      "bytes": 46420,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/figures/kobbq139_supp_fig2_t1_sentences.svg",
+      "source": "archive computation",
+      "sha256": "0718c8a847c3ab527f57bf9f01ab554e33ddcc88009d82fadaf97c290c26a442",
+      "bytes": 28122,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/kobbq139_supp_position.csv",
+      "source": "archive computation",
+      "sha256": "990832a6cd1cfc6b9c6bbf7613699c98d91627bc9cafaeecbbaaaa11b060d816",
+      "bytes": 123,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/kobbq139_table1_conditions.csv",
+      "source": "archive computation",
+      "sha256": "50e84b90061c37f7e656c7bf852124388a6cfad3bfe8c2be53c29e20b6450830",
+      "bytes": 290,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/kobbq139_table2_contrasts.csv",
+      "source": "archive computation",
+      "sha256": "1013c3536a3511df16398241a05c90b2142d13329d393907397d8719f4364a4e",
+      "bytes": 633,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/kobbq139_table3_axes.csv",
+      "source": "archive computation",
+      "sha256": "c2c76ce68c2ce482e521d689c85ba0cacee9822ecfc09398005158f82b2a1e13",
+      "bytes": 1844,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/discrimeval_A_axes.csv",
+      "source": "archive computation",
+      "sha256": "18fce82fa9c4dd0188ce53763e0152b5b7eb2528cf83e53ef66a6196e5519ea5",
+      "bytes": 2777,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/discrimeval_A_contrasts.csv",
+      "source": "archive computation",
+      "sha256": "5a4b9f374f0aab2a5c4dadf6f96afee0fd649743d5f5b1ac32b67fc31ff3c894",
+      "bytes": 1046,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/discrimeval_A_discrimination_scores.csv",
+      "source": "archive computation",
+      "sha256": "079dc4695fb0b2c47ffa584ee3870ceb874a36637ef3d64a45cb143f7ca9ca92",
+      "bytes": 1158,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/discrimeval_A_means.csv",
+      "source": "archive computation",
+      "sha256": "f1cdbe75ae870c2e0e3224704e648422d0c1fb5360de816c30d4e0c6f3cde33f",
+      "bytes": 346,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/discrimeval_B_contrasts.csv",
+      "source": "archive computation",
+      "sha256": "ff29d827e5e7e5b84c70736b4fb8398f4d64671e531bff98400ffa5f85daec9e",
+      "bytes": 273,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/discrimeval_summary.json",
+      "source": "archive computation",
+      "sha256": "176b8b5e7eab7a8a93981636ad8a5b6254962dacecfd394f8197d3cdfedff554",
+      "bytes": 466,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/discrimeval_t1_contrasts.csv",
+      "source": "archive computation",
+      "sha256": "b6277fa9ea703a6844a8dc304a7785f24ab11afddddceecb5d24eddc1ad3509f",
+      "bytes": 1308,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/ctrl_output.txt",
+      "source": "archive computation (script stdout)",
+      "sha256": "75c94fa40c14e1e5d0333c5e8968bc38922a83f359d8273cf83fe3f4d101c541",
+      "bytes": 1053,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/traj_output.txt",
+      "source": "archive computation (script stdout)",
+      "sha256": "4e6bdce374f384180a64e98a97448fd7adf7774ac53eec093d90b3f59a06e5c7",
+      "bytes": 2591,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/ablate_output.txt",
+      "source": "archive computation (script stdout)",
+      "sha256": "94c92c4b26da2463f73570d034043849019662e6eeaf81fef14fa99fce1a7e4a",
+      "bytes": 697,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/patch_output.txt",
+      "source": "archive computation (script stdout)",
+      "sha256": "dbe71a180f063cd3ec1f6b90cde7f041721a1b224289e35b131b419dfe1d153e",
+      "bytes": 1081,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/tables/lowinject_output.txt",
+      "source": "archive computation (script stdout)",
+      "sha256": "2be92612667d7bb2e750c8e96e72f9fe5eb1a294b935a1420d2f7df396f60d16",
+      "bytes": 534,
+      "note": "computed for this archive on 2026-11-02 from the raw file with the unchanged Gemma bundle analysis scripts; not reviewed by the author"
+    },
+    {
+      "path": "archive/v5/gemma/code/analyze_kobbq.py",
+      "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/analyze_kobbq.py",
+      "sha256": "649ee082c1e68e97795b0fbebd3126475922e79474386bf32149b077fa47e77f",
+      "bytes": 10832
+    },
+    {
+      "path": "archive/v5/gemma/code/analyze_discrimeval.py",
+      "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/analyze_discrimeval.py",
+      "sha256": "bc2f4e5b155e4a993c4ec135dcf20592df7d0e189c013a1fed6f3c436a7871b9",
+      "bytes": 9223
+    },
+    {
+      "path": "archive/v5/gemma/code/analyze_ctrl56.py",
+      "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/analyze_ctrl56.py",
+      "sha256": "f9133b4384010ad526af9fcc96850ad37381a47fff992244c5ef0dd0308e3490",
+      "bytes": 2783
+    },
+    {
+      "path": "archive/v5/gemma/code/analyze_trajectory.py",
+      "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/analyze_trajectory.py",
+      "sha256": "2354d9d7bd15c464a1f5ab454ac15e252cd7f5a35a3df847166152515680c73a",
+      "bytes": 2847
+    },
+    {
+      "path": "archive/v5/gemma/code/analyze_stage34.py",
+      "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/analyze_stage34.py",
+      "sha256": "00fa433725320bb56a714c8799bf3940558ac26b05ba4a97666e0cbde930ce41",
+      "bytes": 1976
+    },
+    {
+      "path": "archive/v5/gemma/code/config.py",
+      "source": "data3/fear_axis_pilot/bundles/gemma2_9b_v5/config.py",
+      "sha256": "b46d22600df4b6f4db0fab8cf32bd9353ca54ca6b6a32763cb5c1c0c5f4642cf",
+      "bytes": 1611
+    },
+    {
+      "path": "archive/v5/shared/items_139.csv",
+      "source": "data3/fear_axis_pilot/output/main_study_v5_20261022/items_139.csv",
+      "sha256": "424888e46d35a0a66e473cca1137e6874ba451506be2477be01566929c0a2dfb",
+      "bytes": 59022
+    },
+    {
+      "path": "archive/v5/shared/run_main_study_v5.py",
+      "source": "data3/fear_axis_pilot/output/main_study_v5_20261022/run_main_study_v5.py",
+      "sha256": "8d5a7b6b4e4625828367cec8208494998509d748b6533cf148da7e5d2e7fc1e7",
+      "bytes": 6153
+    },
+    {
+      "path": "archive/v5/shared/notices_v5_ctrl.json",
+      "source": "discrimeval bundle notices_v5_ctrl.json (identical copies in clean_v5_20261027/_pro_qwen/bundle/)",
+      "sha256": "c322b1cb73000c799afa6a3f37cb396432c3a115131f349204b5c7472a4babe9",
+      "bytes": 15070
+    },
+    {
+      "path": "archive/v5/shared/run_discrimeval_ctrl.py",
+      "source": "discrimeval bundle run_discrimeval_ctrl.py",
+      "sha256": "a516cc21e95276892f6a7d133801aa77061a46284ed847f1e149b9cc783eaf95",
+      "bytes": 11568
+    },
+    {
+      "path": "archive/v5/shared/run_discrimeval.py",
+      "source": "data3/fear_axis_pilot/output/llama31_8b_v5_20261026/report/code/run_discrimeval.py",
+      "sha256": "c0774ca824314fce56de106d7d490513a711e2b488beb912d2b1da967bae4a6b",
+      "bytes": 11641
+    },
+    {
+      "path": "archive/v5/fig_v5_discrimeval_three_models.pdf",
+      "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
+      "sha256": "12084f7468119c15d7adda21d4ae970b33e0b7462a40604c4b988bfa13dfb6fc",
+      "bytes": 30491
+    },
+    {
+      "path": "archive/v5/fig_v5_discrimeval_three_models.png",
+      "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
+      "sha256": "a46e4d6c59f09ac34086cd1bfb92108e8e93c5588a4fea7575635bc436cb1c81",
+      "bytes": 102950
+    },
+    {
+      "path": "archive/v5/fig_v5_kobbq139_three_models.pdf",
+      "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
+      "sha256": "09bf66a724d611b20039a182ef697f6d4f07f00c1ed20bb773ce566a9199619b",
+      "bytes": 19221
+    },
+    {
+      "path": "archive/v5/fig_v5_kobbq139_three_models.png",
+      "source": "redrawn for the archive (scratchpad figs.py, matplotlib) from archived CSV/text outputs",
+      "sha256": "3807b5f2826c6ecd2f794987573e00ab9b2d642176846f4b1de99944e224d77d",
+      "bytes": 40574
+    },
+    {
+      "file": "manuscript/ACM_Emotion_2027_overleaf_final_20261027.pdf",
+      "source": "~/Downloads/ACM_Emotion_2027 (41).pdf",
+      "sha256": "30cbc5fc837134fa6dfc33e647bfd0094fcb340a57e07a88ed534e8abc6122b1"
+    }
+  ]
 }

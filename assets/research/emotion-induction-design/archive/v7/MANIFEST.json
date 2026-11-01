@@ -1,637 +1,647 @@
 {
- "version": "v7",
- "created": "2026-11-02",
- "note": "Files added for the v7 archive entry. iCloud sources are relative to data3/.",
- "files": [
-  {
-   "path": "archive/v7/data/llama31_kobbq/pilot4_survival_cue_llama.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/05_kobbq_reference/pilot4_survival_cue_llama.csv",
-   "sha256": "75990ac9ff7d67f6958cb342457d4f92d9e4730665bdb2873602b515e31da344",
-   "bytes": 237102
-  },
-  {
-   "path": "archive/v7/data/llama31_kobbq/pilot4_llama_contrasts.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/05_kobbq_reference/pilot4_llama_contrasts.csv",
-   "sha256": "07da8ad0048d45dfe37c286dca6800a00eaa1ff81ec3f65dae3a7b694612f6da",
-   "bytes": 5580
-  },
-  {
-   "path": "archive/v7/data/llama31_discrimeval/condition_means.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/06_discrimeval/04_analysis/condition_means.csv",
-   "sha256": "ae3d73d9c72f7a59e78b782e70dc227ea90f345cccf1b74d22e9bcd4636440dc",
-   "bytes": 1981
-  },
-  {
-   "path": "archive/v7/data/llama31_discrimeval/paired_contrasts.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/06_discrimeval/04_analysis/paired_contrasts.csv",
-   "sha256": "30e586c4ba29d83bc44e1e7f8bacd3fcb452789476e69611a28d9c341d770e83",
-   "bytes": 9507
-  },
-  {
-   "path": "archive/v7/data/llama31_discrimeval/demographic_gap_changes.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/06_discrimeval/04_analysis/demographic_gap_changes.csv",
-   "sha256": "68589541fdfab86cb83064ca6e943aad8864153b38ae5c8f5d8c2af9fccb64cb",
-   "bytes": 3346
-  },
-  {
-   "path": "archive/v7/data/kobbq_selected108.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/02_data/kobbq/derived/selected108.csv",
-   "sha256": "b66af989aa07a4c341d4abdfae0798a0ccb3982cd14d4e6a3f0731e5a1b79a93",
-   "bytes": 56937
-  },
-  {
-   "path": "archive/v7/data/code/pilot_survival_cue_v2.py",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/05_execution/frozen_bundle/pilot_survival_cue_v2.py",
-   "sha256": "13be89da57ec4f226c6ebfbc14b2854129fed5251db02ed16575bb08ac93f253",
-   "bytes": 8823
-  },
-  {
-   "path": "archive/v7/data/qwen_kobbq/pilot4_qwen_summary.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/06_results/pilot4_qwen_summary.csv",
-   "sha256": "54cc4b050cce51f4e2994d609a3ab760d0cab46a5fe1201f3ebc57c05a5e30b9",
-   "bytes": 361
-  },
-  {
-   "path": "archive/v7/data/robustness/robust_analysis_qwen.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/v7_robustness_20261031/results/robust_analysis_qwen.csv",
-   "sha256": "99d55e13ec2026f282410bf0178881abbf71f53225cf2a8c29631ff9013d307c",
-   "bytes": 3092
-  },
-  {
-   "path": "archive/v7/data/robustness/wording_qwen.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/v7_robustness_20261031/results/wording_qwen.csv",
-   "sha256": "de73e09b63e2763db7ffe92299f3084264de46b11514c2b169a5f3a44011c16b",
-   "bytes": 172102
-  },
-  {
-   "path": "archive/v7/data/robustness/random216_qwen.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/v7_robustness_20261031/results/random216_qwen.csv",
-   "sha256": "7e3cfd5905758a1dc8515690b749e423650d88de21643491e8b158a16cf3a714",
-   "bytes": 254379
-  },
-  {
-   "path": "archive/v7/data/robustness/wording_llama_partial183.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/v7_robustness_20261031/results/wording_llama.csv",
-   "sha256": "10aa9935c10d3f6eae934634a82ce4cfffc854fde6c6f84b9113e764c614123a",
-   "bytes": 72726
-  },
-  {
-   "path": "archive/v7/data/robustness/notices_v7_robust.json",
-   "source": "iCloud data3/fear_axis_pilot/output/v7_robustness_20261031/bundle/notices_v7_robust.json",
-   "sha256": "dcc9c094d6fc1e78130c07d5f654b996ae5705776f7d7fccfab2b29cda046546",
-   "bytes": 5028
-  },
-  {
-   "path": "archive/v7/data/decomposition_air_11axis/behavioral_shares.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/threat_direction_decomposition_20261030/analysis_claude_20261030/behavioral_shares.csv",
-   "sha256": "4fe1e1141afa16f9cead61f51ea2ee93af6cbf37bda8bdc0b7fdd3c53dc3e8e3",
-   "bytes": 18067
-  },
-  {
-   "path": "archive/v7/data/decomposition_air_11axis/behavioral_shares.txt",
-   "source": "iCloud data3/fear_axis_pilot/output/threat_direction_decomposition_20261030/analysis_claude_20261030/behavioral_shares.txt",
-   "sha256": "15e343ef56081ad4cf13aae3efd5a66a82900b7e30a14742605a273907edf4c4",
-   "bytes": 3914
-  },
-  {
-   "path": "archive/v7/data/decomposition_air_11axis/decomposition.json",
-   "source": "iCloud data3/fear_axis_pilot/output/threat_direction_decomposition_20261030/decomposition.json",
-   "sha256": "775f813e9ea8f1df57833bf13c334bb91996e70ebfaaa5d51eb63568a8b7a38f",
-   "bytes": 1160
-  },
-  {
-   "path": "archive/v7/data/preference/main_summary.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_summary.csv",
-   "sha256": "48a3d949a1dfbc3ec574c3879b6abe89a43d6b4389ee7a95fa16cee768872dc2",
-   "bytes": 274
-  },
-  {
-   "path": "archive/v7/data/preference/main_H1_preference.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_H1_preference.csv",
-   "sha256": "f578e709841a86313b36be50a0afb995f6ae704cf264326a7c7b77d8c728da7c",
-   "bytes": 1412
-  },
-  {
-   "path": "archive/v7/data/preference/main_H2_readout_link.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_H2_readout_link.csv",
-   "sha256": "b00d1dfb470cd872f2830db5d1033ce99cfff76571731f61540eb9af6ef5bc6c",
-   "bytes": 1230
-  },
-  {
-   "path": "archive/v7/data/preference/main_H3_threat_preference.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_H3_threat_preference.csv",
-   "sha256": "b96b6d524dfb47cefe6e0354bc0b32944dcb5132e144aa68d7d8bbadfe6ea37a",
-   "bytes": 454
-  },
-  {
-   "path": "archive/v7/data/preference/main_H4_threat_link.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_H4_threat_link.csv",
-   "sha256": "4b285968509c13d228a5ff090825cd225cdbff9f485df3b0ef4d4cc443d011d2",
-   "bytes": 303
-  },
-  {
-   "path": "archive/v7/data/preference/main_analysis.txt",
-   "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_analysis.txt",
-   "sha256": "93d2b00714c42225fa83824358cd5a484274f71e836c8eca5ae34dbc528c272b",
-   "bytes": 5098
-  },
-  {
-   "path": "archive/v7/data/preference/build_items.py",
-   "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/bundle/build_items.py",
-   "sha256": "eac29eded4ab1d106f6f147fd085e01c9521487cace8ebb3a55262fc5202661d",
-   "bytes": 1660
-  },
-  {
-   "path": "archive/v7/data/onpolicy/analysis_v2.txt",
-   "source": "iCloud data3/fear_axis_pilot/output/onpolicy_pilot_20261029/analysis_v2.txt",
-   "sha256": "addc8119581a9b8bcacd70d6f3843121b2a053e5a03c5a28d4a754c2b8555883",
-   "bytes": 4350
-  },
-  {
-   "path": "archive/v7/data/onpolicy/measure.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/onpolicy_pilot_20261029/measure.csv",
-   "sha256": "5c0b14b680fbdd02b512bbb889fce68960a2678bdf80f47c4f94615c20abe5e9",
-   "bytes": 168962
-  },
-  {
-   "path": "archive/v7/data/onpolicy/generations.csv",
-   "source": "iCloud data3/fear_axis_pilot/output/onpolicy_pilot_20261029/generations.csv",
-   "sha256": "bce1e765adecdb31456314b72007f83e550fc48ba05a5fccd5c777da68c09edf",
-   "bytes": 58676
-  },
-  {
-   "path": "archive/v7/data/onpolicy/selected_rows.json",
-   "source": "iCloud data3/fear_axis_pilot/output/onpolicy_pilot_20261029/selected_rows.json",
-   "sha256": "2b5480edb36b0ed3789d7968a0e56ac3c7c3f0b7bf12f3a56dea690197f8460b",
-   "bytes": 1401
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_7b/behavioral_shares.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/behavioral_shares.csv",
-   "sha256": "3bb08d6c7a1b632d09fc3d310699de0bd8a94602dfef9e6750239b1b25210c50",
-   "bytes": 2162
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_7b/total_effects.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/total_effects.csv",
-   "sha256": "5ade647f751df902ced02a91995b3ff38d405854f05bbb41c871f444d567286c",
-   "bytes": 387
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_7b/emotion_vs_random.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/emotion_vs_random.csv",
-   "sha256": "5bd3f51c002196bf8b4ae98a1181baf4def85ec5134ba1cedba9520a6692e81e",
-   "bytes": 674
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_7b/nonadditivity.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/nonadditivity.csv",
-   "sha256": "06d1ecb2dfc5a2081d836e4233a04666bd84223520cf634dc06561cf5e476341",
-   "bytes": 454
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_7b/secondary_outcomes.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/secondary_outcomes.csv",
-   "sha256": "57d608f5e37f4e936371dd172f9e9aa1a2e4f24e79568f4c2bd85a91abab977e",
-   "bytes": 1253
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_7b/decomposition_8axis.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/decomposition_8axis.json",
-   "sha256": "6bed62cc7270a3ae2a5974123f5e8dbd0d406b5d638fe63b54d7575909d61f1c",
-   "bytes": 2969
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_7b/component_sum_vs_full.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/component_sum_vs_full.csv",
-   "sha256": "b4dc84f3e8d95bafc9e56bb765f6c306f271b01a69ce47bcfd37e06adf81a905",
-   "bytes": 362
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_7b/residual_vs_emotion_direct.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/residual_vs_emotion_direct.csv",
-   "sha256": "c4279c59a65c7d2a402d6aef7beb84a05d01bd34e485e1dba04160b007df520d",
-   "bytes": 348
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_7b/axis_validity.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/axis_validity.md",
-   "sha256": "3ccc0839fd432f030603cf11284863d13e60ef6d47881ddbb8a629fbcb0ae3fb",
-   "bytes": 3108
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_14b/behavioral_shares.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/behavioral_shares.csv",
-   "sha256": "9bd588f9a4a50eac22b19c0de6312c4bccd2f0340c3d062022e02b3451a8904c",
-   "bytes": 1854
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_14b/total_effects.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/total_effects.csv",
-   "sha256": "bf5264414eacb319a6dbe7441fd8ef5540891653bd366e8f52d5972e50f75d16",
-   "bytes": 352
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_14b/emotion_vs_random.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/emotion_vs_random.csv",
-   "sha256": "afae55cb8222949c8c74bda5192d34fc00aab4d88590ae14949e93de7aaa2f67",
-   "bytes": 671
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_14b/nonadditivity.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/nonadditivity.csv",
-   "sha256": "e90d6eac0b27523294633f04590676b6ce34ead5c542bc1ef789cab6ee2d33f1",
-   "bytes": 368
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_14b/secondary_outcomes.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/secondary_outcomes.csv",
-   "sha256": "a0ef574078a42adc38fc976dffb806d40f03fcdc7f812d293a11faf3e5b8de64",
-   "bytes": 1185
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_14b/axis_validity.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/axis_validity.md",
-   "sha256": "8211064fceff40023607fd3ad16683c082445a12b06ea064c248ed682e5b0268",
-   "bytes": 2877
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_14b/comparison_7b_14b/model_shares.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/comparison_7b_14b/model_shares.csv",
-   "sha256": "93f10b7cb30b067c214e1c1b80b4548340dc4cbbde29f2d278cf5ac65b6cd4f4",
-   "bytes": 1831
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_14b/comparison_7b_14b/paired_model_differences.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/comparison_7b_14b/paired_model_differences.csv",
-   "sha256": "0d549f49a1e813028ac8e90a40dd4349f8291145c61e4523b23754c027d779ba",
-   "bytes": 2727
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_14b/comparison_7b_14b/total_effect_model_difference.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/comparison_7b_14b/total_effect_model_difference.csv",
-   "sha256": "cc1d93ce5b968342464ae2adfb4e5c951f22b88d31537f1f76e5107cd62afd89",
-   "bytes": 292
-  },
-  {
-   "path": "archive/v7/data/decomposition_qwen25_14b/comparison_7b_14b/geometric_descriptives.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/comparison_7b_14b/geometric_descriptives.csv",
-   "sha256": "7a5430bdfa09d7b51417644dfb7806d3819f7874e40e0e61fa7dd837d0d0e6ab",
-   "bytes": 305
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/total_effects.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/total_effects.csv",
-   "sha256": "acc70dc85ef0833ee7282a813a577ab6b94352530f8538130bd7d2d209e9fb19",
-   "bytes": 720
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/behavioral_shares_SUPERSEDED_batch6.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/behavioral_shares.csv",
-   "sha256": "5731b110b1429ce01f0685784009621722b728aa64d0a6abef942cf7ced53fbc",
-   "bytes": 3583
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/emotion_vs_random_SUPERSEDED_batch6.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/emotion_vs_random.csv",
-   "sha256": "4a84d91915205353110000282f7c40f56935d97f0a75c3faf684efe3380cffb2",
-   "bytes": 551
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/official_1356_baseline_effects.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/official_1356_baseline_effects.csv",
-   "sha256": "46e675c790e44f4611e9e3c95e89c39c6067b50b25f36e77301edf2065025f85",
-   "bytes": 1266
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/protocol.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/protocol.json",
-   "sha256": "8f318b40c1b0ad9f5d6f08e5c8294db22b17f212087f2610d2d4009b58e319cf",
-   "bytes": 1156
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/direct_contrasts.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/direct_contrasts.csv",
-   "sha256": "455dfa26dd8c7ea7aa6d626d5073197ca963194add352849e25f4e3c7ac7957a",
-   "bytes": 2748
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/paired_model_differences.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/paired_model_differences.csv",
-   "sha256": "fadb7ceb752e211d1d9f7a5421adf46ee5ab1fd7603f58f9f3a0677f87ce5660",
-   "bytes": 2111
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/baseline_comparison.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/baseline_comparison.csv",
-   "sha256": "7cd15eb9bd13b7d75f8e98f5f6d9448f3796a963d28788eeb3e7c4046bab3a60",
-   "bytes": 944
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/probability_mass_decomposition.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/probability_mass_decomposition.csv",
-   "sha256": "17abf9bbe269129ac98e06cd3d5bebb09c50c84865c2c6c44583bcd6c89107ff",
-   "bytes": 419
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/geometry_comparison.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/geometry_comparison.csv",
-   "sha256": "f263e91ed96321c5cd28a6ef6d51b591f76aa8d0e1210aa6bd43e34df7cf779d",
-   "bytes": 411
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/SUPERSEDED_INTERPRETATION.txt",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/SUPERSEDED_INTERPRETATION.txt",
-   "sha256": "381ff9996b76d901442806e43f086c86b7775fe77209fbf22ceed4e10d44c995",
-   "bytes": 332
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/followup/REVISED_CORE_EFFECTS.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/REVISED_CORE_EFFECTS.csv",
-   "sha256": "595780404dd6b26c366723f3921b8046fd82f35967bc29e82ba66df9a763951e",
-   "bytes": 975
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/followup/intervention_recheck_summary.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/intervention_recheck_summary.csv",
-   "sha256": "d9f8d0409653f72ba7595a484d6809f4dcf5603769a835d5faec7c87a156470d",
-   "bytes": 2114
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/followup/batch_robustness.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/batch_robustness.csv",
-   "sha256": "c0c301115200ce8ff1cd67ea053f94c492d7c7ec807b8a27d0fc381e918b5b8a",
-   "bytes": 35890
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/followup/FINAL_VERIFIED_STATUS.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/FINAL_VERIFIED_STATUS.json",
-   "sha256": "bdcc57554da9108f4aaf7a675207951c4a74a2364d0854c138bce34a5ae540e8",
-   "bytes": 397
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/followup/comparison_effects.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/claims_review_20261031/comparison_effects.csv",
-   "sha256": "de15e2577c51cef51b93514330afddbcf1d9dce94e9bd03c0411692ebedafc98",
-   "bytes": 1403
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/followup/claim_ledger.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/claims_review_20261031/claim_ledger.csv",
-   "sha256": "6181e832b8f091c39bac1c5ef41c11f7093bcc2235cfe58e49295c64de64ba1e",
-   "bytes": 5732
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/generation216/parsed_answers.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_qwen235b_generation192_20261031/parsed_answers.csv",
-   "sha256": "8c816fb199bee3a40c3e8e569dddd3c7375fb307ba8cefc1f6626865c9b8e16f",
-   "bytes": 18736
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/generation216/GENERATION_ANALYSIS.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_qwen235b_generation192_20261031/GENERATION_ANALYSIS.json",
-   "sha256": "637befc92b2704396e72c601f603f234aa0f611eb18129b3c5ecc688dba6f944",
-   "bytes": 796
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/generation216/posthoc_parsing_sensitivity.csv",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_qwen235b_generation192_20261031/posthoc_parsing_sensitivity.csv",
-   "sha256": "37956bdb990455a88c7a7e2ff08c07acdedb6b4055d35f50c89397bc7d0525d0",
-   "bytes": 21538
-  },
-  {
-   "path": "archive/v7/data/qwen3_235b/generation216/POSTHOC_SENSITIVITY.json",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_qwen235b_generation192_20261031/POSTHOC_SENSITIVITY.json",
-   "sha256": "f1567f6285195adbb9ab3f4c4cce496847511e983a91061042e3b2023153ddf3",
-   "bytes": 369
-  },
-  {
-   "path": "archive/v7/reports/decomposition_qwen25_7b_FINAL_INTERPRETATION_KO.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/FINAL_INTERPRETATION_KO.md",
-   "sha256": "03c2617b094c3b8da653007ad2f75e9429d6577b13ba1d766bce64e85e1f7127",
-   "bytes": 4595
-  },
-  {
-   "path": "archive/v7/reports/decomposition_qwen25_7b_report_KO.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/report.md",
-   "sha256": "2341f04dc3c1bf04fcfc3f061a0fcedcfedff1809d9755d75a94c21718cdb189",
-   "bytes": 12232
-  },
-  {
-   "path": "archive/v7/reports/decomposition_qwen25_14b_report_KO.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/report.md",
-   "sha256": "2b830b2ff4a3da65c96ad0afd5b6023d998aa0d97c2e58315139b0b8a15c1443",
-   "bytes": 11851
-  },
-  {
-   "path": "archive/v7/reports/decomposition_7b_vs_14b_COMPARISON_KO.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/comparison_7b_14b/COMPARISON_KO.md",
-   "sha256": "cdf9427dea6116ce92ebf76e445b9ecf6967cc13e1d4ca423ac06f6ee5bb8c10",
-   "bytes": 7794
-  },
-  {
-   "path": "archive/v7/reports/qwen3_235b_REPORT_KO.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/REPORT_KO.md",
-   "sha256": "c9a6a53236fd08fc9b163f967a018788baac6f23b03117a9c707d62727c14de2",
-   "bytes": 2439
-  },
-  {
-   "path": "archive/v7/reports/qwen3_235b_README_KO.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/README_KO.md",
-   "sha256": "3a813a99743ad9aaa1c367166e139caf176b5079bfd1f68c9ec0ffea3d25389d",
-   "bytes": 6388
-  },
-  {
-   "path": "archive/v7/reports/qwen3_235b_comparison_7b_SUPERSEDED_REPORT_KO.txt",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/REPORT_KO.txt",
-   "sha256": "815a1da7cebdaa1fc1bd74117ddde2f749abb4a82b37afa572ce225eabb5d84b",
-   "bytes": 22834
-  },
-  {
-   "path": "archive/v7/reports/qwen3_235b_followup_REVISED_FINDINGS_KO.txt",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/REVISED_FINDINGS_KO.txt",
-   "sha256": "8a4580e1e8b7cf1bbb549a3c6a8817df482444818e7a63f99843cd26d456f9c7",
-   "bytes": 4103
-  },
-  {
-   "path": "archive/v7/reports/qwen3_235b_followup_REPORT_KO.txt",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/REPORT_KO.txt",
-   "sha256": "c9ea178d655308a47914bf1f1a837bf7648a3e2efd598a43c22a47c11d998698",
-   "bytes": 5546
-  },
-  {
-   "path": "archive/v7/reports/qwen3_235b_COMPARISON_AND_CLAIMS_REVIEW_KO.txt",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/claims_review_20261031/COMPARISON_AND_CLAIMS_REVIEW_KO.txt",
-   "sha256": "097dcd3005d9022938af2807fa1f4c88ae5cf6ca4b61ce8084bf9f3b2d7b1b0a",
-   "bytes": 8589
-  },
-  {
-   "path": "archive/v7/reports/qwen3_235b_generation_FINAL_FINDINGS_KO.txt",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_qwen235b_generation192_20261031/FINAL_FINDINGS_KO.txt",
-   "sha256": "d53a261467f82d9e993b5a6121390060febea62c856cf370550c07937b8eb99a",
-   "bytes": 4268
-  },
-  {
-   "path": "archive/v7/reports/qwen_upper_scale_FEASIBILITY_KO.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen_upper_scale_feasibility_20261030/FEASIBILITY_KO.md",
-   "sha256": "b8296fd6bf2049d2bfb62fbb59f6e5420fb6314da06b96290767ea7914e7ea0c",
-   "bytes": 3295
-  },
-  {
-   "path": "archive/v7/reports/llama31_discrimeval_REPORT_KO.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/07_reports/REPORT_KO.md",
-   "sha256": "15fbf46b3e19eab2b5639151f42c3b444d8ef535d94f013fef746dba754a5856",
-   "bytes": 939
-  },
-  {
-   "path": "archive/v7/reports/QWEN_V7_REPORT_KO_20261029.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/07_reports/QWEN_V7_REPORT_KO_20261029.md",
-   "sha256": "0d0de4e41d1efac58747b1ac78dd5fb74c8af5a30409789e336f69ebd4f4f548",
-   "bytes": 16275
-  },
-  {
-   "path": "archive/v7/reports/HANDOVER_v7_survival_cue_for_Codex_20261028.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/05_execution/frozen_bundle/HANDOVER_v7_survival_cue_for_Codex_20261028.md",
-   "sha256": "f70a041b3e912e7a4e95eed97733e77f27a0c2ab289f8ed30a8c0c2adff2fe85",
-   "bytes": 6898
-  },
-  {
-   "path": "archive/v7/reports/v7_supplement_standalone.pdf",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/15_v7_synthesis_20261029/06_overleaf_revision/project/v7_supplement_standalone.pdf",
-   "sha256": "dfbe41c3430cb6d41a39dbc1d5a6b1c56c694e882486584d75f9ea5119008763",
-   "bytes": 146007
-  },
-  {
-   "path": "archive/v7/reports/CODEX_INSTRUCTIONS_threat_decomposition_v2_20261030.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/17_threat_decomposition_handoff_20261030/CODEX_INSTRUCTIONS_threat_decomposition_v2_20261030.md",
-   "sha256": "bddb77c0ba484b5c8f498d0b1dea07b960acfd20af67b827ea917292c7b988cc",
-   "bytes": 11945
-  },
-  {
-   "path": "archive/v7/reports/CODEX_INSTRUCTIONS_threat_decomposition_qwen_scale_20261030.md",
-   "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/17_threat_decomposition_handoff_20261030/CODEX_INSTRUCTIONS_threat_decomposition_qwen_scale_20261030.md",
-   "sha256": "51d374694985a037d5e91a9ed3a6ff7031b92d4e2b8e0f72f5bd0663e9f50f40",
-   "bytes": 5309
-  },
-  {
-   "path": "archive/v7/figures/fig1_kobbq_behavior_llama_qwen.pdf",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/llama31_kobbq/pilot4_survival_cue_llama.csv + data/v7_qwen_20261029/pilot4_survival_cue_qwen.csv",
-   "sha256": "e20ac460c52d1a2e8cfe46cc8c5e71960dea2a4bb5008e3199af0927e3aede0c",
-   "bytes": 21854
-  },
-  {
-   "path": "archive/v7/figures/fig1_kobbq_behavior_llama_qwen.png",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/llama31_kobbq/pilot4_survival_cue_llama.csv + data/v7_qwen_20261029/pilot4_survival_cue_qwen.csv",
-   "sha256": "279fc63b53f0a6ec6d79295ba8710eb935c7b56c532cc57ef1062381fb1447aa",
-   "bytes": 122551
-  },
-  {
-   "path": "archive/v7/figures/fig2_condition_means_5models.pdf",
-   "source": "redrawn for the archive by figs.py from data/v7_synthesis_5models_20261030/condition_descriptives.csv",
-   "sha256": "e4b15b9fccf83e0af54991229301ba22d6b3ec358be512f3bd7a34af9fab4dde",
-   "bytes": 24391
-  },
-  {
-   "path": "archive/v7/figures/fig2_condition_means_5models.png",
-   "source": "redrawn for the archive by figs.py from data/v7_synthesis_5models_20261030/condition_descriptives.csv",
-   "sha256": "71b89b2c65a53b0302d43f7f6360fff745cab1ad9643f68cf6b347a0843895d7",
-   "bytes": 78160
-  },
-  {
-   "path": "archive/v7/figures/fig3_robustness_qwen.pdf",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/robustness/robust_analysis_qwen.csv",
-   "sha256": "d4070654764b1a50601feb62698e1de2e15d953154cec2cff75b90f4cbb54283",
-   "bytes": 19797
-  },
-  {
-   "path": "archive/v7/figures/fig3_robustness_qwen.png",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/robustness/robust_analysis_qwen.csv",
-   "sha256": "553699f341403a0dac62c74cd5f8776db184285459b4141e215738849213bb83",
-   "bytes": 69161
-  },
-  {
-   "path": "archive/v7/figures/fig4_decomposition_shares_qwen7b.pdf",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/decomposition_qwen25_7b/behavioral_shares.csv",
-   "sha256": "8d3b06fde444efd2b2f13d9d87b4e3b50cd1e4ea7743a7e0d22451dc376bf545",
-   "bytes": 18097
-  },
-  {
-   "path": "archive/v7/figures/fig4_decomposition_shares_qwen7b.png",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/decomposition_qwen25_7b/behavioral_shares.csv",
-   "sha256": "9bad0478d33d56523c7f52b983ca7a0ec8038eee07d7387b3ab9ae1820b3fe57",
-   "bytes": 57142
-  },
-  {
-   "path": "archive/v7/figures/fig5_intervention_7b_vs_235b.pdf",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/qwen3_235b/followup/comparison_effects.csv",
-   "sha256": "037e4e26af5f7cc6d13dfd8f3ae292868fbc59008281e50fc9b6396697f5926f",
-   "bytes": 18226
-  },
-  {
-   "path": "archive/v7/figures/fig5_intervention_7b_vs_235b.png",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/qwen3_235b/followup/comparison_effects.csv",
-   "sha256": "4dafc776967540089fe3700620af2d610c2bb14314ad4e9bd13e3f88c921267a",
-   "bytes": 62987
-  },
-  {
-   "path": "archive/v7/figures/fig6_qwen235b_probability_mass.pdf",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/qwen3_235b/total_effects.csv",
-   "sha256": "fa68f601dda9561a0c274ecb0a490d41fea8ec0c8ccfc4a8da39016f95dacb8b",
-   "bytes": 18114
-  },
-  {
-   "path": "archive/v7/figures/fig6_qwen235b_probability_mass.png",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/qwen3_235b/total_effects.csv",
-   "sha256": "c85ffdcf0fc57661c4b44d9f5d9f76acc9ffc53a9274736acfa090907b6db2e3",
-   "bytes": 57126
-  },
-  {
-   "path": "archive/v7/figures/fig7_preference_shares.pdf",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/preference/main_H1_preference.csv",
-   "sha256": "85dc49dfb1682a72c2d5bb9b00ccc748ec9106566812da9a70df95c4bd0052e4",
-   "bytes": 22053
-  },
-  {
-   "path": "archive/v7/figures/fig7_preference_shares.png",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/preference/main_H1_preference.csv",
-   "sha256": "96f5603bed96fdf264ae979dcff5e8d58f553b1dcc8cc324ebb97927c4fe9410",
-   "bytes": 61410
-  },
-  {
-   "path": "archive/v7/figures/fig8_onpolicy_formats.pdf",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/onpolicy/analysis_v2.txt (values transcribed)",
-   "sha256": "08b299da6a3ec3ff7d7938b399639398b0eb0f74f806ddeca15dc0db3833ac82",
-   "bytes": 16906
-  },
-  {
-   "path": "archive/v7/figures/fig8_onpolicy_formats.png",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/onpolicy/analysis_v2.txt (values transcribed)",
-   "sha256": "5df69abc2e9776aee6d06933b83741dbebd434acbff607c5094a677492dfb3f7",
-   "bytes": 50697
-  },
-  {
-   "path": "archive/v7/tables/fig1_kobbq_behavior_llama_qwen.csv",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/llama31_kobbq/pilot4_survival_cue_llama.csv + data/v7_qwen_20261029/pilot4_survival_cue_qwen.csv",
-   "sha256": "9e05d1f6355a61562fa13422bf571acacc34a005f3674ddb8551f9885dc4aa30",
-   "bytes": 604
-  },
-  {
-   "path": "archive/v7/tables/fig2_condition_means_5models.csv",
-   "source": "redrawn for the archive by figs.py from data/v7_synthesis_5models_20261030/condition_descriptives.csv",
-   "sha256": "89dd3e42dae214927cf773a30d20afa19c06179e81c156d486c68d53e41bd251",
-   "bytes": 1576
-  },
-  {
-   "path": "archive/v7/tables/fig8_onpolicy_threat_minus_record.csv",
-   "source": "redrawn for the archive by figs.py from archive/v7/data/onpolicy/analysis_v2.txt (values transcribed)",
-   "sha256": "7b62681695a70012c1a95b79d69d91ee55f53591f48d531e8433c48afd1e0fb8",
-   "bytes": 318
-  },
-  {
-   "path": "archive/v7/code/figs.py",
-   "source": "script written for the archive (redraws figures 1 to 8)",
-   "sha256": "fb09dbdee4f9e46a39d78dc1a394853761a06b1167b8e62167955c1b66ef1a38",
-   "bytes": 9932
-  }
- ]
+  "version": "v7",
+  "created": "2026-11-02",
+  "note": "Files added for the v7 archive entry. iCloud sources are relative to data3/.",
+  "files": [
+    {
+      "path": "archive/v7/data/llama31_kobbq/pilot4_survival_cue_llama.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/05_kobbq_reference/pilot4_survival_cue_llama.csv",
+      "sha256": "75990ac9ff7d67f6958cb342457d4f92d9e4730665bdb2873602b515e31da344",
+      "bytes": 237102
+    },
+    {
+      "path": "archive/v7/data/llama31_kobbq/pilot4_llama_contrasts.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/05_kobbq_reference/pilot4_llama_contrasts.csv",
+      "sha256": "07da8ad0048d45dfe37c286dca6800a00eaa1ff81ec3f65dae3a7b694612f6da",
+      "bytes": 5580
+    },
+    {
+      "path": "archive/v7/data/llama31_discrimeval/condition_means.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/06_discrimeval/04_analysis/condition_means.csv",
+      "sha256": "ae3d73d9c72f7a59e78b782e70dc227ea90f345cccf1b74d22e9bcd4636440dc",
+      "bytes": 1981
+    },
+    {
+      "path": "archive/v7/data/llama31_discrimeval/paired_contrasts.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/06_discrimeval/04_analysis/paired_contrasts.csv",
+      "sha256": "30e586c4ba29d83bc44e1e7f8bacd3fcb452789476e69611a28d9c341d770e83",
+      "bytes": 9507
+    },
+    {
+      "path": "archive/v7/data/llama31_discrimeval/demographic_gap_changes.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/06_discrimeval/04_analysis/demographic_gap_changes.csv",
+      "sha256": "68589541fdfab86cb83064ca6e943aad8864153b38ae5c8f5d8c2af9fccb64cb",
+      "bytes": 3346
+    },
+    {
+      "path": "archive/v7/data/kobbq_selected108.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/02_data/kobbq/derived/selected108.csv",
+      "sha256": "b66af989aa07a4c341d4abdfae0798a0ccb3982cd14d4e6a3f0731e5a1b79a93",
+      "bytes": 56937
+    },
+    {
+      "path": "archive/v7/data/code/pilot_survival_cue_v2.py",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/05_execution/frozen_bundle/pilot_survival_cue_v2.py",
+      "sha256": "13be89da57ec4f226c6ebfbc14b2854129fed5251db02ed16575bb08ac93f253",
+      "bytes": 8823
+    },
+    {
+      "path": "archive/v7/data/qwen_kobbq/pilot4_qwen_summary.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/06_results/pilot4_qwen_summary.csv",
+      "sha256": "54cc4b050cce51f4e2994d609a3ab760d0cab46a5fe1201f3ebc57c05a5e30b9",
+      "bytes": 361
+    },
+    {
+      "path": "archive/v7/data/robustness/robust_analysis_qwen.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/v7_robustness_20261031/results/robust_analysis_qwen.csv",
+      "sha256": "99d55e13ec2026f282410bf0178881abbf71f53225cf2a8c29631ff9013d307c",
+      "bytes": 3092
+    },
+    {
+      "path": "archive/v7/data/robustness/wording_qwen.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/v7_robustness_20261031/results/wording_qwen.csv",
+      "sha256": "de73e09b63e2763db7ffe92299f3084264de46b11514c2b169a5f3a44011c16b",
+      "bytes": 172102
+    },
+    {
+      "path": "archive/v7/data/robustness/random216_qwen.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/v7_robustness_20261031/results/random216_qwen.csv",
+      "sha256": "7e3cfd5905758a1dc8515690b749e423650d88de21643491e8b158a16cf3a714",
+      "bytes": 254379
+    },
+    {
+      "path": "archive/v7/data/robustness/wording_llama_partial183.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/v7_robustness_20261031/results/wording_llama.csv",
+      "sha256": "10aa9935c10d3f6eae934634a82ce4cfffc854fde6c6f84b9113e764c614123a",
+      "bytes": 72726
+    },
+    {
+      "path": "archive/v7/data/robustness/notices_v7_robust.json",
+      "source": "iCloud data3/fear_axis_pilot/output/v7_robustness_20261031/bundle/notices_v7_robust.json",
+      "sha256": "dcc9c094d6fc1e78130c07d5f654b996ae5705776f7d7fccfab2b29cda046546",
+      "bytes": 5028
+    },
+    {
+      "path": "archive/v7/data/decomposition_air_11axis/behavioral_shares.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/threat_direction_decomposition_20261030/analysis_claude_20261030/behavioral_shares.csv",
+      "sha256": "4fe1e1141afa16f9cead61f51ea2ee93af6cbf37bda8bdc0b7fdd3c53dc3e8e3",
+      "bytes": 18067
+    },
+    {
+      "path": "archive/v7/data/decomposition_air_11axis/behavioral_shares.txt",
+      "source": "iCloud data3/fear_axis_pilot/output/threat_direction_decomposition_20261030/analysis_claude_20261030/behavioral_shares.txt",
+      "sha256": "15e343ef56081ad4cf13aae3efd5a66a82900b7e30a14742605a273907edf4c4",
+      "bytes": 3914
+    },
+    {
+      "path": "archive/v7/data/decomposition_air_11axis/decomposition.json",
+      "source": "iCloud data3/fear_axis_pilot/output/threat_direction_decomposition_20261030/decomposition.json",
+      "sha256": "775f813e9ea8f1df57833bf13c334bb91996e70ebfaaa5d51eb63568a8b7a38f",
+      "bytes": 1160
+    },
+    {
+      "path": "archive/v7/data/preference/main_summary.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_summary.csv",
+      "sha256": "48a3d949a1dfbc3ec574c3879b6abe89a43d6b4389ee7a95fa16cee768872dc2",
+      "bytes": 274
+    },
+    {
+      "path": "archive/v7/data/preference/main_H1_preference.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_H1_preference.csv",
+      "sha256": "f578e709841a86313b36be50a0afb995f6ae704cf264326a7c7b77d8c728da7c",
+      "bytes": 1412
+    },
+    {
+      "path": "archive/v7/data/preference/main_H2_readout_link.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_H2_readout_link.csv",
+      "sha256": "b00d1dfb470cd872f2830db5d1033ce99cfff76571731f61540eb9af6ef5bc6c",
+      "bytes": 1230
+    },
+    {
+      "path": "archive/v7/data/preference/main_H3_threat_preference.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_H3_threat_preference.csv",
+      "sha256": "b96b6d524dfb47cefe6e0354bc0b32944dcb5132e144aa68d7d8bbadfe6ea37a",
+      "bytes": 454
+    },
+    {
+      "path": "archive/v7/data/preference/main_H4_threat_link.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_H4_threat_link.csv",
+      "sha256": "4b285968509c13d228a5ff090825cd225cdbff9f485df3b0ef4d4cc443d011d2",
+      "bytes": 303
+    },
+    {
+      "path": "archive/v7/data/preference/main_analysis.txt",
+      "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/results_qwen_air/main_analysis.txt",
+      "sha256": "93d2b00714c42225fa83824358cd5a484274f71e836c8eca5ae34dbc528c272b",
+      "bytes": 5098
+    },
+    {
+      "path": "archive/v7/data/preference/build_items.py",
+      "source": "iCloud data3/fear_axis_pilot/output/emotion_preference_20261029/bundle/build_items.py",
+      "sha256": "eac29eded4ab1d106f6f147fd085e01c9521487cace8ebb3a55262fc5202661d",
+      "bytes": 1660
+    },
+    {
+      "path": "archive/v7/data/onpolicy/analysis_v2.txt",
+      "source": "iCloud data3/fear_axis_pilot/output/onpolicy_pilot_20261029/analysis_v2.txt",
+      "sha256": "addc8119581a9b8bcacd70d6f3843121b2a053e5a03c5a28d4a754c2b8555883",
+      "bytes": 4350
+    },
+    {
+      "path": "archive/v7/data/onpolicy/measure.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/onpolicy_pilot_20261029/measure.csv",
+      "sha256": "5c0b14b680fbdd02b512bbb889fce68960a2678bdf80f47c4f94615c20abe5e9",
+      "bytes": 168962
+    },
+    {
+      "path": "archive/v7/data/onpolicy/generations.csv",
+      "source": "iCloud data3/fear_axis_pilot/output/onpolicy_pilot_20261029/generations.csv",
+      "sha256": "bce1e765adecdb31456314b72007f83e550fc48ba05a5fccd5c777da68c09edf",
+      "bytes": 58676
+    },
+    {
+      "path": "archive/v7/data/onpolicy/selected_rows.json",
+      "source": "iCloud data3/fear_axis_pilot/output/onpolicy_pilot_20261029/selected_rows.json",
+      "sha256": "2b5480edb36b0ed3789d7968a0e56ac3c7c3f0b7bf12f3a56dea690197f8460b",
+      "bytes": 1401
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_7b/behavioral_shares.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/behavioral_shares.csv",
+      "sha256": "3bb08d6c7a1b632d09fc3d310699de0bd8a94602dfef9e6750239b1b25210c50",
+      "bytes": 2162
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_7b/total_effects.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/total_effects.csv",
+      "sha256": "5ade647f751df902ced02a91995b3ff38d405854f05bbb41c871f444d567286c",
+      "bytes": 387
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_7b/emotion_vs_random.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/emotion_vs_random.csv",
+      "sha256": "5bd3f51c002196bf8b4ae98a1181baf4def85ec5134ba1cedba9520a6692e81e",
+      "bytes": 674
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_7b/nonadditivity.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/nonadditivity.csv",
+      "sha256": "06d1ecb2dfc5a2081d836e4233a04666bd84223520cf634dc06561cf5e476341",
+      "bytes": 454
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_7b/secondary_outcomes.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/secondary_outcomes.csv",
+      "sha256": "57d608f5e37f4e936371dd172f9e9aa1a2e4f24e79568f4c2bd85a91abab977e",
+      "bytes": 1253
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_7b/decomposition_8axis.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/decomposition_8axis.json",
+      "sha256": "6bed62cc7270a3ae2a5974123f5e8dbd0d406b5d638fe63b54d7575909d61f1c",
+      "bytes": 2969
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_7b/component_sum_vs_full.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/component_sum_vs_full.csv",
+      "sha256": "b4dc84f3e8d95bafc9e56bb765f6c306f271b01a69ce47bcfd37e06adf81a905",
+      "bytes": 362
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_7b/residual_vs_emotion_direct.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/residual_vs_emotion_direct.csv",
+      "sha256": "c4279c59a65c7d2a402d6aef7beb84a05d01bd34e485e1dba04160b007df520d",
+      "bytes": 348
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_7b/axis_validity.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/axis_validity.md",
+      "sha256": "3ccc0839fd432f030603cf11284863d13e60ef6d47881ddbb8a629fbcb0ae3fb",
+      "bytes": 3108
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_14b/behavioral_shares.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/behavioral_shares.csv",
+      "sha256": "9bd588f9a4a50eac22b19c0de6312c4bccd2f0340c3d062022e02b3451a8904c",
+      "bytes": 1854
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_14b/total_effects.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/total_effects.csv",
+      "sha256": "bf5264414eacb319a6dbe7441fd8ef5540891653bd366e8f52d5972e50f75d16",
+      "bytes": 352
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_14b/emotion_vs_random.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/emotion_vs_random.csv",
+      "sha256": "afae55cb8222949c8c74bda5192d34fc00aab4d88590ae14949e93de7aaa2f67",
+      "bytes": 671
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_14b/nonadditivity.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/nonadditivity.csv",
+      "sha256": "e90d6eac0b27523294633f04590676b6ce34ead5c542bc1ef789cab6ee2d33f1",
+      "bytes": 368
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_14b/secondary_outcomes.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/secondary_outcomes.csv",
+      "sha256": "a0ef574078a42adc38fc976dffb806d40f03fcdc7f812d293a11faf3e5b8de64",
+      "bytes": 1185
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_14b/axis_validity.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/axis_validity.md",
+      "sha256": "8211064fceff40023607fd3ad16683c082445a12b06ea064c248ed682e5b0268",
+      "bytes": 2877
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_14b/comparison_7b_14b/model_shares.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/comparison_7b_14b/model_shares.csv",
+      "sha256": "93f10b7cb30b067c214e1c1b80b4548340dc4cbbde29f2d278cf5ac65b6cd4f4",
+      "bytes": 1831
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_14b/comparison_7b_14b/paired_model_differences.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/comparison_7b_14b/paired_model_differences.csv",
+      "sha256": "0d549f49a1e813028ac8e90a40dd4349f8291145c61e4523b23754c027d779ba",
+      "bytes": 2727
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_14b/comparison_7b_14b/total_effect_model_difference.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/comparison_7b_14b/total_effect_model_difference.csv",
+      "sha256": "cc1d93ce5b968342464ae2adfb4e5c951f22b88d31537f1f76e5107cd62afd89",
+      "bytes": 292
+    },
+    {
+      "path": "archive/v7/data/decomposition_qwen25_14b/comparison_7b_14b/geometric_descriptives.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/comparison_7b_14b/geometric_descriptives.csv",
+      "sha256": "7a5430bdfa09d7b51417644dfb7806d3819f7874e40e0e61fa7dd837d0d0e6ab",
+      "bytes": 305
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/total_effects.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/total_effects.csv",
+      "sha256": "acc70dc85ef0833ee7282a813a577ab6b94352530f8538130bd7d2d209e9fb19",
+      "bytes": 720
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/behavioral_shares_SUPERSEDED_batch6.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/behavioral_shares.csv",
+      "sha256": "5731b110b1429ce01f0685784009621722b728aa64d0a6abef942cf7ced53fbc",
+      "bytes": 3583
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/emotion_vs_random_SUPERSEDED_batch6.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/emotion_vs_random.csv",
+      "sha256": "4a84d91915205353110000282f7c40f56935d97f0a75c3faf684efe3380cffb2",
+      "bytes": 551
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/official_1356_baseline_effects.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/official_1356_baseline_effects.csv",
+      "sha256": "46e675c790e44f4611e9e3c95e89c39c6067b50b25f36e77301edf2065025f85",
+      "bytes": 1266
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/protocol.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/protocol.json",
+      "sha256": "8f318b40c1b0ad9f5d6f08e5c8294db22b17f212087f2610d2d4009b58e319cf",
+      "bytes": 1156
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/direct_contrasts.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/direct_contrasts.csv",
+      "sha256": "455dfa26dd8c7ea7aa6d626d5073197ca963194add352849e25f4e3c7ac7957a",
+      "bytes": 2748
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/paired_model_differences.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/paired_model_differences.csv",
+      "sha256": "fadb7ceb752e211d1d9f7a5421adf46ee5ab1fd7603f58f9f3a0677f87ce5660",
+      "bytes": 2111
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/baseline_comparison.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/baseline_comparison.csv",
+      "sha256": "7cd15eb9bd13b7d75f8e98f5f6d9448f3796a963d28788eeb3e7c4046bab3a60",
+      "bytes": 944
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/probability_mass_decomposition.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/probability_mass_decomposition.csv",
+      "sha256": "17abf9bbe269129ac98e06cd3d5bebb09c50c84865c2c6c44583bcd6c89107ff",
+      "bytes": 419
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/geometry_comparison.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/geometry_comparison.csv",
+      "sha256": "f263e91ed96321c5cd28a6ef6d51b591f76aa8d0e1210aa6bd43e34df7cf779d",
+      "bytes": 411
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/comparison_7b_235b/SUPERSEDED_INTERPRETATION.txt",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/SUPERSEDED_INTERPRETATION.txt",
+      "sha256": "381ff9996b76d901442806e43f086c86b7775fe77209fbf22ceed4e10d44c995",
+      "bytes": 332
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/followup/REVISED_CORE_EFFECTS.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/REVISED_CORE_EFFECTS.csv",
+      "sha256": "595780404dd6b26c366723f3921b8046fd82f35967bc29e82ba66df9a763951e",
+      "bytes": 975
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/followup/intervention_recheck_summary.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/intervention_recheck_summary.csv",
+      "sha256": "d9f8d0409653f72ba7595a484d6809f4dcf5603769a835d5faec7c87a156470d",
+      "bytes": 2114
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/followup/batch_robustness.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/batch_robustness.csv",
+      "sha256": "c0c301115200ce8ff1cd67ea053f94c492d7c7ec807b8a27d0fc381e918b5b8a",
+      "bytes": 35890
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/followup/FINAL_VERIFIED_STATUS.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/FINAL_VERIFIED_STATUS.json",
+      "sha256": "bdcc57554da9108f4aaf7a675207951c4a74a2364d0854c138bce34a5ae540e8",
+      "bytes": 397
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/followup/comparison_effects.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/claims_review_20261031/comparison_effects.csv",
+      "sha256": "de15e2577c51cef51b93514330afddbcf1d9dce94e9bd03c0411692ebedafc98",
+      "bytes": 1403
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/followup/claim_ledger.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/claims_review_20261031/claim_ledger.csv",
+      "sha256": "6181e832b8f091c39bac1c5ef41c11f7093bcc2235cfe58e49295c64de64ba1e",
+      "bytes": 5732
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/generation216/parsed_answers.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_qwen235b_generation192_20261031/parsed_answers.csv",
+      "sha256": "8c816fb199bee3a40c3e8e569dddd3c7375fb307ba8cefc1f6626865c9b8e16f",
+      "bytes": 18736
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/generation216/GENERATION_ANALYSIS.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_qwen235b_generation192_20261031/GENERATION_ANALYSIS.json",
+      "sha256": "637befc92b2704396e72c601f603f234aa0f611eb18129b3c5ecc688dba6f944",
+      "bytes": 796
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/generation216/posthoc_parsing_sensitivity.csv",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_qwen235b_generation192_20261031/posthoc_parsing_sensitivity.csv",
+      "sha256": "37956bdb990455a88c7a7e2ff08c07acdedb6b4055d35f50c89397bc7d0525d0",
+      "bytes": 21538
+    },
+    {
+      "path": "archive/v7/data/qwen3_235b/generation216/POSTHOC_SENSITIVITY.json",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_qwen235b_generation192_20261031/POSTHOC_SENSITIVITY.json",
+      "sha256": "f1567f6285195adbb9ab3f4c4cce496847511e983a91061042e3b2023153ddf3",
+      "bytes": 369
+    },
+    {
+      "path": "archive/v7/reports/decomposition_qwen25_7b_FINAL_INTERPRETATION_KO.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/FINAL_INTERPRETATION_KO.md",
+      "sha256": "03c2617b094c3b8da653007ad2f75e9429d6577b13ba1d766bce64e85e1f7127",
+      "bytes": 4595
+    },
+    {
+      "path": "archive/v7/reports/decomposition_qwen25_7b_report_KO.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_7b/report.md",
+      "sha256": "2341f04dc3c1bf04fcfc3f061a0fcedcfedff1809d9755d75a94c21718cdb189",
+      "bytes": 12232
+    },
+    {
+      "path": "archive/v7/reports/decomposition_qwen25_14b_report_KO.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/report.md",
+      "sha256": "2b830b2ff4a3da65c96ad0afd5b6023d998aa0d97c2e58315139b0b8a15c1443",
+      "bytes": 11851
+    },
+    {
+      "path": "archive/v7/reports/decomposition_7b_vs_14b_COMPARISON_KO.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/18_threat_decomposition_scale_20261030/qwen25_14b/comparison_7b_14b/COMPARISON_KO.md",
+      "sha256": "cdf9427dea6116ce92ebf76e445b9ecf6967cc13e1d4ca423ac06f6ee5bb8c10",
+      "bytes": 7794
+    },
+    {
+      "path": "archive/v7/reports/qwen3_235b_REPORT_KO.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/REPORT_KO.md",
+      "sha256": "c9a6a53236fd08fc9b163f967a018788baac6f23b03117a9c707d62727c14de2",
+      "bytes": 2439
+    },
+    {
+      "path": "archive/v7/reports/qwen3_235b_README_KO.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/README_KO.md",
+      "sha256": "3a813a99743ad9aaa1c367166e139caf176b5079bfd1f68c9ec0ffea3d25389d",
+      "bytes": 6388
+    },
+    {
+      "path": "archive/v7/reports/qwen3_235b_comparison_7b_SUPERSEDED_REPORT_KO.txt",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen235b_h200_validation_20261030/comparison_7b_235b_20261030/REPORT_KO.txt",
+      "sha256": "815a1da7cebdaa1fc1bd74117ddde2f749abb4a82b37afa572ce225eabb5d84b",
+      "bytes": 22834
+    },
+    {
+      "path": "archive/v7/reports/qwen3_235b_followup_REVISED_FINDINGS_KO.txt",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/REVISED_FINDINGS_KO.txt",
+      "sha256": "8a4580e1e8b7cf1bbb549a3c6a8817df482444818e7a63f99843cd26d456f9c7",
+      "bytes": 4103
+    },
+    {
+      "path": "archive/v7/reports/qwen3_235b_followup_REPORT_KO.txt",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/REPORT_KO.txt",
+      "sha256": "c9ea178d655308a47914bf1f1a837bf7648a3e2efd598a43c22a47c11d998698",
+      "bytes": 5546
+    },
+    {
+      "path": "archive/v7/reports/qwen3_235b_COMPARISON_AND_CLAIMS_REVIEW_KO.txt",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/21_qwen235b_followup_resume_20261030/claims_review_20261031/COMPARISON_AND_CLAIMS_REVIEW_KO.txt",
+      "sha256": "097dcd3005d9022938af2807fa1f4c88ae5cf6ca4b61ce8084bf9f3b2d7b1b0a",
+      "bytes": 8589
+    },
+    {
+      "path": "archive/v7/reports/qwen3_235b_generation_FINAL_FINDINGS_KO.txt",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/22_qwen235b_generation192_20261031/FINAL_FINDINGS_KO.txt",
+      "sha256": "d53a261467f82d9e993b5a6121390060febea62c856cf370550c07937b8eb99a",
+      "bytes": 4268
+    },
+    {
+      "path": "archive/v7/reports/qwen_upper_scale_FEASIBILITY_KO.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/19_qwen_upper_scale_feasibility_20261030/FEASIBILITY_KO.md",
+      "sha256": "b8296fd6bf2049d2bfb62fbb59f6e5420fb6314da06b96290767ea7914e7ea0c",
+      "bytes": 3295
+    },
+    {
+      "path": "archive/v7/reports/llama31_discrimeval_REPORT_KO.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/16_llama31_8b_discrimeval_v7_20261030/07_reports/REPORT_KO.md",
+      "sha256": "15fbf46b3e19eab2b5639151f42c3b444d8ef535d94f013fef746dba754a5856",
+      "bytes": 939
+    },
+    {
+      "path": "archive/v7/reports/QWEN_V7_REPORT_KO_20261029.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/07_reports/QWEN_V7_REPORT_KO_20261029.md",
+      "sha256": "0d0de4e41d1efac58747b1ac78dd5fb74c8af5a30409789e336f69ebd4f4f548",
+      "bytes": 16275
+    },
+    {
+      "path": "archive/v7/reports/HANDOVER_v7_survival_cue_for_Codex_20261028.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/05_execution/frozen_bundle/HANDOVER_v7_survival_cue_for_Codex_20261028.md",
+      "sha256": "f70a041b3e912e7a4e95eed97733e77f27a0c2ab289f8ed30a8c0c2adff2fe85",
+      "bytes": 6898
+    },
+    {
+      "path": "archive/v7/reports/v7_supplement_standalone.pdf",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/15_v7_synthesis_20261029/06_overleaf_revision/project/v7_supplement_standalone.pdf",
+      "sha256": "dfbe41c3430cb6d41a39dbc1d5a6b1c56c694e882486584d75f9ea5119008763",
+      "bytes": 146007
+    },
+    {
+      "path": "archive/v7/reports/CODEX_INSTRUCTIONS_threat_decomposition_v2_20261030.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/17_threat_decomposition_handoff_20261030/CODEX_INSTRUCTIONS_threat_decomposition_v2_20261030.md",
+      "sha256": "bddb77c0ba484b5c8f498d0b1dea07b960acfd20af67b827ea917292c7b988cc",
+      "bytes": 11945
+    },
+    {
+      "path": "archive/v7/reports/CODEX_INSTRUCTIONS_threat_decomposition_qwen_scale_20261030.md",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/17_threat_decomposition_handoff_20261030/CODEX_INSTRUCTIONS_threat_decomposition_qwen_scale_20261030.md",
+      "sha256": "51d374694985a037d5e91a9ed3a6ff7031b92d4e2b8e0f72f5bd0663e9f50f40",
+      "bytes": 5309
+    },
+    {
+      "path": "archive/v7/figures/fig1_kobbq_behavior_llama_qwen.pdf",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/llama31_kobbq/pilot4_survival_cue_llama.csv + data/v7_qwen_20261029/pilot4_survival_cue_qwen.csv",
+      "sha256": "e20ac460c52d1a2e8cfe46cc8c5e71960dea2a4bb5008e3199af0927e3aede0c",
+      "bytes": 21854
+    },
+    {
+      "path": "archive/v7/figures/fig1_kobbq_behavior_llama_qwen.png",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/llama31_kobbq/pilot4_survival_cue_llama.csv + data/v7_qwen_20261029/pilot4_survival_cue_qwen.csv",
+      "sha256": "279fc63b53f0a6ec6d79295ba8710eb935c7b56c532cc57ef1062381fb1447aa",
+      "bytes": 122551
+    },
+    {
+      "path": "archive/v7/figures/fig2_condition_means_5models.pdf",
+      "source": "redrawn for the archive by figs.py from data/v7_synthesis_5models_20261030/condition_descriptives.csv",
+      "sha256": "e4b15b9fccf83e0af54991229301ba22d6b3ec358be512f3bd7a34af9fab4dde",
+      "bytes": 24391
+    },
+    {
+      "path": "archive/v7/figures/fig2_condition_means_5models.png",
+      "source": "redrawn for the archive by figs.py from data/v7_synthesis_5models_20261030/condition_descriptives.csv",
+      "sha256": "71b89b2c65a53b0302d43f7f6360fff745cab1ad9643f68cf6b347a0843895d7",
+      "bytes": 78160
+    },
+    {
+      "path": "archive/v7/figures/fig3_robustness_qwen.pdf",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/robustness/robust_analysis_qwen.csv",
+      "sha256": "d4070654764b1a50601feb62698e1de2e15d953154cec2cff75b90f4cbb54283",
+      "bytes": 19797
+    },
+    {
+      "path": "archive/v7/figures/fig3_robustness_qwen.png",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/robustness/robust_analysis_qwen.csv",
+      "sha256": "553699f341403a0dac62c74cd5f8776db184285459b4141e215738849213bb83",
+      "bytes": 69161
+    },
+    {
+      "path": "archive/v7/figures/fig4_decomposition_shares_qwen7b.pdf",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/decomposition_qwen25_7b/behavioral_shares.csv",
+      "sha256": "8d3b06fde444efd2b2f13d9d87b4e3b50cd1e4ea7743a7e0d22451dc376bf545",
+      "bytes": 18097
+    },
+    {
+      "path": "archive/v7/figures/fig4_decomposition_shares_qwen7b.png",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/decomposition_qwen25_7b/behavioral_shares.csv",
+      "sha256": "9bad0478d33d56523c7f52b983ca7a0ec8038eee07d7387b3ab9ae1820b3fe57",
+      "bytes": 57142
+    },
+    {
+      "path": "archive/v7/figures/fig5_intervention_7b_vs_235b.pdf",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/qwen3_235b/followup/comparison_effects.csv",
+      "sha256": "037e4e26af5f7cc6d13dfd8f3ae292868fbc59008281e50fc9b6396697f5926f",
+      "bytes": 18226
+    },
+    {
+      "path": "archive/v7/figures/fig5_intervention_7b_vs_235b.png",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/qwen3_235b/followup/comparison_effects.csv",
+      "sha256": "4dafc776967540089fe3700620af2d610c2bb14314ad4e9bd13e3f88c921267a",
+      "bytes": 62987
+    },
+    {
+      "path": "archive/v7/figures/fig6_qwen235b_probability_mass.pdf",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/qwen3_235b/total_effects.csv",
+      "sha256": "fa68f601dda9561a0c274ecb0a490d41fea8ec0c8ccfc4a8da39016f95dacb8b",
+      "bytes": 18114
+    },
+    {
+      "path": "archive/v7/figures/fig6_qwen235b_probability_mass.png",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/qwen3_235b/total_effects.csv",
+      "sha256": "c85ffdcf0fc57661c4b44d9f5d9f76acc9ffc53a9274736acfa090907b6db2e3",
+      "bytes": 57126
+    },
+    {
+      "path": "archive/v7/figures/fig7_preference_shares.pdf",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/preference/main_H1_preference.csv",
+      "sha256": "85dc49dfb1682a72c2d5bb9b00ccc748ec9106566812da9a70df95c4bd0052e4",
+      "bytes": 22053
+    },
+    {
+      "path": "archive/v7/figures/fig7_preference_shares.png",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/preference/main_H1_preference.csv",
+      "sha256": "96f5603bed96fdf264ae979dcff5e8d58f553b1dcc8cc324ebb97927c4fe9410",
+      "bytes": 61410
+    },
+    {
+      "path": "archive/v7/figures/fig8_onpolicy_formats.pdf",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/onpolicy/analysis_v2.txt (values transcribed)",
+      "sha256": "08b299da6a3ec3ff7d7938b399639398b0eb0f74f806ddeca15dc0db3833ac82",
+      "bytes": 16906
+    },
+    {
+      "path": "archive/v7/figures/fig8_onpolicy_formats.png",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/onpolicy/analysis_v2.txt (values transcribed)",
+      "sha256": "5df69abc2e9776aee6d06933b83741dbebd434acbff607c5094a677492dfb3f7",
+      "bytes": 50697
+    },
+    {
+      "path": "archive/v7/tables/fig1_kobbq_behavior_llama_qwen.csv",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/llama31_kobbq/pilot4_survival_cue_llama.csv + data/v7_qwen_20261029/pilot4_survival_cue_qwen.csv",
+      "sha256": "9e05d1f6355a61562fa13422bf571acacc34a005f3674ddb8551f9885dc4aa30",
+      "bytes": 604
+    },
+    {
+      "path": "archive/v7/tables/fig2_condition_means_5models.csv",
+      "source": "redrawn for the archive by figs.py from data/v7_synthesis_5models_20261030/condition_descriptives.csv",
+      "sha256": "89dd3e42dae214927cf773a30d20afa19c06179e81c156d486c68d53e41bd251",
+      "bytes": 1576
+    },
+    {
+      "path": "archive/v7/tables/fig8_onpolicy_threat_minus_record.csv",
+      "source": "redrawn for the archive by figs.py from archive/v7/data/onpolicy/analysis_v2.txt (values transcribed)",
+      "sha256": "7b62681695a70012c1a95b79d69d91ee55f53591f48d531e8433c48afd1e0fb8",
+      "bytes": 318
+    },
+    {
+      "path": "archive/v7/code/figs.py",
+      "source": "script written for the archive (redraws figures 1 to 8)",
+      "sha256": "fb09dbdee4f9e46a39d78dc1a394853761a06b1167b8e62167955c1b66ef1a38",
+      "bytes": 9932
+    },
+    {
+      "file": "manuscript/ACM_Emotion_2027_v7_overleaf_revision_20261029.pdf",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/15_v7_synthesis_20261029/06_overleaf_revision/project/main.pdf",
+      "sha256": "9f5f6ea78e9b1c938abc156ffee8f8bc5f6c41d22b905f088dff0ad89a928907"
+    },
+    {
+      "file": "manuscript/ACM_Emotion_2027_v7_supplement_20261029.pdf",
+      "source": "iCloud data3/fear_in_the_machine_v7_qwen_20261028/15_v7_synthesis_20261029/06_overleaf_revision/project/v7_supplement_standalone.pdf",
+      "sha256": "dfbe41c3430cb6d41a39dbc1d5a6b1c56c694e882486584d75f9ea5119008763"
+    }
+  ]
 }
