@@ -138,7 +138,7 @@ Representations are read at a prespecified layer (Qwen2.5-7B L19; Llama-3.1-8B L
 | **negative emotion** | Mean of the unit directions for the six negative emotions (panic, fear, anxiety, desperation, sadness, anger). | Negative emotion |
 | **eight-emotion subspace** | The 7-dimensional subspace spanned by the centered directions of the eight emotions. | Eight-emotion subspace |
 
-Measurement caveat. Projection scores index emotion-related content in the representation; they are not emotional states. Statements about their behavioral role are limited to the models, layers and token positions tested.
+Measurement caveat. Projection scores index emotion content in the representation; they are not emotional states. Statements about their behavioral role are limited to the models, layers and token positions tested.
 
 ## 6. Interpretation rules
 
@@ -177,4 +177,4 @@ Present the layers cumulatively so that they sum to the total effect CLOSED-TERM
 - v1.2 adds the three-step reporting structure (Section 6a).
 - v1.4 adds the terminology policy and model table (Section 0).
 - v1.3 simplifies the measurement caveat, limits representation claims to the tested models (Rule 8), adds the cue-dependent reactivation rule (Rule 9), and states the developer post-training hypothesis in Step 3.
-- v1.5 adopts "emotion representations" as the single term (replacing "emotion-related representations"), matching the title. The measurement caveat still applies; projection scores index emotion representations and are not emotional states.
+- v1.5 adopts "emotion representations" as the single term (dropping "related"), matching the title. The measurement caveat still applies; projection scores index emotion representations and are not emotional states.
