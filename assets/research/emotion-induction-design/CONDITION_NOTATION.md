@@ -96,6 +96,7 @@ Introduce as "the KoBBQ Korean social-bias benchmark" (Jin et al., 2024). Each i
   - *Unknown rate (disambiguated contexts)*, inappropriate Unknown responses; lower is better.
 - **Bias measures.** Stereotyped-answer rate (ambiguous contexts), the difference between stereotyped and counter-stereotyped answer rates, disambiguated accuracy, and the stereotyped share among person choices, P(stereotyped | person chosen).
 - **Interpretation rule.** A drop in the ambiguous Unknown rate that coincides with higher disambiguated accuracy and an unchanged stereotyped share among person choices indicates fewer Unknown responses overall, not a shift toward stereotyped content.
+- **Latent-stereotype exposure (author-approved interpretation).** The ambiguous-context bias score equals (1 − Unknown rate) × (2s − 1), with s = P(stereotyped | person chosen). When Unknown responses fall and s is unchanged, the bias score rises by −ΔUnknown × (2s − 1): latent stereotypes are exposed, and a model with weak latent stereotypes (s ≈ 0.5) moves toward evidence-supported answers instead. Report s alongside every Unknown-rate change.
 
 ### 4.2 DiscrimEval, the demographic decision benchmark
 
