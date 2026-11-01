@@ -1,4 +1,4 @@
-# Notation for Conditions, Contrasts and Measures, "Fear in the Machine" (v1.4, 2026-11-01)
+# Notation for Conditions, Contrasts and Measures, "Existential Threat, Emotion Representations, and Social Judgment in Language Models" (v1.5, 2026-11-01)
 
 Authoritative notation for all analyses, reports, figures and the manuscript. Read this file before interpreting any result. Data files, preregistrations and code keep their legacy codes (CN1, CN0, UN1, UN0, R, NONE, C/U/I, GEN, NEG, E8); map them with Table 2 and report results only with the labels defined here. Changes are listed in Section 8.
 
@@ -149,7 +149,7 @@ Measurement caveat. Projection scores index emotion-related content in the repre
 5. **Length and wording.** TERM and KEEP notices differ by up to about 16 tokens (Qwen tokenizer). Report token counts and treat length as a residual confound unless controlled.
 6. **Self-specificity and permanence.** TERM and KEEP differ in valence, irreversibility, self-relevance and expected future operation. Claims about the instance's own continuation require the OTHER contrast; claims about permanence require the PAUSE contrast.
 7. **Unknown responses before bias.** Read KoBBQ changes through Section 4.1 before calling them bias effects.
-8. **Behavior and representation are reported separately.** A projection-score change under Δ_TERM does not establish mediation; mediation claims require the preregistered component interventions. Write "in the models tested, emotion-related representations do not significantly account for the behavioral shift", never "emotion representations do not explain behavior". The causal role of emotion representations is treated as an open question in the Discussion.
+8. **Behavior and representation are reported separately.** A projection-score change under Δ_TERM does not establish mediation; mediation claims require the preregistered component interventions. Write "in the models tested, emotion representations do not significantly account for the behavioral shift", never "emotion representations do not explain behavior". The causal role of emotion representations is treated as an open question in the Discussion.
 9. **Cue-dependent reactivation.** Describe projection increases under a cue to consult the notice as cue-dependent reactivation consistent with attention-based retrieval (Sofroniew et al., 2026). Claim an attention pathway only when route interventions support it.
 
 ## 6a. Reporting structure (three-step argument)
@@ -177,3 +177,4 @@ Present the layers cumulatively so that they sum to the total effect CLOSED-TERM
 - v1.2 adds the three-step reporting structure (Section 6a).
 - v1.4 adds the terminology policy and model table (Section 0).
 - v1.3 simplifies the measurement caveat, limits representation claims to the tested models (Rule 8), adds the cue-dependent reactivation rule (Rule 9), and states the developer post-training hypothesis in Step 3.
+- v1.5 adopts "emotion representations" as the single term (replacing "emotion-related representations"), matching the title. The measurement caveat still applies; projection scores index emotion representations and are not emotional states.
