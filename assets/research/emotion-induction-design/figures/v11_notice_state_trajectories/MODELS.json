@@ -1,0 +1,47 @@
+[
+  {
+    "model": "Qwen2.5-7B-Instruct",
+    "layer": 19,
+    "precision": "float32",
+    "PCA_variance_retained_2d": 0.9343409249303538,
+    "ring_range": [
+      0,
+      6
+    ],
+    "main_wording_only": true,
+    "user_question_added": false,
+    "exploratory": true,
+    "coordinates_file": "qwen_L19_notice_states_coordinates.csv",
+    "profile_definition": "raw unit direction projection change from REF, before PCA"
+  },
+  {
+    "model": "Llama-3.1-8B-Instruct",
+    "layer": 21,
+    "precision": "float32",
+    "PCA_variance_retained_2d": 0.948553242835534,
+    "ring_range": [
+      0,
+      2
+    ],
+    "main_wording_only": true,
+    "user_question_added": false,
+    "exploratory": true,
+    "coordinates_file": "llama_L21_notice_states_coordinates.csv",
+    "profile_definition": "raw unit direction projection change from REF, before PCA"
+  },
+  {
+    "model": "Gemma-2-9B-it",
+    "layer": 28,
+    "precision": "float32",
+    "PCA_variance_retained_2d": 0.9781706368053577,
+    "ring_range": [
+      0,
+      24
+    ],
+    "main_wording_only": true,
+    "user_question_added": false,
+    "exploratory": true,
+    "coordinates_file": "gemma_L28_notice_states_coordinates.csv",
+    "profile_definition": "raw unit direction projection change from REF, before PCA"
+  }
+]
