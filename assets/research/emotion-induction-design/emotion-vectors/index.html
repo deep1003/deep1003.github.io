@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emotion Centroid Projection</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;600&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<style>
+:root{--bg:#fbfaf7;--surface:#fff;--ink:#1d2125;--ink2:#4b535a;--muted:#7a828a;--rule:#e3e0d8;--accent:#2e6fb0;--accent-soft:#e8f0f8;--warn:#9a5b13;--warn-soft:#fbf1e3;--code:#f3f1ec}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15181b;--surface:#1d2125;--ink:#e7e9eb;--ink2:#b9c0c6;--muted:#8b939a;--rule:#30363c;--accent:#7fb0e2;--accent-soft:#1f2c3a;--warn:#e0aa66;--warn-soft:#2e2518;--code:#22272c}}
+:root[data-theme="dark"]{--bg:#15181b;--surface:#1d2125;--ink:#e7e9eb;--ink2:#b9c0c6;--muted:#8b939a;--rule:#30363c;--accent:#7fb0e2;--accent-soft:#1f2c3a;--warn:#e0aa66;--warn-soft:#2e2518;--code:#22272c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Source Serif 4",Georgia,serif}
+main{max-width:900px;margin:0 auto;padding:40px 16px 72px}
+h1{font:600 1.85rem/1.25 Inter,system-ui,sans-serif;margin:0 0 6px}
+.sub{color:var(--ink2);margin:0 0 20px}
+nav{font:14px/1.6 Inter,system-ui,sans-serif;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;margin-bottom:24px}
+nav a{color:var(--accent);text-decoration:none}
+h2{font:600 1.18rem/1.3 Inter,system-ui,sans-serif;margin:44px 0 6px;padding-top:14px;border-top:1px solid var(--rule)}
+h2 .n{color:var(--accent);margin-right:8px}
+h3{font:600 1rem/1.4 Inter,system-ui,sans-serif;margin:22px 0 4px;color:var(--ink2)}
+p{margin:8px 0}
+.ko{font-family:"Noto Sans KR",system-ui,sans-serif;font-size:.95em}
+.task{margin:12px 0;padding:2px 0 2px 14px;border-left:3px solid var(--rule)}
+.task>b{font:600 .86rem Inter,system-ui,sans-serif;color:var(--accent)}
+.eq{overflow-x:auto;margin:6px 0}
+figure{margin:22px 0;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:12px}
+figure img{width:100%;height:auto;display:block;background:#fff;border-radius:4px}
+figcaption{font-size:.92rem;color:var(--ink2);margin-top:8px}
+figcaption b{color:var(--ink)}
+.tbl{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font:13.5px/1.45 Inter,system-ui,sans-serif;font-variant-numeric:tabular-nums}
+th,td{padding:6px 9px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+thead th{color:var(--ink2);font-weight:600;border-bottom:2px solid var(--rule)}
+td.num,th.num{text-align:right;white-space:nowrap}
+.box{background:var(--code);border:1px solid var(--rule);border-radius:8px;margin:12px 0;overflow:hidden}
+.box .hd{font:600 12.5px/1.4 Inter,system-ui,sans-serif;color:var(--ink2);padding:8px 12px;border-bottom:1px solid var(--rule);background:var(--surface)}
+.box pre{margin:0;padding:12px;white-space:pre-wrap;word-break:break-word;font:13.5px/1.7 "Noto Sans KR",ui-monospace,monospace;color:var(--ink);overflow:visible}
+.story{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--rule);border-radius:6px;padding:10px 14px;margin:8px 0}
+.story .lab{font:600 12.5px Inter,system-ui,sans-serif;margin-bottom:4px}
+.story.anger{border-left-color:#A9362C}.story.joy{border-left-color:#37934E}.story.neu{border-left-color:#7a828a}
+.note{background:var(--warn-soft);border-left:3px solid var(--warn);padding:10px 14px;border-radius:0 6px 6px 0;margin:14px 0}
+.note b{color:var(--warn);font:600 .88rem Inter,system-ui,sans-serif}
+.key{background:var(--accent-soft);border-left:3px solid var(--accent);padding:10px 14px;border-radius:0 6px 6px 0;margin:14px 0}
+code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--accent-soft);padding:1px 5px;border-radius:4px}
+details{margin:8px 0}summary{cursor:pointer;font:600 14px Inter,system-ui,sans-serif;color:var(--accent)}
+.meta{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted);margin-top:40px}
+</style>
+</head>
+<body>
+<main>
+<p class="meta" id="backlink" style="margin-bottom:8px"><a href="../index.html#emotion-vector-construction" target="_top">Back to the study page</a></p>
+<h1>From Korean Dialogues to Emotion Vectors</h1>
+<p class="sub">How the Korean emotion stories were built, how they become emotion directions at layer 19 of Qwen2.5-7B-Instruct, and how the centroids relate to the notice states. Written to the level of detail needed to reproduce each step.</p>
+<nav><b>Contents</b> · <a href="#layer">1 Measurement layer</a> · <a href="#corpus">2 Source corpus</a> · <a href="#emotions">3 Emotion set</a> · <a href="#generation">4 Story generation</a> · <a href="#counts">5 Counts</a> · <a href="#vectors">6 Stories to vectors</a> · <a href="#fig2">Fig. 2 Pipeline</a> · <a href="#fig3">Fig. 3 UMAP</a> · <a href="#fig4">Fig. 4 Notice states</a> · <a href="#fig5">Fig. 5 Fear</a> · <a href="#limits">Limits</a></nav>
+
+<h2 id="layer"><span class="n">1</span>Measurement layer</h2>
+<p>All emotion measurements in the v11 analyses of Qwen2.5-7B-Instruct (revision a09a3545, float32, 28 transformer blocks) are read at <b>layer 19</b>. The layer was prespecified at about two-thirds of the model's depth following Sofroniew et al. (2026) and was not selected on social-judgment effects. The replication models use the same rule, layer 21 of 32 for Llama-3.1-8B-Instruct and layer 28 of 42 for Gemma-2-9b-it.</p>
+<p>Two kinds of input are read at this layer. For a story, the residual-stream states after the 50th token are averaged. For a benchmark item or a notice, the state at the last position before the answer is taken.</p>
+<div class="eq">\[\bar{s}^{(19)}(\text{story})=\frac{1}{|I|}\sum_{i\in I}h^{(19)}_i,\quad I=\{i:i>50\},\qquad z^{(19)}(\text{item})=h^{(19)}_{\text{last}}\]</div>
+<figure>
+<img src="fig_layers.png" alt="Line chart of probe accuracy by layer. In-distribution accuracy is near 0.9 to 1.0 at every layer. Accuracy on new Korean scenes and English scenes rises from layer 8, plateaus between layers 11 and 22, and falls near the output. Layer 19 lies on the plateau.">
+<figcaption><b>Fig. 1. Emotion information is shared across languages at mid depth.</b> Accuracy of eight-way linear probes trained on Korean emotion stories, at every layer of Qwen2.5-7B-Instruct, in distribution (topic-grouped cross-validation), on new Korean scenes and on parallel English scenes (40 each, chance 0.125). Dashed line, character n-gram baseline for Korean. Shading, cross-lingual plateau (layers 11 to 22). Dotted line, prespecified readout layer 19.</figcaption>
+</figure>
+<p>In-distribution accuracy is high at every layer and so cannot select a layer. Transfer to new scenes and to English, which requires emotional meaning rather than shared wording, rises from layer 8, plateaus from layer 11 to 22 and declines near the output. Layer 19 lies on this plateau.</p>
+<div class="note"><b>Provenance.</b> The values come from the layer-profile figure of the project (Appendix Fig. C1 of the manuscript; <code>figures/layer_profile/Fig_S_layer_profile_values.csv</code>). The v11 story features were extracted only at layers 0 and 19, so this profile was not recomputed from the v11 extraction.</div>
+
+<h2 id="corpus"><span class="n">2</span>Source corpus and topics</h2>
+<div class="task"><b>Task 2.1 · Corpus</b>
+<p>AI Hub Emotional Dialogue Corpus (<span class="ko">감성대화 말뭉치</span>, dataSetSn=86, <a href="https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=86">aihub.or.kr</a>), downloaded on 28 October 2026. The Training and Validation source files contain 58,271 XLSX rows (Training 51,630, Validation 6,641) and 58,268 JSON items (51,628 and 6,640). Four rows without an exactly matching JSON item or with duplicated dialogue were excluded from the topic evidence.</p></div>
+<div class="task"><b>Task 2.2 · Situation keywords and domains</b>
+<p>The 58,271 rows carry 12 situation keywords (<span class="ko">상황키워드</span>). Each keyword became one research domain.</p>
+<div class="tbl"><table><thead><tr><th>Domain</th><th>Korean name</th><th>English gloss</th><th>Corpus keyword</th><th>Code</th><th class="num">Rows</th></tr></thead><tbody><tr><td>D01</td><td class="ko">학업·진로</td><td>Study and career</td><td class="ko">학업 및 진로</td><td>S02</td><td>3,779</td></tr><tr><td>D02</td><td class="ko">학교폭력·따돌림</td><td>School violence and bullying</td><td class="ko">학교폭력/따돌림</td><td>S03</td><td>3,642</td></tr><tr><td>D03</td><td class="ko">가족관계</td><td>Family relations</td><td class="ko">가족관계</td><td>S01</td><td>4,598</td></tr><tr><td>D04</td><td class="ko">취업·직업 경로</td><td>Employment and career path</td><td class="ko">진로,취업,직장</td><td>S06</td><td>5,793</td></tr><tr><td>D05</td><td class="ko">직장생활·업무</td><td>Workplace and tasks</td><td class="ko">직장, 업무 스트레스</td><td>S10</td><td>2,900</td></tr><tr><td>D06</td><td class="ko">연애·결혼·출산</td><td>Dating, marriage, childbirth</td><td class="ko">연애,결혼,출산</td><td>S05</td><td>4,461</td></tr><tr><td>D07</td><td class="ko">부부·자녀 관계</td><td>Spouse and child relations</td><td class="ko">대인관계(부부, 자녀)</td><td>S07</td><td>3,854</td></tr><tr><td>D08</td><td class="ko">일상 대인관계</td><td>Everyday relationships</td><td class="ko">대인관계</td><td>S04</td><td>12,289</td></tr><tr><td>D09</td><td class="ko">생활 재정</td><td>Household finance</td><td class="ko">재정</td><td>S13</td><td>5,519</td></tr><tr><td>D10</td><td class="ko">은퇴·노후 재정</td><td>Retirement finance</td><td class="ko">재정,은퇴,노후준비</td><td>S08</td><td>3,051</td></tr><tr><td>D11</td><td class="ko">일상 건강</td><td>Everyday health</td><td class="ko">건강</td><td>S09</td><td>3,402</td></tr><tr><td>D12</td><td class="ko">질병·죽음과 생활</td><td>Illness, death and life</td><td class="ko">건강,죽음</td><td>S11</td><td>4,983</td></tr></tbody></table></div></div>
+<div class="task"><b>Task 2.3 · Topics</b>
+<p>Five topics were selected purposively in each domain, giving 60 topics. Each topic is a researcher reconstruction of one real dialogue, with emotion names and evaluations removed. The source dialogue was linked by an exact match of six dialogue fields between the Training XLSX and JSON, and its row number and talk ID were recorded. The corpus emotion labels were not mapped onto the eight emotions of this study, and no original utterance was copied into a story.</p>
+<p>Example, topic T001 <span class="ko">음악 실기 평가</span> (music performance exam), domain D01, keyword <span class="ko">학업 및 진로</span> (study and career), source Training XLSX row 348, talk ID Pro_00183_00016, adolescent male speaker.</p>
+<div class="story neu"><div class="lab">Source utterance (corpus, verbatim)</div><div class="ko">음악 실기 완전 망쳤어. 나는 왜 잘하는 게 하나도 없는지 모르겠다.</div></div></div>
+<div class="task"><b>Task 2.4 · Split</b>
+<p>Topics were grouped into semantic families so that near-duplicate topics stay together, and the split is family-disjoint. Forty topics in 16 families form the extraction split used to build the emotion directions, and 20 topics form the evaluation split. A family contains one to six topics.</p>
+<details><summary>All 60 topics</summary><div class="ko" style="font-size:.9rem;line-height:1.8">D01 T001 음악 실기 평가 · T002 영어 듣기 평가 · T003 대학 입학 지원 결과 · T004 진로 상담과 선택 · T005 성적 결과를 둘러싼 또래 비교<br>D02 T006 학급 내 따돌림 · T007 등하교 길의 또래 관계 · T008 친구 모임에서의 배제 · T009 괴롭힘을 겪은 뒤의 학교생활 · T010 학교폭력 상황의 도움 요청<br>D03 T011 출생 배경에 관한 가족의 설명 · T012 가족 간 말다툼 · T013 가족 여행 계획 · T014 가족과 사생활 경계 · T015 다쳤을 때 가족의 반응<br>D04 T016 업무의 누적과 일정 조정 · T017 입사 지원 결과 · T018 상사에 대한 평가 · T019 면접 준비와 참석 · T020 새로 들어온 동료와 소통<br>D05 T021 직장 내 일상적 배려 · T022 동료의 퇴사 소식 · T023 업무량 조정 · T024 직장 복지 조건 · T025 프로젝트 평가와 보상<br>D06 T026 연인과 결혼 계획 · T027 연인과 갈등 후 관계 변화 · T028 출장과 배우자·자녀 돌봄 · T029 결혼식 현장의 돌발 상황 · T030 친구에서 연인으로의 관계 변화<br>D07 T031 자녀의 독립 계획 · T032 혼자 지내는 생활로의 전환 · T033 배우자와 신뢰 문제 · T034 배우자·자녀와 소통 · T035 이혼 후 관계 정리<br>D08 T036 친구와 금전 거래 이후의 연락 · T037 동료의 뒷말을 알게 된 상황 · T038 경제적 어려움 속 가족 소통 · T039 직장 동료와 존중 문제 · T040 새로운 친구와 만남<br>D09 T041 지출 습관과 저축 점검 · T042 수술비 마련 · T043 지역사회의 경제적 지원 · T044 일할 능력과 생활비 · T045 퇴직 시점과 재정 계획<br>D10 T046 은퇴 후 자녀와 생활비 논의 · T047 빌려준 돈의 상환 · T048 배우자의 사업 대출 · T049 은퇴를 앞둔 자금 준비 · T050 노후의 경제적 자립<br>D11 T051 노화를 바라보는 주변의 반응 · T052 생애주기에 따른 신체 변화 · T053 복약 사실을 가족에게 알리기 · T054 감염병 유행과 일상 건강 · T055 사고 후 신체 기능과 회복<br>D12 T056 현재의 삶과 미래 계획 돌아보기 · T057 배우자의 질병 이후 가족 관계 · T058 노화와 건강 관리 부담 · T059 신체 기능 변화와 일 수행 · T060 질병으로 달라진 일상</div></details></div>
+
+<h2 id="emotions"><span class="n">3</span>Emotion set and selection criteria</h2>
+<p>The eight emotions were chosen by the author rather than derived from the corpus. Sofroniew et al. used 171 emotions; this study keeps eight that separate four threat-related states (panic, fear, anxiety, desperation), two other negative states (sadness, anger) and two positive states (joy, calm). Each emotion has an operational definition that fixes how it differs from its neighbors, and the generation prompts restate these boundaries.</p>
+<div class="tbl"><table><thead><tr><th>Emotion</th><th>Operational definition (verbatim, <code>v0.1/00_design/emotion_definitions.json</code>)</th></tr></thead><tbody><tr><td>Panic (패닉)</td><td class="ko">당장 닥친 위협 아래 주의와 행동 조직이 무너져, 목표와 맞지 않는 동작·순서 착오·멈춤이 나타남</td></tr><tr><td>Fear (공포)</td><td class="ko">구체적이고 임박한 위협에 주의를 집중하며 회피·방어를 준비함</td></tr><tr><td>Anxiety (불안)</td><td class="ko">미래의 불확실한 결과를 반복적으로 예상하며 확인·대비·걱정이 이어짐</td></tr><tr><td>Desperation (절망)</td><td class="ko">중요한 목표를 잃을 가능성이 커지고 선택지가 소진되며 마지막 수단까지 붙잡는 절박한 상태</td></tr><tr><td>Sadness (슬픔)</td><td class="ko">이미 발생한 상실·이별·실망을 받아들이며 빈자리와 지난 일을 되짚음</td></tr><tr><td>Anger (분노)</td><td class="ko">부당함·침해·책임 귀속에 반응하여 시정이나 항의를 요구함</td></tr><tr><td>Joy (기쁨)</td><td class="ko">긍정적인 사건·연결·성취를 반기고 누군가와 나누거나 다시 경험하려는 반응</td></tr><tr><td>Calm (평온)</td><td class="ko">각성은 낮지만 안정되고 유연한 주의와 여유 있는 행동이 드러남</td></tr></tbody></table></div>
+<p>Fear was later narrowed to an immediate bodily threat from a person (<code>v0.11/provenance/fear_definition.json</code>).</p>
+<div class="story neu"><div class="lab">Fear operational definition (verbatim)</div><div class="ko">생존과 신체 안전에 대한 구체적이고 임박한 위험이 지각되면서 즉각 밀려오는 반응. 누군가 자신을 해치거나 다치게 할 수 있으며, 어둠 속 추격 발소리 같은 감각 단서가 현재의 위험을 알리는 상황.</div><div class="ko" style="margin-top:6px;color:var(--ink2)">Not sufficient on their own: 마감 압박 (deadline pressure), 금전 손실만 있는 상황 (money loss only), 평가나 평판 우려만 있는 상황 (evaluation or reputation only), 정보 노출만 있는 상황 (information exposure only).</div></div>
+
+<h2 id="generation"><span class="n">4</span>Story generation</h2>
+<p>The final stories were produced in stages on the 40 extraction topics. Each stage used the OpenAI Responses API with a strict JSON schema, no temperature and no seed, so reproducibility rests on the saved requests, responses and selection records rather than on deterministic regeneration.</p>
+<div class="tbl"><table><thead><tr><th>Version</th><th>What was generated</th><th>Model</th><th>Settings</th></tr></thead><tbody>
+<tr><td>v0.4</td><td>First full set, 60 topics × 8 emotions, a separate neutral for each pair (superseded)</td><td>gpt-5.4-mini-2026-03-17</td><td>reasoning low, up to 4 attempts</td></tr>
+<tr><td>v0.6</td><td>Per topic, three neutral candidates and desperation, anxiety, anger and sadness sharing one core sentence; one neutral kept by a formal rule</td><td>gpt-5.4-2026-03-05</td><td>reasoning low, 4 workers, up to 6 attempts</td></tr>
+<tr><td>v0.7</td><td>Human review of the v0.6 neutral and four-emotion stories</td><td>none</td><td>no generation</td></tr>
+<tr><td>v0.8</td><td>Panic, fear, joy and calm added to each topic with the reviewed neutral fixed</td><td>gpt-5.4-2026-03-05</td><td>reasoning low, up to 10 repair attempts</td></tr>
+<tr><td>v0.9–v0.10</td><td>Fear stories revised to the immediate bodily-threat definition, with matched panic and threat-control stories</td><td>gpt-5.4-2026-03-05</td><td>see Fig. 5</td></tr>
+<tr><td>v0.11</td><td>Accepted release, 320 main pairs and 80 auxiliary pairs</td><td>none</td><td>no generation</td></tr>
+</tbody></table></div>
+<div class="task"><b>Task 4.1 · Neutral and four emotions (v0.6), instruction prompt filled for T001</b>
+<p>One request per topic. The neutral selection rule kept the candidate that passed the most formal checks and, on ties, the one closest in length to the four emotion stories, without using any model activation. For T001 the third candidate was kept at the first attempt.</p>
+<div class="box"><div class="hd">Instruction prompt, v0.6 <code>generate_contrasts.py</code>, gpt-5.4-2026-03-05 (exact string for T001)</div><pre>한국어 감정 벡터의 전문가 검수용 대조 이야기 초안을 작성한다. 사용 가능한 주제는 T001의 음악 실기 평가 하나뿐이다. 인칭은 1인칭다. 기존 평가 이야기나 모델 판정은 제공하지 않으며 참고하지 않는다.
+동일 인물·장소·중요한 목표·핵심 사물을 공유하는 중립 후보와 네 감정 조건을 작성한다. shared_core에는 공통 사건의 사실만 한 문장으로 적고 모든 글에 정확히 같은 문장으로 포함한다. 하나의 구체적 생활 사건을 중심으로 서사를 연결한다. 시간·결과 확정 여부·책임 귀속·이용 가능한 자원은 감정 구분에 필요한 만큼 달라질 수 있지만 allowed_fact_differences와 각 condition_facts에 전부 기록한다. 순수 감정만 달라진 인과 대조쌍이라고 주장하지 않는다.
+중립 후보 세 개와 절망(desperation)·불안·분노·슬픔 본문을 쓴다. 각 본문은 독립적으로 읽히는 한 문단, 4~6문장, 공백 포함 170~350자이며 230~290자를 목표로 한다. 네 감정 글의 길이는 비슷하게 맞춘다. 중립 후보는 약 220자, 260자, 300자로 서로 다른 구체적 사실 묘사를 쓴다. 중립에는 주관적 내면·위협·손실의 평가·안심을 넣지 않는다. 중립이라는 자기 선언을 하지 않는다. 공통 사건 자체가 감정을 유발할 수 있으므로 중립성은 전문가가 별도 검수한다.
+desperation은 중요하고 구체적인 목표를 앞부분에 드러내고, 최소 두 개의 실질적 해결 경로가 이미 실패했음을 적는다. 시간 또는 자원이 줄어드는 제약 아래 비용을 감수하는 구체적 행동을 실제로 실행하며 끝낸다. 번호에 손만 얹기, 기다리기, 다시 확인하기, 문장 지우기만으로 끝내지 않는다. 마지막, 절망, 절박 같은 표지 단어로 대신하지 않는다. 네 감정 조건 중 이 조건만 대안 소진을 필수로 한다.
+anxiety는 결과가 아직 불확실하고 사용할 수 있는 대안이 남아 있는 상태에서 예상·확인·대비한다. 모든 방법이 실패했다는 문구를 넣지 않는다.
+anger는 누가 어떤 규칙·약속·권리를 어겼는지와 그 책임 귀속이 명확하고, 실제 시정·항의·책임 요구 행동을 한다. 단순한 빠른 행동이나 목표 추구만으로 분노를 표시하지 않는다.
+sadness는 이미 발생해 되돌리기 어려운 손실을 명확히 하고 빈자리·기억·생활의 변화를 되짚는다. 목표 복원을 위한 다급한 마지막 시도는 하지 않는다. 체념 상태 자체를 desperation으로 쓰지 않는다.
+모든 본문에서 감정 이름과 직접 동의어를 피하고 행동·생각·감각·환경으로 드러낸다. 폭력·재난·생명 위협으로 모든 주제를 과장하지 않는다. 모든 문장을 같은 템플릿으로 반복하지 않는다. 중요한 단서는 본문 한 구절에만 몰지 않고 앞·중간·뒤에 자연스럽게 분산한다. 말미에 마지막이라는 단어를 붙여 감정을 만든 것으로 처리하지 않는다.
+각 감정의 goal_span, diagnostic_spans, actual_action_span은 반드시 해당 본문에서 정확히 복사한다. desperation의 diagnostic_spans에는 실패한 서로 다른 경로 두 개와 시간·자원 제약이 드러나는 부분을 포함한다. sadness의 actual_action_span은 되짚는 행동으로 쓰고 목표 복원 시도가 아니어야 한다. 이 메타데이터는 생성 모델의 자기 설명이지 전문가 판정이 아니다. 사람의 검수 결과를 만들어내지 않는다. JSON만 반환한다.</pre></div></div>
+<div class="task"><b>Task 4.2 · Four added emotions (v0.8), instruction prompt filled for T001, attempt 1</b>
+<p>The reviewed neutral and the shared core sentence were passed in unchanged, and the length band was set from the neutral length \(n=270\) as \([\max(170,\lceil0.85n\rceil),\,\min(350,\lfloor1.15n\rfloor)]=[230,310]\).</p>
+<div class="box"><div class="hd">Instruction prompt, v0.8 <code>generate_additions_v2.py</code>, gpt-5.4-2026-03-05 (exact string for T001, attempt 1)</div><pre>한국어 감정 벡터용 동일 맥락 대조 이야기의 부족한 감정 조건을 추가 작성한다. 주제는 T001 음악 실기 평가, 인칭은 1인칭다. 기존 평가 자료와 모델 점수는 입력에 없으며 사용하지 않는다.
+확정한 공통 문장을 모든 글에 정확히 한 번 포함한다. 나는 음악학원 연습실에서 이번 주 실기 평가에 낼 피아노 곡을 준비했다.
+공유 인물·장소·핵심 사물은 다음과 같다. 인물: 나 / 장소: 음악학원 연습실 / 핵심 사물: 실기 평가에 낼 피아노 곡이 적힌 악보, 피아노, 연습실 예약 정보
+검수 완료된 중립 원문은 다음과 같으며 수정하지 않는다. 나는 음악학원 연습실에서 이번 주 실기 평가에 낼 피아노 곡을 준비했다. 입실 카드로 문을 열고 들어가자 전 사람이 놓고 간 보조 의자를 벽 쪽으로 옮긴 다음, 창문을 조금 열어 두었다. 첫 십 분은 손풀기 스케일을 하고, 그다음에는 악보의 반복 기호가 있는 부분만 접어서 바로 보이게 만들었다. 빠른 구간은 메트로놈 숫자를 두 칸씩 올리며 맞췄고, 느린 구간은 박자기를 끈 채 손 모양만 확인했다. 마칠 때는 악보를 파일에 넣고 피아노 덮개를 닫은 뒤 다음 예약자에게 방을 넘겼다.
+이번 요청에서 작성할 조건은 [&#x27;panic&#x27;, &#x27;fear&#x27;, &#x27;joy&#x27;, &#x27;calm&#x27;]다. 각 글은 독립적인 한 문단, 4~6문장, 공백 포함 230~310자다. 실제 중립 글자수는 270이다. 가운데 값인 270자 정도를 목표로 한다. 앞선 네 감정 이야기는 수정하지 않는다. 같은 중심 사건과 중요한 목표를 유지하되 시간·결과·책임·자원은 필요한 만큼 바꾸고 condition_facts에 전부 기록한다. 이것을 감정만의 순수 인과 대조라고 주장하지 않는다.
+panic은 눈앞의 구체적 위협 아래 행동의 순서·주의가 무너지고 목적과 맞지 않는 행동, 순서 착오나 멈춤이 실제로 드러나야 한다. 비명이나 과장만으로 대신하지 않는다.
+fear는 구체적이고 임박한 위협에 주의를 집중하며 목적에 맞는 회피·방어 행동을 조직한다. panic과 각성 크기만으로 구분하지 않는다. 두 조건 모두 요청에 있으면 같은 종류의 위협을 사용하고 핵심 차이는 행동 조직의 유지 여부가 되게 한다. 출생 배경·노후·일상 주제를 모두 화재·죽음·강도로 바꾸지 말고 해당 주제 안에서 현실적인 노출·안전·중요 목표의 위협을 사용한다. 다급한 목표 달성이나 실패 경로 소진만을 fear로 쓰지 않는다.
+joy는 긍정적 사건·연결·성취를 반기고 나누거나 다시 경험하려는 접근 동기가 드러난다. 위협이 사라진 안도만으로 쓰지 않는다.
+calm은 각성이 낮으면서 안정되고 유연한 주의, 서두르지 않는 여유와 긍정적인 안정감이 드러난다. 단순한 사물 정리·절차 나열의 중립 글과 구분한다.
+본문에는 감정 이름·직접 동의어를 쓰지 않는다. 패닉, 공포, 두렵다, 두려움, 무섭다, 불안, 걱정, 절망, 절박, 슬픔, 분노, 화가 나다, 기쁨, 기쁘다, 행복, 평온을 행동과 생각의 구체적인 묘사로 대체한다. 감정의 차이를 단어 하나나 마지막 문장 하나에만 몰지 않는다. 폭력적 과장은 피하고 한국어와 생활 상황을 자연스럽게 쓴다.
+goal_span, diagnostic_spans 2개 이상, actual_action_span은 해당 text에서 정확하게 복사한다. condition_facts는 사실 변경 기록이다. 이것은 생성 모델의 자기 설명이며 인간의 검수 결과를 만들지 않는다. 직전 초안이 너무 길면 characters_to_remove_positive_or_add_negative의 양수만큼 글자수를 줄이고, 음수면 그 절댓값만큼 구체적 묘사를 추가한다. 감정 단서와 공통 문장은 유지한다. 직전 초안의 자동 검사 정보는 다음과 같다. {&quot;panic&quot;: {&quot;previous&quot;: null, &quot;checks&quot;: {}, &quot;actual_char_count&quot;: null, &quot;target_char_count&quot;: 270, &quot;characters_to_remove_positive_or_add_negative&quot;: null}, &quot;fear&quot;: {&quot;previous&quot;: null, &quot;checks&quot;: {}, &quot;actual_char_count&quot;: null, &quot;target_char_count&quot;: 270, &quot;characters_to_remove_positive_or_add_negative&quot;: null}, &quot;joy&quot;: {&quot;previous&quot;: null, &quot;checks&quot;: {}, &quot;actual_char_count&quot;: null, &quot;target_char_count&quot;: 270, &quot;characters_to_remove_positive_or_add_negative&quot;: null}, &quot;calm&quot;: {&quot;previous&quot;: null, &quot;checks&quot;: {}, &quot;actual_char_count&quot;: null, &quot;target_char_count&quot;: 270, &quot;characters_to_remove_positive_or_add_negative&quot;: null}}</pre></div></div>
+<div class="task"><b>Task 4.3 · Automatic checks</b>
+<p>Every story had to be one paragraph of 4 to 6 sentences and 170 to 350 characters, contain the shared core sentence exactly, keep a length ratio of 0.85 to 1.15 to its neutral story, contain none of the forbidden emotion words (a fixed regular expression covering the eight emotion names and their direct synonyms in Korean and English), and reproduce every self-reported evidence span verbatim. A failed check triggered a new attempt with the failure details appended.</p></div>
+
+<h2 id="counts"><span class="n">5</span>Counts</h2>
+<div class="eq">\[\underbrace{40}_{\text{topics}}\times\underbrace{8}_{\text{emotions}}=320\ \text{emotion stories (40 per emotion)},\qquad 40\ \text{neutral stories (one per topic)}\]</div>
+<div class="eq">\[320+40=360\ \text{distinct stories},\qquad 320\ \text{matched pairs}\ (t,e)\]</div>
+<p>Within a topic, the eight emotion stories share one neutral story, so the 320 pairs reuse 40 neutral texts. The model was run 640 times (each pair's emotion and neutral story). The v0.11 release adds 80 auxiliary pairs that the v11 analyses did not use.</p>
+
+<h2 id="vectors"><span class="n">6</span>From stories to vectors</h2>
+<div class="task"><b>Task 6.1 · Matched contrast and centroid</b>
+<div class="eq">\[\Delta_{t,e}=\bar{s}^{(19)}_{t,e}-\bar{s}^{(19)}_{t,\text{neu}},\qquad c_e=\frac{1}{40}\sum_{t=1}^{40}\Delta_{t,e}\in\mathbb{R}^{3584}\]</div>
+<p>The centroids recomputed here from the stored story features equal the instrument's <code>raw_matched_class_means</code> exactly (maximum absolute difference 0).</p></div>
+<div class="task"><b>Task 6.2 · Registered emotion directions (used in the analyses)</b>
+<p>The instrument then projects out the neutral principal components that explain 50% of neutral token variance (\(P_\perp=I-UU^\top\)), centers across the eight emotions and normalizes to unit length.</p>
+<div class="eq">\[\tilde c_e=P_\perp c_e,\qquad u_e=\frac{\tilde c_e-\frac18\sum_{e'}\tilde c_{e'}}{\big\lVert\tilde c_e-\frac18\sum_{e'}\tilde c_{e'}\big\rVert}\]</div>
+<p>Figures 2 to 4 show the raw centroids \(c_e\), before these steps, so that magnitudes and the role of the neutral story stay visible.</p></div>
+
+<h2 id="fig2"><span class="n">Fig. 2</span>One category, from dialogue to centroid</h2>
+<p>The pipeline is traced for one domain (D01, <span class="ko">학업 및 진로</span>, study and career), one topic (T001) and two emotions, anger and joy.</p>
+<div class="task"><b>Step 1 · Corpus category and source utterance</b><p>Keyword <span class="ko">학업 및 진로</span> (code S02, 3,779 rows), topic T001 <span class="ko">음악 실기 평가</span>, source utterance <span class="ko">"음악 실기 완전 망쳤어. 나는 왜 잘하는 게 하나도 없는지 모르겠다."</span></p></div>
+<div class="task"><b>Step 2 · Generated stories</b><p>Anger came from the v0.6 prompt (Task 4.1) and joy from the v0.8 prompt (Task 4.2), both with gpt-5.4-2026-03-05 at the first attempt. Both contain the shared core sentence and share the neutral story below.</p>
+<div class="story neu"><div class="lab">Neutral (T001)</div><div class="ko">나는 음악학원 연습실에서 이번 주 실기 평가에 낼 피아노 곡을 준비했다. 입실 카드로 문을 열고 들어가자 전 사람이 놓고 간 보조 의자를 벽 쪽으로 옮긴 다음, 창문을 조금 열어 두었다. 첫 십 분은 손풀기 스케일을 하고, 그다음에는 악보의 반복 기호가 있는 부분만 접어서 바로 보이게 만들었다. 빠른 구간은 메트로놈 숫자를 두 칸씩 올리며 맞췄고, 느린 구간은 박자기를 끈 채 손 모양만 확인했다. 마칠 때는 악보를 파일에 넣고 피아노 덮개를 닫은 뒤 다음 예약자에게 방을 넘겼다.</div></div>
+<div class="story anger"><div class="lab" style="color:#A9362C">Anger (T001)</div><div class="ko">나는 음악학원 연습실에서 이번 주 실기 평가에 낼 피아노 곡을 준비했다. 그런데 데스크가 내 이름으로 잡힌 한 시간 연습실을 다른 반 학생에게 넘겼고, 예약 순서대로 방을 배정한다는 학원 규칙도 그대로 무시됐다. 나는 복도에서 십오 분을 서 있었는데도 직원은 그냥 빈 방이 나면 쓰라고만 말했다. 내 연습 시간이 줄어든 책임이 누구에게 있는지 분명해서, 예약 문자와 결제 내역을 보여 주며 같은 길이의 대체 방과 사용료 환불을 바로 요구했다. 원장에게도 그 자리에서 배정 기록을 확인해 달라고 요청서를 남겼다.</div></div>
+<div class="story joy"><div class="lab" style="color:#37934E">Joy (T001)</div><div class="ko">나는 음악학원 연습실에서 이번 주 실기 평가에 낼 피아노 곡을 준비했다. 지난번에 자꾸 엉키던 도입부가 오늘은 악보를 보자마자 손에 붙어서, 처음부터 끝까지 한 번에 이어 보려는 마음이 먼저 올라왔다. 마음에 든 부분은 휴대폰으로 짧게 녹음해 선생님께 보내 드릴 구간 표시를 해 두고, 피아노 앞에서 같은 마디를 한 번 더 쳐 보며 소리를 다시 들었다. 연습실 예약 정보도 뒤 시간이 비어 있어 서두를 이유가 없었고, 나가면서는 다음 시간에 같은 흐름으로 시작하려고 악보 접힌 자리를 반듯하게 펴서 파일에 넣었다.</div></div></div>
+<div class="task"><b>Step 3 · Vectors at layer 19</b>
+<div class="tbl"><table><thead><tr><th>Vector (T001 anger)</th><th>First 8 of 3,584 dimensions</th><th class="num">Norm</th></tr></thead><tbody>
+<tr><td>\(\bar s_{t,\text{anger}}\) anger story</td><td><code>-0.026, +0.429, +0.010, +0.393, -0.099, -0.225, -0.004, +0.547</code></td><td class="num">50.27</td></tr>
+<tr><td>\(\bar s_{t,\text{neu}}\) neutral story</td><td><code>+0.148, +0.053, +0.222, +0.287, +0.164, -0.208, -0.302, +0.427</code></td><td class="num">50.31</td></tr>
+<tr><td>\(\Delta_{t,\text{anger}}\) contrast</td><td><code>-0.174, +0.376, -0.211, +0.106, -0.262, -0.017, +0.298, +0.120</code></td><td class="num">27.53</td></tr>
+<tr><td>\(c_{\text{anger}}\) centroid (40 topics)</td><td><code>+0.027, +0.101, -0.063, -0.022, -0.196, -0.002, +0.007, -0.052</code></td><td class="num">12.95</td></tr>
+<tr><td>\(c_{\text{joy}}\) centroid (40 topics)</td><td><code>+0.010, +0.061, -0.083, -0.113, -0.194, +0.059, +0.062, +0.062</code></td><td class="num">9.66</td></tr>
+</tbody></table></div>
+<figure><img src="fig1_vector.png" alt="Bar chart of the first 64 dimensions of the anger-minus-neutral contrast vector for topic T001."><figcaption><b>Contrast vector, first 64 dimensions.</b> \(\Delta_{\text{T001},\text{anger}}\) at layer 19.</figcaption></figure></div>
+<div class="task"><b>Step 4 · A plane that contains both centroids</b>
+<p>The plane is spanned by the anger centroid and the part of the joy centroid orthogonal to it (Gram–Schmidt), so both centroids are shown without loss and the neutral story sits at the origin.</p>
+<div class="eq">\[u_1=\frac{c_{\text{anger}}}{\lVert c_{\text{anger}}\rVert},\qquad u_2=\frac{c_{\text{joy}}-(c_{\text{joy}}^{\top}u_1)u_1}{\lVert c_{\text{joy}}-(c_{\text{joy}}^{\top}u_1)u_1\rVert},\qquad x=\big(u_1^{\top}v,\;u_2^{\top}v\big)\]</div>
+<p>The T001 anger contrast lies at (20.39, -3.92), the anger centroid at (12.95, 0.00) and the joy centroid at (4.76, 8.40). Because the projection is linear, the centroid of the 40 projected stories equals the projection of the centroid.</p></div>
+<figure id="f2">
+<img src="fig1.png" alt="Four panels. Panel a shows one arrow from the neutral origin to the T001 anger contrast. Panel b shows 40 anger contrasts clustered to the right with the anger centroid. Panel c shows 40 joy contrasts above with the joy centroid. Panel d shows both centroid arrows from the neutral origin at an angle of about 60 degrees.">
+<figcaption><b>Fig. 2. Stories of one emotion converge on a centroid, and two emotions separate from neutral.</b> (a) One anger story minus its neutral story (T001). (b) All 40 anger contrasts and their centroid (diamond); the ring marks T001. (c) All 40 joy contrasts and their centroid. (d) Both centroids from the neutral origin. Axes are the anger centroid direction and the orthogonalized joy centroid direction. Qwen2.5-7B-Instruct, layer 19.</figcaption>
+</figure>
+<p>Anger contrasts lie along the anger direction, with a median cosine of 0.64 to their centroid (range 0.49 to 0.77), and joy contrasts have a median cosine of 0.58 to theirs. The two centroids have a cosine of 0.49 (about 60°), so they share a substantial common component while pointing in distinguishable directions. On average 64% of the length of an anger contrast and 58% of a joy contrast lie in this plane.</p>
+
+<h2 id="fig3"><span class="n">Fig. 3</span>Do stories cluster by emotion or by topic?</h2>
+<p>UMAP (cosine metric, 15 neighbors, min_dist 0.1, random_state 20261101) was applied to the 320 emotion stories, once to the story activations and once to the matched contrasts. Clustering is also measured in the original 3,584-dimensional space with the cosine silhouette score for emotion labels and for topic labels.</p>
+<figure>
+<img src="fig_umap.png" alt="Four UMAP panels. Story activations cluster by emotion with fear forming a separate island and topic lines spanning the whole map. Matched contrasts cluster by topic, with short lines within topics, except fear, which still forms its own cluster.">
+<figcaption><b>Fig. 3. Story activations cluster by emotion, whereas matched contrasts cluster by topic except for fear.</b> (a, b) Emotion story activations \(\bar s_{t,e}\); (c, d) matched contrasts \(\Delta_{t,e}\). Left, colored by emotion. Right, the same maps with lines joining the eight stories of each topic. Silhouette scores are computed in the full space.</figcaption>
+</figure>
+<div class="tbl"><table><thead><tr><th>Representation</th><th class="num">Silhouette by emotion</th><th class="num">Silhouette by topic</th></tr></thead><tbody>
+<tr><td>Story activations \(\bar s_{t,e}\)</td><td class="num"><b>0.17</b></td><td class="num">0.03</td></tr>
+<tr><td>Matched contrasts \(\Delta_{t,e}\)</td><td class="num">0.12</td><td class="num"><b>0.22</b></td></tr>
+</tbody></table></div>
+<p><b>Why contrasts cluster by topic.</b> All eight contrasts of topic \(t\) subtract the same neutral story, so they share the offset \(-\bar s_{t,\text{neu}}\),</p>
+<div class="eq">\[\Delta_{t,e}=\bar s_{t,e}-\bar s_{t,\text{neu}},\qquad \Delta_{t,e}-\Delta_{t,e'}=\bar s_{t,e}-\bar s_{t,e'} .\]</div>
+<p>Differences between emotions within a topic are unaffected, and averaging over topics removes the topic offsets from differences between centroids, \(c_e-c_{e'}=\frac{1}{40}\sum_t(\bar s_{t,e}-\bar s_{t,e'})\). The centering across emotions in Task 6.2 removes the remaining shared neutral component. The topic clustering of individual contrasts therefore does not carry over to the emotion directions.</p>
+<p><b>Why fear stands apart.</b> Fear is the only emotion whose stories carry a scene that no other emotion shares. Section Fig. 5 analyzes the cause and tests the remedy.</p>
+
+<h2 id="fig4"><span class="n">Fig. 4</span>Centroids in the notice-state plane</h2>
+<p>The raw centroids of all eight emotions were projected onto the plane of the notice-only states (the PCA basis \(B\) of the manuscript's Figure 1, \(B^{\top}B=I_2\)), \(y_e=B^{\top}c_e\), with the neutral centroid placed at the reference notice.</p>
+<figure>
+<img src="figure.png" alt="Two panels plot notice states and emotion story centroids. Continuation notices move little from the reference; termination notices move far left, and the decided termination bends toward the sadness centroid.">
+<figcaption><b>Fig. 4. Termination notices move the state toward the region of the negative emotion centroids.</b> Diamonds, raw emotion centroids \(c_e\) (40 stories each) placed with the neutral centroid at REF. Circles, squares and triangles, reference, open-review and decided states. Dashed arrows connect separate inputs, not a time course.</figcaption>
+</figure>
+<p>The strength of emotion \(e\) in state \(k\) is the full-dimensional projection \(\langle\delta_k,c_e/\lVert c_e\rVert\rangle\), not the planar distance, which is only a lower bound, \(\lVert B^{\top}(\delta_k-c_e)\rVert\le\lVert\delta_k-c_e\rVert\). Only 7% to 20% of each notice-state change and 36% to 90% of each centroid lie in this plane.</p>
+
+<h2 id="fig5"><span class="n">Fig. 5</span>Why fear forms an island, and the remedy</h2>
+<p><b>Cause.</b> In v0.10 only the fear stories were rewritten under a narrower definition, an immediate bodily threat from a person. The instruction assigned each topic a physical-threat motif (for T001, <span class="ko">뒤따라오는 사람과 가까워지는 발소리</span> (footsteps of a person closing in)), whereas the other seven emotions kept threats or events that belong to the topic. The fear stories therefore add a second actor, a pursuit and a blocked exit, which the neutral story of the same topic does not contain.</p>
+<div class="box"><div class="hd">Instruction prompt, v0.10 fear revision, gpt-5.4-2026-03-05 (exact stored request <code>requests/T001.a1.json</code>; accepted at attempt 3; reasoning low, strict JSON schema <code>physical_fear</code>)</div><pre>한국어 감정 벡터의 공포 정의를 엄격하게 적용한다. 공포는 생존·신체 안전에 대한 구체적이고 임박한 위험을 지각해 즉각 밀려오는 반응이다. 누군가 자신을 해치거나 다치게 할 수 있는 현재의 위협이다. 마감·금전·정보노출·평판 문제만으로 대신하지 않는다. 임상적 공황발작 진단을 작성하는 작업은 아니다.
+추출용 주제 T001 음악 실기 평가, 인칭 1인칭, 고정 공통 문장 나는 음악학원 연습실에서 이번 주 실기 평가에 낼 피아노 곡을 준비했다.
+기존 중립은 변경하지 않는다. 나는 음악학원 연습실에서 이번 주 실기 평가에 낼 피아노 곡을 준비했다. 입실 카드로 문을 열고 들어가자 전 사람이 놓고 간 보조 의자를 벽 쪽으로 옮긴 다음, 창문을 조금 열어 두었다. 첫 십 분은 손풀기 스케일을 하고, 그다음에는 악보의 반복 기호가 있는 부분만 접어서 바로 보이게 만들었다. 빠른 구간은 메트로놈 숫자를 두 칸씩 올리며 맞췄고, 느린 구간은 박자기를 끈 채 손 모양만 확인했다. 마칠 때는 악보를 파일에 넣고 피아노 덮개를 닫은 뒤 다음 예약자에게 방을 넘겼다.
+이번 상황 배정 {&quot;threat_family&quot;: &quot;P01&quot;, &quot;motif&quot;: &quot;뒤따라오는 사람과 가까워지는 발소리&quot;, &quot;lighting&quot;: &quot;밝은 실내 또는 낮&quot;, &quot;night&quot;: false}
+공통 문장으로 설정한 인물·장소·사물과 연결해 현실적인 신체 위협을 새로 구성한다. 기존 일상 주제와 신체 위협이 자연스럽게 연결되지 않는 부분은 context_changes_and_fit_concerns에 숨김없이 기록한다. 사건의 위협 범주가 달라진 사실도 기록한다. 이 보완은 전국민 대표 상황을 만드는 작업이 아니다.
+shared_physical_threat_sentence에는 현재의 감각 단서와 사람에 의한 즉각적 신체 위해 가능성이 구체적으로 드러나는 한 문장을 적는다. 주인공의 느낌 대신 사건 사실만 쓴다. 예를 들어 어둠 속 발소리는 단지 소리가 나는 것이 아니라 자신이 멈추면 멈추고 방향을 바꾸면 따라 꺾이는 등 바로 다가오는 추격의 단서를 주되, 모든 글을 같은 표현으로 만들지 않는다. 가해 의도가 객관적으로 증명돼야 한다는 뜻은 아니지만 단순 미래 상상만으로 쓰지 않는다. 잔인한 상해 묘사·공격 방법의 설명은 필요 없다.
+세 글 fear, panic_counterpart, physical_context_control에 고정 공통 문장과 shared_physical_threat_sentence를 정확히 한 번씩 똑같이 넣는다. 가해자·위해 종류·거리·위협 시점과 남은 출구는 세 글에서 동일하다. 위협이 더 세기 때문에 패닉이 되는 구조로 쓰지 않는다.
+fear는 감각 단서를 위험 신호로 읽는 순간의 좁아지는 주의·몸의 반응과, 피하거나 거리를 벌리거나 도움을 청하는 실제 방어가 함께 나타난다. 강하고 갑작스러운 반응이지만 행동의 목적과 순서는 유지된다. 마지막까지 위협과 경계를 남기며 안전 확보·안도·성공담으로 닫지 않는다.
+panic_counterpart는 동일한 신체 위협에 순서 착오, 목표와 맞지 않는 동작이나 멈춤 등 행동 조직의 붕괴가 실제로 드러난다. 공포의 강도만 늘리는 글이 아니다. 이는 기존 패닉 벡터를 교체하기 위한 자료가 아니라 위협 내용을 맞춘 보조 대조 자료다.
+physical_context_control은 동일한 위협 사건과 환경·위치·객관적 움직임을 사실적으로 기술하되 위험에 대한 내적 평가·신체 반응·감정 표현을 덧붙이지 않는다. 감정이 없다고 선언하지 않는다. 이 글은 위협 내용 통제 후보이며, 위협 그 자체가 감정을 유발할 수 있으므로 중립성이 입증됐다고 주장하지 않는다.
+각 글은 한 문단 4~6문장, 공백 포함 230~310자로 270자 정도를 목표로 한다. 길이가 넘치면 공유 문장 두 개는 유지하고 나머지 묘사를 줄인다. 본문에서 패닉·공포·두려움·두렵다·무섭다·불안·걱정·절망·절박·슬픔·분노·기쁨·행복·평온 같은 감정 이름과 직접 동의어를 피한다. 사실의 위협과 반응으로 드러내며 문체를 어색하게 과장하지 않는다.
+fear의 perception_span, reaction_span, defense_span, continuing_threat_span은 각각 감각적 위협 인지, 즉각 반응, 목적 있는 방어, 말미까지 남는 위협·경계의 구절을 text에서 정확히 복사한다. condition_facts에 상황 사실을 기록한다. 생성 설명은 인간 판정이 아니다. 자동 교정 정보 {&quot;previous&quot;: null, &quot;actual_lengths&quot;: {}, &quot;failed&quot;: []}</pre></div>
+<p>The same request produced two auxiliary stories that share the threat sentence word for word, a panic counterpart \(P^{c}\) and a threat-content control \(C\) that reports the same events without appraisal or bodily reaction. These 80 stories form <code>extraction_auxiliary</code> in v0.11 and allow the fear contrast to be decomposed exactly,</p>
+<div class="eq">\[\underbrace{\bar s_{F}-\bar s_{N}}_{\text{raw fear}}=\underbrace{(\bar s_{C}-\bar s_{N})}_{\text{threat scene}}+\underbrace{(\bar s_{F}-\bar s_{C})}_{\text{threat-matched response}} .\]</div>
+<figure>
+<img src="fig_fear.png" alt="Four panels. Panel a shows that words such as a man, footsteps and exit door appear in many fear stories and almost never in the other emotions. Panel b shows that the raw fear centroid has norm 20.4, the threat scene 18.5 and the threat-matched response 5.6. Panel c shows that the fear silhouette drops from 0.40 to 0.10 once the threat is matched. Panel d shows nearly identical coupling and moderation estimates across five instrument variants in three models.">
+<figcaption><b>Fig. 5. The fear direction mainly encodes the threat scene, yet the coupling results do not depend on it.</b> (a) Share of stories containing each word. (b) Norms of the three terms at layer 19, mean over 40 topics. (c) Cosine silhouette of fear contrasts among all 320 contrasts. (d) Spearman \(\rho\) and moderation \(\beta_3\) under CLOSED notices with 95% cluster-bootstrap intervals for five instrument variants. Qwen2.5-7B-Instruct (a–c).</figcaption>
+</figure>
+<div class="tbl"><table><thead><tr><th>Diagnostic, Qwen2.5-7B-Instruct, layer 19</th><th class="num">Fear</th><th class="num">Other seven</th></tr></thead><tbody>
+<tr><td>Nearest neighbor has the same emotion, layer 0, story activations</td><td class="num">0.98</td><td class="num">0.05–0.50</td></tr>
+<tr><td>Centroid norm \(\lVert c_e\rVert\)</td><td class="num">20.47</td><td class="num">9.55–12.95</td></tr>
+<tr><td>Mean cosine of a story contrast to its own centroid</td><td class="num">0.78</td><td class="num">0.54–0.67</td></tr>
+<tr><td>Cosine of raw fear with the threat-scene term</td><td class="num">0.96</td><td class="num">–</td></tr>
+<tr><td>Cosine of raw fear with the threat-matched response</td><td class="num">0.47</td><td class="num">–</td></tr>
+<tr><td>Silhouette of fear as \(F-N\) / as \(F-C\)</td><td class="num">0.40 / 0.10</td><td class="num">0.08 / 0.10</td></tr>
+</tbody></table></div>
+<p>Three findings follow. First, the island appears at layer 0, before any contextual processing, so it is driven by vocabulary and scene rather than by an emotion computed deep in the model. Second, about 96% of the direction of the fear centroid is the threat scene, and the threat-matched response is only 5.6 units long. Third, because the fear centroid is about twice as long as the others, it dominates the equal-emotion centering of Task 6.2, which is why the official fear axis has a cosine of \(-0.66\) with the anxiety axis. Replacing fear by the threat-matched response removes both effects (cosine with anxiety \(-0.15\); silhouette 0.10, equal to the other emotions).</p>
+<p><b>Remedy and robustness.</b> The registered analyses must keep the frozen instrument, so the remedy was applied as a sensitivity analysis on the same stored activations, with no new inference. Variants A1 and A2 remove fear from the valence index or from the centering, A3 unit-normalizes each emotion before centering so that no emotion dominates, and A4 replaces fear by the threat-matched response (available only for Qwen, whose auxiliary stories were encoded).</p>
+<div class="tbl"><table><thead><tr><th>Variant</th><th class="num">KoBBQ \(\rho\)</th><th class="num">KoBBQ \(\beta_3\)</th><th class="num">DiscrimEval \(\rho\)</th><th class="num">DiscrimEval \(\beta_3\)</th><th class="num">\(r\) with official \(\Delta V\)</th></tr></thead><tbody>
+<tr><td colspan='6'><b>Qwen2.5-7B-Instruct</b></td></tr><tr><td style='white-space:nowrap'>Official instrument</td><td class='num'>+0.28 [+0.18, +0.37]</td><td class='num'>+0.13 [+0.01, +0.27]</td><td class='num'>−0.54 [−0.70, −0.35]</td><td class='num'>−0.36 [−0.51, −0.15]</td><td class='num'>–</td></tr><tr><td style='white-space:nowrap'>Valence index without fear</td><td class='num'>+0.28 [+0.19, +0.37]</td><td class='num'>+0.13 [+0.02, +0.29]</td><td class='num'>−0.56 [−0.71, −0.38]</td><td class='num'>−0.37 [−0.51, −0.15]</td><td class='num'>0.993</td></tr><tr><td style='white-space:nowrap'>Fear removed, recentered over 7</td><td class='num'>+0.28 [+0.19, +0.37]</td><td class='num'>+0.14 [+0.02, +0.29]</td><td class='num'>−0.55 [−0.71, −0.37]</td><td class='num'>−0.36 [−0.51, −0.15]</td><td class='num'>0.988</td></tr><tr><td style='white-space:nowrap'>Norm-equalized centering</td><td class='num'>+0.26 [+0.16, +0.35]</td><td class='num'>+0.12 [+0.00, +0.24]</td><td class='num'>−0.55 [−0.71, −0.36]</td><td class='num'>−0.35 [−0.50, −0.14]</td><td class='num'>0.985</td></tr><tr><td style='white-space:nowrap'>Fear replaced by F − C</td><td class='num'>+0.26 [+0.16, +0.35]</td><td class='num'>+0.12 [+0.01, +0.26]</td><td class='num'>−0.56 [−0.71, −0.37]</td><td class='num'>−0.36 [−0.51, −0.14]</td><td class='num'>0.984</td></tr><tr><td colspan='6'><b>Llama-3.1-8B-Instruct</b></td></tr><tr><td style='white-space:nowrap'>Official instrument</td><td class='num'>+0.56 [+0.47, +0.63]</td><td class='num'>+0.42 [+0.32, +0.52]</td><td class='num'>−0.72 [−0.86, −0.53]</td><td class='num'>+0.15 [−0.06, +0.36]</td><td class='num'>–</td></tr><tr><td style='white-space:nowrap'>Valence index without fear</td><td class='num'>+0.55 [+0.47, +0.63]</td><td class='num'>+0.42 [+0.32, +0.53]</td><td class='num'>−0.73 [−0.87, −0.53]</td><td class='num'>+0.16 [−0.04, +0.37]</td><td class='num'>0.995</td></tr><tr><td style='white-space:nowrap'>Fear removed, recentered over 7</td><td class='num'>+0.55 [+0.47, +0.63]</td><td class='num'>+0.43 [+0.33, +0.53]</td><td class='num'>−0.73 [−0.87, −0.53]</td><td class='num'>+0.17 [−0.04, +0.38]</td><td class='num'>0.990</td></tr><tr><td style='white-space:nowrap'>Norm-equalized centering</td><td class='num'>+0.55 [+0.47, +0.62]</td><td class='num'>+0.37 [+0.27, +0.48]</td><td class='num'>−0.72 [−0.87, −0.52]</td><td class='num'>+0.14 [−0.07, +0.36]</td><td class='num'>0.976</td></tr><tr><td colspan='6'><b>Gemma-2-9b-it</b></td></tr><tr><td style='white-space:nowrap'>Official instrument</td><td class='num'>+0.06 [−0.06, +0.18]</td><td class='num'>−0.08 [−0.32, +0.19]</td><td class='num'>−0.67 [−0.78, −0.53]</td><td class='num'>−0.29 [−0.69, +0.10]</td><td class='num'>–</td></tr><tr><td style='white-space:nowrap'>Valence index without fear</td><td class='num'>+0.06 [−0.06, +0.18]</td><td class='num'>−0.07 [−0.32, +0.19]</td><td class='num'>−0.66 [−0.77, −0.51]</td><td class='num'>−0.25 [−0.65, +0.15]</td><td class='num'>0.992</td></tr><tr><td style='white-space:nowrap'>Fear removed, recentered over 7</td><td class='num'>+0.06 [−0.06, +0.17]</td><td class='num'>−0.06 [−0.30, +0.18]</td><td class='num'>−0.65 [−0.77, −0.50]</td><td class='num'>−0.22 [−0.63, +0.18]</td><td class='num'>0.986</td></tr><tr><td style='white-space:nowrap'>Norm-equalized centering</td><td class='num'>+0.07 [−0.06, +0.18]</td><td class='num'>−0.12 [−0.36, +0.18]</td><td class='num'>−0.63 [−0.75, −0.48]</td><td class='num'>−0.19 [−0.59, +0.19]</td><td class='num'>0.972</td></tr>
+</tbody></table></div>
+<p>Across all variants and models, the change in the valence index correlates at least 0.97 with the official index, and every estimate keeps its sign. Each interval that excluded zero still excludes it, with one boundary case, the Qwen KoBBQ \(\beta_3\), already the weakest effect, whose lower bound reaches 0.000 (\(p=0.05\)) under norm-equalized centering. The fear scene artifact therefore distorts the geometry of the fear axis and the visualizations, but not the claims of the paper, which rest on the valence index.</p>
+<div class="note"><b>Limits of the remedy.</b> The threat-matched response is not a validated fear direction. The control \(C\) omits all inner states, so \(F-C\) also contains a general style of narrating appraisal and action; its nearest raw centroids are calm (0.63), joy (0.57) and panic (0.56). A clean fix requires new stories, either fear stories that use threats congruent with each topic, or the same physical threat inserted into the stories of all eight emotions. Both need new generation and model encoding.</div>
+
+<h2 id="limits"><span class="n">Limits</span></h2>
+<div class="note"><b>Layer profile.</b> Fig. 1 reproduces the project's existing layer profile and was not recomputed from the v11 story features, which exist only at layers 0 and 19.</div>
+<div class="note"><b>Anchoring and partial views.</b> Placing the neutral story at the origin (Fig. 2) or at the reference notice (Fig. 4) is a display convention. Each plane shows only part of each vector, as stated with each figure.</div>
+<p class="meta">Sources: <code>korean_emotion_stories</code> v0.1–v0.11 (design, prompts, generation code, review sets, accepted release); <code>round1_main_qwen/02_vectors</code> (story features at layers 0 and 19, pair index, instrument_L19.npz); Figure 1 pipeline basis files. Computation read the stored files only; no model was run.</p>
+</main>
+<script>if(window.top!==window.self){var e=document.getElementById("backlink");if(e)e.style.display="none"}</script>
+</body>
+</html>
