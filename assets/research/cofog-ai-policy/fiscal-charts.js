@@ -90,7 +90,7 @@
     const plotWidth = width - left - right;
     const plotHeight = height - top - bottom;
     const minimum = Math.min(0, ...values);
-    const maximum = Math.max(0.000001, ...values);
+    const maximum = Math.max(0, ...values) || 1;
     const roughStep = (maximum - minimum) / 4;
     const magnitude = 10 ** Math.floor(Math.log10(roughStep));
     const fraction = roughStep / magnitude;
@@ -101,7 +101,7 @@
     const scaleX = value => left + plotWidth * (value-minimumTick) / (maximumTick-minimumTick);
     const scaleY = value => height-bottom - plotHeight * (value-minimumTick) / (maximumTick-minimumTick);
     const zeroX = scaleX(0);
-    const axisNumber = value => metric === 'share' ? number(value, 1) : value.toLocaleString('ko-KR', {notation: 'compact', maximumFractionDigits: 1});
+    const axisNumber = value => metric === 'share' ? number(value, Math.max(1, -Math.floor(Math.log10(step)))) : value.toLocaleString('ko-KR', {notation: 'compact', maximumFractionDigits: 1});
     const title = byId('fiscal-chart-title').textContent;
     let content = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="fiscal-svg-title fiscal-svg-description"><title id="fiscal-svg-title">${escapeHtml(title)}</title><desc id="fiscal-svg-description">${escapeHtml(byId('fiscal-chart-subtitle').textContent)}. 각 관측점은 키보드로 선택할 수 있으며 수치 표를 함께 제공합니다.</desc><rect width="${width}" height="${height}" fill="white"/>`;
     for (let tick = 0; tick <= tickCount; tick++) {
