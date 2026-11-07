@@ -15,7 +15,13 @@
   let rowMap;
   const lookup = (country, year, functionCode) => rowMap.get(`${country}|${year}|${functionCode}`);
   const isFlagged = row => row && (row.status !== 'A' || row.total_status !== 'A');
-  const statusText = row => row ? `${data.status_labels[row.status] || row.status} / ${data.status_labels[row.total_status] || row.total_status}` : '관측값 없음';
+  const statusText = row => {
+    if (!row) return '관측값 없음';
+    const notes = [];
+    if (row.status !== 'A') notes.push(`지출액 ${data.status_labels[row.status] || row.status}`);
+    if (row.total_status !== 'A') notes.push(`총지출 ${data.status_labels[row.total_status] || row.total_status}`);
+    return notes.length ? notes.join(' · ') : '일반 관측값';
+  };
 
   function fillOptions(element, choices, selected) {
     element.innerHTML = choices.map(choice => `<option value="${escapeHtml(choice.value)}">${escapeHtml(choice.label)}</option>`).join('');
@@ -61,7 +67,7 @@
     if (!row || !row.source) return;
     const source = row.source;
     const element = byId('fiscal-tooltip');
-    element.textContent = `${countryMap.get(source.country).name} · ${source.year}년 · ${functionMap.get(source.function).name} | 전체 지출 대비 ${number(source.share)}% | ${number(source.amount)} 백만 ${source.currency} | 원값 / 총지출 상태: ${statusText(source)}`;
+    element.textContent = `${countryMap.get(source.country).name} · ${source.year}년 · ${functionMap.get(source.function).name} | 전체 지출 대비 ${number(source.share)}% | ${number(source.amount)} 백만 ${source.currency} | ${statusText(source)}`;
     element.hidden = false;
     const box = event.currentTarget.getBoundingClientRect();
     const left = event.type === 'focus' ? box.left : event.clientX;
@@ -174,18 +180,18 @@
       functions: `${country.name} · ${state.year}년 · 기능별 재정지출`
     };
     byId('fiscal-chart-title').textContent = titles[state.view];
-    byId('fiscal-chart-subtitle').textContent = `${unit} · 일반정부 전체 · OECD 조회 2026-11-07`;
+    byId('fiscal-chart-subtitle').textContent = `${unit} · 출처 OECD`;
     byId('fiscal-chart').innerHTML = chart(displayedRows, metric);
     byId('fiscal-table-body').innerHTML = displayedRows.map(row => `<tr><td>${escapeHtml(row.label)}</td><td>${row.source ? number(row.source.share) : '결측'}</td><td>${row.source ? number(row.source.amount) : '결측'}</td><td>${row.source ? row.source.currency : '관측값 없음'}</td><td>${escapeHtml(statusText(row.source))}</td></tr>`).join('');
     const excluded = data.countries.filter(item => !lookup(item.code, state.year, state.function));
     byId('fiscal-coverage').textContent = state.view === 'countries'
-      ? `${available.length}개국 관측값 표시. ${excluded.length ? `선택 연도·기능의 관측값이 없는 국가 ${excluded.length}개는 제외: ${excluded.map(item => item.name).join(', ')}.` : '수록 37개국 모두 관측됨.'} 국가 간 비교는 통화가 다른 금액 대신 비중으로 표시한다.`
+      ? `${available.length}개국 관측값 표시. ${excluded.length ? `해당 연도·기능의 자료가 없는 ${excluded.length}개국은 제외했다.` : '수록 국가 모두 관측됨.'}`
       : state.view === 'trend'
-        ? `${country.years[0]}~${country.years[country.years.length-1]}년 중 ${available.length}개 연도 관측. 결측 연도와 시계열 단절에서는 선을 잇지 않는다.`
-        : `10개 기능 중 ${available.length}개 관측. 합계는 반올림·분류 범위에 따라 100%와 다를 수 있다.`;
+        ? `${country.years[0]}~${country.years[country.years.length-1]}년 중 ${available.length}개 연도 자료.`
+        : `10개 기능 중 ${available.length}개 기능 자료.`;
     const flagged = available.filter(row => isFlagged(row.source));
-    byId('fiscal-flags').textContent = `${flagged.length}개 관측에 원자료 또는 총지출 분모의 상태 표시가 있다. 빈 점·옅은 막대·별표(*)는 정상값 외 상태를 뜻한다. P 잠정값 · E 추정값 · B 시계열 단절. 수치 표와 관측점에서 양쪽 상태를 확인할 수 있다.`;
-    if (available.some(row => row.source.amount < 0)) byId('fiscal-coverage').textContent += ' 원자료에 음수가 포함돼 있으며 그대로 표시했다. 해당 항목의 회계·분류 주석 확인이 필요하다.';
+    byId('fiscal-flags').textContent = flagged.length ? '빈 점·별표(*)는 잠정값·추정값 또는 통계 기준 변경이 포함된 자료다. 수치 표에서 확인할 수 있다.' : '';
+    if (available.some(row => row.source.amount < 0)) byId('fiscal-coverage').textContent += ' 원자료의 음수도 그대로 표시했다.';
     bindMarks();
   }
 
@@ -212,7 +218,7 @@
   panel.addEventListener('toggle', () => {
     if (!panel.open) { byId('fiscal-tooltip').hidden = true; return; }
     if (!loading) loading = initialise().catch(error => {
-      byId('fiscal-loader').textContent = `데이터를 불러오지 못했습니다. 항목을 닫았다가 다시 열어주세요. (${error.message})`;
+      byId('fiscal-loader').textContent = '데이터를 불러오지 못했습니다. 잠시 후 항목을 다시 열어주세요.';
       byId('fiscal-loader').hidden = false;
       loading = undefined;
     });
