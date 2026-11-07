@@ -1,0 +1,302 @@
+{
+  "countries": 37,
+  "observations": 8765,
+  "years": [
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "unique_country_year_function": true,
+  "missing_denominators": [],
+  "full_ten_function_country_years": 854,
+  "max_relative_reconciliation_error": 5.228758169929885e-05,
+  "flags": {
+    "A": 8526,
+    "P": 230,
+    "B": 9
+  },
+  "coverage": [
+    {
+      "country": "KOR",
+      "name": "한국",
+      "first_year": 2000,
+      "last_year": 2023,
+      "years": 24
+    },
+    {
+      "country": "AUS",
+      "name": "호주",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "AUT",
+      "name": "오스트리아",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "BEL",
+      "name": "벨기에",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "BGR",
+      "name": "불가리아",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "CHL",
+      "name": "칠레",
+      "first_year": 2018,
+      "last_year": 2024,
+      "years": 7
+    },
+    {
+      "country": "COL",
+      "name": "콜롬비아",
+      "first_year": 2009,
+      "last_year": 2024,
+      "years": 16
+    },
+    {
+      "country": "CRI",
+      "name": "코스타리카",
+      "first_year": 2012,
+      "last_year": 2022,
+      "years": 11
+    },
+    {
+      "country": "HRV",
+      "name": "크로아티아",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "CZE",
+      "name": "체코",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "DNK",
+      "name": "덴마크",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "EST",
+      "name": "에스토니아",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "FIN",
+      "name": "핀란드",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "FRA",
+      "name": "프랑스",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "DEU",
+      "name": "독일",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "GRC",
+      "name": "그리스",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "HUN",
+      "name": "헝가리",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "ISL",
+      "name": "아이슬란드",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "IRL",
+      "name": "아일랜드",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "ISR",
+      "name": "이스라엘",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "ITA",
+      "name": "이탈리아",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "JPN",
+      "name": "일본",
+      "first_year": 2005,
+      "last_year": 2024,
+      "years": 20
+    },
+    {
+      "country": "LVA",
+      "name": "라트비아",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "LTU",
+      "name": "리투아니아",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "LUX",
+      "name": "룩셈부르크",
+      "first_year": 2000,
+      "last_year": 2025,
+      "years": 26
+    },
+    {
+      "country": "NLD",
+      "name": "네덜란드",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "NOR",
+      "name": "노르웨이",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "POL",
+      "name": "폴란드",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "PRT",
+      "name": "포르투갈",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "ROU",
+      "name": "루마니아",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "SVK",
+      "name": "슬로바키아",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "SVN",
+      "name": "슬로베니아",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "ESP",
+      "name": "스페인",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "SWE",
+      "name": "스웨덴",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "CHE",
+      "name": "스위스",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "GBR",
+      "name": "영국",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    },
+    {
+      "country": "USA",
+      "name": "미국",
+      "first_year": 2000,
+      "last_year": 2024,
+      "years": 25
+    }
+  ]
+}
