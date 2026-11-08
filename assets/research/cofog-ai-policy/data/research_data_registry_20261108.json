@@ -1,0 +1,52 @@
+{
+  "snapshot_date": "2026-11-08",
+  "research_ready_final_set": false,
+  "sources": [
+    {
+      "dataset": "existing_integrated_master",
+      "rows": 219383,
+      "status": "active source master; eligibility and source provenance need review",
+      "stpi_korean_origin_rows": 7084,
+      "old_oecd_origin_rows": 2544,
+      "remaining_pc_and_local_enrichment_origin_rows": 209755
+    },
+    {
+      "dataset": "latest_oecd",
+      "raw_records": 2636,
+      "policy_entities": 2629,
+      "country_territory_candidates": 2508,
+      "international_entities": 121,
+      "status": "separate snapshot; not yet reconciled with old integrated OECD"
+    },
+    {
+      "dataset": "preprocessed_policy_embedding_input",
+      "rows": 219357,
+      "status": "frozen derivative, not additional independent documents; country analysis unfinished"
+    },
+    {
+      "dataset": "policycommons_ai_topic_extension",
+      "rows": 119138,
+      "status": "candidate_not_full_release; coverage and metadata conflicts pending"
+    },
+    {
+      "dataset": "korean_approved_input",
+      "rows": 7749,
+      "status": "source input; overlap with integrated STPI must be reconciled"
+    },
+    {
+      "dataset": "korean_expanded_review_pool",
+      "rows": 16954,
+      "status": "review pool, not additive to master"
+    },
+    {
+      "dataset": "STPI_topic_reference",
+      "topics": 495,
+      "policy_topics": 475,
+      "education_additions": 10,
+      "labour_additions": 10,
+      "status": "existing reference for post-BERTopic refinement; same-name pairs need review"
+    }
+  ],
+  "topic_workflow": "BERTopic discovery first; STPI refinement second; human researcher review third",
+  "no_new_bertopic_run_claimed": true
+}
