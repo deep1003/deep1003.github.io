@@ -14,6 +14,12 @@
   "source_page": "https://oecd.ai/en/dashboards/overview",
   "mapping_status": "pending_independent_review",
   "relative_gap_status": "not_yet_analysed",
-  "first_task": "AI policy text → explicit socioeconomic purpose → COFOG linkage feasibility",
-  "second_task": "social-policy coverage and relative country gaps"
+  "first_task": "targetSectors 23개 → COFOG 잠정 대응표 → 모호·누락 사례의 텍스트 보완 → 독립 표본 검증",
+  "second_task": "social-policy coverage and relative country gaps",
+  "crosswalk_status": {
+    "direct_candidate_sectors": 7,
+    "text_review_sectors": 16,
+    "official_crosswalk": false,
+    "policy_level_mapping_executed": false
+  }
 }
