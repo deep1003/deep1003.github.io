@@ -14,12 +14,14 @@
   "source_page": "https://oecd.ai/en/dashboards/overview",
   "mapping_status": "pending_independent_review",
   "relative_gap_status": "not_yet_analysed",
-  "first_task": "targetSectors 23개 → COFOG 잠정 대응표 → 모호·누락 사례의 텍스트 보완 → 독립 표본 검증",
+  "first_task": "공통 토픽 포트폴리오 확정 → 문서–토픽–COFOG 관련성 가중 연결 → 독립 검증",
   "second_task": "social-policy coverage and relative country gaps",
   "crosswalk_status": {
     "direct_candidate_sectors": 7,
     "text_review_sectors": 16,
     "official_crosswalk": false,
-    "policy_level_mapping_executed": false
-  }
+    "policy_level_mapping_executed": false,
+    "role": "auxiliary metadata reference; not primary analysis"
+  },
+  "methodology_status": "planned; shared topic analysis not executed"
 }
