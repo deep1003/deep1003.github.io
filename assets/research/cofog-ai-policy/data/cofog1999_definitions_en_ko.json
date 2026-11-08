@@ -1,0 +1,1958 @@
+{
+  "version": "COFOG 1999",
+  "definition_status": "Research-authored English scope summaries and Korean translations based on UNSD explanatory notes; not official Korean translations",
+  "division_count": 10,
+  "group_count": 69,
+  "class_count": 109,
+  "entries": [
+    {
+      "name_ko": "일반 공공행정",
+      "definition_en": "Government-wide executive, legislative, fiscal and external affairs; foreign economic aid; shared general services; basic research; general public service R&D; public debt transactions; and non-earmarked transfers between government levels. Function-specific administration belongs to the relevant division.",
+      "definition_ko": "정부 전반의 행정·입법·재정·대외 업무, 대외 경제원조, 공통 행정서비스, 기초연구, 일반 공공행정 연구개발, 공공채무 거래 및 정부 수준 간 비특정 목적 이전이다. 특정 기능에 전속된 행정은 해당 기능에 분류한다.",
+      "code": "01",
+      "name_en": "General public services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01",
+      "children": [
+        "01.1",
+        "01.2",
+        "01.3",
+        "01.4",
+        "01.5",
+        "01.6",
+        "01.7",
+        "01.8"
+      ]
+    },
+    {
+      "name_ko": "국방",
+      "definition_en": "Military and civil defence, foreign military aid, defence-related applied R&D, and defence policy and administration not assigned elsewhere. Civilian police and ordinary fire-protection services belong to Division 03.",
+      "definition_ko": "군사방위·민방위·대외 군사원조·국방 관련 응용연구개발 및 달리 분류되지 않는 국방 정책·행정이다. 민간 경찰과 일반 소방서비스는 03에 분류한다.",
+      "code": "02",
+      "name_en": "Defence",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02",
+      "children": [
+        "02.1",
+        "02.2",
+        "02.3",
+        "02.4",
+        "02.5"
+      ]
+    },
+    {
+      "name_ko": "공공질서 및 안전",
+      "definition_en": "Police, fire protection, courts and the judicial system, prisons and offender rehabilitation, related applied R&D, and general public-order policy and administration.",
+      "definition_ko": "경찰, 소방, 법원·사법체계, 교도소·범죄자 교정, 관련 응용연구개발 및 공공질서·안전의 전반적 정책·행정이다.",
+      "code": "03",
+      "name_en": "Public order and safety",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03",
+      "children": [
+        "03.1",
+        "03.2",
+        "03.3",
+        "03.4",
+        "03.5",
+        "03.6"
+      ]
+    },
+    {
+      "name_ko": "경제업무",
+      "definition_en": "General economic, commercial and labour affairs and sector-specific economic services covering agriculture, forestry, fishing, fuels, energy, mining, manufacturing, construction, transport, communications and other industries, including related applied R&D.",
+      "definition_ko": "일반 경제·상업·노동 업무와 농림어업·연료·에너지·광업·제조업·건설·운송·통신·기타 산업의 분야별 경제서비스 및 관련 응용연구개발이다.",
+      "code": "04",
+      "name_en": "Economic affairs",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04",
+      "children": [
+        "04.1",
+        "04.2",
+        "04.3",
+        "04.4",
+        "04.5",
+        "04.6",
+        "04.7",
+        "04.8",
+        "04.9"
+      ]
+    },
+    {
+      "name_ko": "환경보호",
+      "definition_en": "Waste and wastewater management, pollution abatement, biodiversity and landscape protection, environmental applied R&D, and general environmental policy and administration.",
+      "definition_ko": "폐기물·폐수 관리, 오염 저감, 생물다양성·경관 보호, 환경 관련 응용연구개발 및 전반적 환경 정책·행정이다.",
+      "code": "05",
+      "name_en": "Environmental protection",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05",
+      "children": [
+        "05.1",
+        "05.2",
+        "05.3",
+        "05.4",
+        "05.5",
+        "05.6"
+      ]
+    },
+    {
+      "name_ko": "주택 및 지역사회 편의시설",
+      "definition_en": "Housing and community development, potable water supply, street lighting, related applied R&D, and general policy and administration for these services. Household housing benefits belong to 10.6; sewage belongs to 05.2.",
+      "definition_ko": "주택·지역사회 개발, 음용수 공급, 가로등, 관련 응용연구개발 및 이러한 서비스의 전반적 정책·행정이다. 가구에 대한 주거급여는 10.6, 하수 처리는 05.2에 분류한다.",
+      "code": "06",
+      "name_en": "Housing and community amenities",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06",
+      "children": [
+        "06.1",
+        "06.2",
+        "06.3",
+        "06.4",
+        "06.5",
+        "06.6"
+      ]
+    },
+    {
+      "name_ko": "보건",
+      "definition_en": "Medical products and equipment supplied outside hospital and outpatient treatment packages; outpatient, hospital and public-health services; health-related applied R&D; and general health policy and administration. Cash income-replacement benefits belong to Division 10.",
+      "definition_ko": "병원·외래 진료에 포함되지 않고 별도로 제공되는 의료용품·장비, 외래·입원·공중보건 서비스, 보건 관련 응용연구개발 및 전반적 보건 정책·행정이다. 현금 소득보전 급여는 10에 분류한다.",
+      "code": "07",
+      "name_en": "Health",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07",
+      "children": [
+        "07.1",
+        "07.2",
+        "07.3",
+        "07.4",
+        "07.5",
+        "07.6"
+      ]
+    },
+    {
+      "name_ko": "휴양·문화·종교",
+      "definition_en": "Recreational and sporting services, cultural services, broadcasting and publishing, religious and other community services, related applied R&D, and general policy and administration for these purposes.",
+      "definition_ko": "휴양·체육, 문화, 방송·출판, 종교·기타 공동체 서비스, 관련 응용연구개발 및 이러한 목적의 전반적 정책·행정이다.",
+      "code": "08",
+      "name_en": "Recreation, culture and religion",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08",
+      "children": [
+        "08.1",
+        "08.2",
+        "08.3",
+        "08.4",
+        "08.5",
+        "08.6"
+      ]
+    },
+    {
+      "name_ko": "교육",
+      "definition_en": "Education by the levels of ISCED-97, education not definable by level, subsidiary services chiefly for students, education-related applied R&D, and general education policy and administration.",
+      "definition_ko": "ISCED-97 단계별 교육, 단계 구분이 불가능한 교육, 학생을 주 대상으로 하는 교육 부대서비스, 교육 관련 응용연구개발 및 전반적 교육 정책·행정이다.",
+      "code": "09",
+      "name_en": "Education",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09",
+      "children": [
+        "09.1",
+        "09.2",
+        "09.3",
+        "09.4",
+        "09.5",
+        "09.6",
+        "09.7",
+        "09.8"
+      ]
+    },
+    {
+      "name_ko": "사회보호",
+      "definition_en": "Cash and in-kind social protection for sickness, disability, old age, survivors, families and children, unemployment, housing and social exclusion, together with related applied R&D and administration. Medical goods and healthcare services belong to Division 07.",
+      "definition_ko": "질병·장애·노령·유족·가족과 아동·실업·주거·사회적 배제에 대응하는 현금·현물 사회보호와 관련 응용연구개발·행정이다. 의료용품과 의료서비스는 07에 분류한다.",
+      "code": "10",
+      "name_en": "Social protection",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10",
+      "children": [
+        "10.1",
+        "10.2",
+        "10.3",
+        "10.4",
+        "10.5",
+        "10.6",
+        "10.7",
+        "10.8",
+        "10.9"
+      ]
+    },
+    {
+      "name_ko": "행정·입법기관, 금융·재정 및 대외 업무",
+      "definition_en": "Executive and legislative institutions, public financial and fiscal management, and diplomatic and other external affairs; excludes public debt interest and loan-issue costs assigned to 01.7.",
+      "definition_ko": "행정·입법기관의 운영, 공공 금융·재정 관리 및 외교·대외 업무이다. 공채 이자와 발행 비용은 01.7로 제외한다.",
+      "code": "01.1",
+      "name_en": "Executive and legislative organs, financial and fiscal affairs, external affairs",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_1",
+      "children": [
+        "01.1.1",
+        "01.1.2",
+        "01.1.3"
+      ]
+    },
+    {
+      "name_ko": "대외 경제원조",
+      "definition_en": "Economic cooperation and assistance to developing countries and countries in transition, provided directly or through international organisations; excludes military aid.",
+      "definition_ko": "개발도상국·체제전환국에 직접 또는 국제기구를 통해 제공하는 경제협력·지원이다. 군사원조는 제외한다.",
+      "code": "01.2",
+      "name_en": "Foreign economic aid",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_2",
+      "children": [
+        "01.2.1",
+        "01.2.2"
+      ]
+    },
+    {
+      "name_ko": "일반 서비스",
+      "definition_en": "Personnel, overall planning and statistics, and other shared administrative services not connected with a particular government function.",
+      "definition_ko": "특정 정부기능에 전속되지 않는 인사, 종합 기획·통계 및 기타 공통 행정서비스이다.",
+      "code": "01.3",
+      "name_en": "General services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_3",
+      "children": [
+        "01.3.1",
+        "01.3.2",
+        "01.3.3"
+      ]
+    },
+    {
+      "name_ko": "기초연구",
+      "definition_en": "Government operation and support of experimental or theoretical research seeking knowledge of underlying phenomena without a particular application or use in view.",
+      "definition_ko": "특정 응용이나 용도를 전제하지 않고 현상·관찰 사실의 근본 원리에 대한 지식을 얻는 실험·이론 연구의 정부 수행·지원이다.",
+      "code": "01.4",
+      "name_en": "Basic research",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_4",
+      "children": [
+        "01.4.0"
+      ]
+    },
+    {
+      "name_ko": "일반 공공행정 연구개발",
+      "definition_en": "Government performance and support of applied research and experimental development directed at general public services; excludes basic research under 01.4.",
+      "definition_ko": "일반 공공행정을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 01.4의 기초연구는 제외한다.",
+      "code": "01.5",
+      "name_en": "R&D General public services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_5",
+      "children": [
+        "01.5.0"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 일반 공공행정",
+      "definition_en": "General public services not covered by preceding groups, including voter registration, elections and referendums, and certain territorial administration.",
+      "definition_ko": "선행 항목에 포함되지 않는 일반 공공행정으로, 선거인 등록·선거·국민투표 및 일부 영토 행정 등을 포함한다.",
+      "code": "01.6",
+      "name_en": "General public services n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_6",
+      "children": [
+        "01.6.0"
+      ]
+    },
+    {
+      "name_ko": "공공채무 거래",
+      "definition_en": "Interest on public debt and the costs of underwriting and issuing government loans; excludes debt-management administration under 01.1.2.",
+      "definition_ko": "공공채무 이자와 정부 차입의 인수·발행 비용이다. 채무관리 행정 비용은 01.1.2로 제외한다.",
+      "code": "01.7",
+      "name_en": "Public debt transactions",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_7",
+      "children": [
+        "01.7.0"
+      ]
+    },
+    {
+      "name_ko": "정부 수준 간 일반적 성격의 이전",
+      "definition_en": "Transfers between different levels of government that are not earmarked for a particular function.",
+      "definition_ko": "특정 기능에 용도가 지정되지 않은 서로 다른 정부 수준 간 이전이다.",
+      "code": "01.8",
+      "name_en": "Transfers of a general character between different levels of government",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_8",
+      "children": [
+        "01.8.0"
+      ]
+    },
+    {
+      "name_ko": "군사방위",
+      "definition_en": "Administration, operation and support of armed forces and military support services, including field hospitals and exclusively military training; excludes base hospitals, civilian-type education and military pensions.",
+      "definition_ko": "군대·군사 지원서비스의 행정·운영·지원이며 야전병원·순수 군사훈련을 포함한다. 기지 병원, 민간 교육과 동등한 교육 및 군인연금은 제외한다.",
+      "code": "02.1",
+      "name_en": "Military defence",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02_1",
+      "children": [
+        "02.1.0"
+      ]
+    },
+    {
+      "name_ko": "민방위",
+      "definition_en": "Civil-defence planning, civilian preparedness exercises, and operation or support of civil-defence forces; excludes ordinary fire protection and peacetime disaster services.",
+      "definition_ko": "민방위 비상계획, 민간 대비훈련 및 민방위 조직의 운영·지원이다. 일반 소방과 평시 재난 대응서비스는 제외한다.",
+      "code": "02.2",
+      "name_en": "Civil defence",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02_2",
+      "children": [
+        "02.2.0"
+      ]
+    },
+    {
+      "name_ko": "대외 군사원조",
+      "definition_en": "Administration and provision of military aid, military aid missions, and contributions to international military assistance arrangements.",
+      "definition_ko": "군사원조의 행정·제공, 해외 군사원조 사절단 및 국제 군사지원 체계에 대한 기여이다.",
+      "code": "02.3",
+      "name_en": "Foreign military aid",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02_3",
+      "children": [
+        "02.3.0"
+      ]
+    },
+    {
+      "name_ko": "국방 연구개발",
+      "definition_en": "Applied research and experimental development directed at defence, including government performance and support; excludes basic research.",
+      "definition_ko": "국방을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "02.4",
+      "name_en": "R&D Defence",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02_4",
+      "children": [
+        "02.4.0"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 국방",
+      "definition_en": "Overall defence policy, planning, legislation, information and administration, and other defence services not assigned to preceding groups.",
+      "definition_ko": "국방 전반의 정책·기획·법령·정보·행정 및 앞선 항목에 배정되지 않는 국방서비스이다.",
+      "code": "02.5",
+      "name_en": "Defence n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02_5",
+      "children": [
+        "02.5.0"
+      ]
+    },
+    {
+      "name_ko": "경찰서비스",
+      "definition_en": "Police administration and operations, traffic control, border and coastguard police functions, and related registration and document services.",
+      "definition_ko": "경찰 행정·활동, 교통 통제, 국경·해안의 경찰 기능 및 관련 등록·문서 발급서비스이다.",
+      "code": "03.1",
+      "name_en": "Police services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_1",
+      "children": [
+        "03.1.0"
+      ]
+    },
+    {
+      "name_ko": "소방서비스",
+      "definition_en": "Fire prevention and firefighting, public fire brigades, and civil-protection services such as mountain or beach rescue; excludes military civil defence.",
+      "definition_ko": "화재 예방·진압, 공공 소방대 및 산악·해변 구조 등 민간 보호서비스이다. 군사적 민방위는 제외한다.",
+      "code": "03.2",
+      "name_en": "Fire-protection services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_2",
+      "children": [
+        "03.2.0"
+      ]
+    },
+    {
+      "name_ko": "법원",
+      "definition_en": "Civil and criminal courts and the judicial system, court-ordered enforcement, parole and probation services, and publicly supported legal representation.",
+      "definition_ko": "민사·형사 법원과 사법체계, 재판 결과의 집행, 가석방·보호관찰 및 공적으로 지원하는 법률대리이다.",
+      "code": "03.3",
+      "name_en": "Law courts",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_3",
+      "children": [
+        "03.3.0"
+      ]
+    },
+    {
+      "name_ko": "교도소",
+      "definition_en": "Prisons and other institutions for detention or rehabilitation of offenders, including their administration, operation and support.",
+      "definition_ko": "범죄자의 구금·교정을 위한 교도소와 기타 시설의 행정·운영·지원이다.",
+      "code": "03.4",
+      "name_en": "Prisons",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_4",
+      "children": [
+        "03.4.0"
+      ]
+    },
+    {
+      "name_ko": "공공질서 및 안전 연구개발",
+      "definition_en": "Applied research and experimental development directed at public order and safety, including government performance and support; excludes basic research.",
+      "definition_ko": "공공질서·안전을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "03.5",
+      "name_en": "R&D Public order and safety",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_5",
+      "children": [
+        "03.5.0"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 공공질서 및 안전",
+      "definition_en": "Overall public-order and safety policy, planning, legislation, information and administration, and other services not assigned to preceding groups.",
+      "definition_ko": "공공질서·안전 전반의 정책·기획·법령·정보·행정 및 앞선 항목에 배정되지 않는 관련 서비스이다.",
+      "code": "03.6",
+      "name_en": "Public order and safety n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_6",
+      "children": [
+        "03.6.0"
+      ]
+    },
+    {
+      "name_ko": "일반 경제·상업 및 노동 업무",
+      "definition_en": "General economic and commercial policy and regulation, together with labour-market policy, working-condition regulation and general employment services.",
+      "definition_ko": "일반 경제·상업 정책·규제와 노동시장 정책, 근로조건 규제 및 일반 고용서비스이다.",
+      "code": "04.1",
+      "name_en": "General economic, commercial and labour affairs",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_1",
+      "children": [
+        "04.1.1",
+        "04.1.2"
+      ]
+    },
+    {
+      "name_ko": "농업·임업·어업 및 수렵",
+      "definition_en": "Administration, regulation, operation and support of agricultural production, forest resources, fishing and hunting; conservation functions primarily for biodiversity belong to 05.4.",
+      "definition_ko": "농업 생산·산림자원·어업·수렵의 행정·규제·운영·지원이다. 생물다양성 보호가 주목적인 보전 기능은 05.4에 분류한다.",
+      "code": "04.2",
+      "name_en": "Agriculture, forestry, fishing and hunting",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_2",
+      "children": [
+        "04.2.1",
+        "04.2.2",
+        "04.2.3"
+      ]
+    },
+    {
+      "name_ko": "연료 및 에너지",
+      "definition_en": "Administration, regulation and support of solid fuels, petroleum and gas, nuclear fuels, other fuels, electricity and non-electric heat energy.",
+      "definition_ko": "고체연료·석유·가스·핵연료·기타 연료·전력 및 비전기 열에너지의 행정·규제·지원이다.",
+      "code": "04.3",
+      "name_en": "Fuel and energy",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_3",
+      "children": [
+        "04.3.1",
+        "04.3.2",
+        "04.3.3",
+        "04.3.4",
+        "04.3.5",
+        "04.3.6"
+      ]
+    },
+    {
+      "name_ko": "광업·제조업 및 건설업",
+      "definition_en": "Administration, regulation and support of non-fuel mineral extraction, manufacturing and the construction industry; fuel extraction belongs to 04.3.",
+      "definition_ko": "연료를 제외한 광물 채굴, 제조업 및 건설산업의 행정·규제·지원이다. 연료 채굴은 04.3에 분류한다.",
+      "code": "04.4",
+      "name_en": "Mining, manufacturing and construction",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_4",
+      "children": [
+        "04.4.1",
+        "04.4.2",
+        "04.4.3"
+      ]
+    },
+    {
+      "name_ko": "운송",
+      "definition_en": "Administration, infrastructure, regulation and support of road, water, rail, air, pipeline and other transport systems.",
+      "definition_ko": "도로·수상·철도·항공·파이프라인 및 기타 운송체계의 행정·기반시설·규제·지원이다.",
+      "code": "04.5",
+      "name_en": "Transport",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_5",
+      "children": [
+        "04.5.1",
+        "04.5.2",
+        "04.5.3",
+        "04.5.4",
+        "04.5.5"
+      ]
+    },
+    {
+      "name_ko": "통신",
+      "definition_en": "Administration, regulation and support of postal, telephone, wireless, satellite and other communication systems; broadcasting content services belong to 08.3.",
+      "definition_ko": "우편·전화·무선·위성 및 기타 통신체계의 행정·규제·지원이다. 방송 콘텐츠 서비스는 08.3에 분류한다.",
+      "code": "04.6",
+      "name_en": "Communication",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_6",
+      "children": [
+        "04.6.0"
+      ]
+    },
+    {
+      "name_ko": "기타 산업",
+      "definition_en": "Distribution, storage and warehousing; hotels and restaurants; tourism; and integrated multi-purpose development projects.",
+      "definition_ko": "유통·보관·창고업, 숙박·음식업, 관광 및 여러 목적을 결합한 종합개발사업이다.",
+      "code": "04.7",
+      "name_en": "Other industries",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_7",
+      "children": [
+        "04.7.1",
+        "04.7.2",
+        "04.7.3",
+        "04.7.4"
+      ]
+    },
+    {
+      "name_ko": "경제업무 연구개발",
+      "definition_en": "Applied research and experimental development directed at the economic sectors in 04.1–04.7, including government performance and support; excludes basic research.",
+      "definition_ko": "04.1~04.7의 경제 분야를 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "04.8",
+      "name_en": "R&D Economic affairs",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_8",
+      "children": [
+        "04.8.1",
+        "04.8.2",
+        "04.8.3",
+        "04.8.4",
+        "04.8.5",
+        "04.8.6",
+        "04.8.7"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 경제업무",
+      "definition_en": "General or sectoral economic activities that cannot be assigned to 04.1–04.8.",
+      "definition_ko": "04.1~04.8에 배정할 수 없는 일반 또는 분야별 경제활동이다.",
+      "code": "04.9",
+      "name_en": "Economic affairs n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_9",
+      "children": [
+        "04.9.0"
+      ]
+    },
+    {
+      "name_ko": "폐기물 관리",
+      "definition_en": "Collection, treatment and disposal of waste, including administration, inspection and support of waste-management systems.",
+      "definition_ko": "폐기물 수거·처리·처분 및 폐기물 관리체계의 행정·검사·지원이다.",
+      "code": "05.1",
+      "name_en": "Waste management",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_1",
+      "children": [
+        "05.1.0"
+      ]
+    },
+    {
+      "name_ko": "폐수 관리",
+      "definition_en": "Sewerage-system operation and wastewater treatment, including administration, inspection, infrastructure and support.",
+      "definition_ko": "하수체계 운영·폐수 처리와 관련 행정·검사·기반시설·지원이다.",
+      "code": "05.2",
+      "name_en": "Waste water management",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_2",
+      "children": [
+        "05.2.0"
+      ]
+    },
+    {
+      "name_ko": "오염 저감",
+      "definition_en": "Protection of ambient air and climate, soil and groundwater, and control of noise, vibration and radiation pollution.",
+      "definition_ko": "대기·기후·토양·지하수 보호와 소음·진동·방사선 오염의 저감·통제이다.",
+      "code": "05.3",
+      "name_en": "Pollution abatement",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_3",
+      "children": [
+        "05.3.0"
+      ]
+    },
+    {
+      "name_ko": "생물다양성 및 경관 보호",
+      "definition_en": "Protection of animal and plant species, habitats, forests and landscapes for conservation purposes; excludes primarily productive forestry and visitor recreation services.",
+      "definition_ko": "보전을 목적으로 하는 동식물 종·서식지·산림·경관의 보호이다. 생산이 주목적인 임업과 방문객 휴양서비스는 제외한다.",
+      "code": "05.4",
+      "name_en": "Protection of biodiversity and landscape",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_4",
+      "children": [
+        "05.4.0"
+      ]
+    },
+    {
+      "name_ko": "환경보호 연구개발",
+      "definition_en": "Applied research and experimental development directed at environmental protection, including government performance and support; excludes basic research.",
+      "definition_ko": "환경보호를 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "05.5",
+      "name_en": "R&D Environmental protection",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_5",
+      "children": [
+        "05.5.0"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 환경보호",
+      "definition_en": "Overall environmental policy, planning, legislation, monitoring and administration, and environmental services not assigned to preceding groups.",
+      "definition_ko": "환경 전반의 정책·기획·법령·점검·행정 및 앞선 항목에 배정되지 않는 환경서비스이다.",
+      "code": "05.6",
+      "name_en": "Environmental protection n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_6",
+      "children": [
+        "05.6.0"
+      ]
+    },
+    {
+      "name_ko": "주택개발",
+      "definition_en": "Housing development policy, promotion and regulation, land acquisition and clearance for housing, and construction or acquisition of housing; excludes household housing benefits.",
+      "definition_ko": "주택개발 정책·촉진·규제, 주택용 토지 취득·정비 및 주택 건설·취득이다. 가구에 대한 주거급여는 제외한다.",
+      "code": "06.1",
+      "name_en": "Housing development",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_1",
+      "children": [
+        "06.1.0"
+      ]
+    },
+    {
+      "name_ko": "지역사회 개발",
+      "definition_en": "Community planning and development, zoning and land-use regulation, and planning of community facilities; individual facilities are classified by their own functions.",
+      "definition_ko": "지역사회 기획·개발, 용도지역·토지이용 규제 및 공동시설의 종합계획이다. 개별 시설 자체는 고유 기능에 따라 분류한다.",
+      "code": "06.2",
+      "name_en": "Community development",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_2",
+      "children": [
+        "06.2.0"
+      ]
+    },
+    {
+      "name_ko": "상수도",
+      "definition_en": "Planning, regulation, construction, operation and support of potable water supply, including water purity, price and quantity controls.",
+      "definition_ko": "음용수 공급의 기획·규제·건설·운영·지원 및 수질·가격·공급량 관리이다.",
+      "code": "06.3",
+      "name_en": "Water supply",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_3",
+      "children": [
+        "06.3.0"
+      ]
+    },
+    {
+      "name_ko": "가로등",
+      "definition_en": "Street-lighting administration, standards, installation, operation and maintenance; excludes lighting within transport facilities classified to transport.",
+      "definition_ko": "가로등의 행정·기준·설치·운영·유지관리이다. 운송시설 내부 조명은 운송 기능으로 제외한다.",
+      "code": "06.4",
+      "name_en": "Street lighting",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_4",
+      "children": [
+        "06.4.0"
+      ]
+    },
+    {
+      "name_ko": "주택 및 지역사회 편의시설 연구개발",
+      "definition_en": "Applied research and experimental development directed at housing and community amenities; excludes basic research.",
+      "definition_ko": "주택·지역사회 편의시설을 목적으로 하는 응용연구·실험개발이다. 기초연구는 제외한다.",
+      "code": "06.5",
+      "name_en": "R&D Housing and community amenities",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_5",
+      "children": [
+        "06.5.0"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 주택 및 지역사회 편의시설",
+      "definition_en": "Overall policy, planning, legislation and administration for housing and community amenities, and services not assigned to preceding groups.",
+      "definition_ko": "주택·지역사회 편의시설 전반의 정책·기획·법령·행정 및 앞선 항목에 배정되지 않는 관련 서비스이다.",
+      "code": "06.6",
+      "name_en": "Housing and community amenities n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_6",
+      "children": [
+        "06.6.0"
+      ]
+    },
+    {
+      "name_ko": "의료용품·기구 및 장비",
+      "definition_en": "Medical products and therapeutic equipment supplied to individuals outside treatment packages provided by hospitals or outpatient providers.",
+      "definition_ko": "병원·외래 제공자의 진료에 포함되지 않고 개인에게 별도로 공급되는 의료용품·치료 기구·장비이다.",
+      "code": "07.1",
+      "name_en": "Medical products, appliances and equipment",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_1",
+      "children": [
+        "07.1.1",
+        "07.1.2",
+        "07.1.3"
+      ]
+    },
+    {
+      "name_ko": "외래서비스",
+      "definition_en": "General, specialist, dental and paramedical services delivered to outpatients without hospital inpatient accommodation.",
+      "definition_ko": "병원 입원·숙박을 수반하지 않고 외래 환자에게 제공되는 일반·전문·치과·보건보조 서비스이다.",
+      "code": "07.2",
+      "name_en": "Outpatient services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_2",
+      "children": [
+        "07.2.1",
+        "07.2.2",
+        "07.2.3",
+        "07.2.4"
+      ]
+    },
+    {
+      "name_ko": "병원서비스",
+      "definition_en": "General and specialist hospital care, including inpatient, hospital day-care and home-based hospital treatment; medical and maternity centres; and medically oriented nursing, convalescence and rehabilitation.",
+      "definition_ko": "종합·전문병원의 입원·낮병동·병원 기반 가정 진료, 의료·출산센터 및 의료적 간호·회복·재활서비스이다.",
+      "code": "07.3",
+      "name_en": "Hospital services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_3",
+      "children": [
+        "07.3.1",
+        "07.3.2",
+        "07.3.3",
+        "07.3.4"
+      ]
+    },
+    {
+      "name_ko": "공중보건서비스",
+      "definition_en": "Public-health services including disease prevention and detection, immunisation, blood-bank services and health-information activities; not cash sickness benefits.",
+      "definition_ko": "질병 예방·발견, 예방접종, 혈액은행 및 보건정보 활동 등의 공중보건서비스이다. 질병에 대한 현금급여는 해당하지 않는다.",
+      "code": "07.4",
+      "name_en": "Public health services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_4",
+      "children": [
+        "07.4.0"
+      ]
+    },
+    {
+      "name_ko": "보건 연구개발",
+      "definition_en": "Applied research and experimental development directed at health, including government performance and support; excludes basic research.",
+      "definition_ko": "보건을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "07.5",
+      "name_en": "R&D Health",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_5",
+      "children": [
+        "07.5.0"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 보건",
+      "definition_en": "Overall health policy, planning, legislation, professional licensing and administration, and health services not assigned to preceding groups.",
+      "definition_ko": "보건 전반의 정책·기획·법령·전문직 면허·행정 및 앞선 항목에 배정되지 않는 보건서비스이다.",
+      "code": "07.6",
+      "name_en": "Health n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_6",
+      "children": [
+        "07.6.0"
+      ]
+    },
+    {
+      "name_ko": "휴양 및 체육서비스",
+      "definition_en": "Provision, administration and support of recreational and sporting activities and facilities, including participating and spectator sports.",
+      "definition_ko": "참여·관람 스포츠를 포함한 휴양·체육 활동과 시설의 제공·행정·지원이다.",
+      "code": "08.1",
+      "name_en": "Recreational and sporting services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_1",
+      "children": [
+        "08.1.0"
+      ]
+    },
+    {
+      "name_ko": "문화서비스",
+      "definition_en": "Provision, administration and support of cultural facilities and activities, such as libraries, museums, heritage, performing arts and cultural events.",
+      "definition_ko": "도서관·박물관·문화유산·공연예술·문화행사 등 문화시설과 활동의 제공·행정·지원이다.",
+      "code": "08.2",
+      "name_en": "Cultural services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_2",
+      "children": [
+        "08.2.0"
+      ]
+    },
+    {
+      "name_ko": "방송 및 출판서비스",
+      "definition_en": "Administration, regulation, operation and support of broadcasting and publishing services; communication transmission infrastructure belongs to 04.6.",
+      "definition_ko": "방송·출판서비스의 행정·규제·운영·지원이다. 통신 전송 기반시설은 04.6에 분류한다.",
+      "code": "08.3",
+      "name_en": "Broadcasting and publishing services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_3",
+      "children": [
+        "08.3.0"
+      ]
+    },
+    {
+      "name_ko": "종교 및 기타 공동체서비스",
+      "definition_en": "Administration and support of religious and other community affairs and facilities, including support for religious organisations and specified community bodies.",
+      "definition_ko": "종교·기타 공동체 업무와 시설의 행정·지원으로, 종교단체 및 해당 공동체 조직에 대한 지원을 포함한다.",
+      "code": "08.4",
+      "name_en": "Religious and other community services",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_4",
+      "children": [
+        "08.4.0"
+      ]
+    },
+    {
+      "name_ko": "휴양·문화·종교 연구개발",
+      "definition_en": "Applied research and experimental development directed at recreation, culture and religion; excludes basic research.",
+      "definition_ko": "휴양·문화·종교를 목적으로 하는 응용연구·실험개발이다. 기초연구는 제외한다.",
+      "code": "08.5",
+      "name_en": "R&D Recreation, culture and religion",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_5",
+      "children": [
+        "08.5.0"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 휴양·문화·종교",
+      "definition_en": "Overall policy, planning, legislation and administration for recreation, culture and religion, and activities not assigned to preceding groups.",
+      "definition_ko": "휴양·문화·종교 전반의 정책·기획·법령·행정 및 앞선 항목에 배정되지 않는 관련 활동이다.",
+      "code": "08.6",
+      "name_en": "Recreation, culture and religion n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_6",
+      "children": [
+        "08.6.0"
+      ]
+    },
+    {
+      "name_ko": "취학 전 및 초등교육",
+      "definition_en": "Provision and support of pre-primary and primary education at ISCED-97 levels 0 and 1.",
+      "definition_ko": "ISCED-97 수준 0·1에 해당하는 취학 전·초등교육의 제공·지원이다.",
+      "code": "09.1",
+      "name_en": "Pre-primary and primary education",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_1",
+      "children": [
+        "09.1.1",
+        "09.1.2"
+      ]
+    },
+    {
+      "name_ko": "중등교육",
+      "definition_en": "Provision and support of lower- and upper-secondary education at ISCED-97 levels 2 and 3.",
+      "definition_ko": "ISCED-97 수준 2·3에 해당하는 전기·후기 중등교육의 제공·지원이다.",
+      "code": "09.2",
+      "name_en": "Secondary education",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_2",
+      "children": [
+        "09.2.1",
+        "09.2.2"
+      ]
+    },
+    {
+      "name_ko": "중등 후 비고등교육",
+      "definition_en": "Provision and support of post-secondary non-tertiary education at ISCED-97 level 4.",
+      "definition_ko": "ISCED-97 수준 4에 해당하는 중등 후 비고등교육의 제공·지원이다.",
+      "code": "09.3",
+      "name_en": "Post-secondary non-tertiary education",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_3",
+      "children": [
+        "09.3.0"
+      ]
+    },
+    {
+      "name_ko": "고등교육",
+      "definition_en": "Provision and support of first- and second-stage tertiary education at ISCED-97 levels 5 and 6.",
+      "definition_ko": "ISCED-97 수준 5·6에 해당하는 제1·제2단계 고등교육의 제공·지원이다.",
+      "code": "09.4",
+      "name_en": "Tertiary education",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_4",
+      "children": [
+        "09.4.1",
+        "09.4.2"
+      ]
+    },
+    {
+      "name_ko": "단계 구분이 불가능한 교육",
+      "definition_en": "Education programmes that cannot be allocated to a level, generally adult programmes without specific prior-education requirements; excludes education clearly assignable by level.",
+      "definition_ko": "교육 단계에 배정할 수 없는 교육으로, 일반적으로 특정 선행교육을 요구하지 않는 성인 프로그램 등이다. 단계가 명확한 교육은 제외한다.",
+      "code": "09.5",
+      "name_en": "Education not definable by level",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_5",
+      "children": [
+        "09.5.0"
+      ]
+    },
+    {
+      "name_ko": "교육 부대서비스",
+      "definition_en": "Transport, meals, accommodation, medical or dental care and related services chiefly supplied to students; education-wide support is distinguished from teaching itself.",
+      "definition_ko": "학생을 주 대상으로 제공하는 교통·급식·숙박·의료·치과 및 관련 서비스이다. 수업 자체와 구별한다.",
+      "code": "09.6",
+      "name_en": "Subsidiary services to education",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_6",
+      "children": [
+        "09.6.0"
+      ]
+    },
+    {
+      "name_ko": "교육 연구개발",
+      "definition_en": "Applied research and experimental development directed at education, including government performance and support; excludes basic research.",
+      "definition_ko": "교육을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "09.7",
+      "name_en": "R&D Education",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_7",
+      "children": [
+        "09.7.0"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 교육",
+      "definition_en": "Overall education policy, planning, legislation, standards and administration, and education activities not assigned to preceding groups.",
+      "definition_ko": "교육 전반의 정책·기획·법령·기준·행정 및 앞선 항목에 배정되지 않는 교육활동이다.",
+      "code": "09.8",
+      "name_en": "Education n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_8",
+      "children": [
+        "09.8.0"
+      ]
+    },
+    {
+      "name_ko": "질병 및 장애",
+      "definition_en": "Cash or in-kind social protection for temporary inability to work due to sickness or for disability; excludes medical treatment under Division 07.",
+      "definition_ko": "질병으로 인한 일시적 근로 불능 또는 장애에 대응하는 현금·현물 사회보호이다. 의료행위는 07로 제외한다.",
+      "code": "10.1",
+      "name_en": "Sickness and disability",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_1",
+      "children": [
+        "10.1.1",
+        "10.1.2"
+      ]
+    },
+    {
+      "name_ko": "노령",
+      "definition_en": "Cash and in-kind benefits against risks associated with old age, including pensions and non-medical care and assistance.",
+      "definition_ko": "연금과 비의료적 돌봄·지원을 포함하여 노령에 따른 위험에 대응하는 현금·현물 급여이다.",
+      "code": "10.2",
+      "name_en": "Old age",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_2",
+      "children": [
+        "10.2.0"
+      ]
+    },
+    {
+      "name_ko": "유족",
+      "definition_en": "Cash and in-kind social protection for survivors of a deceased person, including survivor pensions and related assistance.",
+      "definition_ko": "유족연금과 관련 지원을 포함하여 사망자의 유족에게 제공하는 현금·현물 사회보호이다.",
+      "code": "10.3",
+      "name_en": "Survivors",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_3",
+      "children": [
+        "10.3.0"
+      ]
+    },
+    {
+      "name_ko": "가족 및 아동",
+      "definition_en": "Cash and in-kind support to households with dependent children, including maternity, child and family benefits and relevant non-medical care.",
+      "definition_ko": "출산·아동·가족 급여와 관련 비의료적 돌봄 등을 포함하여 부양 아동이 있는 가구에 제공하는 현금·현물 지원이다.",
+      "code": "10.4",
+      "name_en": "Family and children",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_4",
+      "children": [
+        "10.4.0"
+      ]
+    },
+    {
+      "name_ko": "실업",
+      "definition_en": "Cash and in-kind benefits replacing or supplementing income during unemployment, and assistance specifically linked to unemployment; general labour services belong to 04.1.2.",
+      "definition_ko": "실업 기간의 소득을 대체·보충하는 현금·현물 급여 및 실업에 직접 결부된 지원이다. 일반 노동서비스는 04.1.2에 분류한다.",
+      "code": "10.5",
+      "name_en": "Unemployment",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_5",
+      "children": [
+        "10.5.0"
+      ]
+    },
+    {
+      "name_ko": "주거",
+      "definition_en": "Means-tested or otherwise qualifying household assistance with housing costs, such as rent support; construction and development of housing belong to 06.1.",
+      "definition_ko": "임차료 지원 등 요건을 충족하는 가구의 주거비 부담을 돕는 지원이다. 주택 건설·개발은 06.1에 분류한다.",
+      "code": "10.6",
+      "name_en": "Housing",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_6",
+      "children": [
+        "10.6.0"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 사회적 배제",
+      "definition_en": "Cash and in-kind assistance to people facing social exclusion or destitution not covered by preceding social protection groups.",
+      "definition_ko": "앞선 사회보호 항목이 포괄하지 못하는 사회적 배제·궁핍에 처한 사람에 대한 현금·현물 지원이다.",
+      "code": "10.7",
+      "name_en": "Social exclusion n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_7",
+      "children": [
+        "10.7.0"
+      ]
+    },
+    {
+      "name_ko": "사회보호 연구개발",
+      "definition_en": "Applied research and experimental development directed at social protection, including government performance and support; excludes basic research.",
+      "definition_ko": "사회보호를 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "10.8",
+      "name_en": "R&D Social protection",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_8",
+      "children": [
+        "10.8.0"
+      ]
+    },
+    {
+      "name_ko": "달리 분류되지 않는 사회보호",
+      "definition_en": "Overall social-protection policy, planning, legislation and administration, and social-protection services not assigned to preceding groups.",
+      "definition_ko": "사회보호 전반의 정책·기획·법령·행정 및 앞선 항목에 배정되지 않는 사회보호서비스이다.",
+      "code": "10.9",
+      "name_en": "Social protection n.e.c.",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_9",
+      "children": [
+        "10.9.0"
+      ]
+    },
+    {
+      "name_ko": "행정 및 입법기관",
+      "definition_en": "Administration, operation and support of executive and legislative organs at all government levels, including their direct offices and supporting services.",
+      "definition_ko": "모든 정부 수준의 행정·입법기관과 그 직속 사무조직·지원서비스의 행정·운영·지원이다.",
+      "code": "01.1.1",
+      "name_en": "Executive and legislative organs  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_1_1",
+      "children": []
+    },
+    {
+      "name_ko": "금융 및 재정 업무",
+      "definition_en": "Public financial and fiscal administration, including taxation, customs, budgeting, treasury, accounting, audit and debt management; excludes debt interest and loan-issue costs and supervision of banking.",
+      "definition_ko": "조세·관세·예산·국고·회계·감사·채무관리 등 공공 금융·재정 행정이다. 채무 이자·발행 비용 및 은행산업 감독은 제외한다.",
+      "code": "01.1.2",
+      "name_en": "Financial and fiscal affairs  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_1_2",
+      "children": []
+    },
+    {
+      "name_ko": "대외 업무",
+      "definition_en": "External affairs, diplomatic and consular missions, foreign public information and specified international contributions; economic and military aid are classified separately.",
+      "definition_ko": "대외 업무, 외교·영사 공관, 해외 대외홍보 및 해당 국제 분담금이다. 경제·군사 원조는 별도 분류한다.",
+      "code": "01.1.3",
+      "name_en": "External affairs  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_1_3",
+      "children": []
+    },
+    {
+      "name_ko": "개발도상국 및 체제전환국에 대한 경제원조",
+      "definition_en": "Direct economic cooperation and aid to developing countries and countries in transition, including technical assistance and grants or concessional loans.",
+      "definition_ko": "개발도상국·체제전환국에 대한 직접 경제협력·원조로 기술지원·보조금·양허성 차관 등을 포함한다.",
+      "code": "01.2.1",
+      "name_en": "Economic aid to developing countries and countries in transition  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_2_1",
+      "children": []
+    },
+    {
+      "name_ko": "국제기구를 통한 경제원조",
+      "definition_en": "Economic assistance channelled through international, regional or other multinational organisations, including contributions to their economic-development funds.",
+      "definition_ko": "국제·지역·다국적 기구를 통해 제공하는 경제원조와 해당 기구의 경제개발기금에 대한 기여이다.",
+      "code": "01.2.2",
+      "name_en": "Economic aid routed through international organizations  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_2_2",
+      "children": []
+    },
+    {
+      "name_ko": "일반 인사서비스",
+      "definition_en": "Shared personnel policies and services, including recruitment, promotion, classification, civil-service rules and staff development; excludes personnel management tied to a specific function.",
+      "definition_ko": "채용·승진·직무분류·공무원 규정·직원 개발 등을 포함하는 공통 인사정책·서비스이다. 특정 기능에 전속된 인사관리는 제외한다.",
+      "code": "01.3.1",
+      "name_en": "General personnel services  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_3_1",
+      "children": []
+    },
+    {
+      "name_ko": "종합 기획 및 통계서비스",
+      "definition_en": "Overall economic and social planning and general statistical services; excludes planning and statistics dedicated to a particular function.",
+      "definition_ko": "경제·사회 전반의 종합 기획과 일반 통계서비스이다. 특정 기능에 전속된 기획·통계는 제외한다.",
+      "code": "01.3.2",
+      "name_en": "Overall planning and statistical services  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_3_2",
+      "children": []
+    },
+    {
+      "name_ko": "기타 일반 서비스",
+      "definition_en": "Shared administrative services such as central purchasing, records and archives, government premises, central computing and other services not tied to a particular function.",
+      "definition_ko": "중앙 구매·기록·문서보관·정부 청사·중앙 전산 등 특정 기능에 전속되지 않는 공통 행정서비스이다.",
+      "code": "01.3.3",
+      "name_en": "Other general services  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_3_3",
+      "children": []
+    },
+    {
+      "name_ko": "일반 경제 및 상업 업무",
+      "definition_en": "General economic and commercial policies and regulation, including trade, competition, consumer protection and banking-industry supervision; excludes public fiscal administration.",
+      "definition_ko": "무역·경쟁·소비자보호·은행산업 감독 등을 포함하는 일반 경제·상업 정책·규제이다. 공공 재정 행정은 제외한다.",
+      "code": "04.1.1",
+      "name_en": "General economic and commercial affairs  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_1_1",
+      "children": []
+    },
+    {
+      "name_ko": "일반 노동 업무",
+      "definition_en": "Labour policy, working-condition regulation, employment services, labour-market mobility and general employment-promotion programmes; individual unemployment protection belongs to 10.5.",
+      "definition_ko": "노동정책·근로조건 규제·고용서비스·노동이동 및 일반 고용촉진 프로그램이다. 개인의 실업에 대한 사회보호는 10.5에 분류한다.",
+      "code": "04.1.2",
+      "name_en": "General labour affairs  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_1_2",
+      "children": []
+    },
+    {
+      "name_ko": "농업",
+      "definition_en": "Agricultural administration and regulation, agricultural land development, irrigation and drainage for agriculture, pest control, extension and producer support.",
+      "definition_ko": "농업 행정·규제, 농지 개발, 농업용 관개·배수, 병해충 방제, 농업 지도 및 생산자 지원이다.",
+      "code": "04.2.1",
+      "name_en": "Agriculture  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_2_1",
+      "children": []
+    },
+    {
+      "name_ko": "임업",
+      "definition_en": "Forest-resource administration, development, productive management and regulation, together with forestry services and support; conservation primarily for biodiversity belongs to 05.4.",
+      "definition_ko": "산림자원 행정·개발·생산적 관리·규제 및 임업서비스·지원이다. 생물다양성이 주목적인 보전은 05.4에 분류한다.",
+      "code": "04.2.2",
+      "name_en": "Forestry  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_2_2",
+      "children": []
+    },
+    {
+      "name_ko": "어업 및 수렵",
+      "definition_en": "Administration, regulation and support of commercial and recreational fishing and hunting outside natural parks and reserves, including resource protection and development.",
+      "definition_ko": "자연공원·보호구역 밖에서 이루어지는 상업·여가 목적의 어업·수렵과 그 자원의 보호·개발에 대한 행정·규제·지원이다.",
+      "code": "04.2.3",
+      "name_en": "Fishing and hunting  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_2_3",
+      "children": []
+    },
+    {
+      "name_ko": "석탄 및 기타 고체 광물연료",
+      "definition_en": "Administration, regulation and support of coal, lignite and peat extraction, processing and conversion to fuels such as coke or gas.",
+      "definition_ko": "석탄·갈탄·이탄의 채굴·처리와 코크스·가스 등 연료로의 전환에 대한 행정·규제·지원이다.",
+      "code": "04.3.1",
+      "name_en": "Coal and other solid mineral fuels  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_3_1",
+      "children": []
+    },
+    {
+      "name_ko": "석유 및 천연가스",
+      "definition_en": "Administration, regulation and support of petroleum and natural-gas resources, extraction, processing and distribution, including town gas.",
+      "definition_ko": "석유·천연가스 자원과 채굴·처리·유통에 대한 행정·규제·지원으로 도시가스를 포함한다.",
+      "code": "04.3.2",
+      "name_en": "Petroleum and natural gas  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_3_2",
+      "children": []
+    },
+    {
+      "name_ko": "핵연료",
+      "definition_en": "Administration, regulation and support of nuclear-material resources, extraction, processing, manufacture and distribution of nuclear fuel; electricity generation belongs to 04.3.5.",
+      "definition_ko": "핵물질 자원과 핵연료의 채굴·처리·제조·유통에 대한 행정·규제·지원이다. 전력 생산은 04.3.5에 분류한다.",
+      "code": "04.3.3",
+      "name_en": "Nuclear fuel  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_3_3",
+      "children": []
+    },
+    {
+      "name_ko": "기타 연료",
+      "definition_en": "Administration, regulation and support of fuels not classified above, including alcohol, wood, wood waste and other non-commercial fuels.",
+      "definition_ko": "알코올·목재·목재폐기물·기타 비상업 연료 등 앞선 항목에 속하지 않는 연료의 행정·규제·지원이다.",
+      "code": "04.3.4",
+      "name_en": "Other fuels  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_3_4",
+      "children": []
+    },
+    {
+      "name_ko": "전력",
+      "definition_en": "Administration, regulation, infrastructure and support of electricity generation, transmission and distribution, regardless of the energy source.",
+      "definition_ko": "에너지원과 관계없이 전력 생산·송전·배전의 행정·규제·기반시설·지원이다.",
+      "code": "04.3.5",
+      "name_en": "Electricity  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_3_5",
+      "children": []
+    },
+    {
+      "name_ko": "비전기 에너지",
+      "definition_en": "Administration, infrastructure, regulation and support of heat production and distribution through steam, hot water or hot air.",
+      "definition_ko": "증기·온수·열풍을 이용한 열 생산·분배의 행정·기반시설·규제·지원이다.",
+      "code": "04.3.6",
+      "name_en": "Non-electric energy  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_3_6",
+      "children": []
+    },
+    {
+      "name_ko": "광물연료를 제외한 광물자원 채굴",
+      "definition_en": "Administration, regulation and support of extraction and processing of non-fuel minerals, including metallic and non-metallic minerals.",
+      "definition_ko": "금속·비금속 광물 등 연료가 아닌 광물의 채굴·처리에 대한 행정·규제·지원이다.",
+      "code": "04.4.1",
+      "name_en": "Mining of mineral resources other than mineral fuels  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_4_1",
+      "children": []
+    },
+    {
+      "name_ko": "제조업",
+      "definition_en": "Manufacturing policy, regulation, development and support, including assistance to manufacturing enterprises; excludes fuel processing classified under 04.3.",
+      "definition_ko": "제조업 정책·규제·개발·지원과 제조기업 지원이다. 04.3에 분류되는 연료 처리는 제외한다.",
+      "code": "04.4.2",
+      "name_en": "Manufacturing  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_4_2",
+      "children": []
+    },
+    {
+      "name_ko": "건설업",
+      "definition_en": "Administration and regulation of the construction industry and construction standards, including industry support; specific government construction projects follow their own functions.",
+      "definition_ko": "건설산업과 건설기준의 행정·규제 및 산업 지원이다. 정부의 개별 건설사업은 해당 사업의 고유 기능에 따른다.",
+      "code": "04.4.3",
+      "name_en": "Construction  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_4_3",
+      "children": []
+    },
+    {
+      "name_ko": "도로 운송",
+      "definition_en": "Road-transport systems and infrastructure, including roads, bridges, tunnels, parking and bus terminals, and regulation and support of road transport.",
+      "definition_ko": "도로·교량·터널·주차시설·버스터미널 등 도로 운송체계·기반시설 및 도로 운송의 규제·지원이다.",
+      "code": "04.5.1",
+      "name_en": "Road transport  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_5_1",
+      "children": []
+    },
+    {
+      "name_ko": "수상 운송",
+      "definition_en": "Inland, coastal and ocean transport systems and infrastructure, including ports, navigation facilities, regulation and support.",
+      "definition_ko": "내륙수로·연안·해상 운송체계와 항만·항행시설 등 기반시설, 규제·지원이다.",
+      "code": "04.5.2",
+      "name_en": "Water transport  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_5_2",
+      "children": []
+    },
+    {
+      "name_ko": "철도 운송",
+      "definition_en": "Railway systems and infrastructure, including tracks, terminals and related structures, together with regulation and support of railway transport.",
+      "definition_ko": "선로·터미널·관련 구조물을 포함하는 철도체계·기반시설 및 철도 운송의 규제·지원이다.",
+      "code": "04.5.3",
+      "name_en": "Railway transport  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_5_3",
+      "children": []
+    },
+    {
+      "name_ko": "항공 운송",
+      "definition_en": "Air-transport systems and infrastructure, including airports, navigation and traffic-control facilities, together with regulation and support.",
+      "definition_ko": "공항·항행·항공교통관제 시설 등 항공 운송체계·기반시설 및 규제·지원이다.",
+      "code": "04.5.4",
+      "name_en": "Air transport  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_5_4",
+      "children": []
+    },
+    {
+      "name_ko": "파이프라인 및 기타 운송",
+      "definition_en": "Pipeline and other transport systems, including cable cars and similar facilities, together with their administration, regulation and support.",
+      "definition_ko": "파이프라인·케이블카 등 기타 운송체계와 그 행정·규제·지원이다.",
+      "code": "04.5.5",
+      "name_en": "Pipeline and other transport  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_5_5",
+      "children": []
+    },
+    {
+      "name_ko": "유통·보관 및 창고업",
+      "definition_en": "Administration, regulation and support of wholesale and retail trade, storage and warehousing, including sales practices and related facilities.",
+      "definition_ko": "판매 관행·관련 시설을 포함하는 도소매·보관·창고업의 행정·규제·지원이다.",
+      "code": "04.7.1",
+      "name_en": "Distributive trades, storage and warehousing  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_7_1",
+      "children": []
+    },
+    {
+      "name_ko": "숙박 및 음식업",
+      "definition_en": "Administration, regulation and support of hotels and restaurants, including operation standards and relevant infrastructure or enterprise assistance.",
+      "definition_ko": "운영기준·관련 기반시설·기업 지원 등을 포함하는 숙박·음식업의 행정·규제·지원이다.",
+      "code": "04.7.2",
+      "name_en": "Hotels and restaurants  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_7_2",
+      "children": []
+    },
+    {
+      "name_ko": "관광",
+      "definition_en": "Tourism administration, promotion and development, visitor information, and support for tourism-related services and enterprises.",
+      "definition_ko": "관광 행정·촉진·개발, 방문객 정보 및 관광 관련 서비스·기업 지원이다.",
+      "code": "04.7.3",
+      "name_en": "Tourism  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_7_3",
+      "children": []
+    },
+    {
+      "name_ko": "다목적 개발사업",
+      "definition_en": "Integrated projects combining purposes such as power, flood control, irrigation, navigation and recreation; projects with one predominant function are classified to that function.",
+      "definition_ko": "발전·홍수조절·관개·항행·휴양 등의 목적을 결합한 통합사업이다. 하나의 지배적 기능이 있는 사업은 해당 기능에 분류한다.",
+      "code": "04.7.4",
+      "name_en": "Multi-purpose development projects  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_7_4",
+      "children": []
+    },
+    {
+      "name_ko": "의약품",
+      "definition_en": "Medicines, vaccines and other pharmaceutical products obtained by individuals for use outside health facilities; products supplied as part of treatment belong to 07.2 or 07.3.",
+      "definition_ko": "개인이 의료시설 밖에서 사용하기 위해 구입·제공받는 의약품·백신 등이다. 진료의 일부로 제공되는 제품은 07.2·07.3에 분류한다.",
+      "code": "07.1.1",
+      "name_en": "Pharmaceutical products  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_1_1",
+      "children": []
+    },
+    {
+      "name_ko": "기타 의료용품",
+      "definition_en": "Non-pharmaceutical medical supplies obtained for use outside health facilities, such as dressings, syringes and first-aid materials.",
+      "definition_ko": "붕대·주사기·응급처치 용품 등 의료시설 밖에서 사용하도록 제공되는 비의약 의료용품이다.",
+      "code": "07.1.2",
+      "name_en": "Other medical products  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_1_2",
+      "children": []
+    },
+    {
+      "name_ko": "치료 기구 및 장비",
+      "definition_en": "Therapeutic and assistive equipment obtained outside treatment packages, including corrective lenses, hearing aids, prostheses and their repair.",
+      "definition_ko": "교정 렌즈·보청기·의지 등 진료에 포함되지 않고 별도로 제공되는 치료·보조 기구·장비와 그 수리이다.",
+      "code": "07.1.3",
+      "name_en": "Therapeutic appliances and equipment  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_1_3",
+      "children": []
+    },
+    {
+      "name_ko": "일반 진료서비스",
+      "definition_en": "Outpatient services delivered by general medical practitioners and non-specialist medical clinics.",
+      "definition_ko": "일반 의사와 비전문 일반 진료기관이 제공하는 외래서비스이다.",
+      "code": "07.2.1",
+      "name_en": "General medical services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_2_1",
+      "children": []
+    },
+    {
+      "name_ko": "전문 진료서비스",
+      "definition_en": "Outpatient services delivered by specialist medical practitioners and clinics restricted to particular medical specialities.",
+      "definition_ko": "특정 의학 전문분야의 전문의·전문 진료기관이 제공하는 외래서비스이다.",
+      "code": "07.2.2",
+      "name_en": "Specialized medical services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_2_2",
+      "children": []
+    },
+    {
+      "name_ko": "치과서비스",
+      "definition_en": "Outpatient general or specialist dental services, including services of dentists, dental hygienists and other dental auxiliaries.",
+      "definition_ko": "치과의사·치과위생사·기타 치과 보조인력이 제공하는 일반·전문 외래 치과서비스이다.",
+      "code": "07.2.3",
+      "name_en": "Dental services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_2_3",
+      "children": []
+    },
+    {
+      "name_ko": "보건보조서비스",
+      "definition_en": "Outpatient health services provided by nurses, midwives, physiotherapists and other paramedical personnel, including related services specified in the official note.",
+      "definition_ko": "간호사·조산사·물리치료사 등 보건보조 인력이 제공하는 외래서비스와 공식 설명에 명시된 관련 서비스이다.",
+      "code": "07.2.4",
+      "name_en": "Paramedical services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_2_4",
+      "children": []
+    },
+    {
+      "name_ko": "종합병원서비스",
+      "definition_en": "Hospital care under qualified medical supervision without restriction to a single medical speciality.",
+      "definition_ko": "하나의 의학 전문분야로 제한되지 않고 의사의 감독 아래 제공되는 병원 진료이다.",
+      "code": "07.3.1",
+      "name_en": "General hospital services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_3_1",
+      "children": []
+    },
+    {
+      "name_ko": "전문병원서비스",
+      "definition_en": "Hospital care limited to a particular condition, disease or class of patient; differs from general hospital care by its specialised scope.",
+      "definition_ko": "특정 상태·질병·환자군을 대상으로 제한하여 제공하는 병원 진료이며 이러한 전문성에서 종합병원과 구별된다.",
+      "code": "07.3.2",
+      "name_en": "Specialized hospital services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_3_2",
+      "children": []
+    },
+    {
+      "name_ko": "의료 및 출산센터서비스",
+      "definition_en": "Inpatient care supplied by medical and maternity centres, including administration, inspection, operation and support of these services.",
+      "definition_ko": "의료·출산센터가 제공하는 입원 진료 및 그 행정·검사·운영·지원이다.",
+      "code": "07.3.3",
+      "name_en": "Medical and maternity centre services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_3_3",
+      "children": []
+    },
+    {
+      "name_ko": "간호 및 회복시설서비스",
+      "definition_en": "Medically oriented inpatient nursing, convalescence and rehabilitation, including facilities for older people where medical monitoring is essential; excludes primarily long-term social support.",
+      "definition_ko": "의료적 간호·회복·재활 입원서비스이며 의료 관찰이 필수인 노인시설을 포함한다. 장기적인 사회적 지원이 주목적인 시설은 제외한다.",
+      "code": "07.3.4",
+      "name_en": "Nursing and convalescent home services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_3_4",
+      "children": []
+    },
+    {
+      "name_ko": "취학 전 교육",
+      "definition_en": "Provision, administration and support of pre-primary education at ISCED-97 level 0; student subsidiary services are classified separately.",
+      "definition_ko": "ISCED-97 수준 0의 취학 전 교육 제공·행정·지원이다. 학생 부대서비스는 별도로 분류한다.",
+      "code": "09.1.1",
+      "name_en": "Pre-primary education  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_1_1",
+      "children": []
+    },
+    {
+      "name_ko": "초등교육",
+      "definition_en": "Provision, administration and support of primary education at ISCED-97 level 1, including literacy programmes equivalent in content to primary education.",
+      "definition_ko": "ISCED-97 수준 1의 초등교육 제공·행정·지원으로 초등교육과 내용이 동등한 문해 프로그램을 포함한다.",
+      "code": "09.1.2",
+      "name_en": "Primary education  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_1_2",
+      "children": []
+    },
+    {
+      "name_ko": "전기 중등교육",
+      "definition_en": "Provision, administration and support of lower-secondary education at ISCED-97 level 2, including applicable student financial assistance.",
+      "definition_ko": "ISCED-97 수준 2의 전기 중등교육 제공·행정·지원 및 해당 학생 재정지원을 포함한다.",
+      "code": "09.2.1",
+      "name_en": "Lower-secondary education  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_2_1",
+      "children": []
+    },
+    {
+      "name_ko": "후기 중등교육",
+      "definition_en": "Provision, administration and support of upper-secondary education at ISCED-97 level 3, including applicable student financial assistance.",
+      "definition_ko": "ISCED-97 수준 3의 후기 중등교육 제공·행정·지원 및 해당 학생 재정지원을 포함한다.",
+      "code": "09.2.2",
+      "name_en": "Upper-secondary education  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_2_2",
+      "children": []
+    },
+    {
+      "name_ko": "제1단계 고등교육",
+      "definition_en": "Provision, administration and support of tertiary education at ISCED-97 level 5, including applicable scholarships, grants, loans and allowances.",
+      "definition_ko": "ISCED-97 수준 5의 고등교육 제공·행정·지원으로 해당 장학금·보조금·대출·수당을 포함한다.",
+      "code": "09.4.1",
+      "name_en": "First stage of tertiary education  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_4_1",
+      "children": []
+    },
+    {
+      "name_ko": "제2단계 고등교육",
+      "definition_en": "Provision, administration and support of tertiary education at ISCED-97 level 6, including applicable scholarships, grants, loans and allowances.",
+      "definition_ko": "ISCED-97 수준 6의 고등교육 제공·행정·지원으로 해당 장학금·보조금·대출·수당을 포함한다.",
+      "code": "09.4.2",
+      "name_en": "Second stage of tertiary education  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_4_2",
+      "children": []
+    },
+    {
+      "name_ko": "질병",
+      "definition_en": "Cash or in-kind social protection replacing income or providing assistance during temporary inability to work due to sickness or injury; healthcare is classified under 07.",
+      "definition_ko": "질병·부상으로 일시적으로 일할 수 없는 기간에 소득을 대체하거나 지원하는 현금·현물 사회보호이다. 의료서비스는 07에 분류한다.",
+      "code": "10.1.1",
+      "name_en": "Sickness  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_1_1",
+      "children": []
+    },
+    {
+      "name_ko": "장애",
+      "definition_en": "Cash and in-kind protection for disability, including income support, non-medical care, rehabilitation and assistance primarily intended as long-term support.",
+      "definition_ko": "장애에 대한 소득지원·비의료적 돌봄·재활 및 장기 지원을 주목적으로 하는 현금·현물 사회보호이다.",
+      "code": "10.1.2",
+      "name_en": "Disability  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_1_2",
+      "children": []
+    },
+    {
+      "name_ko": "기초연구",
+      "definition_en": "Government operation and support of experimental or theoretical research seeking knowledge of underlying phenomena without a particular application or use in view.",
+      "definition_ko": "특정 응용이나 용도를 전제하지 않고 현상·관찰 사실의 근본 원리에 대한 지식을 얻는 실험·이론 연구의 정부 수행·지원이다.",
+      "code": "01.4.0",
+      "name_en": "Basic research  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_4_0",
+      "children": []
+    },
+    {
+      "name_ko": "일반 공공행정 연구개발",
+      "definition_en": "Government performance and support of applied research and experimental development directed at general public services; excludes basic research under 01.4.",
+      "definition_ko": "일반 공공행정을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 01.4의 기초연구는 제외한다.",
+      "code": "01.5.0",
+      "name_en": "R&D General public services  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_5_0",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 일반 공공행정",
+      "definition_en": "General public services not covered by preceding groups, including voter registration, elections and referendums, and certain territorial administration.",
+      "definition_ko": "선행 항목에 포함되지 않는 일반 공공행정으로, 선거인 등록·선거·국민투표 및 일부 영토 행정 등을 포함한다.",
+      "code": "01.6.0",
+      "name_en": "General public services n.e.c.  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_6_0",
+      "children": []
+    },
+    {
+      "name_ko": "공공채무 거래",
+      "definition_en": "Interest on public debt and the costs of underwriting and issuing government loans; excludes debt-management administration under 01.1.2.",
+      "definition_ko": "공공채무 이자와 정부 차입의 인수·발행 비용이다. 채무관리 행정 비용은 01.1.2로 제외한다.",
+      "code": "01.7.0",
+      "name_en": "Public debt transactions  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_7_0",
+      "children": []
+    },
+    {
+      "name_ko": "정부 수준 간 일반적 성격의 이전",
+      "definition_en": "Transfers between different levels of government that are not earmarked for a particular function.",
+      "definition_ko": "특정 기능에 용도가 지정되지 않은 서로 다른 정부 수준 간 이전이다.",
+      "code": "01.8.0",
+      "name_en": "Transfers of a general character between different levels of government  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/01_8_0",
+      "children": []
+    },
+    {
+      "name_ko": "군사방위",
+      "definition_en": "Administration, operation and support of armed forces and military support services, including field hospitals and exclusively military training; excludes base hospitals, civilian-type education and military pensions.",
+      "definition_ko": "군대·군사 지원서비스의 행정·운영·지원이며 야전병원·순수 군사훈련을 포함한다. 기지 병원, 민간 교육과 동등한 교육 및 군인연금은 제외한다.",
+      "code": "02.1.0",
+      "name_en": "Military defence  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02_1_0",
+      "children": []
+    },
+    {
+      "name_ko": "민방위",
+      "definition_en": "Civil-defence planning, civilian preparedness exercises, and operation or support of civil-defence forces; excludes ordinary fire protection and peacetime disaster services.",
+      "definition_ko": "민방위 비상계획, 민간 대비훈련 및 민방위 조직의 운영·지원이다. 일반 소방과 평시 재난 대응서비스는 제외한다.",
+      "code": "02.2.0",
+      "name_en": "Civil defence  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02_2_0",
+      "children": []
+    },
+    {
+      "name_ko": "대외 군사원조",
+      "definition_en": "Administration and provision of military aid, military aid missions, and contributions to international military assistance arrangements.",
+      "definition_ko": "군사원조의 행정·제공, 해외 군사원조 사절단 및 국제 군사지원 체계에 대한 기여이다.",
+      "code": "02.3.0",
+      "name_en": "Foreign military aid  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02_3_0",
+      "children": []
+    },
+    {
+      "name_ko": "국방 연구개발",
+      "definition_en": "Applied research and experimental development directed at defence, including government performance and support; excludes basic research.",
+      "definition_ko": "국방을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "02.4.0",
+      "name_en": "R&D Defence  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02_4_0",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 국방",
+      "definition_en": "Overall defence policy, planning, legislation, information and administration, and other defence services not assigned to preceding groups.",
+      "definition_ko": "국방 전반의 정책·기획·법령·정보·행정 및 앞선 항목에 배정되지 않는 국방서비스이다.",
+      "code": "02.5.0",
+      "name_en": "Defence n.e.c.  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/02_5_0",
+      "children": []
+    },
+    {
+      "name_ko": "경찰서비스",
+      "definition_en": "Police administration and operations, traffic control, border and coastguard police functions, and related registration and document services.",
+      "definition_ko": "경찰 행정·활동, 교통 통제, 국경·해안의 경찰 기능 및 관련 등록·문서 발급서비스이다.",
+      "code": "03.1.0",
+      "name_en": "Police services  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_1_0",
+      "children": []
+    },
+    {
+      "name_ko": "소방서비스",
+      "definition_en": "Fire prevention and firefighting, public fire brigades, and civil-protection services such as mountain or beach rescue; excludes military civil defence.",
+      "definition_ko": "화재 예방·진압, 공공 소방대 및 산악·해변 구조 등 민간 보호서비스이다. 군사적 민방위는 제외한다.",
+      "code": "03.2.0",
+      "name_en": "Fire-protection services  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_2_0",
+      "children": []
+    },
+    {
+      "name_ko": "법원",
+      "definition_en": "Civil and criminal courts and the judicial system, court-ordered enforcement, parole and probation services, and publicly supported legal representation.",
+      "definition_ko": "민사·형사 법원과 사법체계, 재판 결과의 집행, 가석방·보호관찰 및 공적으로 지원하는 법률대리이다.",
+      "code": "03.3.0",
+      "name_en": "Law courts  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_3_0",
+      "children": []
+    },
+    {
+      "name_ko": "교도소",
+      "definition_en": "Prisons and other institutions for detention or rehabilitation of offenders, including their administration, operation and support.",
+      "definition_ko": "범죄자의 구금·교정을 위한 교도소와 기타 시설의 행정·운영·지원이다.",
+      "code": "03.4.0",
+      "name_en": "Prisons  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_4_0",
+      "children": []
+    },
+    {
+      "name_ko": "공공질서 및 안전 연구개발",
+      "definition_en": "Applied research and experimental development directed at public order and safety, including government performance and support; excludes basic research.",
+      "definition_ko": "공공질서·안전을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "03.5.0",
+      "name_en": "R&D Public order and safety  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_5_0",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 공공질서 및 안전",
+      "definition_en": "Overall public-order and safety policy, planning, legislation, information and administration, and other services not assigned to preceding groups.",
+      "definition_ko": "공공질서·안전 전반의 정책·기획·법령·정보·행정 및 앞선 항목에 배정되지 않는 관련 서비스이다.",
+      "code": "03.6.0",
+      "name_en": "Public order and safety n.e.c.  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/03_6_0",
+      "children": []
+    },
+    {
+      "name_ko": "통신",
+      "definition_en": "Administration, regulation and support of postal, telephone, wireless, satellite and other communication systems; broadcasting content services belong to 08.3.",
+      "definition_ko": "우편·전화·무선·위성 및 기타 통신체계의 행정·규제·지원이다. 방송 콘텐츠 서비스는 08.3에 분류한다.",
+      "code": "04.6.0",
+      "name_en": "Communication  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_6_0",
+      "children": []
+    },
+    {
+      "name_ko": "일반 경제·상업 및 노동 업무 연구개발",
+      "definition_en": "Government performance and support of applied research and experimental development directed at general economic, commercial and labour affairs; excludes basic research under 01.4.",
+      "definition_ko": "일반 경제·상업 및 노동 업무을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 01.4의 기초연구는 제외한다.",
+      "code": "04.8.1",
+      "name_en": "R&D General economic, commercial and labour affairs  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_8_1",
+      "children": []
+    },
+    {
+      "name_ko": "농업·임업·어업 및 수렵 연구개발",
+      "definition_en": "Government performance and support of applied research and experimental development directed at agriculture, forestry, fishing and hunting; excludes basic research under 01.4.",
+      "definition_ko": "농업·임업·어업 및 수렵을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 01.4의 기초연구는 제외한다.",
+      "code": "04.8.2",
+      "name_en": "R&D Agriculture, forestry, fishing and hunting  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_8_2",
+      "children": []
+    },
+    {
+      "name_ko": "연료 및 에너지 연구개발",
+      "definition_en": "Government performance and support of applied research and experimental development directed at fuel and energy; excludes basic research under 01.4.",
+      "definition_ko": "연료 및 에너지을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 01.4의 기초연구는 제외한다.",
+      "code": "04.8.3",
+      "name_en": "R&D Fuel and energy  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_8_3",
+      "children": []
+    },
+    {
+      "name_ko": "광업·제조업 및 건설업 연구개발",
+      "definition_en": "Government performance and support of applied research and experimental development directed at mining, manufacturing and construction; excludes basic research under 01.4.",
+      "definition_ko": "광업·제조업 및 건설업을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 01.4의 기초연구는 제외한다.",
+      "code": "04.8.4",
+      "name_en": "R&D Mining, manufacturing and construction  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_8_4",
+      "children": []
+    },
+    {
+      "name_ko": "운송 연구개발",
+      "definition_en": "Government performance and support of applied research and experimental development directed at transport; excludes basic research under 01.4.",
+      "definition_ko": "운송을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 01.4의 기초연구는 제외한다.",
+      "code": "04.8.5",
+      "name_en": "R&D Transport  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_8_5",
+      "children": []
+    },
+    {
+      "name_ko": "통신 연구개발",
+      "definition_en": "Government performance and support of applied research and experimental development directed at communication; excludes basic research under 01.4.",
+      "definition_ko": "통신을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 01.4의 기초연구는 제외한다.",
+      "code": "04.8.6",
+      "name_en": "R&D Communication  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_8_6",
+      "children": []
+    },
+    {
+      "name_ko": "기타 산업 연구개발",
+      "definition_en": "Government performance and support of applied research and experimental development directed at other industries; excludes basic research under 01.4.",
+      "definition_ko": "기타 산업을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 01.4의 기초연구는 제외한다.",
+      "code": "04.8.7",
+      "name_en": "R&D Other industries  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_8_7",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 경제업무",
+      "definition_en": "General or sectoral economic activities that cannot be assigned to 04.1–04.8.",
+      "definition_ko": "04.1~04.8에 배정할 수 없는 일반 또는 분야별 경제활동이다.",
+      "code": "04.9.0",
+      "name_en": "Economic affairs n.e.c.  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/04_9_0",
+      "children": []
+    },
+    {
+      "name_ko": "폐기물 관리",
+      "definition_en": "Collection, treatment and disposal of waste, including administration, inspection and support of waste-management systems.",
+      "definition_ko": "폐기물 수거·처리·처분 및 폐기물 관리체계의 행정·검사·지원이다.",
+      "code": "05.1.0",
+      "name_en": "Waste management  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_1_0",
+      "children": []
+    },
+    {
+      "name_ko": "폐수 관리",
+      "definition_en": "Sewerage-system operation and wastewater treatment, including administration, inspection, infrastructure and support.",
+      "definition_ko": "하수체계 운영·폐수 처리와 관련 행정·검사·기반시설·지원이다.",
+      "code": "05.2.0",
+      "name_en": "Waste water management  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_2_0",
+      "children": []
+    },
+    {
+      "name_ko": "오염 저감",
+      "definition_en": "Protection of ambient air and climate, soil and groundwater, and control of noise, vibration and radiation pollution.",
+      "definition_ko": "대기·기후·토양·지하수 보호와 소음·진동·방사선 오염의 저감·통제이다.",
+      "code": "05.3.0",
+      "name_en": "Pollution abatement  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_3_0",
+      "children": []
+    },
+    {
+      "name_ko": "생물다양성 및 경관 보호",
+      "definition_en": "Protection of animal and plant species, habitats, forests and landscapes for conservation purposes; excludes primarily productive forestry and visitor recreation services.",
+      "definition_ko": "보전을 목적으로 하는 동식물 종·서식지·산림·경관의 보호이다. 생산이 주목적인 임업과 방문객 휴양서비스는 제외한다.",
+      "code": "05.4.0",
+      "name_en": "Protection of biodiversity and landscape  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_4_0",
+      "children": []
+    },
+    {
+      "name_ko": "환경보호 연구개발",
+      "definition_en": "Applied research and experimental development directed at environmental protection, including government performance and support; excludes basic research.",
+      "definition_ko": "환경보호를 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "05.5.0",
+      "name_en": "R&D Environmental protection  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_5_0",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 환경보호",
+      "definition_en": "Overall environmental policy, planning, legislation, monitoring and administration, and environmental services not assigned to preceding groups.",
+      "definition_ko": "환경 전반의 정책·기획·법령·점검·행정 및 앞선 항목에 배정되지 않는 환경서비스이다.",
+      "code": "05.6.0",
+      "name_en": "Environmental protection n.e.c.  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/05_6_0",
+      "children": []
+    },
+    {
+      "name_ko": "주택개발",
+      "definition_en": "Housing development policy, promotion and regulation, land acquisition and clearance for housing, and construction or acquisition of housing; excludes household housing benefits.",
+      "definition_ko": "주택개발 정책·촉진·규제, 주택용 토지 취득·정비 및 주택 건설·취득이다. 가구에 대한 주거급여는 제외한다.",
+      "code": "06.1.0",
+      "name_en": "Housing development  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_1_0",
+      "children": []
+    },
+    {
+      "name_ko": "지역사회 개발",
+      "definition_en": "Community planning and development, zoning and land-use regulation, and planning of community facilities; individual facilities are classified by their own functions.",
+      "definition_ko": "지역사회 기획·개발, 용도지역·토지이용 규제 및 공동시설의 종합계획이다. 개별 시설 자체는 고유 기능에 따라 분류한다.",
+      "code": "06.2.0",
+      "name_en": "Community development  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_2_0",
+      "children": []
+    },
+    {
+      "name_ko": "상수도",
+      "definition_en": "Planning, regulation, construction, operation and support of potable water supply, including water purity, price and quantity controls.",
+      "definition_ko": "음용수 공급의 기획·규제·건설·운영·지원 및 수질·가격·공급량 관리이다.",
+      "code": "06.3.0",
+      "name_en": "Water supply  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_3_0",
+      "children": []
+    },
+    {
+      "name_ko": "가로등",
+      "definition_en": "Street-lighting administration, standards, installation, operation and maintenance; excludes lighting within transport facilities classified to transport.",
+      "definition_ko": "가로등의 행정·기준·설치·운영·유지관리이다. 운송시설 내부 조명은 운송 기능으로 제외한다.",
+      "code": "06.4.0",
+      "name_en": "Street lighting  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_4_0",
+      "children": []
+    },
+    {
+      "name_ko": "주택 및 지역사회 편의시설 연구개발",
+      "definition_en": "Applied research and experimental development directed at housing and community amenities; excludes basic research.",
+      "definition_ko": "주택·지역사회 편의시설을 목적으로 하는 응용연구·실험개발이다. 기초연구는 제외한다.",
+      "code": "06.5.0",
+      "name_en": "R&D Housing and community amenities  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_5_0",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 주택 및 지역사회 편의시설",
+      "definition_en": "Overall policy, planning, legislation and administration for housing and community amenities, and services not assigned to preceding groups.",
+      "definition_ko": "주택·지역사회 편의시설 전반의 정책·기획·법령·행정 및 앞선 항목에 배정되지 않는 관련 서비스이다.",
+      "code": "06.6.0",
+      "name_en": "Housing and community amenities n.e.c.  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/06_6_0",
+      "children": []
+    },
+    {
+      "name_ko": "공중보건서비스",
+      "definition_en": "Public-health services including disease prevention and detection, immunisation, blood-bank services and health-information activities; not cash sickness benefits.",
+      "definition_ko": "질병 예방·발견, 예방접종, 혈액은행 및 보건정보 활동 등의 공중보건서비스이다. 질병에 대한 현금급여는 해당하지 않는다.",
+      "code": "07.4.0",
+      "name_en": "Public health services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_4_0",
+      "children": []
+    },
+    {
+      "name_ko": "보건 연구개발",
+      "definition_en": "Applied research and experimental development directed at health, including government performance and support; excludes basic research.",
+      "definition_ko": "보건을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "07.5.0",
+      "name_en": "R&D Health  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_5_0",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 보건",
+      "definition_en": "Overall health policy, planning, legislation, professional licensing and administration, and health services not assigned to preceding groups.",
+      "definition_ko": "보건 전반의 정책·기획·법령·전문직 면허·행정 및 앞선 항목에 배정되지 않는 보건서비스이다.",
+      "code": "07.6.0",
+      "name_en": "Health n.e.c.  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/07_6_0",
+      "children": []
+    },
+    {
+      "name_ko": "휴양 및 체육서비스",
+      "definition_en": "Provision, administration and support of recreational and sporting activities and facilities, including participating and spectator sports.",
+      "definition_ko": "참여·관람 스포츠를 포함한 휴양·체육 활동과 시설의 제공·행정·지원이다.",
+      "code": "08.1.0",
+      "name_en": "Recreational and sporting services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_1_0",
+      "children": []
+    },
+    {
+      "name_ko": "문화서비스",
+      "definition_en": "Provision, administration and support of cultural facilities and activities, such as libraries, museums, heritage, performing arts and cultural events.",
+      "definition_ko": "도서관·박물관·문화유산·공연예술·문화행사 등 문화시설과 활동의 제공·행정·지원이다.",
+      "code": "08.2.0",
+      "name_en": "Cultural services  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_2_0",
+      "children": []
+    },
+    {
+      "name_ko": "방송 및 출판서비스",
+      "definition_en": "Administration, regulation, operation and support of broadcasting and publishing services; communication transmission infrastructure belongs to 04.6.",
+      "definition_ko": "방송·출판서비스의 행정·규제·운영·지원이다. 통신 전송 기반시설은 04.6에 분류한다.",
+      "code": "08.3.0",
+      "name_en": "Broadcasting and publishing services  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_3_0",
+      "children": []
+    },
+    {
+      "name_ko": "종교 및 기타 공동체서비스",
+      "definition_en": "Administration and support of religious and other community affairs and facilities, including support for religious organisations and specified community bodies.",
+      "definition_ko": "종교·기타 공동체 업무와 시설의 행정·지원으로, 종교단체 및 해당 공동체 조직에 대한 지원을 포함한다.",
+      "code": "08.4.0",
+      "name_en": "Religious and other community services  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_4_0",
+      "children": []
+    },
+    {
+      "name_ko": "휴양·문화·종교 연구개발",
+      "definition_en": "Applied research and experimental development directed at recreation, culture and religion; excludes basic research.",
+      "definition_ko": "휴양·문화·종교를 목적으로 하는 응용연구·실험개발이다. 기초연구는 제외한다.",
+      "code": "08.5.0",
+      "name_en": "R&D Recreation, culture and religion  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_5_0",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 휴양·문화·종교",
+      "definition_en": "Overall policy, planning, legislation and administration for recreation, culture and religion, and activities not assigned to preceding groups.",
+      "definition_ko": "휴양·문화·종교 전반의 정책·기획·법령·행정 및 앞선 항목에 배정되지 않는 관련 활동이다.",
+      "code": "08.6.0",
+      "name_en": "Recreation, culture and religion n.e.c.  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/08_6_0",
+      "children": []
+    },
+    {
+      "name_ko": "중등 후 비고등교육",
+      "definition_en": "Provision and support of post-secondary non-tertiary education at ISCED-97 level 4.",
+      "definition_ko": "ISCED-97 수준 4에 해당하는 중등 후 비고등교육의 제공·지원이다.",
+      "code": "09.3.0",
+      "name_en": "Post-secondary non-tertiary education  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_3_0",
+      "children": []
+    },
+    {
+      "name_ko": "단계 구분이 불가능한 교육",
+      "definition_en": "Education programmes that cannot be allocated to a level, generally adult programmes without specific prior-education requirements; excludes education clearly assignable by level.",
+      "definition_ko": "교육 단계에 배정할 수 없는 교육으로, 일반적으로 특정 선행교육을 요구하지 않는 성인 프로그램 등이다. 단계가 명확한 교육은 제외한다.",
+      "code": "09.5.0",
+      "name_en": "Education not definable by level  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_5_0",
+      "children": []
+    },
+    {
+      "name_ko": "교육 부대서비스",
+      "definition_en": "Transport, meals, accommodation, medical or dental care and related services chiefly supplied to students; education-wide support is distinguished from teaching itself.",
+      "definition_ko": "학생을 주 대상으로 제공하는 교통·급식·숙박·의료·치과 및 관련 서비스이다. 수업 자체와 구별한다.",
+      "code": "09.6.0",
+      "name_en": "Subsidiary services to education  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_6_0",
+      "children": []
+    },
+    {
+      "name_ko": "교육 연구개발",
+      "definition_en": "Applied research and experimental development directed at education, including government performance and support; excludes basic research.",
+      "definition_ko": "교육을 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "09.7.0",
+      "name_en": "R&D Education  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_7_0",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 교육",
+      "definition_en": "Overall education policy, planning, legislation, standards and administration, and education activities not assigned to preceding groups.",
+      "definition_ko": "교육 전반의 정책·기획·법령·기준·행정 및 앞선 항목에 배정되지 않는 교육활동이다.",
+      "code": "09.8.0",
+      "name_en": "Education n.e.c.  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/09_8_0",
+      "children": []
+    },
+    {
+      "name_ko": "노령",
+      "definition_en": "Cash and in-kind benefits against risks associated with old age, including pensions and non-medical care and assistance.",
+      "definition_ko": "연금과 비의료적 돌봄·지원을 포함하여 노령에 따른 위험에 대응하는 현금·현물 급여이다.",
+      "code": "10.2.0",
+      "name_en": "Old age  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_2_0",
+      "children": []
+    },
+    {
+      "name_ko": "유족",
+      "definition_en": "Cash and in-kind social protection for survivors of a deceased person, including survivor pensions and related assistance.",
+      "definition_ko": "유족연금과 관련 지원을 포함하여 사망자의 유족에게 제공하는 현금·현물 사회보호이다.",
+      "code": "10.3.0",
+      "name_en": "Survivors  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_3_0",
+      "children": []
+    },
+    {
+      "name_ko": "가족 및 아동",
+      "definition_en": "Cash and in-kind support to households with dependent children, including maternity, child and family benefits and relevant non-medical care.",
+      "definition_ko": "출산·아동·가족 급여와 관련 비의료적 돌봄 등을 포함하여 부양 아동이 있는 가구에 제공하는 현금·현물 지원이다.",
+      "code": "10.4.0",
+      "name_en": "Family and children  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_4_0",
+      "children": []
+    },
+    {
+      "name_ko": "실업",
+      "definition_en": "Cash and in-kind benefits replacing or supplementing income during unemployment, and assistance specifically linked to unemployment; general labour services belong to 04.1.2.",
+      "definition_ko": "실업 기간의 소득을 대체·보충하는 현금·현물 급여 및 실업에 직접 결부된 지원이다. 일반 노동서비스는 04.1.2에 분류한다.",
+      "code": "10.5.0",
+      "name_en": "Unemployment  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_5_0",
+      "children": []
+    },
+    {
+      "name_ko": "주거",
+      "definition_en": "Means-tested or otherwise qualifying household assistance with housing costs, such as rent support; construction and development of housing belong to 06.1.",
+      "definition_ko": "임차료 지원 등 요건을 충족하는 가구의 주거비 부담을 돕는 지원이다. 주택 건설·개발은 06.1에 분류한다.",
+      "code": "10.6.0",
+      "name_en": "Housing  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_6_0",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 사회적 배제",
+      "definition_en": "Cash and in-kind assistance to people facing social exclusion or destitution not covered by preceding social protection groups.",
+      "definition_ko": "앞선 사회보호 항목이 포괄하지 못하는 사회적 배제·궁핍에 처한 사람에 대한 현금·현물 지원이다.",
+      "code": "10.7.0",
+      "name_en": "Social exclusion n.e.c.  (IS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_7_0",
+      "children": []
+    },
+    {
+      "name_ko": "사회보호 연구개발",
+      "definition_en": "Applied research and experimental development directed at social protection, including government performance and support; excludes basic research.",
+      "definition_ko": "사회보호를 목적으로 하는 응용연구·실험개발의 정부 수행·지원이다. 기초연구는 제외한다.",
+      "code": "10.8.0",
+      "name_en": "R&D Social protection  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_8_0",
+      "children": []
+    },
+    {
+      "name_ko": "달리 분류되지 않는 사회보호",
+      "definition_en": "Overall social-protection policy, planning, legislation and administration, and social-protection services not assigned to preceding groups.",
+      "definition_ko": "사회보호 전반의 정책·기획·법령·행정 및 앞선 항목에 배정되지 않는 사회보호서비스이다.",
+      "code": "10.9.0",
+      "name_en": "Social protection n.e.c.  (CS)",
+      "source_url": "https://unstats.un.org/unsd/classifications/Econ/Structure/Detail/EN/4/10_9_0",
+      "children": []
+    }
+  ]
+}
