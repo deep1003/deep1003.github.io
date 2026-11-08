@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "mismatches": [],
+  "pairwise": 54,
+  "omnibus": 9,
+  "within_model": 36,
+  "source_sha_verified": true,
+  "bootstrap": 10000,
+  "seed": 20261031,
+  "synthetic_pairing_and_holm_pass": true,
+  "code_sha256": "2a0f0f1e69f4279abc55fa9778a2cff650042919fad4b979f813367ef87d2289",
+  "primary_complete_sha256": "15e5caae4acb3bf39d491c782758417a90f9b330895ad0ee6a2f4db6ed8af986",
+  "independence": "Separate parser, contrasts, one-draw bootstrap loop and correction implementation; no primary import; same sealed source values"
+}

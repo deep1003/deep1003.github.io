@@ -1,0 +1,15 @@
+{
+  "at_ns": 1794116522015344000,
+  "reason": "Qwen raw ledger is iCloud dataless. Use the existing hash-sealed independently raw-verified item-level outcome tables for secondary comparisons; no scientific input or score changes.",
+  "new_sources": "derived_behavior_trials.json plus original ARTIFACT_MANIFEST and RAW_RECOMPUTATION_QA per model",
+  "unchanged": [
+    "cohort",
+    "outcomes",
+    "contrasts",
+    "seed",
+    "replicates",
+    "corrections"
+  ],
+  "model_inference": false,
+  "raw_reader_stopped": 79855
+}

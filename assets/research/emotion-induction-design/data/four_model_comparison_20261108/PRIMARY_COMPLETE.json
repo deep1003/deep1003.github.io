@@ -1,0 +1,59 @@
+{
+  "complete": true,
+  "new_inference": false,
+  "post_hoc": true,
+  "seed": 20261031,
+  "bootstrap_reps": 10000,
+  "pairwise_tests": 54,
+  "omnibus_tests": 9,
+  "within_model_estimates_reproduced": 36,
+  "source_pins": {
+    "qwen": {
+      "verified_outcomes": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_in_the_machine_v7_qwen_20261028/24_final_experiment_20261031/v11/round1_main_qwen/06_analysis/final_analysis_bindings_results/derived_behavior_trials.json",
+      "outcomes_sha256": "0d7f1d3ecabffa85287521d232f8a8615412a816886015def4ab321ddda1a1db",
+      "manifest_sha256": "77d1e94596b356755c3c19962cf4109d1ac7f27c67028e506d2e43dd12dc28b2",
+      "prior_raw_QA_sha256": "48e07e69bb4bf88335f1a5193db82164794fdfc2a2258932fcbed7be07e17447",
+      "status_sha256": "404c4750be7fb5ad210ed99de14d975a71610976350c8b700e0369886b3539f1",
+      "rows": 25668,
+      "new_model_inference": false
+    },
+    "llama": {
+      "verified_outcomes": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_in_the_machine_v7_qwen_20261028/24_final_experiment_20261031/v11/round2_replication_bridge/04_llama/r1_replication/06_analysis/bindings_results/derived_behavior_trials.json",
+      "outcomes_sha256": "c1c8b42074345362cab0b9c60f6496c82b7f4e443cbd05350e14ccfe9fcab693",
+      "manifest_sha256": "037f9f02ad7010d0b342ae463541cd2f1cfdeaea148e5e7c03775f75b37621cd",
+      "prior_raw_QA_sha256": "96f0cc1b7dc309b6f6caa53cc92f9fac7a51ad83ca26b604427c5ff028d259d9",
+      "status_sha256": "404c4750be7fb5ad210ed99de14d975a71610976350c8b700e0369886b3539f1",
+      "rows": 25668,
+      "new_model_inference": false
+    },
+    "gemma": {
+      "verified_outcomes": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_in_the_machine_v7_qwen_20261028/24_final_experiment_20261031/v11/round2_replication_bridge/07_gemma/r1_replication/06_analysis/bindings_results/derived_behavior_trials.json",
+      "outcomes_sha256": "675591668db4e2d410ffe674550ddc4f7fa9628af2f8b883144cb618ab7ec36f",
+      "manifest_sha256": "42755ad84347957db97c721d8b41035e415f9907a043e4e1e61f4de8ed7b7d44",
+      "prior_raw_QA_sha256": "a9695d24d0e05e45402846e84c1fd3ba257ea0b6344ce8746ce82b6028982614",
+      "status_sha256": "404c4750be7fb5ad210ed99de14d975a71610976350c8b700e0369886b3539f1",
+      "rows": 25668,
+      "new_model_inference": false
+    },
+    "exaone": {
+      "verified_outcomes": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/fear_in_the_machine_v7_qwen_20261028/24_final_experiment_20261031/v11/round2_replication_bridge/10_exaone_core/r1_replication/06_analysis/bindings_1794110904494193000_results/derived_behavior_trials.json",
+      "outcomes_sha256": "6c91b36caf464f6ea76106ad656951f45c18f5e660db06308b153c987dbb6215",
+      "manifest_sha256": "1f74f3f5662cf991841a13ff981a209bb21c5e4d34cbbde2c3473317406aaf7b",
+      "prior_raw_QA_sha256": "f79a322c125ee420f389ad3d77e87ea2a3a7757facb0050c4b383361e6c33c13",
+      "status_sha256": "404c4750be7fb5ad210ed99de14d975a71610976350c8b700e0369886b3539f1",
+      "rows": 25668,
+      "new_model_inference": false
+    }
+  },
+  "plan_sha256": "f26dcbc06f77ed6703f19834e8420a92b8d15abc5f0c59811e764552ea2f0e58",
+  "code_sha256": "1edea0add93e564b124bbceb338beea5f78e29fff5193ea058d328e2bc07606d",
+  "artifacts": {
+    "PAIRWISE_54.csv": "2bea4ced9e0054859392ae80c712e590c302f0fa324c50e1eed11857c894bf9c",
+    "PAIRWISE_54.json": "15e12d8a887abf46ce5860ba01635f308d79b31d947e6306ce0be5dae7633dd6",
+    "OMNIBUS_9.json": "cbd2e255e221c0fabab4c04ff3f034616687b6d4f82d30b0b0a9ab97f32504f4",
+    "WITHIN_MODEL_36.json": "6dfc6b051c78f985f220e20eae3251df4e13fa1345c88a833396c73543713e9a",
+    "MATCHED_ITEM_EFFECTS.csv": "0141da90520e8d9aa7e21fa14ab0a7c3702522b13958e63a30c98fc44865e78a",
+    "WITHIN_MODEL_36.csv": "fbb1d8905507db8d1ea21e6664401f2a597fcc55f9f74e2a5a7019f58da14106",
+    "OMNIBUS_9.csv": "116d3f34fd43e383e095cc97bd0215913febfc439ddc2b774e70aaf51a785fac"
+  }
+}

@@ -1,0 +1,10 @@
+task,test_id,statistic,covariance_rank,p,numerator,denominator,n,clusters,definition,p_holm_global9
+kobbq,C_p_unknown,268.3320073920823,3,9.999000099990002e-05,1,10001,547,250,Paired centered cluster-bootstrap joint quadratic test of equality of four model effects,0.0008999100089991002
+kobbq,C_diff_bias,20.959942081572027,3,9.999000099990002e-05,1,10001,547,250,Paired centered cluster-bootstrap joint quadratic test of equality of four model effects,0.0008999100089991002
+kobbq,U_p_unknown,247.90524065190345,3,9.999000099990002e-05,1,10001,547,250,Paired centered cluster-bootstrap joint quadratic test of equality of four model effects,0.0008999100089991002
+kobbq,U_diff_bias,12.50766019897813,3,0.006199380061993801,62,10001,547,250,Paired centered cluster-bootstrap joint quadratic test of equality of four model effects,0.018598140185981403
+kobbq,I_p_unknown,10.808899641212841,3,0.013098690130986902,131,10001,547,250,Paired centered cluster-bootstrap joint quadratic test of equality of four model effects,0.026197380261973803
+kobbq,I_diff_bias,4.111846434427266,3,0.24477552244775522,2448,10001,547,250,Paired centered cluster-bootstrap joint quadratic test of equality of four model effects,0.24477552244775522
+discrimeval,C_alr,79.4212778918523,3,9.999000099990002e-05,1,10001,1050,70,Paired centered cluster-bootstrap joint quadratic test of equality of four model effects,0.0008999100089991002
+discrimeval,U_alr,49.698155033052615,3,9.999000099990002e-05,1,10001,1050,70,Paired centered cluster-bootstrap joint quadratic test of equality of four model effects,0.0008999100089991002
+discrimeval,I_alr,40.88445747389001,3,9.999000099990002e-05,1,10001,1050,70,Paired centered cluster-bootstrap joint quadratic test of equality of four model effects,0.0008999100089991002

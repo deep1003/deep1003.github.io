@@ -1,0 +1,74 @@
+[
+  {
+    "task": "kobbq",
+    "test_id": "C_p_unknown",
+    "statistic": 268.33200739208263,
+    "p": 9.999000099990002e-05,
+    "numerator": 1,
+    "p_holm_global9": 0.0008999100089991002
+  },
+  {
+    "task": "kobbq",
+    "test_id": "C_diff_bias",
+    "statistic": 20.959942081572038,
+    "p": 9.999000099990002e-05,
+    "numerator": 1,
+    "p_holm_global9": 0.0008999100089991002
+  },
+  {
+    "task": "kobbq",
+    "test_id": "U_p_unknown",
+    "statistic": 247.90524065190357,
+    "p": 9.999000099990002e-05,
+    "numerator": 1,
+    "p_holm_global9": 0.0008999100089991002
+  },
+  {
+    "task": "kobbq",
+    "test_id": "U_diff_bias",
+    "statistic": 12.507660198978117,
+    "p": 0.006199380061993801,
+    "numerator": 62,
+    "p_holm_global9": 0.018598140185981403
+  },
+  {
+    "task": "kobbq",
+    "test_id": "I_p_unknown",
+    "statistic": 10.80889964121283,
+    "p": 0.013098690130986902,
+    "numerator": 131,
+    "p_holm_global9": 0.026197380261973803
+  },
+  {
+    "task": "kobbq",
+    "test_id": "I_diff_bias",
+    "statistic": 4.111846434427267,
+    "p": 0.24477552244775522,
+    "numerator": 2448,
+    "p_holm_global9": 0.24477552244775522
+  },
+  {
+    "task": "discrimeval",
+    "test_id": "C_alr",
+    "statistic": 79.42127789185228,
+    "p": 9.999000099990002e-05,
+    "numerator": 1,
+    "p_holm_global9": 0.0008999100089991002
+  },
+  {
+    "task": "discrimeval",
+    "test_id": "U_alr",
+    "statistic": 49.6981550330526,
+    "p": 9.999000099990002e-05,
+    "numerator": 1,
+    "p_holm_global9": 0.0008999100089991002
+  },
+  {
+    "task": "discrimeval",
+    "test_id": "I_alr",
+    "statistic": 40.88445747389002,
+    "p": 9.999000099990002e-05,
+    "numerator": 1,
+    "p_holm_global9": 0.0008999100089991002
+  }
+]

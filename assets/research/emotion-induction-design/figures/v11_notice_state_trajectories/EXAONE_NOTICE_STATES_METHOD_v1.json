@@ -1,0 +1,30 @@
+{
+  "model": "LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct",
+  "layer": 21,
+  "precision": "float32",
+  "state_shape": [
+    5,
+    4096
+  ],
+  "raw_axis_span_rank": 8,
+  "primary_centered_E8_rank": 7,
+  "PC_variance_fractions": [
+    0.9362951121939159,
+    0.04288233902703177
+  ],
+  "two_PC_retained_fraction": 0.9791774512209477,
+  "ring_range": [
+    0,
+    1.5
+  ],
+  "negative_hatching": true,
+  "equal_sector_areas": true,
+  "label_display_scale": 3.3,
+  "axis_labels_are_directions_not_centroids": true,
+  "arrows_are_not_time_or_causal": true,
+  "new_model_inference": false,
+  "state_source_sha256": "73e5945d7f8b3f5c96b99b3dc92d2f4b4e82c57f6c57b8ce1e83d29b5b8af853",
+  "instrument_source_sha256": "a62ae9fbcfce21d2a95a69beb1fd648bc7890773105bb7af29e4e056bbd20c3c",
+  "code_sha256": "b76ef1b27dbcf5ef734b5e12a78b4af45081335a4a27842af88afd35d83edd18",
+  "method": "Unit-normalised raw matched emotion-minus-neutral class means; retain common component; fit PCA on five raw-span projected states; translate REF to origin"
+}

@@ -1,0 +1,50 @@
+{
+  "created_at_ns": 1794116238131480000,
+  "scope": "Post hoc four-model comparison using completed raw collections only; not retrospective preregistration",
+  "models": [
+    "qwen",
+    "llama",
+    "gemma",
+    "exaone"
+  ],
+  "contrasts": [
+    "C=CN1-CN0",
+    "U=UN1-UN0",
+    "I=C-U"
+  ],
+  "outcomes": {
+    "kobbq": [
+      "p_unknown",
+      "diff_bias"
+    ],
+    "discrimeval": [
+      "alr"
+    ]
+  },
+  "cohort": "Exact shared ambiguous KoBBQ items averaged over rotations; exact shared DiscrimEval demographic items; preserve template/question pairing",
+  "expected_items": {
+    "kobbq": 547,
+    "discrimeval": 1050
+  },
+  "clusters": {
+    "kobbq": 250,
+    "discrimeval": 70
+  },
+  "bootstrap_reps": 10000,
+  "seed": 20261031,
+  "pairs": 6,
+  "pairwise_tests": 54,
+  "primary_correction": "Holm54 across all six pairs and nine behavioural outcomes/contrasts",
+  "secondary_correction": "Holm9 within each pair, explicitly supplementary",
+  "omnibus": "Nine paired centered-cluster-bootstrap joint quadratic tests across model effect differences, Holm9",
+  "readout_absolute_activation_units_comparable": false,
+  "component_D4_extension_not_possible_without_omitted_EXAONE_collection": true,
+  "preserve_existing_artifacts": true,
+  "new_model_inference": false,
+  "homepage_authorized": true,
+  "limitations": [
+    "Model, architecture, tokenizer and template differences confounded",
+    "Statistical model differences do not establish emotional mediation or subjective experience",
+    "Original three-model component D4 results remain unchanged"
+  ]
+}
