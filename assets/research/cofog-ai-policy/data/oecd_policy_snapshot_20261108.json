@@ -1,0 +1,17 @@
+{
+  "snapshot_date_kst": "2026-11-08",
+  "canonical_records": 2636,
+  "policy_entities": 2629,
+  "merged_duplicate_source_records": 7,
+  "country_policy_entities": 2508,
+  "national_jurisdictions": 93,
+  "international_policy_entities": 121,
+  "entity_crosswalk_candidates": 922,
+  "legacy_unresolved_after_entity_matching": 131,
+  "unresolved_same_title_entity_groups": 10,
+  "review_queue": 150,
+  "completeness_scope": "All Published, non-deleted entries returned by public API at snapshot; NOT all policies in the world or verified implementation",
+  "source_page": "https://oecd.ai/en/dashboards/overview",
+  "mapping_status": "pending_independent_review",
+  "relative_gap_status": "not_yet_analysed"
+}
