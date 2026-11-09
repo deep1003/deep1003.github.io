@@ -1,11 +1,11 @@
 import {
   createRiskIndex,
   searchRisks,
-} from "./risk-search-engine.js?v=20261110-row-v2";
+} from "./risk-search-engine.js?v=20261110-row-v3";
 import {
   extractFileText,
   MAX_TEXT_LENGTH,
-} from "./file-text.js?v=20261110-row-v2";
+} from "./file-text.js?v=20261110-row-v3";
 import { parseScenarios } from "./scenario-input.js";
 const form = document.querySelector("#document-search-form"),
   input = document.querySelector("#document-text");

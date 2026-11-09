@@ -119,13 +119,17 @@ export function createRiskIndex(taxonomy) {
     docs,
     freq,
     cf,
+    koreanVocabulary: [...freq.keys()].filter((t) => /^[가-힣]{2,}$/.test(t)),
     avgLength: docs.reduce((n, d) => n + d.terms.size, 0) / docs.length,
   };
 }
 export function searchRisks(index, input, { limit = 5, domain = "all" } = {}) {
   const q = normalize(input),
     qc = compact(input),
-    qset = terms(input),
+    qset = new Set([
+      ...[...terms(input)].filter((t) => !/^[가-힣]+$/.test(t)),
+      ...index.koreanVocabulary.filter((t) => qc.includes(t)),
+    ]),
     qt = [...qset].filter((t) => {
       if (!/^[가-힣]+$/.test(t)) return true;
       for (let n = 2; n < t.length; n++)

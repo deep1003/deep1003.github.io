@@ -19,3 +19,4 @@ test('file import supports Unicode plain text and rejects invalid or large input
  await assert.rejects(()=>extractFileText(new File(['a'.repeat(100001)],'long.txt')),/10만 자/);
 });
 test('English physical scenario retains the physical perception candidate',()=>{const r=searchRisks(idx,'A delivery robot fails to recognize pedestrians and causes a collision.',{limit:10});assert.equal(r[0].row.L4_ID,'P_SYS_PERCEPTION_007');});
+test('Korean spacing and PDF line-wrap fragments do not change ranked IDs',()=>{const a='고객의 정보 일부만 반영하여 필요와 맞지 않는 상품을 추천';const b='고객의 정보 일부만 반 영하여 필요와 맞지 않는 상 품을 추 천';assert.deepEqual(searchRisks(idx,a,{limit:10}).map(x=>x.row.L4_ID),searchRisks(idx,b,{limit:10}).map(x=>x.row.L4_ID));});
