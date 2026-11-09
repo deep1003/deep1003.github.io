@@ -1,3 +1,4 @@
+import { buildResultsCsv } from "./results-csv.js";
 import {
   createRiskIndex,
   searchRisks,
@@ -15,18 +16,35 @@ const output = document.querySelector("#document-results"),
   submit = document.querySelector("#document-submit");
 const preview = document.createElement("details");
 preview.id = "scenario-preview";
-preview.hidden = true;
+preview.hidden = false;
 form.after(preview);
 let indexPromise,
   reading = false,
   uploadVersion = 0,
-  searchVersion = 0;
+  searchVersion = 0,
+  savedGroups = null;
 const node = (tag, text, cls) => {
   const el = document.createElement(tag);
   if (text) el.textContent = text;
   if (cls) el.className = cls;
   return el;
 };
+const saveButton = document.querySelector("#save-results-csv");
+const saveStatus = document.querySelector("#save-status");
+const resultHint = document.querySelector("#document-result-hint");
+function resetPreview() {
+  preview.replaceChildren(
+    node("summary", "2. 자동 추출한 시나리오 확인"),
+    node(
+      "p",
+      "1단계에서 파일을 불러오거나 텍스트를 입력하고 시나리오를 추출해 주세요.",
+      "document-note",
+    ),
+  );
+  preview.hidden = false;
+  preview.open = false;
+}
+resetPreview();
 function index() {
   return (indexPromise ??= (async () => {
     const r = await fetch("taxonomy.json?v=20261109-v10");
@@ -46,6 +64,10 @@ function link(id, text) {
 function clearResults() {
   searchVersion++;
   output.replaceChildren();
+  savedGroups = null;
+  saveButton.disabled = true;
+  saveStatus.textContent = "검색 결과를 출력하면 CSV로 저장할 수 있습니다.";
+  resultHint.hidden = false;
 }
 function makePreviewRow(row = { number: "", title: "", scenario: "" }) {
   const el = node("article", "", "scenario-edit");
@@ -84,10 +106,10 @@ function makePreviewRow(row = { number: "", title: "", scenario: "" }) {
 }
 function prepare() {
   clearResults();
-  preview.replaceChildren();
+  resetPreview();
   const text = input.value.trim();
   if (!text) {
-    preview.hidden = true;
+    preview.hidden = false;
     status.textContent = "파일을 불러오거나 시나리오를 붙여 넣어 주세요.";
     return;
   }
@@ -100,10 +122,11 @@ function prepare() {
     status.textContent = "한 번에 최대 100개 시나리오를 입력해 주세요.";
     return;
   }
+  preview.replaceChildren();
   preview.hidden = false;
   preview.open = true;
   preview.append(
-    node("summary", "추출한 시나리오 확인"),
+    node("summary", "2. 자동 추출한 시나리오 확인"),
     node("p", parsed.message, "scenario-extraction-status"),
     node(
       "p",
@@ -139,6 +162,10 @@ function prepare() {
 }
 function render(groups) {
   output.replaceChildren();
+  resultHint.hidden = true;
+  savedGroups = groups;
+  saveButton.disabled = false;
+  saveStatus.textContent = "화면에 출력된 순서와 내용으로 저장합니다.";
   const summary = node("details", "", "document-summary");
   summary.open = true;
   const count = groups.reduce((n, g) => n + g.results.length, 0),
@@ -232,6 +259,7 @@ async function run(button) {
     status.textContent = "시나리오 전체 길이는 10만 자 이하로 입력해 주세요.";
     return;
   }
+  clearResults();
   const version = ++searchVersion;
   button.disabled = true;
   status.textContent = "시나리오별 연관 리스크를 비교하고 있습니다.";
@@ -265,13 +293,12 @@ form.addEventListener("reset", () => {
   reading = false;
   submit.disabled = false;
   clearResults();
-  preview.replaceChildren();
-  preview.hidden = true;
+  resetPreview();
   status.textContent = "";
 });
 input.addEventListener("input", () => {
   clearResults();
-  preview.hidden = true;
+  resetPreview();
   status.textContent = "입력한 내용에서 시나리오를 다시 추출해 주세요.";
 });
 for (const id of ["#document-domain", "#document-limit"])
@@ -287,7 +314,7 @@ upload.addEventListener("change", async () => {
   reading = true;
   submit.disabled = true;
   clearResults();
-  preview.hidden = true;
+  resetPreview();
   status.textContent = `${file.name}에서 시나리오를 읽고 있습니다.`;
   try {
     const text = await extractFileText(file);
@@ -314,4 +341,32 @@ document.querySelector("#document-example").addEventListener("click", () => {
   input.value =
     "| 번호 | 구분 | 잠재리스크 시나리오 |\n| --- | --- | --- |\n| 1 | 로봇의 사람 인식 | 배달 로봇이 보행자를 인식하지 못해 충돌한다. |\n| 2 | 개인정보 동의 | 이용자의 동의 없이 개인정보를 수집하고 활용한다. |";
   prepare();
+});
+
+saveButton.addEventListener("click", () => {
+  if (!savedGroups) return;
+  const stamp = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  })
+    .format(new Date())
+    .replace(/[^0-9]/g, "");
+  const blob = new Blob([buildResultsCsv(savedGroups)], {
+    type: "text/csv;charset=utf-8",
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `RAI_Risk_Explorer_results_${stamp}.csv`;
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  saveStatus.textContent = "CSV 파일 다운로드를 요청했습니다.";
 });
