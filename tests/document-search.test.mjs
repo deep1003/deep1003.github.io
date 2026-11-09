@@ -18,3 +18,4 @@ test('file import supports Unicode plain text and rejects invalid or large input
  await assert.rejects(()=>extractFileText({name:'big.txt',size:11*1024*1024}),/10MB/);
  await assert.rejects(()=>extractFileText(new File(['a'.repeat(100001)],'long.txt')),/10만 자/);
 });
+test('English physical scenario retains the physical perception candidate',()=>{const r=searchRisks(idx,'A delivery robot fails to recognize pedestrians and causes a collision.',{limit:10});assert.equal(r[0].row.L4_ID,'P_SYS_PERCEPTION_007');});

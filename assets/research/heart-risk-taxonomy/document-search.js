@@ -1,72 +1,317 @@
-import {createRiskIndex,searchRisks} from './risk-search-engine.js';
-import {extractFileText,MAX_TEXT_LENGTH} from './file-text.js';
-const form=document.querySelector('#document-search-form'),input=document.querySelector('#document-text');
-const upload=document.querySelector('#document-file'),status=document.querySelector('#document-status');
-const output=document.querySelector('#document-results'),submit=document.querySelector('#document-submit');
-let indexPromise,reading=false,uploadVersion=0,lastResults=[];
-const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text)el.textContent=text;if(cls)el.className=cls;return el;};
-function index(){return indexPromise??=(async()=>{const r=await fetch('taxonomy.json?v=20261109-v10');if(!r.ok)throw Error('분류체계를 불러오지 못했습니다. 다시 시도해 주세요.');return createRiskIndex(await r.json());})().catch(e=>{indexPromise=null;throw e;});}
-function link(id,text){const a=node('a',text);a.href='#'+id;return a;}
-function render(results){
- output.replaceChildren();
- if(!results.length){output.append(node('p','관련 표현이 충분히 일치하는 리스크를 찾지 못했습니다. AI의 기능, 처리하는 정보, 행동과 예상되는 피해를 더 구체적으로 입력해 주세요.'));return;}
- const summary=node('details','', 'document-summary');summary.open=true;
- const counts=new Set(results.map(x=>x.row.L3_ID));
- const heading=node('summary');heading.append(node('h3',`L3 ${counts.size}개 범주 · L4 ${results.length}개 잠재 리스크 후보`));summary.append(heading);
- summary.append(node('p','사전 정의된 리스크 정의와 사용자가 입력한 텍스트의 유사도에 따른 출력 결과입니다.','muted'));
- output.append(summary);
- const root=node('details','', 'search-root');root.open=true;root.append(node('summary',`L0 · ${results[0].row.L0_Title_ko}`));summary.append(root);
- for(const domain of ['General','Agentic','Physical']){
-  const domainRows=results.filter(r=>r.domain===domain);if(!domainRows.length)continue;
-  const first=domainRows[0].row;
-  const level1=node('details','', 'search-level');level1.open=true;level1.append(node('summary',`L1 · ${first.L1_Title_ko} · ${domainRows.length}개 후보`));root.append(level1);
-  for(const l2 of new Set(domainRows.map(x=>x.row.L2_ID))){
-   const l2Rows=domainRows.filter(x=>x.row.L2_ID===l2),level2=node('details','', 'search-level');level2.open=true;level2.append(node('summary',`L2 · ${l2Rows[0].row.L2_Title_ko}`));level1.append(level2);
-   for(const l3 of new Set(l2Rows.map(x=>x.row.L3_ID))){
-    const l3Rows=l2Rows.filter(x=>x.row.L3_ID===l3),r=l3Rows[0].row;
-    const level3=node('details','', 'search-level search-category');level3.open=true;level3.append(node('summary',`L3 · ${r.L3_Title_ko} · ${l3Rows.length}개 후보`));
-    level3.append(node('p',r.L3_Description_ko,'search-definition'));level3.append(link(r.L3_ID,'L3 원문 정의 보기'));level2.append(level3);
-    for(const candidate of l3Rows){
-     const row=candidate.row,card=node('article','', 'search-candidate');
-     card.append(node('h4',`L4 · ${row.L4_Title_ko}`),node('p',row.L4_Title_en,'english'),node('p',row.L4_Description_ko));
-     const english=node('details');english.append(node('summary','영문 정의'),node('p',row.L4_Description_en));card.append(english);
-     card.append(node('p',`일치 표현 · ${candidate.matched.join(' · ')}`,'search-match'));
-     const quote=node('blockquote',candidate.snippet);quote.setAttribute('aria-label','관련 입력 문장');card.append(node('p','관련 입력 문장','label'),quote,link(row.L4_ID,row.L4_ID+' · 원문과 댓글 보기'));
-     level3.append(card);
-    }
-   }
+import {
+  createRiskIndex,
+  searchRisks,
+} from "./risk-search-engine.js?v=20261110-row-v2";
+import {
+  extractFileText,
+  MAX_TEXT_LENGTH,
+} from "./file-text.js?v=20261110-row-v2";
+import { parseScenarios } from "./scenario-input.js";
+const form = document.querySelector("#document-search-form"),
+  input = document.querySelector("#document-text");
+const upload = document.querySelector("#document-file"),
+  status = document.querySelector("#document-status");
+const output = document.querySelector("#document-results"),
+  submit = document.querySelector("#document-submit");
+const preview = document.createElement("details");
+preview.id = "scenario-preview";
+preview.hidden = true;
+form.after(preview);
+let indexPromise,
+  reading = false,
+  uploadVersion = 0,
+  searchVersion = 0;
+const node = (tag, text, cls) => {
+  const el = document.createElement(tag);
+  if (text) el.textContent = text;
+  if (cls) el.className = cls;
+  return el;
+};
+function index() {
+  return (indexPromise ??= (async () => {
+    const r = await fetch("taxonomy.json?v=20261109-v10");
+    if (!r.ok)
+      throw Error("분류체계를 불러오지 못했습니다. 다시 시도해 주세요.");
+    return createRiskIndex(await r.json());
+  })().catch((e) => {
+    indexPromise = null;
+    throw e;
+  }));
+}
+function link(id, text) {
+  const a = node("a", text);
+  a.href = "#" + id;
+  return a;
+}
+function clearResults() {
+  searchVersion++;
+  output.replaceChildren();
+}
+function makePreviewRow(row = { number: "", title: "", scenario: "" }) {
+  const el = node("article", "", "scenario-edit");
+  const label = node("label", "원본 번호");
+  const number = node("input");
+  number.value = row.number;
+  number.className = "scenario-number";
+  number.setAttribute("aria-label", "원본 번호");
+  label.append(number);
+  const titleLabel = node("label", "구분");
+  const title = node("input");
+  title.value = row.title;
+  title.className = "scenario-title";
+  title.setAttribute("aria-label", "구분");
+  titleLabel.append(title);
+  const scenarioLabel = node("label", "검색할 잠재리스크 시나리오");
+  const text = node("textarea");
+  text.value = row.scenario;
+  text.className = "scenario-value";
+  text.rows = 4;
+  text.maxLength = MAX_TEXT_LENGTH;
+  text.setAttribute("aria-label", "검색할 잠재리스크 시나리오");
+  scenarioLabel.append(text);
+  const remove = node("button", "행 삭제");
+  remove.type = "button";
+  remove.addEventListener("click", () => {
+    el.remove();
+    clearResults();
+  });
+  el.append(label, titleLabel, scenarioLabel, remove);
+  el.addEventListener("input", () => {
+    clearResults();
+    status.textContent = "수정한 시나리오로 다시 검색해 주세요.";
+  });
+  return el;
+}
+function prepare() {
+  clearResults();
+  preview.replaceChildren();
+  const text = input.value.trim();
+  if (!text) {
+    preview.hidden = true;
+    status.textContent = "파일을 불러오거나 시나리오를 붙여 넣어 주세요.";
+    return;
   }
- }
+  if (text.length > MAX_TEXT_LENGTH) {
+    status.textContent = "텍스트는 10만 자 이하로 나누어 입력해 주세요.";
+    return;
+  }
+  const parsed = parseScenarios(text);
+  if (parsed.rows.length > 100) {
+    status.textContent = "한 번에 최대 100개 시나리오를 입력해 주세요.";
+    return;
+  }
+  preview.hidden = false;
+  preview.open = true;
+  preview.append(
+    node("summary", "추출한 시나리오 확인"),
+    node("p", parsed.message, "scenario-extraction-status"),
+    node(
+      "p",
+      "아래 시나리오 내용만 검색합니다. 번호와 구분은 행을 식별하는 데 사용합니다.",
+      "document-note",
+    ),
+  );
+  const list = node("div", "", "scenario-edit-list");
+  for (const row of parsed.rows) list.append(makePreviewRow(row));
+  preview.append(list);
+  const add = node("button", "시나리오 추가");
+  add.type = "button";
+  add.addEventListener("click", () => {
+    if (list.children.length >= 100) return;
+    list.append(
+      makePreviewRow({
+        number: String(list.children.length + 1),
+        title: "",
+        scenario: "",
+      }),
+    );
+    clearResults();
+  });
+  const search = node("button", "확인한 시나리오 검색", "document-primary");
+  search.type = "button";
+  search.id = "scenario-search";
+  search.addEventListener("click", () => run(search));
+  preview.append(add, search);
+  status.textContent =
+    parsed.mode === "review"
+      ? "시나리오 추출 확인 필요"
+      : `시나리오 ${parsed.rows.length}개 행을 확인한 뒤 검색해 주세요.`;
 }
-async function run(){
- if(reading)return;
- const text=input.value.trim();
- if(!text){status.textContent='서비스 설명이나 검토할 내용을 입력해 주세요.';input.focus();return;}
- if(text.length>MAX_TEXT_LENGTH){status.textContent='텍스트는 10만 자 이하로 나누어 입력해 주세요.';return;}
- submit.disabled=true;status.textContent='입력 내용과 리스크 정의를 대조하고 있습니다.';
- try{
-  const idx=await index();
-  if(input.value.trim()!==text)return;
-  lastResults=searchRisks(idx,text,{limit:Number(document.querySelector('#document-limit').value),domain:document.querySelector('#document-domain').value});
-  render(lastResults);status.textContent=`검색결과 출력 · L4 ${lastResults.length}개 후보를 계층별로 표시했습니다.`;
- }catch(e){status.textContent=e.message;output.replaceChildren();}
- finally{submit.disabled=reading;}
+function render(groups) {
+  output.replaceChildren();
+  const summary = node("details", "", "document-summary");
+  summary.open = true;
+  const count = groups.reduce((n, g) => n + g.results.length, 0),
+    heading = node("summary");
+  heading.append(
+    node("h3", `시나리오 ${groups.length}개 · L4 연관 결과 ${count}개`),
+  );
+  summary.append(
+    heading,
+    node(
+      "p",
+      "사전 정의된 리스크 정의와 사용자가 입력한 텍스트의 유사도에 따른 출력 결과입니다.",
+      "muted",
+    ),
+  );
+  output.append(summary);
+  for (const group of groups) {
+    const section = node("section", "", "scenario-result");
+    section.append(
+      node("h3", `${group.number}${group.title ? " · " + group.title : ""}`),
+      node("blockquote", group.scenario, "scenario-source"),
+    );
+    if (!group.results.length) {
+      section.append(
+        node(
+          "p",
+          "충분히 연관된 후보를 찾지 못했습니다. 시나리오 내용을 구체적으로 확인해 주세요.",
+        ),
+      );
+      summary.append(section);
+      continue;
+    }
+    const table = node("table", "", "scenario-results-table"),
+      head = node("thead"),
+      tr = node("tr");
+    for (const h of ["순위", "소속 L3", "연관 L4 잠재리스크", "연관 내용"])
+      tr.append(node("th", h));
+    head.append(tr);
+    table.append(head);
+    const body = node("tbody");
+    group.results.forEach((candidate, i) => {
+      const r = candidate.row,
+        line = node("tr");
+      line.dataset.riskId = r.L4_ID;
+      line.dataset.score = String(candidate.score);
+      const rank = node("td", String(i + 1));
+      rank.dataset.label = "순위";
+      const l3 = node("td");
+      l3.dataset.label = "소속 L3";
+      l3.append(link(r.L3_ID, r.L3_Title_ko), node("code", r.L3_ID));
+      const l4 = node("td");
+      l4.dataset.label = "연관 L4 잠재리스크";
+      l4.append(link(r.L4_ID, r.L4_Title_ko), node("code", r.L4_ID));
+      const details = node("details");
+      details.append(
+        node("summary", "정의 보기"),
+        node("p", r.L4_Description_ko),
+        node("p", r.L4_Description_en, "english"),
+      );
+      l4.append(details);
+      const why = node("td");
+      why.dataset.label = "연관 내용";
+      why.append(
+        node(
+          "p",
+          candidate.matched.length
+            ? `일치 표현 · ${candidate.matched.join(" · ")}`
+            : "시나리오와 리스크 정의의 관련 표현 비교",
+        ),
+      );
+      line.append(rank, l3, l4, why);
+      body.append(line);
+    });
+    table.append(body);
+    section.append(table);
+    summary.append(section);
+  }
 }
-form.addEventListener('submit',e=>{e.preventDefault();run();});
-form.addEventListener('reset',()=>{uploadVersion++;reading=false;submit.disabled=false;status.textContent='';output.replaceChildren();lastResults=[];});
-input.addEventListener('input',()=>{if(output.childElementCount){output.replaceChildren();status.textContent='입력이 변경되었습니다. 다시 검색해 주세요.';}});
-for(const id of ['#document-domain','#document-limit'])document.querySelector(id).addEventListener('change',()=>{if(output.childElementCount)run();});
-upload.addEventListener('change',async()=>{
- const file=upload.files[0];if(!file)return;
- const version=++uploadVersion;input.value='';reading=true;submit.disabled=true;output.replaceChildren();status.textContent=`${file.name}에서 텍스트를 읽고 있습니다.`;
- try{
-  const text=await extractFileText(file);if(version!==uploadVersion)return;
-  input.value=text;status.textContent=`${file.name} · ${text.length.toLocaleString()}자 불러오기 완료. 내용을 확인한 뒤 잠재 리스크 검색을 눌러 주세요.`;
- }catch(e){if(version===uploadVersion){status.textContent=e.message;upload.value='';}}
- finally{if(version===uploadVersion){reading=false;submit.disabled=false;}}
+async function run(button) {
+  if (reading) return;
+  const rows = [...preview.querySelectorAll(".scenario-edit")].map((el, i) => ({
+    number: el.querySelector(".scenario-number").value.trim() || String(i + 1),
+    title: el.querySelector(".scenario-title").value.trim(),
+    scenario: el.querySelector(".scenario-value").value.trim(),
+  }));
+  if (!rows.length || rows.some((r) => !r.scenario)) {
+    status.textContent = "각 행에 검색할 잠재리스크 시나리오를 입력해 주세요.";
+    return;
+  }
+  if (rows.reduce((n, r) => n + r.scenario.length, 0) > MAX_TEXT_LENGTH) {
+    status.textContent = "시나리오 전체 길이는 10만 자 이하로 입력해 주세요.";
+    return;
+  }
+  const version = ++searchVersion;
+  button.disabled = true;
+  status.textContent = "시나리오별 연관 리스크를 비교하고 있습니다.";
+  try {
+    const idx = await index();
+    if (version !== searchVersion) return;
+    const groups = rows.map((row) => ({
+      ...row,
+      results: searchRisks(idx, row.scenario, {
+        limit: Number(document.querySelector("#document-limit").value),
+        domain: document.querySelector("#document-domain").value,
+      }),
+    }));
+    render(groups);
+    preview.open = false;
+    output.scrollIntoView({ block: "start" });
+    status.textContent = `검색결과 출력 · 시나리오 ${rows.length}개를 행별 관련도순 L3·L4 표로 표시했습니다.`;
+  } catch (e) {
+    status.textContent = e.message;
+    output.replaceChildren();
+  } finally {
+    button.disabled = false;
+  }
+}
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (!reading) prepare();
 });
-document.querySelector('#document-example').addEventListener('click',()=>{
- uploadVersion++;reading=false;submit.disabled=false;upload.value='';
- input.value='배달 로봇이 보행자를 인식하지 못해 충돌할 수 있다. 원격 운영자에게 제어권을 인계하지 못하면 비상 정지가 지연될 수 있다. 주문자의 주소와 전화번호 등 개인정보가 외부에 유출될 수 있다.';
- output.replaceChildren();status.textContent='예시를 불러왔습니다. 잠재 리스크 검색을 눌러 주세요.';input.focus();
+form.addEventListener("reset", () => {
+  uploadVersion++;
+  reading = false;
+  submit.disabled = false;
+  clearResults();
+  preview.replaceChildren();
+  preview.hidden = true;
+  status.textContent = "";
+});
+input.addEventListener("input", () => {
+  clearResults();
+  preview.hidden = true;
+  status.textContent = "입력한 내용에서 시나리오를 다시 추출해 주세요.";
+});
+for (const id of ["#document-domain", "#document-limit"])
+  document.querySelector(id).addEventListener("change", () => {
+    clearResults();
+    status.textContent = "변경한 조건으로 시나리오 검색을 눌러 주세요.";
+  });
+upload.addEventListener("change", async () => {
+  const file = upload.files[0];
+  if (!file) return;
+  const version = ++uploadVersion;
+  input.value = "";
+  reading = true;
+  submit.disabled = true;
+  clearResults();
+  preview.hidden = true;
+  status.textContent = `${file.name}에서 시나리오를 읽고 있습니다.`;
+  try {
+    const text = await extractFileText(file);
+    if (version !== uploadVersion) return;
+    input.value = text;
+    prepare();
+  } catch (e) {
+    if (version === uploadVersion) {
+      status.textContent = e.message;
+      upload.value = "";
+    }
+  } finally {
+    if (version === uploadVersion) {
+      reading = false;
+      submit.disabled = false;
+    }
+  }
+});
+document.querySelector("#document-example").addEventListener("click", () => {
+  uploadVersion++;
+  reading = false;
+  submit.disabled = false;
+  upload.value = "";
+  input.value =
+    "| 번호 | 구분 | 잠재리스크 시나리오 |\n| --- | --- | --- |\n| 1 | 로봇의 사람 인식 | 배달 로봇이 보행자를 인식하지 못해 충돌한다. |\n| 2 | 개인정보 동의 | 이용자의 동의 없이 개인정보를 수집하고 활용한다. |";
+  prepare();
 });

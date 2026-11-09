@@ -1,7 +1,9 @@
-# Document risk search validation
+# Row-level scenario risk search
 
-The search uses the unchanged v10 JSON with 55 L3 categories and 592 active L4 cards. It performs local bilingual lexical retrieval with document-frequency weighting, title boosts, Korean stem/character overlap and a small synonym list. It does not run an LLM, infer incident probabilities, or establish the existence of a risk. Negation and scenario applicability need human review. No document content is transmitted or stored.
+The unchanged v10 taxonomy contains 55 L3 categories and 592 active L4 cards. Each confirmed scenario is searched independently. Number and title identify an input row; all other source columns are excluded from the query.
 
-Browser verification on Chrome covered Markdown, PDF text extraction, DOCX, TXT, CSV, and a two-sheet XLSX. Each file imported successfully and the sheet labels were retained. Scanned PDFs require prior OCR. File limits are 10 MB, 100 PDF pages, and 100000 extracted characters.
+Markdown and CSV readers select tables by their scenario-column header. PDF text coordinates are used to select that column and continue rows across pages. Other impact-assessment tables are ignored. Flattened text whose columns cannot be recovered enters a manual correction preview and cannot be searched until scenario-only rows are supplied. The preview remains editable.
 
-Automated checks are in document-search.test.mjs. The UI renders input snippets through textContent and links candidates to canonical risk IDs. Existing taxonomy files and comment scripts remain unchanged.
+Output is a flat L4 list per input scenario, sorted by the internal retrieval score, with the parent L3 and canonical IDs. No domain regrouping is applied. The ranking combines length-normalized lexical weights, concept matches, character overlap and soft application-condition penalties. It is not a sentence-embedding model, a calibrated percentage or a measure of risk probability or severity. Its relevance quality requires separate human evaluation.
+
+Browser tests cover the actual uploaded Markdown and PDF, a CSV, and flattened copied text. Automated tests verify column isolation, blank row preservation, PDF continuation, mixed-input review, payload preservation, language consistency and existing anonymous comments.
