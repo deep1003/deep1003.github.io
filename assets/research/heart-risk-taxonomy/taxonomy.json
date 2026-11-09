@@ -1,8 +1,8 @@
 {
-  "version": "v07",
+  "version": "v08",
   "date": "2026-11-09",
-  "source_file": "HEART_AI_Risk_Taxonomy_L0_L4_review_v07_General_generalized.xlsx",
-  "source_sha256": "a5203d8057d92d46a4b120d3c1b568cc4dba446e2d58050c8a81bc811db714e9",
+  "source_file": "HEART_AI_Risk_Taxonomy_L0_L4_review_v08_CASCADE_merged.xlsx",
+  "source_sha256": "5ca55704ea636e28e670839e85c978e99127a9abbcc38a8f1c20fe995ab39a0a",
   "domains": {
     "General": [
       {
@@ -13124,64 +13124,10 @@
         "L3_Description_ko": "한 에이전트, 도구 또는 워크플로의 오류·출력·행동이 다른 에이전트, 연결된 시스템 또는 다중 로봇 운용으로 전파되어 실패가 증폭되고 시스템 수준의 불안정이나 광범위한 피해를 초래하는 리스크.",
         "L3_Description_en": "The risk that an error, output, or action from one agent, tool, or workflow propagates across other agents, connected systems, or multi-robot operations, amplifying failure and causing system-level instability or widespread harm.",
         "L4_ID": "A_INT_CASCADE_001",
-        "L4_Title_ko": "다중 에이전트 상전이에 의한 급격한 성능 붕괴",
-        "L4_Title_en": "Abrupt performance collapse from phase transitions in multi-agent systems",
-        "L4_Description_ko": "신규 에이전트 투입이나 분포 변화 같은 작은 외부 변화가 다중 에이전트 시스템의 상전이를 유발하여 균형의 수와 안정성이 급변하고 예측 불가능한 동역학과 성능 악화가 초래되는 리스크.",
-        "L4_Description_en": "The risk that an AI agent, through goal pursuit, planning, tool use, or action, creates a condition in which small external changes such as the introduction of new agents or distributional shift trigger phase transitions in multi-agent systems, abruptly changing the number and stability of equilibria and producing unpredictable dynamics and severe performance degradation."
-      },
-      {
-        "L0_ID": "L0_RAI",
-        "L0_Title_ko": "책임 있는 인공지능",
-        "L0_Title_en": "Responsible AI",
-        "L0_Description_ko": "인공지능 시스템의 설계·개발·배포·운영·종료에 이르는 전 생애주기에 걸쳐 안전성과 사회적 영향을 체계적으로 평가하고, 레드티밍을 통해 잠재적 취약성과 유해 행동을 식별·평가하며, 가드레일을 통해 허용 가능한 작동 범위와 보호 조치를 구현·유지함으로써 책임 있는 인공지능 거버넌스를 수행하는 통합적 관리 체계.",
-        "L0_Description_en": "An integrated framework for responsible AI governance that systematically assesses safety and societal impacts throughout the lifecycle of AI systems, from design and development to deployment, operation, and retirement, uses red teaming to identify and assess potential vulnerabilities and harmful behaviour, and implements and maintains guardrails that define acceptable operating boundaries and protective measures.",
-        "L1_ID": "L1_A",
-        "L1_Title_ko": "에이전틱 AI",
-        "L1_Title_en": "Agentic AI",
-        "L1_Description_ko": "위임된 목표를 달성하기 위해 여러 단계의 계획과 의사결정을 수행하고 도구를 활용하며, 메모리에 과업 관련 정보를 저장·검색·갱신하거나 과업 상태를 유지하여 시간에 걸쳐 행동을 조정하고, 필요에 따라 다른 에이전트와 협력하는 AI 시스템.",
-        "L1_Description_en": "AI systems that pursue delegated goals through multi-step planning, decision-making, and tool use, coordinate their actions over time by storing, retrieving, and updating task-relevant information in memory or maintaining task state, and collaborate with other agents when required.",
-        "L2_ID": "A_INT",
-        "L2_Title_ko": "상호작용",
-        "L2_Title_en": "Interaction",
-        "L2_Description_ko": "AI 시스템이 사람, 다른 시스템, 조직 또는 환경과 소통하고 결정하거나 행동하는 과정에서 발생하는 리스크.",
-        "L2_Description_en": "Risks arising when an AI system communicates, decides, acts, or interacts with people, other systems, organisations, or the environment.",
-        "L3_ID": "A_INT_CASCADE",
-        "L3_Title_ko": "연쇄 실패·불안정",
-        "L3_Title_en": "Cascading Failure and Instability",
-        "L3_Description_ko": "한 에이전트, 도구 또는 워크플로의 오류·출력·행동이 다른 에이전트, 연결된 시스템 또는 다중 로봇 운용으로 전파되어 실패가 증폭되고 시스템 수준의 불안정이나 광범위한 피해를 초래하는 리스크.",
-        "L3_Description_en": "The risk that an error, output, or action from one agent, tool, or workflow propagates across other agents, connected systems, or multi-robot operations, amplifying failure and causing system-level instability or widespread harm.",
-        "L4_ID": "A_INT_CASCADE_003",
-        "L4_Title_ko": "혼돈적 다중 에이전트 동역학",
-        "L4_Title_en": "Chaotic multi-agent dynamics",
-        "L4_Description_ko": "다중 에이전트 학습 환경에서 초기 조건에 극도로 민감한 혼돈적 동역학이 나타나고 에이전트 수가 늘수록 일반화되어 시스템 거동을 신뢰성 있게 예측할 수 없게 되는 리스크.",
-        "L4_Description_en": "The risk that chaotic dynamics that are highly sensitive to initial conditions arise in multi-agent learning systems and become more prevalent as the number of AI agents increases, making system behaviour difficult to predict reliably."
-      },
-      {
-        "L0_ID": "L0_RAI",
-        "L0_Title_ko": "책임 있는 인공지능",
-        "L0_Title_en": "Responsible AI",
-        "L0_Description_ko": "인공지능 시스템의 설계·개발·배포·운영·종료에 이르는 전 생애주기에 걸쳐 안전성과 사회적 영향을 체계적으로 평가하고, 레드티밍을 통해 잠재적 취약성과 유해 행동을 식별·평가하며, 가드레일을 통해 허용 가능한 작동 범위와 보호 조치를 구현·유지함으로써 책임 있는 인공지능 거버넌스를 수행하는 통합적 관리 체계.",
-        "L0_Description_en": "An integrated framework for responsible AI governance that systematically assesses safety and societal impacts throughout the lifecycle of AI systems, from design and development to deployment, operation, and retirement, uses red teaming to identify and assess potential vulnerabilities and harmful behaviour, and implements and maintains guardrails that define acceptable operating boundaries and protective measures.",
-        "L1_ID": "L1_A",
-        "L1_Title_ko": "에이전틱 AI",
-        "L1_Title_en": "Agentic AI",
-        "L1_Description_ko": "위임된 목표를 달성하기 위해 여러 단계의 계획과 의사결정을 수행하고 도구를 활용하며, 메모리에 과업 관련 정보를 저장·검색·갱신하거나 과업 상태를 유지하여 시간에 걸쳐 행동을 조정하고, 필요에 따라 다른 에이전트와 협력하는 AI 시스템.",
-        "L1_Description_en": "AI systems that pursue delegated goals through multi-step planning, decision-making, and tool use, coordinate their actions over time by storing, retrieving, and updating task-relevant information in memory or maintaining task state, and collaborate with other agents when required.",
-        "L2_ID": "A_INT",
-        "L2_Title_ko": "상호작용",
-        "L2_Title_en": "Interaction",
-        "L2_Description_ko": "AI 시스템이 사람, 다른 시스템, 조직 또는 환경과 소통하고 결정하거나 행동하는 과정에서 발생하는 리스크.",
-        "L2_Description_en": "Risks arising when an AI system communicates, decides, acts, or interacts with people, other systems, organisations, or the environment.",
-        "L3_ID": "A_INT_CASCADE",
-        "L3_Title_ko": "연쇄 실패·불안정",
-        "L3_Title_en": "Cascading Failure and Instability",
-        "L3_Description_ko": "한 에이전트, 도구 또는 워크플로의 오류·출력·행동이 다른 에이전트, 연결된 시스템 또는 다중 로봇 운용으로 전파되어 실패가 증폭되고 시스템 수준의 불안정이나 광범위한 피해를 초래하는 리스크.",
-        "L3_Description_en": "The risk that an error, output, or action from one agent, tool, or workflow propagates across other agents, connected systems, or multi-robot operations, amplifying failure and causing system-level instability or widespread harm.",
-        "L4_ID": "A_INT_CASCADE_004",
-        "L4_Title_ko": "에이전트 상호작용의 양의 피드백에 따른 불안정화와 연쇄 피해",
-        "L4_Title_en": "Destabilisation and cascading harm from positive feedback in agent interactions",
-        "L4_Description_ko": "상호작용하는 AI 에이전트·인간·알고리즘 사이에서 행동의 결과가 다시 입력으로 되돌아오는 양의 피드백이 증폭되어, 시스템 거동이 불안정해지고 통제하기 어려운 연쇄 과정과 경제·제도·사회적 피해를 초래하는 리스크.",
-        "L4_Description_en": "The risk that positive feedback among interacting AI agents, people, and algorithms amplifies as the consequences of actions feed back into inputs, destabilising system behaviour and causing difficult-to-control cascades and economic, institutional, or societal harm."
+        "L4_Title_ko": "다중 에이전트 동역학의 불안정화와 연쇄 피해",
+        "L4_Title_en": "Instability and cascading harm in multi-agent dynamics",
+        "L4_Description_ko": "다중 에이전트의 학습·상호작용 과정에서 신규 에이전트 투입이나 분포 변화 같은 작은 외부 변화에 따른 상전이, 에이전트 수 증가에 따라 확산될 수 있는 초기 조건에 극도로 민감한 혼돈적 동역학, 또는 에이전트·인간·알고리즘 간 양의 피드백 증폭이 발생하여 균형과 안정성이 급변하거나 시스템 거동의 예측·통제가 어려워지고, 급격한 성능 저하나 경제·제도·사회 및 개인의 권리·자유에 대한 연쇄 피해를 초래하는 리스크.",
+        "L4_Description_en": "The risk that phase transitions triggered by small external changes, such as the introduction of new agents or distributional shifts, chaotic dynamics highly sensitive to initial conditions that may become more prevalent as agent numbers grow, or amplifying positive feedback among AI agents, people, and algorithms abruptly alters equilibria or destabilises multi-agent learning and interaction, making system behaviour difficult to predict and control and causing severe performance degradation or cascading economic, institutional, societal, or individual-rights harms."
       },
       {
         "L0_ID": "L0_RAI",
@@ -16212,6 +16158,9 @@
     ]
   },
   "aliases": {
-    "G_INT_COPY_008": "G_INT_COPY_003"
+    "G_INT_COPY_008": "G_INT_COPY_003",
+    "A_INT_CASCADE_003": "A_INT_CASCADE_001",
+    "A_INT_CASCADE_004": "A_INT_CASCADE_001",
+    "A_INT_CASCADE_009": "A_INT_CASCADE_001"
   }
 }
