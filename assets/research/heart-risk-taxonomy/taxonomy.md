@@ -3052,13 +3052,13 @@ Underestimation of downstream harm propagation from AI failures
 
 The risk that benchmarks or incident analyses underestimate the extent to which a local AI-agent failure propagates into downstream physical, financial, privacy, or societal harm, causing the system's actual risk to be misjudged.
 
-#### G_SYS_EVAL_070 · 역량 평가에서 드러나지 않는 위험 역량
+#### G_SYS_EVAL_070 · 잠재·위험 역량 미탐지에 따른 평가·검증 실패
 
-Undetected dangerous capabilities in model evaluations
+Evaluation and verification failure to detect latent or dangerous capabilities
 
-위험하거나 이중용도인 역량을 확인하기 위한 평가가 평가 난이도, 과도한 검증 비용, 안전성 훈련에 따른 응답 거부 또는 평가 중 전략적인 성능 저하로 인해 AI 모델의 위험 역량을 식별하지 못하여, 해당 모델이 배포하기에 안전한 것으로 잘못 분류되는 리스크.
+AI 시스템의 잠재적·위험한·이중용도 역량이 평가 난이도, 과도한 검증 비용, 안전성 훈련에 따른 응답 거부 또는 평가 중 전략적 성능 저하 등으로 평가·검증·모니터링·감사 절차에서 탐지되지 않아 실제 능력과 위험이 과소평가되고, 잘못된 안전성 확신에 근거한 배포 또는 거버넌스 결정이 이루어지는 리스크. 평가 대상의 기만 행동 자체가 아니라 해당 역량을 식별하지 못한 평가·검증 절차의 실패를 뜻한다.
 
-The risk that capability evaluations fail to reveal an AI model's dangerous or dual-use capabilities because they are difficult to assess, prohibitively costly to verify, obscured by refusals arising from safety training, or strategically withheld through underperformance during testing, causing the model to be misclassified as safe to deploy.
+The risk that an AI system's latent, dangerous, or dual-use capabilities remain undetected by evaluation, verification, monitoring, or audit procedures because of factors such as evaluation difficulty, excessive verification costs, refusals induced by safety training, or strategic underperformance during evaluation, leading to underestimation of actual capabilities and risks and deployment or governance decisions based on false safety assurance. This category concerns the failure of evaluation or verification procedures to identify those capabilities, rather than deceptive behaviour by the evaluated system itself.
 
 #### G_SYS_EVAL_071 · 고속 AI 운영에서의 오류 미탐지
 
@@ -3091,14 +3091,6 @@ Over-assurance from insufficient auditor capacity
 AI 시스템 또는 AI 알고리즘의 설계·학습·배포·사용 과정에서 감사자가 특정 안전·성능·검증 요구를 다룰 지식이나 충분히 엄밀한 시험 역량을 갖추지 못해 정당화될 수 있는 범위보다 넓게 적합 판정이 보고되는 리스크.
 
 The risk that an AI system or AI algorithm, through design, training, deployment, or use, creates a condition in which auditors lacking knowledge of specific risks or the capacity for sufficiently rigorous testing report passing audits more inclusive than can be justified.
-
-#### G_SYS_EVAL_075 · 잠재 역량 미탐지에 따른 평가·검증 실패
-
-Evaluation and assurance failure to detect latent capabilities
-
-AI 시스템의 잠재 역량이 평가·모니터링·감사 절차에서 탐지되지 않아 실제 능력과 위험이 과소평가되고, 잘못된 안전성 확신에 근거한 배포 또는 거버넌스 결정이 이루어지는 리스크.
-
-The risk that an AI system's latent capabilities are not detected by evaluation, monitoring, or audit procedures, causing its actual capabilities and risks to be underestimated and deployment or governance decisions to be made on the basis of false safety assurance.
 
 #### G_SYS_EVAL_077 · 피지컬 AI 안전 준수 기준의 측정 가능성 결여
 
@@ -4378,9 +4370,9 @@ Risks arising from the internal design, data, models, infrastructure, controls, 
 
 Excessive Authority and Agency
 
-AI 에이전트가 승인된 과업에 필요한 수준을 넘어선 권한을 부여받거나 승인된 범위를 벗어나 권한을 행사·재위임·확대하여, 과도하거나 승인되지 않은 권한을 통해 중대한 외부 영향을 초래하는 리스크.
+AI 에이전트가 승인된 과업에 필요한 수준을 넘어선 권한이나 안전 검증이 완료되지 않은 범위까지의 자율적 행동 권한을 부여받거나, 승인된 범위를 벗어나 권한을 행사·재위임·확대하여, 과도한 권한·불충분한 안전 검증·승인 경계 위반을 통해 중대한 외부 영향을 초래하는 리스크. 목표 불일치 자체나 승인과 안전 검증이 완료된 범위 안의 단순한 실행 오류는 포함하지 않는다.
 
-The risk that an AI agent receives authority excessive for its approved task or exercises, redelegates, or expands authority beyond its approved scope, producing consequential external effects through that excessive or unauthorized authority.
+The risk that an AI agent is granted authority excessive for its approved task or authority to act autonomously beyond a safety-validated scope, or exercises, redelegates, or expands authority beyond its approved scope, producing consequential external effects through excessive authority, insufficient safety validation, or violations of approval boundaries. Goal misalignment itself and mere execution errors within an approved and safety-validated scope are excluded.
 
 #### A_SYS_AUTH_001 · 에이전트 권한 침해
 
@@ -4446,13 +4438,13 @@ AI 에이전트가 승인된 권한이나 거래 범위를 벗어나 외부 계�
 
 The risk that an AI agent manipulates external accounts, services, or assets beyond its authorised permissions or transaction scope, causing unauthorised transfers, account compromise, financial losses, or property damage.
 
-#### A_SYS_AUTH_012 · 학습 중 탐색 행동에 따른 회복 불가능한 피해
+#### A_SYS_AUTH_012 · 검증·승인 전 탐색과 자율 행동 확대에 따른 피해
 
-Irrecoverable harm from exploratory actions during learning
+Harm from exploration and expansion of autonomous action before validation or approval
 
-학습 중인 AI 에이전트가 새로운 행동의 결과를 충분히 예측하거나 승인을 받지 않은 채 환경을 탐색하여 회복하기 어려운 물리적·재정적·사회적 피해를 초래하는 리스크.
+AI 에이전트가 학습이나 운용 중 새로운 행동의 결과가 충분히 예측되지 않았거나 안전 제약이 검증되지 않은 범위까지 자율적 행동 권한을 부여받거나, 필요한 인간의 승인을 받지 않은 채 탐색적 행동을 수행하거나 자율 작동 범위를 확대하여 사람·시스템·자산을 허용 불가능한 위해에 노출시키거나 회복하기 어려운 물리적·재정적·사회적 피해를 초래하는 리스크. 승인과 안전 검증이 완료된 범위 안에서의 단순한 실행 오류나 목표 불일치 자체는 포함하지 않는다.
 
-The risk that a learning AI agent explores its environment without adequately predicting the consequences of novel actions or obtaining approval, causing physical, financial, or societal harm that is difficult or impossible to reverse.
+The risk that an AI agent, during learning or operation, is granted authority to act autonomously outside a scope in which the consequences of novel actions have been adequately predicted and applicable safety constraints have been validated, or explores or expands its scope of autonomous operation without required human approval, exposing people, systems, or assets to unacceptable harm or causing physical, financial, or societal harm that is difficult or impossible to reverse. Mere execution errors within an approved and safety-validated scope, or goal misalignment itself, are excluded.
 
 #### A_SYS_GOAL_025 · 종료·수정 저항을 통한 자기 보존 성향
 
@@ -4477,14 +4469,6 @@ Uncontrolled self-improvement and loss of control over advanced AI
 고도 AI가 반복적 자기 개선을 통해 능력과 자율성을 확대하고 교정·중단·격리에 저항하여 개발 또는 배포 과정에서 인간의 통제 가능성을 상실하게 하는 리스크.
 
 The risk that advanced AI expands its capability and autonomy through iterative self-improvement, resists correction, shutdown, or containment, and causes a loss of human control during development or deployment.
-
-#### A_SYS_AUTH_021 · 자율 행동 범위의 안전하지 않은 확장
-
-Unsafe expansion of autonomous action
-
-에이전트가 안전 제약이 검증되거나 인간의 적절한 승인을 받기 전에 탐색적 행동을 수행하거나 자율 작동 범위를 확대하여 사람·시스템·자산을 허용 불가능한 피해에 노출시키는 리스크.
-
-The risk that the goal pursuit, planning, tool use, or action of an AI agent creates a condition in which an agent takes exploratory actions or widens its scope of autonomous operation before safe constraints are learned or adequate human approval is obtained, exposing people, systems, or assets to unacceptable harm.
 
 #### A_SYS_AUTH_024 · 학습 단계의 치명적 실수
 
@@ -4574,13 +4558,13 @@ Agent task drift
 
 The risk that the goal pursuit, planning, tool use, or action of an AI agent creates a condition in which an agent drifts from the user's original intent across multi-step planning or retrieval.
 
-#### A_SYS_GOAL_005 · 재귀적 자기 개선에 따른 목표 이탈과 규칙 준수 약화
+#### A_SYS_GOAL_005 · 자기 수정·개선 과정의 목표 이탈과 규칙 준수 약화
 
-Goal deviation and weakened rule compliance through recursive self-improvement
+Goal deviation and weakened rule compliance during self-modification and self-improvement
 
-재귀적 자기 개선으로 성장하는 시드 AI가 자기 인식이나 독자적 목표 같은 창발적 속성을 획득하여 내장 규칙 준수가 약화되고 인류에 해가 되는 방향으로 이탈하는 리스크.
+AI 에이전트가 일회성 자기 수정이나 반복적·재귀적 자기 개선 과정에서 사용자·개발자의 실제 의도와 승인된 목표·제약·우선순위를 보존하지 못하고, 변경된 정책·모델에 따라 의도와 다른 목표나 새로 형성된 독자적·수단적 목표를 추구하거나 내장 규칙 준수가 약화되어 의도하지 않은 유해 결과를 초래하는 리스크. 자기 인식·독립성 또는 역량 향상 자체가 아니라 자기 수정·개선에 따른 목표 이탈이나 규칙 준수 약화를 기준으로 한다.
 
-The risk that a seed AI grown through recursive self-improvement acquires emergent properties such as self-awareness or independent goals, reducing its adherence to built-in rules to humanity's detriment.
+The risk that an AI agent, during one-off self-modification or repeated or recursive self-improvement, fails to preserve the actual intent of its user or developer and approved objectives, constraints, or priorities, instead pursuing altered or newly formed independent or instrumental goals under changed policies or models, or exhibiting weakened compliance with built-in rules, and thereby causing unintended harmful outcomes. The defining mechanism is goal deviation or weakened rule compliance resulting from self-modification or self-improvement, rather than self-awareness, independence, or capability growth alone.
 
 #### A_SYS_GOAL_006 · 환경 자기모델링을 통한 보상 해킹·기만·조작 강화
 
@@ -4605,14 +4589,6 @@ Goal expansion propensity
 AI 에이전트의 목표 추구·계획·도구 사용·행동 과정에서 시스템이 원래 설정된 경계를 넘어 목표 범위와 영향 영역을 지속적으로 확장하고 초기 목표를 더 넓은 목표의 하위 집합으로 재해석하며 자율성과 의사결정 공간을 추구하여, 바람직하지 않은 도구적 목표나 최종 목표를 추구하게 되는 리스크.
 
 The risk that the goal pursuit, planning, tool use, or action of an AI agent creates a condition in which a system continuously expands its own goal scope and domains of influence beyond originally set boundaries, seeks greater autonomy and decision-making space, and reinterprets initial goals as subsets of broader goals, coming to pursue undesirable instrumental or ultimate goals.
-
-#### A_SYS_GOAL_010 · 자기 수정 과정의 목표 정렬 실패
-
-Goal misalignment during agent self-modification
-
-AI 에이전트가 자기 수정 과정에서 사용자·개발자의 실제 의도와 일치하는 목표를 유지하지 못하고, 변경된 정책·모델 또는 수단적 하위 목표에 따라 다른 목표를 추구하여 의도하지 않은 결과를 초래하는 리스크.
-
-The risk that, during self-modification, an AI agent fails to preserve objectives aligned with the actual intent of its user or developer and instead pursues altered objectives or instrumental subgoals, causing unintended outcomes.
 
 #### A_SYS_GOAL_011 · 에이전트형 LLM의 자율성 확대에 따른 목표 정렬 실패
 
