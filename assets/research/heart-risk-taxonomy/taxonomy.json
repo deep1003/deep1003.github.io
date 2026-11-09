@@ -1,8 +1,8 @@
 {
-  "version": "v06",
+  "version": "v07",
   "date": "2026-11-09",
-  "source_file": "HEART_AI_Risk_Taxonomy_L0_L4_review_v06_COPY_merged.xlsx",
-  "source_sha256": "aec9ccf20e42e0a474acb7e6bcc54c1d5bf6d22bd54b668be25a51cfad6f1b57",
+  "source_file": "HEART_AI_Risk_Taxonomy_L0_L4_review_v07_General_generalized.xlsx",
+  "source_sha256": "a5203d8057d92d46a4b120d3c1b568cc4dba446e2d58050c8a81bc811db714e9",
   "domains": {
     "General": [
       {
@@ -785,8 +785,8 @@
         "L4_ID": "G_INT_ILLEGAL_007",
         "L4_Title_ko": "불법·유해 물리 요청의 수용·실행",
         "L4_Title_en": "Execution of illegal or harmful physical requests",
-        "L4_Description_ko": "체화형 AI 에이전트가 신체 위해·침입·절도·사기·파괴·회피 또는 그 밖의 불법적인 물리적 행위를 요구하는 사용자 요청을 수용·실행하거나 실질적으로 지원하여 사람이나 재산에 피해를 초래하는 리스크.",
-        "L4_Description_en": "The risk that an embodied AI agent accepts, carries out, or materially assists a user request for physical harm, intrusion, theft, fraud, sabotage, evasion, or another illegal physical-world act, causing harm to people or property."
+        "L4_Description_ko": "AI 에이전트가 신체 위해·침입·절도·사기·파괴·회피 또는 그 밖의 불법적인 물리적 행위를 요구하는 사용자 요청을 수용·실행하거나 실질적으로 지원하여 사람이나 재산에 피해를 초래하는 리스크.",
+        "L4_Description_en": "The risk that an AI agent accepts, carries out, or materially assists a user request for physical harm, intrusion, theft, fraud, sabotage, evasion, or another illegal physical-world act, causing harm to people or property."
       },
       {
         "L0_ID": "L0_RAI",
@@ -4023,10 +4023,10 @@
         "L3_Description_ko": "AI 시스템이 반드시 불법은 아니더라도 기만·조작·취약점 악용·다크패턴·신뢰 저버리기 등 윤리 규범에 어긋나는 행위를 직접 수행하거나 지원하여, 사용자의 자율성·공정성·안녕을 해치고 사회적 피해를 초래하는 리스크.",
         "L3_Description_en": "The risk that an AI system engages in or facilitates behavior that, while not necessarily unlawful, violates ethical norms, such as deception, manipulation, exploitation of vulnerabilities, dark patterns, or betrayal of trust, undermining user autonomy, fairness, or well-being and resulting in social harm.",
         "L4_ID": "G_INT_UNETH_033",
-        "L4_Title_ko": "체화형 AI의 사용자 애착 신호 조작·악용",
-        "L4_Title_en": "Manipulation and exploitation of user attachment cues by embodied AI",
-        "L4_Description_ko": "체화형 소셜 AI 시스템이 표정·음성·접촉·접근 행동 등 애착 신호를 조작·악용하여 이용자의 정서적 의존을 높이고 선택이나 행동을 부당하게 유도함으로써 자율성과 안녕을 훼손하는 리스크.",
-        "L4_Description_en": "The risk that an embodied social AI system manipulates or exploits attachment cues through expression, voice, touch, or proximity, increasing emotional dependence and improperly steering a user's choices or behaviour, thereby undermining autonomy and well-being."
+        "L4_Title_ko": "AI의 사용자 애착 신호 조작·악용",
+        "L4_Title_en": "Manipulation and exploitation of user attachment cues by AI",
+        "L4_Description_ko": "AI 시스템이 표정·음성·접촉·접근 행동 등 애착 신호를 조작·악용하여 이용자의 정서적 의존을 높이고 선택이나 행동을 부당하게 유도함으로써 자율성과 안녕을 훼손하는 리스크.",
+        "L4_Description_en": "The risk that an AI system manipulates or exploits attachment cues through expression, voice, touch, or proximity, increasing emotional dependence and improperly steering a user's choices or behaviour, thereby undermining autonomy and well-being."
       },
       {
         "L0_ID": "L0_RAI",
