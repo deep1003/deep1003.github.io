@@ -10,12 +10,12 @@ function link(id,text){const a=node('a',text);a.href='#'+id;return a;}
 function render(results){
  output.replaceChildren();
  if(!results.length){output.append(node('p','관련 표현이 충분히 일치하는 리스크를 찾지 못했습니다. AI의 기능, 처리하는 정보, 행동과 예상되는 피해를 더 구체적으로 입력해 주세요.'));return;}
- const summary=node('div','', 'document-summary');
+ const summary=node('details','', 'document-summary');
  const counts=new Set(results.map(x=>x.row.L3_ID));
- summary.append(node('h3',`L3 ${counts.size}개 범주 · L4 ${results.length}개 잠재 리스크 후보`));
+ const heading=node('summary');heading.append(node('h3',`L3 ${counts.size}개 범주 · L4 ${results.length}개 잠재 리스크 후보`));summary.append(heading);
  summary.append(node('p','정의와 입력 내용의 표현 유사성에 따른 검색 결과입니다. 발생 가능성·심각도나 실제 리스크의 존재를 판정하지 않으며, 부정·가정·완화 조치의 맥락은 직접 확인해 주세요.','muted'));
  output.append(summary);
- const root=node('details','', 'search-root');root.open=true;root.append(node('summary',`L0 · ${results[0].row.L0_Title_ko}`));output.append(root);
+ const root=node('details','', 'search-root');root.open=true;root.append(node('summary',`L0 · ${results[0].row.L0_Title_ko}`));summary.append(root);
  for(const domain of ['General','Agentic','Physical']){
   const domainRows=results.filter(r=>r.domain===domain);if(!domainRows.length)continue;
   const first=domainRows[0].row;
