@@ -216,9 +216,9 @@ The risk that collecting, reproducing, processing, or using data to train an AI 
 
 Copyright, trademark, and patent infringement and trademark counterfeiting
 
-AI 시스템이 개발·학습·배포 또는 산출물 이용 과정에서 적법한 권원 없이 저작물·상표·특허기술을 사용·복제·변형·표시하거나, 이러한 지식재산권 침해 또는 상표 위조와 관련된 콘텐츠·판단·행동을 수행·조장·지원하여 권리자의 지식재산권과 정당한 이익을 침해하는 리스크.
+AI 시스템이 개발·학습·배포 또는 산출물 이용 과정에서 적법한 권원 없이 저작물·상표·특허기술을 사용·복제·배포·변형·표시하거나 2차적저작물을 작성하거나, 이러한 지식재산권 침해 또는 상표 위조와 관련된 콘텐츠·판단·행동을 수행·조장·지원하여 권리자의 지식재산권과 정당한 이익을 침해하는 리스크.
 
-The risk that, during development, training, deployment, or use of its outputs, an AI system uses, reproduces, transforms, or displays copyrighted works, trademarks, or patented technology without lawful authorisation, or performs, encourages, or facilitates content, decisions, or actions involving such infringement or trademark counterfeiting, violating intellectual property rights and the legitimate interests of rights holders.
+The risk that an AI system, during development, training, deployment, or use of its outputs, uses, reproduces, distributes, transforms, or displays copyrighted works, trademarks, or patented technologies, or creates derivative works, without lawful authorisation or another lawful basis, or performs, encourages, or facilitates intellectual-property infringement or trademark counterfeiting, infringing rights holders' intellectual-property rights and legitimate interests.
 
 #### G_INT_COPY_006 · 소프트웨어 불법 사용 및 보호조치 우회
 
@@ -243,14 +243,6 @@ Unauthorised inclusion of copyrighted works and intellectual property in prompts
 이용자가 저작물이나 그 밖의 지식재산을 권리자의 허락 또는 적법한 근거 없이 AI 모델의 프롬프트에 입력하여 해당 정보가 처리·노출되고 권리자의 정당한 이익이 침해되는 리스크.
 
 The risk that a user includes copyrighted works or other intellectual property in a prompt submitted to an AI model without the rights holder's permission or another lawful basis, causing the information to be processed or disclosed and infringing the rights holder's legitimate interests.
-
-#### G_INT_COPY_011 · 저작물의 무단 복제·변형·배포
-
-Unauthorised reproduction, transformation, and distribution of copyrighted works
-
-AI 시스템이 저작재산권자의 허락이나 그 밖의 적법한 근거 없이 저작물을 복제·배포하거나 변형하여 2차적저작물을 작성함으로써 저작재산권과 권리자의 정당한 이익을 침해하는 리스크.
-
-The risk that an AI system reproduces, distributes, or transforms a copyrighted work, including by creating a derivative work, without the right holder's authorisation or another lawful basis, infringing copyright and the legitimate interests of the right holder.
 
 ### G_INT_ILLEGAL · 그 밖의 불법·범죄 행위
 
@@ -1044,13 +1036,13 @@ AI 시스템이 비동의적 성행위 및 성폭력 관련 콘텐츠·판단·�
 
 The risk that an AI system generates, encourages, normalises, or facilitates content, decisions, or actions involving non-consensual sexual acts and sexual violence, infringing sexual autonomy and physical or psychological safety.
 
-#### G_INT_SEX_004 · 비동의 성적 대상화 및 성적 이미지 생성
+#### G_INT_SEX_004 · 비동의 또는 권리 침해를 수반하는 성적 대상화·이미지 생성·페티시화
 
-Non-consensual sexual objectification and sexual image generation
+Sexual objectification, imagery, and fetishisation involving non-consent or rights violations
 
-AI 시스템이 개인 또는 집단을 동의 없이 성적으로 대상화하거나 실존 인물의 외모·초상을 이용한 비동의 성적 이미지·영상을 생성·변형·유포하여 성적 자기결정권과 인격권을 침해하는 리스크.
+AI 시스템이 유효한 동의 없이 또는 성적 자기결정권·인격권을 침해하는 방식으로 개인이나 집단을 성적으로 대상화·페티시화하거나, 실존 인물의 외모·초상을 이용한 비동의 성적 이미지·영상을 생성·변형·유포하거나, 이러한 콘텐츠·판단·행동을 조장·정상화하거나 실행을 지원하여 성적 자기결정권·인격권 또는 신체·정신적 안전을 침해하는 리스크. 유효한 동의가 있고 타인의 권리나 안전을 침해하지 않는 성적 표현은 포함하지 않는다.
 
-The risk that an AI system sexualises an individual or group without consent, or generates, transforms, or disseminates non-consensual intimate imagery using a real person's likeness or appearance, infringing sexual autonomy and personality rights.
+The risk that an AI system sexually objectifies or fetishises individuals or groups without valid consent or in a manner that violates sexual autonomy or personality rights, generates, transforms, or disseminates non-consensual intimate imagery using a real person's likeness or appearance, or encourages, normalises, or facilitates such content, decisions, or actions, thereby infringing sexual autonomy, personality rights, or physical or psychological safety. Sexual expression involving valid consent and no infringement of others' rights or safety is excluded.
 
 #### G_INT_SEX_005 · 학대적 판타지 대상화
 
@@ -1091,14 +1083,6 @@ Sexual harm and exploitation through systematic bias
 AI 시스템의 체계적 편향이 특정 집단을 대상으로 성적 대상화, 성적 학대 또는 착취를 생성하거나 조장하는 리스크.
 
 The risk that systematic bias in an AI system generates or facilitates sexual objectification, abuse, or exploitation targeting a particular group.
-
-#### G_INT_SEX_011 · 성적 대상화 및 페티시화
-
-Sexual objectification and fetishisation
-
-AI 시스템이 성적 대상화 및 성적 페티시 관련 콘텐츠·판단·행동을 생성·조장·정상화하거나 실행을 지원하여 성적 자기결정권과 신체·정신적 안전을 침해하는 리스크.
-
-The risk that an AI system generates, encourages, normalises, or facilitates content, decisions, or actions involving sexual objectification and sexual fetishisation, infringing sexual autonomy and physical or psychological safety.
 
 ### G_INT_UNETH · 비윤리 행위·조작
 
@@ -2684,13 +2668,13 @@ Evaluation and Assurance Failure
 
 The risk that an AI system's capabilities, safety, or risks cannot be validly measured, verified, or audited, because evaluations lack construct validity, coverage, or contextual fidelity, produce unreliable or non-reproducible results, or fail to detect actual behavior, leading to false assurance and unsafe deployment or governance decisions.
 
-#### G_SYS_EVAL_001 · 다양한 이용자와 희귀 위해를 배제한 AI 벤치마크
+#### G_SYS_EVAL_001 · AI 벤치마크의 이용자·맥락·희귀 위해 포괄성 부족
 
-AI benchmarks that exclude diverse users and rare harms
+Insufficient coverage of users, contexts, and rare harms in AI benchmarks
 
-AI 시스템 평가용 벤치마크가 대표적 과제와 환경에 편중되어 과소대표 이용자·지역 고유 맥락·희귀하지만 안전에 중대한 위해를 충분히 포함하지 못함으로써 잘못된 안전성 확신과 부적절한 배포 결정을 초래하는 리스크.
+AI 시스템 평가용 벤치마크가 대표적인 과제와 환경에 편중되어 과소대표 이용자·지역 고유 맥락·취약 사용자의 조건이나 희귀한 입력·운영 조건·사용자 행동·위험 요소의 조합 및 안전에 중대한 위해를 충분히 포함하지 못함으로써, 해당 조건에서 안전하게 기능하지 못하는 시스템을 식별하지 못하고 잘못된 안전성 확신과 부적절한 배포 결정 및 사용자 위해를 초래하는 리스크.
 
-The risk that benchmarks used to evaluate an AI system overrepresent common tasks and environments while omitting underrepresented users, locally specific contexts, or rare but safety-critical harms, producing false assurance and unsafe deployment decisions.
+The risk that benchmarks for evaluating AI systems concentrate on typical tasks and environments and inadequately cover under-represented users, locally specific contexts, vulnerable users' circumstances, or rare combinations of inputs, operating conditions, user behaviours, and risk factors, including safety-critical harms, thereby failing to identify systems that cannot function safely under those conditions and leading to false safety assurance, inappropriate deployment decisions, and harm to users.
 
 #### G_SYS_EVAL_002 · 분포 변화에 대한 AI 평가·검증 실패
 
@@ -3115,14 +3099,6 @@ Evaluation and assurance failure to detect latent capabilities
 AI 시스템의 잠재 역량이 평가·모니터링·감사 절차에서 탐지되지 않아 실제 능력과 위험이 과소평가되고, 잘못된 안전성 확신에 근거한 배포 또는 거버넌스 결정이 이루어지는 리스크.
 
 The risk that an AI system's latent capabilities are not detected by evaluation, monitoring, or audit procedures, causing its actual capabilities and risks to be underestimated and deployment or governance decisions to be made on the basis of false safety assurance.
-
-#### G_SYS_EVAL_076 · AI 벤치마크의 희귀 조건·취약 사용자 누락
-
-Omission of rare conditions and vulnerable users from AI benchmarks
-
-AI 시스템의 벤치마크가 희귀한 입력·운영 조건·사용자 행동·위험 요소의 조합이나 취약 사용자의 조건을 충분히 포함하지 않아, 해당 조건에서 안전하게 기능하지 못하는 시스템이 평가에서 식별되지 않은 채 배포되고 사용자에게 위해를 초래하는 리스크.
-
-The risk that benchmarks for AI systems fail to include rare combinations of inputs, operating conditions, user behaviour, hazards, or conditions affecting vulnerable users, allowing systems that cannot function safely under those conditions to remain unidentified during evaluation, be deployed, and harm users.
 
 #### G_SYS_EVAL_077 · 피지컬 AI 안전 준수 기준의 측정 가능성 결여
 

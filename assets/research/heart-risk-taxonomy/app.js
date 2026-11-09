@@ -41,7 +41,7 @@ document.querySelectorAll('.risk-card code,.category-heading code').forEach(code
 });
 function revealHash() {
   const requested = decodeURIComponent(location.hash.slice(1));
-  const aliases = {G_INT_COPY_008:'G_INT_COPY_003', A_INT_CASCADE_003:'A_INT_CASCADE_001', A_INT_CASCADE_004:'A_INT_CASCADE_001', A_INT_CASCADE_009:'A_INT_CASCADE_001'};
+  const aliases = {"G_INT_COPY_008": "G_INT_COPY_003", "A_INT_CASCADE_003": "A_INT_CASCADE_001", "A_INT_CASCADE_004": "A_INT_CASCADE_001", "A_INT_CASCADE_009": "A_INT_CASCADE_001", "G_INT_COPY_011": "G_INT_COPY_003", "G_SYS_EVAL_076": "G_SYS_EVAL_001", "G_INT_SEX_011": "G_INT_SEX_004"};
   const canonical = aliases[requested] || requested;
   const target = document.getElementById(canonical);
   if (requested !== canonical) history.replaceState(null, '', '#' + canonical);

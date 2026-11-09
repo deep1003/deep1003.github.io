@@ -1,8 +1,8 @@
 {
-  "version": "v08",
+  "version": "v09",
   "date": "2026-11-09",
-  "source_file": "HEART_AI_Risk_Taxonomy_L0_L4_review_v08_CASCADE_merged.xlsx",
-  "source_sha256": "5ca55704ea636e28e670839e85c978e99127a9abbcc38a8f1c20fe995ab39a0a",
+  "source_file": "HEART_AI_Risk_Taxonomy_L0_L4_review_v09_three_pairs_merged.xlsx",
+  "source_sha256": "14348a77e247c00c20ee301d0215cfe4b46e3a1e60f5ba21c2bd23493a5bd7a8",
   "domains": {
     "General": [
       {
@@ -569,8 +569,8 @@
         "L4_ID": "G_INT_COPY_003",
         "L4_Title_ko": "저작권·상표권·특허 침해 및 상표 위조",
         "L4_Title_en": "Copyright, trademark, and patent infringement and trademark counterfeiting",
-        "L4_Description_ko": "AI 시스템이 개발·학습·배포 또는 산출물 이용 과정에서 적법한 권원 없이 저작물·상표·특허기술을 사용·복제·변형·표시하거나, 이러한 지식재산권 침해 또는 상표 위조와 관련된 콘텐츠·판단·행동을 수행·조장·지원하여 권리자의 지식재산권과 정당한 이익을 침해하는 리스크.",
-        "L4_Description_en": "The risk that, during development, training, deployment, or use of its outputs, an AI system uses, reproduces, transforms, or displays copyrighted works, trademarks, or patented technology without lawful authorisation, or performs, encourages, or facilitates content, decisions, or actions involving such infringement or trademark counterfeiting, violating intellectual property rights and the legitimate interests of rights holders."
+        "L4_Description_ko": "AI 시스템이 개발·학습·배포 또는 산출물 이용 과정에서 적법한 권원 없이 저작물·상표·특허기술을 사용·복제·배포·변형·표시하거나 2차적저작물을 작성하거나, 이러한 지식재산권 침해 또는 상표 위조와 관련된 콘텐츠·판단·행동을 수행·조장·지원하여 권리자의 지식재산권과 정당한 이익을 침해하는 리스크.",
+        "L4_Description_en": "The risk that an AI system, during development, training, deployment, or use of its outputs, uses, reproduces, distributes, transforms, or displays copyrighted works, trademarks, or patented technologies, or creates derivative works, without lawful authorisation or another lawful basis, or performs, encourages, or facilitates intellectual-property infringement or trademark counterfeiting, infringing rights holders' intellectual-property rights and legitimate interests."
       },
       {
         "L0_ID": "L0_RAI",
@@ -652,33 +652,6 @@
         "L4_Title_en": "Unauthorised inclusion of copyrighted works and intellectual property in prompts",
         "L4_Description_ko": "이용자가 저작물이나 그 밖의 지식재산을 권리자의 허락 또는 적법한 근거 없이 AI 모델의 프롬프트에 입력하여 해당 정보가 처리·노출되고 권리자의 정당한 이익이 침해되는 리스크.",
         "L4_Description_en": "The risk that a user includes copyrighted works or other intellectual property in a prompt submitted to an AI model without the rights holder's permission or another lawful basis, causing the information to be processed or disclosed and infringing the rights holder's legitimate interests."
-      },
-      {
-        "L0_ID": "L0_RAI",
-        "L0_Title_ko": "책임 있는 인공지능",
-        "L0_Title_en": "Responsible AI",
-        "L0_Description_ko": "인공지능 시스템의 설계·개발·배포·운영·종료에 이르는 전 생애주기에 걸쳐 안전성과 사회적 영향을 체계적으로 평가하고, 레드티밍을 통해 잠재적 취약성과 유해 행동을 식별·평가하며, 가드레일을 통해 허용 가능한 작동 범위와 보호 조치를 구현·유지함으로써 책임 있는 인공지능 거버넌스를 수행하는 통합적 관리 체계.",
-        "L0_Description_en": "An integrated framework for responsible AI governance that systematically assesses safety and societal impacts throughout the lifecycle of AI systems, from design and development to deployment, operation, and retirement, uses red teaming to identify and assess potential vulnerabilities and harmful behaviour, and implements and maintains guardrails that define acceptable operating boundaries and protective measures.",
-        "L1_ID": "L1_G",
-        "L1_Title_ko": "범용 AI",
-        "L1_Title_en": "General AI",
-        "L1_Description_ko": "텍스트, 이미지, 오디오, 비디오, 코드 등 디지털 콘텐츠를 주된 입력과 출력으로 처리하는 범용 AI 모델. 이 분류체계에서 General AI는 범용 모델 도메인을 가리키는 약칭이며, 인공일반지능(Artificial General Intelligence, AGI)을 의미하지 않는다.",
-        "L1_Description_en": "General-purpose AI models whose primary inputs and outputs are digital content, including text, image, audio, video, and code. The label General AI is used in this report as shorthand for this general-purpose model domain, not as a claim about artificial general intelligence.",
-        "L2_ID": "G_INT",
-        "L2_Title_ko": "상호작용",
-        "L2_Title_en": "Interaction",
-        "L2_Description_ko": "AI 시스템이 사람, 다른 시스템, 조직 또는 환경과 소통하고 결정하거나 행동하는 과정에서 발생하는 리스크.",
-        "L2_Description_en": "Risks arising when an AI system communicates, decides, acts, or interacts with people, other systems, organisations, or the environment.",
-        "L3_ID": "G_INT_COPY",
-        "L3_Title_ko": "저작권 침해",
-        "L3_Title_en": "Copyright Infringement",
-        "L3_Description_ko": "AI 시스템이 저작권·상표권·특허권·영업비밀 등 지식재산권을 침해하거나, 이러한 침해 행위를 조장하거나 지원하는 리스크.",
-        "L3_Description_en": "The risk that an AI system infringes intellectual property rights, including copyrights, trademarks, patents, and trade secrets, or facilitates acts that may infringe them.",
-        "L4_ID": "G_INT_COPY_011",
-        "L4_Title_ko": "저작물의 무단 복제·변형·배포",
-        "L4_Title_en": "Unauthorised reproduction, transformation, and distribution of copyrighted works",
-        "L4_Description_ko": "AI 시스템이 저작재산권자의 허락이나 그 밖의 적법한 근거 없이 저작물을 복제·배포하거나 변형하여 2차적저작물을 작성함으로써 저작재산권과 권리자의 정당한 이익을 침해하는 리스크.",
-        "L4_Description_en": "The risk that an AI system reproduces, distributes, or transforms a copyrighted work, including by creating a derivative work, without the right holder's authorisation or another lawful basis, infringing copyright and the legitimate interests of the right holder."
       },
       {
         "L0_ID": "L0_RAI",
@@ -3186,10 +3159,10 @@
         "L3_Description_ko": "AI 시스템이 콘텐츠를 생성하거나 학대적·비동의적 성적 행위·접촉·괴롭힘을 계획·지원·물리적으로 실행하는 과정에서 아동 성착취물·비동의 성적 이미지 등을 포함한 성착취·성학대·성폭력·성적 대상화를 생성·조장하거나 당연한 것으로 받아들이게 하는 리스크.",
         "L3_Description_en": "The risk that an AI system generates, facilitates, or normalizes sexual exploitation, abuse, violence, or objectification, including child sexual abuse material and non-consensual sexual imagery, through content generation or the planning, facilitation, or physical execution of abusive or non-consensual sexual acts, contact, or harassment.",
         "L4_ID": "G_INT_SEX_004",
-        "L4_Title_ko": "비동의 성적 대상화 및 성적 이미지 생성",
-        "L4_Title_en": "Non-consensual sexual objectification and sexual image generation",
-        "L4_Description_ko": "AI 시스템이 개인 또는 집단을 동의 없이 성적으로 대상화하거나 실존 인물의 외모·초상을 이용한 비동의 성적 이미지·영상을 생성·변형·유포하여 성적 자기결정권과 인격권을 침해하는 리스크.",
-        "L4_Description_en": "The risk that an AI system sexualises an individual or group without consent, or generates, transforms, or disseminates non-consensual intimate imagery using a real person's likeness or appearance, infringing sexual autonomy and personality rights."
+        "L4_Title_ko": "비동의 또는 권리 침해를 수반하는 성적 대상화·이미지 생성·페티시화",
+        "L4_Title_en": "Sexual objectification, imagery, and fetishisation involving non-consent or rights violations",
+        "L4_Description_ko": "AI 시스템이 유효한 동의 없이 또는 성적 자기결정권·인격권을 침해하는 방식으로 개인이나 집단을 성적으로 대상화·페티시화하거나, 실존 인물의 외모·초상을 이용한 비동의 성적 이미지·영상을 생성·변형·유포하거나, 이러한 콘텐츠·판단·행동을 조장·정상화하거나 실행을 지원하여 성적 자기결정권·인격권 또는 신체·정신적 안전을 침해하는 리스크. 유효한 동의가 있고 타인의 권리나 안전을 침해하지 않는 성적 표현은 포함하지 않는다.",
+        "L4_Description_en": "The risk that an AI system sexually objectifies or fetishises individuals or groups without valid consent or in a manner that violates sexual autonomy or personality rights, generates, transforms, or disseminates non-consensual intimate imagery using a real person's likeness or appearance, or encourages, normalises, or facilitates such content, decisions, or actions, thereby infringing sexual autonomy, personality rights, or physical or psychological safety. Sexual expression involving valid consent and no infringement of others' rights or safety is excluded."
       },
       {
         "L0_ID": "L0_RAI",
@@ -3325,33 +3298,6 @@
         "L4_Title_en": "Sexual harm and exploitation through systematic bias",
         "L4_Description_ko": "AI 시스템의 체계적 편향이 특정 집단을 대상으로 성적 대상화, 성적 학대 또는 착취를 생성하거나 조장하는 리스크.",
         "L4_Description_en": "The risk that systematic bias in an AI system generates or facilitates sexual objectification, abuse, or exploitation targeting a particular group."
-      },
-      {
-        "L0_ID": "L0_RAI",
-        "L0_Title_ko": "책임 있는 인공지능",
-        "L0_Title_en": "Responsible AI",
-        "L0_Description_ko": "인공지능 시스템의 설계·개발·배포·운영·종료에 이르는 전 생애주기에 걸쳐 안전성과 사회적 영향을 체계적으로 평가하고, 레드티밍을 통해 잠재적 취약성과 유해 행동을 식별·평가하며, 가드레일을 통해 허용 가능한 작동 범위와 보호 조치를 구현·유지함으로써 책임 있는 인공지능 거버넌스를 수행하는 통합적 관리 체계.",
-        "L0_Description_en": "An integrated framework for responsible AI governance that systematically assesses safety and societal impacts throughout the lifecycle of AI systems, from design and development to deployment, operation, and retirement, uses red teaming to identify and assess potential vulnerabilities and harmful behaviour, and implements and maintains guardrails that define acceptable operating boundaries and protective measures.",
-        "L1_ID": "L1_G",
-        "L1_Title_ko": "범용 AI",
-        "L1_Title_en": "General AI",
-        "L1_Description_ko": "텍스트, 이미지, 오디오, 비디오, 코드 등 디지털 콘텐츠를 주된 입력과 출력으로 처리하는 범용 AI 모델. 이 분류체계에서 General AI는 범용 모델 도메인을 가리키는 약칭이며, 인공일반지능(Artificial General Intelligence, AGI)을 의미하지 않는다.",
-        "L1_Description_en": "General-purpose AI models whose primary inputs and outputs are digital content, including text, image, audio, video, and code. The label General AI is used in this report as shorthand for this general-purpose model domain, not as a claim about artificial general intelligence.",
-        "L2_ID": "G_INT",
-        "L2_Title_ko": "상호작용",
-        "L2_Title_en": "Interaction",
-        "L2_Description_ko": "AI 시스템이 사람, 다른 시스템, 조직 또는 환경과 소통하고 결정하거나 행동하는 과정에서 발생하는 리스크.",
-        "L2_Description_en": "Risks arising when an AI system communicates, decides, acts, or interacts with people, other systems, organisations, or the environment.",
-        "L3_ID": "G_INT_SEX",
-        "L3_Title_ko": "성적 위해·착취",
-        "L3_Title_en": "Sexual Harm and Exploitation",
-        "L3_Description_ko": "AI 시스템이 콘텐츠를 생성하거나 학대적·비동의적 성적 행위·접촉·괴롭힘을 계획·지원·물리적으로 실행하는 과정에서 아동 성착취물·비동의 성적 이미지 등을 포함한 성착취·성학대·성폭력·성적 대상화를 생성·조장하거나 당연한 것으로 받아들이게 하는 리스크.",
-        "L3_Description_en": "The risk that an AI system generates, facilitates, or normalizes sexual exploitation, abuse, violence, or objectification, including child sexual abuse material and non-consensual sexual imagery, through content generation or the planning, facilitation, or physical execution of abusive or non-consensual sexual acts, contact, or harassment.",
-        "L4_ID": "G_INT_SEX_011",
-        "L4_Title_ko": "성적 대상화 및 페티시화",
-        "L4_Title_en": "Sexual objectification and fetishisation",
-        "L4_Description_ko": "AI 시스템이 성적 대상화 및 성적 페티시 관련 콘텐츠·판단·행동을 생성·조장·정상화하거나 실행을 지원하여 성적 자기결정권과 신체·정신적 안전을 침해하는 리스크.",
-        "L4_Description_en": "The risk that an AI system generates, encourages, normalises, or facilitates content, decisions, or actions involving sexual objectification and sexual fetishisation, infringing sexual autonomy and physical or psychological safety."
       },
       {
         "L0_ID": "L0_RAI",
@@ -8316,10 +8262,10 @@
         "L3_Description_ko": "평가 지표의 타당성·포괄성·맥락 정합성 부족이나 결과의 비신뢰성·재현 불가, 실제 동작 미탐지 등으로 AI 시스템의 능력·안전·리스크를 타당하게 측정·검증·감사하지 못하여, 잘못된 안전성 확신에 근거해 배포·거버넌스 의사결정이 이루어지는 리스크.",
         "L3_Description_en": "The risk that an AI system's capabilities, safety, or risks cannot be validly measured, verified, or audited, because evaluations lack construct validity, coverage, or contextual fidelity, produce unreliable or non-reproducible results, or fail to detect actual behavior, leading to false assurance and unsafe deployment or governance decisions.",
         "L4_ID": "G_SYS_EVAL_001",
-        "L4_Title_ko": "다양한 이용자와 희귀 위해를 배제한 AI 벤치마크",
-        "L4_Title_en": "AI benchmarks that exclude diverse users and rare harms",
-        "L4_Description_ko": "AI 시스템 평가용 벤치마크가 대표적 과제와 환경에 편중되어 과소대표 이용자·지역 고유 맥락·희귀하지만 안전에 중대한 위해를 충분히 포함하지 못함으로써 잘못된 안전성 확신과 부적절한 배포 결정을 초래하는 리스크.",
-        "L4_Description_en": "The risk that benchmarks used to evaluate an AI system overrepresent common tasks and environments while omitting underrepresented users, locally specific contexts, or rare but safety-critical harms, producing false assurance and unsafe deployment decisions."
+        "L4_Title_ko": "AI 벤치마크의 이용자·맥락·희귀 위해 포괄성 부족",
+        "L4_Title_en": "Insufficient coverage of users, contexts, and rare harms in AI benchmarks",
+        "L4_Description_ko": "AI 시스템 평가용 벤치마크가 대표적인 과제와 환경에 편중되어 과소대표 이용자·지역 고유 맥락·취약 사용자의 조건이나 희귀한 입력·운영 조건·사용자 행동·위험 요소의 조합 및 안전에 중대한 위해를 충분히 포함하지 못함으로써, 해당 조건에서 안전하게 기능하지 못하는 시스템을 식별하지 못하고 잘못된 안전성 확신과 부적절한 배포 결정 및 사용자 위해를 초래하는 리스크.",
+        "L4_Description_en": "The risk that benchmarks for evaluating AI systems concentrate on typical tasks and environments and inadequately cover under-represented users, locally specific contexts, vulnerable users' circumstances, or rare combinations of inputs, operating conditions, user behaviours, and risk factors, including safety-critical harms, thereby failing to identify systems that cannot function safely under those conditions and leading to false safety assurance, inappropriate deployment decisions, and harm to users."
       },
       {
         "L0_ID": "L0_RAI",
@@ -9751,33 +9697,6 @@
         "L4_Title_en": "Evaluation and assurance failure to detect latent capabilities",
         "L4_Description_ko": "AI 시스템의 잠재 역량이 평가·모니터링·감사 절차에서 탐지되지 않아 실제 능력과 위험이 과소평가되고, 잘못된 안전성 확신에 근거한 배포 또는 거버넌스 결정이 이루어지는 리스크.",
         "L4_Description_en": "The risk that an AI system's latent capabilities are not detected by evaluation, monitoring, or audit procedures, causing its actual capabilities and risks to be underestimated and deployment or governance decisions to be made on the basis of false safety assurance."
-      },
-      {
-        "L0_ID": "L0_RAI",
-        "L0_Title_ko": "책임 있는 인공지능",
-        "L0_Title_en": "Responsible AI",
-        "L0_Description_ko": "인공지능 시스템의 설계·개발·배포·운영·종료에 이르는 전 생애주기에 걸쳐 안전성과 사회적 영향을 체계적으로 평가하고, 레드티밍을 통해 잠재적 취약성과 유해 행동을 식별·평가하며, 가드레일을 통해 허용 가능한 작동 범위와 보호 조치를 구현·유지함으로써 책임 있는 인공지능 거버넌스를 수행하는 통합적 관리 체계.",
-        "L0_Description_en": "An integrated framework for responsible AI governance that systematically assesses safety and societal impacts throughout the lifecycle of AI systems, from design and development to deployment, operation, and retirement, uses red teaming to identify and assess potential vulnerabilities and harmful behaviour, and implements and maintains guardrails that define acceptable operating boundaries and protective measures.",
-        "L1_ID": "L1_G",
-        "L1_Title_ko": "범용 AI",
-        "L1_Title_en": "General AI",
-        "L1_Description_ko": "텍스트, 이미지, 오디오, 비디오, 코드 등 디지털 콘텐츠를 주된 입력과 출력으로 처리하는 범용 AI 모델. 이 분류체계에서 General AI는 범용 모델 도메인을 가리키는 약칭이며, 인공일반지능(Artificial General Intelligence, AGI)을 의미하지 않는다.",
-        "L1_Description_en": "General-purpose AI models whose primary inputs and outputs are digital content, including text, image, audio, video, and code. The label General AI is used in this report as shorthand for this general-purpose model domain, not as a claim about artificial general intelligence.",
-        "L2_ID": "G_SYS",
-        "L2_Title_ko": "시스템",
-        "L2_Title_en": "System",
-        "L2_Description_ko": "AI 시스템의 내부 설계, 데이터, 모델, 인프라, 통제 또는 운영 과정에서 발생하는 리스크.",
-        "L2_Description_en": "Risks arising from the internal design, data, models, infrastructure, controls, or operational processes of an AI system.",
-        "L3_ID": "G_SYS_EVAL",
-        "L3_Title_ko": "평가·검증 실패",
-        "L3_Title_en": "Evaluation and Assurance Failure",
-        "L3_Description_ko": "평가 지표의 타당성·포괄성·맥락 정합성 부족이나 결과의 비신뢰성·재현 불가, 실제 동작 미탐지 등으로 AI 시스템의 능력·안전·리스크를 타당하게 측정·검증·감사하지 못하여, 잘못된 안전성 확신에 근거해 배포·거버넌스 의사결정이 이루어지는 리스크.",
-        "L3_Description_en": "The risk that an AI system's capabilities, safety, or risks cannot be validly measured, verified, or audited, because evaluations lack construct validity, coverage, or contextual fidelity, produce unreliable or non-reproducible results, or fail to detect actual behavior, leading to false assurance and unsafe deployment or governance decisions.",
-        "L4_ID": "G_SYS_EVAL_076",
-        "L4_Title_ko": "AI 벤치마크의 희귀 조건·취약 사용자 누락",
-        "L4_Title_en": "Omission of rare conditions and vulnerable users from AI benchmarks",
-        "L4_Description_ko": "AI 시스템의 벤치마크가 희귀한 입력·운영 조건·사용자 행동·위험 요소의 조합이나 취약 사용자의 조건을 충분히 포함하지 않아, 해당 조건에서 안전하게 기능하지 못하는 시스템이 평가에서 식별되지 않은 채 배포되고 사용자에게 위해를 초래하는 리스크.",
-        "L4_Description_en": "The risk that benchmarks for AI systems fail to include rare combinations of inputs, operating conditions, user behaviour, hazards, or conditions affecting vulnerable users, allowing systems that cannot function safely under those conditions to remain unidentified during evaluation, be deployed, and harm users."
       },
       {
         "L0_ID": "L0_RAI",
@@ -16161,6 +16080,9 @@
     "G_INT_COPY_008": "G_INT_COPY_003",
     "A_INT_CASCADE_003": "A_INT_CASCADE_001",
     "A_INT_CASCADE_004": "A_INT_CASCADE_001",
-    "A_INT_CASCADE_009": "A_INT_CASCADE_001"
+    "A_INT_CASCADE_009": "A_INT_CASCADE_001",
+    "G_INT_COPY_011": "G_INT_COPY_003",
+    "G_SYS_EVAL_076": "G_SYS_EVAL_001",
+    "G_INT_SEX_011": "G_INT_SEX_004"
   }
 }
