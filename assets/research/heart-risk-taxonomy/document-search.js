@@ -13,7 +13,7 @@ function render(results){
  const summary=node('details','', 'document-summary');summary.open=true;
  const counts=new Set(results.map(x=>x.row.L3_ID));
  const heading=node('summary');heading.append(node('h3',`L3 ${counts.size}개 범주 · L4 ${results.length}개 잠재 리스크 후보`));summary.append(heading);
- summary.append(node('p','정의와 입력 내용의 표현 유사성에 따른 검색 결과입니다. 발생 가능성·심각도나 실제 리스크의 존재를 판정하지 않으며, 부정·가정·완화 조치의 맥락은 직접 확인해 주세요.','muted'));
+ summary.append(node('p','사전 정의된 리스크 정의와 사용자가 입력한 텍스트의 유사도에 따른 출력 결과입니다.','muted'));
  output.append(summary);
  const root=node('details','', 'search-root');root.open=true;root.append(node('summary',`L0 · ${results[0].row.L0_Title_ko}`));summary.append(root);
  for(const domain of ['General','Agentic','Physical']){
