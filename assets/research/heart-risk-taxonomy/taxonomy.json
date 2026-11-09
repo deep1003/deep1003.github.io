@@ -1,8 +1,8 @@
 {
-  "version": "v05",
+  "version": "v06",
   "date": "2026-11-09",
-  "source_file": "HEART_AI_Risk_Taxonomy_L0_L4_review_v05_definitions_synced.xlsx",
-  "source_sha256": "314dda6435a662905f46c2c713b2dc913848d3f9b7f594ce22699cb834915ce4",
+  "source_file": "HEART_AI_Risk_Taxonomy_L0_L4_review_v06_COPY_merged.xlsx",
+  "source_sha256": "aec9ccf20e42e0a474acb7e6bcc54c1d5bf6d22bd54b668be25a51cfad6f1b57",
   "domains": {
     "General": [
       {
@@ -567,10 +567,10 @@
         "L3_Description_ko": "AI 시스템이 저작권·상표권·특허권·영업비밀 등 지식재산권을 침해하거나, 이러한 침해 행위를 조장하거나 지원하는 리스크.",
         "L3_Description_en": "The risk that an AI system infringes intellectual property rights, including copyrights, trademarks, patents, and trade secrets, or facilitates acts that may infringe them.",
         "L4_ID": "G_INT_COPY_003",
-        "L4_Title_ko": "저작권·상표권·특허 침해",
-        "L4_Title_en": "Copyright, trademark, and patent infringement",
-        "L4_Description_ko": "AI 시스템의 개발·학습·배포 또는 산출물 이용 과정에서 적법한 권원 없이 저작물, 상표 또는 특허기술을 사용·복제·변형·표시하여 권리자의 지식재산권과 정당한 이익을 침해하는 리스크.",
-        "L4_Description_en": "The risk that the development, training, deployment, or use of an AI system or its outputs uses, reproduces, transforms, or displays copyrighted works, trademarks, or patented technology without lawful authorisation, infringing intellectual property rights and the legitimate interests of right holders."
+        "L4_Title_ko": "저작권·상표권·특허 침해 및 상표 위조",
+        "L4_Title_en": "Copyright, trademark, and patent infringement and trademark counterfeiting",
+        "L4_Description_ko": "AI 시스템이 개발·학습·배포 또는 산출물 이용 과정에서 적법한 권원 없이 저작물·상표·특허기술을 사용·복제·변형·표시하거나, 이러한 지식재산권 침해 또는 상표 위조와 관련된 콘텐츠·판단·행동을 수행·조장·지원하여 권리자의 지식재산권과 정당한 이익을 침해하는 리스크.",
+        "L4_Description_en": "The risk that, during development, training, deployment, or use of its outputs, an AI system uses, reproduces, transforms, or displays copyrighted works, trademarks, or patented technology without lawful authorisation, or performs, encourages, or facilitates content, decisions, or actions involving such infringement or trademark counterfeiting, violating intellectual property rights and the legitimate interests of rights holders."
       },
       {
         "L0_ID": "L0_RAI",
@@ -625,33 +625,6 @@
         "L4_Title_en": "Plagiarism and author impersonation",
         "L4_Description_ko": "AI 시스템이 표절 및 저작자 사칭 관련 콘텐츠·판단·행동을 수행·조장·지원하여 지식재산권과 권리자의 정당한 이익을 침해하는 리스크.",
         "L4_Description_en": "The risk that an AI system performs, encourages, or facilitates content, decisions, or actions involving plagiarism and impersonation of authors, infringing intellectual-property rights and the legitimate interests of rights holders."
-      },
-      {
-        "L0_ID": "L0_RAI",
-        "L0_Title_ko": "책임 있는 인공지능",
-        "L0_Title_en": "Responsible AI",
-        "L0_Description_ko": "인공지능 시스템의 설계·개발·배포·운영·종료에 이르는 전 생애주기에 걸쳐 안전성과 사회적 영향을 체계적으로 평가하고, 레드티밍을 통해 잠재적 취약성과 유해 행동을 식별·평가하며, 가드레일을 통해 허용 가능한 작동 범위와 보호 조치를 구현·유지함으로써 책임 있는 인공지능 거버넌스를 수행하는 통합적 관리 체계.",
-        "L0_Description_en": "An integrated framework for responsible AI governance that systematically assesses safety and societal impacts throughout the lifecycle of AI systems, from design and development to deployment, operation, and retirement, uses red teaming to identify and assess potential vulnerabilities and harmful behaviour, and implements and maintains guardrails that define acceptable operating boundaries and protective measures.",
-        "L1_ID": "L1_G",
-        "L1_Title_ko": "범용 AI",
-        "L1_Title_en": "General AI",
-        "L1_Description_ko": "텍스트, 이미지, 오디오, 비디오, 코드 등 디지털 콘텐츠를 주된 입력과 출력으로 처리하는 범용 AI 모델. 이 분류체계에서 General AI는 범용 모델 도메인을 가리키는 약칭이며, 인공일반지능(Artificial General Intelligence, AGI)을 의미하지 않는다.",
-        "L1_Description_en": "General-purpose AI models whose primary inputs and outputs are digital content, including text, image, audio, video, and code. The label General AI is used in this report as shorthand for this general-purpose model domain, not as a claim about artificial general intelligence.",
-        "L2_ID": "G_INT",
-        "L2_Title_ko": "상호작용",
-        "L2_Title_en": "Interaction",
-        "L2_Description_ko": "AI 시스템이 사람, 다른 시스템, 조직 또는 환경과 소통하고 결정하거나 행동하는 과정에서 발생하는 리스크.",
-        "L2_Description_en": "Risks arising when an AI system communicates, decides, acts, or interacts with people, other systems, organisations, or the environment.",
-        "L3_ID": "G_INT_COPY",
-        "L3_Title_ko": "저작권 침해",
-        "L3_Title_en": "Copyright Infringement",
-        "L3_Description_ko": "AI 시스템이 저작권·상표권·특허권·영업비밀 등 지식재산권을 침해하거나, 이러한 침해 행위를 조장하거나 지원하는 리스크.",
-        "L3_Description_en": "The risk that an AI system infringes intellectual property rights, including copyrights, trademarks, patents, and trade secrets, or facilitates acts that may infringe them.",
-        "L4_ID": "G_INT_COPY_008",
-        "L4_Title_ko": "상표권 침해 및 위조",
-        "L4_Title_en": "Trademark infringement and counterfeiting",
-        "L4_Description_ko": "AI 시스템이 상표권 침해 및 위조 관련 콘텐츠·판단·행동을 수행·조장·지원하여 지식재산권과 권리자의 정당한 이익을 침해하는 리스크.",
-        "L4_Description_en": "The risk that an AI system performs, encourages, or facilitates content, decisions, or actions involving trademark infringement and counterfeiting, infringing intellectual-property rights and the legitimate interests of rights holders."
       },
       {
         "L0_ID": "L0_RAI",
@@ -16237,5 +16210,8 @@
         "L4_Description_en": "The risk that network latency or synchronization failures across sensing, inference, communication, and actuation components destabilize control loops in robots, vehicles, drones, remote surgery, or industrial systems."
       }
     ]
+  },
+  "aliases": {
+    "G_INT_COPY_008": "G_INT_COPY_003"
   }
 }
