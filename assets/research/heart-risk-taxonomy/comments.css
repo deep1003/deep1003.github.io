@@ -1,0 +1,9 @@
+.risk-comments{border-top:1px solid #cad9df;margin-top:24px;padding-top:16px}
+.comments-toggle{font-size:.9rem;padding:7px 12px;min-height:38px}
+.comments-panel{padding:12px 0}.comments-help,.comments-status,.comments-empty{font-size:.85rem;color:#536875}
+.comment-form{display:grid;gap:8px;margin-top:18px}.comment-form label{font-weight:650;font-size:.9rem}
+.comment-form textarea{box-sizing:border-box;resize:vertical;min-height:96px;width:100%;font:inherit;padding:12px;border:1px solid #aabcc6;border-radius:6px;background:#fff;color:#172b3a}
+.comment-actions{display:flex;gap:8px;flex-wrap:wrap}.comment-actions button{font-size:.85rem;padding:7px 12px;min-height:38px}
+.comment-item{border-bottom:1px solid #dce3e8;padding:12px 0}.comment-meta{font-size:.78rem;color:#536875;margin:0 0 6px}
+.comment-body{white-space:pre-wrap;overflow-wrap:anywhere;margin:0 0 8px}.comment-item button{font-size:.8rem;padding:5px 10px;min-height:32px}
+.risk-comments button:disabled{opacity:.6;cursor:wait}
