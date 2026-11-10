@@ -4,3 +4,5 @@
 .home-title{color:inherit;text-decoration:none}.home-title:hover{color:#166c70}
 
 .site-brand{display:flex;flex-direction:column;gap:4px}.brand-expansion{font-size:.78rem;font-weight:400;color:#536875;letter-spacing:.02em;margin:0}.site-brand>a{font-size:.95rem}@media(max-width:700px){.site-brand>a{font-size:.83rem}.brand-expansion{font-size:.7rem}}
+
+.eval-table-wrap{overflow-x:auto}.eval-table{border-collapse:collapse;width:100%;min-width:720px;font-size:.92rem}.eval-table th,.eval-table td{border-bottom:1px solid #dce3e8;padding:10px 12px;text-align:right;white-space:nowrap}.eval-table thead th{background:#edf4f4;font-weight:650}.eval-table th[scope=row],.eval-table thead th:nth-child(2){text-align:left}.eval-table td:first-child,.eval-table thead th:first-child{text-align:center}.mapping-eval h3{margin-top:20px}.mapping-eval li{margin:6px 0}
