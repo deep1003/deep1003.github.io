@@ -58,4 +58,4 @@ window.addEventListener('hashchange', revealHash);
 revealHash();
 
 // HEART source-taxonomy crosswalk candidates and conservative selection rules.
-{const script=document.createElement("script");script.src="mapping-tags.js?v=20261111-myai-results";document.head.append(script);}
+{const script=document.createElement("script");script.src="mapping-tags.js?v=20261112-human-candidates-r04";document.head.append(script);}
