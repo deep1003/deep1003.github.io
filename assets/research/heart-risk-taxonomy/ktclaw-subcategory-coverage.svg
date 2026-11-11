@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-12T08:08:48.597535</dc:date>
+    <dc:date>2026-11-12T08:32:18.210943</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -42,7 +42,7 @@ z
      <g id="line2d_1">
       <path d="M 72.63 266.406775
 L 72.63 52.998775
-" clip-path="url(#pb4c9ddbcd5)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p93829ff740)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_2"/>
      <g id="text_1">
@@ -75,7 +75,7 @@ z
      <g id="line2d_3">
       <path d="M 222.961034 266.406775
 L 222.961034 52.998775
-" clip-path="url(#pb4c9ddbcd5)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p93829ff740)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_4"/>
      <g id="text_2">
@@ -125,7 +125,7 @@ z
      <g id="line2d_5">
       <path d="M 373.292069 266.406775
 L 373.292069 52.998775
-" clip-path="url(#pb4c9ddbcd5)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p93829ff740)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_6"/>
      <g id="text_3">
@@ -653,31 +653,31 @@ L 361.265586 141.776503
 L 361.265586 100.802167
 L 72.63 100.802167
 z
-" clip-path="url(#pb4c9ddbcd5)" style="fill: #287f85"/>
+" clip-path="url(#p93829ff740)" style="fill: #287f85"/>
    </g>
    <g id="patch_4">
     <path d="M 361.265586 141.776503
-L 361.265586 141.776503
-L 361.265586 100.802167
+L 367.278828 141.776503
+L 367.278828 100.802167
 L 361.265586 100.802167
 z
-" clip-path="url(#pb4c9ddbcd5)" style="fill: #89bec3"/>
+" clip-path="url(#p93829ff740)" style="fill: #89bec3"/>
    </g>
    <g id="patch_5">
-    <path d="M 361.265586 141.776503
-L 361.265586 141.776503
-L 361.265586 100.802167
-L 361.265586 100.802167
+    <path d="M 367.278828 141.776503
+L 367.278828 141.776503
+L 367.278828 100.802167
+L 367.278828 100.802167
 z
-" clip-path="url(#pb4c9ddbcd5)" style="fill: #9f9acb"/>
+" clip-path="url(#p93829ff740)" style="fill: #9f9acb"/>
    </g>
    <g id="patch_6">
-    <path d="M 361.265586 141.776503
+    <path d="M 367.278828 141.776503
 L 373.292069 141.776503
 L 373.292069 100.802167
-L 361.265586 100.802167
+L 367.278828 100.802167
 z
-" clip-path="url(#pb4c9ddbcd5)" style="fill: #e8b98a"/>
+" clip-path="url(#p93829ff740)" style="fill: #e8b98a"/>
    </g>
    <g id="patch_7">
     <path d="M 72.63 227.139703
@@ -685,7 +685,7 @@ L 156.815379 227.139703
 L 156.815379 186.165367
 L 72.63 186.165367
 z
-" clip-path="url(#pb4c9ddbcd5)" style="fill: #287f85"/>
+" clip-path="url(#p93829ff740)" style="fill: #287f85"/>
    </g>
    <g id="patch_8">
     <path d="M 156.815379 227.139703
@@ -693,7 +693,7 @@ L 247.014 227.139703
 L 247.014 186.165367
 L 156.815379 186.165367
 z
-" clip-path="url(#pb4c9ddbcd5)" style="fill: #89bec3"/>
+" clip-path="url(#p93829ff740)" style="fill: #89bec3"/>
    </g>
    <g id="patch_9">
     <path d="M 247.014 227.139703
@@ -701,7 +701,7 @@ L 259.040483 227.139703
 L 259.040483 186.165367
 L 247.014 186.165367
 z
-" clip-path="url(#pb4c9ddbcd5)" style="fill: #9f9acb"/>
+" clip-path="url(#p93829ff740)" style="fill: #9f9acb"/>
    </g>
    <g id="patch_10">
     <path d="M 259.040483 227.139703
@@ -709,7 +709,7 @@ L 373.292069 227.139703
 L 373.292069 186.165367
 L 259.040483 186.165367
 z
-" clip-path="url(#pb4c9ddbcd5)" style="fill: #e8b98a"/>
+" clip-path="url(#p93829ff740)" style="fill: #e8b98a"/>
    </g>
    <g id="patch_11">
     <path d="M 72.63 266.406775
@@ -749,14 +749,8 @@ z
     </g>
    </g>
    <g id="text_8">
-    <!-- 2 -->
-    <g style="fill: #243a43" transform="translate(364.347499 124.875507) scale(0.11 -0.11)">
-     <use xlink:href="#AppleSDGothicNeo-Regular-32"/>
-    </g>
-   </g>
-   <g id="text_9">
-    <!-- 14 -->
-    <g style="fill: #ffffff" transform="translate(109.706518 210.238707) scale(0.11 -0.11)">
+    <!-- 1 -->
+    <g style="fill: #243a43" transform="translate(362.308535 124.875507) scale(0.11 -0.11)">
      <defs>
       <path id="AppleSDGothicNeo-Regular-31" d="M 1146 243
 L 1632 243
@@ -770,23 +764,35 @@ z
 " transform="scale(0.015625)"/>
      </defs>
      <use xlink:href="#AppleSDGothicNeo-Regular-31"/>
-     <use xlink:href="#AppleSDGothicNeo-Regular-34" transform="translate(35.699997 0)"/>
+    </g>
+   </g>
+   <g id="text_9">
+    <!-- 1 -->
+    <g style="fill: #243a43" transform="translate(368.321776 124.875507) scale(0.11 -0.11)">
+     <use xlink:href="#AppleSDGothicNeo-Regular-31"/>
     </g>
    </g>
    <g id="text_10">
+    <!-- 14 -->
+    <g style="fill: #ffffff" transform="translate(109.706518 210.238707) scale(0.11 -0.11)">
+     <use xlink:href="#AppleSDGothicNeo-Regular-31"/>
+     <use xlink:href="#AppleSDGothicNeo-Regular-34" transform="translate(35.699997 0)"/>
+    </g>
+   </g>
+   <g id="text_11">
     <!-- 15 -->
     <g style="fill: #243a43" transform="translate(197.206174 210.238707) scale(0.11 -0.11)">
      <use xlink:href="#AppleSDGothicNeo-Regular-31"/>
      <use xlink:href="#AppleSDGothicNeo-Regular-35" transform="translate(35.699997 0)"/>
     </g>
    </g>
-   <g id="text_11">
+   <g id="text_12">
     <!-- 2 -->
     <g style="fill: #243a43" transform="translate(250.095913 210.238707) scale(0.11 -0.11)">
      <use xlink:href="#AppleSDGothicNeo-Regular-32"/>
     </g>
    </g>
-   <g id="text_12">
+   <g id="text_13">
     <!-- 19 -->
     <g style="fill: #243a43" transform="translate(311.15526 210.238707) scale(0.11 -0.11)">
      <defs>
@@ -815,7 +821,7 @@ z
      <use xlink:href="#AppleSDGothicNeo-Regular-39" transform="translate(35.699997 0)"/>
     </g>
    </g>
-   <g id="text_13">
+   <g id="text_14">
     <!-- 전체 50개 위험 단위 -->
     <g transform="translate(72.63 17.41845) scale(0.132 -0.132)">
      <defs>
@@ -1336,7 +1342,7 @@ L 51.563793 329.4494
 z
 " style="fill: #287f85; stroke: #287f85; stroke-linejoin: miter"/>
     </g>
-    <g id="text_14">
+    <g id="text_15">
      <!-- L4 대응 / sub 직접 -->
      <g transform="translate(79.563793 336.4494) scale(0.1 -0.1)">
       <defs>
@@ -1372,7 +1378,7 @@ L 51.563793 343.1994
 z
 " style="fill: #89bec3; stroke: #89bec3; stroke-linejoin: miter"/>
     </g>
-    <g id="text_15">
+    <g id="text_16">
      <!-- 부분·유사 후보 -->
      <g transform="translate(79.563793 350.1994) scale(0.1 -0.1)">
       <defs>
@@ -1478,7 +1484,7 @@ L 173.562231 329.4494
 z
 " style="fill: #9f9acb; stroke: #9f9acb; stroke-linejoin: miter"/>
     </g>
-    <g id="text_16">
+    <g id="text_17">
      <!-- 휴먼 검토 후보 -->
      <g transform="translate(201.562231 336.4494) scale(0.1 -0.1)">
       <defs>
@@ -1625,7 +1631,7 @@ L 173.562231 343.190025
 z
 " style="fill: #e8b98a; stroke: #e8b98a; stroke-linejoin: miter"/>
     </g>
-    <g id="text_17">
+    <g id="text_18">
      <!-- 미매핑 -->
      <g transform="translate(201.562231 350.190025) scale(0.1 -0.1)">
       <defs>
@@ -1738,10 +1744,10 @@ z
      <g id="line2d_9">
       <path d="M 643.887931 266.406775
 L 643.887931 52.998775
-" clip-path="url(#pc20c4af153)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pa28ff479ef)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_10"/>
-     <g id="text_18">
+     <g id="text_19">
       <!-- 0 -->
       <g transform="translate(640.422931 283.744431) scale(0.11 -0.11)">
        <use xlink:href="#AppleSDGothicNeo-Regular-30"/>
@@ -1752,10 +1758,10 @@ L 643.887931 52.998775
      <g id="line2d_11">
       <path d="M 831.801724 266.406775
 L 831.801724 52.998775
-" clip-path="url(#pc20c4af153)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#pa28ff479ef)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_12"/>
-     <g id="text_19">
+     <g id="text_20">
       <!-- 19 -->
       <g transform="translate(826.790709 283.744431) scale(0.11 -0.11)">
        <use xlink:href="#AppleSDGothicNeo-Regular-31"/>
@@ -1763,7 +1769,7 @@ L 831.801724 52.998775
       </g>
      </g>
     </g>
-    <g id="text_20">
+    <g id="text_21">
      <!-- subcategory 미매핑 위험 단위 수 -->
      <g transform="translate(722.158653 297.754431) scale(0.11 -0.11)">
       <use xlink:href="#AppleSDGothicNeo-Regular-73"/>
@@ -1795,7 +1801,7 @@ L 831.801724 52.998775
    <g id="matplotlib.axis_4">
     <g id="ytick_3">
      <g id="line2d_13"/>
-     <g id="text_21">
+     <g id="text_22">
       <!-- 기존 정의와 다른 -->
       <g transform="translate(562.497619 159.108947) scale(0.11 -0.11)">
        <defs>
@@ -2169,14 +2175,14 @@ L 831.801724 256.706411
 L 831.801724 62.699139
 L 643.887931 62.699139
 z
-" clip-path="url(#pc20c4af153)" style="fill: #e8b98a"/>
+" clip-path="url(#pa28ff479ef)" style="fill: #e8b98a"/>
    </g>
    <g id="patch_18">
     <path d="M 643.887931 266.406775
 L 944.55 266.406775
 " style="fill: none; stroke: #ccd9df; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="text_22">
+   <g id="text_23">
     <!-- 19개 -->
     <g transform="translate(832.790744 163.344806) scale(0.11 -0.11)">
      <use xlink:href="#AppleSDGothicNeo-Regular-31"/>
@@ -2184,7 +2190,7 @@ L 944.55 266.406775
      <use xlink:href="#AppleSDGothicNeo-Regular-ac1c" transform="translate(91.099991 0)"/>
     </g>
    </g>
-   <g id="text_23">
+   <g id="text_24">
     <!-- 미매핑 19개가 남은 이유 -->
     <g transform="translate(643.887931 17.33925) scale(0.132 -0.132)">
      <defs>
@@ -2458,10 +2464,10 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="pb4c9ddbcd5">
+  <clipPath id="p93829ff740">
    <rect x="72.63" y="52.998775" width="300.662069" height="213.408"/>
   </clipPath>
-  <clipPath id="pc20c4af153">
+  <clipPath id="pa28ff479ef">
    <rect x="643.887931" y="52.998775" width="300.662069" height="213.408"/>
   </clipPath>
  </defs>
