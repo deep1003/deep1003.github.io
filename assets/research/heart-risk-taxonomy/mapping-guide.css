@@ -1,0 +1,33 @@
+#heart-crosswalk-rules{background:#fff;padding:24px!important;border-radius:12px!important}
+#heart-crosswalk-rules>summary{font-size:1.25rem;line-height:1.5}
+.mapping-guide{line-height:1.7;min-width:0}
+.mapping-guide h3{margin:30px 0 14px;font-size:1.1rem}
+.mapping-lead{margin:24px 0;color:#425b68}
+.mapping-lead strong{font-size:1.15rem;color:#183541}
+.mapping-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;padding:0;list-style:none}
+.mapping-steps li{padding:16px 12px;border-top:3px solid #287f85;background:#f1f6f7;position:relative}
+.mapping-steps strong{display:block;font-size:.95rem}
+.mapping-steps p{font-size:.86rem;margin:8px 0 0}
+.mapping-steps li:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:12px;color:#287f85;z-index:1}
+.mapping-core{padding:12px 16px;border-left:3px solid #287f85;background:#f6f9fa}
+.mapping-table-wrap{overflow-x:auto;max-width:100%;margin:12px 0 20px}
+.mapping-web-table{width:100%;min-width:780px;border-collapse:collapse;font-size:.88rem;line-height:1.6}
+.mapping-web-table caption{text-align:left;color:#536875;padding:8px 0;font-size:.85rem}
+.mapping-web-table th,.mapping-web-table td{padding:12px;border-bottom:1px solid #dce3e8;text-align:left;vertical-align:top}
+.mapping-web-table thead th{background:#edf4f4;white-space:nowrap}
+.mapping-web-table tbody th{font-weight:400}
+.mapping-web-table code{font-size:.78rem;overflow-wrap:anywhere;white-space:normal}
+.mapping-fold{margin:14px 0;border:1px solid #d4e0e5;border-radius:8px;padding:14px}
+.mapping-fold>summary{font-weight:650;cursor:pointer}
+.mapping-item{margin-bottom:10px;min-width:140px}
+.mapping-item:last-child{margin-bottom:0}
+.mapping-item span{display:block}
+.mapping-grade{display:block;color:#536875;font-size:.8rem;margin-bottom:8px}
+.mapping-reason{min-width:180px;max-width:360px}
+.mapping-reason>summary{cursor:pointer;color:#176a70;white-space:nowrap}
+.mapping-reason p{margin:10px 0}
+#mapping-chain-myai .mapping-web-table,#mapping-chain-ktclaw .mapping-web-table{min-width:1400px}
+#mapping-chain-myai td:nth-child(2),#mapping-chain-ktclaw td:nth-child(2){min-width:250px}
+.mapping-guide+.heart-crosswalk-downloads{margin-top:0}
+@media(max-width:900px){.mapping-steps{grid-template-columns:1fr}.mapping-steps li{padding:12px 16px}.mapping-steps li:not(:last-child)::after{content:'↓';right:20px;top:auto;bottom:-18px}.mapping-steps p{margin-top:4px}}
+@media(max-width:700px){#heart-crosswalk-rules{padding:18px 14px!important}#heart-crosswalk-rules>summary{font-size:1.1rem}.mapping-lead strong{font-size:1rem}.mapping-fold{padding:10px}.mapping-web-table th,.mapping-web-table td{padding:10px}}
