@@ -36,5 +36,5 @@
   for(const ext of ['csv','md','json']){const button=el('button',ext.toUpperCase());button.type='button';button.addEventListener('click',()=>{const keys=Object.keys(rows[0]);let text;if(ext==='json')text=JSON.stringify(rows,null,2);else if(ext==='csv'){const q=v=>'"'+scalar(v).replaceAll('"','""')+'"';text='\ufeff'+[keys,...rows.map(r=>keys.map(k=>r[k]))].map(r=>r.map(q).join(',')).join('\r\n');}else{const q=v=>scalar(v).replaceAll('|','\\|').replaceAll('\n','<br>');text=['| '+keys.join(' | ')+' |','| '+keys.map(()=>'---').join(' | ')+' |',...rows.map(r=>'| '+keys.map(k=>q(r[k])).join(' | ')+' |')].join('\n');}save(name+'.'+ext,text,ext==='json'?'application/json':ext==='csv'?'text/csv;charset=utf-8':'text/markdown;charset=utf-8');});nav.append(button);}details.append(nav);
  }
  details.append(el('p',`대응표 원본 ${data.source} · 12 category · 101 subcategory · 규칙 버전 ${data.version}`));
- document.querySelector('main').append(details);
+ const main=document.querySelector('main');main.insertBefore(details,document.getElementById('myai-mapping-results')||main.querySelector('footer')); 
 })();
