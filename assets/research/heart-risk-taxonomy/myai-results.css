@@ -2,3 +2,5 @@
 .myai-type-table td:nth-child(n){width:auto;text-align:center;white-space:nowrap}.myai-type-table th[scope=row]{width:40%}.myai-type-table tfoot{font-weight:700;background:#edf4f4}.myai-detail{margin-top:26px}.myai-detail>summary{font-size:1.1rem}.myai-stats strong{font-size:1.7rem}@media(max-width:700px){.myai-stats strong{font-size:1.45rem}}
 
 .result-collapse>summary{display:list-item;list-style-position:inside;padding:0}.result-collapse>summary h2{display:inline;font-size:1.55rem}.result-collapse>summary .result-summary{display:block;font-weight:400;font-size:.92rem;color:#536875;margin:8px 0 0}.result-collapse[open]>summary{margin-bottom:22px}.source-grade{font-size:.78rem;font-weight:600;color:#536875}.source-detail{min-width:1100px}.source-detail td:nth-child(n){width:auto}.source-detail td:nth-child(2){width:25%}.source-detail td:nth-child(5){width:25%}.source-detail p{min-width:220px}@media(max-width:700px){.result-collapse>summary h2{font-size:1.3rem}.result-collapse>summary .result-summary{font-size:.85rem}}
+
+.myai-type-table td.review-count{background:#EEEAF7}.myai-type-table td.unmapped-count{background:#FCE4D6}
