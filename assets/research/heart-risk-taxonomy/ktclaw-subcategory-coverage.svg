@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-12T09:09:15.646306</dc:date>
+    <dc:date>2026-11-12T09:25:13.394498</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -42,7 +42,7 @@ z
      <g id="line2d_1">
       <path d="M 95.84 266.801537
 L 95.84 53.393537
-" clip-path="url(#p56ca3a102f)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p2997ee859a)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_2"/>
      <g id="text_1">
@@ -75,7 +75,7 @@ z
      <g id="line2d_3">
       <path d="M 240.088276 266.801537
 L 240.088276 53.393537
-" clip-path="url(#p56ca3a102f)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p2997ee859a)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_4"/>
      <g id="text_2">
@@ -125,7 +125,7 @@ z
      <g id="line2d_5">
       <path d="M 384.336552 266.801537
 L 384.336552 53.393537
-" clip-path="url(#p56ca3a102f)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p2997ee859a)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_6"/>
      <g id="text_3">
@@ -619,7 +619,7 @@ L 361.256828 142.171265
 L 361.256828 101.196929
 L 95.84 101.196929
 z
-" clip-path="url(#p56ca3a102f)" style="fill: #287f85"/>
+" clip-path="url(#p2997ee859a)" style="fill: #287f85"/>
    </g>
    <g id="patch_4">
     <path d="M 361.256828 142.171265
@@ -627,7 +627,7 @@ L 384.336552 142.171265
 L 384.336552 101.196929
 L 361.256828 101.196929
 z
-" clip-path="url(#p56ca3a102f)" style="fill: #9f9acb"/>
+" clip-path="url(#p2997ee859a)" style="fill: #9f9acb"/>
    </g>
    <g id="patch_5">
     <path d="M 384.336552 142.171265
@@ -635,7 +635,7 @@ L 384.336552 142.171265
 L 384.336552 101.196929
 L 384.336552 101.196929
 z
-" clip-path="url(#p56ca3a102f)" style="fill: #e8b98a"/>
+" clip-path="url(#p2997ee859a)" style="fill: #e8b98a"/>
    </g>
    <g id="patch_6">
     <path d="M 95.84 227.534466
@@ -643,23 +643,23 @@ L 176.619034 227.534466
 L 176.619034 186.560129
 L 95.84 186.560129
 z
-" clip-path="url(#p56ca3a102f)" style="fill: #287f85"/>
+" clip-path="url(#p2997ee859a)" style="fill: #287f85"/>
    </g>
    <g id="patch_7">
     <path d="M 176.619034 227.534466
-L 332.407172 227.534466
-L 332.407172 186.560129
+L 343.947034 227.534466
+L 343.947034 186.560129
 L 176.619034 186.560129
 z
-" clip-path="url(#p56ca3a102f)" style="fill: #9f9acb"/>
+" clip-path="url(#p2997ee859a)" style="fill: #9f9acb"/>
    </g>
    <g id="patch_8">
-    <path d="M 332.407172 227.534466
+    <path d="M 343.947034 227.534466
 L 384.336552 227.534466
 L 384.336552 186.560129
-L 332.407172 186.560129
+L 343.947034 186.560129
 z
-" clip-path="url(#p56ca3a102f)" style="fill: #e8b98a"/>
+" clip-path="url(#p2997ee859a)" style="fill: #e8b98a"/>
    </g>
    <g id="patch_9">
     <path d="M 95.84 266.801537
@@ -709,27 +709,8 @@ z
     </g>
    </g>
    <g id="text_10">
-    <!-- 27 -->
-    <g style="fill: #243a43" transform="translate(248.886775 210.633469) scale(0.11 -0.11)">
-     <defs>
-      <path id="AppleSDGothicNeo-Regular-37" d="M 710 243
-L 1274 243
-L 2957 4218
-L 2957 4544
-L 218 4544
-L 218 4115
-L 2400 4115
-L 710 243
-z
-" transform="scale(0.015625)"/>
-     </defs>
-     <use xlink:href="#AppleSDGothicNeo-Regular-32"/>
-     <use xlink:href="#AppleSDGothicNeo-Regular-37" transform="translate(53.299988 0)"/>
-    </g>
-   </g>
-   <g id="text_11">
-    <!-- 9 -->
-    <g style="fill: #243a43" transform="translate(355.324518 210.633469) scale(0.11 -0.11)">
+    <!-- 29 -->
+    <g style="fill: #243a43" transform="translate(254.304363 210.633469) scale(0.11 -0.11)">
      <defs>
       <path id="AppleSDGothicNeo-Regular-39" d="M 1696 4634
 C 826 4634 307 3949 307 3142
@@ -752,7 +733,26 @@ C 813 3782 1146 4211 1702 4211
 z
 " transform="scale(0.015625)"/>
      </defs>
-     <use xlink:href="#AppleSDGothicNeo-Regular-39"/>
+     <use xlink:href="#AppleSDGothicNeo-Regular-32"/>
+     <use xlink:href="#AppleSDGothicNeo-Regular-39" transform="translate(53.299988 0)"/>
+    </g>
+   </g>
+   <g id="text_11">
+    <!-- 7 -->
+    <g style="fill: #243a43" transform="translate(361.446793 210.633469) scale(0.11 -0.11)">
+     <defs>
+      <path id="AppleSDGothicNeo-Regular-37" d="M 710 243
+L 1274 243
+L 2957 4218
+L 2957 4544
+L 218 4544
+L 218 4115
+L 2400 4115
+L 710 243
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#AppleSDGothicNeo-Regular-37"/>
     </g>
    </g>
    <g id="text_12">
@@ -1174,7 +1174,7 @@ z
      <g id="line2d_9">
       <path d="M 643.983448 266.801537
 L 643.983448 53.393537
-" clip-path="url(#p1325def0f7)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p7f9e88c4a0)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_10"/>
      <g id="text_16">
@@ -1188,13 +1188,13 @@ L 643.983448 53.393537
      <g id="line2d_11">
       <path d="M 824.293793 266.801537
 L 824.293793 53.393537
-" clip-path="url(#p1325def0f7)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p7f9e88c4a0)" style="fill: none; stroke: #edf1f3; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_12"/>
      <g id="text_17">
-      <!-- 9 -->
-      <g transform="translate(821.246449 284.139194) scale(0.11 -0.11)">
-       <use xlink:href="#AppleSDGothicNeo-Regular-39"/>
+      <!-- 7 -->
+      <g transform="translate(821.598793 284.139194) scale(0.11 -0.11)">
+       <use xlink:href="#AppleSDGothicNeo-Regular-37"/>
       </g>
      </g>
     </g>
@@ -1604,7 +1604,7 @@ L 824.293793 257.101174
 L 824.293793 63.093901
 L 643.983448 63.093901
 z
-" clip-path="url(#p1325def0f7)" style="fill: #e8b98a"/>
+" clip-path="url(#p7f9e88c4a0)" style="fill: #e8b98a"/>
    </g>
    <g id="patch_15">
     <path d="M 643.983448 266.801537
@@ -1612,14 +1612,14 @@ L 932.48 266.801537
 " style="fill: none; stroke: #ccd9df; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_20">
-    <!-- 9개 -->
-    <g transform="translate(826.297241 163.739569) scale(0.11 -0.11)">
-     <use xlink:href="#AppleSDGothicNeo-Regular-39"/>
-     <use xlink:href="#AppleSDGothicNeo-Regular-ac1c" transform="translate(55.399994 0)"/>
+    <!-- 7개 -->
+    <g transform="translate(826.869655 163.739569) scale(0.11 -0.11)">
+     <use xlink:href="#AppleSDGothicNeo-Regular-37"/>
+     <use xlink:href="#AppleSDGothicNeo-Regular-ac1c" transform="translate(48.999985 0)"/>
     </g>
    </g>
    <g id="text_21">
-    <!-- subcategory 미매핑 9개 -->
+    <!-- subcategory 미매핑 7개 -->
     <g transform="translate(643.983448 17.813625) scale(0.132 -0.132)">
      <use xlink:href="#AppleSDGothicNeo-Regular-73"/>
      <use xlink:href="#AppleSDGothicNeo-Regular-75" transform="translate(41.499985 0)"/>
@@ -1637,8 +1637,8 @@ L 932.48 266.801537
      <use xlink:href="#AppleSDGothicNeo-Regular-b9e4" transform="translate(625.79985 0)"/>
      <use xlink:href="#AppleSDGothicNeo-Regular-d551" transform="translate(712.299835 0)"/>
      <use xlink:href="#AppleSDGothicNeo-Regular-20" transform="translate(798.79982 0)"/>
-     <use xlink:href="#AppleSDGothicNeo-Regular-39" transform="translate(825.099808 0)"/>
-     <use xlink:href="#AppleSDGothicNeo-Regular-ac1c" transform="translate(880.499802 0)"/>
+     <use xlink:href="#AppleSDGothicNeo-Regular-37" transform="translate(825.099808 0)"/>
+     <use xlink:href="#AppleSDGothicNeo-Regular-ac1c" transform="translate(874.099792 0)"/>
     </g>
     <!-- 해당 L4를 기준으로 별도 평가 -->
     <g transform="translate(643.983448 31.393537) scale(0.132 -0.132)">
@@ -1980,10 +1980,10 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p56ca3a102f">
+  <clipPath id="p2997ee859a">
    <rect x="95.84" y="53.393537" width="288.496552" height="213.408"/>
   </clipPath>
-  <clipPath id="p1325def0f7">
+  <clipPath id="p7f9e88c4a0">
    <rect x="643.983448" y="53.393537" width="288.496552" height="213.408"/>
   </clipPath>
  </defs>
