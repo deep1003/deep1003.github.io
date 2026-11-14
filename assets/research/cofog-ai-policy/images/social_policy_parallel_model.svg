@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">전체 AI 정책 토픽의 병렬 분석모형</title>
+  <desc id="desc">OECD AI 정책문서 전체에서 BERTopic 토픽을 생성하고, 주 분석은 사회정책 6개 영역으로 직접 연결하며 강건성 검증은 COFOG 10개 기능을 거쳐 사회정책 6개 영역으로 연결한다.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#176b64"/></marker>
+    <style>
+      .bg{fill:#f6f8f3}.box{fill:#fff;stroke:#8da9a1;stroke-width:2}.main{fill:#eaf2ed;stroke:#176b64;stroke-width:3}.robust{fill:#edf2f5;stroke:#4f7080;stroke-width:2}.final{fill:#fff5e7;stroke:#b77935;stroke-width:2}.line{fill:none;stroke:#176b64;stroke-width:3;marker-end:url(#arrow)}.dash{fill:none;stroke:#4f7080;stroke-width:3;stroke-dasharray:9 7;marker-end:url(#arrow)}.t{font:700 24px -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;fill:#173136}.s{font:500 17px -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;fill:#51686b}.label{font:700 18px -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;fill:#176b64}.rlabel{font:700 18px -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;fill:#4f7080}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="650" rx="24"/>
+  <rect class="box" x="55" y="250" width="260" height="130" rx="18"/>
+  <text class="t" x="185" y="300" text-anchor="middle"><tspan x="185">OECD AI 정책문서</tspan><tspan class="s" x="185" dy="34">전체 문서, 사전 영역 선별 없음</tspan></text>
+  <rect class="box" x="385" y="250" width="260" height="130" rx="18"/>
+  <text class="t" x="515" y="295" text-anchor="middle"><tspan x="515">BERTopic 토픽</tspan><tspan class="s" x="515" dy="32">STPI 정제와 연구자 검수</tspan><tspan class="s" x="515" dy="27">복수 토픽과 관련성 가중치</tspan></text>
+  <path class="line" d="M315 315 H378"/>
+  <text class="label" x="695" y="75">주 분석</text>
+  <rect class="main" x="720" y="95" width="300" height="155" rx="18"/>
+  <text class="t" x="870" y="142" text-anchor="middle"><tspan x="870">사회정책 6개 영역</tspan><tspan class="s" x="870" dy="32">사회보장 · 보건의료 · 고용</tspan><tspan class="s" x="870" dy="27">돌봄 · 교육 · 주택</tspan></text>
+  <path class="line" d="M645 285 C680 260 680 175 713 175"/>
+  <text class="rlabel" x="695" y="365">강건성 검증</text>
+  <rect class="robust" x="720" y="385" width="300" height="120" rx="18"/>
+  <text class="t" x="870" y="435" text-anchor="middle"><tspan x="870">COFOG 10개 기능</tspan><tspan class="s" x="870" dy="32">공적 목적의 국제표준 분류</tspan></text>
+  <path class="dash" d="M645 345 C680 370 680 445 713 445"/>
+  <rect class="final" x="720" y="535" width="300" height="85" rx="18"/>
+  <text class="t" x="870" y="570" text-anchor="middle"><tspan x="870">사회정책 6개 영역</tspan><tspan class="s" x="870" dy="28">COFOG N:N 교차표 경유</tspan></text>
+  <path class="dash" d="M870 505 V528"/>
+  <rect class="box" x="1060" y="250" width="110" height="130" rx="18"/>
+  <text class="t" x="1115" y="300" text-anchor="middle"><tspan x="1115">국가</tspan><tspan class="t" x="1115" dy="30">비교</tspan><tspan class="s" x="1115" dy="28">규모 · 구성</tspan></text>
+  <path class="line" d="M1020 175 C1045 175 1040 280 1053 290"/>
+  <path class="dash" d="M1020 578 C1045 560 1040 355 1053 340"/>
+  <text class="s" x="600" y="625" text-anchor="middle">COFOG는 상위계층이나 정답표가 아니라 직접 분류 결과의 수렴타당도와 경계 차이를 점검하는 검증 경로다.</text>
+</svg>
