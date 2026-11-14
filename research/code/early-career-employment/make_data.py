@@ -122,6 +122,7 @@ D['strata'] = {
  'ind': {'cats': ['Information services','Publishing','Computer programming','Professional services'], 'v': [-31.4,-27.4,-16.6,-11.6]},
  'edu': {'cats': ['Jan 2019 to Oct 2022','Nov 2022 onwards'], 'univ': [8.2,7.0], 'jc': [8.0,5.4]},
  'age': {'cats': ['Ages 20-24','Ages 25-29','Ages 15-29'], 'aug': [-1.8,-0.5,-1.0], 'oct': [-3.6,-0.5,-1.7]},
+ 'ei': {'cats': ['All industries','Manufacturing','Information and communications (incl. telecommunications)','Health and social work','Professional, scientific and technical'], 'v': [-54.1,-18,-15,-12,-8]},
  'us': {'cats': ['Ages 22-25, two most exposed quintiles','Ages 22-25, three least exposed quintiles'], 'v': [-11,10]}}
 json.dump(D, open('research/data/early-career-employment.json', 'w'), separators=(',', ':'))
 print(len(json.dumps(D)), 'bytes')
