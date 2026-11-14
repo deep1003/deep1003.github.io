@@ -52,10 +52,18 @@ D['kr_emp'] = [
  build('jc', 'Junior college (short-cycle)', [(2016,70.6,'r'),(2017,69.8,'r'),(2018,71.1,'r'),(2019,70.9,'r'),(2020,68.7,'r'),(2021,71.0,'e'),(2022,72.9,'r'),(2023,72.4,'r'),(2024,72.1,'r')]),
  build('ug', 'University (bachelor\'s)', [(2016,64.3,'r'),(2017,62.6,'r'),(2018,64.2,'r'),(2019,63.3,'r'),(2020,61.0,'r'),(2021,64.1,'e'),(2022,66.3,'r'),(2023,64.6,'r'),(2024,62.8,'r')]),
  build('gs', 'Graduate school (master\'s and doctoral)', [(2016,78.3,'r'),(2017,77.7,'r'),(2018,78.9,'r'),(2019,79.9,'e'),(2020,80.2,'e'),(2021,84.2,'e'),(2022,85.2,'e'),(2023,82.4,'r'),(2024,82.1,'r')]),
- build('phd', 'New doctorates, employed or placed at graduation', [(2015,76.4,'r'),(2016,75.5,'r'),(2017,74.3,'r'),(2023,70.9,'r'),(2024,70.4,'r'),(2025,66.7,'r')]),
- build('phd30', 'New doctorates aged under 30', [(2016,62.9,'r'),(2020,63.7,'r'),(2021,59.3,'r'),(2022,56.6,'r'),(2023,53.2,'r'),(2024,52.3,'r'),(2025,48.9,'r')]),
+ build('phd', 'New doctorates, all ages', [(2016,75.5,'r'),(2017,74.3,'r'),(2018,74.0,'r'),(2019,70.6,'r'),(2020,71.8,'r'),(2021,70.7,'r'),(2022,71.2,'r'),(2023,70.9,'r'),(2024,70.4,'r'),(2025,66.7,'r')]),
+ build('phd30', 'New doctorates aged under 30', [(2016,62.9,'r'),(2017,62.0,'r'),(2018,64.8,'r'),(2019,57.1,'r'),(2020,63.7,'r'),(2021,59.3,'r'),(2022,56.6,'r'),(2023,53.2,'r'),(2024,52.3,'r'),(2025,48.9,'r')]),
 ]
 for s in D['kr_emp']: s['obs'] = [o for o in s['obs'] if o['x'] >= 2016]
+# New doctorates by age band, 2025 (KRIVET): respondents and jobless share; bands pooled by respondent weights
+AGE = [('Under 30',569,51.1),('30-34',3836,44.2),('35-39',1899,32.8),('40-44',1218,22.1),('45-49',961,16.6),('50 and over',2015,22.7)]
+pool = lambda rows: round(100 - sum(n*j for _,n,j in rows)/sum(n for _,n,_ in rows), 1)
+p3039, pu40, p40 = pool(AGE[1:3]), pool(AGE[:3]), pool(AGE[3:])
+s3039 = build('phd3039', 'New doctorates aged 30 to 39 (2025 only)', [(2025,p3039,'d')]); s3039['fc'] = []; s3039['trends'] = []
+D['kr_emp'].append(s3039)
+D['phd_age'] = {'cats': [a for a,_,_ in AGE], 'n': [n for _,n,_ in AGE], 'emp': [round(100-j,1) for _,_,j in AGE],
+                'pooled': {'Under 30': 48.9, '30 to 39': p3039, 'Under 40': pu40, '40 and over': p40}}
 # --- Korea: youth (15-29) employment rate, annual ---
 ytd26 = round(sum([43.6,43.3,43.6,43.7,43.8,43.9,44.2,44.1,44.0,42.9]) / 10, 2)
 D['kr_youth'] = [build('y1529', 'Employment rate, ages 15-29', [(2016,41.7,'e'),(2017,42.1,'e'),(2018,42.7,'e'),(2019,43.5,'e'),(2020,42.2,'e'),(2021,44.2,'r'),(2022,46.6,'r'),(2023,46.5,'r'),(2024,46.1,'r'),(2025,45.0,'r'),(2026,ytd26,'d')])]
@@ -113,7 +121,7 @@ D['strata'] = {
  'us': {'cats': ['Ages 22-25, two most exposed quintiles','Ages 22-25, three least exposed quintiles'], 'v': [-11,10]}}
 json.dump(D, open('research/data/early-career-employment.json', 'w'), separators=(',', ':'))
 print(len(json.dumps(D)), 'bytes')
-print('KR quarterly', D['quarterly']['kr']['y2025'], D['quarterly']['kr']['y2026'], 'nov25', nov25)
+print('phd pooled', D['phd_age']['pooled']); print('KR quarterly', D['quarterly']['kr']['y2025'], D['quarterly']['kr']['y2026'], 'nov25', nov25)
 for s in D['kr_emp'] + D['kr_youth']: print(s['id'], s['obs'][-1], s['genai_slope'], [(f['x'], f['y'], f['lo'], f['hi']) for f in s['fc']])
 for l in D['grad']:
     for s in D['grad'][l]: print(l, s['id'], s['obs'][-1]['y'], [(f['x'], f['y']) for f in s['fc']])
