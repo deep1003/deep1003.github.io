@@ -1,0 +1,14 @@
+{
+  "input_all": 677,
+  "main_analysis": 671,
+  "held_out": 6,
+  "topics_excluding_outlier": 10,
+  "outlier_documents": 155,
+  "outlier_share": 0.23099850968703428,
+  "stability_adjusted_rand_index": 0.5535200492787964,
+  "countries_min_8_documents": 30,
+  "years_min": 1991,
+  "years_max": 2026,
+  "top_domain_agreement_share": 0.2,
+  "mean_domain_pearson_r": 0.5599159550530145
+}
