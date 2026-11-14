@@ -21,6 +21,14 @@ h3{font-size:1.05rem;margin:0 0 2px}
 .tile{border:1px solid var(--rule);border-radius:10px;padding:14px;background:var(--wash)}
 .tile b{display:block;font-size:1.7rem;line-height:1.1;color:var(--ink)}
 .tile span{display:block;font-size:.84rem;color:var(--soft);margin-top:6px}
+.ga{border:1px solid var(--rule);border-left:5px solid var(--kr);border-radius:12px;padding:20px 22px 14px;margin:22px 0;background:#fff}
+.eyebrow{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--faint);margin:0}
+.gah{border:0;margin:4px 0 6px;padding:0;font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.2}
+.gas{color:var(--soft);margin:0 0 8px;max-width:860px}
+.plot.gap{height:300px}
+.chain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.chain div{background:var(--wash);border-radius:8px;padding:10px 12px;font-size:.86rem;color:var(--soft)}
+.chain b{display:block;color:var(--ink);margin-bottom:3px}
 .fig{border:1px solid var(--rule);border-radius:12px;padding:18px 18px 12px;margin:18px 0}
 .fig .sub{color:var(--soft);font-size:.9rem;margin:0 0 10px;max-width:860px}
 .plot{position:relative;height:380px}
@@ -49,7 +57,7 @@ th:first-child,td:first-child{text-align:left}
 .band.ai{background:#1f497d1f}
 ul{padding-left:20px}li{margin:5px 0}
 .src li{font-size:.9rem}
-@media(max-width:820px){.tiles{grid-template-columns:repeat(2,1fr)}.grid3,.grid2{grid-template-columns:1fr}.plot{height:320px}}
+@media(max-width:820px){.tiles{grid-template-columns:repeat(2,1fr)}.chain{grid-template-columns:1fr}.grid3,.grid2{grid-template-columns:1fr}.plot{height:320px}}
 </style>
 </head>
 <body>
@@ -58,6 +66,19 @@ ul{padding-left:20px}li{margin:5px 0}
 <h1>Where does early-career employment decline as AI advances?</h1>
 <p class="lead">Graduate supply keeps rising at the master's and doctoral levels while the employment of new entrants weakens. This page tracks bachelor's, master's and doctoral output and employment from 2016, separates the COVID-19 period from the generative AI period, and projects each series to 2029. Korea is drawn in red in the cross-country figures, and new doctorates by age group are drawn in red tones in Figure 1.</p>
 <p class="meta">Working note, version of 14 November 2026. Youngsam Chun. Descriptive evidence, not a causal estimate.</p>
+
+<section class="ga" aria-label="Graphical abstract">
+  <p class="eyebrow">Graphical abstract</p>
+  <h2 class="gah">As AI spreads, jobs move from entrants to incumbents</h2>
+  <p class="gas">Korea, June 2022 to June 2026. In industries with high AI exposure, young workers lost 268,000 jobs while workers in their fifties gained 173,000. Outside those industries the two groups barely moved.</p>
+  <div class="plot gap"><canvas id="c0"></canvas></div>
+  <div class="chain">
+    <div><b>Who loses most</b><span>Bachelor's graduates (employment rate 66.3% to 62.8%, classes of 2022 to 2024), ages 20 to 24 (&minus;3.6 points in a year), and doctorates under 30 (62.9% to 48.9% placed, 2016 to 2025).</span></div>
+    <div><b>Who holds or gains</b><span>Ages 50 to 59 in the same AI-exposed industries, junior college and graduate school graduates (changes under one point).</span></div>
+    <div><b>Caveat</b><span>Descriptive evidence. Post-pandemic hiring normalisation and a preference for experienced hires act in the same period.</span></div>
+  </div>
+  <p class="cap">Change in jobs by age group and AI exposure of industry, thousands. Source: Bank of Korea Issue Note 2026-19, national pension subscriber data. Lower-exposure bars are residuals of published totals.</p>
+</section>
 
 <div class="tiles">
   <div class="tile"><b>62.8%</b><span>Employment rate of Korean university (bachelor's) graduates, class of 2024. Down 1.8 points in a year, the largest fall of any institution type.</span></div>
@@ -261,6 +282,13 @@ function seriesTable(el,list,key='y'){const yrs=[...new Set(list.flatMap(s=>s.ob
 function toggles(t,b,make){let ch;const go=()=>{ch&&ch.destroy();ch=make({trends:document.getElementById(t).checked,bands:document.getElementById(b).checked})};
   [t,b].forEach(i=>document.getElementById(i).addEventListener('change',go));go();return go}
 
+// Graphical abstract
+(()=>{const J=D.strata.jobs,lab={id:'lab',afterDatasetsDraw(ch){const{ctx}=ch,m=ch.getDatasetMeta(0);ctx.save();ctx.font='700 15px sans-serif';ctx.fillStyle=C.ink;ctx.textBaseline='middle';
+  m.data.forEach((b,i)=>{const v=J.v[i];ctx.textAlign=v<0?'right':'left';ctx.fillText((v>0?'+':'\u2212')+Math.abs(v)+'k',b.x+(v<0?-8:8),b.y)});ctx.restore()}};
+new Chart(document.getElementById('c0'),{type:'bar',plugins:[lab],data:{labels:['Ages 15-29, high AI exposure','Ages 15-29, lower AI exposure','Ages 50-59, high AI exposure','Ages 50-59, lower AI exposure'],
+  datasets:[{data:J.v,backgroundColor:[C.kr,'#f0a3a2','#2b2e33','#8a9099'],borderRadius:4,maxBarThickness:46}]},
+  options:{indexAxis:'y',maintainAspectRatio:false,layout:{padding:{right:10}},scales:{x:{min:-340,max:240,grid:{color:C.grid},border:{display:false},title:{display:true,text:'thousand jobs'}},y:{grid:{display:false},ticks:{font:{size:13},color:C.ink}}},
+    plugins:{regimes:false,legend:{display:false},tooltip:{callbacks:{label:it=>` ${it.raw} thousand jobs`}}}}})})();
 // Figure 1
 const E=D.kr_emp;[['ug',C.c2,1],['jc',C.c3],['gs',C.c4],['phd','#f2a09f'],['phd3039','#a01c1c'],['phd30',C.kr,1]].forEach(([id,c,em])=>{const s=E.find(x=>x.id===id);s.color=c;s.em=em});
 const E1=['ug','jc','gs','phd','phd3039','phd30'].map(i=>E.find(x=>x.id===i));
