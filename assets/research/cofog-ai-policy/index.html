@@ -5861,93 +5861,70 @@
         <div class="eyebrow">05 / Results</div>
         <h2>결과</h2>
         <p>
-          초기 자동분석은 토픽 구조를 확인했지만, 현재 모형으로 국가별 사회정책
-          포트폴리오를 확정하기에는 안정성이 충분하지 않았다.
+          정책공백은 정책의 부재가 아니라 비교국보다 낮은 상대적 정책관심으로
+          측정한다. 아래 결과는 휴먼 검수 전 탐색적 기준선이다.
         </p>
-        <details id="initial-analysis-20261114">
-          <summary>2026년 11월 14일 · OECD 전체 문서 초기분석</summary>
+        <details id="relative-policy-gap-20261114">
+          <summary>국가별 상대적 정책공백 분석</summary>
           <p>
-            OECD.AI 정책문서 후보 677건 중 원문 근거 보류 6건을 제외한 671건을
-            사회정책 사전선별 없이 BERTopic에 투입했다. 분석기간은 1991–2026년이다.
-            아래 수치는 휴먼 검수 전 자동분석 결과다.
+            OECD.AI 문서 전체에서 생성한 공통 토픽을 기준으로, 국가의 토픽 비중에서
+            나머지 비교국의 토픽 비중을 뺀 공개정책관심도(Revealed Policy Attention,
+            RPA)를 계산했다. 음수는 상대적 공백, 양수는 상대적 집중을 뜻하며 정책의
+            적정성·성과·필요성은 뜻하지 않는다.
           </p>
+          <p><strong>RPA(c,t) = 100 × [국가 c의 토픽 t 비중 − 나머지 국가의 토픽 t 비중]</strong></p>
           <div class="table-wrap">
             <table>
-              <thead><tr><th>진단항목</th><th>결과</th><th>해석</th></tr></thead>
+              <thead><tr><th>분석 기준</th><th>적용</th></tr></thead>
               <tbody>
-                <tr><td>공통 토픽</td><td>10개</td><td>이상치 토픽 제외</td></tr>
-                <tr><td>이상치 문서</td><td>155건, 23.1%</td><td>어느 토픽에도 안정적으로 묶이지 않음</td></tr>
-                <tr><td>시드 간 안정성</td><td>ARI 0.554</td><td>중간 수준으로 최종 추론에 부족</td></tr>
-                <tr><td>국가 비교 가능 표본</td><td>30개국</td><td>국가별 최소 8건 기준</td></tr>
-                <tr><td>직접 경로와 COFOG 경로의 상위영역 일치</td><td>20.0%</td><td>두 구성개념이 아직 수렴하지 않음</td></tr>
-                <tr><td>6개 영역별 평균 상관</td><td>r = 0.560</td><td>영역별 편차가 커 평균만으로 판단하지 않음</td></tr>
+                <tr><td>비교표본</td><td>토픽 할당 문서 349건, 24개국</td></tr>
+                <tr><td>포함 기준</td><td>국가별 토픽 할당 문서 8건 이상</td></tr>
+                <tr><td>비교 기준</td><td>해당 국가를 제외한 나머지 23개국의 통합 비중</td></tr>
+                <tr><td>불확실성</td><td>2,000회 부트스트랩 95% 구간</td></tr>
+                <tr><td>민감도</td><td>국가 동일가중 기준과 부호 일치율 97.2%</td></tr>
               </tbody>
             </table>
           </div>
-          <p>
-            발견된 군집에는 공공행정용 생성형 AI, 윤리·고위험 지침, 연구개발
-            자금·컴퓨팅, 국가전략, 교육·문해력, 개인정보보호, 규제 샌드박스가
-            나타났다. 다만 우크라이나·발칸 국가 등 국가 또는 지역 고유 문서군도
-            별도 토픽으로 형성됐다. 이는 정책내용과 국가·언어 표지가 함께 군집을
-            좌우한다는 진단이다.
-          </p>
           <details>
-            <summary>토픽–사회정책 6개 영역 관련성</summary>
-            <p>
-              토픽별 문서 임베딩 중심과 여섯 영역 정의의 코사인 유사도를
-              토픽 내부 상대적 관련성 가중치로 변환했다. 값은 확률·정책성과·예산
-              비중이 아니다.
-            </p>
+            <summary>24개국 상대적 정책관심 지도</summary>
             <img
-              src="images/analysis_20261114/topic_social_heatmap.svg"
-              alt="BERTopic 토픽과 사회정책 6개 영역의 초기 의미 관련성 가중치"
+              src="images/analysis_20261114/country_social_domain_rpa_heatmap.svg"
+              alt="24개국의 사회정책 6개 영역 상대적 정책관심 차이"
+              style="width:100%;max-width:940px;height:auto"
+            />
+            <p class="small">빨간색은 비교국보다 높은 관심, 파란색은 낮은 관심이다.</p>
+          </details>
+          <details>
+            <summary>한국의 탐색적 상대적 정책공백</summary>
+            <img
+              src="images/analysis_20261114/korea_social_domain_rpa.svg"
+              alt="한국의 사회정책 6개 영역 상대적 정책공백과 부트스트랩 구간"
               style="width:100%;max-width:900px;height:auto"
             />
-          </details>
-          <details>
-            <summary>국가별 탐색적 프로필</summary>
             <p>
-              국가별 토픽 포함률로 여섯 영역의 관련성 가중치를 집계했다. 군집
-              안정성과 국가·언어 효과가 해결되기 전에는 국가 순위나 정책 공백으로
-              해석하지 않는다.
+              한국은 교육 -6.71%p와 사회보장 -1.40%p에서 상대적 관심이 낮았고
+              95% 부트스트랩 구간도 0 아래였다. 고용은 +6.41%p로 높았다.
+              주거 -1.76%p, 돌봄 -0.36%p, 보건의료 +3.82%p는 구간이 0을 포함해
+              방향을 확정하지 않는다.
             </p>
-            <img
-              src="images/analysis_20261114/country_social_profiles.svg"
-              alt="OECD 정책문서 수가 많은 국가의 탐색적 사회정책 관련성 프로필"
-              style="width:100%;max-width:920px;height:auto"
-            />
           </details>
           <details>
-            <summary>직접 경로와 COFOG 경유 경로 비교</summary>
+            <summary>판정과 한계</summary>
             <p>
-              사회보장 r=0.902, 고용 r=0.785, 교육 r=0.852로 비교적 높았으나,
-              보건의료 r=-0.123, 돌봄 r=0.410, 주거 r=0.533으로 차이가 컸다.
-              특히 COFOG 대분류만으로는 고용·돌봄·주거의 세부 목적을 충분히
-              구분하기 어렵다. 강건성 검증은 COFOG 하위기능을 적용해 다시 수행한다.
+              상대적 정책공백 분석은 가능하다. 그러나 한국의 유효 표본이 8건이고,
+              BERTopic 시드 안정성은 ARI 0.554이며 일부 토픽에 국가·지역 표지가
+              남아 있다. 따라서 현재 수치는 정책 제안의 최종 근거가 아니라 토픽
+              전처리·STPI 사전 대조·휴먼 검수 후 재검증할 기준선이다.
             </p>
-          </details>
-          <details>
-            <summary>판정과 다음 분석</summary>
-            <ol>
-              <li>국가명·기관명·상투적 OECD 문구가 군집을 지배하지 않도록 제거한다.</li>
-              <li>문서를 정책문장 또는 의미 단락으로 분할한 뒤 문서 단위로 재집계한다.</li>
-              <li>STPI 토픽 풀로 토픽의 중복·누락을 대조하고 토픽명·정의를 휴먼 검수한다.</li>
-              <li>COFOG 하위기능으로 재연결한 뒤 시드·임계값 민감도와 국가별 결과를 확정한다.</li>
-            </ol>
-            <p class="small">
-              결론: 연구 설계는 실행 가능하지만, 이번 실행은 최종 국가 비교가 아니라
-              전처리와 토픽 정제 필요성을 확인한 진단 단계다.
-            </p>
+            <p class="small">참조: OECD Expert Roundtable KDI 발표자료(2026), 정책공백을 비교국 대비 음의 RPA로 정의.</p>
           </details>
           <details>
             <summary>재현용 산출물</summary>
             <ul>
-              <li><a href="data/analysis_20261114/analysis_summary.json">분석 요약 JSON</a></li>
-              <li><a href="data/analysis_20261114/topic_inventory.csv">토픽 목록 CSV</a></li>
-              <li><a href="data/analysis_20261114/topic_social_policy_weights.csv">토픽–사회정책 가중치 CSV</a></li>
-              <li><a href="data/analysis_20261114/topic_cofog_weights.csv">토픽–COFOG 가중치 CSV</a></li>
-              <li><a href="data/analysis_20261114/direct_cofog_agreement.csv">두 경로 비교 CSV</a></li>
-              <li><a href="data/analysis_20261114/country_social_policy_profiles.csv">국가별 탐색 프로필 CSV</a></li>
+              <li><a href="data/analysis_20261114/relative_gap_summary.csv">분석 요약 CSV</a></li>
+              <li><a href="data/analysis_20261114/country_topic_relative_policy_gaps.csv">국가×토픽 RPA CSV</a></li>
+              <li><a href="data/analysis_20261114/country_social_domain_relative_policy_gaps.csv">국가×사회정책 영역 RPA CSV</a></li>
+              <li><a href="data/analysis_20261114/topic_reference.csv">토픽 참조표 CSV</a></li>
             </ul>
           </details>
         </details>
