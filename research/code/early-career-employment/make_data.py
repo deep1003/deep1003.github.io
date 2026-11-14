@@ -67,6 +67,10 @@ D['phd_age'] = {'cats': [a for a,_,_ in AGE], 'n': [n for _,n,_ in AGE], 'emp': 
 # --- Korea: youth (15-29) employment rate, annual ---
 ytd26 = round(sum([43.6,43.3,43.6,43.7,43.8,43.9,44.2,44.1,44.0,42.9]) / 10, 2)
 D['kr_youth'] = [build('y1529', 'Employment rate, ages 15-29', [(2016,41.7,'e'),(2017,42.1,'e'),(2018,42.7,'e'),(2019,43.5,'e'),(2020,42.2,'e'),(2021,44.2,'r'),(2022,46.6,'r'),(2023,46.5,'r'),(2024,46.1,'r'),(2025,45.0,'r'),(2026,ytd26,'d')])]
+# --- Korea: employment rate of older age groups, annual (2024 reported; 2025 derived from published change; earlier years approximate) ---
+D['kr_old'] = [
+ build('a5059', 'Employment rate, ages 50-59', [(2016,74.4,'e'),(2017,75.3,'e'),(2018,75.2,'e'),(2019,75.4,'e'),(2020,74.3,'e'),(2021,75.0,'e'),(2022,77.1,'e'),(2023,77.4,'e'),(2024,77.5,'r'),(2025,77.6,'d')]),
+ build('a60', 'Employment rate, ages 60 and over', [(2016,39.5,'e'),(2017,39.9,'e'),(2018,40.1,'e'),(2019,41.5,'e'),(2020,42.4,'e'),(2021,42.9,'e'),(2022,44.5,'e'),(2023,45.5,'e'),(2024,45.9,'r'),(2025,46.8,'d')])]
 # --- Degree output, thousands ---
 G = {
  'bachelor': {
