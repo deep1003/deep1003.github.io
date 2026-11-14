@@ -6,7 +6,7 @@
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <title>담론 분석을 통한 AI 정책의 현황과 공백</title>
     <meta
-      content="OECD AI 정책문서 전체에서 BERTopic 토픽을 발견하고 사회정책 6개 영역의 국가별 포트폴리오를 비교하며 COFOG 경로로 강건성을 검증하는 연구계획."
+      content="Policy Commons AI 정책문서에서 BERTopic 공통 토픽을 발견하고 사회정책 6개 영역의 국가별 상대적 정책공백을 비교하며 OECD와 COFOG 경로로 강건성을 검증하는 연구."
       name="description"
     />
     <style>
@@ -635,7 +635,7 @@
         <div class="eyebrow">01 / Abstract</div>
         <h2>초록</h2>
         <p class="section-lead">
-          OECD AI 정책문서 전체에 BERTopic을 적용해 공통 토픽을 먼저 발견하고,
+          Policy Commons AI 정책문서에 BERTopic을 적용해 공통 토픽을 먼저 발견하고,
           기존 STPI 토픽 풀과 연구자 검수로 정제한다. 주 분석은 확정 토픽을
           사회보장·보건의료·고용·돌봄·교육·주택의 사회정책 6개 영역에 직접
           연결해 국가별 포트폴리오를 비교한다. 강건성 검증에서는 같은 토픽을
@@ -670,7 +670,7 @@
           </p>
           <p>
             <strong>토픽 발견</strong>에서는 사회정책 문서를 미리 선별하지 않고
-            OECD AI 정책문서 전체를 사용한다. <strong>주 분석</strong>은 전체 AI
+            Policy Commons AI 정책문서 전체를 사용한다. <strong>주 분석</strong>은 전체 AI
             정책 토픽에서 사회정책의 상대적 규모와 6개 영역의 구성을 비교하고,
             <strong>강건성 검증</strong>은 COFOG를 경유한 결과와의 일치·불일치를
             확인한다.
@@ -5454,16 +5454,15 @@
                     <td>OECD 분석 후보본</td>
                     <td>677건</td>
                     <td>
-                      주 분석 자료. OECD 정책문서 전체에서 토픽을 발견하며
-                      사회정책 문서를 사전에 선별하지 않는다.
+                      단일 출처 민감도 분석과 정책 이니셔티브 비교에 사용한다.
                     </td>
                   </tr>
                   <tr>
                     <td>Policy Commons 후보본</td>
                     <td>13,824건</td>
                     <td>
-                      OECD 토픽의 누락과 소스 편향을 점검하는 확장·민감도 분석
-                      자료다.
+                      주 분석 자료. 유효 국가문서 11,170건에서 사회정책 문서를
+                      사전 선별하지 않고 공통 토픽을 발견한다.
                     </td>
                   </tr>
                   <tr>
@@ -5486,9 +5485,10 @@
               </table>
             </div>
             <p>
-              <strong>사용 원칙</strong> · OECD 677건을 주 분석 모집단으로
-              고정한다. Policy Commons와 통합본은 동일한 전처리·토픽 정의를
-              적용한 확장 분석에만 사용한다. 발행국과 정책 적용국, 문서 발행일과
+              <strong>사용 원칙</strong> · Policy Commons 단일 출처를 국가 비교의
+              주 분석 모집단으로 사용한다. OECD는 단일 출처 민감도 분석,
+              통합본은 한국어 문서 보강의 영향을 확인하는 확장 분석으로 분리한다.
+              발행국과 정책 적용국, 문서 발행일과
               정책 시작일을 구분하고 국가집단과 국제기구는 국가 비교 분모에서
               분리한다.
             </p>
@@ -5864,11 +5864,11 @@
           정책공백은 정책의 부재가 아니라 비교국보다 낮은 상대적 정책관심으로
           측정한다. 아래 결과는 휴먼 검수 전 탐색적 기준선이다.
         </p>
-        <details id="relative-policy-gap-20261114">
+        <details id="relative-policy-gap-20261115">
           <summary>국가별 상대적 정책공백 분석</summary>
           <p>
-            OECD.AI 문서 전체에서 생성한 공통 토픽을 기준으로, 국가의 토픽 비중에서
-            나머지 비교국의 토픽 비중을 뺀 공개정책관심도(Revealed Policy Attention,
+            Policy Commons 문서 전체에서 생성한 공통 토픽을 기준으로, 국가의 토픽 비중에서
+            나머지 비교국의 토픽 비중을 뺀 현시정책관심도(Revealed Policy Attention,
             RPA)를 계산했다. 음수는 상대적 공백, 양수는 상대적 집중을 뜻하며 정책의
             적정성·성과·필요성은 뜻하지 않는다.
           </p>
@@ -5877,19 +5877,37 @@
             <table>
               <thead><tr><th>분석 기준</th><th>적용</th></tr></thead>
               <tbody>
-                <tr><td>비교표본</td><td>토픽 할당 문서 349건, 24개국</td></tr>
-                <tr><td>포함 기준</td><td>국가별 토픽 할당 문서 8건 이상</td></tr>
-                <tr><td>비교 기준</td><td>해당 국가를 제외한 나머지 23개국의 통합 비중</td></tr>
-                <tr><td>불확실성</td><td>2,000회 부트스트랩 95% 구간</td></tr>
-                <tr><td>민감도</td><td>국가 동일가중 기준과 부호 일치율 97.2%</td></tr>
+                <tr><td>분석 모집단</td><td>2017–2026년 유효 국가문서 11,170건</td></tr>
+                <tr><td>토픽 할당</td><td>10,723건, 29개 공통 토픽</td></tr>
+                <tr><td>이상치</td><td>447건, 4.0%</td></tr>
+                <tr><td>시드 안정성</td><td>ARI 0.827</td></tr>
+                <tr><td>국가 포함 기준</td><td>기간별 토픽 할당 문서 5건 이상</td></tr>
               </tbody>
             </table>
           </div>
           <details>
-            <summary>24개국 상대적 정책관심 지도</summary>
+            <summary>데이터셋 비교와 주 분석 자료 선택</summary>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>출처</th><th>2017–2021 국가문서</th><th>2022–2026 국가문서</th><th>한국</th><th>용도</th></tr></thead>
+                <tbody>
+                  <tr><td>OECD</td><td>194건</td><td>429건</td><td>4건 · 10건</td><td>민감도 분석</td></tr>
+                  <tr><td>Policy Commons</td><td>2,595건</td><td>8,575건</td><td>15건 · 39건</td><td>주 분석</td></tr>
+                  <tr><td>전체 통합본</td><td colspan="2">전체 16,542건</td><td>한국 보강자료 집중</td><td>확장 분석</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="small">
+              통합본은 한국어 보고서 보강으로 표본은 가장 크지만 국가별 수집강도가
+              다르다. 국가 비교의 주 분석은 단일 출처인 Policy Commons로 고정하고,
+              OECD와 통합본은 결과의 출처 민감도를 확인하는 데 사용한다.
+            </p>
+          </details>
+          <details>
+            <summary>최근기간 국가별 상대적 정책관심 지도</summary>
             <img
-              src="images/analysis_20261114/country_social_domain_rpa_heatmap.svg"
-              alt="24개국의 사회정책 6개 영역 상대적 정책관심 차이"
+              src="images/analysis_20261115/policy_commons_country_rpa_heatmap_2022_2026.svg"
+              alt="Policy Commons 최근기간 주요 30개국의 사회정책 6개 영역 상대적 정책관심 차이"
               style="width:100%;max-width:940px;height:auto"
             />
             <p class="small">빨간색은 비교국보다 높은 관심, 파란색은 낮은 관심이다.</p>
@@ -5897,35 +5915,35 @@
           <details>
             <summary>한국의 탐색적 상대적 정책공백</summary>
             <img
-              src="images/analysis_20261114/korea_social_domain_rpa_period_comparison.svg"
+              src="images/analysis_20261115/korea_policy_commons_rpa_period_comparison.svg"
               alt="한국의 사회정책 6개 영역 상대적 정책관심을 최근기간 막대와 이전기간 빈 삼각형으로 비교"
               style="width:100%;max-width:900px;height:auto"
             />
             <p>
-              최근기간(2022-2026)은 고용 +8.19%p, 보건의료 +0.58%p, 돌봄
-              -0.03%p, 주거 -1.75%p, 사회보장 -1.79%p, 교육 -5.20%p다.
-              빈 삼각형은 이전기간(2017-2021) 추정치다. 한국 문서는 각각 5건과
-              3건이므로 방향을 확정하지 않고 토픽 정제 후 재분석한다.
+              최근기간(2022-2026)은 고용 +1.99%p, 보건의료 +1.50%p, 사회보장
+              +0.03%p, 교육 -1.13%p, 돌봄 -1.19%p, 주거 -1.20%p다.
+              빈 삼각형은 이전기간(2017-2021) 추정치다. 한국의 토픽 할당 문서는
+              최근 36건, 이전 13건으로 확대됐다.
             </p>
           </details>
           <details>
             <summary>판정과 한계</summary>
             <p>
-              상대적 정책공백 분석은 가능하다. 그러나 한국의 유효 표본이 8건이고,
-              BERTopic 시드 안정성은 ARI 0.554이며 일부 토픽에 국가·지역 표지가
-              남아 있다. 따라서 현재 수치는 정책 제안의 최종 근거가 아니라 토픽
-              전처리·STPI 사전 대조·휴먼 검수 후 재검증할 기준선이다.
+              Policy Commons 단일 출처 확장으로 표본과 토픽 안정성이 개선됐다.
+              다만 일부 토픽명에 관할지역·문서형식 표지가 남아 있고, 사회정책 연결은
+              아직 자동 의미 가중치다. 따라서 현재 수치는 정책 제안의 최종 근거가
+              아니라 STPI 사전 대조와 휴먼 검수 전의 확장 기준선이다.
             </p>
             <p class="small">참조: OECD Expert Roundtable KDI 발표자료(2026), 정책공백을 비교국 대비 음의 RPA로 정의.</p>
           </details>
           <details>
             <summary>재현용 산출물</summary>
             <ul>
-              <li><a href="data/analysis_20261114/relative_gap_summary.csv">분석 요약 CSV</a></li>
-              <li><a href="data/analysis_20261114/country_topic_relative_policy_gaps.csv">국가×토픽 RPA CSV</a></li>
-              <li><a href="data/analysis_20261114/country_social_domain_relative_policy_gaps.csv">국가×사회정책 영역 RPA CSV</a></li>
-              <li><a href="data/analysis_20261114/korea_social_domain_rpa_by_period.csv">한국 기간별 RPA CSV</a></li>
-              <li><a href="data/analysis_20261114/topic_reference.csv">토픽 참조표 CSV</a></li>
+              <li><a href="data/analysis_20261115/analysis_summary.json">분석 요약 JSON</a></li>
+              <li><a href="data/analysis_20261115/source_coverage_comparison.csv">OECD·Policy Commons 표본 비교 CSV</a></li>
+              <li><a href="data/analysis_20261115/topic_inventory.csv">Policy Commons 토픽 목록 CSV</a></li>
+              <li><a href="data/analysis_20261115/country_social_domain_rpa_by_period.csv">국가·기간별 RPA CSV</a></li>
+              <li><a href="data/analysis_20261115/stability_check.json">시드 안정성 검증 JSON</a></li>
             </ul>
           </details>
         </details>
