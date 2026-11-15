@@ -5862,15 +5862,17 @@
         <h2>결과</h2>
         <p>
           정책공백은 정책의 부재가 아니라 비교국보다 낮은 상대적 정책관심으로
-          측정한다. 아래 결과는 휴먼 검수 전 탐색적 기준선이다.
+          측정한다. 아래 결과는 자동 분류값을 그대로 제시하지 않고 토픽 수준의
+          명시적 근거를 검수한 보수적 중간 결과다.
         </p>
         <details id="relative-policy-gap-20261115">
           <summary>국가별 상대적 정책공백 분석</summary>
           <p>
-            Policy Commons 문서 전체에서 생성한 공통 토픽을 기준으로, 국가의 토픽 비중에서
-            나머지 비교국의 토픽 비중을 뺀 현시정책관심도(Revealed Policy Attention,
-            RPA)를 계산했다. 음수는 상대적 공백, 양수는 상대적 집중을 뜻하며 정책의
-            적정성·성과·필요성은 뜻하지 않는다.
+            Policy Commons 전체 문서에 BERTopic을 적용하고, 발견 토픽을 기존 STPI
+            L3 공간과 대조해 토픽 포트폴리오 후보를 구성했다. 이후 정의와 대표문서에서
+            사회정책 목적이 명시된 토픽만 6개 영역에 연결했다. 국가의 영역 비중에서
+            나머지 비교국의 영역 비중을 뺀 현시정책관심도(Revealed Policy Attention,
+            RPA)를 사용한다.
           </p>
           <p><strong>RPA(c,t) = 100 × [국가 c의 토픽 t 비중 − 나머지 국가의 토픽 t 비중]</strong></p>
           <div class="table-wrap">
@@ -5878,7 +5880,10 @@
               <thead><tr><th>분석 기준</th><th>적용</th></tr></thead>
               <tbody>
                 <tr><td>분석 모집단</td><td>2017–2026년 유효 국가문서 11,170건</td></tr>
-                <tr><td>토픽 할당</td><td>10,723건, 29개 공통 토픽</td></tr>
+                <tr><td>BERTopic 발견</td><td>29개 공통 토픽</td></tr>
+                <tr><td>STPI 대조</td><td>코사인 유사도 0.50 이상, 상위 5개·최고점 0.10 이내 기준으로 L3 후보 81개</td></tr>
+                <tr><td>검수된 사회정책 토픽</td><td>5개 토픽, 2,225문서(전체의 19.9%)</td></tr>
+                <tr><td>관측 영역</td><td>고용·보건의료·사회보장·교육·돌봄. 주거는 독립 토픽 미발견</td></tr>
                 <tr><td>이상치</td><td>447건, 4.0%</td></tr>
                 <tr><td>시드 안정성</td><td>ARI 0.827</td></tr>
                 <tr><td>국가 포함 기준</td><td>기간별 토픽 할당 문서 5건 이상</td></tr>
@@ -5904,35 +5909,22 @@
             </p>
           </details>
           <details>
-            <summary>최근기간 국가별 상대적 정책관심 지도</summary>
-            <img
-              src="images/analysis_20261115/policy_commons_country_rpa_heatmap_2022_2026.svg"
-              alt="Policy Commons 최근기간 주요 30개국의 사회정책 6개 영역 상대적 정책관심 차이"
-              style="width:100%;max-width:940px;height:auto"
-            />
-            <p class="small">빨간색은 비교국보다 높은 관심, 파란색은 낮은 관심이다.</p>
-          </details>
-          <details>
-            <summary>한국의 탐색적 상대적 정책공백</summary>
-            <img
-              src="images/analysis_20261115/korea_policy_commons_rpa_period_comparison.svg"
-              alt="한국의 사회정책 6개 영역 상대적 정책관심을 최근기간 막대와 이전기간 빈 삼각형으로 비교"
-              style="width:100%;max-width:900px;height:auto"
-            />
+            <summary>한국 분석 가능성 판정</summary>
             <p>
-              최근기간(2022-2026)은 고용 +1.99%p, 보건의료 +1.50%p, 사회보장
-              +0.03%p, 교육 -1.13%p, 돌봄 -1.19%p, 주거 -1.20%p다.
-              빈 삼각형은 이전기간(2017-2021) 추정치다. 한국의 토픽 할당 문서는
-              최근 36건, 이전 13건으로 확대됐다.
+              검수된 사회정책 토픽에 연결된 한국 문서는 2017–2021년 2건,
+              2022–2026년 4건이다. 기간별 최소 5건 기준을 충족하지 않으므로
+              한국의 상대적 정책공백 수치와 막대그래프는 제시하지 않는다.
+              한국어 정책자료를 포함한 통합 코퍼스로 확장한 뒤 다시 계산한다.
             </p>
           </details>
           <details>
             <summary>판정과 한계</summary>
             <p>
-              Policy Commons 단일 출처 확장으로 표본과 토픽 안정성이 개선됐다.
-              다만 일부 토픽명에 관할지역·문서형식 표지가 남아 있고, 사회정책 연결은
-              아직 자동 의미 가중치다. 따라서 현재 수치는 정책 제안의 최종 근거가
-              아니라 STPI 사전 대조와 휴먼 검수 전의 확장 기준선이다.
+              의미 유사도를 6개 영역으로 강제 정규화하면 거의 모든 문서가 사회정책으로
+              분류되는 과대포착이 발생했다. 따라서 해당 자동 결과는 폐기하고, 명시적
+              토픽만 남겼다. 현재 Policy Commons만으로는 한국 비교가 불가능하며,
+              후속 분석은 2026-08-03 STPI 매핑 정본을 기준으로 버전 차이를 점검한 뒤
+              통합 코퍼스로 확장한다.
             </p>
             <p class="small">참조: OECD Expert Roundtable KDI 발표자료(2026), 정책공백을 비교국 대비 음의 RPA로 정의.</p>
           </details>
@@ -5944,6 +5936,9 @@
               <li><a href="data/analysis_20261115/topic_inventory.csv">Policy Commons 토픽 목록 CSV</a></li>
               <li><a href="data/analysis_20261115/country_social_domain_rpa_by_period.csv">국가·기간별 RPA CSV</a></li>
               <li><a href="data/analysis_20261115/stability_check.json">시드 안정성 검증 JSON</a></li>
+              <li><a href="data/analysis_20261115/curated_analysis_summary.json">보수적 분석 요약 JSON</a></li>
+              <li><a href="data/analysis_20261115/reviewed_topic_social_crosswalk.csv">검수된 토픽–사회정책 연결표 CSV</a></li>
+              <li><a href="data/analysis_20261115/curated_country_social_domain_rpa.csv">표본 기준을 충족한 국가·기간별 RPA CSV</a></li>
             </ul>
           </details>
         </details>

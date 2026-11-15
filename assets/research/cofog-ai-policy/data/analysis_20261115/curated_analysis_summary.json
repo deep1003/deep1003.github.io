@@ -1,0 +1,18 @@
+{
+  "input_documents": 11170,
+  "bertopic_topics": 29,
+  "stpi_candidate_topics": 81,
+  "reviewed_social_bertopic_topics": 5,
+  "social_mapped_documents": 2225,
+  "social_mapping_rows": 2470,
+  "social_retention_of_input": 0.19919427036705462,
+  "observed_domains": [
+    "health_care",
+    "education",
+    "employment",
+    "social_security",
+    "social_care"
+  ],
+  "unobserved_domain": "housing",
+  "status": "provisional automated discovery plus explicit topic-level review; requires user human review"
+}
