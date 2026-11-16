@@ -16,7 +16,7 @@
   const groupName = g => ({short:'Short-task, high exposure',long:'Long-task, high exposure',other:'Other occupations'}[g] || 'Unmapped');
   const ranks = o => ({content:o.rankContent, horizon:o['rank_' + model()], gain:o.rankContent-o['rank_' + model()]});
   const taskScore = r => r[7 + modelIndex()];
-  const areaRadius = employment => 18 * Math.sqrt(Math.log1p(employment)/Math.log1p(maxEmployment));
+  const areaRadius = employment => 28 * Math.sqrt(employment/maxEmployment);
 
   function colour(value) {
     const stops = [[15,10,38],[85,32,109],[181,54,79],[245,135,48],[252,246,164]];
@@ -36,6 +36,57 @@
   }
   const occupationHeaders = ['ksco8_3','occupation_author_translation','content_bge','horizon_bge','predicted_human_minutes','employment_mean_2023_2025','content_rank_all162','horizon_rank_all162','group','model_snapshot'];
 
+  const representativeLabels = [
+    ['531','Telecom sales'], ['224','Data professionals'],
+    ['222','Software professionals'], ['269','Other education professionals'],
+    ['261','University lecturers'], ['331','Accounting clerks'],
+    ['510','Sales representatives'], ['244','Nurses'],
+    ['262','School teachers'], ['263','Kindergarten teachers'],
+    ['611','Crop growers'], ['872','Drivers'],
+    ['941','Cleaners'], ['922','Delivery workers'], ['451','Cooks']
+  ];
+
+  function mapLabels(sx, sy) {
+    const nodes = occupations.map(o => ({x:sx(o.minutes),y:sy(o.content),r:areaRadius(o.employment)}));
+    const placed = [];
+    const overlaps = (a,b) => a.x < b.x+b.w+5 && a.x+a.w+5 > b.x && a.y < b.y+b.h+4 && a.y+a.h+4 > b.y;
+    const marks = [];
+    for (const [code,label] of representativeLabels) {
+      const o = byOcc[code];
+      if (!o) continue;
+      const x=sx(o.minutes),y=sy(o.content),radius=areaRadius(o.employment);
+      if (x < plot.left || x > plot.left+plot.width || y < plot.top || y > plot.top+plot.height) continue;
+      const w=label.length*6.1+10,h=19;
+      let best=null;
+      // Score nearby, straight-line placements, excluding previous label boxes.
+      for (const distance of [radius+10,radius+27,radius+47,radius+72,radius+105,radius+140]) {
+        for (const [dx,dy] of [[0,-1],[1,-0.65],[-1,-0.65],[1,0],[-1,0],[0,1],[1,0.75],[-1,0.75]]) {
+          const box={x:x+dx*distance-w/2,y:y+dy*distance-h/2,w,h};
+          if (box.x < plot.left+3 || box.x+w > plot.left+plot.width-3 || box.y < plot.top+2 || box.y+h > plot.top+plot.height-2 || placed.some(b=>overlaps(box,b))) continue;
+          let obstruction=0;
+          for (const n of nodes) {
+            const nearX=Math.max(box.x,Math.min(n.x,box.x+w));
+            const nearY=Math.max(box.y,Math.min(n.y,box.y+h));
+            const separation=Math.hypot(n.x-nearX,n.y-nearY);
+            if (separation < n.r+3) obstruction += (n.r+3-separation)*20;
+          }
+          const cost=distance+obstruction+(dy>0?8:0);
+          if (!best || cost < best.cost) best={...box,cost};
+        }
+      }
+      if (!best) continue;
+      placed.push(best);
+      const endX=Math.max(best.x,Math.min(x,best.x+best.w));
+      const endY=Math.max(best.y,Math.min(y,best.y+best.h));
+      const length=Math.hypot(endX-x,endY-y);
+      const startX=x+(endX-x)*Math.min(1,radius/Math.max(length,1));
+      const startY=y+(endY-y)*Math.min(1,radius/Math.max(length,1));
+      const line=length>radius+4?`<line x1="${startX}" y1="${startY}" x2="${endX}" y2="${endY}" class="label-leader"/>`:'';
+      marks.push(`<g data-label="${code}" class="occupation-label">${line}<text x="${best.x+best.w/2}" y="${best.y+13}" text-anchor="middle">${esc(label)}</text></g>`);
+    }
+    return marks.join('');
+  }
+
   function renderMap() {
     const sx = v => plot.left + zoom.x + v/plot.xMax*plot.width*zoom.k;
     const sy = v => plot.top + zoom.y + (1-v/plot.yMax)*plot.height*zoom.k;
@@ -48,12 +99,12 @@
       const e = (1-(i*plot.height/5-zoom.y)/(plot.height*zoom.k))*plot.yMax;
       grid.push(`<line x1="${plot.left}" x2="${plot.left+plot.width}" y1="${y}" y2="${y}" stroke="#e2e7e2"/><text x="${plot.left-12}" y="${y+4}" text-anchor="end">${e.toFixed(2)}</text>`);
     }
-    const dots = [...occupations].sort((a,b)=>b.employment-a.employment).map(o=>`<circle data-occ="${o.code}" cx="${sx(o.minutes)}" cy="${sy(o.content)}" r="${areaRadius(o.employment)}" fill="${colour(o[model()])}" fill-opacity="0.9" stroke="#53505a" stroke-width="0.7" tabindex="0" role="button" aria-label="${esc(o.name)}, content ${o.content.toFixed(3)}, horizon ${o[model()].toFixed(3)}, human minutes ${o.minutes.toFixed(1)}, employment ${fmt(o.employment)}"><title>${esc(o.name)} · ${o.code}</title></circle>`).join('');
-    $('occupation-map').innerHTML = `<title>Task duration and AI exposure across 162 occupations</title><defs><clipPath id="plot-clip"><rect x="${plot.left}" y="${plot.top}" width="${plot.width}" height="${plot.height}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${plot.width}" height="${plot.height}" fill="#fafbf8"/>${grid.join('')}<g clip-path="url(#plot-clip)">${dots}</g><text x="${plot.left+plot.width/2}" y="460" text-anchor="middle" class="axis-label">Predicted human task duration (minutes)</text><text transform="translate(20 ${plot.top+plot.height/2}) rotate(-90)" text-anchor="middle" class="axis-label">Content AI exposure (BGE-M3)</text>`;
+    const dots = [...occupations].sort((a,b)=>b.employment-a.employment).map(o=>`<circle data-occ="${o.code}" cx="${sx(o.minutes)}" cy="${sy(o.content)}" r="${areaRadius(o.employment)}" fill="${colour(o[model()])}" fill-opacity="0.9" stroke="#53505a" stroke-width="0.7" tabindex="0" role="button" aria-label="${esc(o.name)}, content ${o.content.toFixed(3)}, horizon ${o[model()].toFixed(3)}, human minutes ${o.minutes.toFixed(1)}, employment ${fmt(o.employment)}"></circle>`).join('');
+    $('occupation-map').innerHTML = `<desc>Task duration and AI exposure across 162 occupations. Hover details are provided by the custom information panel.</desc><defs><clipPath id="plot-clip"><rect x="${plot.left}" y="${plot.top}" width="${plot.width}" height="${plot.height}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${plot.width}" height="${plot.height}" fill="#fafbf8"/>${grid.join('')}<g clip-path="url(#plot-clip)">${dots}${mapLabels(sx,sy)}</g><text x="${plot.left+plot.width/2}" y="460" text-anchor="middle" class="axis-label">Predicted human task duration (minutes)</text><text transform="translate(20 ${plot.top+plot.height/2}) rotate(-90)" text-anchor="middle" class="axis-label">Content AI exposure (BGE-M3)</text>`;
     $('zoom-level').textContent = Math.round(zoom.k*100)+'%';
     $('map-status').textContent = `${occupations.length} occupations · ${names[modelIndex()]}`;
     $('colour-max').textContent = colourMax.toFixed(3)+' · higher';
-    $('size-legend').innerHTML = `<span>Employment · log area</span><svg viewBox="0 0 250 65" aria-label="Node area proportional to log employment">${[10000,100000,1000000].map((v,i)=>`<circle cx="${35+i*85}" cy="22" r="${areaRadius(v)}" fill="none" stroke="#69767b"/><text x="${35+i*85}" y="58" text-anchor="middle" font-size="11">${fmt(v)}</text>`).join('')}</svg>`;
+    $('size-legend').innerHTML = `<span>Employment · proportional area</span><svg viewBox="0 0 250 65" aria-label="Node area proportional to employment">${[10000,100000,1000000].map((v,i)=>`<circle cx="${35+i*85}" cy="22" r="${areaRadius(v)}" fill="none" stroke="#69767b"/><text x="${35+i*85}" y="58" text-anchor="middle" font-size="11">${fmt(v)}</text>`).join('')}</svg>`;
   }
   function zoomAt(factor, px=plot.width/2, py=plot.height/2) {
     const k = Math.min(10,Math.max(1,zoom.k*factor));
