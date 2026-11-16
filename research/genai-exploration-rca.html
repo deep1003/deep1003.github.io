@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generative AI Innovation | Youngsam Chun</title>
+<meta name="description" content="Research materials on technological exploration, national comparative advantage and generative AI innovation. Code, aggregate data and provenance.">
+<link rel="stylesheet" href="../assets/style.css?v=4">
+<style>
+.project{max-width:980px;margin:38px auto;padding:0 24px 64px;color:#222}
+.project h1{font-size:30px;line-height:1.22;letter-spacing:0;overflow-wrap:anywhere}
+.project h2{font-size:21px;margin-top:36px;letter-spacing:0}
+.project p,.project li{line-height:1.65}
+.project .byline{color:#555}
+.project figure{margin:26px 0}.project img{display:block;width:100%;max-width:820px;height:auto;margin:auto}
+.project figcaption{font-size:14px;line-height:1.6;color:#555;margin-top:14px}
+.table-scroll{overflow-x:auto}.project table{width:100%;border-collapse:collapse;font-size:15px}
+.project th,.project td{padding:10px 9px;border-bottom:1px solid #d6d6d6;text-align:right}
+.project th:first-child,.project td:first-child{text-align:left}
+.project .status{border-left:3px solid #567f69;padding-left:16px;margin:22px 0}
+.project a{overflow-wrap:anywhere}
+@media(max-width:600px){.project{padding:0 18px 40px;margin-top:25px}.project h1{font-size:26px}.project table{font-size:13px}}
+</style>
+</head>
+<body>
+<nav class="topbar"><div class="topbar-inner"><span class="brand">Youngsam Chun</span><a class="nav" href="../index.html">About</a><a class="nav active" href="../research.html">Research</a><a class="nav" href="../publications.html">Publications</a></div></nav>
+<main class="project">
+<p><a href="../research.html#genai-research">Research</a> / Knowledge spaces and innovation measurement</p>
+<h1>Generative AI innovation</h1>
+<p>Technological exploration distance, revealed comparative advantage, and the U.S.-China dual-core reconfiguration of generative AI innovation</p>
+<p class="byline">One-Sun Cho and Youngsam Chun · Working manuscript · Updated 16 November 2026</p>
+<p>How do national innovation systems explore a shared technological space? This study combines patent-text embeddings, country-CPC-year revealed comparative advantage and inventor networks to examine U.S. and Chinese positions in generative AI innovation.</p>
+<p><a href="https://github.com/deep1003/genai-exploration-rca">Repository</a> · <a href="https://github.com/deep1003/genai-exploration-rca/tree/main/data">Aggregate data</a> · <a href="https://github.com/deep1003/genai-exploration-rca/tree/main/code">Analysis and figure code</a> · <a href="https://github.com/deep1003/genai-exploration-rca/archive/refs/heads/main.zip">Download release</a></p>
+<div class="status"><strong>Evidence status</strong><p>The manuscript is under revision. The recovered data do not establish an inverted U that is robust to observation weighting and genuine fixed effects. The public materials expose this specification dependence rather than treating the historical estimates as replicated.</p></div>
+<figure><img src="../assets/figures/genai-exploration-distance.png" alt="Global, United States and Chinese mean technological distance over time, with legend inside the upper-right plotting area" width="1440" height="864" loading="lazy"><figcaption>Mean technological exploration distance. The global observation-weighted mean is shown with a 95 per cent confidence band. This regenerated figure is not an assertion that every historical manuscript value has been reproduced.</figcaption></figure>
+<h2>Regression re-estimates</h2>
+<div class="table-scroll"><table><thead><tr><th>Specification</th><th>Observations</th><th>Distance</th><th>Second moment</th></tr></thead><tbody><tr><td>Equal-weight country-CPC-year cells, FE</td><td>78,615</td><td>0.0465</td><td>-0.0406</td></tr><tr><td>Patent-CPC rows, FE</td><td>506,311</td><td>-0.0322</td><td>0.0204</td></tr><tr><td>Recovered pooled OLS</td><td>510,673</td><td>0.1117</td><td>-0.1068</td></tr></tbody></table></div>
+<p>The cell distance terms meet the 5 per cent threshold; the row-level fixed-effects terms do not. Mean squared distance is not the square of mean distance. Coefficient signs alone therefore do not establish an interior turning point. The repository includes standard errors, p-values, covariance matrices, sample metadata and independent coefficient checks.</p>
+<h2>What the released tables measure</h2>
+<p>Table 3 reports archived application-count shares among the United States, China, Korea and the European Union. Its residual category denotes Korea plus the European Union, not every other country.</p>
+<p>Table 4 reports U.S. and Chinese <strong>keyword-occurrence shares</strong> in concatenated text fields, not shares of distinct patents. Repeated mentions can contribute multiple counts. Its archived population is not explicitly restricted to GenAI or RCA above one. These values describe textual emphasis, not technological ownership or market control.</p>
+<h2>Data availability</h2>
+<p>Aggregate tables, regression outputs, non-identifying plot series, vector figures, analysis and restoration code, and provenance are available in the <a href="https://github.com/deep1003/genai-exploration-rca">public repository</a>. A no-plot verification script checks table arithmetic and file hashes.</p>
+<p>Row-level patent-provider inputs, full notebook outputs, personal records and patent-level embedding coordinates are not publicly redistributed while provider rights remain unconfirmed. Full regeneration requires access to the source inputs under the providers' terms. Historical code retains its original workspace assumptions; the public release is not a complete, one-command replication package.</p>
+<h2>Reproducibility boundaries</h2>
+<ul><li>The recovered OLS implementation did not actually absorb fixed effects; genuine FE estimates were checked with two independent implementations.</li><li>Archived table cluster labels are not a validated crosswalk to regenerated embedding clusters.</li><li>Figures 5 and 6 retain recovered pooled illustrations, not new fixed-effects predictions.</li><li>The historical event-study reference-year implementation has not been revalidated.</li></ul>
+</main>
+</body>
+</html>
