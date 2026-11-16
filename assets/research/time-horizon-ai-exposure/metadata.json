@@ -1,0 +1,34 @@
+{
+  "version": "2026-11-16",
+  "tasks": 39102,
+  "entries": 6072,
+  "mappedTasks": 37577,
+  "unmappedTasks": 1525,
+  "occupations": 162,
+  "highExposureTasks": 6822,
+  "curves": {
+    "gpt4_2023": {
+      "h50_min": 4.0,
+      "slope_per_doubling": 0.641
+    },
+    "claude37_2025": {
+      "h50_min": 60.4,
+      "slope_per_doubling": 0.597
+    },
+    "gpt5_2025": {
+      "h50_min": 203.0,
+      "slope_per_doubling": 0.576
+    },
+    "opus46_2026": {
+      "h50_min": 718.8,
+      "slope_per_doubling": 0.412
+    }
+  },
+  "scoreEncoder": "BAAI/bge-m3",
+  "groupDefinitionEncoder": "E5-small (original occupational selection)",
+  "humanTimeStatus": "Transferred prediction, not measured Korean time",
+  "textLanguage": "Korean, original source wording",
+  "permission": "Task text redistribution authorised by the project owner on 16 November 2026. Original source rights remain with their holders.",
+  "aggregation": "Equal task weights within entry, then equal entry weights within occupation.",
+  "mapping": "Existing route-A modal KSCO eighth-revision three-digit mapping, retained for reproducibility; unmapped rows are preserved."
+}
