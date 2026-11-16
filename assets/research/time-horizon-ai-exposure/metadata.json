@@ -48,12 +48,14 @@
     "map_y": "BGE content exposure",
     "colour": "Fixed dark-to-light scale from zero to maximum horizon score across retained scenarios",
     "representative_labels": {
-      "count": 15,
+      "count": 16,
       "selection": "Illustrative occupational categories spanning the exposure-duration space; not a statistical selection",
-      "layout": "Measured text width; strict node and label collision exclusion; straight leaders; recomputed on zoom, pan and resize",
+      "layout": "Wrapped names placed beside node edges; no distant-space fallback; straight leaders capped at 80 screen pixels; stable side preference on zoom and pan",
       "native_node_tooltips": false,
       "font": "13.2 CSS pixels minimum, approximately 1.2 times the previous 11-pixel font",
-      "crowded_views": "Unplaceable or off-screen labels are temporarily omitted"
+      "crowded_views": "Unplaceable or off-screen labels are temporarily omitted",
+      "association": "Hovering or focusing a node or label highlights the matching node, label and leader",
+      "rightmost_occupation": "112, Chief executives and senior company managers"
     }
   }
 }

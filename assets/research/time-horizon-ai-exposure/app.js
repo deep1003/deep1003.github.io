@@ -37,63 +37,75 @@
   const occupationHeaders = ['ksco8_3','occupation_author_translation','content_bge','horizon_bge','predicted_human_minutes','employment_mean_2023_2025','content_rank_all162','horizon_rank_all162','group','model_snapshot'];
 
   const representativeLabels = [
+    ['510','Sales representatives'],
+    ['112','Chief executives / senior managers'],
     ['531','Telecom sales'], ['224','Data professionals'],
     ['222','Software professionals'], ['269','Other education professionals'],
     ['261','University lecturers'], ['331','Accounting clerks'],
-    ['510','Sales representatives'], ['244','Nurses'],
+    ['244','Nurses'],
     ['262','School teachers'], ['263','Kindergarten teachers'],
     ['611','Crop growers'], ['872','Drivers'],
     ['941','Cleaners'], ['922','Delivery workers'], ['451','Cooks']
   ];
 
   const labelMeasure = document.createElement('canvas').getContext('2d');
+  const labelSides = new Map();
+
+  function highlightOccupation(code) {
+    $('occupation-map').querySelectorAll('[data-occ]').forEach(e=>e.classList.toggle('linked-highlight',e.dataset.occ===code));
+    $('occupation-map').querySelectorAll('[data-label]').forEach(e=>e.classList.toggle('linked-highlight',e.dataset.label===code));
+    $('occupation-map').querySelectorAll('[data-leader]').forEach(e=>e.classList.toggle('linked-highlight',e.dataset.leader===code));
+  }
 
   function mapLabels(sx, sy) {
-    const svgBox = $('occupation-map').getBoundingClientRect();
-    const displayScale = Math.min(svgBox.width/1100, svgBox.height/470) || 1;
-    // Preserve at least 13.2 CSS pixels as the map changes size; map zoom does not shrink text.
-    const font = 13.2/Math.min(1,displayScale);
-    labelMeasure.font = `600 ${font}px system-ui, sans-serif`;
-    const nodes = occupations.map(o => ({x:sx(o.minutes),y:sy(o.content),r:areaRadius(o.employment)}));
-    const placed = [], leaders = [], texts = [];
-    const overlaps = (a,b) => a.x < b.x+b.w+6 && a.x+a.w+6 > b.x && a.y < b.y+b.h+6 && a.y+a.h+6 > b.y;
-    const hitsNode = box => nodes.some(n => {
-      const x=Math.max(box.x,Math.min(n.x,box.x+box.w));
-      const y=Math.max(box.y,Math.min(n.y,box.y+box.h));
-      return Math.hypot(n.x-x,n.y-y) < n.r+5;
-    });
+    const svgBox=$('occupation-map').getBoundingClientRect();
+    const scale=Math.min(svgBox.width/1100,svgBox.height/470)||1;
+    const font=13.2/Math.min(1,scale),lineHeight=font*1.25;
+    labelMeasure.font=`600 ${font}px system-ui, sans-serif`;
+    const nodes=occupations.map(o=>({x:sx(o.minutes),y:sy(o.content),r:areaRadius(o.employment)}));
+    const placed=[],leaders=[],texts=[];
+    const overlaps=(a,b)=>a.x<b.x+b.w+5&&a.x+a.w+5>b.x&&a.y<b.y+b.h+5&&a.y+a.h+5>b.y;
+    const hitsNode=box=>nodes.some(n=>Math.hypot(n.x-Math.max(box.x,Math.min(n.x,box.x+box.w)),n.y-Math.max(box.y,Math.min(n.y,box.y+box.h)))<n.r+4);
     for (const [code,label] of representativeLabels) {
-      const o=byOcc[code];
-      if (!o) continue;
+      const o=byOcc[code];if(!o)continue;
       const x=sx(o.minutes),y=sy(o.content),radius=areaRadius(o.employment);
-      if (x < plot.left || x > plot.left+plot.width || y < plot.top || y > plot.top+plot.height) continue;
-      const w=labelMeasure.measureText(label).width+12,h=font*1.35+6;
-      let best=null;
-      const consider = (cx,cy) => {
-        const box={x:cx-w/2,y:cy-h/2,w,h};
-        if (box.x < plot.left+3 || box.x+w > plot.left+plot.width-3 || box.y < plot.top+3 || box.y+h > plot.top+plot.height-3 || placed.some(b=>overlaps(box,b)) || hitsNode(box)) return;
-        const cost=Math.hypot(cx-x,cy-y)+(cy>y?6:0);
-        if (!best || cost < best.cost) best={...box,cost};
-      };
-      for (const distance of [radius+18,radius+36,radius+60,radius+90,radius+125,radius+165]) {
-        for (const [dx,dy] of [[0,-1],[1,-0.65],[-1,-0.65],[1,0],[-1,0],[0,1],[1,0.75],[-1,0.75]]) consider(x+dx*distance,y+dy*distance);
+      if(x<plot.left||x>plot.left+plot.width||y<plot.top||y>plot.top+plot.height)continue;
+      // Wrap long names so they can sit close to their own node.
+      const lines=[];let line='';
+      for(const word of label.split(' ')) {
+        const test=line?line+' '+word:word;
+        if(line&&labelMeasure.measureText(test).width>132/Math.min(1,scale)){lines.push(line);line=word}else line=test;
       }
-      // Search free map space only when no nearby placement can avoid every node and label.
-      if (!best) {
-        for (let cy=plot.top+h/2+5;cy<plot.top+plot.height-h/2-4;cy+=h+7) {
-          for (let cx=plot.left+w/2+5;cx<plot.left+plot.width-w/2-4;cx+=24) consider(cx,cy);
+      if(line)lines.push(line);
+      const w=Math.max(...lines.map(l=>labelMeasure.measureText(l).width))+12,h=lines.length*lineHeight+8;
+      let best=null;
+      for(const gap of [6,10,16,24,34,46,60,76]) {
+        const dx=radius+gap+w/2,dy=radius+gap+h/2;
+        const candidates=[];
+        for(const offset of [0,-16,16,-32,32,-48,48,-64,64]) {
+          const shift=offset/Math.min(1,scale);
+          candidates.push(['above',x+shift,y-dy],['below',x+shift,y+dy],['right',x+dx,y+shift],['left',x-dx,y+shift]);
+        }
+        for(const [side,cx0,cy0] of candidates) {
+          const cx=Math.max(plot.left+w/2+3,Math.min(plot.left+plot.width-w/2-3,cx0));
+          const cy=Math.max(plot.top+h/2+3,Math.min(plot.top+plot.height-h/2-3,cy0));
+          const box={x:cx-w/2,y:cy-h/2,w,h};
+          if(placed.some(b=>overlaps(box,b))||hitsNode(box))continue;
+          const endX=Math.max(box.x,Math.min(x,box.x+w)),endY=Math.max(box.y,Math.min(y,box.y+h));
+          const length=Math.hypot(endX-x,endY-y),leaderLength=length-radius;
+          // Never move a label to distant free space merely to keep it on the map.
+          if(leaderLength*scale>80)continue;
+          const cost=leaderLength+0.035*Math.hypot(cx-x,cy-y)-(labelSides.get(code)===side?3:0);
+          if(!best||cost<best.cost)best={...box,side,cost,endX,endY,length,leaderLength};
         }
       }
-      // A crowded view may temporarily omit a label; it must never conceal a node or another label.
-      if (!best) continue;
-      placed.push(best);
-      const endX=Math.max(best.x,Math.min(x,best.x+best.w));
-      const endY=Math.max(best.y,Math.min(y,best.y+best.h));
-      const length=Math.hypot(endX-x,endY-y);
-      const startX=x+(endX-x)*Math.min(1,radius/Math.max(length,1));
-      const startY=y+(endY-y)*Math.min(1,radius/Math.max(length,1));
-      if (length>radius+4) leaders.push(`<line x1="${startX}" y1="${startY}" x2="${endX}" y2="${endY}" class="label-leader"/>`);
-      texts.push(`<g data-label="${code}" class="occupation-label"><text x="${best.x+best.w/2}" y="${best.y+font+3}" text-anchor="middle" style="font-size:${font}px">${esc(label)}</text></g>`);
+      if(!best)continue;
+      placed.push(best);labelSides.set(code,best.side);
+      const startX=x+(best.endX-x)*radius/Math.max(best.length,1);
+      const startY=y+(best.endY-y)*radius/Math.max(best.length,1);
+      leaders.push(`<line data-leader="${code}" x1="${startX}" y1="${startY}" x2="${best.endX}" y2="${best.endY}" class="label-leader"/>`);
+      const spans=lines.map((l,i)=>`<tspan x="${best.x+best.w/2}" y="${best.y+font+3+i*lineHeight}">${esc(l)}</tspan>`).join('');
+      texts.push(`<g data-label="${code}" class="occupation-label" tabindex="0" role="button" aria-label="${esc(o.name)}"><text text-anchor="middle" style="font-size:${font}px">${spans}</text></g>`);
     }
     return `<g class="label-lines">${leaders.join('')}</g>${texts.join('')}`;
   }
@@ -129,9 +141,10 @@
     return p.matrixTransform($('occupation-map').getScreenCTM().inverse());
   }
   function tooltip(event) {
-    const circle = event.target.closest('[data-occ]');
-    if(!circle || drag) { $('map-tooltip').hidden=true; return; }
-    const o=byOcc[circle.dataset.occ], tip=$('map-tooltip');
+    const circle = event.target.closest('[data-occ],[data-label]');
+    if(!circle || drag) { $('map-tooltip').hidden=true; highlightOccupation(''); return; }
+    const code=circle.dataset.occ||circle.dataset.label; highlightOccupation(code);
+    const o=byOcc[code], tip=$('map-tooltip');
     tip.innerHTML=`<strong>${esc(o.name)}</strong><br>KSCO ${o.code}<br>Human duration ${o.minutes.toFixed(1)} min<br>Content exposure ${o.content.toFixed(3)}<br>Time-horizon exposure ${o[model()].toFixed(3)}<br>Employment ${fmt(o.employment)} persons<br><span>Select to inspect the occupation.</span>`;
     const box=circle.getBoundingClientRect();
     tip.style.left=Math.max(8,Math.min(innerWidth-300,(event.clientX||box.x)+14))+'px';
@@ -219,11 +232,11 @@
   $('zoom-in').onclick=()=>zoomAt(1.4);$('zoom-out').onclick=()=>zoomAt(1/1.4);$('zoom-reset').onclick=()=>{zoom={k:1,x:0,y:0};renderMap()};
   const svg=$('occupation-map');
   svg.addEventListener('wheel',e=>{e.preventDefault();const p=point(e);zoomAt(e.deltaY<0?1.15:1/1.15,p.x-plot.left,p.y-plot.top)},{passive:false});
-  svg.addEventListener('pointerdown',e=>{const p=point(e);drag={id:e.pointerId,x:p.x,y:p.y,tx:zoom.x,ty:zoom.y,code:e.target.closest('[data-occ]')?.dataset.occ};dragged=false;svg.setPointerCapture(e.pointerId)});
+  svg.addEventListener('pointerdown',e=>{const p=point(e);drag={id:e.pointerId,x:p.x,y:p.y,tx:zoom.x,ty:zoom.y,code:(e.target.closest('[data-occ],[data-label]')?.dataset.occ||e.target.closest('[data-label]')?.dataset.label)};dragged=false;svg.setPointerCapture(e.pointerId)});
   svg.addEventListener('pointermove',e=>{if(drag){const p=point(e);if(Math.abs(p.x-drag.x)+Math.abs(p.y-drag.y)>3)dragged=true;zoom.x=Math.max(plot.width*(1-zoom.k),Math.min(0,drag.tx+p.x-drag.x));zoom.y=Math.max(plot.height*(1-zoom.k),Math.min(0,drag.ty+p.y-drag.y));if(dragged)renderMap()}else tooltip(e)});
   svg.addEventListener('pointerup',e=>{const selected=drag?.code,wasDrag=dragged;drag=null;svg.releasePointerCapture(e.pointerId);if(!wasDrag&&selected)selectOccupation(selected)});
-  svg.addEventListener('pointercancel',()=>{drag=null});svg.addEventListener('pointerleave',()=>{$('map-tooltip').hidden=true});svg.addEventListener('focusin',tooltip);
-  svg.addEventListener('keydown',e=>{const c=e.target.closest('[data-occ]');if(c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();selectOccupation(c.dataset.occ)}});
+  svg.addEventListener('pointercancel',()=>{drag=null});svg.addEventListener('pointerleave',()=>{$('map-tooltip').hidden=true;highlightOccupation('')});svg.addEventListener('focusin',tooltip);
+  svg.addEventListener('keydown',e=>{const c=e.target.closest('[data-occ],[data-label]');if(c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();selectOccupation(c.dataset.occ||c.dataset.label)}});
   let resizeTimer;
   window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(occupations.length)renderMap()},100)});
   init();

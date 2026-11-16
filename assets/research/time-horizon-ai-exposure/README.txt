@@ -28,3 +28,6 @@ Native SVG title tooltips were removed from occupation nodes and the map root; t
 
 Label readability revision
 Labels are approximately 1.2 times larger, with a minimum displayed font size of 13.2 CSS pixels. Text width is measured using the rendered font. Candidate positions must avoid all occupation nodes and previously placed labels, rather than merely penalising overlap. Nearby positions are preferred; free map space is searched if necessary. Labels are recalculated on zoom, pan and viewport resize. Labels that cannot be placed without overlap are temporarily omitted in crowded views. Straight leaders are drawn beneath the label text. Data, node sizes and the manuscript are unchanged.
+
+Closer label placement
+Long occupation names wrap onto short lines. Placement starts next to the node boundary and minimises the actual leader length, rather than the distance to the label centre. Distant-space fallback has been removed and leader length is capped at 80 screen pixels. The previous feasible side is preferred when zooming and panning. Hover or keyboard focus highlights the matching occupation node, label and straight leader. The rightmost occupation, KSCO 112, Chief executives and senior company managers, is included in the representative labels. Data and size scales are unchanged.

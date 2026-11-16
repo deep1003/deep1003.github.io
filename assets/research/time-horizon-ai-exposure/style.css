@@ -8,3 +8,8 @@
 #occupation-map .label-leader{stroke:#687880;stroke-width:.8;opacity:.75}
 
 #occupation-map .label-lines{pointer-events:none}
+
+#occupation-map .occupation-label{pointer-events:auto;cursor:pointer}
+#occupation-map circle.linked-highlight{stroke:#006b68;stroke-width:3}
+#occupation-map .occupation-label.linked-highlight text{fill:#006b68;stroke-width:5px}
+#occupation-map .label-leader.linked-highlight{stroke:#006b68;stroke-width:2;opacity:1}
