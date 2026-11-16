@@ -30,5 +30,22 @@
   "textLanguage": "Korean, original source wording",
   "permission": "Task text redistribution authorised by the project owner on 16 November 2026. Original source rights remain with their holders.",
   "aggregation": "Equal task weights within entry, then equal entry weights within occupation.",
-  "mapping": "Existing route-A modal KSCO eighth-revision three-digit mapping, retained for reproducibility; unmapped rows are preserved."
+  "mapping": "Existing route-A modal KSCO eighth-revision three-digit mapping, retained for reproducibility; unmapped rows are preserved.",
+  "employment": {
+    "definition": "Survey-weighted total employed persons, all recorded ages and education groups",
+    "period": "2023\u20132025 average of six April and October waves",
+    "aggregation": "Sum mutually exclusive age-by-education cells within each occupation and wave; arithmetic mean of six wave totals",
+    "source": "Existing Regional Employment Survey derived occupation panel",
+    "bubble_area": "Proportional to ln(1 + employment), in persons",
+    "status": "Observed survey-weighted estimates, not task-level employment or 2026 employment"
+  },
+  "interface": {
+    "default_model": "opus46_2026",
+    "default_unit": "occupations",
+    "page_size": 10,
+    "comparison": "Top ten by absolute rank difference among 162 occupations; ties by horizon score",
+    "map_x": "Predicted human completion minutes, linear axis",
+    "map_y": "BGE content exposure",
+    "colour": "Fixed dark-to-light scale from zero to maximum horizon score across retained scenarios"
+  }
 }

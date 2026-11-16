@@ -17,3 +17,8 @@ The source human-time scale uses transferred predictions trained on duration est
 
 Rights
 The project owner confirmed permission to redistribute the task wording on 16 November 2026. Original source rights remain with their respective holders. No blanket licence is imposed on third-party source text. Employment microdata, source embeddings and the full unpublished manuscript are not included.
+
+Occupation-first interface update
+The landing view is the interactive occupation map. The horizontal axis is predicted human minutes on a linear scale; the vertical axis is BGE content exposure. Dark-to-light colour shows horizon exposure on a fixed scale across all four scenarios. Node area is proportional to ln(1 + employed persons). Employment is the mean of six survey-weighted occupation totals from April and October 2023–2025, covering recorded ages and education groups. No individual microdata are distributed.
+
+Initial controls use Claude Opus 4.6 (2026), Occupations, horizon score descending and ten records per page. Tasks use a separate unit and the same ten-record pagination. The optional collapsed comparison orders ten occupations by absolute content-rank minus horizon-rank difference among all 162 occupations; ties are broken by horizon score. An alternative view compares the ten highest occupations under each index. Both indices use BGE-M3.
