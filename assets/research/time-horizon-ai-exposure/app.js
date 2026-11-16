@@ -46,34 +46,45 @@
     ['941','Cleaners'], ['922','Delivery workers'], ['451','Cooks']
   ];
 
+  const labelMeasure = document.createElement('canvas').getContext('2d');
+
   function mapLabels(sx, sy) {
+    const svgBox = $('occupation-map').getBoundingClientRect();
+    const displayScale = Math.min(svgBox.width/1100, svgBox.height/470) || 1;
+    // Preserve at least 13.2 CSS pixels as the map changes size; map zoom does not shrink text.
+    const font = 13.2/Math.min(1,displayScale);
+    labelMeasure.font = `600 ${font}px system-ui, sans-serif`;
     const nodes = occupations.map(o => ({x:sx(o.minutes),y:sy(o.content),r:areaRadius(o.employment)}));
-    const placed = [];
-    const overlaps = (a,b) => a.x < b.x+b.w+5 && a.x+a.w+5 > b.x && a.y < b.y+b.h+4 && a.y+a.h+4 > b.y;
-    const marks = [];
+    const placed = [], leaders = [], texts = [];
+    const overlaps = (a,b) => a.x < b.x+b.w+6 && a.x+a.w+6 > b.x && a.y < b.y+b.h+6 && a.y+a.h+6 > b.y;
+    const hitsNode = box => nodes.some(n => {
+      const x=Math.max(box.x,Math.min(n.x,box.x+box.w));
+      const y=Math.max(box.y,Math.min(n.y,box.y+box.h));
+      return Math.hypot(n.x-x,n.y-y) < n.r+5;
+    });
     for (const [code,label] of representativeLabels) {
-      const o = byOcc[code];
+      const o=byOcc[code];
       if (!o) continue;
       const x=sx(o.minutes),y=sy(o.content),radius=areaRadius(o.employment);
       if (x < plot.left || x > plot.left+plot.width || y < plot.top || y > plot.top+plot.height) continue;
-      const w=label.length*6.1+10,h=19;
+      const w=labelMeasure.measureText(label).width+12,h=font*1.35+6;
       let best=null;
-      // Score nearby, straight-line placements, excluding previous label boxes.
-      for (const distance of [radius+10,radius+27,radius+47,radius+72,radius+105,radius+140]) {
-        for (const [dx,dy] of [[0,-1],[1,-0.65],[-1,-0.65],[1,0],[-1,0],[0,1],[1,0.75],[-1,0.75]]) {
-          const box={x:x+dx*distance-w/2,y:y+dy*distance-h/2,w,h};
-          if (box.x < plot.left+3 || box.x+w > plot.left+plot.width-3 || box.y < plot.top+2 || box.y+h > plot.top+plot.height-2 || placed.some(b=>overlaps(box,b))) continue;
-          let obstruction=0;
-          for (const n of nodes) {
-            const nearX=Math.max(box.x,Math.min(n.x,box.x+w));
-            const nearY=Math.max(box.y,Math.min(n.y,box.y+h));
-            const separation=Math.hypot(n.x-nearX,n.y-nearY);
-            if (separation < n.r+3) obstruction += (n.r+3-separation)*20;
-          }
-          const cost=distance+obstruction+(dy>0?8:0);
-          if (!best || cost < best.cost) best={...box,cost};
+      const consider = (cx,cy) => {
+        const box={x:cx-w/2,y:cy-h/2,w,h};
+        if (box.x < plot.left+3 || box.x+w > plot.left+plot.width-3 || box.y < plot.top+3 || box.y+h > plot.top+plot.height-3 || placed.some(b=>overlaps(box,b)) || hitsNode(box)) return;
+        const cost=Math.hypot(cx-x,cy-y)+(cy>y?6:0);
+        if (!best || cost < best.cost) best={...box,cost};
+      };
+      for (const distance of [radius+18,radius+36,radius+60,radius+90,radius+125,radius+165]) {
+        for (const [dx,dy] of [[0,-1],[1,-0.65],[-1,-0.65],[1,0],[-1,0],[0,1],[1,0.75],[-1,0.75]]) consider(x+dx*distance,y+dy*distance);
+      }
+      // Search free map space only when no nearby placement can avoid every node and label.
+      if (!best) {
+        for (let cy=plot.top+h/2+5;cy<plot.top+plot.height-h/2-4;cy+=h+7) {
+          for (let cx=plot.left+w/2+5;cx<plot.left+plot.width-w/2-4;cx+=24) consider(cx,cy);
         }
       }
+      // A crowded view may temporarily omit a label; it must never conceal a node or another label.
       if (!best) continue;
       placed.push(best);
       const endX=Math.max(best.x,Math.min(x,best.x+best.w));
@@ -81,10 +92,10 @@
       const length=Math.hypot(endX-x,endY-y);
       const startX=x+(endX-x)*Math.min(1,radius/Math.max(length,1));
       const startY=y+(endY-y)*Math.min(1,radius/Math.max(length,1));
-      const line=length>radius+4?`<line x1="${startX}" y1="${startY}" x2="${endX}" y2="${endY}" class="label-leader"/>`:'';
-      marks.push(`<g data-label="${code}" class="occupation-label">${line}<text x="${best.x+best.w/2}" y="${best.y+13}" text-anchor="middle">${esc(label)}</text></g>`);
+      if (length>radius+4) leaders.push(`<line x1="${startX}" y1="${startY}" x2="${endX}" y2="${endY}" class="label-leader"/>`);
+      texts.push(`<g data-label="${code}" class="occupation-label"><text x="${best.x+best.w/2}" y="${best.y+font+3}" text-anchor="middle" style="font-size:${font}px">${esc(label)}</text></g>`);
     }
-    return marks.join('');
+    return `<g class="label-lines">${leaders.join('')}</g>${texts.join('')}`;
   }
 
   function renderMap() {
@@ -213,5 +224,7 @@
   svg.addEventListener('pointerup',e=>{const selected=drag?.code,wasDrag=dragged;drag=null;svg.releasePointerCapture(e.pointerId);if(!wasDrag&&selected)selectOccupation(selected)});
   svg.addEventListener('pointercancel',()=>{drag=null});svg.addEventListener('pointerleave',()=>{$('map-tooltip').hidden=true});svg.addEventListener('focusin',tooltip);
   svg.addEventListener('keydown',e=>{const c=e.target.closest('[data-occ]');if(c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();selectOccupation(c.dataset.occ)}});
+  let resizeTimer;
+  window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(occupations.length)renderMap()},100)});
   init();
 })();

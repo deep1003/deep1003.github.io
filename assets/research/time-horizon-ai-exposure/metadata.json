@@ -50,8 +50,10 @@
     "representative_labels": {
       "count": 15,
       "selection": "Illustrative occupational categories spanning the exposure-duration space; not a statistical selection",
-      "layout": "Collision-aware placement with straight leaders, recalculated on zoom",
-      "native_node_tooltips": false
+      "layout": "Measured text width; strict node and label collision exclusion; straight leaders; recomputed on zoom, pan and resize",
+      "native_node_tooltips": false,
+      "font": "13.2 CSS pixels minimum, approximately 1.2 times the previous 11-pixel font",
+      "crowded_views": "Unplaceable or off-screen labels are temporarily omitted"
     }
   }
 }

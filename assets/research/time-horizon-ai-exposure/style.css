@@ -4,5 +4,7 @@
 
 /* Representative labels use straight leaders and do not intercept node hover. */
 #occupation-map .occupation-label{pointer-events:none}
-#occupation-map .occupation-label text{font:600 11px system-ui,sans-serif;fill:#243a46;paint-order:stroke;stroke:#fafbf8;stroke-width:4px;stroke-linejoin:round}
+#occupation-map .occupation-label text{font:600 13.2px system-ui,sans-serif;fill:#243a46;paint-order:stroke;stroke:#fafbf8;stroke-width:4px;stroke-linejoin:round}
 #occupation-map .label-leader{stroke:#687880;stroke-width:.8;opacity:.75}
+
+#occupation-map .label-lines{pointer-events:none}

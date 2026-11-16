@@ -25,3 +25,6 @@ Initial controls use Claude Opus 4.6 (2026), Occupations, horizon score descendi
 
 Map label and size revision
 Native SVG title tooltips were removed from occupation nodes and the map root; the custom hover information panel and accessible node names are retained. Fifteen illustrative occupation categories receive fixed text labels. Label positions are recalculated on zoom, avoid other labels and penalise overlap with nodes; leaders are straight. Node area is now directly proportional to employment, with radius 28 * sqrt(employment / maximum employment). No minimum-size floor or clipping of employment values is applied. This changes the display scale only, not the input data or exposure scores.
+
+Label readability revision
+Labels are approximately 1.2 times larger, with a minimum displayed font size of 13.2 CSS pixels. Text width is measured using the rendered font. Candidate positions must avoid all occupation nodes and previously placed labels, rather than merely penalising overlap. Nearby positions are preferred; free map space is searched if necessary. Labels are recalculated on zoom, pan and viewport resize. Labels that cannot be placed without overlap are temporarily omitted in crowded views. Straight leaders are drawn beneath the label text. Data, node sizes and the manuscript are unchanged.
