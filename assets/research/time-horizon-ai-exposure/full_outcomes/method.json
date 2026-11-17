@@ -1,0 +1,92 @@
+{
+  "source": "MDIS Economically Active Population Survey May files, all base-survey ages 15+, 2013-2025",
+  "not_youth_only": true,
+  "frequency": "One May observation per year; not annual average",
+  "weight": "Supplied integer divided by 1000, per official aggregation notes",
+  "national_unemployment_denominator": "all employed plus all unemployed, including first-time jobseekers",
+  "group_rate_denominator": "current employed in major group plus unemployed with valid previous occupation in that group",
+  "group_rates_missing": "2013 and 2014 have no previous occupation; remain missing",
+  "calendar_boundary": 2023,
+  "display_units": "Both outcomes are relative percent change against May 2022; not percentage points",
+  "ai_exposure": "Not required for national totals; occupational exposure elsewhere stays fixed at 2025",
+  "audit": [
+    {
+      "year": 2013,
+      "sha256": "7390fb76ec62f44c6ee74ac1b6f16aba8dae477d5e8bdd13bb9171a5bf077bf6",
+      "previous_occupation_available": false,
+      "linked_unemployed_coverage": null
+    },
+    {
+      "year": 2014,
+      "sha256": "5d9a443f25021c1ecdf47374e966a742e934082308dd0080d740639523bd7bc2",
+      "previous_occupation_available": false,
+      "linked_unemployed_coverage": null
+    },
+    {
+      "year": 2015,
+      "sha256": "927ccb2b3cac7ccc6c9da07cd8c2c3c3b67c0562534e39843a080a6931c698c5",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.6290868142140634
+    },
+    {
+      "year": 2016,
+      "sha256": "0ae897c971cef5069be4fe6749c94a105c80456a2aeb562341a1728dd9a563bb",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.6579663855590846
+    },
+    {
+      "year": 2017,
+      "sha256": "d7b9fea1dc3a7c60051857ea118a7fbab504216079c2d6b6799c8cdecc19c728",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.6519187079844541
+    },
+    {
+      "year": 2018,
+      "sha256": "7e3733d0a5d2ad3dcfbe0712adf16730c3315d637cc4588846f1f5bc771328c5",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.6360687150044632
+    },
+    {
+      "year": 2019,
+      "sha256": "e7a1b58671607c279f8671b8fe4ced402fa3cff7b4963d004b493be544fe4dfc",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.7044289155221561
+    },
+    {
+      "year": 2020,
+      "sha256": "1497ced76fb204a6fbf9300f4b68a43c2dadf0284c84b033ac7fa1412bfa43a9",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.7452989722254916
+    },
+    {
+      "year": 2021,
+      "sha256": "e8336b4e9f4fdc75f7d176e39f96062a6a843e4b5e94b29eead67d2053997c0a",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.6757921653326142
+    },
+    {
+      "year": 2022,
+      "sha256": "7b4d6ec4535d932e1b55b08fadbf34b93f2d046f3fe3496fb26901f502ab1956",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.6665400313874101
+    },
+    {
+      "year": 2023,
+      "sha256": "5fe63062d1b9f87a1131cd6cea5d288e5ef6044d2fd050215740e86ba068336c",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.7091170840785276
+    },
+    {
+      "year": 2024,
+      "sha256": "477d7a65a739ac3e8fc76c5152be9ce273b9acd4b3b8dc5faf7594ed375b60c9",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.6929931424126059
+    },
+    {
+      "year": 2025,
+      "sha256": "e60eb1293ba5204e4a230d0965de8f7026024a7f38042a154771b6069761a69f",
+      "previous_occupation_available": true,
+      "linked_unemployed_coverage": 0.6824375661476945
+    }
+  ]
+}
