@@ -1,0 +1,22 @@
+{
+  "national_source": "MDIS EAPS May base survey, all ages 15+, 2013-2025",
+  "employment_rate_denominator": "all survey population aged 15+ including inactive people",
+  "unemployment_rate_denominator": "all employed plus all unemployed including first-time jobseekers",
+  "exposure_scatter": "9 KSCO major groups because public previous-occupation information is major-group only",
+  "scatter_outcome_units": "relative percent change, May 2022 to May 2025",
+  "fixed_exposure": 2025,
+  "regression": {
+    "employment_growth": {
+      "slope_per_0_1": 4.355245860085293,
+      "HC3_SE": 3.6379402569241748,
+      "r_squared": 0.20448061437769482,
+      "n": 9
+    },
+    "unemployment_relative_change": {
+      "slope_per_0_1": -3.685998127438582,
+      "HC3_SE": 13.282164544264454,
+      "r_squared": 0.009849077599739409,
+      "n": 9
+    }
+  }
+}
