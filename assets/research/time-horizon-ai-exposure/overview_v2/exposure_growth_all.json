@@ -1,0 +1,20 @@
+{
+  "n": 162,
+  "slope_per_0_1": 3.9571920328004064,
+  "HC3_SE": 1.6283303475571262,
+  "r_squared": 0.08523040838397866,
+  "outcome": "relative percent change in employment, 2022 to 2025 (annual mean of April and October waves)",
+  "weights": "baseline employment",
+  "exposure": "2025 THAIE (GPT-5 horizon)",
+  "excluding_growth_over_100pct": {
+    "slope_per_0_1": 3.96635553910594,
+    "HC3_SE": 1.6287363087732354,
+    "r_squared": 0.08647199831802388,
+    "n": 161
+  },
+  "unweighted": {
+    "slope_per_0_1": 4.410188552469119,
+    "HC3_SE": 1.8319816494499064,
+    "r_squared": 0.03013186592290351
+  }
+}
