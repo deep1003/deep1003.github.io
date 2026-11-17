@@ -6,10 +6,12 @@
  function draw(){
   const rows=data.trends.filter(r=>r.ed===degree.value),indexed=unit.value==='index';
   const bases=Object.fromEntries(rows.filter(r=>r.year===2022).map(r=>[r.group,r.emp]));
-  const value=r=>indexed?100*r.emp/bases[r.group]:r.emp/1000,max=Math.max(...rows.map(value))*1.1,x=year=>90+(year-2013)/12*850,y=v=>355-v/max*290;
+  const value=r=>indexed?100*r.emp/bases[r.group]:r.emp/1000,fixed=indexed&&degree.value==='ba',min=fixed?30:0,max=fixed?129:Math.max(...rows.map(value))*1.1,x=year=>90+(year-2013)/12*850,y=v=>355-(v-min)/(max-min)*290;
   let svg='<rect x="90" y="65" width="850" height="290" fill="#fcfbf7"/>';
   svg+=`<rect x="${x(2020)}" y="65" width="${x(2023)-x(2020)}" height="290" fill="#dfe4df" opacity="0.6"/>`;
-  for(let i=0;i<=4;i++){const v=max*i/4;svg+=`<path d="M90 ${y(v)}H940" stroke="#d8dfdd"/><text x="76" y="${y(v)+5}" text-anchor="end" font-size="16">${v.toLocaleString('en-GB',{maximumFractionDigits:1})}</text>`;}
+  const ticks=fixed?[30,50,70,90,110,129]:Array.from({length:5},(_,i)=>max*i/4);
+  for(const v of ticks){svg+=`<path d="M90 ${y(v)}H940" stroke="#d8dfdd"/><text x="76" y="${y(v)+5}" text-anchor="end" font-size="16">${v.toLocaleString('en-GB',{maximumFractionDigits:1})}</text>`;}
+  if(fixed)svg+=`<path d="M90 ${y(100)}H940" stroke="#929b9b" stroke-dasharray="3 4"/><text x="947" y="${y(100)+4}" font-size="13">100</text>`;
   for(const year of [2013,2016,2019,2022,2025])svg+=`<text x="${x(year)}" y="383" text-anchor="middle" font-size="16">${year}</text>`;
   svg+=`<path d="M${x(2023)} 65V355" stroke="#6f7778" stroke-dasharray="5 5"/>`;
   for(const [group,colour,offset] of [['High','#bf454e',0],['Low','#257daf',260]]){
