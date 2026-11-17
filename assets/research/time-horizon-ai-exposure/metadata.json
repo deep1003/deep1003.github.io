@@ -69,5 +69,15 @@
     "replication": "original E5-selected 33 occupations retained separately",
     "data": "corrected employed-person filter and verified mapping retained; no old data error reintroduced",
     "annual_dynamic_DID": "not used as replacement for manuscript equation"
+  },
+  "degreeAnalysis": {
+    "reference": "fixed 2025 THAIE",
+    "section": "degree-findings",
+    "groups": "same 29 High and 25 Low occupations, not reselected by degree",
+    "equation": "unchanged manuscript annual log employment, occupation/year FE, fixed baseline weights and exposure-specific trend",
+    "annual_restandardisation": false,
+    "outcome": "all-age employed-person stocks by retained attainment proxy",
+    "source": "corrected Regional Employment Survey panel",
+    "manuscript_modified_this_extension": false
   }
 }
