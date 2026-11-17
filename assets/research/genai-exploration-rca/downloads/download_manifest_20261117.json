@@ -1,0 +1,314 @@
+{
+  "release": "20261117-final-us-english",
+  "downloads": [
+    {
+      "file": "manuscript_word_20261117.zip",
+      "bytes": 12319569,
+      "sha256": "a91097d147812f8cdfdb8219cc4f110e020ddab0e6a603578a30221c819b5dd1",
+      "contents": 1
+    },
+    {
+      "file": "manuscript_pdf_20261117.zip",
+      "bytes": 11109977,
+      "sha256": "4fdd9e30542d3210f8e3b83051b9a233956377ccfdc4a66e791756e9ad362bef",
+      "contents": 1
+    },
+    {
+      "file": "manuscript_latex_20261117.zip",
+      "bytes": 10722465,
+      "sha256": "1e64b20ad6fef9a110314727e46447f62bee32663e31c756d32f2502f1671307",
+      "contents": 11
+    },
+    {
+      "file": "figures_600dpi_20261117.zip",
+      "bytes": 37492697,
+      "sha256": "683a87a9bb3784065523df235136977e0a4c705c7ef0c47dcaaf296496fd108f",
+      "contents": 27
+    },
+    {
+      "file": "analysis_code_20261117.zip",
+      "bytes": 142078,
+      "sha256": "54032d23b928ca6af8aaba0da4201c1b93663924abf32efadb9a4e5a341e3c46",
+      "contents": 81
+    },
+    {
+      "file": "aggregate_data_20261117.zip",
+      "bytes": 32430,
+      "sha256": "5cd94033bc9628ddbd18cc261edb3323044302803f136c11aba786ccd31cf83f",
+      "contents": 32
+    }
+  ],
+  "figures": [
+    {
+      "figure": 1,
+      "format": "png",
+      "path": "figures/Figure_01_600dpi.png",
+      "bytes": 3718174,
+      "width_px": 3780,
+      "height_px": 2835,
+      "dpi": 600,
+      "sha256": "2a79ea3294e035bae58ca449c2f3a1845e6f80d3e618e821406f17f189c56c20"
+    },
+    {
+      "figure": 1,
+      "format": "jpg",
+      "path": "figures/Figure_01_600dpi.jpg",
+      "bytes": 3246092,
+      "width_px": 3780,
+      "height_px": 2835,
+      "dpi": 600,
+      "sha256": "4243bc16708b6c9b0f5ed69c4b4eb214bc150819d5d2c5a3e8c9a8f88a6e9154"
+    },
+    {
+      "figure": 1,
+      "format": "pdf",
+      "path": "figures/Figure_01_600dpi.pdf",
+      "bytes": 3718281,
+      "width_px": 3780,
+      "height_px": 2835,
+      "dpi": 600,
+      "sha256": "d61ecc166c8d6f090e26a7429a56a80fbb4ba53c48d83d28277ebe1f5221c5ff"
+    },
+    {
+      "figure": 2,
+      "format": "png",
+      "path": "figures/Figure_02_600dpi.png",
+      "bytes": 168156,
+      "width_px": 3780,
+      "height_px": 2268,
+      "dpi": 600,
+      "sha256": "0408a2ea8295617a5d9271a2294e231d2ea3f3ca4a70ad14b4527d5cdc038966"
+    },
+    {
+      "figure": 2,
+      "format": "jpg",
+      "path": "figures/Figure_02_600dpi.jpg",
+      "bytes": 419267,
+      "width_px": 3780,
+      "height_px": 2268,
+      "dpi": 600,
+      "sha256": "25fe1b1864a233c6fae4e95a86e5b8c0d5d3e98b1b8d870e1800ea96e46f3bb3"
+    },
+    {
+      "figure": 2,
+      "format": "pdf",
+      "path": "figures/Figure_02_600dpi.pdf",
+      "bytes": 20746,
+      "width_px": 3780,
+      "height_px": 2268,
+      "dpi": "vector",
+      "sha256": "74bc68ed4a37690fc4562f255681e1f256836d3c4013c2f69b9279c075026308"
+    },
+    {
+      "figure": 3,
+      "format": "png",
+      "path": "figures/Figure_03_600dpi.png",
+      "bytes": 308273,
+      "width_px": 3780,
+      "height_px": 1331,
+      "dpi": 600,
+      "sha256": "8888534fce9428ee225e1ad4a03a2f3e7ba877cabd8a8911e9eaf3c23bb34a0b"
+    },
+    {
+      "figure": 3,
+      "format": "jpg",
+      "path": "figures/Figure_03_600dpi.jpg",
+      "bytes": 537337,
+      "width_px": 3780,
+      "height_px": 1331,
+      "dpi": 600,
+      "sha256": "db5d998ea87337c4245625a548a093c1db208b70e0d103e614f77c7fd38f795f"
+    },
+    {
+      "figure": 3,
+      "format": "pdf",
+      "path": "figures/Figure_03_600dpi.pdf",
+      "bytes": 105915,
+      "width_px": 3780,
+      "height_px": 1331,
+      "dpi": "vector",
+      "sha256": "09b55dd0ea647059f751d907afa178f1f3ec72cefb2f9347f0f4870a2c589811"
+    },
+    {
+      "figure": 4,
+      "format": "png",
+      "path": "figures/Figure_04_600dpi.png",
+      "bytes": 287130,
+      "width_px": 3780,
+      "height_px": 2268,
+      "dpi": 600,
+      "sha256": "4abbf1480ca911298bece37c01bcbf2cd8cced39db5b251a333b4dacdd386b11"
+    },
+    {
+      "figure": 4,
+      "format": "jpg",
+      "path": "figures/Figure_04_600dpi.jpg",
+      "bytes": 526355,
+      "width_px": 3780,
+      "height_px": 2268,
+      "dpi": 600,
+      "sha256": "fb58321af3ec1df51d24e5d3265d673dbbf86aab651f0ded8f11cba4ef9ffef4"
+    },
+    {
+      "figure": 4,
+      "format": "pdf",
+      "path": "figures/Figure_04_600dpi.pdf",
+      "bytes": 22639,
+      "width_px": 3780,
+      "height_px": 2268,
+      "dpi": "vector",
+      "sha256": "01417f6c5948b765d377c2f4913a3a8b03de9a2eb950a0e3df71499035980b79"
+    },
+    {
+      "figure": 5,
+      "format": "png",
+      "path": "figures/Figure_05_600dpi.png",
+      "bytes": 165190,
+      "width_px": 3780,
+      "height_px": 2363,
+      "dpi": 600,
+      "sha256": "81595dee393eab1aa153bb8da5a5e74ba625d33ce8f2730b6c4dd4167cab11c3"
+    },
+    {
+      "figure": 5,
+      "format": "jpg",
+      "path": "figures/Figure_05_600dpi.jpg",
+      "bytes": 465462,
+      "width_px": 3780,
+      "height_px": 2363,
+      "dpi": 600,
+      "sha256": "34e8e610292d9901d31a3922a2756c31a430a163317bab649ea593c1b656fbd1"
+    },
+    {
+      "figure": 5,
+      "format": "pdf",
+      "path": "figures/Figure_05_600dpi.pdf",
+      "bytes": 21384,
+      "width_px": 3780,
+      "height_px": 2363,
+      "dpi": "vector",
+      "sha256": "8238519c4027e88fb8e6e6a70e98bedcd3916878c9973c8f5236927b326902d9"
+    },
+    {
+      "figure": 6,
+      "format": "png",
+      "path": "figures/Figure_06_600dpi.png",
+      "bytes": 285847,
+      "width_px": 3780,
+      "height_px": 1220,
+      "dpi": 600,
+      "sha256": "9a17dbaaa4278070713d162d40c3e79144581945ea362c1c63fe6c3c95c3188b"
+    },
+    {
+      "figure": 6,
+      "format": "jpg",
+      "path": "figures/Figure_06_600dpi.jpg",
+      "bytes": 565336,
+      "width_px": 3780,
+      "height_px": 1220,
+      "dpi": 600,
+      "sha256": "cb74061f8d84658bd0d9edf8ef51c5a21bae9b8c1440e32d7aa600648d16fd4a"
+    },
+    {
+      "figure": 6,
+      "format": "pdf",
+      "path": "figures/Figure_06_600dpi.pdf",
+      "bytes": 126394,
+      "width_px": 3780,
+      "height_px": 1220,
+      "dpi": "vector",
+      "sha256": "f8540b971616e256a633774aab83f3f38dc5dc7542b78ef48df06bde4bd494dd"
+    },
+    {
+      "figure": 7,
+      "format": "png",
+      "path": "figures/Figure_07_600dpi.png",
+      "bytes": 488383,
+      "width_px": 3780,
+      "height_px": 4773,
+      "dpi": 600,
+      "sha256": "e92caac2cbde5fd3a2fe72ff46a2dd5084290f8b8e63d100aa61c4fc0bb73002"
+    },
+    {
+      "figure": 7,
+      "format": "jpg",
+      "path": "figures/Figure_07_600dpi.jpg",
+      "bytes": 1056548,
+      "width_px": 3780,
+      "height_px": 4773,
+      "dpi": 600,
+      "sha256": "15ef79b7157af3acb4f6870b4631a138efefb13cec260c16252dd9cdc194cf63"
+    },
+    {
+      "figure": 7,
+      "format": "pdf",
+      "path": "figures/Figure_07_600dpi.pdf",
+      "bytes": 88090,
+      "width_px": 3780,
+      "height_px": 4773,
+      "dpi": "vector",
+      "sha256": "14493453d1d674ff30e04275e959652a4082940e2b7d75c7628685ab5ed38ba7"
+    },
+    {
+      "figure": 8,
+      "format": "png",
+      "path": "figures/Figure_08_600dpi.png",
+      "bytes": 189881,
+      "width_px": 3780,
+      "height_px": 1890,
+      "dpi": 600,
+      "sha256": "9f8c90b6206de999745288a0390df88f697c335dda6a781469128c9494f3486c"
+    },
+    {
+      "figure": 8,
+      "format": "jpg",
+      "path": "figures/Figure_08_600dpi.jpg",
+      "bytes": 441679,
+      "width_px": 3780,
+      "height_px": 1890,
+      "dpi": 600,
+      "sha256": "7a20e6034b385ef2138012cd0aa8e4078fa2bb502d1f17de105942af90ae1a6e"
+    },
+    {
+      "figure": 8,
+      "format": "pdf",
+      "path": "figures/Figure_08_600dpi.pdf",
+      "bytes": 23460,
+      "width_px": 3780,
+      "height_px": 1890,
+      "dpi": "vector",
+      "sha256": "315d2845f2b572fe3f4eeb76826fcb0eca13392fcb9d22d8e3c96b0ee890fdd5"
+    },
+    {
+      "figure": 9,
+      "format": "png",
+      "path": "figures/Figure_09_600dpi.png",
+      "bytes": 6709501,
+      "width_px": 3780,
+      "height_px": 4035,
+      "dpi": 600,
+      "sha256": "55dd42d40d7be69cddfbcdd6535cffb125d56291d3f9eec799b74d748200d177"
+    },
+    {
+      "figure": 9,
+      "format": "jpg",
+      "path": "figures/Figure_09_600dpi.jpg",
+      "bytes": 9084359,
+      "width_px": 3780,
+      "height_px": 4035,
+      "dpi": 600,
+      "sha256": "b184f45cae0a9bcdd7d8788ad265c08fee24091da58f59bbe85925493ce83a06"
+    },
+    {
+      "figure": 9,
+      "format": "pdf",
+      "path": "figures/Figure_09_600dpi.pdf",
+      "bytes": 6709056,
+      "width_px": 3780,
+      "height_px": 4035,
+      "dpi": 600,
+      "sha256": "df22502eec8f5ccd46e0ca2857ce13c778d5a01ecc449d89b8c5d97057cb5dab"
+    }
+  ],
+  "restricted_patent_level_data_included": false
+}
