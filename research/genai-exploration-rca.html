@@ -1,51 +1,281 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Generative AI Innovation | Youngsam Chun</title>
-<meta name="description" content="Research materials on technological exploration, national comparative advantage and generative AI innovation. Code, aggregate data and provenance.">
-<link rel="stylesheet" href="../assets/style.css?v=4">
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Generative AI innovation | Youngsam Chun</title><meta name="description" content="Technological exploration and national specialization in generative AI: key findings, three figures, two tables, and research data."><link rel="stylesheet" href="../assets/style.css?v=4">
 <style>
-.project{max-width:980px;margin:38px auto;padding:0 24px 64px;color:#222}
-.project h1{font-size:30px;line-height:1.22;letter-spacing:0;overflow-wrap:anywhere}
-.project h2{font-size:21px;margin-top:36px;letter-spacing:0}
-.project p,.project li{line-height:1.65}
-.project .byline{color:#555}
-.project figure{margin:26px 0}.project img{display:block;width:100%;max-width:820px;height:auto;margin:auto}
-.project figcaption{font-size:14px;line-height:1.6;color:#555;margin-top:14px}
-.table-scroll{overflow-x:auto}.project table{width:100%;border-collapse:collapse;font-size:15px}
-.project th,.project td{padding:10px 9px;border-bottom:1px solid #d6d6d6;text-align:right}
-.project th:first-child,.project td:first-child{text-align:left}
-.project .status{border-left:3px solid #567f69;padding-left:16px;margin:22px 0}
-.project a{overflow-wrap:anywhere}
-@media(max-width:600px){.project{padding:0 18px 40px;margin-top:25px}.project h1{font-size:26px}.project table{font-size:13px}}
-</style>
-</head>
-<body>
+.paper{max-width:1040px;margin:30px auto;padding:0 24px 64px;color:#222}.paper h1{font-size:30px;line-height:1.25;letter-spacing:0;overflow-wrap:break-word;max-width:1000px}.paper h2{font-size:23px;line-height:1.3;letter-spacing:0;margin:36px 0 14px}.paper h3{font-size:19px;letter-spacing:0;margin-top:25px}.paper p,.paper li{line-height:1.7}.paper .byline{color:#555}.downloads{display:flex;flex-wrap:wrap;gap:12px 22px;margin:22px 0 12px;padding:16px 0;border-top:1px solid #bbb;border-bottom:1px solid #bbb}.resource-links{font-size:14px;color:#555}.resource-links a{white-space:normal}.highlights{padding-left:22px;max-width:930px}.highlights li{margin:7px 0}.paper figure{margin:30px 0}.paper figure img{display:block;width:100%;height:auto;max-width:920px;margin:auto}.paper figcaption{font-size:15px;line-height:1.6;margin-top:12px}.paper figcaption p{margin:7px 0 0}.table-scroll{overflow-x:auto;margin:15px 0}.paper table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.45}.paper th,.paper td{padding:7px 10px;border-bottom:1px solid #ddd;text-align:right;vertical-align:top}.paper th:first-child,.paper td:first-child{text-align:left}.paper thead{border-top:2px solid #555;border-bottom:1px solid #555}.table-title{margin-bottom:8px}.table-note{font-size:14px;line-height:1.6}.references{padding-left:22px;font-size:15px}.references li{margin:12px 0;overflow-wrap:anywhere}.references p{margin:0}.paper a{overflow-wrap:anywhere}.paper math{font-family:"Cambria Math",serif}a:focus-visible{outline:2px solid #16717b;outline-offset:4px}@media(max-width:600px){.paper{padding:0 16px 45px;margin-top:24px}.paper h1{font-size:25px}.paper h2{font-size:21px}.paper table{font-size:12px;min-width:630px}.downloads{gap:12px 18px}.paper figcaption{font-size:14px}}
+</style></head><body>
 <nav class="topbar"><div class="topbar-inner"><span class="brand">Youngsam Chun</span><a class="nav" href="../index.html">About</a><a class="nav active" href="../research.html">Research</a><a class="nav" href="../publications.html">Publications</a></div></nav>
-<main class="project">
-<p><a href="../research.html#genai-research">Research</a> / Knowledge spaces and innovation measurement</p>
-<h1>Generative AI innovation</h1>
-<p>Technological exploration distance, revealed comparative advantage, and the U.S.-China dual-core reconfiguration of generative AI innovation</p>
-<p class="byline">One-Sun Cho and Youngsam Chun · Working manuscript · Updated 16 November 2026</p>
-<p>How do national innovation systems explore a shared technological space? This study combines patent-text embeddings, country-CPC-year revealed comparative advantage and inventor networks to examine U.S. and Chinese positions in generative AI innovation.</p>
-<p><a href="https://github.com/deep1003/genai-exploration-rca">Repository</a> · <a href="https://github.com/deep1003/genai-exploration-rca/tree/main/data">Aggregate data</a> · <a href="https://github.com/deep1003/genai-exploration-rca/tree/main/code">Analysis and figure code</a> · <a href="https://github.com/deep1003/genai-exploration-rca/archive/refs/heads/main.zip">Download release</a></p>
-<div class="status"><strong>Evidence status</strong><p>The manuscript is under revision. The recovered data do not establish an inverted U that is robust to observation weighting and genuine fixed effects. The public materials expose this specification dependence rather than treating the historical estimates as replicated.</p></div>
-<figure><img src="../assets/figures/genai-exploration-distance.png" alt="Global, United States and Chinese mean technological distance over time, with legend inside the upper-right plotting area" width="1440" height="864" loading="lazy"><figcaption>Mean technological exploration distance. The global observation-weighted mean is shown with a 95 per cent confidence band. This regenerated figure is not an assertion that every historical manuscript value has been reproduced.</figcaption></figure>
-<h2>Regression re-estimates</h2>
-<div class="table-scroll"><table><thead><tr><th>Specification</th><th>Observations</th><th>Distance</th><th>Second moment</th></tr></thead><tbody><tr><td>Equal-weight country-CPC-year cells, FE</td><td>78,615</td><td>0.0465</td><td>-0.0406</td></tr><tr><td>Patent-CPC rows, FE</td><td>506,311</td><td>-0.0322</td><td>0.0204</td></tr><tr><td>Recovered pooled OLS</td><td>510,673</td><td>0.1117</td><td>-0.1068</td></tr></tbody></table></div>
-<p>The cell distance terms meet the 5 per cent threshold; the row-level fixed-effects terms do not. Mean squared distance is not the square of mean distance. Coefficient signs alone therefore do not establish an interior turning point. The repository includes standard errors, p-values, covariance matrices, sample metadata and independent coefficient checks.</p>
-<h2>What the released tables measure</h2>
-<p>Table 3 reports archived application-count shares among the United States, China, Korea and the European Union. Its residual category denotes Korea plus the European Union, not every other country.</p>
-<p>Table 4 reports U.S. and Chinese <strong>keyword-occurrence shares</strong> in concatenated text fields, not shares of distinct patents. Repeated mentions can contribute multiple counts. Its archived population is not explicitly restricted to GenAI or RCA above one. These values describe textual emphasis, not technological ownership or market control.</p>
-<h2>Data availability</h2>
-<p>Aggregate tables, regression outputs, non-identifying plot series, vector figures, analysis and restoration code, and provenance are available in the <a href="https://github.com/deep1003/genai-exploration-rca">public repository</a>. A no-plot verification script checks table arithmetic and file hashes.</p>
-<p>Row-level patent-provider inputs, full notebook outputs, personal records and patent-level embedding coordinates are not publicly redistributed while provider rights remain unconfirmed. Full regeneration requires access to the source inputs under the providers' terms. Historical code retains its original workspace assumptions; the public release is not a complete, one-command replication package.</p>
-<h2>Reproducibility boundaries</h2>
-<ul><li>The recovered OLS implementation did not actually absorb fixed effects; genuine FE estimates were checked with two independent implementations.</li><li>Archived table cluster labels are not a validated crosswalk to regenerated embedding clusters.</li><li>Figures 5 and 6 retain recovered pooled illustrations, not new fixed-effects predictions.</li><li>The historical event-study reference-year implementation has not been revalidated.</li></ul>
-<h2>Related measurement research</h2>
-<p>Chun, Y., Hur, J., &amp; Hwang, J. (2024). <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0301091">AI technology specialization and national competitiveness</a>. <em>PLoS ONE</em>, 19(4), e0301091. This study provides a precedent for RCA-based national AI specialization measures. Its transition-oriented measures should not be equated with next-year RCA status without conditioning on the initial state.</p>
-</main>
-</body>
-</html>
+<main class="paper"><p><a href="../research.html#genai-research">Research</a> / Generative AI innovation</p>
+<h1>Technological exploration distance, revealed comparative advantage, and the US-China dual-core reconfiguration of generative AI innovation</h1>
+<p class="byline">One-Sun Cho and Youngsam Chun</p>
+<nav class="downloads" aria-label="Download research files by type"><a href="../assets/research/genai-exploration-rca/downloads/manuscript_word_20261117.zip" download>Word</a><a href="../assets/research/genai-exploration-rca/downloads/manuscript_pdf_20261117.zip" download>PDF</a><a href="../assets/research/genai-exploration-rca/downloads/manuscript_latex_20261117.zip" download>LaTeX</a><a href="../assets/research/genai-exploration-rca/downloads/figures_600dpi_20261117.zip" download>Figures: PDF · PNG · JPG</a><a href="../assets/research/genai-exploration-rca/downloads/analysis_code_20261117.zip" download>Code</a><a href="../assets/research/genai-exploration-rca/downloads/aggregate_data_20261117.zip" download>Aggregate data</a></nav>
+<p class="resource-links"><a href="https://huggingface.co/datasets/deep1003/genai-exploration-rca">Hugging Face dataset</a> · <a href="https://github.com/deep1003/genai-exploration-rca">Research code</a> · Figure 9 at 600 dpi: <a href="../assets/research/genai-exploration-rca/figures/Figure_09_600dpi.pdf" download>PDF</a> · <a href="../assets/research/genai-exploration-rca/figures/Figure_09_600dpi.png" download>PNG</a> · <a href="../assets/research/genai-exploration-rca/figures/Figure_09_600dpi.jpg" download>JPG</a></p>
+<section aria-labelledby="highlights"><h2 id="highlights">Highlights</h2><ul class="highlights">
+<li>Semantic convergence does not imply uniform national patent portfolios.</li>
+<li>US and Chinese portfolios differ in patent volume and inventor team size.</li>
+<li>The distance-specialization association depends on the observation unit.</li>
+<li>Patent concentration alone does not establish control over AI inputs.</li>
+</ul></section>
+<section><h2>Introduction</h2>
+<p>Patent counts measure the scale of invention, not technological position. Drawing on research on exploration and catch-up (<a href="#ref41">March, 1991</a>; <a href="#ref31">Katila and Ahuja, 2002</a>; <a href="#ref35">Lee and Malerba, 2017</a>), this study compares national patent portfolios, semantic distance, and technological specialization in generative artificial intelligence (GenAI).</p></section>
+<section><h2>Data and methods</h2>
+<p>The corpus contains 267,519 AI patent records from 2000–2024, including 97,911 GenAI records. PatentSBERTa measures proximity to technological cluster centroids (<a href="#ref05">Bekamiri et al., 2024</a>). Country-CPC-year revealed comparative advantage (RCA) measures relative specialization (<a href="#ref04">Balassa, 1965</a>; <a href="#ref66">Chun et al., 2024</a>). The regression outcome is RCA above one in the following year, including both new and continuing specialization.</p></section>
+<section><h2>Results</h2><h3>National patenting differs in scale and organization</h3>
+<p>China overtakes the United States in annual GenAI filings in 2017. Filing volume indicates scale, not technological quality; publication lags affect recent counts.</p>
+<figure id="figure-2"><a href="../assets/research/genai-exploration-rca/figures/Figure_02_600dpi.png"><img src="../assets/research/genai-exploration-rca/figures/figure-02.webp" width="2000" height="1200" loading="lazy" alt="Annual GenAI patent applications, 2000–2023."></a><figcaption><strong>Figure 2. Annual GenAI patent applications, 2000–2023.</strong><p><em>Notes.</em> The series show the global country mean, the United States, and China. Shading marks 2017. Recent filing counts are affected by publication lags.</p></figcaption></figure>
+<p>Chinese GenAI patents generally have larger inventor teams than US patents. Team size and family-publication counts vary over time and describe different organizational features of the portfolios.</p>
+<figure id="figure-3"><a href="../assets/research/genai-exploration-rca/figures/Figure_03_600dpi.png"><img src="../assets/research/genai-exploration-rca/figures/figure-03.webp" width="2000" height="704" loading="lazy" alt="Inventor team size and patent-family publications per GenAI application."></a><figcaption><strong>Figure 3. Inventor team size and patent-family publications per GenAI application.</strong><p><em>Notes.</em> (a) Mean number of inventors. (b) Mean patent-family publication count. The shared legend applies to both panels. Shading is the 95 percent confidence band for the global series.</p></figcaption></figure>
+<h3>Semantic distance declines without a uniform national trajectory</h3>
+<p>Mean patent-to-centroid distance declines, particularly after 2017, along different US and Chinese paths. This is semantic convergence, not evidence that the Transformer caused it.</p>
+<figure id="figure-4"><a href="../assets/research/genai-exploration-rca/figures/Figure_04_600dpi.png"><img src="../assets/research/genai-exploration-rca/figures/figure-04.webp" width="2000" height="1200" loading="lazy" alt="Mean technological exploration distance of GenAI patents by year."></a><figcaption><strong>Figure 4. Mean technological exploration distance of GenAI patents by year.</strong><p><em>Notes.</em> Distance is measured from each patent embedding to its assigned cluster centroid. The observation-weighted global mean has a 95 percent confidence band; US and Chinese series are shown separately.</p></figcaption></figure>
+<h3>Distance and subsequent specialization depend on the unit of analysis</h3>
+<p>The distance-RCA association changes across observation units and specifications. The estimates do not establish a robust optimal exploration distance.</p>
+<p class="table-title"><strong>Table 2. Exploration distance and subsequent comparative advantage.</strong></p><div class="table-scroll"><table>
+<thead><tr>
+<th></th>
+<th>Equal-cell FE</th>
+<th>Patent–CPC FE</th>
+<th>Pooled OLS</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Exploration distance</td>
+<td>0.0465<sup>**</sup></td>
+<td>-0.0322</td>
+<td>0.1117<sup>***</sup></td>
+</tr>
+<tr>
+<td></td>
+<td>(0.0187)</td>
+<td>(0.0206)</td>
+<td>(0.0228)</td>
+</tr>
+<tr>
+<td>Squared exploration distance</td>
+<td>-0.0406<sup>**</sup></td>
+<td>0.0204</td>
+<td>-0.1068<sup>***</sup></td>
+</tr>
+<tr>
+<td></td>
+<td>(0.0187)</td>
+<td>(0.0183)</td>
+<td>(0.0243)</td>
+</tr>
+<tr>
+<td>RCA above one in year
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math></td>
+<td>0.2793<sup>***</sup></td>
+<td>0.5325<sup>***</sup></td>
+<td>0.5253<sup>***</sup></td>
+</tr>
+<tr>
+<td></td>
+<td>(0.0139)</td>
+<td>(0.0126)</td>
+<td>(0.0260)</td>
+</tr>
+<tr>
+<td>Inventor centrality</td>
+<td>-0.0055<sup>**</sup></td>
+<td>-0.0008</td>
+<td>0.0009</td>
+</tr>
+<tr>
+<td></td>
+<td>(0.0026)</td>
+<td>(0.0010)</td>
+<td>(0.0038)</td>
+</tr>
+<tr>
+<td>Number of inventors</td>
+<td>0.0148<sup>***</sup></td>
+<td>0.0026</td>
+<td>-0.0024</td>
+</tr>
+<tr>
+<td></td>
+<td>(0.0045)</td>
+<td>(0.0018)</td>
+<td>(0.0078)</td>
+</tr>
+<tr>
+<td>Number of applicants</td>
+<td>-0.0031</td>
+<td>0.0011<sup>*</sup></td>
+<td>-0.0043</td>
+</tr>
+<tr>
+<td></td>
+<td>(0.0033)</td>
+<td>(0.0007)</td>
+<td>(0.0026)</td>
+</tr>
+<tr>
+<td>Patent-family publications</td>
+<td>0.0130<sup>***</sup></td>
+<td>0.0012</td>
+<td>0.0012</td>
+</tr>
+<tr>
+<td></td>
+<td>(0.0044)</td>
+<td>(0.0029)</td>
+<td>(0.0048)</td>
+</tr>
+<tr>
+<td>Forward citations</td>
+<td>0.0069<sup>*</sup></td>
+<td>0.0030</td>
+<td>0.0231<sup>**</sup></td>
+</tr>
+<tr>
+<td></td>
+<td>(0.0036)</td>
+<td>(0.0019)</td>
+<td>(0.0097)</td>
+</tr>
+<tr>
+<td>Backward citations</td>
+<td>0.0031</td>
+<td>0.0021<sup>***</sup></td>
+<td>-0.0017</td>
+</tr>
+<tr>
+<td></td>
+<td>(0.0024)</td>
+<td>(0.0007)</td>
+<td>(0.0025)</td>
+</tr>
+<tr>
+<td>Number of claims</td>
+<td>-0.0072</td>
+<td>-0.0136<sup>***</sup></td>
+<td>-0.0094</td>
+</tr>
+<tr>
+<td></td>
+<td>(0.0079)</td>
+<td>(0.0049)</td>
+<td>(0.0133)</td>
+</tr>
+<tr>
+<td>Constant</td>
+<td>—</td>
+<td>—</td>
+<td>0.2020<sup>***</sup></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>(0.0165)</td>
+</tr>
+<tr>
+<td>Observations</td>
+<td>78,615</td>
+<td>506,311</td>
+<td>510,673</td>
+</tr>
+<tr>
+<td>Country clusters</td>
+<td>60</td>
+<td>60</td>
+<td>62</td>
+</tr>
+<tr>
+<td>Year, country and CPC effects</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math></td>
+<td>0.0547</td>
+<td>0.2651</td>
+<td>0.2113</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="table-note"><em>Notes.</em> Outcome: RCA &gt; 1 at <em>t</em> + 1. Parentheses contain country-clustered standard errors. FE models absorb additive year, country, and CPC effects. Cell means of distance and squared distance are standardized separately; the latter is not the square of the former. Samples and weights differ. *** <em>p</em> &lt; .01; ** <em>p</em> &lt; .05; * <em>p</em> &lt; .10.</p>
+<h3>National application profiles vary across clusters</h3>
+<p>Regional application shares differ across clusters. The sample sizes below distinguish large portfolios from small groups.</p>
+<p class="table-title"><strong>Table 3. Regional application shares with RCA above one, 2000–2024.</strong></p><div class="table-scroll"><table>
+<thead><tr>
+<th><strong>Cluster</strong></th>
+<th><strong>US (%)</strong></th>
+<th><strong>CN (%)</strong></th>
+<th><strong>Korea and EU (%)</strong></th>
+<th>Applications</th></tr>
+</thead><tbody>
+<tr>
+<td>Cluster 1</td>
+<td>11.2</td>
+<td>83.8</td>
+<td>5.0</td>
+<td>29,063</td></tr>
+<tr>
+<td>Cluster 2</td>
+<td>17.2</td>
+<td>81.2</td>
+<td>1.6</td>
+<td>64</td></tr>
+<tr>
+<td>Cluster 3</td>
+<td>22.0</td>
+<td>8.2</td>
+<td>69.7</td>
+<td>3,543</td></tr>
+<tr>
+<td>Cluster 4</td>
+<td>34.2</td>
+<td>58.9</td>
+<td>6.8</td>
+<td>39,298</td></tr>
+<tr>
+<td>Cluster 5</td>
+<td>33.3</td>
+<td>50.0</td>
+<td>16.7</td>
+<td>6</td></tr>
+</tbody>
+</table>
+</div>
+<p class="table-note"><em>Notes.</em> Shares use the combined US, Chinese, Korean, and EU application count. LLM records are used where available, otherwise GenAI records. Cluster identifiers do not establish technological categories or ownership. Clusters 2 and 5 are small. Percentages may not sum to 100 because of rounding.</p></section>
+<section><h2>Discussion and implications</h2>
+<p>Semantic convergence can coexist with different national portfolios. Innovation policy should therefore assess portfolio composition and collaboration alongside patent counts, rather than infer a preferred search strategy from one indicator.</p>
+<p>The Data-Human-Computing-Politics framework connects these differences to potential dependence on data, talent, and computing. Strategic leverage requires control of access and costly substitutes (<a href="#ref16">Farrell and Newman, 2019</a>). Those conditions need direct evidence: patent concentration alone does not establish them.</p></section>
+<section><h2>Data availability</h2><p>Aggregate tables, model outputs, and figure-series data are available on <a href="https://huggingface.co/datasets/deep1003/genai-exploration-rca">Hugging Face</a>. Analysis code is available on <a href="https://github.com/deep1003/genai-exploration-rca">GitHub</a>. Patent-provider inputs and personal records are not redistributed; access to underlying data remains subject to the providers' terms.</p></section>
+<section><h2>References</h2><ul class="references" style="list-style:none;padding-left:0"><li id="ref04"><p>Balassa, B. (1965). Trade liberalisation and “revealed” comparative
+advantage. <em>The Manchester School, 33</em>, 99–123. <a
+href="https://doi.org/10.1111/j.1467-9957.1965.tb00050.x"
+class="uri">https://doi.org/10.1111/j.1467-9957.1965.tb00050.x</a>.</p></li>
+<li id="ref05"><p>Bekamiri, H., Hain, D. S., &amp; Jurowetzki, R. (2024). PatentSBERTa:
+a deep NLP based hybrid model for patent distance and classification
+using augmented SBERT. <em>Technological Forecasting and Social Change,
+206</em>, 123536. <a
+href="https://doi.org/10.1016/j.techfore.2024.123536"
+class="uri">https://doi.org/10.1016/j.techfore.2024.123536</a>.</p></li>
+<li id="ref66"><p>Chun, Y., Hur, J., &amp; Hwang, J. (2024). AI technology
+specialization and national competitiveness. PLoS ONE 19(4), e0301091.
+<a href="https://doi.org/10.1371/journal.pone.0301091"
+class="uri">https://doi.org/10.1371/journal.pone.0301091</a>.</p></li>
+<li id="ref16"><p>Farrell, H., &amp; Newman, A. L. (2019). Weaponized interdependence:
+how global economic networks shape state coercion. <em>International
+Security, 44</em>, 42–79. <a href="https://doi.org/10.1162/isec_a_00351"
+class="uri">https://doi.org/10.1162/isec_a_00351</a>.</p></li>
+<li id="ref31"><p>Katila, R., &amp; Ahuja, G. (2002). Something old, something new: a
+longitudinal study of search behavior and new product introduction.
+<em>Academy of Management Journal, 45</em>, 1183–1194. <a
+href="https://doi.org/10.2307/3069433"
+class="uri">https://doi.org/10.2307/3069433</a>.</p></li>
+<li id="ref35"><p>Lee, K., &amp; Malerba, F. (2017). Catch-up cycles and changes in
+industrial leadership: windows of opportunity and responses of firms and
+countries in the evolution of sectoral systems. <em>Research Policy,
+46</em>, 338–351. <a href="https://doi.org/10.1016/j.respol.2016.09.006"
+class="uri">https://doi.org/10.1016/j.respol.2016.09.006</a>.</p></li>
+<li id="ref41"><p>March, J. G. (1991). Exploration and exploitation in organizational
+learning. <em>Organization Science, 2</em>, 71–87. <a
+href="https://doi.org/10.1287/orsc.2.1.71"
+class="uri">https://doi.org/10.1287/orsc.2.1.71</a>.</p></li></ul></section>
+</main></body></html>
