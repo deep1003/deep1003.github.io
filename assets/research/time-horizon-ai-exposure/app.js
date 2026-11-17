@@ -13,7 +13,7 @@
   const model = () => $('model').value;
   const modelIndex = () => models.indexOf(model());
   const isTasks = () => $('unit').value === 'tasks';
-  const groupName = g => ({short:'Short-task, high exposure',long:'Long-task, high exposure',other:'Other occupations'}[g] || 'Unmapped');
+  const groupName = g => ({High:'High exposure, 2025 quintile',Low:'Low exposure, 2025 quintile',Middle:'Middle three quintiles'}[g] || 'Unmapped');
   const ranks = o => ({content:o.rankContent, horizon:o['rank_' + model()], gain:o.rankContent-o['rank_' + model()]});
   const taskScore = r => r[7 + modelIndex()];
   const areaRadius = employment => 28 * Math.sqrt(employment/maxEmployment);

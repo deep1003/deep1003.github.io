@@ -1,11 +1,11 @@
 {
-  "version": "2026-11-16",
+  "version": "2026-11-17-manuscript-method",
   "tasks": 39102,
   "entries": 6072,
-  "mappedTasks": 37577,
-  "unmappedTasks": 1525,
+  "mappedTasks": 37583,
+  "unmappedTasks": 1519,
   "occupations": 162,
-  "highExposureTasks": 6822,
+  "highExposureTasks": 6263,
   "curves": {
     "gpt4_2023": {
       "h50_min": 4.0,
@@ -25,22 +25,22 @@
     }
   },
   "scoreEncoder": "BAAI/bge-m3",
-  "groupDefinitionEncoder": "E5-small (original occupational selection)",
+  "groupDefinitionEncoder": "BAAI/bge-m3, fixed 2025 THAIE employment-weighted quintiles",
   "humanTimeStatus": "Transferred prediction, not measured Korean time",
   "textLanguage": "Korean, original source wording",
   "permission": "Task text redistribution authorised by the project owner on 16 November 2026. Original source rights remain with their holders.",
   "aggregation": "Equal task weights within entry, then equal entry weights within occupation.",
-  "mapping": "Existing route-A modal KSCO eighth-revision three-digit mapping, retained for reproducibility; unmapped rows are preserved.",
+  "mapping": "Verified linkage-correction primary release, six confirmed entry corrections; no official-task blending.",
   "employment": {
     "definition": "Survey-weighted total employed persons, all recorded ages and education groups",
-    "period": "2023\u20132025 average of six April and October waves",
+    "period": "2023–2025 average of six April and October waves",
     "aggregation": "Sum mutually exclusive age-by-education cells within each occupation and wave; arithmetic mean of six wave totals",
-    "source": "Existing Regional Employment Survey derived occupation panel",
+    "source": "Corrected Regional Employment Survey employed-person panel",
     "bubble_area": "Proportional to employed persons; radius = 28 * sqrt(employment / maximum employment), in SVG units",
     "status": "Observed survey-weighted estimates, not task-level employment or 2026 employment"
   },
   "interface": {
-    "default_model": "opus46_2026",
+    "default_model": "gpt5_2025",
     "default_unit": "occupations",
     "page_size": 10,
     "comparison": "Top ten by absolute rank difference among 162 occupations; ties by horizon score",
@@ -57,5 +57,27 @@
       "association": "Hovering or focusing a node or label highlights the matching node, label and leader",
       "rightmost_occupation": "112, Chief executives and senior company managers"
     }
+  },
+  "labourAnalysis": {
+    "equation": "log employment = occupation FE + year FE + beta Z_occ Post2023 + theta Z_occ linear trend",
+    "time": "2013-2025 annual mean April/October",
+    "score": "fixed 2025 THAIE; no annual restandardisation",
+    "weights": "2019-2021 occupation total employment, fixed across outcomes",
+    "standardisation": "once within candidate sample, weighted mean and population SD, before dropping zero outcome rows",
+    "inference": "occupation clustered CR1 G/(G-1), Student t G-1; manuscript 2000 score permutations and leave-one-occupation-out",
+    "high_low": "fixed 2025 score employment-weighted quintiles, midrank allocation",
+    "replication": "original E5-selected 33 occupations retained separately",
+    "data": "corrected employed-person filter and verified mapping retained; no old data error reintroduced",
+    "annual_dynamic_DID": "not used as replacement for manuscript equation"
+  },
+  "degreeAnalysis": {
+    "reference": "fixed 2025 THAIE",
+    "section": "degree-findings",
+    "groups": "same 29 High and 25 Low occupations, not reselected by degree",
+    "equation": "unchanged manuscript annual log employment, occupation/year FE, fixed baseline weights and exposure-specific trend",
+    "annual_restandardisation": false,
+    "outcome": "all-age employed-person stocks by retained attainment proxy",
+    "source": "corrected Regional Employment Survey panel",
+    "manuscript_modified_this_extension": false
   }
 }

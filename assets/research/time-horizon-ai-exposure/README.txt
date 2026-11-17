@@ -31,3 +31,6 @@ Labels are approximately 1.2 times larger, with a minimum displayed font size of
 
 Closer label placement
 Long occupation names wrap onto short lines. Placement starts next to the node boundary and minimises the actual leader length, rather than the distance to the label centre. Distant-space fallback has been removed and leader length is capped at 80 screen pixels. The previous feasible side is preferred when zooming and panning. Hover or keyboard focus highlights the matching occupation node, label and straight leader. The rightmost occupation, KSCO 112, Chief executives and senior company managers, is included in the representative labels. Data and size scales are unchanged.
+
+17 November 2026 manuscript-method update
+Fixed 2025 THAIE quintiles now define the displayed employment groups. Corrected linkage and employed-person aggregates are used. The employment section follows the manuscript equation, fixed standardisation and 2000-permutation inference. The exploratory annually restandardised specification is not part of this release. No individual survey records or manuscript source is published.
