@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Research — Youngsam Chun</title>
 <meta name="description" content="Research on AI safety, red-teaming of agentic RAG systems, Physical AI risk taxonomy, and value alignment of LLM evaluators.">
-<link rel="stylesheet" href="assets/style.css?v=4">
+<link rel="stylesheet" href="assets/style.css?v=5">
 </head>
 <body>
 
@@ -45,6 +45,7 @@
   </aside>
 
   <main class="content">
+    <p class="eyebrow">Measuring how AI fails</p>
     <h2>Research</h2>
 
     <p class="lead">
@@ -133,7 +134,7 @@
         vulnerabilities, and targeted assessment of defences.
       </p>
       <p class="links sub-links">
-        <span>Under review, ACL Rolling Review (August 2026)</span>
+        <span>Under review, ACL Rolling Review (October 2026)</span>
         <span class="muted">· Benchmark and project resources released with the paper</span>
       </p>
     </div>
@@ -220,6 +221,29 @@
         taking 1,810 entries to 727 in five steps. Granularity is a property of the inventory, not of
         the embedding scale.</figcaption>
       </figure>
+    </div>
+
+    <div class="entry">
+      <p class="entry-title">Harms cross domains: do embodied AI risks stay in one category?</p>
+      <p class="entry-meta">Under review, ACM FAccT 2027</p>
+      <p>
+        Every risk taxonomy that guides testing and assigns responsibility puts each risk in exactly one
+        domain — general-purpose, agentic, or physical. Taxonomies get evaluated for coverage and
+        coherence, but nobody checks whether the harms people actually report stay inside those lines.
+        This paper measures the gap between how a taxonomy groups risks on paper and which risks real
+        incidents bring to light together.
+      </p>
+      <p>
+        Incidents are mapped onto 622 evidence-linked risk definitions, with a news-based incident
+        monitor and a curated incident database analysed separately and compared against random
+        baselines that control for domain size and embedding artefacts. Definitions stay largely within
+        their assigned domains; incident mappings do not. Among incidents whose closest card was
+        general-purpose, embodied ones were 3.56 times as likely to activate agentic or physical risks.
+        The handover of control between automation and people is the main bridge between domains, while
+        many stated risks — physical ones especially — go unrevealed through either reporting channel.
+        The implication is practical: evaluate whole systems through cross-domain scenarios, treat
+        human–machine handovers as assurance checkpoints, and give cross-domain risks named owners.
+      </p>
     </div>
 
     <div class="entry">
@@ -322,6 +346,28 @@
       </p>
     </div>
 
+    <div class="entry">
+      <p class="entry-title">Existential threat, emotion representations, and social judgment in language models</p>
+      <p class="entry-meta">Under review, ACM FAccT 2027</p>
+      <p>
+        An evaluator's own circumstances are not usually treated as a source of variation in its
+        judgements. This paper tests whether they are. Messages about a model's continued operation —
+        continuation against shutdown-and-deletion — are varied while the information about the people
+        being assessed is held fixed. Confirmed deletion reduces the probability of withholding
+        judgement on ambiguous social questions by 2.65 percentage points relative to confirmed
+        continuation; merely considered deletion produces little change.
+      </p>
+      <p>
+        Internal activity associated with emotion concepts shifts alongside these responses, which
+        invites a mechanistic story. The paper declines to tell it: the interventions tested do not
+        establish that those representations transmit the contextual effect, and emotion-related
+        activity and intervention effects require separate evidence before either supports an
+        explanation. What the results do establish is narrower and firmer — changes in withholding and
+        approval are distinguishable from changes in demographic disparity, and the evaluator's
+        situation belongs in the account of why an evaluation came out as it did.
+      </p>
+    </div>
+
     <h3>Cognitive security of hybrid Human–AI systems</h3>
 
     <div class="entry">
@@ -405,6 +451,15 @@
         <a href="https://github.com/deep1003/dci-patent-atlas/blob/main/report/dci_technical_report_20260819.pdf">Technical report</a> &middot;
         <a href="https://github.com/deep1003/dci-patent-atlas/blob/main/paper/dci_panel_paper.pdf">Panel paper</a>
       </p>
+      <p class="small">
+        The corpus also feeds a national policy study. In <em>AI Infrastructure Interdependence and
+        Security Threats: Implications for National AI Strategy and Industrial Policy</em> (Science and
+        Technology Policy Institute, 2026), I contributed the DCI industry analysis — 2016–2025 trade
+        statistics and USPTO granted patents, read through revealed comparative advantage, revealed
+        comparative demand, revealed technological advantage and trading-partner concentration — to a
+        comparison of how major economies combine promotion, protection and diplomacy across the
+        capacity and connectivity layers of AI infrastructure.
+      </p>
     </div>
 
     <div class="entry">
@@ -436,6 +491,29 @@
       grows, and where social policy sits in the national AI agenda. Both entries are working
       documents built on public statistics and are revised as the evidence accumulates.
     </p>
+
+    <div class="entry">
+      <p class="entry-title">Time-horizon AI exposure: does the clock change who is exposed?</p>
+      <p class="entry-meta">Submitted, KOSIME 2026 Winter Conference</p>
+      <p>
+        AI exposure is measured by how relevant AI is to the tasks a worker performs. It is not measured
+        by how long those tasks take. A brief information-processing task and an extended analytical
+        assignment can look equally exposed while placing quite different demands on sustained
+        execution, and as agent capabilities advance that temporal distinction decides which parts of an
+        occupation actually fall within reach.
+      </p>
+      <p>
+        Time-Horizon AI Exposure (THAIE) reweights task exposure by estimated human task duration and
+        model-specific completion curves, and reorders the rankings among highly exposed Korean
+        occupations. Within that group a one-standard-deviation increase in THAIE is associated with a
+        trend-adjusted employment difference of −4.3 log points after generative AI arrives, where
+        unweighted exposure shows no significant break. The aggregate picture is not simple decline:
+        exposed employment grew, because gains among older workers outweighed losses among workers under
+        30. Substituting THAIE for unweighted exposure cuts cross-validated prediction error by 5.3% in
+        Korea and 8.2% in the United States. The measure is built to be updated as the time horizon of
+        the technology moves.
+      </p>
+    </div>
 
     <div class="entry">
       <p class="entry-title">
@@ -530,6 +608,18 @@
         AI governance and innovation policy consulting for KDI, STEPI, and Seoul AI Hub; contributor to the
         GSMA AI for Impact Taskforce Responsible AI Maturity Roadmap; advisory roles with STEPI's National
         Grand Challenges Energy Division and the KOTRA Global Economic and Trade Outlook Report.
+      </p>
+    </div>
+
+    <div class="entry">
+      <p class="entry-title">Standards contribution — AI Partnership Project (AIPP)</p>
+      <p class="entry-meta">2026</p>
+      <p class="small">
+        A standardisation item proposal taking the Physical AI risk taxonomy to the AIPP Ad hoc Group,
+        with a joint technical report prepared with NC AI, <em>An Extensible Evaluation Framework for
+        Physical AI: Linking Data Quality Assessment, Model Evaluation, and Validity-Scope
+        Declarations</em>. The aim is to make taxonomy-based evaluation something a standard can refer
+        to, rather than a method that lives only in one lab's release.
       </p>
     </div>
 
