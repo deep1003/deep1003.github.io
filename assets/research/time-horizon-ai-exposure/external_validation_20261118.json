@@ -6,7 +6,6 @@
   "identical_calendar_age_baseline_and_models": true,
   "native_occupation_classifications_differ": true,
   "no_industry_or_population_controls_claimed": true,
-  "no_manuscript_or_website_edits": true,
   "results": [
     {
       "country": "Korea",
@@ -41,5 +40,6 @@
       "panel_added_THAIE_p": 0.9738806314854924
     }
   ],
-  "as_of": "2026-11-18"
+  "as_of": "2026-11-18",
+  "analysis_validation_scope": "Checks refer to the frozen analytical results; manuscript and website publication is tracked separately."
 }
