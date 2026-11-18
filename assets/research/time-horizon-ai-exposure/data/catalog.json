@@ -38,7 +38,7 @@
     "title": "Anthropic human task-duration estimates",
     "role": "Training target for estimating the human time required to perform Korean tasks without AI.",
     "provider": "Anthropic Economic Index",
-    "coverage": "Conversation windows named in the label-construction script are 13–20 November 2025 and 5–12 February 2026, plus data files labelled 26 June 2026. Claude.ai and first-party API data are used in constructing the label table. The fitted Korean model uses the lt_obs duration target.",
+    "coverage": "Conversation windows named in the label-construction script are 13–20 November 2025 and 5–12 February 2026, plus data files labelled 26 June 2026. Claude.ai and first-party API data are used in constructing the label table. The Korean model is fitted to task-level human-duration estimates.",
     "access": "Original download dates are not recorded in the available duration-label package.",
     "acquisition_evidence": "The derived label table and construction script are preserved in the 15 November 2026 analysis package. This package date is not presented as the original retrieval date.",
     "sources": [
@@ -47,7 +47,7 @@
         "Economic primitives report and data context"
       ]
     ],
-    "sample_note": "Actual task-level aggregate estimates. n_src counts contributing source releases in the constructed label table.",
+    "sample_note": "Actual task-level aggregate estimates. Contributing releases counts the source releases represented in each task-level estimate.",
     "notes": "Durations are model-generated estimates of human work time, not stopwatch measurements or AI runtime. The table contains 5896 nonmissing duration targets. Source reporting and release windows differ; a file date does not by itself establish a conversation observation window."
   },
   {
