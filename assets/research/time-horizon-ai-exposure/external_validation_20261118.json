@@ -41,5 +41,14 @@
     }
   ],
   "as_of": "2026-11-18",
-  "analysis_validation_scope": "Checks refer to the frozen analytical results; manuscript and website publication is tracked separately."
+  "analysis_validation_scope": "Checks refer to the frozen analytical results; manuscript and website publication is tracked separately.",
+  "publication_alignment": {
+    "revision": "final_sync_selective",
+    "manuscript_sha256": "1a5e9502fcf9936147f34544169d40d68d7335787bf0efdde1680af71c1e8eb4",
+    "prediction_scope": "Within highly exposed occupations",
+    "prediction_comparison": "THAIE replaces unweighted task exposure with identical controls",
+    "main_panel_reference": "GPT-4; fixed original 33-occupation sample",
+    "prediction_reference": "GPT-5 2025; harmonized Korea–US samples",
+    "analysis_results_unchanged": true
+  }
 }
