@@ -1,0 +1,167 @@
+[
+  {
+    "slug": "korean-dictionary",
+    "title": "Korean Dictionary of Occupations",
+    "role": "Task descriptions used to construct occupational exposure.",
+    "provider": "Korea Employment Information Service (KEIS)",
+    "coverage": "Fifth integrated edition, published 28 May 2020; establishment task surveys conducted in 2012–2019.",
+    "access": "14 November 2026, 02:55:21 UTC (11:55:21 KST).",
+    "acquisition_evidence": "Timestamp recorded in the original KEIS download manifest.",
+    "sources": [
+      [
+        "https://www.keis.or.kr/keis/ko/proj/114/pblc/detail.do?categoryIdx=125&pubIdx=6252",
+        "Official publication"
+      ]
+    ],
+    "sample_note": "Actual occupation identifiers and short titles; no full dictionary text is reproduced.",
+    "notes": "The publisher describes 6,075 principal occupations. The extraction used in the paper contains 6,074 entries. The paper and the linkage-corrected explorer are distinct mapping versions; their mapped-task counts must not be interchanged."
+  },
+  {
+    "slug": "task-exposure-ratings",
+    "title": "Conventional task-based AI exposure ratings",
+    "role": "Training labels for transferring unweighted exposure to Korean tasks; shared labels for the Korea–US comparison.",
+    "provider": "Eloundou et al.; GPTs-are-GPTs public repository",
+    "coverage": "Task ratings associated with the GPT-4-era study, published in Science in 2024. Repository snapshot 0471612fef3c.",
+    "access": "Local acquisition package dated 14 November 2026; an original per-file retrieval timestamp is not recorded.",
+    "acquisition_evidence": "The download manifest identifies immutable repository URLs and SHA-256 checksums. A repository commit date is not a collection date.",
+    "sources": [
+      [
+        "https://github.com/openai/GPTs-are-GPTs",
+        "Public study repository"
+      ]
+    ],
+    "sample_note": "Actual task IDs and numerical labels from the training file.",
+    "notes": "The score is the mean of human and GPT-4 exposure ratings after category recoding. It is a potential-exposure label, not an employment outcome. The retained training table has 923 O*NET occupation codes."
+  },
+  {
+    "slug": "anthropic-duration",
+    "title": "Anthropic human task-duration estimates",
+    "role": "Training target for estimating the human time required to perform Korean tasks without AI.",
+    "provider": "Anthropic Economic Index",
+    "coverage": "Conversation windows named in the label-construction script are 13–20 November 2025 and 5–12 February 2026, plus data files labelled 26 June 2026. Claude.ai and first-party API data are used in constructing the label table. The fitted Korean model uses the lt_obs duration target.",
+    "access": "Original download dates are not recorded in the available duration-label package.",
+    "acquisition_evidence": "The derived label table and construction script are preserved in the 15 November 2026 analysis package. This package date is not presented as the original retrieval date.",
+    "sources": [
+      [
+        "https://www.anthropic.com/research/anthropic-economic-index-january-2026-report",
+        "Economic primitives report and data context"
+      ]
+    ],
+    "sample_note": "Actual task-level aggregate estimates. n_src counts contributing source releases in the constructed label table.",
+    "notes": "Durations are model-generated estimates of human work time, not stopwatch measurements or AI runtime. The table contains 5896 nonmissing duration targets. Source reporting and release windows differ; a file date does not by itself establish a conversation observation window."
+  },
+  {
+    "slug": "metr-horizons",
+    "title": "METR task-completion horizons",
+    "role": "Model-specific completion curves used to weight task exposure by predicted duration.",
+    "provider": "METR, Time Horizon 1.1",
+    "coverage": "Benchmark snapshot covering model generations used in the paper, from GPT-4 (2023) to Claude Opus 4.6 (2026).",
+    "access": "15 November 2026 (KST).",
+    "acquisition_evidence": "Retrieval date, source URLs and checksums are recorded in the METR source-provenance manifest.",
+    "sources": [
+      [
+        "https://metr.org/time-horizons/",
+        "Official benchmark"
+      ],
+      [
+        "https://github.com/METR/eval-analysis-public",
+        "Evaluation repository"
+      ]
+    ],
+    "sample_note": "Actual published horizon estimates, rounded to three decimals.",
+    "notes": "The 50% horizon is the human task duration associated with 50% model success in the evaluated tasks. It is not agent runtime or a workplace automation rate. The original Korean panel uses GPT-4; the aligned prediction comparison uses GPT-5 (2025)."
+  },
+  {
+    "slug": "regional-employment",
+    "title": "Korean Regional Employment Survey",
+    "role": "Korean occupational employment panel, age/cohort comparisons, wages, and web demographic and education analyses.",
+    "provider": "Statistics Korea / National Data Office, MDIS",
+    "coverage": "April and October waves, 2013–2025; type B public-use national files with three-digit occupation codes. The matched Korea–US exercise uses April 2020–2025 and ages 16+. Main Korean employment analyses use ages 15+.",
+    "access": "14 November 2026.",
+    "acquisition_evidence": "The first-half README records the acquisition date; delivered archive filenames and the second-half acquisition records also identify this date.",
+    "sources": [
+      [
+        "https://mdis.mods.go.kr/index.do",
+        "MDIS official microdata service"
+      ]
+    ],
+    "sample_note": "Survey-weighted annual aggregate examples from the web occupational panel, averaging April and October. These are not individual records or official all-occupation national totals.",
+    "notes": "Raw row counts include people outside the analytical employed-person samples. Repeated cross-sections are person-wave observations, not unique people. Wages use positive-pay wage earners aged 25–64. Weights, education completion rules and age restrictions depend on the analysis. Raw MDIS microdata are not redistributed."
+  },
+  {
+    "slug": "us-cps",
+    "title": "US Basic Monthly Current Population Survey",
+    "role": "External employment comparison under conditions aligned with Korea.",
+    "provider": "US Census Bureau and Bureau of Labor Statistics",
+    "coverage": "2020–2025. Monthly files were acquired; the reported harmonized comparison uses April waves and employed people aged 16+.",
+    "access": "Acquisition run dated 18 November 2026; the download manifest does not store per-file retrieval times.",
+    "acquisition_evidence": "URLs, byte sizes, acquisition status and checksums are recorded in the CPS download manifest. The run date identifies the acquisition package, not an exact timestamp.",
+    "sources": [
+      [
+        "https://www.census.gov/data/datasets/time-series/demo/cps/cps-basic.html",
+        "Official public-use files"
+      ]
+    ],
+    "sample_note": "Derived occupation-level score examples linked to CPS codes; no respondent records are shown.",
+    "notes": "Eligibility requires positive occupational employment in all six years, at least 100 baseline April records on average, and at least 80% SOC-link coverage. Cross-validation uses the upper conventional-exposure quintile, fixed 2020–2022 weights and identical controls in each score comparison."
+  },
+  {
+    "slug": "eaps-unemployment",
+    "title": "Economically Active Population Survey",
+    "role": "Website-only linked-unemployment comparisons and descriptive outcomes. Not the source of the paper’s occupational panel break estimate.",
+    "provider": "Statistics Korea / National Data Office, MDIS",
+    "coverage": "May youth-supplement public files, 2013–2025 for the displayed labor-market period. The acquisition also includes 2026, which is not used in the displayed 2013–2025 comparisons. The basic labor-force items cover all recorded ages, not just youth.",
+    "access": "14 November 2026.",
+    "acquisition_evidence": "Date recorded in the acquisition README and delivered archive filenames.",
+    "sources": [
+      [
+        "https://mdis.mods.go.kr/index.do",
+        "MDIS official microdata service"
+      ]
+    ],
+    "sample_note": "Survey-weighted totals across the nine occupation groups for the two displayed comparison years.",
+    "notes": "Linked unemployment uses unemployed people with a valid previous occupation, divided by current employed plus linked unemployed. First-time and unlinked jobseekers are excluded. It is not the official unemployment rate and must not be interpreted as an occupation-specific employment-to-population rate. Raw microdata are not redistributed."
+  },
+  {
+    "slug": "classification-links",
+    "title": "Occupational classifications and crosswalks",
+    "role": "Connect Korean dictionary entries to KSCO-8 occupations, and US task scores through SOC to Census occupation codes.",
+    "provider": "KEIS, Statistics Korea classification materials, and US Census Bureau",
+    "coverage": "Korean dictionary edition 2020, KSCO eighth-revision codes, and the 2018 Census occupation / SOC crosswalk used with 2020–2025 CPS.",
+    "access": "Korean concordance preparation dated 14 November 2026; US crosswalk acquisition package dated 18 November 2026. Original per-file timestamps are not recorded for these links.",
+    "acquisition_evidence": "Korean concordance README, crosswalk files, source inventory and US download manifest.",
+    "sources": [
+      [
+        "https://mdis.mods.go.kr/index.do",
+        "Korean survey codebooks and classifications"
+      ],
+      [
+        "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html",
+        "US Census occupation code lists"
+      ]
+    ],
+    "sample_note": "Actual public code-link examples; these are classifications, not respondent records.",
+    "notes": "One-to-many links are not individual worker transitions. The paper’s dictionary aggregation and the explorer’s linkage-corrected mapping are distinguished on the dictionary page. Changes in occupation systems and link coverage limit cross-country equivalence."
+  },
+  {
+    "slug": "derived-exposure",
+    "title": "Derived task and occupation exposure data",
+    "role": "THAIE scores used in the paper and interactive explorer. These are model predictions and transformations of the sources above, not a separate survey.",
+    "provider": "Computed for this study using multilingual E5 and BGE-M3 encoders, ridge regression and METR curves.",
+    "coverage": "Fixed dictionary task portfolios evaluated at GPT-4 (2023), Claude 3.7 Sonnet (2025), GPT-5 (2025) and Claude Opus 4.6 (2026) capability scenarios. These scenario years are not employment observation years.",
+    "access": "No external acquisition date applies to generated scores. Core score package dated 15 November 2026; linkage-corrected release dated 16 November 2026.",
+    "acquisition_evidence": "The scoring tables and source-construction scripts define the analytical versions.",
+    "sources": [
+      [
+        "https://huggingface.co/intfloat/multilingual-e5-small",
+        "E5 model"
+      ],
+      [
+        "https://huggingface.co/BAAI/bge-m3",
+        "BGE-M3 model"
+      ]
+    ],
+    "sample_note": "Actual derived occupation scores, unweighted over occupations for the summary statistics.",
+    "notes": "The descriptive statistics are unweighted over task statements or occupations as named. They are not employment-weighted means. The paper uses E5 for its original high-exposure classification and BGE for content and duration in THAIE. The web demographic groups use fixed 2025 THAIE. No Korean respondent data or full manuscript is included in these pages."
+  }
+]
