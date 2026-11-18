@@ -1,0 +1,45 @@
+{
+  "pass_checks": true,
+  "independent_full_dummy_WLS_and_cluster_covariance": true,
+  "independent_crossvalidation": true,
+  "E_only_classification_verified": true,
+  "identical_calendar_age_baseline_and_models": true,
+  "native_occupation_classifications_differ": true,
+  "no_industry_or_population_controls_claimed": true,
+  "no_manuscript_or_website_edits": true,
+  "results": [
+    {
+      "country": "Korea",
+      "N": 27,
+      "MAE_controls": 8.641712194414936,
+      "MAE_E": 11.059222818963717,
+      "MAE_THAIE": 10.468254164547131,
+      "MAE_joint": 11.23242096513236,
+      "replacement_improvement_pct": 5.343672553583301,
+      "joint_improvement_pct": -1.5660969039492878,
+      "replacement_error_delta_low": -2.1030164845565102,
+      "replacement_error_delta_high": 1.0699993154695504,
+      "replacement_better_seeds": 26,
+      "joint_better_seeds": 17,
+      "panel_added_THAIE_beta": -0.2507116563824225,
+      "panel_added_THAIE_p": 0.9127527032569672
+    },
+    {
+      "country": "US",
+      "N": 22,
+      "MAE_controls": 16.115174114587276,
+      "MAE_E": 18.80817694265218,
+      "MAE_THAIE": 17.257546467528183,
+      "MAE_joint": 20.185404162009338,
+      "replacement_improvement_pct": 8.244448570704165,
+      "joint_improvement_pct": -7.32249182659459,
+      "replacement_error_delta_low": -5.423757237316263,
+      "replacement_error_delta_high": 1.2051909789080193,
+      "replacement_better_seeds": 31,
+      "joint_better_seeds": 2,
+      "panel_added_THAIE_beta": -0.0766067508307266,
+      "panel_added_THAIE_p": 0.9738806314854924
+    }
+  ],
+  "as_of": "2026-11-18"
+}
