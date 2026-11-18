@@ -52,7 +52,7 @@
       "selection": "Illustrative occupational categories spanning the exposure-duration space; not a statistical selection",
       "layout": "Wrapped names placed beside node edges; no distant-space fallback; straight leaders capped at 80 screen pixels; stable side preference on zoom and pan",
       "native_node_tooltips": false,
-      "font": "13.2 CSS pixels minimum, approximately 1.2 times the previous 11-pixel font",
+      "font": "13.2 CSS pixels minimum",
       "crowded_views": "Unplaceable or off-screen labels are temporarily omitted",
       "association": "Hovering or focusing a node or label highlights the matching node, label and leader",
       "rightmost_occupation": "112, Chief executives and senior company managers"
@@ -79,5 +79,13 @@
     "outcome": "all-age employed-person stocks by retained attainment proxy",
     "source": "corrected Regional Employment Survey panel",
     "manuscript_modified_this_extension": false
+  },
+  "publicationAlignment": {
+    "manuscript_revision": "editorial_trace_cleanup",
+    "explorer_mapping": "Linkage-corrected; 37583 mapped tasks",
+    "paper_mapping": "37577 mapped tasks",
+    "descriptive_reference": "2025 GPT-5",
+    "paper_panel_reference": "GPT-4, 33 E5-selected high-exposure occupations",
+    "supplementary_models": "Website-only 2025-exposure demographic and degree analyses"
   }
 }
