@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="510.23622pt" height="382.677165pt" viewBox="0 0 510.23622 382.677165" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-19T11:34:25.882583</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 382.677165
+L 510.23622 382.677165
+L 510.23622 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 53.574803 227.371104
+L 500.031496 227.371104
+L 500.031496 34.440945
+L 53.574803 34.440945
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 140.18724 227.371104
+L 140.18724 48.732068
+" clip-path="url(#p7f0962692f)" style="fill: none; stroke-dasharray: 2.4,4.8; stroke-dashoffset: 0; stroke: #a9b8bd; stroke-width: 1.2"/>
+   </g>
+   <g id="LineCollection_2">
+    <path d="M 431.011259 227.371104
+L 431.011259 48.732068
+" clip-path="url(#p7f0962692f)" style="fill: none; stroke-dasharray: 2.4,4.8; stroke-dashoffset: 0; stroke: #a9b8bd; stroke-width: 1.2"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="maabb47275e" d="M 0 0
+L 0 3.5
+" style="stroke: #000000; stroke-width: 1.2"/>
+      </defs>
+      <g>
+       <use xlink:href="#maabb47275e" x="53.574803" y="227.371104" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#maabb47275e" x="140.18724" y="227.371104" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#maabb47275e" x="194.833604" y="227.371104" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#maabb47275e" x="321.718531" y="227.371104" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#maabb47275e" x="431.011259" y="227.371104" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#maabb47275e" x="500.031496" y="227.371104" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_7"/>
+    <g id="xtick_8"/>
+    <g id="xtick_9"/>
+    <g id="xtick_10"/>
+    <g id="xtick_11"/>
+    <g id="xtick_12"/>
+    <g id="xtick_13"/>
+    <g id="xtick_14"/>
+    <g id="xtick_15"/>
+    <g id="xtick_16"/>
+    <g id="xtick_17"/>
+    <g id="xtick_18"/>
+    <g id="xtick_19"/>
+    <g id="xtick_20"/>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_7">
+      <path d="M 53.574803 227.371104
+L 500.031496 227.371104
+" clip-path="url(#p7f0962692f)" style="fill: none; stroke: #e3e9ea; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <defs>
+       <path id="m2f745ae2d5" d="M 0 0
+L -3.5 0
+" style="stroke: #000000; stroke-width: 1.2"/>
+      </defs>
+      <g>
+       <use xlink:href="#m2f745ae2d5" x="53.574803" y="227.371104" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: end" x="46.574803" y="230.971456" transform="rotate(-0 46.574803 230.971456)">0.00</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_9">
+      <path d="M 53.574803 182.711345
+L 500.031496 182.711345
+" clip-path="url(#p7f0962692f)" style="fill: none; stroke: #e3e9ea; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m2f745ae2d5" x="53.574803" y="182.711345" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: end" x="46.574803" y="186.311697" transform="rotate(-0 46.574803 186.311697)">0.25</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_11">
+      <path d="M 53.574803 138.051586
+L 500.031496 138.051586
+" clip-path="url(#p7f0962692f)" style="fill: none; stroke: #e3e9ea; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m2f745ae2d5" x="53.574803" y="138.051586" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: end" x="46.574803" y="141.651938" transform="rotate(-0 46.574803 141.651938)">0.50</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_13">
+      <path d="M 53.574803 93.391827
+L 500.031496 93.391827
+" clip-path="url(#p7f0962692f)" style="fill: none; stroke: #e3e9ea; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m2f745ae2d5" x="53.574803" y="93.391827" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: end" x="46.574803" y="96.992178" transform="rotate(-0 46.574803 96.992178)">0.75</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_15">
+      <path d="M 53.574803 48.732068
+L 500.031496 48.732068
+" clip-path="url(#p7f0962692f)" style="fill: none; stroke: #e3e9ea; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m2f745ae2d5" x="53.574803" y="48.732068" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: end" x="46.574803" y="52.332419" transform="rotate(-0 46.574803 52.332419)">1.00</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle" x="21.466991" y="130.906025" transform="rotate(-90 21.466991 130.906025)">과업별 점수</text>
+    </g>
+   </g>
+   <g id="line2d_17">
+    <path d="M 53.574803 48.732068
+L 500.031496 48.732068
+L 500.031496 48.732068
+" clip-path="url(#p7f0962692f)" style="fill: none; stroke-dasharray: 8,6.4; stroke-dashoffset: 0; stroke: #64748b; stroke-width: 1.6"/>
+   </g>
+   <g id="line2d_18">
+    <path d="M 53.574803 80.008819
+L 64.311237 83.153816
+L 75.04767 86.533932
+L 85.784104 90.15064
+L 96.520537 94.002152
+L 107.256971 98.083007
+L 118.888107 102.751666
+L 130.519243 107.66068
+L 143.045082 113.188971
+L 157.360327 119.767188
+L 174.35968 127.85042
+L 202.095467 141.347224
+L 226.252442 153.002221
+L 241.462389 160.105724
+L 254.882931 166.139159
+L 267.40877 171.526133
+L 279.039907 176.287883
+L 290.671043 180.797608
+L 301.407476 184.724552
+L 312.14391 188.41805
+L 322.880343 191.875158
+L 333.616777 195.096337
+L 344.35321 198.085006
+L 355.089644 200.847076
+L 365.826077 203.390472
+L 377.457214 205.91009
+L 389.08835 208.197794
+L 400.719486 210.268169
+L 413.245325 212.272107
+L 426.665867 214.180596
+L 440.086409 215.864828
+L 454.401654 217.439192
+L 469.611601 218.888565
+L 485.716251 220.20311
+L 500.031496 221.205779
+L 500.031496 221.205779
+" clip-path="url(#p7f0962692f)" style="fill: none; stroke: #007f83; stroke-width: 1.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_19">
+    <path d="M 195.343005 227.371104
+L 195.343005 34.440945
+" clip-path="url(#p7f0962692f)" style="fill: none; stroke-dasharray: 3.6,4.8; stroke-dashoffset: 0; stroke: #b46c3b; stroke-width: 1.2"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 53.574803 227.371104
+L 53.574803 34.440945
+" style="fill: none; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 53.574803 227.371104
+L 500.031496 227.371104
+" style="fill: none; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; fill: #98552c" transform="translate(419.07455 111.338459)">Claude 3.7 Sonnet</text>
+    <!-- $h_{50}$ = 60.4분 -->
+    <g style="fill: #98552c" transform="translate(439.422362 121.236865)">
+     <text>
+      <tspan x="0" y="-0.375" style="font-style: oblique; font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #98552c">h</tspan>
+      <tspan x="6.020996" y="1.265625" style="font-size: 6.65px; font-family: 'DejaVu Sans'; fill: #98552c">5</tspan>
+      <tspan x="10.251929" y="1.265625" style="font-size: 6.65px; font-family: 'DejaVu Sans'; fill: #98552c">0</tspan>
+      <tspan x="14.756299" y="-0.375" style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; fill: #98552c"> </tspan>
+      <tspan x="17.254788" y="-0.375" style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; fill: #98552c">=</tspan>
+      <tspan x="22.223279" y="-0.375" style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; fill: #98552c"> </tspan>
+      <tspan x="24.721768" y="-0.375" style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; fill: #98552c">6</tspan>
+      <tspan x="29.984753" y="-0.375" style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; fill: #98552c">0</tspan>
+      <tspan x="35.969739" y="-0.375" style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; fill: #98552c">.</tspan>
+      <tspan x="38.116727" y="-0.375" style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; fill: #98552c">4</tspan>
+      <tspan x="43.389218" y="-0.375" style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; fill: #98552c">분</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="53.574803" y="24.440945" transform="rotate(-0 53.574803 24.440945)">같은 E1 판정, 다른 수행시간 가중</text>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="mb1c632ff16" d="M 0 2.54951
+C 0.676138 2.54951 1.324674 2.280877 1.802776 1.802776
+C 2.280877 1.324674 2.54951 0.676138 2.54951 0
+C 2.54951 -0.676138 2.280877 -1.324674 1.802776 -1.802776
+C 1.324674 -2.280877 0.676138 -2.54951 0 -2.54951
+C -0.676138 -2.54951 -1.324674 -2.280877 -1.802776 -1.802776
+C -2.280877 -1.324674 -2.54951 -0.676138 -2.54951 0
+C -2.54951 0.676138 -2.280877 1.324674 -1.802776 1.802776
+C -1.324674 2.280877 -0.676138 2.54951 0 2.54951
+z
+" style="stroke: #ffffff; stroke-width: 0.7"/>
+    </defs>
+    <g clip-path="url(#p7f0962692f)">
+     <use xlink:href="#mb1c632ff16" x="78.885793" y="87.799702" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="97.801086" y="94.576563" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="125.876683" y="105.759105" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="154.154943" y="118.293318" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="181.958875" y="131.543218" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="208.476135" y="144.442518" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="234.574844" y="156.88373" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="263.806203" y="169.955238" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="291.345521" y="181.001211" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="318.884858" y="190.560397" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="347.048908" y="198.757895" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="370.309081" y="204.345284" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="405.33837" y="211.016555" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     <use xlink:href="#mb1c632ff16" x="426.364357" y="214.108389" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+    </g>
+   </g>
+   <g id="legend_1">
+    <g id="line2d_20">
+     <path d="M 61.224803 192.478604
+L 69.724803 192.478604
+L 78.224803 192.478604
+" style="fill: none; stroke-dasharray: 8,6.4; stroke-dashoffset: 0; stroke: #64748b; stroke-width: 1.6"/>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 8.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="85.024803" y="195.453604" transform="rotate(-0 85.024803 195.453604)">Eloundou β = 1</text>
+    </g>
+    <g id="line2d_21">
+     <path d="M 61.224803 204.166104
+L 69.724803 204.166104
+L 78.224803 204.166104
+" style="fill: none; stroke: #007f83; stroke-width: 1.8; stroke-linecap: square"/>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 8.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="85.024803" y="207.141104" transform="rotate(-0 85.024803 207.141104)">시간 가중 점수</text>
+    </g>
+    <g id="PathCollection_2">
+     <g>
+      <use xlink:href="#mb1c632ff16" x="69.724803" y="216.589386" style="fill: #007f83; stroke: #ffffff; stroke-width: 0.7"/>
+     </g>
+    </g>
+    <g id="text_11">
+     <text style="font-size: 8.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="85.024803" y="218.820636" transform="rotate(-0 85.024803 218.820636)">실제 E1 과업의 구간별 평균</text>
+    </g>
+   </g>
+   <g id="PathCollection_3">
+    <defs>
+     <path id="m40255c783e" d="M -0 3.741657
+L 3.741657 0
+L 0 -3.741657
+L -3.741657 -0
+z
+" style="stroke: #007f83; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#p7f0962692f)">
+     <use xlink:href="#m40255c783e" x="140.18724" y="111.907325" style="fill: #ffffff; stroke: #007f83; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_4">
+    <g clip-path="url(#p7f0962692f)">
+     <use xlink:href="#m40255c783e" x="431.011259" y="214.749383" style="fill: #ffffff; stroke: #007f83; stroke-width: 1.2"/>
+    </g>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_5">
+    <path d="M 53.574803 306.141732
+L 500.031496 306.141732
+L 500.031496 242.750394
+L 53.574803 242.750394
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_21">
+     <g id="line2d_22">
+      <g>
+       <use xlink:href="#maabb47275e" x="53.574803" y="306.141732" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle" x="53.574803" y="320.342435" transform="rotate(-0 53.574803 320.342435)">10분</text>
+     </g>
+    </g>
+    <g id="xtick_22">
+     <g id="line2d_23">
+      <g>
+       <use xlink:href="#maabb47275e" x="140.18724" y="306.141732" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle" x="140.18724" y="320.342435" transform="rotate(-0 140.18724 320.342435)">30분</text>
+     </g>
+    </g>
+    <g id="xtick_23">
+     <g id="line2d_24">
+      <g>
+       <use xlink:href="#maabb47275e" x="194.833604" y="306.141732" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_14">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle" x="194.833604" y="320.43892" transform="rotate(-0 194.833604 320.43892)">1시간</text>
+     </g>
+    </g>
+    <g id="xtick_24">
+     <g id="line2d_25">
+      <g>
+       <use xlink:href="#maabb47275e" x="321.718531" y="306.141732" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle" x="321.718531" y="320.43892" transform="rotate(-0 321.718531 320.43892)">5시간</text>
+     </g>
+    </g>
+    <g id="xtick_25">
+     <g id="line2d_26">
+      <g>
+       <use xlink:href="#maabb47275e" x="431.011259" y="306.141732" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_16">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle" x="431.011259" y="320.43892" transform="rotate(-0 431.011259 320.43892)">20시간</text>
+     </g>
+    </g>
+    <g id="xtick_26">
+     <g id="line2d_27">
+      <g>
+       <use xlink:href="#maabb47275e" x="500.031496" y="306.141732" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_17">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle" x="500.031496" y="320.43892" transform="rotate(-0 500.031496 320.43892)">48시간</text>
+     </g>
+    </g>
+    <g id="xtick_27"/>
+    <g id="xtick_28"/>
+    <g id="xtick_29"/>
+    <g id="xtick_30"/>
+    <g id="xtick_31"/>
+    <g id="xtick_32"/>
+    <g id="xtick_33"/>
+    <g id="xtick_34"/>
+    <g id="xtick_35"/>
+    <g id="xtick_36"/>
+    <g id="xtick_37"/>
+    <g id="xtick_38"/>
+    <g id="xtick_39"/>
+    <g id="xtick_40"/>
+    <g id="text_18">
+     <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle" x="276.80315" y="332.75142" transform="rotate(-0 276.80315 332.75142)">추정 인간 수행시간 · 로그 눈금</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_6">
+     <g id="line2d_28">
+      <path d="M 53.574803 306.141732
+L 500.031496 306.141732
+" clip-path="url(#pb8526e1ca8)" style="fill: none; stroke: #e3e9ea; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_29">
+      <g>
+       <use xlink:href="#m2f745ae2d5" x="53.574803" y="306.141732" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_19">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: end" x="46.574803" y="309.742084" transform="rotate(-0 46.574803 309.742084)">0</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_30">
+      <path d="M 53.574803 281.992651
+L 500.031496 281.992651
+" clip-path="url(#pb8526e1ca8)" style="fill: none; stroke: #e3e9ea; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_31">
+      <g>
+       <use xlink:href="#m2f745ae2d5" x="53.574803" y="281.992651" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_20">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: end" x="46.574803" y="285.593003" transform="rotate(-0 46.574803 285.593003)">50</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_32">
+      <path d="M 53.574803 257.84357
+L 500.031496 257.84357
+" clip-path="url(#pb8526e1ca8)" style="fill: none; stroke: #e3e9ea; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_33">
+      <g>
+       <use xlink:href="#m2f745ae2d5" x="53.574803" y="257.84357" style="stroke: #000000; stroke-width: 1.2"/>
+      </g>
+     </g>
+     <g id="text_21">
+      <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: end" x="46.574803" y="261.443921" transform="rotate(-0 46.574803 261.443921)">100</text>
+     </g>
+    </g>
+    <g id="text_22">
+     <text style="font-size: 9.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle" x="26.2066" y="274.446063" transform="rotate(-90 26.2066 274.446063)">과업 수</text>
+    </g>
+   </g>
+   <g id="patch_6">
+    <path d="M 53.574803 306.141732
+L 81.478346 306.141732
+L 81.478346 305.658751
+L 53.574803 305.658751
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 81.478346 306.141732
+L 109.38189 306.141732
+L 109.38189 305.175769
+L 81.478346 305.175769
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 109.38189 306.141732
+L 137.285433 306.141732
+L 137.285433 301.794898
+L 109.38189 301.794898
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 137.285433 306.141732
+L 165.188976 306.141732
+L 165.188976 295.516137
+L 137.285433 295.516137
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 165.188976 306.141732
+L 193.09252 306.141732
+L 193.09252 290.68632
+L 165.188976 290.68632
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 193.09252 306.141732
+L 220.996063 306.141732
+L 220.996063 280.543706
+L 193.09252 280.543706
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 220.996063 306.141732
+L 248.899606 306.141732
+L 248.899606 276.196872
+L 220.996063 276.196872
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 248.899606 306.141732
+L 276.80315 306.141732
+L 276.80315 269.435129
+L 248.899606 269.435129
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 276.80315 306.141732
+L 304.706693 306.141732
+L 304.706693 261.224441
+L 276.80315 261.224441
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 304.706693 306.141732
+L 332.610236 306.141732
+L 332.610236 260.258478
+L 304.706693 260.258478
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 332.610236 306.141732
+L 360.51378 306.141732
+L 360.51378 245.769029
+L 332.610236 245.769029
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 360.51378 306.141732
+L 388.417323 306.141732
+L 388.417323 287.305449
+L 360.51378 287.305449
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 388.417323 306.141732
+L 416.320866 306.141732
+L 416.320866 282.958614
+L 388.417323 282.958614
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 416.320866 306.141732
+L 444.224409 306.141732
+L 444.224409 303.243843
+L 416.320866 303.243843
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 444.224409 306.141732
+L 472.127953 306.141732
+L 472.127953 306.141732
+L 444.224409 306.141732
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 472.127953 306.141732
+L 500.031496 306.141732
+L 500.031496 306.141732
+L 472.127953 306.141732
+z
+" clip-path="url(#pb8526e1ca8)" style="fill: #b6c9cc; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 53.574803 306.141732
+L 53.574803 242.750394
+" style="fill: none; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 53.574803 306.141732
+L 500.031496 306.141732
+" style="fill: none; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 8.5px; font-family: 'Apple SD Gothic Neo'; text-anchor: end" x="491.102362" y="252.259095" transform="rotate(-0 491.102362 252.259095)">원고 입력 E1 과업 663개</text>
+   </g>
+  </g>
+  <g id="text_24">
+   <text style="font-size: 8.2px; font-family: 'Apple SD Gothic Neo'; fill: #52636b" transform="translate(53.574803 345.975675)">원은 원고 입력 자료의 구간별 평균이며, 곡선은 METR에서 이전한 값입니다.</text>
+   <text style="font-size: 8.2px; font-family: 'Apple SD Gothic Neo'; fill: #52636b" transform="translate(53.574803 356.934462)">30분·20시간의 마름모는 계산 예시이며 실제 수행 성공률이 아닙니다.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7f0962692f">
+   <rect x="53.574803" y="34.440945" width="446.456693" height="192.930159"/>
+  </clipPath>
+  <clipPath id="pb8526e1ca8">
+   <rect x="53.574803" y="242.750394" width="446.456693" height="63.391338"/>
+  </clipPath>
+ </defs>
+</svg>

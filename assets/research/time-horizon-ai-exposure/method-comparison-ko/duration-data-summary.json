@@ -1,0 +1,491 @@
+{
+  "sample_size": 663,
+  "source_duration_status": "Anthropic-estimated human time, not observed worker completion time",
+  "selection": "Both human and GPT-4 labels E1; nonmissing retained lt_obs",
+  "models": {
+    "gpt4_2023": {
+      "name": "GPT-4",
+      "h50_min": 3.987428,
+      "slope_per_doubling": 0.6405298845270092,
+      "example_30min": 0.13413766755972706,
+      "example_20hours": 0.005098419278518472,
+      "bins": [
+        {
+          "left_min": 10.0,
+          "right_min": 14.246626231544804,
+          "n": 1,
+          "geomean_duration_min": 13.785751624398173,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.24116139021989172
+        },
+        {
+          "left_min": 14.246626231544804,
+          "right_min": 20.29663589813405,
+          "n": 2,
+          "geomean_duration_min": 17.523827948144195,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.20360001813668488
+        },
+        {
+          "left_min": 20.29663589813405,
+          "right_min": 28.915858539847044,
+          "n": 9,
+          "geomean_duration_min": 25.020085958928007,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.1554650997383311
+        },
+        {
+          "left_min": 28.915858539847044,
+          "right_min": 41.19534287814237,
+          "n": 22,
+          "geomean_duration_min": 35.81500607111411,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.11643054788352941
+        },
+        {
+          "left_min": 41.19534287814237,
+          "right_min": 58.689465246522545,
+          "n": 32,
+          "geomean_duration_min": 50.95987238238027,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.08704076188893921
+        },
+        {
+          "left_min": 58.689465246522545,
+          "right_min": 83.61268750964447,
+          "n": 53,
+          "geomean_duration_min": 71.33517838808146,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.06526050501229362
+        },
+        {
+          "left_min": 83.61268750964447,
+          "right_min": 119.11987071648602,
+          "n": 62,
+          "geomean_duration_min": 99.32841545650932,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.0489360755591394
+        },
+        {
+          "left_min": 119.11987071648602,
+          "right_min": 169.70562748477153,
+          "n": 76,
+          "geomean_duration_min": 143.9130124973675,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.03522484636501013
+        },
+        {
+          "left_min": 169.70562748477153,
+          "right_min": 241.77326441653167,
+          "n": 93,
+          "geomean_duration_min": 204.0824646735153,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.025747543341143292
+        },
+        {
+          "left_min": 241.77326441653167,
+          "right_min": 344.4453330922778,
+          "n": 95,
+          "geomean_duration_min": 289.40859092221376,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.018782900145161936
+        },
+        {
+          "left_min": 344.4453330922778,
+          "right_min": 490.7183917765632,
+          "n": 125,
+          "geomean_duration_min": 413.67426443344215,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.013563830866634607
+        },
+        {
+          "left_min": 490.7183917765632,
+          "right_min": 699.1081512585457,
+          "n": 39,
+          "geomean_duration_min": 555.6376083775929,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.010365656267316309
+        },
+        {
+          "left_min": 699.1081512585457,
+          "right_min": 995.993252640679,
+          "n": 48,
+          "geomean_duration_min": 866.477331058616,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.006887092265799105
+        },
+        {
+          "left_min": 995.993252640679,
+          "right_min": 1418.9543599512328,
+          "n": 6,
+          "geomean_duration_min": 1131.3133117077389,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.00540068105521313
+        }
+      ]
+    },
+    "claude37_2025": {
+      "name": "Claude 3.7 Sonnet",
+      "h50_min": 60.388937,
+      "slope_per_doubling": 0.5974746289552628,
+      "example_30min": 0.6463524515742135,
+      "example_20hours": 0.07065488834053102,
+      "bins": [
+        {
+          "left_min": 10.0,
+          "right_min": 14.246626231544804,
+          "n": 1,
+          "geomean_duration_min": 13.785751624398173,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.7813040503743792
+        },
+        {
+          "left_min": 14.246626231544804,
+          "right_min": 20.29663589813405,
+          "n": 2,
+          "geomean_duration_min": 17.523827948144195,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.7433679880798937
+        },
+        {
+          "left_min": 20.29663589813405,
+          "right_min": 28.915858539847044,
+          "n": 9,
+          "geomean_duration_min": 25.020085958928007,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.6807694539871975
+        },
+        {
+          "left_min": 28.915858539847044,
+          "right_min": 41.19534287814237,
+          "n": 22,
+          "geomean_duration_min": 35.81500607111411,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.6106044246416366
+        },
+        {
+          "left_min": 41.19534287814237,
+          "right_min": 58.689465246522545,
+          "n": 32,
+          "geomean_duration_min": 50.95987238238027,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.5364330699409157
+        },
+        {
+          "left_min": 58.689465246522545,
+          "right_min": 83.61268750964447,
+          "n": 53,
+          "geomean_duration_min": 71.33517838808146,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.4642243235975472
+        },
+        {
+          "left_min": 83.61268750964447,
+          "right_min": 119.11987071648602,
+          "n": 62,
+          "geomean_duration_min": 99.32841545650932,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.39457990726633474
+        },
+        {
+          "left_min": 119.11987071648602,
+          "right_min": 169.70562748477153,
+          "n": 76,
+          "geomean_duration_min": 143.9130124973675,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.32140716426492877
+        },
+        {
+          "left_min": 169.70562748477153,
+          "right_min": 241.77326441653167,
+          "n": 93,
+          "geomean_duration_min": 204.0824646735153,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.25957312780834946
+        },
+        {
+          "left_min": 241.77326441653167,
+          "right_min": 344.4453330922778,
+          "n": 95,
+          "geomean_duration_min": 289.40859092221376,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.20606194571546832
+        },
+        {
+          "left_min": 344.4453330922778,
+          "right_min": 490.7183917765632,
+          "n": 125,
+          "geomean_duration_min": 413.67426443344215,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.16017332999956285
+        },
+        {
+          "left_min": 490.7183917765632,
+          "right_min": 699.1081512585457,
+          "n": 39,
+          "geomean_duration_min": 555.6376083775929,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.1288957909598824
+        },
+        {
+          "left_min": 699.1081512585457,
+          "right_min": 995.993252640679,
+          "n": 48,
+          "geomean_duration_min": 866.477331058616,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.09155081655848955
+        },
+        {
+          "left_min": 995.993252640679,
+          "right_min": 1418.9543599512328,
+          "n": 6,
+          "geomean_duration_min": 1131.3133117077389,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.07424309983469253
+        }
+      ]
+    },
+    "gpt5_2025": {
+      "name": "GPT-5",
+      "h50_min": 203.012577,
+      "slope_per_doubling": 0.5762577283029736,
+      "example_30min": 0.830563609774666,
+      "example_20hours": 0.18585445976072232,
+      "bins": [
+        {
+          "left_min": 10.0,
+          "right_min": 14.246626231544804,
+          "n": 1,
+          "geomean_duration_min": 13.785751624398173,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.9034416441935716
+        },
+        {
+          "left_min": 14.246626231544804,
+          "right_min": 20.29663589813405,
+          "n": 2,
+          "geomean_duration_min": 17.523827948144195,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.8841477823861363
+        },
+        {
+          "left_min": 20.29663589813405,
+          "right_min": 28.915858539847044,
+          "n": 9,
+          "geomean_duration_min": 25.020085958928007,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.8502652396220268
+        },
+        {
+          "left_min": 28.915858539847044,
+          "right_min": 41.19534287814237,
+          "n": 22,
+          "geomean_duration_min": 35.81500607111411,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.8086234078835389
+        },
+        {
+          "left_min": 41.19534287814237,
+          "right_min": 58.689465246522545,
+          "n": 32,
+          "geomean_duration_min": 50.95987238238027,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.7589687815050723
+        },
+        {
+          "left_min": 58.689465246522545,
+          "right_min": 83.61268750964447,
+          "n": 53,
+          "geomean_duration_min": 71.33517838808146,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.7043721357453612
+        },
+        {
+          "left_min": 83.61268750964447,
+          "right_min": 119.11987071648602,
+          "n": 62,
+          "geomean_duration_min": 99.32841545650932,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.6441027909188828
+        },
+        {
+          "left_min": 119.11987071648602,
+          "right_min": 169.70562748477153,
+          "n": 76,
+          "geomean_duration_min": 143.9130124973675,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.5709130758398929
+        },
+        {
+          "left_min": 169.70562748477153,
+          "right_min": 241.77326441653167,
+          "n": 93,
+          "geomean_duration_min": 204.0824646735153,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.49890780332260987
+        },
+        {
+          "left_min": 241.77326441653167,
+          "right_min": 344.4453330922778,
+          "n": 95,
+          "geomean_duration_min": 289.40859092221376,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.42694343261006484
+        },
+        {
+          "left_min": 344.4453330922778,
+          "right_min": 490.7183917765632,
+          "n": 125,
+          "geomean_duration_min": 413.67426443344215,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.35638246678203767
+        },
+        {
+          "left_min": 490.7183917765632,
+          "right_min": 699.1081512585457,
+          "n": 39,
+          "geomean_duration_min": 555.6376083775929,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.30238998984051596
+        },
+        {
+          "left_min": 699.1081512585457,
+          "right_min": 995.993252640679,
+          "n": 48,
+          "geomean_duration_min": 866.477331058616,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.23045046178658787
+        },
+        {
+          "left_min": 995.993252640679,
+          "right_min": 1418.9543599512328,
+          "n": 6,
+          "geomean_duration_min": 1131.3133117077389,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.19366031197643507
+        }
+      ]
+    },
+    "opus46_2026": {
+      "name": "Claude Opus 4.6",
+      "h50_min": 718.80683,
+      "slope_per_doubling": 0.4122484397307579,
+      "example_30min": 0.8686594067135098,
+      "example_20hours": 0.4243846659016213,
+      "bins": [
+        {
+          "left_min": 10.0,
+          "right_min": 14.246626231544804,
+          "n": 1,
+          "geomean_duration_min": 13.785751624398173,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.9130622054331065
+        },
+        {
+          "left_min": 14.246626231544804,
+          "right_min": 20.29663589813405,
+          "n": 2,
+          "geomean_duration_min": 17.523827948144195,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.9008427966229079
+        },
+        {
+          "left_min": 20.29663589813405,
+          "right_min": 28.915858539847044,
+          "n": 9,
+          "geomean_duration_min": 25.020085958928007,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.8802684236311432
+        },
+        {
+          "left_min": 28.915858539847044,
+          "right_min": 41.19534287814237,
+          "n": 22,
+          "geomean_duration_min": 35.81500607111411,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.856073137753095
+        },
+        {
+          "left_min": 41.19534287814237,
+          "right_min": 58.689465246522545,
+          "n": 32,
+          "geomean_duration_min": 50.95987238238027,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.8281649334290531
+        },
+        {
+          "left_min": 58.689465246522545,
+          "right_min": 83.61268750964447,
+          "n": 53,
+          "geomean_duration_min": 71.33517838808146,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.7978677770715099
+        },
+        {
+          "left_min": 83.61268750964447,
+          "right_min": 119.11987071648602,
+          "n": 62,
+          "geomean_duration_min": 99.32841545650932,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.7642455634453827
+        },
+        {
+          "left_min": 119.11987071648602,
+          "right_min": 169.70562748477153,
+          "n": 76,
+          "geomean_duration_min": 143.9130124973675,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.722290716688091
+        },
+        {
+          "left_min": 169.70562748477153,
+          "right_min": 241.77326441653167,
+          "n": 93,
+          "geomean_duration_min": 204.0824646735153,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.6788110419508382
+        },
+        {
+          "left_min": 241.77326441653167,
+          "right_min": 344.4453330922778,
+          "n": 95,
+          "geomean_duration_min": 289.40859092221376,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.6319674265245231
+        },
+        {
+          "left_min": 344.4453330922778,
+          "right_min": 490.7183917765632,
+          "n": 125,
+          "geomean_duration_min": 413.67426443344215,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.5813717111135521
+        },
+        {
+          "left_min": 490.7183917765632,
+          "right_min": 699.1081512585457,
+          "n": 39,
+          "geomean_duration_min": 555.6376083775929,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.5381825764268986
+        },
+        {
+          "left_min": 699.1081512585457,
+          "right_min": 995.993252640679,
+          "n": 48,
+          "geomean_duration_min": 866.477331058616,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.4722545431191662
+        },
+        {
+          "left_min": 995.993252640679,
+          "right_min": 1418.9543599512328,
+          "n": 6,
+          "geomean_duration_min": 1131.3133117077389,
+          "mean_original_score": 1.0,
+          "mean_weighted_score": 0.4330228827284484
+        }
+      ]
+    }
+  }
+}
