@@ -1,0 +1,165 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=18mm,headheight=16pt,footskip=10mm]{geometry}
+\usepackage{fontspec,kotex}
+\setmainfont{texgyrepagella-regular.otf}[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf]
+\setmainhangulfont{Apple SD Gothic Neo}[ItalicFont=*,ItalicFeatures={FakeSlant=0.15}]
+\setsansfont{texgyreheros-regular.otf}[BoldFont=texgyreheros-bold.otf]
+\usepackage{amsmath,amssymb,booktabs,tabularx,array,xcolor,fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\definecolor{ink}{HTML}{173F49}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\sffamily\color{ink}THAIE 방법론 비교}
+\fancyhead[R]{\small 2026년 11월 19일}
+\fancyfoot[C]{\small\thepage\,/\,6}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.35}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\pagetitle}[2]{{\small\sffamily\color{ink}#1\par}\vspace{3mm}{\LARGE\bfseries #2\par}\vspace{4mm}}
+\newcommand{\source}[2]{{\small\textbf{출처}\enspace #1\par\url{#2}\par}}
+\begin{document}
+\pagetitle{01\quad 네 접근법의 측정 대상}{정의, 측정방법과 데이터}
+네 가지는 \textbf{측정하려는 대상부터 다릅니다.} Eloundou는 AI로 시간을 줄일 수 있는 과업, Anthropic은 실제 Claude 사용으로 확인되는 업무 범위, METR는 모델이 완수할 수 있는 과업의 길이, THAIE는 과업별 평가 점수에 모델의 시간별 완료 역량을 반영한 값을 측정합니다.
+
+여기서 Anthropic은 Economic Index를 바탕으로 만든 \textbf{2026년 3월의 observed exposure}를 중심으로 비교합니다. 2026년 1월의 \textit{effective AI coverage}도 관련되므로 함께 구분합니다.
+
+{\small
+\begin{tabularx}{\textwidth}{L{24mm}XXX}
+\toprule
+방식 & 정의 & 측정방법 & 데이터\\\midrule
+Eloundou et al. (2023) & LLM 활용으로 같은 품질을 유지하며 과업 수행시간을 절반 이상 줄일 수 있는 정도 & 인간과 GPT-4가 과업을 E0·E1·E2 등으로 분류하고, 범주를 수치화해 직업별로 집계 & O*NET 과업 설명, 인간 평가, GPT-4 평가\\\addlinespace
+Anthropic observed exposure (2026) & 이론적으로 가능한 과업 중 실제 업무 맥락에서 Claude 활용이 관측되는 범위 & Eloundou 평가, 업무 관련 사용량 기준, 자동화·보조 사용 구분을 결합하고 직업 내 시간 비중으로 집계 & O*NET, Claude.ai 및 API 사용 기록, 이용 방식 분류, 과업별 시간 비중\\\addlinespace
+METR & AI 에이전트가 일정 성공률로 완수할 수 있는 과업의 길이. 길이는 인간 전문가 수행시간으로 표시 & 모델이 벤치마크 과업을 실제로 수행한 성공·실패를 인간 수행시간과 연결해 완료 곡선을 추정 & 소프트웨어·머신러닝·보안 과업, 인간 기준시간, 모델별 실행 결과\\\addlinespace
+Ours, THAIE & 과업별 AI 활용 평가 점수를 인간 수행시간과 모델별 완료 역량에 따라 가중한 지표 & 기존 평가와 인간 수행시간을 각각 임베딩 기반 릿지 회귀로 한국 과업에 전이하고, METR 완료 곡선을 적용한 뒤 직업별 집계 & Eloundou 평가, Anthropic 시간 추정치, 한국직업사전, 다국어 임베딩, METR 완료 지평\\\bottomrule
+\end{tabularx}}
+
+\textbf{표기 안내}\enspace 아래 수식은 비교를 위해 같은 기호 체계로 정리한 것으로, 각 논문의 원래 기호를 그대로 옮긴 것은 아닙니다. 과업(task)은 직무(job)를 구성하는 세부 업무입니다.
+
+\newpage
+\pagetitle{02\quad Eloundou et al. (2023)}{평가 범주를 점수로 바꾸는 방식}
+LLM을 활용하면 \textbf{동일한 품질을 유지하면서 과업 수행시간을 절반 이상 줄일 수 있는가}를 판단합니다. 실제 과업을 모델에 수행시켜 성공률을 측정하는 방식과는 구별됩니다.
+
+대표적인 $\beta$ 점수는 다음과 같습니다.
+\[
+b_s=\begin{cases}
+1 & \text{LLM을 직접 활용해 수행시간을 절반 이상 단축 가능}\\[4pt]
+0.5 & \text{추가 LLM 기반 소프트웨어가 있으면 가능}\\[4pt]
+0 & \text{해당 기준에 미달}
+\end{cases}
+\]
+직업별로는 과업 점수를 가중평균합니다.
+\[
+B_o=\frac{\sum_{s\in S_o}w_{os}b_s}{\sum_{s\in S_o}w_{os}}
+\]
+$S_o$는 직업 $o$의 과업 집합이고, $w_{os}$는 집계 가중치입니다. 원 연구의 직업별 집계에서는 핵심 과업에 보조 과업보다 높은 가중치를 부여합니다.
+
+원 연구에는 직접 활용만 세는 $\alpha$, 추가 소프트웨어까지 포함하는 $\gamma$ 등의 대안도 있습니다. \textbf{범주값 0.5는 실제 시간 절약률 50\%를 뜻하지 않습니다.}
+
+\textbf{우리 연구와의 연결}\par
+우리 코드는 기존 인간의 집계 분류와 GPT-4 분류를 각각 $0$, $0.5$, $1$로 변환해 평균한 값을 학습 대상으로 사용합니다. 이 값을 과업 문장의 임베딩으로 예측하는 릿지 회귀를 학습해 한국 과업에 전이합니다. 한국 과업의 $\hat e_s$는 이 예측값이며, AI 관련 문장과의 코사인 유사도가 아닙니다.
+
+\source{Eloundou et al. (2023), \textit{GPTs are GPTs}, 평가 지침과 측정방법.}{https://arxiv.org/html/2303.10130v5}
+
+\newpage
+\pagetitle{03\quad Anthropic observed exposure (2026)}{실제 사용이 확인되는지를 추가하는 방식}
+2026년 3월 지표의 구조를 요약하면 다음과 같습니다.
+\[
+A_o=\sum_{s\in S_o}\tau_{os}
+\underbrace{\mathbf1(b_s>0)}_{\text{이론적 가능성}}
+\underbrace{\mathbf1(U_s\geq c)}_{\text{충분한 업무 관련 사용}}
+\underbrace{a_s}_{\text{자동화 방식 가중치}}
+\]
+\begin{itemize}
+\item $\tau_{os}$는 직업 내 과업의 시간 비중입니다.
+\item $U_s$는 Claude.ai 업무 관련 사용과 API 사용을 반영한 사용량입니다.
+\item $a_s$는 보조적 활용보다 자동화된 활용에 높은 값을 줍니다.
+\end{itemize}
+따라서 \textbf{이론적으로 가능해도 사용량 기준을 통과하지 못하면 0}이 됩니다. 반대로 이 지표의 사용 관측은 경제 전체의 도입률을 직접 측정한 것은 아닙니다.
+
+\textbf{2026년 1월 지표와의 구분}\par
+별도로 2026년 1월의 \textit{effective AI coverage}는 \textbf{과업별 성공률을 시간·빈도에 따른 비중으로 가중}합니다. 즉, Anthropic도 이미 시간과 성공률을 결합했습니다. 다만 3월 기본 지표에서는 성공률을 제외하고 사용·자동화 중심으로 구성했습니다.
+
+이 구분은 우리 논문의 차별성을 설명할 때 중요합니다. Anthropic의 모든 지표를 단순한 사용 건수 집계로 설명하거나, 시간과 성공 가능성을 고려하지 않았다고 표현하면 안 됩니다.
+
+\source{Anthropic (2026), \textit{Labor market impacts of AI}, 본문과 수리적 부록.}{https://www.anthropic.com/research/labor-market-impacts}
+\source{Anthropic (2026), \textit{Economic Index report: Economic primitives}.}{https://www.anthropic.com/research/anthropic-economic-index-january-2026-report}
+
+\newpage
+\pagetitle{04\quad METR}{실제 벤치마크 성공으로 완료 곡선을 추정하는 방식}
+METR는 모델이 벤치마크 과업을 실제로 수행한 성공·실패를 인간 수행시간과 연결합니다.
+\[
+P(Y_{sm}=1\mid d_s)=
+\left[1+\exp\left\{
+\kappa_m\log_2\left(\frac{d_s}{h_m}\right)
+\right\}\right]^{-1}
+\]
+여기서 $Y_{sm}$은 모델 $m$의 과업 $s$에 대한 실제 벤치마크 성공 여부입니다. 이 곡선에서 성공률이 50\%가 되는 인간 수행시간이 $h_m$입니다.
+
+\textbf{$h_m$은 AI가 실제로 작동한 시간이나 모든 과업을 처리할 수 있는 최대시간이 아닙니다.}
+
+\begin{itemize}
+\item 과업의 길이는 인간 전문가가 해당 과업을 수행하는 데 필요한 시간으로 표시합니다.
+\item 모델별 과업 수행 결과를 이용해 성공률과 인간 수행시간의 관계를 추정합니다.
+\item 주요 평가 영역은 소프트웨어 엔지니어링, 머신러닝, 사이버보안입니다.
+\item 실제 직장의 맥락이나 모든 직업에 동일한 성공률이 적용된다는 뜻은 아닙니다.
+\end{itemize}
+
+\textbf{THAIE와의 관계}\par
+METR는 완료 곡선의 근거가 되는 모델 수행 결과를 제공합니다. THAIE는 이 곡선을 한국 과업에 직접 재추정하지 않고, 한국 과업의 예측 인간 수행시간에 적용합니다. 따라서 벤치마크 안에서 추정한 성공확률과 한국 과업에 이전한 완료 계수를 구분해야 합니다.
+
+\source{METR, \textit{Task-Completion Time Horizons of Frontier AI Models}, 공식 방법론.}{https://metr.org/time-horizons/}
+
+\newpage
+\pagetitle{05\quad Ours, THAIE}{기존 평가 점수에 이전된 완료 곡선을 적용하는 방식}
+먼저 두 값을 별도로 예측합니다.
+\[
+\hat e_s=\operatorname{clip}_{[0,1]}
+\left(\hat{\mathbf w}_e^\top\phi(x_s)+\hat b_e\right),
+\qquad
+\hat d_s=\exp\left(\hat{\mathbf w}_d^\top\phi(x_s)+\hat b_d\right)
+\]
+$x_s$는 개별 업무 설명 문장이고, $\phi(x_s)$는 다국어 임베딩입니다. $\hat e_s$는 기존 인간·GPT-4 평가를 전이한 예측 점수이고, $\hat d_s$는 인간 수행시간 예측치입니다. 두 회귀는 서로 다른 학습 대상을 사용합니다.
+
+그다음 모델별 완료 계수를 적용합니다.
+\[
+\boxed{\lambda_s(m)=\hat e_s\,p_m(\hat d_s)}
+\]
+\[
+p_m(d)=\left[1+\exp\left\{
+\kappa_m\log_2\left(\frac{d}{h_m}\right)\right\}\right]^{-1},
+\qquad
+\kappa_m=\frac{\ln4}{\log_2(h_m/h_{80,m})}
+\]
+직업별 THAIE는 사전 항목 안에서 과업 점수를 평균하고, 해당 직업의 사전 항목들을 다시 평균합니다.
+\[
+\Lambda_o(m)=\frac1{|J_o|}\sum_{j\in J_o}
+\frac1{|S_j|}\sum_{s\in S_j}\lambda_s(m)
+\]
+$J_o$는 직업 $o$에 연결된 사전 항목 집합이며, $S_j$는 사전 항목 $j$의 과업 집합입니다.
+
+\textbf{METR와 달리 한국 과업을 모델에 실제로 수행시켜 성공 여부를 측정하지 않았습니다.} 예측 수행시간을 연결고리로 삼아 METR 곡선을 이전한 것입니다.
+
+Anthropic 시간 추정치를 전이해 얻은 $\hat d_s$는 한국 근로자의 실제 평균시간을 관측한 값이 아닙니다. $\lambda_s(m)$ 역시 실제 시간 절약률이나 과업 대체확률이 아닙니다.
+
+\newpage
+\pagetitle{06\quad 장점, 한계와 차별성}{무엇을 주장할 수 있는가}
+{\small
+\begin{tabularx}{\textwidth}{L{25mm}XX}
+\toprule
+방식 & 장점 & 단점·해석의 한계\\\midrule
+Eloundou & 평가 기준이 명확하고 폭넓은 직업을 비교할 수 있음. 실제 도입 이전의 잠재적 활용 범위도 포착 & 판단 기반이며 평가 당시 기술과 가정에 의존. 범주 수치화에 선택이 개입하고 실제 도입·자율 완수·고용효과를 측정하지 않음\\\addlinespace
+Anthropic & 실제 사용 여부와 사용 방식을 반영. 이론적 가능성과 활용 사이의 간극을 보여줌 & Claude 이용자·플랫폼의 선택과 도입 여건에 좌우됨. 미관측이 불가능을 뜻하지 않으며, 사용 기록상의 성공도 통제된 벤치마크 성공과 다름\\\addlinespace
+METR & 고정된 과업에서 실제 모델 수행을 평가하므로 모델 간 역량 비교에 강함. 성공률과 인간 시간을 연결 & 소프트웨어 중심이고 실험 환경·에이전트 구성에 의존. 직업 전체나 한국 현장 업무로 직접 일반화하기 어려움\\\addlinespace
+THAIE & 한국 과업을 동일한 체계로 점수화하고, 모델별 완료 곡선을 바꿔 역량 변화에 따른 차이를 비교할 수 있음 & 기존 평가, 시간 추정, 언어 간 전이, 벤치마크의 직업 간 이전 가정이 누적됨. 실제 도입률·시간 절약률·업무 성공확률은 아님\\\bottomrule
+\end{tabularx}}
+
+\textbf{우리 논문의 차별성}\par
+THAIE는 기존 과업 평가를 한국 과업 설명에 전이하고, 과업별 인간 수행시간 예측치에 모델별 METR 완료 곡선을 적용하여 직업별 지표를 구성합니다.
+
+따라서 \textbf{‘시간과 성공률을 최초로 결합했다’는 주장은 피해야 합니다.} Anthropic에도 관련 결합이 있습니다. 우리가 강조할 부분은 \textbf{한국 과업으로의 전이, 과업 길이와 모델별 완료 곡선의 명시적 연결, 동일한 과업 체계에서 모델 역량 변화에 따른 비교}입니다.
+
+\textbf{해석 범위}\par
+위 장점과 한계는 측정 구조에 근거한 비교입니다. 네 지표를 동일한 데이터와 평가 조건에서 직접 비교해 어느 하나의 예측 성능이 더 우수하다고 입증한 결과는 아닙니다. 이 비교 문서는 기존 분석 수치나 원고의 추정 결과를 변경하지 않습니다.
+\end{document}
