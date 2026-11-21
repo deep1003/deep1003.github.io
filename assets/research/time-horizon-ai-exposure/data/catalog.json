@@ -106,23 +106,6 @@
     "notes": "Eligibility requires positive occupational employment in all six years, at least 100 baseline April records on average, and at least 80% SOC-link coverage. Cross-validation uses the upper conventional-exposure quintile, fixed 2020–2022 weights and identical controls in each score comparison."
   },
   {
-    "slug": "eaps-unemployment",
-    "title": "Economically Active Population Survey",
-    "role": "Website-only linked-unemployment comparisons and descriptive outcomes. Not the source of the paper’s occupational panel break estimate.",
-    "provider": "Statistics Korea / National Data Office, MDIS",
-    "coverage": "May youth-supplement public files, 2013–2025 for the displayed labor-market period. The acquisition also includes 2026, which is not used in the displayed 2013–2025 comparisons. The basic labor-force items cover all recorded ages, not just youth.",
-    "access": "14 November 2026.",
-    "acquisition_evidence": "Date recorded in the acquisition README and delivered archive filenames.",
-    "sources": [
-      [
-        "https://mdis.mods.go.kr/index.do",
-        "MDIS official microdata service"
-      ]
-    ],
-    "sample_note": "Survey-weighted totals across the nine occupation groups for the two displayed comparison years.",
-    "notes": "Linked unemployment uses unemployed people with a valid previous occupation, divided by current employed plus linked unemployed. First-time and unlinked jobseekers are excluded. It is not the official unemployment rate and must not be interpreted as an occupation-specific employment-to-population rate. Raw microdata are not redistributed."
-  },
-  {
     "slug": "classification-links",
     "title": "Occupational classifications and crosswalks",
     "role": "Connect Korean dictionary entries to KSCO-8 occupations, and US task scores through SOC to Census occupation codes.",
