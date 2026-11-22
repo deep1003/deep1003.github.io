@@ -1,0 +1,34 @@
+{
+  "CPS_response_fits_and_calibration": {
+    "years": 17,
+    "max_Newton_iterations": 6,
+    "max_relative_margin_error": 9.22154581448976e-08,
+    "structural_zeros": 0,
+    "probability_clipping_needed": 2
+  },
+  "uncorrected_CPS_reproduces_prior_linked_counts": {
+    "FT_den": 7.450580596923828e-09,
+    "PT_den": 3.725290298461914e-09,
+    "FT_to_FT": 7.450580596923828e-09,
+    "FT_to_PT": 4.656612873077393e-10,
+    "FT_to_PTecon": 4.656612873077393e-10,
+    "FT_to_U": 2.3283064365386963e-10,
+    "FT_to_N": 4.656612873077393e-10
+  },
+  "weighted_transition_accounting_all_methods": true,
+  "SIPP_worker_cohort": {
+    "persons": 2850,
+    "person_months": 136800,
+    "months_per_person": 48,
+    "hours_identity": true
+  },
+  "official_longitudinal_weight_equals_replicate0": true,
+  "independent_statsmodels_point_and_240_Fay_replicates": {
+    "coefficient_error": 4.551914400963142e-15,
+    "SE_error": 3.3306690738754696e-15,
+    "replicates": 240,
+    "Fay": 0.5
+  },
+  "all_planned_SIPP_comparisons_retained": 5760,
+  "graphs_emitted": false
+}
