@@ -45,3 +45,8 @@ The 18 January–September files from 2024–2025 and January 2026 were re-downl
 
 
 Full-time/part-time status uses the CPS usual full-time labour-force recode PRFTLF. Economic-reason part-time uses PRWKSTAT codes 3 and 6, which include usual full-time workers temporarily working short hours for economic reasons. It can therefore overlap usual full-time status and is not a subset of the usual part-time group. An FT-to-economic-PT observation can be a temporary hours cut rather than a move into a usually part-time job.
+
+
+## Adaptive capacity and observed adaptation
+
+Manning and Aguirre (2026) already study prospective adaptive capacity, combining financial buffers, age, local labour-market density and skill transferability. The Brookings account by Manning, Aguirre, Muro and Methkupally explains that framework. Our contribution should therefore be framed as observed employment-quality and transition patterns under comparable exposure measures, not the first study of adaptation. Their capacity index is not itself evidence of realised AI-induced transitions. [Primary institutional account](https://www.brookings.edu/articles/measuring-us-workers-capacity-to-adapt-to-ai-driven-job-displacement/).

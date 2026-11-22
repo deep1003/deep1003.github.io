@@ -103,3 +103,8 @@ The analyses do not observe actual firm adoption, do not directly control telewo
 
 
 The 18 January–September files from 2024–2025 and January 2026 were re-downloaded for hash verification against the current official release. All 19 match the cached analytical inputs. This checks the relevant identifier and weight revision vintages without claiming that attrition or disclosure effects have been eliminated. [Census revision notes](https://www.census.gov/programs-surveys/cps/data/datasets/cps-basic-footnotes.html).
+
+
+## Adaptive capacity and observed adaptation
+
+Manning and Aguirre (2026) already study prospective adaptive capacity, combining financial buffers, age, local labour-market density and skill transferability. The Brookings account by Manning, Aguirre, Muro and Methkupally explains that framework. Our contribution should therefore be framed as observed employment-quality and transition patterns under comparable exposure measures, not the first study of adaptation. Their capacity index is not itself evidence of realised AI-induced transitions. [Primary institutional account](https://www.brookings.edu/articles/measuring-us-workers-capacity-to-adapt-to-ai-driven-job-displacement/).
