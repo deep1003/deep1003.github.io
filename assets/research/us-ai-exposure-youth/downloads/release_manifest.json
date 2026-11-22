@@ -1,0 +1,465 @@
+{
+  "snapshot": "2026-11-22",
+  "files": [
+    {
+      "file": "app.js",
+      "bytes": 12248,
+      "sha256": "788feb1c3f6d16b09a08f991a5b9ebc8f8d69aabf075db14bce926b0e88c3ab1"
+    },
+    {
+      "file": "data/metadata.json",
+      "bytes": 2762,
+      "sha256": "feceaa53336724838700a5418cb53aeec2ee547120535957c5bf52b5ded88084"
+    },
+    {
+      "file": "data/regions.json",
+      "bytes": 124926,
+      "sha256": "fb8b862566873af9f56f7ae709e29bfe3051aac371f5cd622fd2f941512f7158"
+    },
+    {
+      "file": "data/state-0.json",
+      "bytes": 315207,
+      "sha256": "15cf735fc38249f183d1278c2e56fab2e6bc6b07ec6feee56356880bdf52a1c5"
+    },
+    {
+      "file": "data/state-1.json",
+      "bytes": 290270,
+      "sha256": "ba559552223d975fb86df6879ac19f9ba0038081765b9efda21a9cd730aa80fa"
+    },
+    {
+      "file": "data/state-10.json",
+      "bytes": 284267,
+      "sha256": "5aacd13e3a365c9a2a36d9c40b3af5acf5143d6cf2ca46f196c018fb247abd75"
+    },
+    {
+      "file": "data/state-11.json",
+      "bytes": 285930,
+      "sha256": "b0dad6dd4e69e318a72b797510a8375067ee68282c338110179ff810f7d654de"
+    },
+    {
+      "file": "data/state-12.json",
+      "bytes": 301448,
+      "sha256": "a18ece82b6ff6700280e8345a5946b079ef813ae24cea90a3279aa8c26b3989a"
+    },
+    {
+      "file": "data/state-13.json",
+      "bytes": 297422,
+      "sha256": "e70554a44bb5e94dfa9647871d05d6a1eedeb4e224954948ad3c22a4dd2f27fd"
+    },
+    {
+      "file": "data/state-15.json",
+      "bytes": 287022,
+      "sha256": "5338bd7190c3e996f9fe7ff81ee7d41db1529b8012b8a110be579aff94aed669"
+    },
+    {
+      "file": "data/state-16.json",
+      "bytes": 288313,
+      "sha256": "f71fe96f88dcaa7d6eaade5847dd47b4935f1d14297595910bfca4e3cb96e694"
+    },
+    {
+      "file": "data/state-17.json",
+      "bytes": 300186,
+      "sha256": "00a480a9c79fb156e230ef23fc316eab923d056b907dc54ad6b8d30cc7c36cd8"
+    },
+    {
+      "file": "data/state-18.json",
+      "bytes": 294480,
+      "sha256": "8aa9863ab26ed860ab08fbe9f7bbae74ec1c9a9470c3cfe1d5cdfc486b8ec82b"
+    },
+    {
+      "file": "data/state-19.json",
+      "bytes": 290007,
+      "sha256": "8c1398be66fb5f90c0ba72c05b76378e8e38686d7039dbbe601b997a8fecb833"
+    },
+    {
+      "file": "data/state-2.json",
+      "bytes": 283744,
+      "sha256": "005b8c947709c1053eab744fe1fbd707738a91fcd24435174bfd731e556adb62"
+    },
+    {
+      "file": "data/state-20.json",
+      "bytes": 290294,
+      "sha256": "be9b2a2e3fb04481865a1b2981e06dcb0302dcd9f0ef4710987824e15243d50f"
+    },
+    {
+      "file": "data/state-21.json",
+      "bytes": 290095,
+      "sha256": "0ffffda54507b6b3d89147024f1090e8dffc006b3e2f1002fd5209f9585ed5fd"
+    },
+    {
+      "file": "data/state-22.json",
+      "bytes": 291127,
+      "sha256": "76f5a477435bb2fd9c82f02f1f6540dc6e82c2e0ab01fa2e641f6bbe5a0c982e"
+    },
+    {
+      "file": "data/state-23.json",
+      "bytes": 285493,
+      "sha256": "ade75c25161a419779541906204e9d86dc210010181e85bfb8cc0d732bb51de7"
+    },
+    {
+      "file": "data/state-24.json",
+      "bytes": 294227,
+      "sha256": "059263020e3a863a4368fc56a3bf2bc8ddab471f1ea4cb75d1e480295f53cae1"
+    },
+    {
+      "file": "data/state-25.json",
+      "bytes": 297600,
+      "sha256": "1d32d5464148ae885ef8db79677b76ee1ccd2f3f33ece5e8328492a652699b9c"
+    },
+    {
+      "file": "data/state-26.json",
+      "bytes": 298176,
+      "sha256": "07b656f584a22d37590e56e1bb7374fd79862ece75a88c47fcb32154f0442a83"
+    },
+    {
+      "file": "data/state-27.json",
+      "bytes": 294309,
+      "sha256": "51be74ae43f82829aff7a3f8958309f614bbb688829c7f4a751a54df2cca3b28"
+    },
+    {
+      "file": "data/state-28.json",
+      "bytes": 286126,
+      "sha256": "5e4363cd11fbafb6a128d38adce8bcd0973e1861a888830c56ead03e36615cdb"
+    },
+    {
+      "file": "data/state-29.json",
+      "bytes": 293690,
+      "sha256": "251097365651f573599c869cdd7ac6edcec514e1f1a5b312bccf78ecf369eb2f"
+    },
+    {
+      "file": "data/state-30.json",
+      "bytes": 285732,
+      "sha256": "d577979160f23549c4154d25a724b4621bb66b96bc33ae0fcb3396fa07aa4198"
+    },
+    {
+      "file": "data/state-31.json",
+      "bytes": 288608,
+      "sha256": "3f6a8b978f39a65fed9174597cc64372b99a4d3544ea712a975174b663490bfd"
+    },
+    {
+      "file": "data/state-32.json",
+      "bytes": 289771,
+      "sha256": "41ebf559fcd190e319e556798a6110e70a36e8d5ad00d88596d8cf8b4e67b49c"
+    },
+    {
+      "file": "data/state-33.json",
+      "bytes": 288075,
+      "sha256": "35afe4155c874bf8aac411f168c728d421bb4ba6ff17bdc7972d584daa889532"
+    },
+    {
+      "file": "data/state-34.json",
+      "bytes": 297605,
+      "sha256": "1bcf6eb5d4085560590d8b88d64af53ef8369f1426380046117a138acceb4a48"
+    },
+    {
+      "file": "data/state-35.json",
+      "bytes": 287965,
+      "sha256": "df78eca1207f847141cc08415bdafc84d20d9be6369300f047b9249c2a55ac34"
+    },
+    {
+      "file": "data/state-36.json",
+      "bytes": 302346,
+      "sha256": "867ceddbb851b04b6f95dd01762e5a5587cd3704b25e3d18036a4f1508583271"
+    },
+    {
+      "file": "data/state-37.json",
+      "bytes": 297685,
+      "sha256": "bc40328e58493bdb99511d9b0b47b2143a1ab980d8999b664661f4b3d5d2939e"
+    },
+    {
+      "file": "data/state-38.json",
+      "bytes": 284891,
+      "sha256": "66002445eb6e8f798a06b7433daebdfda160911ae46750678c382681a0559b6b"
+    },
+    {
+      "file": "data/state-39.json",
+      "bytes": 299230,
+      "sha256": "a33d7f8d03b1aae313b18cfaa3771f76130f331c1e9ada911ab81a972cb26840"
+    },
+    {
+      "file": "data/state-4.json",
+      "bytes": 294869,
+      "sha256": "56edbf0e0bcc34d6388bc053c5eb86a13f70f868f6216ce37b37ef549b8e1821"
+    },
+    {
+      "file": "data/state-40.json",
+      "bytes": 290020,
+      "sha256": "3d000ef1c3d8846bab0ca8f905e48e7f5aacf36dac27b4b2f55ae72b82d291dc"
+    },
+    {
+      "file": "data/state-41.json",
+      "bytes": 292391,
+      "sha256": "e5d7f268428a18fb4016e35e0a4c4476baf7ecb427232bba8bd349b75d8463cb"
+    },
+    {
+      "file": "data/state-42.json",
+      "bytes": 300021,
+      "sha256": "67788e87a13c020067563f677ffb0d32e864db10906a791bca4e165a9a7d1661"
+    },
+    {
+      "file": "data/state-44.json",
+      "bytes": 286799,
+      "sha256": "d3d13641573db779d5239ced55837caac9e1424b90ceb7bb91f4eb62e50ffd61"
+    },
+    {
+      "file": "data/state-45.json",
+      "bytes": 291618,
+      "sha256": "ac2702602be4e31ba1f8b3d9188e8bae9a5be7124fb2d650c4b1abd81ae5cec0"
+    },
+    {
+      "file": "data/state-46.json",
+      "bytes": 284185,
+      "sha256": "37904416c5f473ff25d1996dfb9d15eb491eaa91f65c4860433ec8aae7b431d1"
+    },
+    {
+      "file": "data/state-47.json",
+      "bytes": 294636,
+      "sha256": "2162701bdd20a3b19420a60d4cecc3fa343edfea6ea33720afb07728285accb4"
+    },
+    {
+      "file": "data/state-48.json",
+      "bytes": 303461,
+      "sha256": "e9a8a583b0cc13181ea8175d0a994d99cc55b334e8e5e9bd451f946d50ceb02e"
+    },
+    {
+      "file": "data/state-49.json",
+      "bytes": 292065,
+      "sha256": "a4a05eedae9edf30916554755368305fa11e6876061d2f6fbe4621f9847fea5b"
+    },
+    {
+      "file": "data/state-5.json",
+      "bytes": 289376,
+      "sha256": "3e6fbef7ef6913619e16a38c9adce9d2bbb9f758c9e66a4717dfeaeb407a1a06"
+    },
+    {
+      "file": "data/state-50.json",
+      "bytes": 284036,
+      "sha256": "127c0b8437a38604ff0897dcc8e842740a9b5996153107aeaa77496abbc727df"
+    },
+    {
+      "file": "data/state-51.json",
+      "bytes": 297162,
+      "sha256": "aca17d219614941f6c6bbe5b63093e22cb03a783ce49fa521f8e869eb2ffa86a"
+    },
+    {
+      "file": "data/state-53.json",
+      "bytes": 296259,
+      "sha256": "c93aadb69f1849c443c648bd5d75e3a9db8efb4af25d86bd68125305c8056a2b"
+    },
+    {
+      "file": "data/state-54.json",
+      "bytes": 287010,
+      "sha256": "8f8cbe1f14cb449965223ef20eae5e30fffb13341d33bc61f0d0ad0b5d36cbe9"
+    },
+    {
+      "file": "data/state-55.json",
+      "bytes": 293819,
+      "sha256": "f790102a7f63b23b49f78feb660dca36d5c9c95556c429688cc8b1901753df61"
+    },
+    {
+      "file": "data/state-56.json",
+      "bytes": 281750,
+      "sha256": "34e267afddc38a63886e6d0951ec171d58d5ea0c50795c3be257d369f73f20ce"
+    },
+    {
+      "file": "data/state-6.json",
+      "bytes": 305067,
+      "sha256": "7e54dc0e2ffa63171c014860114aba565e5aa9c65ee7dfde9acf824c0570f0c6"
+    },
+    {
+      "file": "data/state-8.json",
+      "bytes": 294551,
+      "sha256": "04d3ab136a2f09688d06038e5605608bf73dfd9ab940ae232d106f7bc8287def"
+    },
+    {
+      "file": "data/state-9.json",
+      "bytes": 291839,
+      "sha256": "1afa400e61a4ff94a706fb60ad09db4bd8e24219c62fbb3bfc1a8b40e834c03d"
+    },
+    {
+      "file": "downloads/README.txt",
+      "bytes": 4456,
+      "sha256": "7d26d37ee07e1432406673df0fe7ca4c94cbe4b3921c9e36e3f5340bfb23ce77"
+    },
+    {
+      "file": "downloads/age_gap_ddd.csv",
+      "bytes": 684,
+      "sha256": "06f7db284225f231ff51f6f5a4c0b00985b569fa35aaed530d310ef679baad26"
+    },
+    {
+      "file": "downloads/aggregate-did-reproduction.zip",
+      "bytes": 1100888,
+      "sha256": "0e89a31d835ee179019e7f90c9debe76ab71f289b2f246ddd584b4288507ca8e"
+    },
+    {
+      "file": "downloads/common_census_scores.csv",
+      "bytes": 55273,
+      "sha256": "116cdef27754f30dbdc29ea0e115447a4914e9c2d8173e93afbce7dc978ddd0f"
+    },
+    {
+      "file": "downloads/cps_source_manifest.json",
+      "bytes": 63892,
+      "sha256": "dc06c6d794256e33e4be2c0e92406dc0f734ebda59e858a573cd1977a920e281"
+    },
+    {
+      "file": "downloads/fixed2019_state_treatment.csv",
+      "bytes": 979,
+      "sha256": "7fb144fa9a8f5dab7f01ddc6608baaf07b5aecd5c7aab020a9592de90865add4"
+    },
+    {
+      "file": "downloads/national_age22_25_high_other_quality.csv",
+      "bytes": 51699,
+      "sha256": "26cd1bffbe89dbf58e36b27d030237134d8eefce2a0758649e7409216e91dbe3"
+    },
+    {
+      "file": "downloads/national_age_annual_rates.csv",
+      "bytes": 78081,
+      "sha256": "5f42203d769df08435d5426f4410e2d60b4edb05c529fd5ecbef2ddcb3e8ce46"
+    },
+    {
+      "file": "downloads/national_age_occupation_quintile_rates.csv",
+      "bytes": 1250885,
+      "sha256": "d1c6771da8c2c88728b0789940d7f2d2a2cfeb880f5dec75c35f4df141a39a55"
+    },
+    {
+      "file": "downloads/national_region_quintile_rates.csv",
+      "bytes": 1163922,
+      "sha256": "1653dcdaf11787fb8ed92b2276313e6337d1ea2ab166d0722f359c775d795eb7"
+    },
+    {
+      "file": "downloads/occupational_did.csv",
+      "bytes": 2924,
+      "sha256": "61f5d7fa15c8af0eb1910098b80c9d493230225e3de794625beac0657fbcdfa8"
+    },
+    {
+      "file": "downloads/occupational_event_study.csv",
+      "bytes": 24852,
+      "sha256": "487f61a6947b34dbb669c7c4e59bc5f6ec1f634be5d6a5077d12289cf8b70966"
+    },
+    {
+      "file": "downloads/occupational_pretrend_tests.csv",
+      "bytes": 3041,
+      "sha256": "0600f9fbff8558dd970a6ade25e03e0c008c94c2b2ac0b8a8e4e19a52f5a8793"
+    },
+    {
+      "file": "downloads/occupational_sensitivity_posthoc.csv",
+      "bytes": 4048,
+      "sha256": "ddef8f322231711c1ddad2c1d3c42e7d68fa2d395336901086b1345fb2dddc4c"
+    },
+    {
+      "file": "downloads/pretrend_joint_tests.csv",
+      "bytes": 3100,
+      "sha256": "dc8bd1f1452cc0019b080e40b5a795c4af081f245cc7429679bc1aa4aa839a57"
+    },
+    {
+      "file": "downloads/regional_age_did.csv",
+      "bytes": 7734,
+      "sha256": "abd0af4afb2786f4adcfbdf68f2e69c95b27e0bacde16052745d067cb3583c6d"
+    },
+    {
+      "file": "downloads/regional_did_primary.csv",
+      "bytes": 1486,
+      "sha256": "85bc19e028d7945c42060153c28e8d1c0fabab985547217d9f2f4b34faebe246"
+    },
+    {
+      "file": "downloads/regional_event_study.csv",
+      "bytes": 26870,
+      "sha256": "0b3b7363c52ffa2e1516bb36e139d6297c9cf08ede2daa698cff435af16a48b4"
+    },
+    {
+      "file": "downloads/regional_pretrend_adjusted.csv",
+      "bytes": 795,
+      "sha256": "e0c1b08c7c0833fe91a6539a47952db9a4924e7cbb0b07f9af40b3b1263bcbfd"
+    },
+    {
+      "file": "downloads/regional_quality_did.csv",
+      "bytes": 1349,
+      "sha256": "c0786a6af9fd7a829147dcfcf50a68ac20101ac2501cb2b32fbf2cba88698f08"
+    },
+    {
+      "file": "downloads/regional_sensitivity.csv",
+      "bytes": 5897,
+      "sha256": "93168e2d2193babf7e41a8bbae022adcebaa025f649f55bb0c5f6c9cb35495f3"
+    },
+    {
+      "file": "downloads/research-figures-en.pdf",
+      "bytes": 44313,
+      "sha256": "56ca158971480829f4202539bb753a58c764d7211759b4f1586ffe0e6b06acd6"
+    },
+    {
+      "file": "downloads/state_age22_25_quality_changes_2022_2026.csv",
+      "bytes": 79108,
+      "sha256": "6ae9cd3f6f3566c7567a7bbd37b113cec005ec5ffbda108c4ea91e49c73bb602"
+    },
+    {
+      "file": "downloads/state_age_annual_rates.csv",
+      "bytes": 3745291,
+      "sha256": "a7e0a7e88f19bd677fe0f6357c160585b191d7f1e0fd83a347450124f32a386e"
+    },
+    {
+      "file": "downloads/validation.json",
+      "bytes": 2200,
+      "sha256": "a4fed00aca6ae58edfd6d13b50bbea8a6c9164242e6e75645d9883533120c0d7"
+    },
+    {
+      "file": "figures/age-did.png",
+      "bytes": 100967,
+      "sha256": "790cc075ce02268546854db3d6f7289fb9643b7c986eb477828da7c0ac383fab"
+    },
+    {
+      "file": "figures/age-did.svg",
+      "bytes": 34628,
+      "sha256": "6a4de51684a3c97f06bdb6134c0a3ac7cdab5b83e8b3bb97b63f71f4331041c0"
+    },
+    {
+      "file": "figures/national-job-quality.png",
+      "bytes": 214784,
+      "sha256": "461d81334601693323ac66fc684ba47e37c64c94d7327ac7373cd9543cac793b"
+    },
+    {
+      "file": "figures/national-job-quality.svg",
+      "bytes": 34724,
+      "sha256": "fd4d7afba4d985f9bd232dae344b8e46cc4825251013266dac35fd8f4266c769"
+    },
+    {
+      "file": "figures/occupational-did.png",
+      "bytes": 279193,
+      "sha256": "6bca1396163a1ee4ce2345d33e3d38c0e462b1ce45abef03be61afbd7909da75"
+    },
+    {
+      "file": "figures/occupational-did.svg",
+      "bytes": 67658,
+      "sha256": "c4695323cc14f3c0dd428721c25d910516fe9dc842565079e0a73aac28b3d964"
+    },
+    {
+      "file": "figures/regional-did.png",
+      "bytes": 99568,
+      "sha256": "2482a6d822e8d8cbe6b28332424815f0b16f9451c1bdf78c5b83caa53e34ada6"
+    },
+    {
+      "file": "figures/regional-did.svg",
+      "bytes": 28464,
+      "sha256": "a5bed7d3a5300e2487a4c0a38a07f415aa01fde77fa465cda374e3e51c0529f5"
+    },
+    {
+      "file": "figures/regional-event-study.png",
+      "bytes": 363051,
+      "sha256": "f780476ecb59459e7aa5a93305dffef06ded54bab36fab2f489fa4113bfb490b"
+    },
+    {
+      "file": "figures/regional-event-study.svg",
+      "bytes": 58955,
+      "sha256": "416dcd4d2ad092b10c561b7df200567c5da53fe4f49c592592495ef2e014521a"
+    },
+    {
+      "file": "index.html",
+      "bytes": 26541,
+      "sha256": "7371ab36d6bc7e2b453c939ddbc3f744786cb3d8ce0523fa8778e84063edd082"
+    },
+    {
+      "file": "style.css",
+      "bytes": 6775,
+      "sha256": "3cf3ff096ebcc51fd9e6005621553ae863a324adedbed94bf7f7f97d8545bc26"
+    }
+  ]
+}

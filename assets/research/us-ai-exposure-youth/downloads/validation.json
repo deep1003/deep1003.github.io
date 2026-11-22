@@ -1,0 +1,63 @@
+{
+  "annual_panel": {
+    "state_age_year_complete_and_identities": true,
+    "nonoverlapping_age_partition": true,
+    "all_occupation_quintiles_including_unknown_reconcile": true,
+    "matched_153_months": true,
+    "full_sample_gap_percent": -10.478380445167968,
+    "pooled_model_matches_closed_form": true,
+    "maximum_model_scaled_score": 4.0606338257143104e-10,
+    "six_png_and_six_pdf_pages": true
+  },
+  "DID": {
+    "balanced_panel_fixed_weights_and_rate_identities": true,
+    "identical_regional_THAIE_TIME_treatment_and_estimates": true,
+    "primary_Holm_12": true,
+    "basic_DID_equals_weighted_group_double_difference": true,
+    "independent_statsmodels_WLS_CR1_and_joint_F": [
+      {
+        "outcome": "EPOP",
+        "measure": "THAIE",
+        "adjusted": false,
+        "event": false,
+        "max_coefficient_difference": 1.1907141939104804e-14,
+        "max_covariance_difference": 2.919886554764162e-14
+      },
+      {
+        "outcome": "EPOP",
+        "measure": "THAIE",
+        "adjusted": true,
+        "event": false,
+        "max_coefficient_difference": 6.641354133307686e-13,
+        "max_covariance_difference": 1.850075648235361e-12
+      },
+      {
+        "outcome": "UR",
+        "measure": "E",
+        "adjusted": true,
+        "event": false,
+        "max_coefficient_difference": 4.1744385725905886e-14,
+        "max_covariance_difference": 2.3230306567256775e-12
+      },
+      {
+        "outcome": "EPOP",
+        "measure": "THAIE",
+        "adjusted": true,
+        "event": true,
+        "max_coefficient_difference": 2.5490720645393594e-13,
+        "max_covariance_difference": 2.426503442620742e-12
+      }
+    ],
+    "synthetic_DID_recovers_minus_2_3_pp": true,
+    "adjusted_DID_equals_saturated_event_average_contrast": true,
+    "occupational_DID_and_joint_covariance_contrasts": true,
+    "all_regional_fits_full_rank_and_score_small": true,
+    "regional_max_condition_number": 104.02102180245228,
+    "occupational_numeric_convergence": true,
+    "independent_binomial_GLM_count_model": {
+      "states": 8,
+      "max_coefficient_difference": 1.4716228236011375e-11,
+      "max_covariance_difference": 1.9104038012987545e-12
+    }
+  }
+}
