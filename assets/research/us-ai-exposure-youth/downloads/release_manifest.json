@@ -1,6 +1,6 @@
 {
   "snapshot": "2026-11-22",
-  "update": "Fixed-effects panels and related-literature discussion",
+  "update": "Worker adaptation across ages, hours status and observed transitions",
   "files": [
     {
       "file": "app.js",
@@ -283,6 +283,151 @@
       "sha256": "7d26d37ee07e1432406673df0fe7ca4c94cbe4b3921c9e36e3f5340bfb23ce77"
     },
     {
+      "file": "downloads/adaptation-all-age-results.csv",
+      "bytes": 111401,
+      "sha256": "df4ee9c769f40334ca7fabb07f8b93d60b61a5832a88a7f97a1473d182a0d2ea"
+    },
+    {
+      "file": "downloads/adaptation-cps-revision-verification.json",
+      "bytes": 6348,
+      "sha256": "d7ca28f3cb45c7fb9cb73002e7875365682c83da8c18e1e91038cec4a6c3ca37"
+    },
+    {
+      "file": "downloads/adaptation-demographic-results.csv",
+      "bytes": 111855,
+      "sha256": "e1ce32ae6ba3d6b664bf155f17b0dd9b548a79f22c0164f39b8f9b979663c15e"
+    },
+    {
+      "file": "downloads/adaptation-did-results.csv",
+      "bytes": 256476,
+      "sha256": "19cd2f1c56f6294ff6c41206c7428ef0a24c53998c47015b2033549a4de372c3"
+    },
+    {
+      "file": "downloads/adaptation-direct-age-contrasts.csv",
+      "bytes": 4911,
+      "sha256": "ebc2194b9297452bd74fe2a410f404cd8efaefc3475cb814bf92eaed8f00962e"
+    },
+    {
+      "file": "downloads/adaptation-event-studies.csv",
+      "bytes": 328956,
+      "sha256": "64208dff04e59ca2a0829d4e3448dbf79e83b5d77b769f446d0553fbf6251df2"
+    },
+    {
+      "file": "downloads/adaptation-national-age-demographic-trends.csv",
+      "bytes": 69242,
+      "sha256": "9079dbdd4fcd5e917b78f32080d2bd4271941329930ec041e09826551cc7157b"
+    },
+    {
+      "file": "downloads/adaptation-national-linkage-support.csv",
+      "bytes": 720,
+      "sha256": "c8f6fcb9ff8de55a2fdc33b91a9547e6411137e6786257b3f6078bdbdfeac61a"
+    },
+    {
+      "file": "downloads/adaptation-occupation-count-did.csv",
+      "bytes": 11595,
+      "sha256": "b7720dc0fbb19849ad4f4564711fb6beed7f03a1e32eca7a0d86f2de9c7f070c"
+    },
+    {
+      "file": "downloads/adaptation-occupation-count-events.csv",
+      "bytes": 52654,
+      "sha256": "008e826c1cedff560c2d350c7d82090565955ff9b4a223ebe946c588394e3157"
+    },
+    {
+      "file": "downloads/adaptation-occupation-count-long-did.csv",
+      "bytes": 6470,
+      "sha256": "1fae8c89759994fc8beacfd09077cd656c2f51cea07c9a79fa779aec1ffc1f8c"
+    },
+    {
+      "file": "downloads/adaptation-occupation-count-long-events.csv",
+      "bytes": 51255,
+      "sha256": "e57c425538d6848efdc79bac976363f74f9650dcb2aaa1ae677738cdf204fef5"
+    },
+    {
+      "file": "downloads/adaptation-occupation-count-long-pretrends.csv",
+      "bytes": 1701,
+      "sha256": "e3e32f62bdb9c006f2f1a937912b161213afe4535b4ad80608e74b6c8552d971"
+    },
+    {
+      "file": "downloads/adaptation-occupation-count-pretrends.csv",
+      "bytes": 2158,
+      "sha256": "b3f98d2c61bff63848a59cd6df6b87902a945f85a0af1ae65d5ab4821132da2e"
+    },
+    {
+      "file": "downloads/adaptation-occupation-transition-did.csv",
+      "bytes": 95308,
+      "sha256": "abb476e87298e2f30d8cc8cb7c7a324c26d22e8fd4a6d82685bc78be2dcf3044"
+    },
+    {
+      "file": "downloads/adaptation-occupation-transition-events.csv",
+      "bytes": 87215,
+      "sha256": "90fa02c7610cd661fc1729ae4afab239193bb06c623726750075fe5cae59a2ce"
+    },
+    {
+      "file": "downloads/adaptation-occupation-transition-pretrends.csv",
+      "bytes": 2673,
+      "sha256": "0ae638bca734c2c9f67b7df717cc44850f8c01d2e72d352f2fa15a220aa50ed3"
+    },
+    {
+      "file": "downloads/adaptation-pretrend-tests.csv",
+      "bytes": 12822,
+      "sha256": "401aad150fb54c0c9abfedd76d3d0a713568ee3cc6fbbeb40c64fc9908d2d08b"
+    },
+    {
+      "file": "downloads/adaptation-primary-occupation-results.csv",
+      "bytes": 16989,
+      "sha256": "3650f1cdd715833751e6497b5ee5d6d2d61804a6611633967dd9770c472f9964"
+    },
+    {
+      "file": "downloads/adaptation-primary-regional-results.csv",
+      "bytes": 16965,
+      "sha256": "1822c3a2d561a0b259beb39fe30302ccae70e94b84313287a06a7dde04eb5fc3"
+    },
+    {
+      "file": "downloads/adaptation-results-en.md",
+      "bytes": 15025,
+      "sha256": "d044a695ee9d4e24fd932443e6dda286a69dc3ec0615b2a807a88d5152610db9"
+    },
+    {
+      "file": "downloads/adaptation-sample-support.csv",
+      "bytes": 8480,
+      "sha256": "f0100ed6dcf31733c424f98d93c3944259710740c364062fe95c07d9547ef925"
+    },
+    {
+      "file": "downloads/adaptation-transition-data-en.md",
+      "bytes": 10577,
+      "sha256": "5f51959a1ed3995490264dd0bb938c119e3ad6e5690108932bec193678a903e9"
+    },
+    {
+      "file": "downloads/adaptation-transition-data-sources.csv",
+      "bytes": 7462,
+      "sha256": "1603ae7778e388d848fc9ee367a40c5e41687d23a776d500bbd54f414de074d8"
+    },
+    {
+      "file": "downloads/adaptation-transition-did.csv",
+      "bytes": 129958,
+      "sha256": "60829426d4180eda1828d610e8bfecaacb1d04033b6c56d063ccc478d618f028"
+    },
+    {
+      "file": "downloads/adaptation-transition-events.csv",
+      "bytes": 87366,
+      "sha256": "1db1237255bf49bf39dc319f25a965a5500f072135a63ca169e9d07529fc1652"
+    },
+    {
+      "file": "downloads/adaptation-transition-pretrends.csv",
+      "bytes": 2696,
+      "sha256": "64ed7f1d068ad45b3a646c4db37c861da2bb41529b9e91dfbbe9c5a3cb06055b"
+    },
+    {
+      "file": "downloads/adaptation-validation.json",
+      "bytes": 863,
+      "sha256": "a7fe5804caa3e02f1396f1da4a76d0b942326bb6989863896d76052c1845360b"
+    },
+    {
+      "file": "downloads/adaptation-variable-dictionary.csv",
+      "bytes": 3074,
+      "sha256": "3555e186034954e052ee06277d00b5172f6a0a8e947e5646c1889a3547a67f29"
+    },
+    {
       "file": "downloads/age_gap_ddd.csv",
       "bytes": 684,
       "sha256": "06f7db284225f231ff51f6f5a4c0b00985b569fa35aaed530d310ef679baad26"
@@ -478,6 +623,76 @@
       "sha256": "a4fed00aca6ae58edfd6d13b50bbea8a6c9164242e6e75645d9883533120c0d7"
     },
     {
+      "file": "downloads/worker-adaptation-model-output.zip",
+      "bytes": 368813,
+      "sha256": "b85df6b0a1939cd0b0105a93d4a3997ac43c6c0059cbb87e8410fd7a2efc4723"
+    },
+    {
+      "file": "downloads/worker-adaptation-results-en.pdf",
+      "bytes": 97614,
+      "sha256": "3a895237405329302074f08c877f9e65fd109be21ae0a4dff9af047d2addc741"
+    },
+    {
+      "file": "figures/adaptation-01_regional_quality_DID.png",
+      "bytes": 86232,
+      "sha256": "3fb5f9344819a6c4b22808e580746b7c7dc05306005f3b9eead7524821507f16"
+    },
+    {
+      "file": "figures/adaptation-01_regional_quality_DID.svg",
+      "bytes": 118262,
+      "sha256": "652617aea484c5adfdeb10838119150c1d050c710d11782174ecceab3473e78f"
+    },
+    {
+      "file": "figures/adaptation-02_regional_quality_events.png",
+      "bytes": 724292,
+      "sha256": "6c76535d87e47be61ff79b6091e72f0961495bf5254232e409707a108c927a20"
+    },
+    {
+      "file": "figures/adaptation-02_regional_quality_events.svg",
+      "bytes": 245281,
+      "sha256": "6a8af28f64d95a9f8e509073dc343e8451028996dc4b97905ce93665182c2a9c"
+    },
+    {
+      "file": "figures/adaptation-03_occupation_count_DID.png",
+      "bytes": 76031,
+      "sha256": "3c304313c701a06080160e7dd21859fb048bcddacbb3f1d4ecea1fb4fbe20a10"
+    },
+    {
+      "file": "figures/adaptation-03_occupation_count_DID.svg",
+      "bytes": 99248,
+      "sha256": "b08af53e1361252fa7c52aa0687f9a06f03bafd732620c2b8aa37410f3900d2d"
+    },
+    {
+      "file": "figures/adaptation-04_occupation_long_events.png",
+      "bytes": 723003,
+      "sha256": "6c3b6dc5d09b7f2bba239ef7efa80f5e0412d815bc410e1f3a60a19a7e9a6f7f"
+    },
+    {
+      "file": "figures/adaptation-04_occupation_long_events.svg",
+      "bytes": 226266,
+      "sha256": "b58ccecd24224573b5a3d5edf119fce9fcdc2fc534695dbe92567e4e9f3fa950"
+    },
+    {
+      "file": "figures/adaptation-05_observed_transition_DID.png",
+      "bytes": 72435,
+      "sha256": "11c0befa5e7f2dd96af4c2d39cf0c0d105adbe135f2ffee8aa03b5c637850dae"
+    },
+    {
+      "file": "figures/adaptation-05_observed_transition_DID.svg",
+      "bytes": 102708,
+      "sha256": "02f69ecdce7d8a7da19b45a11d0c274f026e4cc8cc6231a02f3aa33248a6aab4"
+    },
+    {
+      "file": "figures/adaptation-06_observed_transition_events.png",
+      "bytes": 427660,
+      "sha256": "82f568e5cf1fee0882b1a3cb47b182b153c9357b9390bde64bcca3e08098e082"
+    },
+    {
+      "file": "figures/adaptation-06_observed_transition_events.svg",
+      "bytes": 138484,
+      "sha256": "11aa9be9b745054fe2d8d4e57ca5b8d7863db96d6023cbd1fa8c0f9cde0b5591"
+    },
+    {
       "file": "figures/age-did.png",
       "bytes": 100967,
       "sha256": "790cc075ce02268546854db3d6f7289fb9643b7c986eb477828da7c0ac383fab"
@@ -529,13 +744,13 @@
     },
     {
       "file": "index.html",
-      "bytes": 45494,
-      "sha256": "b12a19514c9db89b9f59fe2bc4239571c11ecd2dd1ff221c3eedd26b5cf4ccaf"
+      "bytes": 58722,
+      "sha256": "31b51e0ee8297c5119e9cda92020dc447e709882e8ab2d3f72c581f5b84cd735"
     },
     {
       "file": "style.css",
-      "bytes": 6775,
-      "sha256": "3cf3ff096ebcc51fd9e6005621553ae863a324adedbed94bf7f7f97d8545bc26"
+      "bytes": 7057,
+      "sha256": "87272faf45e72bc5ac443ce08c6cf4649bd341a774b1327044ad0d7eb824e1cf"
     }
   ]
 }

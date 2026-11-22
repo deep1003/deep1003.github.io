@@ -1,0 +1,23 @@
+{
+  "population_and_hours_identities": true,
+  "nonoverlapping_age_partition": true,
+  "regional_age22_25_FTPOP_explicit_dummy_WLS": {
+    "coefficient_max_error": 2.0294876890147862e-13,
+    "cluster_covariance_max_error": 1.8740564655672642e-12
+  },
+  "regional_age26_29_log_wage_explicit_dummy_WLS": {
+    "coefficient_max_error": 2.378652830259398e-14,
+    "cluster_covariance_max_error": 1.6310737482871929e-15
+  },
+  "occupation_age30_34_FTshare_explicit_dummy_WLS": {
+    "coefficient_max_error": 1.014299755297543e-12,
+    "cluster_covariance_max_error": 3.3519853559482726e-11
+  },
+  "independent_Binomial_GLM": {
+    "coefficient_max_error": 7.498597298649656e-10,
+    "cluster_covariance_max_error": 8.480347674089117e-11
+  },
+  "validated_link_flow_identities": true,
+  "planned_models_and_multiplicity_denominators": true,
+  "graphs_emitted": false
+}

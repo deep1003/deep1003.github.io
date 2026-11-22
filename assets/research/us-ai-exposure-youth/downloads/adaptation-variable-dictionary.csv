@@ -1,0 +1,23 @@
+variable,definition,source,unit
+P,"Civilian household population in the age/subgroup, sum of nine monthly weighted totals",CPS PWCMPWGT / 10000,weighted person-months
+E,Employed in PEMLR 1 or 2,CPS,weighted person-months
+FT,"Employed with PRFTLF 1, usual full-time labour-force status",CPS,weighted person-months
+PT,"Employed with PRFTLF 2, usual part-time labour-force status",CPS,weighted person-months
+PT_econ,"Employed with PRWKSTAT 3 or 6; actual short hours for economic reasons, including usual FT workers",CPS,weighted person-months
+FTPOP / PTPOP / PT_econPOP,100 times relevant employment count divided by whole age/subgroup population,Derived,percentage points
+FTshare / PTshare / PT_econshare,100 times relevant occupational-group employment count / matched occupational-group employment; nE >= 30,Derived,percentage points
+log_wage,ORG-weighted mean log real weekly wage among employed wage/salary workers; nORG >= 30,"CPS ORG, CPI-U",natural log September 2026 dollars
+mean_real_weekly,"ORG-weighted arithmetic mean real weekly wage, for descriptive checks only","CPS ORG, CPI-U",September 2026 dollars
+nORG,Valid ORG person-months; probabilistic historical occupation mappings may contribute fractionally,Derived,"person-month support, not independent people"
+weight,Fixed-2019 age/subgroup state population; occupational models use fixed-2019 employment or FT-origin denominator,Design,positive fixed baseline weight
+E_q / THAIE_q / TIME_q,"Fixed 2019 regional exposure quintile, same all-age baseline as prior release",Measurement inputs,quintile 1–5
+high,"Occupation Q5 at observation/origin, versus Q1–Q4; all three measures use common supported outcomes",Measurement inputs,indicator 0/1
+ind_1 ... ind_12,"Standardised 2019 state industry shares, omitting the final share; interacted with year",Baseline CPS,standardised share
+covid_drop / recovery_gap,Standardised adult 30–54 employment-rate change 2019→2020 and 2019→2021; interacted with year,Prior CPS state aggregates,standardised baseline shock
+FT_to_PT_rate,100 times matched origin usual-FT → destination usual-PT weight / matched origin FT weight,Validated adjacent-month CPS,percentage points
+FT_to_PTecon_rate,100 times matched origin usual-FT → destination PRWKSTAT 3 or 6 weight / matched origin FT weight; can include temporary hours cut within usual FT,Validated adjacent-month CPS,percentage points
+FT_to_U_rate,100 times matched origin FT → destination unemployment weight / matched origin FT weight,Validated adjacent-month CPS,percentage points
+PT_to_FT_rate,100 times matched origin usual-PT → destination usual-FT weight / matched origin PT weight,Validated adjacent-month CPS,percentage points
+match_rate,100 times validated matched origin weight / rotation-eligible origin weight,Adjacent-month linkage audit,percent
+p_holm / p_holm_all,Holm adjustment within labelled family; unsupported planned models enter with p=1,Inference,probability
+status,"estimated or not_estimable, with unsupported specifications retained",Model audit,category
