@@ -1,0 +1,213 @@
+panel,variable,definition,source,role,dtype,missing,rows
+industry,GESTFIPS,State FIPS identifier,CPS,identifier,int64,0,117997
+industry,sector,CPS major industry 1–13 or civilian major occupation 1–10,CPS,identifier,int64,0,117997
+industry,group,Age/education group; analyse separately because some groups overlap,CPS derived,identifier,str,0,117997
+industry,year,"Calendar year, January–September outcome window",CPS,identifier,int64,0,117997
+industry,kind,industry or occupation panel,Design,identifier,str,0,117997
+industry,E,"Employment, sum of nine monthly composite-weighted totals",CPS PWCMPWGT,outcome count,float64,0,117997
+industry,U,Unemployed linked to previous sector; excludes unknown-sector new entrants,CPS PEMLR and sector recode,conditional outcome count,float64,0,117997
+industry,FT,Full-time employment count,CPS PRFTLF,outcome count,float64,0,117997
+industry,PT,Part-time employment count,CPS PRFTLF,outcome count,float64,0,117997
+industry,PT_econ,Employed part-time for economic reasons,CPS PRWKSTAT,outcome count,float64,0,117997
+industry,salary,"Wage/salary employment, class of worker 1–5",CPS PEIO1COW,outcome count,float64,0,117997
+industry,self_emp,"Self-employed count, class of worker 6–7",CPS PEIO1COW,outcome count,float64,0,117997
+industry,unpaid,Unpaid family-worker count,CPS PEIO1COW,outcome count,float64,0,117997
+industry,hours_weight,Employment weights with valid usual weekly hours 1–198,CPS PEHRUSLT,denominator,float64,0,117997
+industry,hours_sum,Employment-weighted sum of valid usual weekly hours,CPS PEHRUSLT,numerator,float64,0,117997
+industry,nE,"Unweighted employed person-months, not independent persons",CPS,sample support,float64,0,117997
+industry,nU,Unweighted linked-unemployed person-months,CPS,sample support,float64,0,117997
+industry,sumw2E,Sum of squared employment weights; does not account for repeated respondents,CPS,sample support,float64,0,117997
+industry,female_E,Employment-weighted female sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,BA_E,Employment-weighted bachelor’s degree or higher sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,white_E,Employment-weighted White alone sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,black_E,Employment-weighted Black alone sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,hispanic_E,Employment-weighted Hispanic ethnicity sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,foreign_E,Employment-weighted foreign-born citizenship categories 4–5 sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,married_E,Employment-weighted married spouse present/absent sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,age_sum_E,Employment-weighted weighted age sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,enrolled_E,Employment-weighted school enrolled sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,school_valid_E,Employment-weighted valid school-enrolment response (age-restricted universe) sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,gov_E,Employment-weighted government employment sum,CPS demographic fields,composition sum; not automatic control,float64,0,117997
+industry,nORG,Valid outgoing-rotation earnings person-months,CPS HRMIS/PWORWGT,sample support,float64,0,117997
+industry,wORG,Sum of outgoing-rotation earnings weights,CPS PWORWGT,weight,float64,0,117997
+industry,wage_mean_log_real,"Weighted mean log real weekly earnings, suppressed if nORG<30",CPS earnings and BLS CPI-U,selected-worker outcome,float64,73951,117997
+industry,wage_median_real,"Weighted median real weekly earnings, September 2026 USD; nORG>=30",CPS earnings and BLS CPI-U,selected-worker outcome,float64,73951,117997
+industry,P,"Entire selected-age state population, sum of nine monthly weights; not sector population",CPS PWCMPWGT,population denominator,float64,0,117997
+industry,female_P,Female selected-age state population weights,CPS PESEX,population composition,float64,0,117997
+industry,BA_P,Bachelor’s degree or above selected-age state population weights,CPS PEEDUCA,population composition,float64,0,117997
+industry,foreign_P,Foreign-born selected-age state population weights,CPS PRCITSHP 4–5,population composition,float64,0,117997
+industry,age_sum_P,Population-weighted sum of age,CPS PRTAGE/PEAGE,population composition,float64,0,117997
+industry,baseline_emp,"Full-2019 all-age sector employment, twelve monthly weighted totals",CPS 2019,predetermined support,float64,0,117997
+industry,baseline_nE,Full-2019 all-age employed person-months,CPS 2019,predetermined support,int64,0,117997
+industry,female_E_baseline,Full-2019 all-age Employment-weighted female sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,BA_E_baseline,Full-2019 all-age Employment-weighted bachelor’s degree or higher sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,white_E_baseline,Full-2019 all-age Employment-weighted White alone sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,black_E_baseline,Full-2019 all-age Employment-weighted Black alone sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,hispanic_E_baseline,Full-2019 all-age Employment-weighted Hispanic ethnicity sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,foreign_E_baseline,Full-2019 all-age Employment-weighted foreign-born citizenship categories 4–5 sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,married_E_baseline,Full-2019 all-age Employment-weighted married spouse present/absent sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,age_sum_E_baseline,Full-2019 all-age Employment-weighted weighted age sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,enrolled_E_baseline,Full-2019 all-age Employment-weighted school enrolled sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,school_valid_E_baseline,Full-2019 all-age Employment-weighted valid school-enrolment response (age-restricted universe) sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,gov_E_baseline,Full-2019 all-age Employment-weighted government employment sum,CPS demographic fields,predetermined composition sum,float64,0,117997
+industry,base_coverage,Full-2019 employment mass linked to common exposure scores,CPS and official occupation crosswalk,exposure denominator,float64,0,117997
+industry,base_E_numerator,2019 employment-weighted E score numerator,Shared task model and Census crosswalk,exposure numerator,float64,0,117997
+industry,base_THAIE_numerator,2019 employment-weighted THAIE score numerator,Shared task model and Census crosswalk,exposure numerator,float64,0,117997
+industry,base_TIME_numerator,2019 employment-weighted TIME score numerator,Shared task model and Census crosswalk,exposure numerator,float64,0,117997
+industry,coverage,2019 matched employment / baseline_emp,CPS and score link,exposure quality,float64,0,117997
+industry,E_score,AI exposure E_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,117997
+industry,THAIE_score,AI exposure THAIE_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,117997
+industry,TIME_score,AI exposure TIME_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,117997
+industry,baseline_female,2019 all-age female composition,CPS 2019,predetermined control,float64,0,117997
+industry,baseline_BA,2019 all-age BA composition,CPS 2019,predetermined control,float64,0,117997
+industry,baseline_white,2019 all-age white composition,CPS 2019,predetermined control,float64,0,117997
+industry,baseline_foreign,2019 all-age foreign composition,CPS 2019,predetermined control,float64,0,117997
+industry,baseline_mean_age,2019 all-age mean_age composition,CPS 2019,predetermined control,float64,0,117997
+industry,baseline_gov,2019 all-age gov composition,CPS 2019,predetermined control,float64,0,117997
+industry,eligible,"2019 baseline_nE>=30 and coverage>=0.90, valid civilian sector",Design,fixed inclusion,bool,0,117997
+industry,E_z,AI exposure E_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,117997
+industry,E_national_z,AI exposure E_national_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,117997
+industry,THAIE_z,AI exposure THAIE_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,117997
+industry,THAIE_national_z,AI exposure THAIE_national_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,117997
+industry,TIME_z,AI exposure TIME_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,117997
+industry,TIME_national_z,AI exposure TIME_national_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,117997
+industry,baseline_female_z,2019 all-age female composition standardised,CPS 2019,predetermined control,float64,0,117997
+industry,baseline_BA_z,2019 all-age BA composition standardised,CPS 2019,predetermined control,float64,0,117997
+industry,baseline_white_z,2019 all-age white composition standardised,CPS 2019,predetermined control,float64,0,117997
+industry,baseline_foreign_z,2019 all-age foreign composition standardised,CPS 2019,predetermined control,float64,0,117997
+industry,baseline_mean_age_z,2019 all-age mean_age composition standardised,CPS 2019,predetermined control,float64,0,117997
+industry,baseline_gov_z,2019 all-age gov composition standardised,CPS 2019,predetermined control,float64,0,117997
+industry,weight_P2019,Selected-age state population weight fixed at January–September 2019,CPS,WLS weight,float64,0,117997
+industry,log_real_gdp_pc_lag,"Log real GDP per capita in t−1, chained 2017 USD",BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,117997
+industry,gdp_growth_lag,100 log real GDP growth between t−2 and t−1,BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,117997
+industry,log_pc_income_lag,Log nominal per-capita personal income in t−1,BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,117997
+industry,E_contribution,"100 E/P; contribution to state-age employment, not sector-specific EPOP",CPS,"outcome, percentage points",float64,0,117997
+industry,FT_contribution,"100 FT/P; contribution to state-age employment, not sector-specific EPOP",CPS,"outcome, percentage points",float64,0,117997
+industry,PT_contribution,"100 PT/P; contribution to state-age employment, not sector-specific EPOP",CPS,"outcome, percentage points",float64,0,117997
+industry,PT_econ_contribution,"100 PT_econ/P; contribution to state-age employment, not sector-specific EPOP",CPS,"outcome, percentage points",float64,0,117997
+industry,conditional_UR,"100 U/(E+U), only linked previous sector, suppressed if nE+nU<30",CPS,"conditional unemployment outcome, pp",float64,26357,117997
+industry,mean_hours,hours_sum/hours_weight; suppressed if nE<30,CPS,hours outcome,float64,27684,117997
+industry,covid_cell,Standardised adult30–54 sector employment-contribution change 2019–2020,CPS,predetermined pandemic control,float64,0,117997
+industry,recovery_cell,Standardised adult30–54 sector employment-contribution change 2019–2021,CPS,predetermined pandemic control,float64,0,117997
+industry,log_real_gdp_pc_lag_z,"Log real GDP per capita in t−1, chained 2017 USD standardised over 51 states and 2010–2026",BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,117997
+industry,gdp_growth_lag_z,100 log real GDP growth between t−2 and t−1 standardised over 51 states and 2010–2026,BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,117997
+industry,log_pc_income_lag_z,Log nominal per-capita personal income in t−1 standardised over 51 states and 2010–2026,BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,117997
+industry,annual_emp,"All-age January–September annual occupational-composition emp, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,117997
+industry,annual_n_emp,"All-age January–September annual occupational-composition n_emp, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,int64,0,117997
+industry,annual_numer_E,"All-age January–September annual occupational-composition numer_E, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,117997
+industry,annual_numer_THAIE,"All-age January–September annual occupational-composition numer_THAIE, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,117997
+industry,annual_numer_TIME,"All-age January–September annual occupational-composition numer_TIME, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,117997
+industry,annual_numer_coverage,"All-age January–September annual occupational-composition numer_coverage, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,117997
+industry,annual_coverage,"All-age January–September annual occupational-composition coverage, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,117997
+industry,E_annual_score,AI exposure E_annual_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,1210,117997
+industry,E_annual_z,AI exposure E_annual_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,1210,117997
+industry,THAIE_annual_score,AI exposure THAIE_annual_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,1210,117997
+industry,THAIE_annual_z,AI exposure THAIE_annual_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,1210,117997
+industry,TIME_annual_score,AI exposure TIME_annual_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,1210,117997
+industry,TIME_annual_z,AI exposure TIME_annual_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,1210,117997
+occupation,GESTFIPS,State FIPS identifier,CPS,identifier,int64,0,93687
+occupation,sector,CPS major industry 1–13 or civilian major occupation 1–10,CPS,identifier,int64,0,93687
+occupation,group,Age/education group; analyse separately because some groups overlap,CPS derived,identifier,str,0,93687
+occupation,year,"Calendar year, January–September outcome window",CPS,identifier,int64,0,93687
+occupation,kind,industry or occupation panel,Design,identifier,str,0,93687
+occupation,E,"Employment, sum of nine monthly composite-weighted totals",CPS PWCMPWGT,outcome count,float64,0,93687
+occupation,U,Unemployed linked to previous sector; excludes unknown-sector new entrants,CPS PEMLR and sector recode,conditional outcome count,float64,0,93687
+occupation,FT,Full-time employment count,CPS PRFTLF,outcome count,float64,0,93687
+occupation,PT,Part-time employment count,CPS PRFTLF,outcome count,float64,0,93687
+occupation,PT_econ,Employed part-time for economic reasons,CPS PRWKSTAT,outcome count,float64,0,93687
+occupation,salary,"Wage/salary employment, class of worker 1–5",CPS PEIO1COW,outcome count,float64,0,93687
+occupation,self_emp,"Self-employed count, class of worker 6–7",CPS PEIO1COW,outcome count,float64,0,93687
+occupation,unpaid,Unpaid family-worker count,CPS PEIO1COW,outcome count,float64,0,93687
+occupation,hours_weight,Employment weights with valid usual weekly hours 1–198,CPS PEHRUSLT,denominator,float64,0,93687
+occupation,hours_sum,Employment-weighted sum of valid usual weekly hours,CPS PEHRUSLT,numerator,float64,0,93687
+occupation,nE,"Unweighted employed person-months, not independent persons",CPS,sample support,float64,0,93687
+occupation,nU,Unweighted linked-unemployed person-months,CPS,sample support,float64,0,93687
+occupation,sumw2E,Sum of squared employment weights; does not account for repeated respondents,CPS,sample support,float64,0,93687
+occupation,female_E,Employment-weighted female sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,BA_E,Employment-weighted bachelor’s degree or higher sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,white_E,Employment-weighted White alone sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,black_E,Employment-weighted Black alone sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,hispanic_E,Employment-weighted Hispanic ethnicity sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,foreign_E,Employment-weighted foreign-born citizenship categories 4–5 sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,married_E,Employment-weighted married spouse present/absent sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,age_sum_E,Employment-weighted weighted age sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,enrolled_E,Employment-weighted school enrolled sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,school_valid_E,Employment-weighted valid school-enrolment response (age-restricted universe) sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,gov_E,Employment-weighted government employment sum,CPS demographic fields,composition sum; not automatic control,float64,0,93687
+occupation,nORG,Valid outgoing-rotation earnings person-months,CPS HRMIS/PWORWGT,sample support,float64,0,93687
+occupation,wORG,Sum of outgoing-rotation earnings weights,CPS PWORWGT,weight,float64,0,93687
+occupation,wage_mean_log_real,"Weighted mean log real weekly earnings, suppressed if nORG<30",CPS earnings and BLS CPI-U,selected-worker outcome,float64,51433,93687
+occupation,wage_median_real,"Weighted median real weekly earnings, September 2026 USD; nORG>=30",CPS earnings and BLS CPI-U,selected-worker outcome,float64,51433,93687
+occupation,P,"Entire selected-age state population, sum of nine monthly weights; not sector population",CPS PWCMPWGT,population denominator,float64,0,93687
+occupation,female_P,Female selected-age state population weights,CPS PESEX,population composition,float64,0,93687
+occupation,BA_P,Bachelor’s degree or above selected-age state population weights,CPS PEEDUCA,population composition,float64,0,93687
+occupation,foreign_P,Foreign-born selected-age state population weights,CPS PRCITSHP 4–5,population composition,float64,0,93687
+occupation,age_sum_P,Population-weighted sum of age,CPS PRTAGE/PEAGE,population composition,float64,0,93687
+occupation,baseline_emp,"Full-2019 all-age sector employment, twelve monthly weighted totals",CPS 2019,predetermined support,float64,0,93687
+occupation,baseline_nE,Full-2019 all-age employed person-months,CPS 2019,predetermined support,int64,0,93687
+occupation,female_E_baseline,Full-2019 all-age Employment-weighted female sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,BA_E_baseline,Full-2019 all-age Employment-weighted bachelor’s degree or higher sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,white_E_baseline,Full-2019 all-age Employment-weighted White alone sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,black_E_baseline,Full-2019 all-age Employment-weighted Black alone sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,hispanic_E_baseline,Full-2019 all-age Employment-weighted Hispanic ethnicity sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,foreign_E_baseline,Full-2019 all-age Employment-weighted foreign-born citizenship categories 4–5 sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,married_E_baseline,Full-2019 all-age Employment-weighted married spouse present/absent sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,age_sum_E_baseline,Full-2019 all-age Employment-weighted weighted age sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,enrolled_E_baseline,Full-2019 all-age Employment-weighted school enrolled sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,school_valid_E_baseline,Full-2019 all-age Employment-weighted valid school-enrolment response (age-restricted universe) sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,gov_E_baseline,Full-2019 all-age Employment-weighted government employment sum,CPS demographic fields,predetermined composition sum,float64,0,93687
+occupation,base_coverage,Full-2019 employment mass linked to common exposure scores,CPS and official occupation crosswalk,exposure denominator,float64,0,93687
+occupation,base_E_numerator,2019 employment-weighted E score numerator,Shared task model and Census crosswalk,exposure numerator,float64,0,93687
+occupation,base_THAIE_numerator,2019 employment-weighted THAIE score numerator,Shared task model and Census crosswalk,exposure numerator,float64,0,93687
+occupation,base_TIME_numerator,2019 employment-weighted TIME score numerator,Shared task model and Census crosswalk,exposure numerator,float64,0,93687
+occupation,coverage,2019 matched employment / baseline_emp,CPS and score link,exposure quality,float64,0,93687
+occupation,E_score,AI exposure E_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,93687
+occupation,THAIE_score,AI exposure THAIE_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,93687
+occupation,TIME_score,AI exposure TIME_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,93687
+occupation,baseline_female,2019 all-age female composition,CPS 2019,predetermined control,float64,0,93687
+occupation,baseline_BA,2019 all-age BA composition,CPS 2019,predetermined control,float64,0,93687
+occupation,baseline_white,2019 all-age white composition,CPS 2019,predetermined control,float64,0,93687
+occupation,baseline_foreign,2019 all-age foreign composition,CPS 2019,predetermined control,float64,0,93687
+occupation,baseline_mean_age,2019 all-age mean_age composition,CPS 2019,predetermined control,float64,0,93687
+occupation,baseline_gov,2019 all-age gov composition,CPS 2019,predetermined control,float64,0,93687
+occupation,eligible,"2019 baseline_nE>=30 and coverage>=0.90, valid civilian sector",Design,fixed inclusion,bool,0,93687
+occupation,E_z,AI exposure E_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,93687
+occupation,E_national_z,AI exposure E_national_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,93687
+occupation,THAIE_z,AI exposure THAIE_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,93687
+occupation,THAIE_national_z,AI exposure THAIE_national_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,93687
+occupation,TIME_z,AI exposure TIME_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,93687
+occupation,TIME_national_z,AI exposure TIME_national_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,0,93687
+occupation,baseline_female_z,2019 all-age female composition standardised,CPS 2019,predetermined control,float64,0,93687
+occupation,baseline_BA_z,2019 all-age BA composition standardised,CPS 2019,predetermined control,float64,0,93687
+occupation,baseline_white_z,2019 all-age white composition standardised,CPS 2019,predetermined control,float64,0,93687
+occupation,baseline_foreign_z,2019 all-age foreign composition standardised,CPS 2019,predetermined control,float64,0,93687
+occupation,baseline_mean_age_z,2019 all-age mean_age composition standardised,CPS 2019,predetermined control,float64,0,93687
+occupation,baseline_gov_z,2019 all-age gov composition standardised,CPS 2019,predetermined control,float64,0,93687
+occupation,weight_P2019,Selected-age state population weight fixed at January–September 2019,CPS,WLS weight,float64,0,93687
+occupation,log_real_gdp_pc_lag,"Log real GDP per capita in t−1, chained 2017 USD",BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,93687
+occupation,gdp_growth_lag,100 log real GDP growth between t−2 and t−1,BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,93687
+occupation,log_pc_income_lag,Log nominal per-capita personal income in t−1,BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,93687
+occupation,E_contribution,"100 E/P; contribution to state-age employment, not sector-specific EPOP",CPS,"outcome, percentage points",float64,0,93687
+occupation,FT_contribution,"100 FT/P; contribution to state-age employment, not sector-specific EPOP",CPS,"outcome, percentage points",float64,0,93687
+occupation,PT_contribution,"100 PT/P; contribution to state-age employment, not sector-specific EPOP",CPS,"outcome, percentage points",float64,0,93687
+occupation,PT_econ_contribution,"100 PT_econ/P; contribution to state-age employment, not sector-specific EPOP",CPS,"outcome, percentage points",float64,0,93687
+occupation,conditional_UR,"100 U/(E+U), only linked previous sector, suppressed if nE+nU<30",CPS,"conditional unemployment outcome, pp",float64,17047,93687
+occupation,mean_hours,hours_sum/hours_weight; suppressed if nE<30,CPS,hours outcome,float64,18005,93687
+occupation,covid_cell,Standardised adult30–54 sector employment-contribution change 2019–2020,CPS,predetermined pandemic control,float64,0,93687
+occupation,recovery_cell,Standardised adult30–54 sector employment-contribution change 2019–2021,CPS,predetermined pandemic control,float64,0,93687
+occupation,log_real_gdp_pc_lag_z,"Log real GDP per capita in t−1, chained 2017 USD standardised over 51 states and 2010–2026",BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,93687
+occupation,gdp_growth_lag_z,100 log real GDP growth between t−2 and t−1 standardised over 51 states and 2010–2026,BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,93687
+occupation,log_pc_income_lag_z,Log nominal per-capita personal income in t−1 standardised over 51 states and 2010–2026,BEA SAGDP/SASUMMARY/SAINC,lagged macro control; can be a post-event mediator,float64,0,93687
+occupation,annual_emp,"All-age January–September annual occupational-composition emp, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,93687
+occupation,annual_n_emp,"All-age January–September annual occupational-composition n_emp, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,int64,0,93687
+occupation,annual_numer_E,"All-age January–September annual occupational-composition numer_E, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,93687
+occupation,annual_numer_THAIE,"All-age January–September annual occupational-composition numer_THAIE, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,93687
+occupation,annual_numer_TIME,"All-age January–September annual occupational-composition numer_TIME, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,93687
+occupation,annual_numer_coverage,"All-age January–September annual occupational-composition numer_coverage, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,93687
+occupation,annual_coverage,"All-age January–September annual occupational-composition coverage, fixed task-capability snapshot",CPS and common occupation crosswalk,endogenous composition-based exposure or support,float64,0,93687
+occupation,E_annual_score,AI exposure E_annual_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,968,93687
+occupation,E_annual_z,AI exposure E_annual_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,968,93687
+occupation,THAIE_annual_score,AI exposure THAIE_annual_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,968,93687
+occupation,THAIE_annual_z,AI exposure THAIE_annual_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,968,93687
+occupation,TIME_annual_score,AI exposure TIME_annual_score; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,968,93687
+occupation,TIME_annual_z,AI exposure TIME_annual_z; z units use 2019 matched-employment-weighted local-cell SD,Common task scores/CPS composition,exposure,float64,968,93687

@@ -1,5 +1,6 @@
 {
   "snapshot": "2026-11-22",
+  "update": "Fixed-effects panels and related-literature discussion",
   "files": [
     {
       "file": "app.js",
@@ -302,9 +303,74 @@
       "sha256": "dc06c6d794256e33e4be2c0e92406dc0f734ebda59e858a573cd1977a920e281"
     },
     {
+      "file": "downloads/fe-age-coefficients.csv",
+      "bytes": 45565,
+      "sha256": "a9888c39db8d766d6207d8b29e6fc2df4a685e27af973ad732223874a781d7a3"
+    },
+    {
+      "file": "downloads/fe-event-coefficients.csv",
+      "bytes": 44881,
+      "sha256": "a682cdd09ae3b05af6c705477f16198211daffa813c7a04040d2a0241e94c734"
+    },
+    {
+      "file": "downloads/fe-level-coefficients.csv",
+      "bytes": 26712,
+      "sha256": "f09c836f73ce432df3ec7c17fc1912e224ef37760a21a699dc276c7c45c63583"
+    },
+    {
+      "file": "downloads/fe-main-coefficients.csv",
+      "bytes": 10846,
+      "sha256": "4c79825cf9e62f0ed42891e41afa40d7f1b08afea1851687241df696e10ae39f"
+    },
+    {
+      "file": "downloads/fe-model-output.zip",
+      "bytes": 67097,
+      "sha256": "895bc7d91848557050ebd0e508176948f8f81e357df9b84a4c86a08af9a0d2c7"
+    },
+    {
+      "file": "downloads/fe-outcome-coverage.csv",
+      "bytes": 16234,
+      "sha256": "ea58daffd75b97a351159c6955aad7905b784da93c8e5bc8fbd6ac0ea627ba1f"
+    },
+    {
+      "file": "downloads/fe-pretrend-tests.csv",
+      "bytes": 4671,
+      "sha256": "9a78ee4511d6534db5c3453bfcb0f9cc73ba4dd7de3d872c8e40238e51a30a5c"
+    },
+    {
+      "file": "downloads/fe-secondary-coefficients.csv",
+      "bytes": 28303,
+      "sha256": "c89ee860a1e8ccddada7038b01d29ef98f8a464897b233261c783f1660d3b162"
+    },
+    {
+      "file": "downloads/fe-sensitivity-coefficients.csv",
+      "bytes": 11997,
+      "sha256": "ef8d87517d5ea0581bf9159cb02a24f595f420ab31405be5f635967de4104097"
+    },
+    {
+      "file": "downloads/fe-variable-dictionary.csv",
+      "bytes": 31005,
+      "sha256": "ae685bebaa5e37e71081b4fd9b519c25184d6bcff66dabf3e2201bb8dd7f0642"
+    },
+    {
       "file": "downloads/fixed2019_state_treatment.csv",
       "bytes": 979,
       "sha256": "7fb144fa9a8f5dab7f01ddc6608baaf07b5aecd5c7aab020a9592de90865add4"
+    },
+    {
+      "file": "downloads/literature-and-discussion-en.md",
+      "bytes": 11960,
+      "sha256": "4466cb61b988d68729aabc0c49703090a76444dc112ca6813cc32f9f9c4836ea"
+    },
+    {
+      "file": "downloads/literature-matrix.csv",
+      "bytes": 10684,
+      "sha256": "96d373517d2a6cc98c24ab478dc2a4074b97cbbcd4a6fc10e23ed6e49abc4d4b"
+    },
+    {
+      "file": "downloads/literature-source-registry.json",
+      "bytes": 15107,
+      "sha256": "88265966081b66e7ce0bd9f47b8d36b4cc37d4be152288c231470f6af055f8de"
     },
     {
       "file": "downloads/national_age22_25_high_other_quality.csv",
@@ -347,9 +413,19 @@
       "sha256": "ddef8f322231711c1ddad2c1d3c42e7d68fa2d395336901086b1345fb2dddc4c"
     },
     {
+      "file": "downloads/panel-fe-figures-en.pdf",
+      "bytes": 48953,
+      "sha256": "4b807ac83244e9272bfa4bb8ea397c184e9f9041c93bcc957656ee931c3c8f2a"
+    },
+    {
       "file": "downloads/pretrend_joint_tests.csv",
       "bytes": 3100,
       "sha256": "dc8bd1f1452cc0019b080e40b5a795c4af081f245cc7429679bc1aa4aa839a57"
+    },
+    {
+      "file": "downloads/references.bib",
+      "bytes": 7176,
+      "sha256": "9bb64a1657f39d30c528e5bc77a23f31c8d701b6378c6b389ccbe1e22e9f55c2"
     },
     {
       "file": "downloads/regional_age_did.csv",
@@ -453,8 +529,8 @@
     },
     {
       "file": "index.html",
-      "bytes": 26541,
-      "sha256": "7371ab36d6bc7e2b453c939ddbc3f744786cb3d8ce0523fa8778e84063edd082"
+      "bytes": 45495,
+      "sha256": "3da1c306e3cf66673e7e3c4f5eaa83183abaa01741dba1be6c4c69200ace0c18"
     },
     {
       "file": "style.css",
