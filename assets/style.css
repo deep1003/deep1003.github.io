@@ -5,7 +5,7 @@
    Minimal, print-friendly, no build step required.
    =============================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   --ink:        #1c1c1a;
@@ -21,7 +21,7 @@
   --sidebar-w:  260px;
   --maxw:       760px;
 
-  --font-display: "Spectral", Georgia, "Times New Roman", serif;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
                "Helvetica Neue", Helvetica, Arial, "Apple SD Gothic Neo",
                "Malgun Gothic", sans-serif;
