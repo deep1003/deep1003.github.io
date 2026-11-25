@@ -61,10 +61,12 @@
       "Q4": "#e6a5aa",
       "Q5": "#b4434c"
     },
-    "Q5_width": 4.6,
-    "other_width": 2.6,
+    "Q5_width": 3.4,
+    "other_width": 3.4,
     "white_halo_extension_each_side": 1,
-    "keyed_by_quintile_not_display_order": true
+    "keyed_by_quintile_not_display_order": true,
+    "equal_marker_radius": 2.5,
+    "endpoint_labels": "Quintile 1 (least exposed) through Quintile 5 (most exposed), wrapped"
   },
   "UK_monthly_RTI": {
     "rows": 18614,
