@@ -149,7 +149,7 @@
         {},
         rows.some((r) => r.isQ5)
           ? "Our CPS reconstruction. Each curve uses its own November 2022 baseline of 100. Q5 is the warm-red line; all quintile lines have equal width; other exposure groups use muted colors. Gaps are unavailable or low-support months."
-          : "Our CPS reconstruction. Exposure is held fixed in this view; muted colors identify age groups. Each curve uses its own November 2022 baseline of 100.",
+          : "Our CPS reconstruction. Occupation is held fixed in this view; the line shows the selected age group. Each curve uses its own November 2022 baseline of 100.",
       ),
     );
     svg.append(el("rect", { x: 0, y: 0, width, height, fill: "white" }));
@@ -443,15 +443,15 @@
           (r) =>
             r.scope === scope &&
             r.sex === "All" &&
-            data.metadata.ages.includes(r.age),
+            r.age === state.age,
         )
         .map((r) => ({
           ...r,
-          label: "Ages " + r.age,
-          color: ageColors[data.metadata.ages.indexOf(r.age)],
+          label: r.age === "All ages (16+)" ? r.age : "Ages " + r.age,
+          color: colors[4],
           isQ5: false,
         }));
-      chart("chart-occupation", rows, label + " by age");
+      chart("chart-occupation", rows, `${label} · ${state.age === "All ages (16+)" ? state.age : "ages " + state.age}`);
       const record = data.metadata.occupation_quintiles.find(
         (r) => String(r.occ) === scope,
       );
@@ -459,8 +459,8 @@
         ? "Mixed THAIE exposure"
         : "THAIE Q" + record.THAIE_q;
       $("occupation-reading").textContent = family
-        ? "This broad family contains multiple detailed occupations. The age chart holds the family fixed; the optional panel below compares its available exposure groups."
-        : `${label} is assigned to THAIE Q${record.THAIE_q} in our method. This chart holds the occupation fixed, so color identifies age rather than five within-occupation exposure groups.`;
+        ? "This broad family contains multiple detailed occupations. The chart shows the selected age group; the optional panel below compares available exposure groups."
+        : `${label} is assigned to THAIE Q${record.THAIE_q} in our method. This chart holds the occupation fixed and displays the selected age group (${state.age}). Use the age buttons to switch the plotted series.`;
       $("computer-wrap").hidden = !family;
       if (family) {
         const source =
@@ -560,7 +560,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=all-nov2022-base-20261125")
+  fetch("data/monthly.json?v=occupation-age-filter-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
