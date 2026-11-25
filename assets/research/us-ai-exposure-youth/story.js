@@ -89,7 +89,7 @@
       s.className = r.isQ5 ? "is-q5" : "";
       const i = document.createElement("i");
       i.style.background = r.color;
-      i.style.height = r.isQ5 ? "4px" : "3px";
+      i.style.height = "3px";
       s.append(
         i,
         document.createTextNode(r.isQ5 ? "Q5 · highest THAIE" : r.label),
@@ -114,11 +114,11 @@
     }
     const twin = box.closest(".gender-panels") !== null;
     const width = Math.max(
-        twin ? 520 : 720,
+        twin ? 420 : 720,
         Math.round(box.getBoundingClientRect().width) || 1000,
       ),
       height = 450,
-      m = { l: 64, r: twin ? 140 : 175, t: 65, b: 65 };
+      m = { l: 64, r: twin ? 95 : 175, t: 65, b: 65 };
     const dates = rows.flatMap((r) => r.points.map((p) => Date.parse(p[0]))),
       xmin = Math.min(...dates),
       xmax = Math.max(...dates),
@@ -374,7 +374,7 @@
         },
         "",
       );
-      const q = r.quintile || (r.band === "Q5" ? 5 : null);
+      const q = r.sexLabel ? null : r.quintile || (r.band === "Q5" ? 5 : null);
       const name = q ? `Quintile ${q}` : r.context ? "All Occupations" : r.band === "Q1–Q4" ? "Quintiles 1–4" : r.label;
       txt.append(el("tspan", {x: width - m.r + 24, dy: 0}, name));
       if (q === 1 || q === 5) txt.append(el("tspan", {x: width - m.r + 24, dy: 16}, q === 1 ? "(least exposed)" : "(most exposed)"));
@@ -468,35 +468,18 @@
       }
     }
     if (name === "sex") {
-      const women = rawRows(state.age, "Women"),
-        men = rawRows(state.age, "Men");
-      if ($("mapped-context").checked) {
-        for (const [sex, rows] of [
-          ["Women", women],
-          ["Men", men],
-        ]) {
-          const r = data.cps_allmapped.find(
-            (r) => r.age === state.age && r.sex === sex,
-          );
-          if (r)
-            rows.unshift({
-              ...r,
-              label: "All mapped",
-              color: "#aeb6be",
-              context: true,
-              isQ5: false,
-            });
-        }
-      }
-      const values = [...women, ...men]
-          .flatMap(points)
-          .filter((p) => p.value !== null)
-          .map((p) => p.value),
-        domain = values.length
-          ? [Math.min(100, ...values), Math.max(100, ...values)]
-          : undefined;
-      chart("chart-women", women, `Women · ages ${state.age}`, domain);
-      chart("chart-men", men, `Men · ages ${state.age}`, domain);
+      const panels = [1, 2, 3, 4, 5, 6].map(q => {
+        const rows = ["Women", "Men"].map(sex => {
+          const r = q === 6
+            ? data.cps_allmapped.find(r => r.age === state.age && r.sex === sex)
+            : data.cps_exposure.find(r => r.age === state.age && r.sex === sex && r.quintile === q);
+          return r ? {...r, label: sex, sexLabel: sex, color: sex === "Women" ? "#577C96" : "#C64F5A", isQ5: false} : null;
+        }).filter(Boolean);
+        return {q, rows};
+      });
+      const values = panels.flatMap(p => p.rows).flatMap(points).filter(p => p.value !== null).map(p => p.value);
+      const domain = values.length ? [Math.min(100, ...values), Math.max(100, ...values)] : undefined;
+      for (const {q, rows} of panels) chart("chart-sex-"+q, rows, q === 6 ? "All mapped occupations" : "Quintile "+q+(q === 1 ? " · least exposed" : q === 5 ? " · most exposed" : ""), domain);
       const a = change(
           data.cps_contrast.find(
             (r) => r.age === state.age && r.sex === "Women" && r.band === "Q5",
@@ -510,7 +493,7 @@
       $("sex-reading").textContent =
         a !== null && b !== null
           ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men in matched January–September comparisons. Each series has its own baseline; this descriptive comparison does not establish a causal sex difference.`
-          : "The selected cells do not support a complete matched-period comparison. Both panels use the same vertical scale.";
+          : "The selected cells do not support a complete matched-period comparison. All six panels use the same vertical scale.";
     }
   }
   function update() {
@@ -559,7 +542,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=age-buttons-20261125")
+  fetch("data/monthly.json?v=sex-by-quintile-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
@@ -570,7 +553,6 @@
         "outcome",
         "occupation",
         "comparison",
-        "mapped-context",
       ])
         $(id).addEventListener("change", update);
       document.querySelectorAll("[data-age]").forEach((button) =>
