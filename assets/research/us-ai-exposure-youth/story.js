@@ -144,7 +144,7 @@
         "desc",
         {},
         rows.some((r) => r.isQ5)
-          ? "Our CPS reconstruction. Each curve uses its own 2022 monthly mean of 100. Q5 is the thick warm-red line; other exposure groups use muted colors. Gaps are unavailable or low-support months."
+          ? "Our CPS reconstruction. Each curve uses its own 2022 monthly mean of 100. Q5 is the warm-red line; all quintile lines have equal width; other exposure groups use muted colors. Gaps are unavailable or low-support months."
           : "Our CPS reconstruction. Exposure is held fixed in this view; muted colors identify age groups. Each curve uses its own 2022 monthly mean of100.",
       ),
     );
@@ -282,7 +282,7 @@
         d += `${active ? "L" : "M"}${x(p.date).toFixed(2)},${y(p.value).toFixed(2)} `;
         active = true;
       }
-      const lw = r.isQ5 ? 4.1 : r.context ? 1.8 : 2.35;
+      const lw = 3.1;
       svg.append(
         el("path", {
           d,
@@ -345,7 +345,7 @@
     }
     labels.sort((a, b) => a.target - b.target);
     for (let j = 1; j < labels.length; j++)
-      labels[j].target = Math.max(labels[j].target, labels[j - 1].target + 20);
+      labels[j].target = Math.max(labels[j].target, labels[j - 1].target + 38);
     if (labels.length && labels.at(-1).target > height - m.b - 3) {
       const excess = labels.at(-1).target - (height - m.b - 3);
       labels.forEach((l) => (l.target -= excess));
@@ -358,7 +358,7 @@
           d: `M${x0},${item.actual} L${width - m.r + 11},${item.target} L${width - m.r + 19},${item.target}`,
           stroke: r.color,
           fill: "none",
-          "stroke-width": r.isQ5 ? 1.1 : 0.7,
+          "stroke-width": 1.4,
           "stroke-opacity": 0.7,
         }),
       );
@@ -368,12 +368,16 @@
           x: width - m.r + 24,
           y: item.target + 4,
           fill: r.color,
-          "font-size": r.isQ5 ? 15 : 13,
-          "font-weight": r.isQ5 ? 700 : 500,
+          "font-size": 14,
+          "font-weight": 600,
           "font-family": "Arial,sans-serif",
         },
-        `${r.label}  ${item.point.value.toFixed(1)}`,
+        "",
       );
+      const q = r.quintile || (r.band === "Q5" ? 5 : null);
+      const name = q ? `Quintile ${q}` : r.context ? "All Occupations" : r.band === "Q1–Q4" ? "Quintiles 1–4" : r.label;
+      txt.append(el("tspan", {x: width - m.r + 24, dy: 0}, name));
+      if (q === 1 || q === 5) txt.append(el("tspan", {x: width - m.r + 24, dy: 16}, q === 1 ? "(least exposed)" : "(most exposed)"));
       svg.append(txt);
     }
     svg.append(
@@ -556,7 +560,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=red-gradient-white-halo-20261125")
+  fetch("data/monthly.json?v=equal-lines-end-labels-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
