@@ -16,6 +16,12 @@
     const x = rgb(a), y = rgb(b);
     return `rgb(${x.map((v, i) => Math.round(v + (y[i] - v) * Math.max(0, Math.min(1, t)))).join(",")})`;
   };
+  const rateStops = ["#FFF7F5", "#F5CDD0", "#E79AA6", "#CF6479", "#AB3C56", "#7C2038"];
+  const rateColor = (t) => {
+    const z = Math.max(0, Math.min(1, t)) * (rateStops.length - 1);
+    const i = Math.min(rateStops.length - 2, Math.floor(z));
+    return mix(rateStops[i], rateStops[i + 1], z - i);
+  };
   fetch("data/state-youth-map.json?v=20261126")
     .then((r) => { if (!r.ok) throw new Error("Map data unavailable"); return r.json(); })
     .then((data) => {
@@ -29,8 +35,8 @@
       const maxRate = Math.ceil(Math.max(...valid.map((r) => r.rate_pct)) / 5) * 5;
       const maxChange = Math.ceil(Math.max(...data.rates.filter((r) => r.change_supported).map((r) => Math.abs(r.change_pp))));
       const color = (v) => mode === "rate"
-        ? mix("#FAEEEE", "#C64F5A", v / maxRate)
-        : mix("#F4F2F0", v < 0 ? "#C64F5A" : "#789994", Math.abs(v) / maxChange);
+        ? rateColor(v / maxRate)
+        : mix("#F4F2F0", v < 0 ? "#9B2946" : "#557974", Math.abs(v) / maxChange);
       const small = ["VT", "NH", "MA", "RI", "CT", "NJ", "DE", "MD", "DC"];
       const ordered = data.states.filter((s) => small.includes(s.abbr)).sort((a, b) => a.label[1] - b.label[1]);
       const leaderY = new Map(ordered.map((s, i) => [s.abbr, 82 + i * 27]));
@@ -45,7 +51,7 @@
         label.textContent = mode === "rate"
           ? `Full-time employment in THAIE Q5 · ages 22–25 · ${year}`
           : `Change in Q5 full-time employment rate · 2022 to ${year}`;
-        stats.textContent = `U.S. rate ${nat.rate_pct.toFixed(2)}% · ${signed(nat.rate_pct - base.rate_pct)} percentage points from 2022 · ${number(nat.Q5_FT_average)} employed full time in Q5, monthly average · ${supported} of 51 state/DC estimates displayed`;
+        stats.textContent = `U.S. rate ${nat.rate_pct.toFixed(2)}% · ${signed(nat.rate_pct - base.rate_pct)} percentage points from 2022 · ${number(nat.Q5_FT_average)} employed full time in Q5, monthly average · ${supported} states/DC colored; ${51 - supported} hatched for low sample support. All 51 have observations.`;
         info.textContent = "Hover over a state, tap it, or use the keyboard to inspect its rate and sample support.";
         svg.replaceChildren();
         svg.setAttribute("aria-label", `${label.textContent}. January–September. Denominator is all state residents aged 22–25, not only employed people.`);
@@ -62,7 +68,7 @@
             : "not displayed because both endpoints do not meet support";
           const summary = ok
             ? `${state.name}. ${year} rate ${r.rate_pct.toFixed(2)}%; change since 2022 ${changeText}. Average Q5 full-time employment ${number(r.Q5_FT_average)}; population ${number(r.population_average)}. Sample ${r.nQ5_FT} Q5 full-time person-months, ${r.nP} population person-months.`
-            : `${state.name}. Estimate not displayed under the sample-support rule. ${year} sample ${r.nQ5_FT} Q5 full-time person-months and ${r.nP} population person-months. Both years must qualify for a change estimate.`;
+            : `${state.name}. Data are available, but the estimate is not colored under the sample-support rule. ${year} sample ${r.nQ5_FT} Q5 full-time person-months and ${r.nP} population person-months. Both years must qualify for a change estimate.`;
           const path = make("path", { d: state.path, fill: ok ? color(value) : "url(#state-map-missing)", stroke: "white", "stroke-width": 1.1, "fill-rule": "evenodd", tabindex: 0, role: "button", "aria-label": summary, "data-state": state.abbr });
           path.append(make("title", {}, summary));
           ["mouseenter", "focus", "click"].forEach((event) => path.addEventListener(event, () => { info.textContent = summary; }));
@@ -79,14 +85,14 @@
         });
         svg.append(make("text", { x: 45, y: 664, class: "state-map-inset" }, "Alaska and Hawaii shown as insets; scales differ."));
         const gradient = mode === "rate"
-          ? "linear-gradient(to right,#FAEEEE,#C64F5A)"
-          : "linear-gradient(to right,#C64F5A,#F4F2F0,#789994)";
+          ? `linear-gradient(to right,${rateStops.join(",")})`
+          : "linear-gradient(to right,#9B2946,#F4F2F0,#557974)";
         legend.replaceChildren();
         const ramp = document.createElement("span"); ramp.className = "state-map-ramp"; ramp.style.background = gradient;
         const text = document.createElement("span");
         text.textContent = mode === "rate" ? `0% to ${maxRate}% · darker red = higher employment rate` : `−${maxChange} to +${maxChange} percentage points · red = decline, green-gray = increase`;
         legend.append(ramp, text);
-        const missing = document.createElement("span"); missing.textContent = "▧ Insufficient sample support"; legend.append(missing);
+        const missing = document.createElement("span"); missing.textContent = "▧ Data available; low sample support"; legend.append(missing);
       }
       root.querySelectorAll("[data-year]").forEach((b) => b.addEventListener("click", () => { year = Number(b.dataset.year); render(); }));
       root.querySelectorAll("[data-mode]").forEach((b) => b.addEventListener("click", () => { mode = b.dataset.mode; render(); }));
