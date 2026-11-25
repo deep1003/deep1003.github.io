@@ -78,7 +78,7 @@
     "period_end": "2026-10",
     "occupation_available": false,
     "age_x_NUTS2_available": false,
-    "baseline": "2022 monthly mean=100",
+    "baseline": "November 2022 = 100",
     "seasonally_adjusted": true
   },
   "monthly_Europe_all_NUTS2_available": false,
@@ -90,5 +90,19 @@
     "European_core": "208 NUTS2 regions in27 EU countries",
     "Sweden": "supplementary case"
   },
-  "European_annual_restored": true
+  "European_annual_restored": true,
+  "audit_date": "2026-11-25",
+  "expert_audit": "EXPERT_AUDIT.md",
+  "regional_exposure_quality": "Conditional on disclosed and mapped occupations; actual population coverage and boundary vintage unresolved",
+  "monthly_baseline": "November 2022 = 100",
+  "annual_baseline": "2022 annual value = 100",
+  "quarterly_baseline": "2022 Q4 = 100",
+  "reproduction_scope": "Current data and rendering snapshot with portable validator, not full upstream acquisition reconstruction",
+  "regional_cohorts": {
+    "descriptive_all": 208,
+    "descriptive_min50": 135,
+    "DID_all": 203,
+    "DID_min50": 107
+  },
+  "ONS_exact_age_supplement_scope": "Acquired 2025 ITL1 cross-sectional supplement; not a longitudinal monthly NUTS2 occupation-age-sex panel. Do not infer monthly requested-age series."
 }
