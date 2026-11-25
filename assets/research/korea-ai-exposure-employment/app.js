@@ -52,7 +52,7 @@ function render(id,rows,keys,labelFn,focusGroup=false,yRange=null,sexComparison=
  sexComparison=sexComparison||(keys.length===2&&keys.every(k=>k==='Male'||k==='Female'));
  rows=novemberIndex(rows);
  const holder=byId(id+'-chart'); if(charts[id])charts[id].destroy();holder.replaceChildren();const canvas=document.createElement('canvas');canvas.setAttribute('aria-label',measureTitle+' 2022년 11월 100');canvas.setAttribute('role','img');holder.append(canvas);
- const times=[...new Set(rows.map(r=>r.time))].sort();const datasets=keys.map((k,i)=>({label:labelFn(k),data:times.map(t=>{const r=rows.find(r=>r.time===t&&r.series===k);return r&&r.index!==null?r.index:null;}),borderColor:sexComparison?(k==='Male'?'#C64F5A':'#577C96'):(k==='Q5'||focusGroup?focusColor:(String(k).startsWith('Q')?colors[i%colors.length]:ageColors[i%ageColors.length])),backgroundColor:sexComparison?(k==='Male'?'#C64F5A':'#577C96'):(k==='Q5'||focusGroup?focusColor:(String(k).startsWith('Q')?colors[i%colors.length]:ageColors[i%ageColors.length])),pointRadius:0,pointHoverRadius:0,pointHitRadius:8,borderWidth:3.4,borderDash:focusGroup?lineDashes[i%lineDashes.length]:[],order:sexComparison?0:(k==='Q5'||focusGroup?0:2),fill:sexComparison&&i===1?{target:0,above:"#71818b16",below:"#71818b16"}:false,spanGaps:false}));
+ const times=[...new Set(rows.map(r=>r.time))].sort();const datasets=keys.map((k,i)=>({label:labelFn(k),data:times.map(t=>{const r=rows.find(r=>r.time===t&&r.series===k);return r&&r.index!==null?r.index:null;}),borderColor:sexComparison?(k==='Male'?'#577C96':'#C64F5A'):(k==='Q5'||focusGroup?focusColor:(String(k).startsWith('Q')?colors[i%colors.length]:ageColors[i%ageColors.length])),backgroundColor:sexComparison?(k==='Male'?'#577C96':'#C64F5A'):(k==='Q5'||focusGroup?focusColor:(String(k).startsWith('Q')?colors[i%colors.length]:ageColors[i%ageColors.length])),pointRadius:0,pointHoverRadius:0,pointHitRadius:8,borderWidth:3.4,borderDash:focusGroup?lineDashes[i%lineDashes.length]:[],order:sexComparison?0:(k==='Q5'||focusGroup?0:2),fill:sexComparison&&i===1?{target:0,above:"#b8bdc326",below:"#b8bdc326"}:false,spanGaps:false}));
  datasets.push({label:'2022년 11월 100',data:times.map(()=>100),borderColor:'#99a7ae',borderDash:[4,4],pointRadius:0,pointHoverRadius:0,pointHitRadius:0,borderWidth:0.8,order:4});
  const stale=datasets.slice(0,-1).some(d=>d.data.some(v=>v!==null)&&d.data.at(-1)===null);
  charts[id]=new Chart(canvas,{type:'line',data:{labels:times,datasets},plugins:[whiteOutline,endLabels],options:{layout:{padding:{right:sexComparison?(stale?155:65):155,top:16}},animation:false,responsive:true,maintainAspectRatio:false,interaction:{mode:'nearest',intersect:false},plugins:{legend:{display:false},tooltip:{mode:'nearest',intersect:false,filter:ctx=>ctx.dataset.label!=='2022년 11월 100',backgroundColor:'rgba(255,255,255,0.96)',titleColor:'#667580',bodyColor:'#263b47',borderColor:'#dce3e7',borderWidth:1,cornerRadius:4,padding:7,displayColors:false,caretSize:3,caretPadding:9,titleFont:{size:10,weight:'normal'},bodyFont:{size:11},callbacks:{label:ctx=>ctx.dataset.label+' · '+Number(ctx.parsed.y).toFixed(1)}}},scales:{y:{...(yRange||{}),grid:{color:'#e9edf0'},title:{display:true,text:measureTitle+' · 2022년 11월 = 100'}},x:{afterBuildTicks(axis){if(times.length>12){const available=axis.chart.width-(sexComparison?65:155)-70;const count=Math.max(3,Math.floor(available/65));const stride=Math.ceil((times.length-1)/(count-1));axis.ticks=axis.ticks.filter(t=>t.value%stride===0||t.value===times.length-1);}},grid:{display:false},ticks:{autoSkip:false,maxTicksLimit:times.length===12?12:10,maxRotation:times.length===12?(sexComparison?65:30):0,minRotation:times.length===12?(sexComparison?65:30):0,font:{size:sexComparison?8:11}},title:{display:true,text:String(times[0]||'').length===7?'실제 조사연월':'연도'}}}}});
@@ -132,3 +132,30 @@ Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fet
 })().catch(error=>{
  const holder=byId('mq-coverage');if(holder)holder.textContent=error.message;
 });
+
+
+// A single fixed-Q5 occupation, compared across five age panels.
+(async()=>{
+ const response=await fetch('data/administrative.json');
+ if(!response.ok)throw Error('소프트웨어 개발자 월별 자료 로드 실패');
+ const source=(await response.json()).filter(r=>r.kind==='software'&&r.frequency==='monthly'&&['Male','Female'].includes(r.sex));
+ const ranges={
+  young:['20~24세 이하','25~29세 이하','30~34세 이하','35~39세 이하','40~44세 이하'],
+  mid:['40~44세 이하','45~49세 이하','50~54세 이하','55~59세 이하','60~64세 이하'],
+  older:['50~54세 이하','55~59세 이하','60~64세 이하','65~69세 이하','70세 이상']
+ };
+ options('sw6-range',[['young','20–44세'],['mid','40–64세'],['older','50세 이상']],'young');
+ function draw(){
+  const ages=ranges[val('sw6-range')];
+  const panels=ages.map(age=>novemberIndex(source.filter(r=>r.age_group===age).map(r=>({...r,series:r.sex}))));
+  const values=panels.flat().filter(r=>r.index!==null).map(r=>r.index);
+  const range={min:Math.floor((Math.min(100,...values)-3)/5)*5,max:Math.ceil((Math.max(100,...values)+3)/5)*5};
+  const times=[...new Set(panels.flat().map(r=>r.time))].sort();
+  byId('sw6-info').textContent='소프트웨어 개발자 · 고정 THAIE Q5 · '+times[0]+'–'+times.at(-1)+' · 실제 '+times.length+'개 관측월 · 월말 고용보험 피보험자';
+  panels.forEach((rows,i)=>{
+   const id='sw6-age'+(i+1);byId(id+'-title').textContent='Q5 · '+ages[i].replace('세 이하','세').replace('~','–');
+   render(id,rows,['Male','Female'],sex=>sexNames[sex],false,range,true);
+  });
+ }
+ draw();byId('sw6-range').addEventListener('change',draw);
+})().catch(error=>{const note=byId('sw6-info');if(note)note.textContent=error.message;});
