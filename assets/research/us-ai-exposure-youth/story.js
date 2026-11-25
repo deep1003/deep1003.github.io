@@ -268,6 +268,30 @@
         "Employment index · 2022 mean = 100",
       ),
     );
+    // Shade only matched, supported months; preserve all missing-month gaps.
+    if (rows.length === 2 && rows.every(r => r.sexLabel)) {
+      const left = points(rows[0]);
+      const right = new Map(points(rows[1]).map(p => [p.date, p]));
+      let segment = [];
+      const drawBand = () => {
+        if (segment.length > 1) {
+          const upper = segment.map(([a]) => `${x(a.date)},${y(a.value)}`);
+          const lower = [...segment].reverse().map(([, b]) => `${x(b.date)},${y(b.value)}`);
+          svg.append(el("path", {d: "M"+upper.join(" L")+" L"+lower.join(" L")+" Z", fill: "#DADADA", "fill-opacity": 0.48, stroke: "none", "data-role": "sex-gap-band"}));
+        }
+        segment = [];
+      };
+      for (const a of left) {
+        const b = right.get(a.date);
+        if (a.value === null || !b || b.value === null) { drawBand(); continue; }
+        if (segment.length) {
+          const prior = new Date(segment.at(-1)[0].date), now = new Date(a.date);
+          if ((now.getUTCFullYear()-prior.getUTCFullYear())*12+now.getUTCMonth()-prior.getUTCMonth() !== 1) drawBand();
+        }
+        segment.push([a,b]);
+      }
+      drawBand();
+    }
     const sorted = [...rows].sort((a, b) => Number(a.isQ5) - Number(b.isQ5)),
       labels = [];
     for (const r of sorted) {
@@ -474,7 +498,7 @@
           const r = q === 6
             ? data.cps_allmapped.find(r => r.age === state.age && r.sex === sex)
             : data.cps_exposure.find(r => r.age === state.age && r.sex === sex && r.quintile === q);
-          return r ? {...r, label: sex, sexLabel: sex, color: sex === "Women" ? "#577C96" : "#C64F5A", isQ5: false} : null;
+          return r ? {...r, label: sex, sexLabel: sex, color: sex === "Women" ? "#969696" : "#C64F5A", isQ5: false} : null;
         }).filter(Boolean);
         return {q, rows};
       });
@@ -543,7 +567,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=dynamic-national-age-20261125")
+  fetch("data/monthly.json?v=sex-rose-gray-fill-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
