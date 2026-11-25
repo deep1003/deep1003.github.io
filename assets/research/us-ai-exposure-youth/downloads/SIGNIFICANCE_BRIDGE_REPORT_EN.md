@@ -6,7 +6,7 @@
 
 The approximately −9% coefficient does not disappear simply because the data become monthly or because more seasonal and industry controls are added. Statistical confidence changes substantially with the working covariance assumption and testing family. The coefficient itself becomes much smaller when the pre-period begins in2020 or an exposure-specific linear trend is added.
 
-All empirical inputs are our official CPS reconstruction, our frozen THAIE classification, and the existing official occupation-code bridge. No Stanford or ADP employment data, indices, benchmarks, or calibration values are used. Ages remain exactly22–25; the outcome remains full-time employment; Q5 membership remains unchanged.
+All empirical inputs are our official CPS reconstruction, our frozen THAIE classification, and the existing official occupation-code bridge. Ages remain exactly22–25; the outcome remains full-time employment; Q5 membership remains unchanged.
 
 ## 1. Reproduce the earlier result
 
