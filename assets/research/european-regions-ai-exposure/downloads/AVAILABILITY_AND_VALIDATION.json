@@ -83,13 +83,12 @@
   },
   "monthly_Europe_all_NUTS2_available": false,
   "current_display_index": {
-    "baseline": "observed November2022=100",
-    "display_start": "2022-01",
-    "monthly_supported": [
-      "se_monthly",
-      "UK_PAYE_RTI_NUTS2"
-    ],
-    "annual_averages": "not plotted under the November baseline",
-    "rebase": "native counts divided by same series November2022 count, separately for each sex"
-  }
+    "start": "2022",
+    "annual": "source-consistent 2022 annual value=100",
+    "monthly": "observed November2022=100",
+    "quarterly": "Q4 2022=100",
+    "European_core": "208 NUTS2 regions in27 EU countries",
+    "Sweden": "supplementary case"
+  },
+  "European_annual_restored": true
 }

@@ -60,3 +60,10 @@ The initial panel now displays the observed annual European overview, ages15+, o
 ## Current display specification,25 November2026
 
 This supersedes earlier display-baseline descriptions above. Every displayed employment index uses the single observed November2022 count as100 and begins in January2022. Monthly source counts are rebased on load; old annual indices are not reused. Sex-specific and all-displayed-sample totals use their own November counts. Without that observed month, the chart is unavailable rather than assigned a fictitious month. Existing Eurostat annual-average data therefore do not yield a November-based regional index. Historical downloadable annual tables retain their documented original baseline and are not the currently plotted index.
+
+
+## Restored Europe-first evidence hierarchy
+
+Annual European regional and occupational curves are restored using their original source-consistent2022 annual baseline. All displayed periods still start in2022; full source history remains retained for DID. Monthly curves retain November2022=100. Quarterly SSB11658 national software employment uses Q42022=100, labelled quarterly and never interpolated into months. The quarterly panel is Norway only, not European regional coverage. The separate monthly UK panel contains all-occupation payroll employment. Sweden is supplementary. This supersedes the prior temporary exclusion of annual charts under a universal November denominator.
+
+Quarterly source https://www.ssb.no/en/statbank/table/11658/
