@@ -39,3 +39,8 @@ Previous statistical evidence is separately labelled and available in the six-pa
 The reproduction ZIP includes seven official raw source snapshots, our transferredISCO3score table, official crosswalk-derived mapping, the public regional aggregate input, scripts and source hashes. No personal records or Stanford/ADP data are included. Install numpy,pandas,openpyxl,matplotlib, then run `python scripts/build.py` from the extracted folder to rebuild source-grain indices offline into `site/data/` and `derived/`. Source endpoints are recorded in metadata. Collection scripts may use the original project layout; offline rebuilding uses bundled snapshots and inputs.
 
 The HTML uses native SVG with no third-party chart library. Current chart values and SVG can be exported directly. Validation checks sources, raw-source reconciliation, baseline arithmetic, keys, cohort support, score lineage and index dimensions without displaying charts.
+
+
+## 25 November 2026 all-age update
+
+The NUTS-2 explorer now provides all 12 native age bands on the same 208-region balanced 2020–2025 cohort. Employment is summed within the original fixed 2022 regional THAIE quintiles and divided by the corresponding 2022 sum. No quintile ranks are re-estimated after cohort restriction. Q5 is dark red and thicker; Q1–Q4 remain visible in muted greys. Overlapping age totals are not additive. No manuscript changes.
