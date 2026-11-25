@@ -1,0 +1,149 @@
+occupation,candidates,isco3,mapping_status
+011,['011'],011,unique
+021,"['011', '021']",,ambiguous_unmapped
+031,['031'],031,unique
+111,['111'],111,unique
+112,"['112', '142']",,ambiguous_unmapped
+121,['121'],121,unique
+122,['121'],121,unique
+123,"['121', '334']",,ambiguous_unmapped
+124,"['122', '243']",,ambiguous_unmapped
+125,"['122', '243']",,ambiguous_unmapped
+129,"['121', '122', '515']",,ambiguous_unmapped
+131,"['133', '251']",,ambiguous_unmapped
+132,"['132', '133', '143', '332', '334', '432']",,ambiguous_unmapped
+133,['122'],122,unique
+134,['121'],121,unique
+135,['121'],121,unique
+136,"['132', '312']",,ambiguous_unmapped
+137,['132'],132,unique
+138,"['131', '611', '612', '613']",,ambiguous_unmapped
+141,['134'],134,unique
+142,['134'],134,unique
+149,"['134', '516']",,ambiguous_unmapped
+151,['134'],134,unique
+152,['134'],134,unique
+153,['134'],134,unique
+154,['263'],263,unique
+159,"['121', '134']",,ambiguous_unmapped
+161,"['121', '134']",,ambiguous_unmapped
+171,['141'],141,unique
+172,['141'],141,unique
+173,"['142', '522']",,ambiguous_unmapped
+174,"['121', '143']",,ambiguous_unmapped
+179,"['112', '143']",,ambiguous_unmapped
+211,['211'],211,unique
+212,['212'],212,unique
+213,"['213', '226', '314', '622']",,ambiguous_unmapped
+214,"['214', '215']",,ambiguous_unmapped
+216,['216'],216,unique
+217,"['216', '265', '343']",,ambiguous_unmapped
+218,"['213', '214', '226', '325']",,ambiguous_unmapped
+221,['221'],221,unique
+222,['222'],222,unique
+223,"['222', '226', '321']",,ambiguous_unmapped
+224,['263'],263,unique
+225,['225'],225,unique
+226,['226'],226,unique
+227,['226'],226,unique
+228,['226'],226,unique
+231,['231'],231,unique
+232,['232'],232,unique
+233,['233'],233,unique
+234,['234'],234,unique
+235,"['233', '235', '242']",,ambiguous_unmapped
+241,"['241', '242', '263']",,ambiguous_unmapped
+242,['242'],242,unique
+243,['243'],243,unique
+251,"['251', '252']",,ambiguous_unmapped
+261,['261'],261,unique
+262,"['262', '263']",,ambiguous_unmapped
+264,['264'],264,unique
+265,"['265', '343', '731', '732', '752']",,ambiguous_unmapped
+266,"['242', '263', '341']",,ambiguous_unmapped
+267,['263'],263,unique
+311,"['311', '332', '333', '352']",,ambiguous_unmapped
+312,['312'],312,unique
+315,['315'],315,unique
+321,"['311', '314', '321']",,ambiguous_unmapped
+323,"['323', '325']",,ambiguous_unmapped
+324,['324'],324,unique
+325,['325'],325,unique
+331,"['241', '331', '333', '421']",,ambiguous_unmapped
+332,"['243', '332', '333']",,ambiguous_unmapped
+333,"['332', '333']",,ambiguous_unmapped
+334,"['334', '341']",,ambiguous_unmapped
+335,"['226', '311', '325', '334', '335']",,ambiguous_unmapped
+336,"['335', '541']",,ambiguous_unmapped
+341,['341'],341,unique
+342,"['341', '342']",,ambiguous_unmapped
+343,"['265', '343', '352']",,ambiguous_unmapped
+344,"['235', '242', '516']",,ambiguous_unmapped
+345,['343'],343,unique
+351,"['252', '351']",,ambiguous_unmapped
+352,"['343', '352', '711']",,ambiguous_unmapped
+411,"['331', '334', '411', '412', '413', '431', '432', '441']",,ambiguous_unmapped
+421,['421'],421,unique
+422,['422'],422,unique
+432,"['334', '432']",,ambiguous_unmapped
+441,['441'],441,unique
+442,['441'],441,unique
+443,"['325', '331', '334', '341', '411', '532', '962']",,ambiguous_unmapped
+511,['511'],511,unique
+512,['512'],512,unique
+513,['513'],513,unique
+514,"['325', '514']",,ambiguous_unmapped
+515,"['334', '515']",,ambiguous_unmapped
+516,['516'],516,unique
+522,"['142', '325', '522', '524', '532', '754']",,ambiguous_unmapped
+523,"['421', '521', '523']",,ambiguous_unmapped
+524,['524'],524,unique
+531,['531'],531,unique
+532,"['325', '532']",,ambiguous_unmapped
+533,['532'],532,unique
+534,"['325', '532']",,ambiguous_unmapped
+535,['325'],325,unique
+541,"['315', '335', '341', '422', '541']",,ambiguous_unmapped
+611,"['314', '611']",,ambiguous_unmapped
+612,"['516', '612']",,ambiguous_unmapped
+613,['613'],613,unique
+621,"['314', '621']",,ambiguous_unmapped
+622,['622'],622,unique
+711,"['711', '712', '754', '931']",,ambiguous_unmapped
+712,['712'],712,unique
+713,"['713', '754', '912']",,ambiguous_unmapped
+721,['721'],721,unique
+722,['722'],722,unique
+723,['723'],723,unique
+731,"['722', '731']",,ambiguous_unmapped
+732,['732'],732,unique
+741,['741'],741,unique
+742,"['312', '742']",,ambiguous_unmapped
+752,"['711', '752']",,ambiguous_unmapped
+753,['753'],753,unique
+761,['751'],751,unique
+811,"['711', '754', '811']",,ambiguous_unmapped
+812,['812'],812,unique
+813,['813'],813,unique
+814,['814'],814,unique
+815,"['815', '912']",,ambiguous_unmapped
+816,['816'],816,unique
+817,"['752', '817']",,ambiguous_unmapped
+818,"['754', '818']",,ambiguous_unmapped
+819,"['313', '818']",,ambiguous_unmapped
+821,"['818', '821']",,ambiguous_unmapped
+831,['831'],831,unique
+832,"['832', '933']",,ambiguous_unmapped
+833,['833'],833,unique
+834,['834'],834,unique
+835,['835'],835,unique
+911,"['531', '911']",,ambiguous_unmapped
+912,"['912', '951']",,ambiguous_unmapped
+921,['921'],921,unique
+931,['931'],931,unique
+932,['932'],932,unique
+933,['933'],933,unique
+941,"['524', '941']",,ambiguous_unmapped
+952,"['521', '952']",,ambiguous_unmapped
+961,['961'],961,unique
+962,"['818', '951', '962']",,ambiguous_unmapped
