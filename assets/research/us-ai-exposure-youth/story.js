@@ -3,7 +3,7 @@
   "use strict";
   const $ = (id) => document.getElementById(id),
     NS = "http://www.w3.org/2000/svg";
-  const colors = ["#9FB7AD", "#93A8BA", "#B09FBA", "#BEAC8E", "#C64F5A"];
+  const colors = ["#B8B8B8", "#DDDDDD", "#F3D4D7", "#E5A2AA", "#C64F5A"];
   const ageColors = [
     "#769A98",
     "#8DA4B4",
@@ -556,7 +556,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=q5-story-halo-20261125")
+  fetch("data/monthly.json?v=red-gradient-white-halo-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
