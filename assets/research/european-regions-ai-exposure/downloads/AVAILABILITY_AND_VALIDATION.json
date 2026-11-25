@@ -30,14 +30,21 @@
     "frequency": "annual"
   },
   "nuts2": {
-    "plotted_rows": 360,
-    "geographies": 1,
+    "plotted_rows": 62208,
+    "geographies": 236,
     "frequency": "annual",
     "age_groups": 12,
     "common_regions": 208,
     "countries": 27,
     "cohort_years": "2020\u20132025",
-    "same_regions_for_all_ages": true
+    "same_regions_for_all_ages": true,
+    "sex_categories": [
+      "T",
+      "F",
+      "M"
+    ],
+    "default_age": "15+",
+    "regional_and_country_subsets": true
   },
   "monthly_quintile_counts_independently_reconciled_to_SCB": true,
   "UK_published_totals_and_classification_break_preserved": true,
