@@ -1,0 +1,19 @@
+{
+  "months_cps_available": 81,
+  "calendar_months_requested": 82,
+  "missing_months": [
+    "2025-10"
+  ],
+  "base2022_months": 12,
+  "monthly_mean_index2022_check": true,
+  "FT_PT_additivity_check": true,
+  "direct_age_sex_aggregation_check": true,
+  "stanford_months": 60,
+  "stanford_first": "2021-11-01",
+  "stanford_last": "2026-10-01",
+  "software_Census_code": 1021,
+  "software_E_quintile": 5,
+  "software_THAIE_quintile": 4,
+  "no_interpolation": true,
+  "not_seasonally_adjusted": true
+}
