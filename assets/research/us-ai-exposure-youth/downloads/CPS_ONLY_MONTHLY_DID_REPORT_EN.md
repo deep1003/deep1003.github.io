@@ -10,7 +10,7 @@ We compare employment in the highest occupational THAIE quintile with the lower 
 
 The research question is whether weaker full-time employment among young workers in highly AI-exposed fields reflects fewer hiring opportunities, poorer offered job quality, or both, and who experiences these changes. The present analysis tests age-specific employment stocks. Hiring, offered-job characteristics, and individual transitions require separate data and are not inferred from these stocks.
 
-All empirical inputs are official CPS microdata and our THAIE occupational assignments. No Stanford or ADP observations, employment indices, normalizations, calibration targets, or benchmark values enter any regression, event study, descriptive index, or new figure in this study. Related research may be cited as literature, not used as an input.
+All empirical inputs are official CPS microdata and our THAIE occupational assignments.
 
 ## Methods
 
@@ -131,4 +131,4 @@ Policy implications concern monitoring and evaluation. Track entry hiring, reten
 - BLS occupational comparability guidance. https://www.bls.gov/cps/cpsoccind.htm
 - Source URL and SHA256 inventory, frozen THAIE assignments, model grid, support diagnostics, and independent validation accompany this report.
 
-The analysis is implemented in work/us_cps_only_monthly_did_20261125. No external payroll input is read by the empirical scripts. Data-and-I/O smoke checks emit no images. Scientific figures are saved as separate PNG/SVG artifacts and displayed only in the requested research deliverables. Existing manuscripts remain unchanged.
+The analysis is implemented in work/us_cps_only_monthly_did_20261125. Data-and-I/O smoke checks emit no images. Scientific figures are saved as separate PNG/SVG artifacts and displayed only in the requested research deliverables. Existing manuscripts remain unchanged.
