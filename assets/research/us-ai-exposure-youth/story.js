@@ -34,12 +34,17 @@
   };
   function points(row) {
     const i = axes.indexOf(state.outcome) + 1;
-    return row.points.map((p) => ({
-      date: p[0],
-      value: p[i] !== null && p[i + 3] >= 30 ? p[i] : null,
-      n: p[i + 3],
-    }));
+    return row.points.map((p, j, source) => {
+      const observed = p[i] !== null && p[i+3] >= 30;
+      if (!observed && p[0] === "2025-10-01") {
+        const before = source.find(v => v[0] === "2025-09-01"), after = source.find(v => v[0] === "2025-11-01");
+        if (before && after && before[i] !== null && after[i] !== null && before[i+3] >= 30 && after[i+3] >= 30)
+          return {date:p[0], value:(before[i]+after[i])/2, n:null, estimated:true};
+      }
+      return {date:p[0], value:observed ? p[i] : null, n:p[i+3], estimated:false};
+    });
   }
+
   function rawRows(age, sex = "All") {
     const family =
       state.comparison === "quintiles" ? data.cps_exposure : data.cps_contrast;
@@ -276,7 +281,7 @@
       };
       for (const a of left) {
         const b = right.get(a.date);
-        if (a.value === null || !b || b.value === null) { drawBand(); continue; }
+        if (a.value === null || a.estimated || !b || b.value === null || b.estimated) { drawBand(); continue; }
         if (segment.length) {
           const prior = new Date(segment.at(-1)[0].date), now = new Date(a.date);
           if ((now.getUTCFullYear()-prior.getUTCFullYear())*12+now.getUTCMonth()-prior.getUTCMonth() !== 1) drawBand();
@@ -292,7 +297,7 @@
       let d = "",
         active = false;
       for (const p of ps) {
-        if (p.value === null) {
+        if (p.value === null || p.estimated) {
           active = false;
           continue;
         }
@@ -322,6 +327,13 @@
           ...(r.context ? { "stroke-dasharray": "4 5" } : {}),
         }),
       );
+      const estimate = ps.find(p => p.estimated);
+      if (estimate) {
+        const before = ps.find(p => p.date === "2025-09-01"), after = ps.find(p => p.date === "2025-11-01");
+        const bridge = `M${x(before.date)},${y(before.value)} L${x(estimate.date)},${y(estimate.value)} L${x(after.date)},${y(after.value)}`;
+        svg.append(el("path", {d:bridge, fill:"none", stroke:"white", "stroke-width":lw+1.9}));
+        svg.append(el("path", {d:bridge, fill:"none", stroke:r.color, "stroke-width":lw, "stroke-dasharray":"6 5", "data-role":"interpolated-October-2025"}));
+      }
       const valid = ps.filter((p) => p.value !== null);
       if (valid.length) {
         const last = valid.at(-1);
@@ -343,7 +355,7 @@
           el(
             "title",
             {},
-            `${r.label} · ${p.date.slice(0, 7)} · ${p.value.toFixed(2)} · unweighted n=${Math.round(p.n)}`,
+            `${r.label} · ${p.date.slice(0, 7)} · ${p.value.toFixed(2)} · ${p.estimated ? "interpolated estimate; no observed sample" : "unweighted n="+Math.round(p.n)}`,
           ),
         );
         svg.append(c);
@@ -516,16 +528,16 @@
       .querySelectorAll(".story-card[open][data-story]")
       .forEach((card) => render(card.dataset.story));
     $("story-status").textContent =
-      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · January2020–October2026. The October2025 gap is not interpolated.`;
+      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · January2020–October2026. October 2025 is interpolated between September and November and shown as dashed lines; regressions use observed months.`;
   }
   function csv(id) {
     const plottedChart = plotted.get(id);
     if (!plottedChart) return;
-    const lines = ["series,date,index,unweighted_n"];
+    const lines = ["series,date,index,unweighted_n,status"];
     for (const r of plottedChart.rows)
       for (const p of points(r))
         lines.push(
-          [r.label, p.date, p.value ?? "", p.n ?? ""]
+          [r.label, p.date, p.value ?? "", p.n ?? "", p.estimated ? "interpolated" : "observed"]
             .map((v) => '"' + String(v).replaceAll('"', '""') + '"')
             .join(","),
         );
@@ -549,7 +561,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=monthly-lines-only-20261125")
+  fetch("data/monthly.json?v=october-interpolated-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
