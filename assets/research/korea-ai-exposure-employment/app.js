@@ -62,3 +62,24 @@ Promise.all(['meta','res','monthly','administrative'].map(n=>fetch('data/'+n+'.j
  for(const [id,fn] of Object.entries(renderers)){fn();document.querySelectorAll('select[id^="'+id+'-"]').forEach(s=>s.addEventListener('change',fn));}
  document.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)for(const c of Object.values(charts))c.resize();}));
 }).catch(err=>{const p=document.createElement('p');p.className='note';p.textContent='인터랙티브 자료를 불러오지 못했습니다. 정적 그림과 CSV를 이용해 주세요. '+err.message;byId('results').prepend(p);console.error(err);});
+
+// Monthly administrative stocks. No occupation-to-THAIE assignment is inferred here.
+(async()=>{
+ const response=await fetch('data/monthly-occupations/manifest.json');if(!response.ok)throw Error('월별 직종 목록을 불러오지 못했습니다.');const manifest=await response.json();
+ const software=manifest.find(o=>o.label==='소프트웨어 개발자');const cache=new Map();
+ const allOptions=manifest.map(o=>[o.id,o.label==='총계'?'전체 피보험자':o.label]);const crossOptions=manifest.filter(o=>o.cross_end).map(o=>[o.id,o.label]);
+ const designer=manifest.find(o=>o.label==='디자이너'),grand=manifest.find(o=>o.label==='총계');options('m-total-occ',allOptions,grand.id);options('m-age-occ',crossOptions,designer.id);options('m-sex-occ',crossOptions,designer.id);
+ const young=['20~24세 이하','25~29세 이하','30~34세 이하','35~39세 이하','40~44세 이하','45~49세 이하'];const older=['50~54세 이하','55~59세 이하','60~64세 이하','65~69세 이하','70세 이상'];
+ options('m-sex-age',[...young,...older].map(a=>[a,a.replace('세 이하','세')]),young[0]);
+ async function load(id){if(!cache.has(id))cache.set(id,fetch('data/monthly-occupations/'+id+'.json').then(r=>{if(!r.ok)throw Error('월별 직종 자료 로드 실패');return r.json();}).then(a=>a.map(r=>({time:r[0],age:r[1],sex:r[2],index:r[3],employment:r[4]}))));return cache.get(id);}
+ function fillMonths(rows,keys,start,end){if(!start||!end)return rows;const periods=[];let y=Number(start.slice(0,4)),m=Number(start.slice(5));while(y+'-'+String(m).padStart(2,'0')<=end){periods.push(y+'-'+String(m).padStart(2,'0'));if(++m===13){m=1;y++;}}const lookup=new Map(rows.map(r=>[r.time+'|'+r.series,r]));return periods.flatMap(time=>keys.map(series=>lookup.get(time+'|'+series)||{time,series,index:null,employment:null}));}
+ const runs={};async function panel(id){const token=(runs[id]||0)+1;runs[id]=token;const selected=val(id+'-occ'),meta=manifest.find(o=>o.id===selected),data=await load(selected);if(runs[id]!==token)return;let rows,keys,start,end;
+ if(id==='m-total'){keys=['전체 연령'];rows=data.filter(r=>r.age==='All'&&r.sex==='All').map(r=>({...r,series:keys[0]}));start=meta.all_start;end=meta.all_end;}
+ else if(id==='m-age'){keys=val(id+'-range')==='young'?young:older;rows=data.filter(r=>keys.includes(r.age)&&r.sex===val(id+'-sex')).map(r=>({...r,series:r.age}));start=meta.cross_start;end=meta.cross_end;}
+ else{keys=['Female','Male'];rows=data.filter(r=>r.age===val('m-sex-age')&&keys.includes(r.sex)).map(r=>({...r,series:r.sex}));start=meta.cross_start;end=meta.cross_end;}
+ byId(id+'-info').textContent='고용행정통계 · '+meta.label+' · '+start+'–'+end+' · 월말 피보험자 · 2022년 12개월 평균 = 100 · 계절조정 전';
+ render(id,fillMonths(rows,keys,start,end),keys,k=>sexNames[k]||k.replace('세 이하','세'));
+ }
+ for(const id of ['m-total','m-age','m-sex']){await panel(id);document.querySelectorAll('select[id^="'+id+'-"]').forEach(s=>s.addEventListener('change',()=>panel(id).catch(showError)));}
+ function showError(e){byId('monthly-paths').insertAdjacentText('afterbegin','월별 자료를 불러오지 못했습니다. '+e.message);}
+})().catch(e=>{byId('monthly-paths').insertAdjacentText('afterbegin','월별 자료를 불러오지 못했습니다. '+e.message);});
