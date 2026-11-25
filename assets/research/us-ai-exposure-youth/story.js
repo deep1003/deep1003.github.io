@@ -331,20 +331,8 @@
           target: y(last.value),
           actual: y(last.value),
         });
-        if (r.isQ5)
-          svg.append(
-            el("circle", {
-              cx: x(last.date),
-              cy: y(last.value),
-              r: 4.3,
-              fill: r.color,
-              stroke: "white",
-              "stroke-width": 1.2,
-            }),
-          );
       }
       ps.filter((p) => p.value !== null).forEach((p) => {
-        svg.append(el("circle", {cx:x(p.date), cy:y(p.value), r:1.7, fill:r.color, stroke:"white", "stroke-width":0.45, "data-role":"monthly-observation"}));
         const c = el("circle", {
           cx: x(p.date),
           cy: y(p.value),
@@ -561,7 +549,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=monthly-observation-axis-20261125")
+  fetch("data/monthly.json?v=monthly-lines-only-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
