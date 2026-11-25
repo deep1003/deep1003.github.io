@@ -1,0 +1,4 @@
+family,null_hypothesis,tests,smallest_raw_p,bonferroni_min_p_omnibus,reject_at_05,method
+Primary post-period contrasts,All 12 age-by-outcome post-period coefficients equal zero,12,0.023263288275037104,0.2791594593004453,False,Bonferroni minimum-p global-null test; valid under arbitrary dependence if component p-values are valid
+Pretrend tests,All pre-event lead coefficients equal zero in every age-by-outcome model,12,0.0012640366393908459,0.01516843967269015,True,Bonferroni minimum-p global-null test; valid under arbitrary dependence if component p-values are valid
+January 2019 placebo contrasts,All 12 placebo coefficients equal zero,12,0.05112485712878949,0.6134982855454738,False,Bonferroni minimum-p global-null test; valid under arbitrary dependence if component p-values are valid
