@@ -514,7 +514,6 @@
     }
   }
   function update() {
-    state.age = $("age").value;
     state.outcome = $("outcome").value;
     state.occupation = $("occupation").value;
     state.comparison = $("comparison").value;
@@ -560,7 +559,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=equal-lines-end-labels-20261125")
+  fetch("data/monthly.json?v=age-buttons-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
@@ -568,7 +567,6 @@
     .then((d) => {
       data = d;
       for (const id of [
-        "age",
         "outcome",
         "occupation",
         "comparison",
@@ -577,7 +575,7 @@
         $(id).addEventListener("change", update);
       document.querySelectorAll("[data-age]").forEach((button) =>
         button.addEventListener("click", () => {
-          $("age").value = button.dataset.age;
+          state.age = button.dataset.age;
           update();
         }),
       );
