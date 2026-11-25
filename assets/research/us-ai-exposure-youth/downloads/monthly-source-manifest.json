@@ -1,5 +1,257 @@
 [
   {
+    "year": 2017,
+    "month": 1,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/jan17pub.zip",
+    "reused": true,
+    "sha256": "0255d1940acd739096aaca6e65caf623d06ef8d66aef9785df382fac7de99668"
+  },
+  {
+    "year": 2017,
+    "month": 2,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/feb17pub.zip",
+    "reused": true,
+    "sha256": "616aaeadece977dd390b7c80aa618227b9fa52ba355637499f7697a2d24535a2"
+  },
+  {
+    "year": 2017,
+    "month": 3,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/mar17pub.zip",
+    "reused": true,
+    "sha256": "936ab1595e3ffdc6478d0b98b39d3c2dfce6198ea0c3827c69d674168120e586"
+  },
+  {
+    "year": 2017,
+    "month": 4,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/apr17pub.zip",
+    "reused": true,
+    "sha256": "9633760f2d8fb1e7b8f6d12ad6b3930dead459c617ce9a29e82fe6fd262246e4"
+  },
+  {
+    "year": 2017,
+    "month": 5,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/may17pub.zip",
+    "reused": true,
+    "sha256": "24c323d123498e213d1c21ead51ad617decf49e2ee719294904d0da079ced4bc"
+  },
+  {
+    "year": 2017,
+    "month": 6,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/jun17pub.zip",
+    "reused": true,
+    "sha256": "7e0a60469d65ff1661332d59257e45df7b95b2f47787c4642aa4e96de1937e60"
+  },
+  {
+    "year": 2017,
+    "month": 7,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/jul17pub.zip",
+    "reused": true,
+    "sha256": "7a9f6e29c1f66b10c23aac8e1cdbc0d0203e71271d3a93351a6a717ffc19b333"
+  },
+  {
+    "year": 2017,
+    "month": 8,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/aug17pub.zip",
+    "reused": true,
+    "sha256": "2cefe59f2728b17bfc14212d94fe812bfbf09c9ecfc148ffac5d211e30ddfcec"
+  },
+  {
+    "year": 2017,
+    "month": 9,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/sep17pub.zip",
+    "reused": true,
+    "sha256": "651c2a35bd8f405296437dcee6a84291cc736d0c36bd08f00d12a44692bd5902"
+  },
+  {
+    "year": 2017,
+    "month": 10,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/oct17pub.zip",
+    "reused": true,
+    "sha256": "9c5158e239e3250cc2ba2fca65616f1be7b17190c51556e7be2e0e3b3dc90de4"
+  },
+  {
+    "year": 2017,
+    "month": 11,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/nov17pub.zip",
+    "reused": true,
+    "sha256": "f2f7e0b83cf97e6a2ea1a490c60c6c78b0371ebeac0787452b068bfa34d39f31"
+  },
+  {
+    "year": 2017,
+    "month": 12,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2017/basic/dec17pub.zip",
+    "reused": true,
+    "sha256": "c557110c4bf9f82c8f2967c5c3694bd338af5bc5244810f83e7aabfe8436a9de"
+  },
+  {
+    "year": 2018,
+    "month": 1,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/jan18pub.zip",
+    "reused": true,
+    "sha256": "145a37496add04dbb97287a04a0ee7dc37d5ff39f9f10ec0bc10b3be0b76c48c"
+  },
+  {
+    "year": 2018,
+    "month": 2,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/feb18pub.zip",
+    "reused": true,
+    "sha256": "3cfbceb699125026ee0976f19e0d31cfba0c321bd8b822ce9e1fd6557fc76b2e"
+  },
+  {
+    "year": 2018,
+    "month": 3,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/mar18pub.zip",
+    "reused": true,
+    "sha256": "44f0af9fbe4f5cea1636f350d45df2945e6663cb75a1fd76562387e15a2cfa3b"
+  },
+  {
+    "year": 2018,
+    "month": 4,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/apr18pub.zip",
+    "reused": true,
+    "sha256": "bd4e415606f1e277c2e0e9b05f82922df42f13dfcb08c0b34b132026dd72a9ab"
+  },
+  {
+    "year": 2018,
+    "month": 5,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/may18pub.zip",
+    "reused": true,
+    "sha256": "c624c056f69ded03b66dbaf981954481e993a5a01795718b3378ede135373258"
+  },
+  {
+    "year": 2018,
+    "month": 6,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/jun18pub.zip",
+    "reused": true,
+    "sha256": "3b5a98f909fd2c0fd8bff2b6a5154218ad6c084a619f13c559342e8d608973dc"
+  },
+  {
+    "year": 2018,
+    "month": 7,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/jul18pub.zip",
+    "reused": true,
+    "sha256": "fd8a1c384e5345e4146d7b335cd1fb3f4ebd9ce87d85a050fe4ebdaedf131d1e"
+  },
+  {
+    "year": 2018,
+    "month": 8,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/aug18pub.zip",
+    "reused": true,
+    "sha256": "e4defe09e6de0a80c65461311e0e69abf546e2a5546688b4c8fc63f9ca388098"
+  },
+  {
+    "year": 2018,
+    "month": 9,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/sep18pub.zip",
+    "reused": true,
+    "sha256": "69d70a230551c24a11435e09dad50d98e0c001b09c7ec3b9c0c8d51027a6783e"
+  },
+  {
+    "year": 2018,
+    "month": 10,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/oct18pub.zip",
+    "reused": true,
+    "sha256": "673e2a122f57900fe1ef710e57205e402d3636243548aeabe5e092e29d2e8b43"
+  },
+  {
+    "year": 2018,
+    "month": 11,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/nov18pub.zip",
+    "reused": true,
+    "sha256": "a98f7c67b3dde5df2c79785694ba94408977bcfcbca5e04dca2fd82850c5e627"
+  },
+  {
+    "year": 2018,
+    "month": 12,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2018/basic/dec18pub.zip",
+    "reused": true,
+    "sha256": "dbc3669aaa70775828351467a68f920d94fb16d887af7c77344320fd2f90f810"
+  },
+  {
+    "year": 2019,
+    "month": 1,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/jan19pub.zip",
+    "reused": true,
+    "sha256": "e33eeec4f14d168210c5eca66ace2ed6bc98927a7908cd8aab643aac99924020"
+  },
+  {
+    "year": 2019,
+    "month": 2,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/feb19pub.zip",
+    "reused": true,
+    "sha256": "40b1021b5425157152b7272cf998dac2b26dd46490e101fa3c5fd59e72c687da"
+  },
+  {
+    "year": 2019,
+    "month": 3,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/mar19pub.zip",
+    "reused": true,
+    "sha256": "17194f077cb274d1ee802e7b10a01c2b74dba90aad064a66a5f76b302091e85a"
+  },
+  {
+    "year": 2019,
+    "month": 4,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/apr19pub.zip",
+    "reused": true,
+    "sha256": "e16cb7ef71185fc62bd7edccb71aa656e508134ce088422c1c5e5fd56db98d7a"
+  },
+  {
+    "year": 2019,
+    "month": 5,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/may19pub.zip",
+    "reused": true,
+    "sha256": "c4cc3a25ac65e90b4454a085e8670d363ec30e420e0f7bb6e79e71ad1ae748fb"
+  },
+  {
+    "year": 2019,
+    "month": 6,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/jun19pub.zip",
+    "reused": true,
+    "sha256": "acf4147ef601140a003e2471f50d08e6a19700b2c88b76970e95eeb2d824b4de"
+  },
+  {
+    "year": 2019,
+    "month": 7,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/jul19pub.zip",
+    "reused": true,
+    "sha256": "87ab5f5f958bc9350ab4ca0862fff334704c6dfa5cde41d0d2326cde1a18c8e8"
+  },
+  {
+    "year": 2019,
+    "month": 8,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/aug19pub.zip",
+    "reused": true,
+    "sha256": "7dcee80aa4a499e77450bdeec68fe74bc167ceb8ce5af2db8534369b3d645230"
+  },
+  {
+    "year": 2019,
+    "month": 9,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/sep19pub.zip",
+    "reused": true,
+    "sha256": "50779be97a7a4510015d542292064a14419d8709855be18d8005987f4ec6b408"
+  },
+  {
+    "year": 2019,
+    "month": 10,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/oct19pub.zip",
+    "reused": true,
+    "sha256": "22780b1f61e4b228ce2f1d4acc783398b48ffe88ab11ff441a0d40b06c998b6c"
+  },
+  {
+    "year": 2019,
+    "month": 11,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/nov19pub.zip",
+    "reused": true,
+    "sha256": "08ed0e803ba3c781d9a61d24fda545bd70b1ffdd904d7b01032b48831775816c"
+  },
+  {
+    "year": 2019,
+    "month": 12,
+    "url": "https://www2.census.gov/programs-surveys/cps/datasets/2019/basic/dec19pub.zip",
+    "reused": true,
+    "sha256": "4900258838fff3f0f113f16b63ab7638029f1dbf956690d1383ce11b77271361"
+  },
+  {
     "year": 2020,
     "month": 1,
     "sha256": "0fe905dede6b719a4a6beac591d3ee539e99de074e682951a229775a646f4a94",
@@ -572,45 +824,5 @@
     "url": "https://www2.census.gov/programs-surveys/cps/datasets/2026/basic/oct26pub.zip",
     "sha256": "583edfed34a3758f1eb13d03276c199418ea5add2bcd9a874bf727f78c8306e8",
     "reused": false
-  },
-  {
-    "url": "https://storage.googleapis.com/aviary-del-public/release_memos/latest/downloads/canaries_by_exposure_results.zip",
-    "status": 200,
-    "sha256": "f9ca698d686e4868c727c8300528df4ebcd6bd6a8a8494d20cf9cf2ce49c0745",
-    "bytes": 5149,
-    "headers": {
-      "Last-Modified": "Wed, 18 Nov 2026 06:26:33 GMT",
-      "ETag": "\"26592f23fd531871a4fee8d9fe00573c\""
-    }
-  },
-  {
-    "url": "https://storage.googleapis.com/aviary-del-public/release_memos/latest/downloads/canaries_age_by_exposure_results.zip",
-    "status": 200,
-    "sha256": "a443f5e59765d4bfa7d2a6e673789ee572b3aa5d24541b3e2f3573e09beeec6f",
-    "bytes": 16168,
-    "headers": {
-      "Last-Modified": "Wed, 18 Nov 2026 06:26:30 GMT",
-      "ETag": "\"078ba32c4f03e4a79eccd66bd5a62585\""
-    }
-  },
-  {
-    "url": "https://storage.googleapis.com/aviary-del-public/release_memos/latest/downloads/canaries_software_developers_results.zip",
-    "status": 200,
-    "sha256": "67ac4cc9b3d3ef005b75999d70745d202e8695d8d3cc3ebfa45f658a8e7bee60",
-    "bytes": 5130,
-    "headers": {
-      "Last-Modified": "Wed, 18 Nov 2026 06:26:35 GMT",
-      "ETag": "\"a723dd2f90f96170a09ac22c2a14289e\""
-    }
-  },
-  {
-    "url": "https://storage.googleapis.com/aviary-del-public/release_memos/latest/downloads/canaries_gender_by_exposure_results.zip",
-    "status": 200,
-    "sha256": "aaee5b8a5fc842f8d0237ffdb486f1b40a590db847810aa613ca26050c124f79",
-    "bytes": 40840,
-    "headers": {
-      "Last-Modified": "Wed, 18 Nov 2026 06:26:35 GMT",
-      "ETag": "\"2d54cd6fa3974e5a56ae9fc9737134d2\""
-    }
   }
 ]

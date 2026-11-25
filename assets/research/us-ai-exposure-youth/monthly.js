@@ -32,10 +32,7 @@
     const pos = keyOut();
     return r.points.map((p) => ({
       date: p[0],
-      value:
-        p[pos] !== null && ($("source").value === "adp" || p[3 + pos] >= 30)
-          ? p[pos]
-          : null,
+      value: p[pos] !== null && p[3 + pos] >= 30 ? p[pos] : null,
       n: p[3 + pos],
     }));
   }
@@ -151,7 +148,7 @@
         ),
       );
     }
-    if ($("source").value === "cps") {
+    {
       const gapx = x("2025-10-01");
       svg.append(
         node("rect", {
@@ -217,116 +214,78 @@
     box.append(legend);
     latestSeries.push(...rows.map((r) => ({ ...r, chart: title })));
   }
-  function exposureRows(source, age, sex) {
-    if (source === "adp") {
-      const product =
-        sex === "All"
-          ? age === "All ages (16+)"
-            ? "by_exposure"
-            : "age_by_exposure"
-          : "gender_by_exposure";
-      const a = age === "All ages (16+)" ? "All ages (source definition)" : age;
-      return data.stanford.filter(
-        (r) =>
-          r.product === product &&
-          r.age === a &&
-          r.sex === sex &&
-          r.quintile > 0,
-      );
-    }
-    return data.cps_exposure.filter(
-      (r) => r.measure === $("measure").value && r.age === age && r.sex === sex,
-    );
+
+  function exposureRows(age, sex) {
+    return data.cps_exposure.filter((r) => r.age === age && r.sex === sex);
   }
   function update() {
     latestSeries = [];
-    const source = $("source").value,
-      age = $("age").value,
-      measure = $("measure").value,
-      scope = $("occupation").value;
-    $("measure").disabled = source === "adp";
-    $("outcome").disabled = source === "adp";
-    $("occupation").disabled = source === "adp";
-    if (source === "adp") $("outcome").value = "E";
-    const norm = "2022 monthly mean = 100",
-      labelQ = (r) =>
-        `Q${r.quintile}${r.quintile === 5 ? " (highest)" : r.quintile === 1 ? " (lowest)" : ""}`,
-      colorQ = (r) => palette[r.quintile - 1];
+    const age = $("age").value,
+      scope = $("occupation").value,
+      measure = "THAIE";
+    const labelQ = (r) =>
+      `Q${r.quintile}${r.quintile === 5 ? " (highest)" : r.quintile === 1 ? " (lowest)" : ""}`;
+    const colorQ = (r) => palette[r.quintile - 1];
     chart(
       "chart-overall",
-      series(exposureRows(source, "All ages (16+)", "All"), labelQ, colorQ),
-      `All-worker employment by ${source === "adp" ? "Stanford exposure" : measure} quintile`,
+      series(exposureRows("All ages (16+)", "All"), labelQ, colorQ),
+      "All-worker employment by occupational THAIE quintile",
     );
     chart(
       "chart-age",
-      series(exposureRows(source, age, "All"), labelQ, colorQ),
-      `Ages ${age} by exposure quintile`,
+      series(exposureRows(age, "All"), labelQ, colorQ),
+      `Ages ${age} by occupational THAIE quintile`,
     );
-    let occRows;
-    if (source === "adp")
-      occRows = data.stanford.filter(
-        (r) => r.product === "software_developers",
-      );
-    else
-      occRows = data.cps_occupation.filter(
-        (r) =>
-          r.scope === scope &&
-          r.sex === "All" &&
-          data.metadata.ages.includes(r.age),
-      );
     const name =
-      source === "adp"
-        ? "Software developers"
-        : scope === "computer_math"
-          ? "Computer and mathematical occupations"
-          : data.metadata.occupations[scope];
+      scope === "computer_math"
+        ? "Computer and mathematical occupations"
+        : data.metadata.occupations[scope];
+    const rows = data.cps_occupation.filter(
+      (r) =>
+        r.scope === scope &&
+        r.sex === "All" &&
+        data.metadata.ages.includes(r.age),
+    );
     chart(
       "chart-occupation",
       series(
-        occRows,
+        rows,
         (r) => `Ages ${r.age}`,
         (r) => ageColors[data.metadata.ages.indexOf(r.age)],
       ),
-      `${name} by age`,
+      `${name} by age, CPS only`,
     );
-    const qRecord = data.metadata.occupation_quintiles.find(
+    const q = data.metadata.occupation_quintiles.find(
       (r) => String(r.occ) === scope,
     );
     $("occupation-note").textContent =
-      source === "adp"
-        ? "Stanford classifies software developers in its highest-exposure group. Its public download provides age-specific indices, not five exposure strata within software developers."
-        : scope === "computer_math"
-          ? "This broad occupational family contains several detailed occupations. Its quintile comparisons reflect differences across those occupations."
-          : `${name} is a single detailed occupation, assigned to ${measure} Q${qRecord[measure + "_q"]}. Occupational exposure is fixed, so five within-occupation exposure groups cannot be identified.`;
-    const within = source === "cps" && scope === "computer_math";
-    $("computer-wrap").hidden = !within;
-    if (within)
+      scope === "computer_math"
+        ? "This broad family contains several occupations with different THAIE scores."
+        : `${name} is a single occupation assigned to THAIE Q${q.THAIE_q}. Exposure is fixed within this occupation; five within-occupation strata cannot be identified.`;
+    $("computer-wrap").hidden = scope !== "computer_math";
+    if (scope === "computer_math")
       chart(
         "chart-computer",
         series(
-          data.cps_computer.filter(
-            (r) => r.measure === measure && r.age === age && r.sex === "All",
-          ),
+          data.cps_computer.filter((r) => r.age === age && r.sex === "All"),
           labelQ,
           colorQ,
         ),
-        `${name}, ages ${age}, by exposure`,
+        `${name}, ages ${age}, by THAIE`,
       );
-    const women = series(exposureRows(source, age, "Women"), labelQ, colorQ),
-      men = series(exposureRows(source, age, "Men"), labelQ, colorQ),
-      vals = [...women, ...men]
-        .flatMap(filteredPoints)
-        .filter((p) => p.value !== null)
-        .map((p) => p.value),
-      common = vals.length
-        ? [Math.min(100, ...vals), Math.max(100, ...vals)]
-        : undefined;
-    chart("chart-women", women, `Women, ages ${age}`, common);
-    chart("chart-men", men, `Men, ages ${age}`, common);
+    const women = series(exposureRows(age, "Women"), labelQ, colorQ),
+      men = series(exposureRows(age, "Men"), labelQ, colorQ);
+    const values = [...women, ...men]
+      .flatMap(filteredPoints)
+      .filter((p) => p.value !== null)
+      .map((p) => p.value);
+    const limits = values.length
+      ? [Math.min(100, ...values), Math.max(100, ...values)]
+      : undefined;
+    chart("chart-women", women, `Women, ages ${age}`, limits);
+    chart("chart-men", men, `Men, ages ${age}`, limits);
     $("chart-status").textContent =
-      source === "cps"
-        ? `CPS · January 2020–October 2026 · ${measure} · ${$("outcome").selectedOptions[0].textContent} · ${norm} · not seasonally adjusted. Gaps include unavailable October 2025 and cells with fewer than 30 observations.`
-        : `Stanford / ADP · November 2021–October 2026 · source vintage November 15, 2026 · rebased to ${norm}. No ADP values are available for 2020.`;
+      `Our CPS aggregation only · January 2020–October 2026 · THAIE · ${$("outcome").selectedOptions[0].textContent} · 2022 monthly mean=100. Not seasonally adjusted. Missing October2025 and low-support cells remain gaps.`;
   }
   function download() {
     const rows = ["chart,series,date,index,unweighted_n"];
@@ -339,23 +298,23 @@
         ),
       ),
     );
-    const a = document.createElement("a"),
+    const link = document.createElement("a"),
       url = URL.createObjectURL(
         new Blob([rows.join("\n")], { type: "text/csv" }),
       );
-    a.href = url;
-    a.download = "monthly-selected-series.csv";
-    a.click();
+    link.href = url;
+    link.download = "CPS-only-selected-monthly-series.csv";
+    link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  fetch("data/monthly.json")
+  fetch("data/monthly.json?v=cps-only-20261125")
     .then((r) => {
       if (!r.ok) throw new Error(`Data response ${r.status}`);
       return r.json();
     })
     .then((d) => {
       data = d;
-      for (const id of ["source", "measure", "age", "outcome", "occupation"])
+      for (const id of ["age", "outcome", "occupation"])
         $(id).addEventListener("change", update);
       $("download-selected").addEventListener("click", download);
       update();
@@ -364,7 +323,7 @@
     })
     .catch((e) => {
       $("explorer-loading").textContent =
-        "The monthly data could not be loaded. Download the CSV files below to inspect the results. " +
+        "The CPS aggregate data could not be loaded. Download the CSV files below. " +
         e.message;
     });
 })();
