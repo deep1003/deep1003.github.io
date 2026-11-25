@@ -1,0 +1,143 @@
+id,label,keco2025,ksco8_targets,quintile,status
+o000,가구·목제품 제조·수리원,883,730;930,1.0,all_targets_same_quintile
+o001,가사 서비스원,563,951;999,,multiple_quintiles
+o002,간호사,304,244,3.0,all_targets_same_quintile
+o003,건설·채굴 기계 운전원,704,874,1.0,all_targets_same_quintile
+o004,건설·채굴 단순 종사자,706,910,1.0,all_targets_same_quintile
+o005,건설·채굴·제조·생산 관리자,016,141;149,3.0,all_targets_same_quintile
+o006,건설구조 기능원,701,781;782,,multiple_quintiles
+o007,건축·토목공학 기술자 및 시험원,140,231,4.0,all_targets_same_quintile
+o008,건축마감 기능원,702,783,2.0,all_targets_same_quintile
+o009,검침·주차관리 및 기타 서비스 단순 종사자,564,992;999,,multiple_quintiles
+o010,결혼·장례 등 예식 서비스원,512,432;439,4.0,all_targets_same_quintile
+o011,경비원,542,942,3.0,all_targets_same_quintile
+o012,경영·인사 전문가,022,281,5.0,all_targets_same_quintile
+o013,경영지원 사무원,026,311;312;351;371,,multiple_quintiles
+o014,"경찰관, 소방관 및 교도관",240,411,3.0,all_targets_same_quintile
+o015,경호·보안 종사자,541,412,3.0,all_targets_same_quintile
+o016,고무·플라스틱 및 화학제품 생산기계 조작원 및 조립원,852,832,1.0,all_targets_same_quintile
+o017,공예원 및 귀금속세공원,884,791,1.0,all_targets_same_quintile
+o018,광고·조사·상품기획·행사기획 전문가,024,283,5.0,all_targets_same_quintile
+o019,군인,250,,,unscored_target
+o020,금속·재료공학 기술자 및 시험원,152,233,3.0,all_targets_same_quintile
+o021,금속관련 기계·설비 조작원,821,841,2.0,all_targets_same_quintile
+o022,금융·보험 사무원,032,340,5.0,all_targets_same_quintile
+o023,금융·보험 영업원,033,510,5.0,all_targets_same_quintile
+o024,금융·보험 전문가,031,282,5.0,all_targets_same_quintile
+o025,금형원 및 공작기계 조작원,813,740;851,,multiple_quintiles
+o026,기계 조립원(운송장비 제외),816,855,2.0,all_targets_same_quintile
+o027,기계·로봇공학 기술자 및 시험원,151,235,3.0,all_targets_same_quintile
+o028,기계장비 설치·정비원(운송장비 제외),811,753,2.0,all_targets_same_quintile
+o029,기술·해외 영업원 및 상품중개인,612,284,4.0,all_targets_same_quintile
+o030,기자 및 언론 전문가,412,291,5.0,all_targets_same_quintile
+o031,기타 건설 기능원(채굴포함),705,784,2.0,all_targets_same_quintile
+o032,낙농·사육 종사자,902,613,2.0,all_targets_same_quintile
+o033,냉·난방 설비 조작원,814,852,2.0,all_targets_same_quintile
+o034,네트워크 시스템 개발자 및 정보보안 전문가,134,223,5.0,all_targets_same_quintile
+o035,농림어업 단순 종사자,905,991,1.0,all_targets_same_quintile
+o036,단조원 및 주조원,823,740;841,,multiple_quintiles
+o037,대학 교수 및 강사,211,261,4.0,all_targets_same_quintile
+o038,데이터 전문가,135,224,5.0,all_targets_same_quintile
+o039,도장원 및 도금원,825,842,1.0,all_targets_same_quintile
+o040,돌봄 서비스 종사자,550,422;423;951,,unscored_target
+o041,디자이너,415,295,4.0,all_targets_same_quintile
+o042,매장 계산원 및 매표원,616,521,4.0,all_targets_same_quintile
+o043,목재·펄프·종이 생산기계 조작원,882,891,2.0,all_targets_same_quintile
+o044,무역·운송·생산·품질 사무원,028,321;322,,multiple_quintiles
+o045,문리·기술·예능 강사,214,264,3.0,all_targets_same_quintile
+o046,문화·예술 기획자 및 매니저,417,298;372,,multiple_quintiles
+o047,물품이동장비 조작원(크레인·호이스트·지게차),623,873,2.0,all_targets_same_quintile
+o048,미용 서비스원,511,431,3.0,all_targets_same_quintile
+o049,미용·여행·숙박·음식·경비·청소 관리자,014,152;153,4.0,all_targets_same_quintile
+o050,반려동물 서비스원,513,433,3.0,all_targets_same_quintile
+o051,발전·배전 장치 조작원,833,861,3.0,all_targets_same_quintile
+o052,방송·통신장비 설치·수리원,842,772,3.0,all_targets_same_quintile
+o053,배관공,703,792,1.0,all_targets_same_quintile
+o054,법률 사무원,222,351,5.0,all_targets_same_quintile
+o055,법률 전문가,221,271,5.0,all_targets_same_quintile
+o056,보건·의료 종사자,307,249;429;433,,multiple_quintiles
+o057,보육교사 및 기타 사회복지 종사자,232,251;253;421,,multiple_quintiles
+o058,부동산 컨설턴트 및 중개사,611,284,4.0,all_targets_same_quintile
+o059,분류불능,,,,not_classified
+o060,비금속제품 생산기계 조작원,826,843,1.0,all_targets_same_quintile
+o061,사회복지사 및 상담사,231,252;253,,multiple_quintiles
+o062,생명과학 연구원 및 시험원,122,211;213,,multiple_quintiles
+o063,석유·화학물 가공장치 조작원,851,831,2.0,all_targets_same_quintile
+o064,섬유 제조·가공 기계 조작원,861,821;822,2.0,all_targets_same_quintile
+o065,섬유공학 기술자 및 시험원,156,239,3.0,all_targets_same_quintile
+o066,성직자 및 기타 종교 종사자,233,254,3.0,all_targets_same_quintile
+o067,세정원 및 방역원,562,799,1.0,all_targets_same_quintile
+o068,소방·방재·산업안전·비파괴 기술자,158,236,3.0,all_targets_same_quintile
+o069,소프트웨어 개발자,133,222,5.0,all_targets_same_quintile
+o070,수의사,302,242,3.0,all_targets_same_quintile
+o071,숙박시설 서비스원,523,442,3.0,all_targets_same_quintile
+o072,스포츠·레크리에이션 종사자,420,296;442,3.0,all_targets_same_quintile
+o073,식당 서비스원,532,453;952,,multiple_quintiles
+o074,식품 가공 기계 조작원,873,811;812;819,1.0,all_targets_same_quintile
+o075,식품 가공 기능원,872,710,1.0,all_targets_same_quintile
+o076,식품공학 기술자 및 시험원,157,239,3.0,all_targets_same_quintile
+o077,악기·간판 및 기타 제조 종사자,885,730;799;899,1.0,all_targets_same_quintile
+o078,안내·고객상담·통계·비서 및 기타 사무원,029,332;361;362;372,5.0,all_targets_same_quintile
+o079,약사 및 한약사,303,243,4.0,all_targets_same_quintile
+o080,어업 종사자,904,630,1.0,all_targets_same_quintile
+o081,에너지·환경공학 기술자 및 시험원,155,236;237,3.0,all_targets_same_quintile
+o082,여행 서비스원,521,283;361;442,,multiple_quintiles
+o083,연극·영화·방송 전문가,416,293,4.0,all_targets_same_quintile
+o084,영양사,305,245,4.0,all_targets_same_quintile
+o085,영업·판매·운송 관리자,015,151;159,,multiple_quintiles
+o086,오락시설 서비스원,524,442,3.0,all_targets_same_quintile
+o087,용접원 및 용접기 조작원,824,740;841,,multiple_quintiles
+o088,운송장비 정비원,812,751;752,2.0,all_targets_same_quintile
+o089,운송장비 조립원,817,854,2.0,all_targets_same_quintile
+o090,유치원 교사,213,263,2.0,all_targets_same_quintile
+o091,의료기사·치료사·재활사,306,246,3.0,all_targets_same_quintile
+o092,의복 제조원 및 수선원,863,722,2.0,all_targets_same_quintile
+o093,"의사, 한의사 및 치과의사",301,241,3.0,all_targets_same_quintile
+o094,의회의원·고위공무원 및 기업 고위임원,011,111;112,,multiple_quintiles
+o095,인문·사회과학 연구원,110,212,5.0,all_targets_same_quintile
+o096,인쇄기계·사진현상기 조작원,881,892,2.0,all_targets_same_quintile
+o097,임업 종사자,903,620,2.0,all_targets_same_quintile
+o098,자동조립라인·산업용로봇 조작원,815,853,4.0,all_targets_same_quintile
+o099,자동차 및 제품 영업원,613,510,5.0,all_targets_same_quintile
+o100,자동차 운전원,622,872,2.0,all_targets_same_quintile
+o101,자연과학 연구원 및 시험원,121,211;213,,multiple_quintiles
+o102,작가·통번역가,411,291,5.0,all_targets_same_quintile
+o103,작물재배 종사자,901,611;612,1.0,all_targets_same_quintile
+o104,장학관 및 기타 교육 종사자,215,269;421,,multiple_quintiles
+o105,전기·전자 기기 설치·수리원,832,761,3.0,all_targets_same_quintile
+o106,전기·전자 부품·제품 생산기계 조작원,835,863,2.0,all_targets_same_quintile
+o107,전기·전자 부품·제품 조립원,836,864,2.0,all_targets_same_quintile
+o108,전기·전자 설비 조작원,834,862,3.0,all_targets_same_quintile
+o109,전기·전자공학 기술자 및 시험원,153,234,4.0,all_targets_same_quintile
+o110,전기공,831,762,2.0,all_targets_same_quintile
+o111,전문서비스 관리자,013,131;133;134;135;139,,multiple_quintiles
+o112,정보시스템 및 웹 운영자,136,225,5.0,all_targets_same_quintile
+o113,정보통신기기 설치·수리원,841,771,3.0,all_targets_same_quintile
+o114,정부행정 사무원,025,352,5.0,all_targets_same_quintile
+o115,정부행정 전문가 및 관련 종사자,021,272,5.0,all_targets_same_quintile
+o116,제과·제빵원 및 떡 제조원,871,710,1.0,all_targets_same_quintile
+o117,제도사 및 기타 공학 기술자 및 시험원,159,239,3.0,all_targets_same_quintile
+o118,제조 단순 종사자,890,930,1.0,all_targets_same_quintile
+o119,"제화원, 기타 섬유·의복 기계 조작원 및 조립원",864,721;822;823,2.0,all_targets_same_quintile
+o120,주방장 및 조리사,531,297;451;452,,multiple_quintiles
+o121,"창작·공연 전문가(작가, 연극 제외)",414,294,3.0,all_targets_same_quintile
+o122,청소 종사자,561,941,1.0,all_targets_same_quintile
+o123,컴퓨터시스템 전문가,132,222,5.0,all_targets_same_quintile
+o124,컴퓨터하드웨어·통신공학 기술자,131,221,5.0,all_targets_same_quintile
+o125,택배원 및 기타 운송 종사자,624,875;921;922,,multiple_quintiles
+o126,텔레마케터,614,531,5.0,all_targets_same_quintile
+o127,통신·방송송출 장비 기사,137,226,5.0,all_targets_same_quintile
+o128,판금원 및 제관원,822,740;841,,multiple_quintiles
+o129,판매 종사자,615,521;522;531;532;953,,multiple_quintiles
+o130,판촉 및 기타 판매 단순 종사자,617,510;953,,multiple_quintiles
+o131,"패턴사, 재단사 및 재봉사",862,721,2.0,all_targets_same_quintile
+o132,학교 교사,212,262;269,4.0,all_targets_same_quintile
+o133,학예사·사서·기록물관리사,413,292,4.0,all_targets_same_quintile
+o134,항공기·선박·열차 객실승무원,522,441,3.0,all_targets_same_quintile
+o135,항공기·선박·철도 조종사 및 관제사,621,238;871,3.0,all_targets_same_quintile
+o136,행정·경영·금융·보험 관리자,012,121;122;132,,multiple_quintiles
+o137,화학공학 기술자 및 시험원,154,232,3.0,all_targets_same_quintile
+o138,환경관련 장치 조작원,853,881;882,,multiple_quintiles
+o139,회계·경리 사무원,027,331,5.0,all_targets_same_quintile
+o140,회계·세무·감정 전문가,023,281;284,,multiple_quintiles
+o165,총계,,,,not_classified

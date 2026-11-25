@@ -98,3 +98,26 @@ Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fet
  for(const id of ['m-total','m-age','m-sex']){await panel(id);document.querySelectorAll('select[id^="'+id+'-"]').forEach(s=>s.addEventListener('change',()=>panel(id).catch(showError)));}
  function showError(e){byId('monthly-paths').insertAdjacentText('afterbegin','월별 자료를 불러오지 못했습니다. '+e.message);}
 })().catch(e=>{byId('monthly-paths').insertAdjacentText('afterbegin','월별 자료를 불러오지 못했습니다. '+e.message);});
+
+// Monthly THAIE quintiles, using allocation-free official linkage and fixed cohorts.
+(async()=>{
+ const response=await fetch('data/monthly-quintile-sex.json?v=20261125-v1');
+ if(!response.ok)throw Error('월별 분위별 자료 로드 실패');
+ const source=await response.json();
+ options('mq-age',source.ages.map(a=>[a.id,a.label]),source.ages[0].id);
+ function draw(){
+  const age=val('mq-age'),meta=source.ages.find(a=>a.id===age);
+  const rows=source.rows.filter(r=>r.age===age);
+  const values=rows.filter(r=>r.index!==null).map(r=>r.index);
+  const range={min:Math.floor((Math.min(100,...values)-3)/5)*5,max:Math.ceil((Math.max(100,...values)+3)/5)*5};
+  byId('mq-coverage').textContent=meta.label+' · 남녀 동일 '+meta.occupations+'개 직종을 35개 관측월에 고정했습니다. 2022년 11월 원표에 관측된 해당 연령 피보험자 대비 포함 비중은 남성 '+meta.coverage.Male.toFixed(1)+'%, 여성 '+meta.coverage.Female.toFixed(1)+'%입니다.';
+  for(const group of ['Q1','Q2','Q3','Q4','Q5','All']){
+   const selected=rows.filter(r=>r.group===group).map(r=>({...r,series:r.sex}));
+   render('mq-'+group.toLowerCase(),selected,['Male','Female'],s=>sexNames[s],false,range,true);
+   byId('mq-'+group.toLowerCase()+'-count').textContent=group==='All'?'동일한 포함 직종 전체':meta.cohort_counts[group]+'개 직종';
+  }
+ }
+ draw();byId('mq-age').addEventListener('change',draw);
+})().catch(error=>{
+ const holder=byId('mq-coverage');if(holder)holder.textContent=error.message;
+});
