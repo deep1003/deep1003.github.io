@@ -45,7 +45,7 @@
     });
     {
       const base = result.find(p => p.date === "2022-11-01");
-      return result.filter(p => p.date >= "2022-01-01").map(p => ({...p, value:base && base.value > 0 && p.value !== null ? p.value/base.value*100 : null}));
+      return result.filter(p => p.date >= "2022-11-01").map(p => ({...p, value:base && base.value > 0 && p.value !== null ? p.value/base.value*100 : null}));
     }
     return result;
   }
@@ -202,7 +202,7 @@
         svg.append(el("text", {x:x(date), y:height-m.b+23, "text-anchor":"middle", fill:"#58626b", "font-size":11, "font-family":"Arial,sans-serif"}, date.slice(0,7)));
       }
     });
-    const event = "2022-11-30";
+    const event = "2022-11-01";
     svg.append(
       el("line", {
         x1: x(event),
@@ -224,7 +224,7 @@
           "font-size": 12,
           "font-family": "Arial,sans-serif",
         },
-        "Nov 30, 2022",
+        "November 2022 · baseline",
       ),
     );
     const gap = x("2025-10-01");
