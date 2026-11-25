@@ -30,9 +30,14 @@
     "frequency": "annual"
   },
   "nuts2": {
-    "plotted_rows": 60,
+    "plotted_rows": 360,
     "geographies": 1,
-    "frequency": "annual"
+    "frequency": "annual",
+    "age_groups": 12,
+    "common_regions": 208,
+    "countries": 27,
+    "cohort_years": "2020\u20132025",
+    "same_regions_for_all_ages": true
   },
   "monthly_quintile_counts_independently_reconciled_to_SCB": true,
   "UK_published_totals_and_classification_break_preserved": true,
@@ -40,5 +45,9 @@
   "monthly_regional_exposure_is_21_counties_not_software_employment": true,
   "local_links_and_initially_folded_results": 15,
   "no_new_employment_imputation_or_monthly_interpolation": true,
-  "passed": true
+  "passed": true,
+  "quintile_style": {
+    "Q5": "#8b1525; width 3.8",
+    "Q1_Q4": "muted greys; width 1.45; opacity 0.6"
+  }
 }
