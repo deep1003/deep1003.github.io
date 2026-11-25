@@ -1,5 +1,5 @@
 'use strict';
-const colors=['#B6C5D1','#95B2C4','#7DAEA7','#B3AA82','#C34E58','#7C8397'];
+const colors=['#B7BABE','#D9DBDE','#F2D9DC','#DF9DA4','#C34E58','#7C8397'];
 const ageColors=['#6F62A3','#3C929D','#7F9C73','#B19264','#6685AF','#89939A'];
 const focusColor='#C34E58';
 const lineDashes=[[],[7,3],[2,3],[9,3,2,3],[4,2],[12,3]];
