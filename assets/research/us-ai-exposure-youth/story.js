@@ -401,10 +401,11 @@
     if (name === "overall") {
       chart(
         "chart-overall",
-        rawRows("All ages (16+)"),
-        "All-worker " + names[state.outcome] + " by THAIE",
+        rawRows(state.age),
+        `${state.age === "All ages (16+)" ? "All ages (16+)" : "Ages " + state.age} · ${names[state.outcome]} by THAIE`,
       );
-      $("overview-reading").textContent = narrative("All ages (16+)");
+      $("overview-reading").textContent = narrative(state.age);
+      $("overview-scope").textContent = `${state.age === "All ages (16+)" ? "All workers aged 16 and older" : "Workers aged " + state.age}, grouped by occupational THAIE. Changes with the selected age group.`;
     }
     if (name === "age") {
       chart(
@@ -542,7 +543,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=sex-by-quintile-20261125")
+  fetch("data/monthly.json?v=dynamic-national-age-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
