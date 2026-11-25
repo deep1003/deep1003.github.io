@@ -1,0 +1,28 @@
+{
+  "inputs": [
+    {
+      "file": "occupation_quintiles.csv",
+      "sha256": "24bcaa9fc162616eb2fd96a7d0ea1ca6fe8fd2e52e52c99b1fae68a71f63f0bf"
+    },
+    {
+      "file": "occupation_conversion_2010_2018.csv",
+      "sha256": "f386a574e73c9c168d57f14c77b42d38ca3e7fecf594e863b37710a4d1e0709c"
+    },
+    {
+      "file": "occupation_industry_monthly_counts.parquet",
+      "sha256": "8741fec093aa0e1c06ef2dbb62f2d7c10b01d662a64a464ad9ec71aa95f5390d"
+    }
+  ],
+  "exposure": "Our existing THAIE methodology, frozen 2019 occupational quintiles",
+  "outside_payroll_inputs": false,
+  "software": {
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "pyhdfe": "0.2.1",
+    "pyarrow": "26.0.1",
+    "matplotlib": "3.11.2"
+  },
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]"
+}

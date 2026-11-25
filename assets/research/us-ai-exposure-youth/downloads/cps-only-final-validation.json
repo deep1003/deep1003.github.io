@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": [
+    "Twelve primary comparisons, common FT/PT sample, convergence, valid pretrend tests and multiplicity",
+    "CPS-only official source inventory, immutable THAIE mapping, occupation1021 Q4, no interpolation and FT/PT additivity",
+    "Independent explicit-dummy Poisson model and aligned cluster standard errors",
+    "CPS-only browser payload and code, pooled Q1\u2013Q4 counts rebased correctly, no outside data switch",
+    "IMRD structure, CPS-only result controls, removed benchmark downloads, local-link integrity",
+    "Compressed aggregate-only replication bundle integrity and project-relative paths"
+  ],
+  "plots_emitted": 0,
+  "all_primary_Holm_p_above_005": true,
+  "outside_payroll_data_used": false,
+  "missing_CPS_month": "2025-10",
+  "primary_tests": 12,
+  "event_studies": 12,
+  "working_SE": "occupation-clustered with occupation-and-date sensitivity"
+}

@@ -216,7 +216,11 @@
   }
 
   function exposureRows(age, sex) {
-    return data.cps_exposure.filter((r) => r.age === age && r.sex === sex);
+    const rows =
+      $("comparison").value === "contrast"
+        ? data.cps_contrast
+        : data.cps_exposure;
+    return rows.filter((r) => r.age === age && r.sex === sex);
   }
   function update() {
     latestSeries = [];
@@ -224,17 +228,23 @@
       scope = $("occupation").value,
       measure = "THAIE";
     const labelQ = (r) =>
+      r.band ||
       `Q${r.quintile}${r.quintile === 5 ? " (highest)" : r.quintile === 1 ? " (lowest)" : ""}`;
-    const colorQ = (r) => palette[r.quintile - 1];
+    const colorQ = (r) =>
+      r.band
+        ? r.band === "Q5"
+          ? palette[4]
+          : palette[1]
+        : palette[r.quintile - 1];
     chart(
       "chart-overall",
       series(exposureRows("All ages (16+)", "All"), labelQ, colorQ),
-      "All-worker employment by occupational THAIE quintile",
+      "All-worker employment by occupational THAIE exposure group",
     );
     chart(
       "chart-age",
       series(exposureRows(age, "All"), labelQ, colorQ),
-      `Ages ${age} by occupational THAIE quintile`,
+      `Ages ${age} by occupational THAIE exposure group`,
     );
     const name =
       scope === "computer_math"
@@ -267,7 +277,10 @@
       chart(
         "chart-computer",
         series(
-          data.cps_computer.filter((r) => r.age === age && r.sex === "All"),
+          ($("comparison").value === "contrast"
+            ? data.cps_computer_contrast
+            : data.cps_computer
+          ).filter((r) => r.age === age && r.sex === "All"),
           labelQ,
           colorQ,
         ),
@@ -307,14 +320,14 @@
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  fetch("data/monthly.json?v=cps-only-20261125")
+  fetch("data/monthly.json?v=cps-only-did-20261125-2")
     .then((r) => {
       if (!r.ok) throw new Error(`Data response ${r.status}`);
       return r.json();
     })
     .then((d) => {
       data = d;
-      for (const id of ["age", "outcome", "occupation"])
+      for (const id of ["age", "outcome", "occupation", "comparison"])
         $(id).addEventListener("change", update);
       $("download-selected").addEventListener("click", download);
       update();
