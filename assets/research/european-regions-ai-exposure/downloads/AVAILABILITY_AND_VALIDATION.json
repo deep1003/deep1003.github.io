@@ -49,5 +49,21 @@
   "quintile_style": {
     "Q5": "#b4434c; width 4.6; white halo width 6.6",
     "Q1_Q4": "muted teal, blue-grey, mauve and olive; width 2.6; white halo width 4.6; opacity 0.82"
-  }
+  },
+  "UK_monthly_RTI": {
+    "rows": 18614,
+    "missing": 0,
+    "geography_counts": {
+      "NUTS2": 41,
+      "NUTS3": 179,
+      "UK_AGE": 1
+    },
+    "period_start": "2020-01",
+    "period_end": "2026-10",
+    "occupation_available": false,
+    "age_x_NUTS2_available": false,
+    "baseline": "2022 monthly mean=100",
+    "seasonally_adjusted": true
+  },
+  "monthly_Europe_all_NUTS2_available": false
 }

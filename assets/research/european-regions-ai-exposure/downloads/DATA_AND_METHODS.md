@@ -44,3 +44,10 @@ The HTML uses native SVG with no third-party chart library. Current chart values
 ## 25 November 2026 all-age update
 
 The NUTS-2 explorer now provides all 12 native age bands on the same 208-region balanced 2020–2025 cohort. Employment is summed within the original fixed 2022 regional THAIE quintiles and divided by the corresponding 2022 sum. No quintile ranks are re-estimated after cohort restriction. Q5 is dark red and thicker; Q1–Q4 remain visible in muted greys. Overlapping age totals are not additive. No manuscript changes.
+
+
+## UK monthly follow-up, 25 November 2026
+
+ONS/HMRC PAYE RTI November2026 workbook provides actual monthly, seasonally adjusted payrolled employees. We downloaded and extracted January2020–October2026 for41 source NUTS2 codes,179 NUTS3 codes and6 national age groups. All18,614 extracted counts are numeric, keys are unique, and every index denominator contains12 observed2022 months. Region tables and national age tables are separate margins. These payroll counts exclude self-employed workers and do not identify occupation or sex. No monthly software-occupation index or regional THAIE quintiles are inferred. The native geography vintage is retained and is not silently converted to ITL2025. The default Europe-wide monthly view reports non-availability; users may select the genuine annual208-region panel or the distinct UK monthly payroll source. ONS has received a request for free data feasibility, with no chargeable work authorised.
+
+Source https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/realtimeinformationstatisticsreferencetableseasonallyadjusted
