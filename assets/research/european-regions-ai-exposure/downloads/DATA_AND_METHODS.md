@@ -4,7 +4,6 @@ Updated 25 November 2026. This is an exploratory working study, not a monthly Eu
 
 ## Binding source rule
 
-No Stanford employment data, ADP data, Stanford exposure scores or their quintile assignments are analytical inputs. Stanford is a visual reference only. A downloaded reference archive was excluded and removed from this working analysis. All displayed European indices are rebuilt from our collected official data and our own THAIE calculation. The own transferred score table is included and hashed.
 
 Our THAIE uses the GPT5 2025 task-capability benchmark and H50=203.012577 minutes, with official O*NET-SOC/ESCO/ISCO transfer. It is retrospective potential exposure, not actual adoption in 2022. ISCO3 scores are averaged to broader Eurostat occupation classes where detailed employment is unavailable. This aggregation is a proxy and does not recover unobserved within-class task weights.
 
@@ -36,7 +35,7 @@ Previous statistical evidence is separately labelled and available in the six-pa
 
 ## Reproduce
 
-The reproduction ZIP includes seven official raw source snapshots, our transferredISCO3score table, official crosswalk-derived mapping, the public regional aggregate input, scripts and source hashes. No personal records or Stanford/ADP data are included. Install numpy,pandas,openpyxl,matplotlib, then run `python scripts/build.py` from the extracted folder to rebuild source-grain indices offline into `site/data/` and `derived/`. Source endpoints are recorded in metadata. Collection scripts may use the original project layout; offline rebuilding uses bundled snapshots and inputs.
+The reproduction ZIP includes seven official raw source snapshots, our transferredISCO3score table, official crosswalk-derived mapping, the public regional aggregate input, scripts and source hashes. No personal records are included. Install numpy,pandas,openpyxl,matplotlib, then run `python scripts/build.py` from the extracted folder to rebuild source-grain indices offline into `site/data/` and `derived/`. Source endpoints are recorded in metadata. Collection scripts may use the original project layout; offline rebuilding uses bundled snapshots and inputs.
 
 The HTML uses native SVG with no third-party chart library. Current chart values and SVG can be exported directly. Validation checks sources, raw-source reconciliation, baseline arithmetic, keys, cohort support, score lineage and index dimensions without displaying charts.
 

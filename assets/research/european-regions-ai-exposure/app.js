@@ -1,4 +1,4 @@
-/* Official European aggregate data and our own THAIE scores only. No ADP/Stanford data. */
+/* European regional employment explorer. */
 (() => {
   'use strict';
   const palette=['#bec1c4','#e0e2e4','#f3d4d6','#e6a5aa','#b4434c','#b8b0a7'];
@@ -10,7 +10,7 @@
   const make=(tag,attrs={},text)=>{const n=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(text!==undefined)n.textContent=text;return n;};
   const number=v=>v!==null&&Number.isFinite(v);
   const fmt=v=>number(v)?v.toLocaleString('en-GB',{maximumFractionDigits:2}):'Unavailable';
-  async function load(name){if(cached.has(name))return cached.get(name);const response=await fetch(`data/${name}.json?v=20261125-equal-lines-v1`);if(!response.ok)throw Error(`Data download failed (${response.status})`);const d=await response.json();d.records=(d.rows||[]).map(row=>Object.fromEntries(d.columns.map((k,i)=>[k,row[i]])));cached.set(name,d);return d;}
+  async function load(name){if(cached.has(name))return cached.get(name);const response=await fetch(`data/${name}.json?v=20261125-copy-clean-v1`);if(!response.ok)throw Error(`Data download failed (${response.status})`);const d=await response.json();d.records=(d.rows||[]).map(row=>Object.fromEntries(d.columns.map((k,i)=>[k,row[i]])));cached.set(name,d);return d;}
   function label(geo){return (metadata.regions_europe||{})[geo]||metadata.regions_sweden[geo]||metadata.regions_uk[geo]||metadata.regions_finland[geo]||metadata.country_labels[geo]||({'SE':'Sweden, 21 counties grouped by regional exposure','00':'Sweden, national occupation counts'})[geo]||geo;}
   function select(title,options,value){const box=document.createElement('div');box.className='control';const lab=document.createElement('label');lab.textContent=title;const el=document.createElement('select');el.setAttribute('aria-label',title);options.forEach(([v,t])=>el.add(new Option(t,v)));el.value=value;box.append(lab,el);return {box,el};}
   function time(t){if(t.length===7){const [y,m]=t.split('-').map(Number);return y+(m-1)/12;}return Number(t);}
@@ -82,7 +82,7 @@
   }
   let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{document.querySelectorAll('.explorer').forEach(h=>{if(h.redrawCharts&&h.closest('details').open)h.redrawCharts();});if(redrawSoftware&&$('software-results').open)redrawSoftware();},120);});
   document.addEventListener('DOMContentLoaded',async()=>{
-    try{metadata=await (await fetch('data/metadata.json?v=20261125-equal-lines-v1')).json();
+    try{metadata=await (await fetch('data/metadata.json?v=20261125-copy-clean-v1')).json();
       document.querySelectorAll('.explorer').forEach(host=>{const detail=host.closest('details');const init=()=>{if(!host.dataset.loaded){host.dataset.loaded='true';explorer(host,host.dataset.dataset);}};detail.addEventListener('toggle',()=>{if(detail.open){init();if(host.redrawCharts)host.redrawCharts();}});if(detail.open)init();});
       const sd=$('software-results');if(sd.open&&!sd.dataset.loaded){sd.dataset.loaded='true';software().catch(console.error);}sd.addEventListener('toggle',()=>{if(sd.open&&!sd.dataset.loaded){sd.dataset.loaded='true';software().catch(console.error);}});
       document.querySelectorAll('[data-open]').forEach(button=>button.onclick=()=>{const detail=$(button.dataset.open);detail.open=true;detail.scrollIntoView({behavior:'smooth',block:'start'});});
