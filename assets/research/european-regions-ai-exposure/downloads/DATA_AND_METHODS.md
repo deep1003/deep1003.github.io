@@ -55,3 +55,8 @@ Source https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsand
 ## European overview and drilldown
 
 The initial panel now displays the observed annual European overview, ages15+, on the fixed208-region cohort. Geography selections include27 supported countries and208 individual NUTS2 regions. Women and men retain that same cohort. Any aggregate with a missing or suppressed contributing public cell is left unavailable; no smaller sex-specific cohort is silently substituted. The original regional exposure quintile remains fixed. Country views can have fewer than five quintiles; an individual region has one quintile and therefore one line. Sweden-specific monthly series are supplementary. The regional sex counts come from the already collected Eurostat lfst_r_lfe2emp source.
+
+
+## Current display specification,25 November2026
+
+This supersedes earlier display-baseline descriptions above. Every displayed employment index uses the single observed November2022 count as100 and begins in January2022. Monthly source counts are rebased on load; old annual indices are not reused. Sex-specific and all-displayed-sample totals use their own November counts. Without that observed month, the chart is unavailable rather than assigned a fictitious month. Existing Eurostat annual-average data therefore do not yield a November-based regional index. Historical downloadable annual tables retain their documented original baseline and are not the currently plotted index.
