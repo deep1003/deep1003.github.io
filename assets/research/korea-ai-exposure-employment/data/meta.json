@@ -1,0 +1,104 @@
+{
+  "ages": [
+    "22–25",
+    "26–30",
+    "31–34",
+    "35–40",
+    "41–49",
+    "50+"
+  ],
+  "industries": [
+    {
+      "id": "64",
+      "name": "금융업",
+      "score": 0.3199911625106205
+    },
+    {
+      "id": "66",
+      "name": "금융 및 보험 관련 서비스업",
+      "score": 0.31264105952908977
+    },
+    {
+      "id": "71",
+      "name": "전문 서비스업",
+      "score": 0.3117506087919966
+    },
+    {
+      "id": "65",
+      "name": "보험 및 연금업",
+      "score": 0.3112631252909518
+    },
+    {
+      "id": "58",
+      "name": "출판업, 소프트웨어 개발·공급 포함",
+      "score": 0.3099861063639423
+    },
+    {
+      "id": "47",
+      "name": "소매업",
+      "score": 0.2588218800475027
+    },
+    {
+      "id": "62",
+      "name": "컴퓨터 프로그래밍, 시스템 통합 및 관리업",
+      "score": 0.30597788423370303
+    }
+  ],
+  "occupations": [
+    {
+      "id": "222",
+      "name": "컴퓨터 시스템 및 소프트웨어 전문가",
+      "en": "Computer systems and software professionals",
+      "score": 0.3191365917785612,
+      "quintile": 5
+    },
+    {
+      "id": "531",
+      "name": "통신 관련 판매 종사자",
+      "en": "Telecommunications sales workers",
+      "score": 0.4543532356599282,
+      "quintile": 5
+    },
+    {
+      "id": "362",
+      "name": "고객 상담 및 모니터 요원",
+      "en": "Customer service and monitoring agents",
+      "score": 0.4082796202651778,
+      "quintile": 5
+    },
+    {
+      "id": "361",
+      "name": "여행·안내 및 접수 사무원",
+      "en": "Travel, information and reception clerks",
+      "score": 0.3740112200496878,
+      "quintile": 5
+    },
+    {
+      "id": "372",
+      "name": "비서 및 사무 지원 종사자",
+      "en": "Secretaries and office support workers",
+      "score": 0.3609101569656098,
+      "quintile": 5
+    },
+    {
+      "id": "331",
+      "name": "회계 및 경리 사무원",
+      "en": "Accounting and bookkeeping clerks",
+      "score": 0.3603930364579829,
+      "quintile": 5
+    },
+    {
+      "id": "340",
+      "name": "금융 사무 종사자",
+      "en": "Financial clerks",
+      "score": 0.3358842505346515,
+      "quintile": 5
+    }
+  ],
+  "coverage_min": 99.39313568084708,
+  "coverage_max": 99.55636419430934,
+  "monthly_source": "MDIS EAPS annual2 DOI 10.23333/PN.50149167.V3.9",
+  "baseline": "2022 mean, April and October for RES; twelve months for EAPS",
+  "quintiles": "Existing 2019–2021 national employment-weighted occupational quintiles, fixed GPT-5 2025 THAIE",
+  "stanford_data_used": false
+}
