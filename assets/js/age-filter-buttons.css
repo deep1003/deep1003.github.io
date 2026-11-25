@@ -1,0 +1,11 @@
+select.age-select-source{display:none!important}
+.age-button-field{display:flex;flex-direction:column;gap:7px;flex:1 0 100%;grid-column:1/-1;min-width:0;order:-1}
+.age-button-field[hidden]{display:none!important}
+.age-filter-heading{font-size:14px;font-weight:600;color:#41535e}
+.age-filter-buttons{display:flex;flex-wrap:wrap;align-items:center;gap:5px;width:100%;margin:1px 0 6px}
+.age-filter-buttons button{appearance:none;font:600 14px/1.3 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI",sans-serif;border:1px solid #ccd5da;border-radius:4px;background:#fff;color:#344955;padding:8px 12px;min-height:36px;cursor:pointer;white-space:nowrap;box-shadow:none}
+.age-filter-buttons button:hover{background:#f0f4f6;border-color:#8d9fa9}
+.age-filter-buttons button[aria-pressed="true"]{background:#354750;color:#fff;border-color:#354750}
+.age-filter-buttons button:focus-visible{outline:2px solid #168aa0;outline-offset:2px}
+.age-filter-buttons button:disabled{opacity:.45;cursor:default}
+@media(max-width:600px){.age-filter-buttons{gap:4px}.age-filter-buttons button{font-size:12px;padding:8px 9px}}
