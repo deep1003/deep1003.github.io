@@ -45,7 +45,7 @@
     });
     {
       const base = result.find(p => p.date === "2022-11-01");
-      return result.filter(p => p.date >= "2022-11-01").map(p => ({...p, value:base && base.value > 0 && p.value !== null ? p.value/base.value*100 : null}));
+      return result.filter(p => p.date >= "2022-01-01").map(p => ({...p, value:base && base.value > 0 && p.value !== null ? p.value/base.value*100 : null}));
     }
     return result;
   }
@@ -510,7 +510,7 @@
         );
       $("sex-reading").textContent =
         a !== null && b !== null
-          ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men from November 2022 to October 2026. The plotted series use November 2022 = 100 and start in November 2022; this comparison does not establish a causal sex difference.`
+          ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men from November 2022 to October 2026. The plotted series use November 2022 = 100 and start in January 2022; this comparison does not establish a causal sex difference.`
           : "The selected cells do not support a complete matched-period comparison. All six panels use the same vertical scale.";
     }
   }
@@ -527,7 +527,7 @@
       .querySelectorAll(".story-card[open][data-story]")
       .forEach((card) => render(card.dataset.story));
     $("story-status").textContent =
-      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · November 2022–October 2026. October 2025 is interpolated between September and November and shown as dashed lines; regressions use observed months.`;
+      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · January 2022–October 2026. October 2025 is interpolated between September and November and shown as dashed lines; regressions use observed months.`;
   }
   function csv(id) {
     const plottedChart = plotted.get(id);
