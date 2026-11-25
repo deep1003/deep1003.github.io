@@ -43,9 +43,9 @@
       }
       return {date:p[0], value:observed ? p[i] : null, n:p[i+3], estimated:false};
     });
-    if (row.sexLabel) {
+    {
       const base = result.find(p => p.date === "2022-11-01");
-      return result.filter(p => p.date >= "2022-01-01").map(p => ({...p, value:base && base.value > 0 && p.value !== null ? p.value/base.value*100 : null}));
+      return result.filter(p => p.date >= "2022-11-01").map(p => ({...p, value:base && base.value > 0 && p.value !== null ? p.value/base.value*100 : null}));
     }
     return result;
   }
@@ -68,17 +68,11 @@
   }
   function change(row) {
     if (!row) return null;
-    const valid = points(row).filter((p) => p.value !== null),
-      base = valid.filter((p) => /^2022-0[1-9]-/.test(p.date)),
-      end = valid.filter((p) => /^2026-0[1-9]-/.test(p.date));
-    if (base.length !== 9 || end.length !== 9) return null;
-    return (
-      100 *
-      (end.reduce((a, p) => a + p.value, 0) /
-        base.reduce((a, p) => a + p.value, 0) -
-        1)
-    );
+    const valid = points(row).filter(p => p.value !== null && !p.estimated);
+    const base = valid.find(p => p.date === "2022-11-01"), last = valid.find(p => p.date === "2026-10-01");
+    return base && last ? (last.value/base.value-1)*100 : null;
   }
+
   const pct = (v) =>
     v === null ? "unavailable" : `${v >= 0 ? "+" : ""}${v.toFixed(1)}%`;
   function narrative(age, sex = "All") {
@@ -89,7 +83,7 @@
       b = change(rows.find((r) => r.band === "Q1–Q4"));
     if (a === null || b === null)
       return "The selected monthly cells do not support a complete matched-period comparison. Missing values are not zero employment.";
-    return `Across January–September 2022 and the same months in 2026, Q5 ${names[state.outcome]} changed ${pct(a)}, compared with ${pct(b)} in Q1–Q4. These are descriptive headcounts, not a causal estimate.`;
+    return `From November 2022 to October 2026, Q5 ${names[state.outcome]} changed ${pct(a)}, compared with ${pct(b)} in Q1–Q4. These are descriptive headcounts, not a causal estimate.`;
   }
   function legend(box, rows) {
     const leg = document.createElement("div");
@@ -154,8 +148,8 @@
         "desc",
         {},
         rows.some((r) => r.isQ5)
-          ? "Our CPS reconstruction. Each curve uses its own 2022 monthly mean of 100. Q5 is the warm-red line; all quintile lines have equal width; other exposure groups use muted colors. Gaps are unavailable or low-support months."
-          : "Our CPS reconstruction. Exposure is held fixed in this view; muted colors identify age groups. Each curve uses its own 2022 monthly mean of100.",
+          ? "Our CPS reconstruction. Each curve uses its own November 2022 baseline of 100. Q5 is the warm-red line; all quintile lines have equal width; other exposure groups use muted colors. Gaps are unavailable or low-support months."
+          : "Our CPS reconstruction. Exposure is held fixed in this view; muted colors identify age groups. Each curve uses its own November 2022 baseline of 100.",
       ),
     );
     svg.append(el("rect", { x: 0, y: 0, width, height, fill: "white" }));
@@ -268,7 +262,7 @@
           "font-size": 12,
           "font-family": "Arial,sans-serif",
         },
-        rows.some(r => r.sexLabel) ? "Employment index · November 2022 = 100" : "Employment index · 2022 mean = 100",
+        "Employment index · November 2022 = 100",
       ),
     );
     // Shade only matched, supported months; preserve all missing-month gaps.
@@ -516,7 +510,7 @@
         );
       $("sex-reading").textContent =
         a !== null && b !== null
-          ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men in matched January–September comparisons. The plotted series use November 2022 = 100 and start in January 2022; this matched-period comparison does not establish a causal sex difference.`
+          ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men from November 2022 to October 2026. The plotted series use November 2022 = 100 and start in November 2022; this comparison does not establish a causal sex difference.`
           : "The selected cells do not support a complete matched-period comparison. All six panels use the same vertical scale.";
     }
   }
@@ -533,7 +527,7 @@
       .querySelectorAll(".story-card[open][data-story]")
       .forEach((card) => render(card.dataset.story));
     $("story-status").textContent =
-      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · January2020–October2026. October 2025 is interpolated between September and November and shown as dashed lines; regressions use observed months.`;
+      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · November 2022–October 2026. October 2025 is interpolated between September and November and shown as dashed lines; regressions use observed months.`;
   }
   function csv(id) {
     const plottedChart = plotted.get(id);
@@ -566,7 +560,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=sex-nov2022-base-20261125")
+  fetch("data/monthly.json?v=all-nov2022-base-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
