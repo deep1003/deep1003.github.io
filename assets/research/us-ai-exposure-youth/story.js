@@ -147,7 +147,13 @@
       el(
         "desc",
         {},
-        rows.some((r) => r.isQ5)
+        rows.every((r) => r.sexLabel)
+          ? "Women and men within the selected age and exposure group. Each supported curve uses its own November 2022 baseline of 100. Gray shading marks a descriptive index gap, not uncertainty or a causal sex effect."
+          : rows.every((r) => r.sexLabel)
+          ? "Women and men within the selected age and exposure group. Each supported curve uses its own November 2022 baseline of 100. Gray shading marks a descriptive index gap, not uncertainty or a causal sex effect."
+          : rows.every((r) => r.sexLabel)
+          ? "Women and men within the selected age and exposure group. Each supported curve uses its own November 2022 baseline of 100. Gray shading marks a descriptive index gap, not uncertainty or a causal sex effect."
+          : rows.some((r) => r.isQ5)
           ? "Our CPS reconstruction. Each curve uses its own November 2022 baseline of 100. Q5 is the warm-red line; all quintile lines have equal width; other exposure groups use muted colors. Gaps are unavailable or low-support months."
           : "Our CPS reconstruction. Occupation is held fixed in this view; the line shows the selected age group. Each curve uses its own November 2022 baseline of 100.",
       ),
@@ -510,7 +516,7 @@
         );
       $("sex-reading").textContent =
         a !== null && b !== null
-          ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men from November 2022 to October 2026. The plotted series use November 2022 = 100 and start in January 2022; this comparison does not establish a causal sex difference.`
+          ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men from November 2022 to October 2026. The plotted series use November 2022 = 100 and start in November 2022; this comparison does not establish a causal sex difference.`
           : "The selected cells do not support a complete matched-period comparison. All six panels use the same vertical scale.";
     }
   }
@@ -527,7 +533,7 @@
       .querySelectorAll(".story-card[open][data-story]")
       .forEach((card) => render(card.dataset.story));
     $("story-status").textContent =
-      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · January 2022–October 2026. October 2025 is interpolated between September and November and shown as dashed lines; regressions use observed months.`;
+      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · November 2022–October 2026. October 2025 is interpolated between September and November and shown as dashed lines; regressions use observed months.`;
   }
   function csv(id) {
     const plottedChart = plotted.get(id);
@@ -536,7 +542,7 @@
     for (const r of plottedChart.rows)
       for (const p of points(r))
         lines.push(
-          [r.label, p.date, p.value ?? "", p.n ?? "", p.estimated ? "interpolated" : "observed"]
+          [r.label, p.date, p.value ?? "", p.n ?? "", p.estimated ? "interpolated" : p.value === null ? "unavailable" : "observed"]
             .map((v) => '"' + String(v).replaceAll('"', '""') + '"')
             .join(","),
         );
