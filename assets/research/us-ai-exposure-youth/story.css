@@ -310,9 +310,9 @@ body.q5-story {
   font-variant-numeric: tabular-nums;
 }
 .age-tabs button[aria-pressed="true"] {
-  background: #faf0f1;
-  border-color: #cb7b83;
-  color: #ad4651;
+  background: #353535;
+  border-color: #353535;
+  color: #ffffff;
   font-weight: 650;
 }
 .age-tabs button:hover {
@@ -535,3 +535,12 @@ body.q5-story {
     background: #fff;
   }
 }
+
+.age-button-control { grid-column: 1 / -1; order: 5; }
+.age-button-control > span { font-weight: 600; }
+.age-button-control .age-tabs { margin: 8px 0 0; }
+
+.quintile-sex-panels { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+.quintile-sex-panels .story-chart svg { min-width:420px; }
+@media(max-width:1200px) { .quintile-sex-panels { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:750px) { .quintile-sex-panels { grid-template-columns:1fr; } }
