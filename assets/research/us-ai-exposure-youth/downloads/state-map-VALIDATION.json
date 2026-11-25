@@ -47,7 +47,7 @@
   ],
   "all_numerators_match_existing": true,
   "all_denominators_match_existing": true,
-  "display_only_suppression": true,
+  "support_flags_do_not_suppress_finite_estimates": true,
   "no_interpolation": true,
   "sources": [
     {
