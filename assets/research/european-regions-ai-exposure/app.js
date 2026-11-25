@@ -10,9 +10,18 @@
   const make=(tag,attrs={},text)=>{const n=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(text!==undefined)n.textContent=text;return n;};
   const number=v=>v!==null&&Number.isFinite(v);
   const fmt=v=>number(v)?v.toLocaleString('en-GB',{maximumFractionDigits:2}):'Unavailable';
-  async function load(name){if(cached.has(name))return cached.get(name);const response=await fetch(`data/${name}.json?v=20261125-copy-clean-v1`);if(!response.ok)throw Error(`Data download failed (${response.status})`);const d=await response.json();d.records=(d.rows||[]).map(row=>Object.fromEntries(d.columns.map((k,i)=>[k,row[i]])));cached.set(name,d);return d;}
+  async function load(name){if(cached.has(name))return cached.get(name);const response=await fetch(`data/${name}.json?v=20261125-age-buttons-v1`);if(!response.ok)throw Error(`Data download failed (${response.status})`);const d=await response.json();d.records=(d.rows||[]).map(row=>Object.fromEntries(d.columns.map((k,i)=>[k,row[i]])));cached.set(name,d);return d;}
   function label(geo){return (metadata.regions_europe||{})[geo]||metadata.regions_sweden[geo]||metadata.regions_uk[geo]||metadata.regions_finland[geo]||metadata.country_labels[geo]||({'SE':'Sweden, 21 counties grouped by regional exposure','00':'Sweden, national occupation counts'})[geo]||geo;}
-  function select(title,options,value){const box=document.createElement('div');box.className='control';const lab=document.createElement('label');lab.textContent=title;const el=document.createElement('select');el.setAttribute('aria-label',title);options.forEach(([v,t])=>el.add(new Option(t,v)));el.value=value;box.append(lab,el);return {box,el};}
+  function ageButtons(title,options,value){
+    const box=document.createElement('div');box.className='control age-control';box.setAttribute('role','group');box.setAttribute('aria-label',title);
+    const lab=document.createElement('span');lab.className='age-control-label';lab.textContent='Select an age group';
+    const el=document.createElement('input');el.type='hidden';el.value=value;el.setAttribute('aria-label',title);
+    const buttons=document.createElement('div');buttons.className='age-tabs';
+    for(const [v,text] of options){const b=document.createElement('button');b.type='button';b.textContent=text;b.dataset.value=v;b.setAttribute('aria-pressed',String(v===value));b.onclick=()=>{el.value=v;el.dispatchEvent(new Event('change'));};buttons.append(b);}
+    el.addEventListener('change',()=>{buttons.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.value===el.value)));});
+    box.append(lab,buttons,el);return {box,el};
+  }
+  function select(title,options,value){if(/^Observed.*age/i.test(title))return ageButtons(title,options,value);const box=document.createElement('div');box.className='control';const lab=document.createElement('label');lab.textContent=title;const el=document.createElement('select');el.setAttribute('aria-label',title);options.forEach(([v,t])=>el.add(new Option(t,v)));el.value=value;box.append(lab,el);return {box,el};}
   function time(t){if(t.length===7){const [y,m]=t.split('-').map(Number);return y+(m-1)/12;}return Number(t);}
   function save(blob,name){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),3000);}
   function csv(rows){const cols=['series','time','index','count','count_unit'];return cols.join(',')+'\n'+rows.map(r=>cols.map(k=>'"'+String(r[k]??'').replaceAll('"','""')+'"').join(',')).join('\n');}
@@ -48,8 +57,6 @@
     try{const d=await load(name);const geos=[...new Set(d.records.map(r=>r.geo))];let preferred=name==='se_monthly'?'SE':name==='se_annual'?'00':geos.includes('EU27_2020')?'EU27_2020':geos[0];
       const geo=select('Geography',geos.map(g=>[g,label(g)]),preferred);const age=select('Observed age group',d.ages.map(a=>[a,a]),d.default_age);const sex=select('Source sex category',[['T','All recorded sexes'],['F','Women'],['M','Men']],'T');if(!d.records.some(r=>r.sex==='M'))sex.el.disabled=true;controls.append(geo.box,age.box,sex.box);
       const question=document.createElement('div');question.className='story-question';question.textContent=name==='nuts2'?'Does the highest-exposure regional group follow the same employment path at every age?':name==='se_monthly'?'How does monthly employment evolve in regions with different pre-period AI exposure?':'How do observed employment paths differ across occupational AI-exposure groups?';controls.before(question);
-      const ageTabs=document.createElement('div');ageTabs.className='age-tabs';ageTabs.setAttribute('role','group');ageTabs.setAttribute('aria-label','Compare observed age groups');
-      if(name==='nuts2'){for(const value of d.ages){const b=document.createElement('button');b.type='button';b.textContent=value;b.setAttribute('aria-pressed',String(value===age.el.value));b.onclick=()=>{age.el.value=value;age.el.dispatchEvent(new Event('change'));};ageTabs.append(b);}controls.after(ageTabs);age.el.addEventListener('change',()=>{[...ageTabs.children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===age.el.value)));});}
       note.replaceChildren();const strong=document.createElement('strong');strong.textContent=`${d.source} · ${d.frequency} · ${d.exposure_kind}`;note.append(strong,document.createTextNode(d.note));
       const render=()=>{const g=geo.el.value,a=age.el.value,s=sex.el.value;content.replaceChildren();const allAge=name==='se_monthly'?'20–64':name==='se_annual'?'16–64':name==='nuts2'?a:'15–64';const commonNote=`${label(g)} · ${d.frequency} · ${d.exposure_kind}. Observed points only; 2022 source-consistent baseline.${name==='nuts2'?' Fixed 208-region European cohort; country/region selections are subsets. Overlapping age totals are separate selections.':''}`;
         const box1=document.createElement('div');content.append(box1);chart(box1,d.records.filter(r=>r.geo===g&&r.age===allAge&&r.sex===s),`Employment by exposure | ${allAge}`,commonNote);
@@ -82,7 +89,7 @@
   }
   let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{document.querySelectorAll('.explorer').forEach(h=>{if(h.redrawCharts&&h.closest('details').open)h.redrawCharts();});if(redrawSoftware&&$('software-results').open)redrawSoftware();},120);});
   document.addEventListener('DOMContentLoaded',async()=>{
-    try{metadata=await (await fetch('data/metadata.json?v=20261125-copy-clean-v1')).json();
+    try{metadata=await (await fetch('data/metadata.json?v=20261125-age-buttons-v1')).json();
       document.querySelectorAll('.explorer').forEach(host=>{const detail=host.closest('details');const init=()=>{if(!host.dataset.loaded){host.dataset.loaded='true';explorer(host,host.dataset.dataset);}};detail.addEventListener('toggle',()=>{if(detail.open){init();if(host.redrawCharts)host.redrawCharts();}});if(detail.open)init();});
       const sd=$('software-results');if(sd.open&&!sd.dataset.loaded){sd.dataset.loaded='true';software().catch(console.error);}sd.addEventListener('toggle',()=>{if(sd.open&&!sd.dataset.loaded){sd.dataset.loaded='true';software().catch(console.error);}});
       document.querySelectorAll('[data-open]').forEach(button=>button.onclick=()=>{const detail=$(button.dataset.open);detail.open=true;detail.scrollIntoView({behavior:'smooth',block:'start'});});
