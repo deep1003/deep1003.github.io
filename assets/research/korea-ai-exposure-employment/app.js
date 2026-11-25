@@ -1,15 +1,22 @@
 'use strict';
 
 function novemberIndex(rows) {
- const bases=new Map();
- for(const r of rows) if(String(r.time).slice(0,7)==='2022-11') {
-  const v=Number.isFinite(r.employment)?r.employment:Number.isFinite(r.count)?r.count:r.index;
-  if(Number.isFinite(v)&&v>0) bases.set(r.series,v);
+ const monthly=rows.filter(r=>/^\d{4}-(0[1-9]|1[0-2])$/.test(String(r.time)));
+ const measure=new Map(),bases=new Map(),seen=new Set();
+ for(const r of monthly){
+  const key=JSON.stringify([r.series,r.time]);
+  if(seen.has(key))throw Error('계열·관측월 중복을 발견했습니다.');
+  seen.add(key);
+  if(Object.prototype.hasOwnProperty.call(r,'employment'))measure.set(r.series,'employment');
+  else if(!measure.has(r.series))measure.set(r.series,Object.prototype.hasOwnProperty.call(r,'count')?'count':'index');
  }
- return rows.filter(r=>/^202[2-9]-\d{2}/.test(String(r.time))).map(r=>{
-  const v=Number.isFinite(r.employment)?r.employment:Number.isFinite(r.count)?r.count:r.index;
-  const b=bases.get(r.series);
-  return {...r,index:b&&Number.isFinite(v)?100*v/b:null};
+ for(const r of monthly)if(r.time==='2022-11'){
+  const value=r[measure.get(r.series)];
+  if(Number.isFinite(value)&&value>0)bases.set(r.series,value);
+ }
+ return monthly.filter(r=>r.time>='2022-01').map(r=>{
+  const value=r[measure.get(r.series)],base=bases.get(r.series);
+  return {...r,index:Number.isFinite(base)&&Number.isFinite(value)&&value>=0?100*value/base:null};
  });
 }
 
@@ -29,26 +36,28 @@ const endLabels={id:'endLabels',afterDatasetsDraw(chart){
  const ctx=chart.ctx,area=chart.chartArea,labels=[];
  chart.data.datasets.forEach((d,i)=>{if(d.label==='2022년 11월 100'||!chart.isDatasetVisible(i))return;
  let n=d.data.length-1;while(n>=0&&d.data[n]==null)n--;if(n<0)return;
- const p=chart.getDatasetMeta(i).data[n];if(p&&!p.skip)labels.push({x:p.x,y:p.y,target:p.y,text:d.label,colour:d.borderColor,focus:d.borderWidth>3});});
+ const p=chart.getDatasetMeta(i).data[n];if(p&&!p.skip)labels.push({x:p.x,y:p.y,target:p.y,text:d.label+(n<chart.data.labels.length-1?' ('+chart.data.labels[n]+')':''),colour:d.borderColor,focus:d.borderWidth>3});});
  labels.sort((a,b)=>a.y-b.y);const gap=23;
  labels.forEach((p,i)=>{p.y=Math.max(area.top+7,p.y,i?labels[i-1].y+gap:area.top+7);});
  for(let i=labels.length-1;i>=0;i--)labels[i].y=Math.min(labels[i].y,i<labels.length-1?labels[i+1].y-gap:area.bottom-6);
  ctx.save();ctx.textBaseline='middle';labels.forEach(p=>{ctx.font='bold 13px Arial, sans-serif';ctx.strokeStyle='#fff';ctx.lineWidth=3.5;ctx.lineJoin='round';const raw=p.text.replace(' · 높은 THAIE','').replace(' · 낮은 THAIE','');const text=raw==='Q1'?'Q1 · 가장 낮음':raw==='Q5'?'Q5 · 가장 높음':raw;
  if(Math.abs(p.y-p.target)>5){ctx.beginPath();ctx.moveTo(p.x+3,p.target);ctx.lineTo(area.right+7,p.y);ctx.strokeStyle=p.colour;ctx.lineWidth=.7;ctx.stroke();}
- ctx.strokeText(text,area.right+10,p.y);ctx.fillStyle=p.colour;ctx.fillText(text,area.right+10,p.y);});ctx.restore();
+ ctx.strokeStyle='#fff';ctx.strokeText(text,area.right+10,p.y);ctx.fillStyle=p.colour;ctx.fillText(text,area.right+10,p.y);});ctx.restore();
 }};
 
 const byId=id=>document.getElementById(id);
 function options(id,items,value){const s=byId(id);for(const [v,t] of items){const o=document.createElement('option');o.value=v;o.textContent=t;s.append(o);}s.value=value;}
 function val(id){return byId(id).value;}
-function render(id,rows,keys,labelFn,focusGroup=false,yRange=null,sexComparison=false){
+function render(id,rows,keys,labelFn,focusGroup=false,yRange=null,sexComparison=false,measureTitle='고용지수'){
+ sexComparison=sexComparison||(keys.length===2&&keys.every(k=>k==='Male'||k==='Female'));
  rows=novemberIndex(rows);
- const holder=byId(id+'-chart'); if(charts[id])charts[id].destroy();holder.replaceChildren();const canvas=document.createElement('canvas');canvas.setAttribute('aria-label','고용지수 2022년 11월 100');canvas.setAttribute('role','img');holder.append(canvas);
+ const holder=byId(id+'-chart'); if(charts[id])charts[id].destroy();holder.replaceChildren();const canvas=document.createElement('canvas');canvas.setAttribute('aria-label',measureTitle+' 2022년 11월 100');canvas.setAttribute('role','img');holder.append(canvas);
  const times=[...new Set(rows.map(r=>r.time))].sort();const datasets=keys.map((k,i)=>({label:labelFn(k),data:times.map(t=>{const r=rows.find(r=>r.time===t&&r.series===k);return r&&r.index!==null?r.index:null;}),borderColor:sexComparison?(k==='Male'?'#C64F5A':'#577C96'):(k==='Q5'||focusGroup?focusColor:(String(k).startsWith('Q')?colors[i%colors.length]:ageColors[i%ageColors.length])),backgroundColor:sexComparison?(k==='Male'?'#C64F5A':'#577C96'):(k==='Q5'||focusGroup?focusColor:(String(k).startsWith('Q')?colors[i%colors.length]:ageColors[i%ageColors.length])),pointRadius:0,pointHoverRadius:0,pointHitRadius:8,borderWidth:3.4,borderDash:focusGroup?lineDashes[i%lineDashes.length]:[],order:sexComparison?0:(k==='Q5'||focusGroup?0:2),fill:sexComparison&&i===1?{target:0,above:"#71818b16",below:"#71818b16"}:false,spanGaps:false}));
- datasets.push({label:'2022년 11월 100',data:times.map(()=>100),borderColor:'#99a7ae',borderDash:[4,4],pointRadius:0,borderWidth:0.8,order:4});
- charts[id]=new Chart(canvas,{type:'line',data:{labels:times,datasets},plugins:[whiteOutline,endLabels],options:{layout:{padding:{right:sexComparison?65:155,top:16}},animation:false,responsive:true,maintainAspectRatio:false,interaction:{mode:'nearest',intersect:false},plugins:{legend:{display:false},tooltip:{mode:'nearest',intersect:false,filter:ctx=>ctx.dataset.label!=='2022년 11월 100',backgroundColor:'rgba(255,255,255,0.96)',titleColor:'#667580',bodyColor:'#263b47',borderColor:'#dce3e7',borderWidth:1,cornerRadius:4,padding:7,displayColors:false,caretSize:3,caretPadding:9,titleFont:{size:10,weight:'normal'},bodyFont:{size:11},callbacks:{label:ctx=>ctx.dataset.label+' · '+Number(ctx.parsed.y).toFixed(1)}}},scales:{y:{...(yRange||{}),grid:{color:'#e9edf0'},title:{display:true,text:'고용지수 · 2022년 11월 = 100'}},x:{grid:{display:false},ticks:{autoSkip:times.length!==12,maxTicksLimit:times.length===12?12:10,maxRotation:times.length===12?(sexComparison?65:30):0,minRotation:times.length===12?(sexComparison?65:30):0,font:{size:sexComparison?8:11}},title:{display:true,text:String(times[0]||'').length===7?'실제 조사연월':'연도'}}}}});
+ datasets.push({label:'2022년 11월 100',data:times.map(()=>100),borderColor:'#99a7ae',borderDash:[4,4],pointRadius:0,pointHoverRadius:0,pointHitRadius:0,borderWidth:0.8,order:4});
+ const stale=datasets.slice(0,-1).some(d=>d.data.some(v=>v!==null)&&d.data.at(-1)===null);
+ charts[id]=new Chart(canvas,{type:'line',data:{labels:times,datasets},plugins:[whiteOutline,endLabels],options:{layout:{padding:{right:sexComparison?(stale?155:65):155,top:16}},animation:false,responsive:true,maintainAspectRatio:false,interaction:{mode:'nearest',intersect:false},plugins:{legend:{display:false},tooltip:{mode:'nearest',intersect:false,filter:ctx=>ctx.dataset.label!=='2022년 11월 100',backgroundColor:'rgba(255,255,255,0.96)',titleColor:'#667580',bodyColor:'#263b47',borderColor:'#dce3e7',borderWidth:1,cornerRadius:4,padding:7,displayColors:false,caretSize:3,caretPadding:9,titleFont:{size:10,weight:'normal'},bodyFont:{size:11},callbacks:{label:ctx=>ctx.dataset.label+' · '+Number(ctx.parsed.y).toFixed(1)}}},scales:{y:{...(yRange||{}),grid:{color:'#e9edf0'},title:{display:true,text:measureTitle+' · 2022년 11월 = 100'}},x:{afterBuildTicks(axis){if(times.length>12){const available=axis.chart.width-(sexComparison?65:155)-70;const count=Math.max(3,Math.floor(available/65));const stride=Math.ceil((times.length-1)/(count-1));axis.ticks=axis.ticks.filter(t=>t.value%stride===0||t.value===times.length-1);}},grid:{display:false},ticks:{autoSkip:false,maxTicksLimit:times.length===12?12:10,maxRotation:times.length===12?(sexComparison?65:30):0,minRotation:times.length===12?(sexComparison?65:30):0,font:{size:sexComparison?8:11}},title:{display:true,text:String(times[0]||'').length===7?'실제 조사연월':'연도'}}}}});
  if(!rows.some(r=>r.index!=null)){charts[id].destroy();delete charts[id];holder.replaceChildren();const message=document.createElement('p');message.className='note';message.textContent='실제 2022년 11월 기준값이 없어 이 그래프는 표시하지 않습니다.';holder.append(message);}
- const wrap=byId(id+'-table');wrap.replaceChildren();const table=document.createElement('table');const cap=document.createElement('caption');cap.textContent='지수 · 빈칸은 표본 또는 기준기간 부족으로 미표시';table.append(cap);const thead=table.createTHead();let tr=thead.insertRow();for(const text of ['시점',...keys.map(labelFn)]){const th=document.createElement('th');th.textContent=text;tr.append(th);}const body=table.createTBody();for(const t of times){tr=body.insertRow();tr.insertCell().textContent=t;for(const k of keys){const r=rows.find(r=>r.time===t&&r.series===k);tr.insertCell().textContent=r&&r.index!=null?r.index.toFixed(1):'';}}wrap.append(table);
+ const wrap=byId(id+'-table');wrap.replaceChildren();const table=document.createElement('table');const cap=document.createElement('caption');cap.textContent=measureTitle+' · 2022년 11월=100 · 빈칸은 미관측 또는 기준기간 부족'+(sexComparison?' · 음영은 지수 간 간격이며 신뢰구간 아님':'');table.append(cap);const thead=table.createTHead();let tr=thead.insertRow();for(const text of ['시점',...keys.map(labelFn)]){const th=document.createElement('th');th.textContent=text;tr.append(th);}const body=table.createTBody();for(const t of times){tr=body.insertRow();tr.insertCell().textContent=t;for(const k of keys){const r=rows.find(r=>r.time===t&&r.series===k);tr.insertCell().textContent=r&&r.index!=null?r.index.toFixed(1):'';}}wrap.append(table);
 }
 Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fetch('data/'+n+'.json').then(r=>{if(!r.ok)throw Error('자료 로드 실패');return r.json();}))).then(([meta,res,monthly,administrative,genderTotals])=>{
  const ages=[['All','전체 15세 이상'],...meta.ages.map(a=>[a,a+'세'])],sexes=Object.entries(sexNames),freq=[['annual','연도별 · 4월·10월 평균'],['wave','실제 조사시점 · 4월·10월']];
@@ -56,12 +65,12 @@ Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fet
  for(const id of ['exp-sex','occ-sex','ind-sex','mon-sex'])options(id,sexes,'All');
  for(const id of ['exp-freq','occ-freq','sex-freq','ind-freq'])options(id,freq,'wave');
  const inds=[['All','전체 산업'],...meta.industries.map(x=>['industry_'+x.id,x.id+' · '+x.name])];options('exp-ind',inds,'All');options('sex-ind',inds,'All');
- options('ind-id',meta.industries.map(x=>[x.id,x.id+' · '+x.name]),'62');options('occ-id',meta.occupations.map(x=>[x.id,x.id+' · '+x.name]),'222');options('sex-q',[1,2,3,4,5].map(i=>['Q'+i,'Q'+i+(i===5?' · 가장 높음':i===1?' · 가장 낮음':'')]),'Q5');options('mon-freq',[['monthly','월별 · 관측치'],['annual','연도별 · 12개월 평균']],'monthly');
+ options('ind-id',meta.industries.map(x=>[x.id,x.id+' · '+x.name]),'62');options('occ-id',meta.occupations.map(x=>[x.id,x.id+' · '+x.name]),'222');options('sex-q',[1,2,3,4,5].map(i=>['Q'+i,'Q'+i+(i===5?' · 가장 높음':i===1?' · 가장 낮음':'')]),'Q5');options('mon-freq',[['monthly','월별 · 실제 관측']],'monthly');
 
  options('gender-age',ages,'22–25');options('gender-ind',inds,'All');options('gender-freq',freq,'wave');
- for(const kind of ['software','industry62']){options(kind+'-sex',sexes,'All');options(kind+'-freq',[['monthly','월별 · 실제 관측'],['annual','연도별 · 완료연도 12개월 평균']],'monthly');}
+ for(const kind of ['software','industry62']){options(kind+'-sex',sexes,'All');options(kind+'-freq',[['monthly','월별 · 실제 관측']],'monthly');}
  const Q=['Q1','Q2','Q3','Q4','Q5'];
- function genderPanels(){const slug=val('gender-age').replaceAll('–','-').replace('+','plus').toLowerCase();byId('gender-figure-downloads').hidden=true;byId('gender-png').href='figures/sex-by-quintile-'+slug+'.png';byId('gender-pdf').href='figures/sex-by-quintile-'+slug+'.pdf';const filter=r=>r.scope===val('gender-ind')&&r.agegroup===val('gender-age')&&r.frequency===val('gender-freq')&&r.sex!=='All';const rows=res.filter(r=>r.kind==='exposure'&&filter(r));const totals=genderTotals.filter(filter);const q5=rows.filter(r=>r.line==='Q5'&&r.index!=null),times=[...new Set(q5.map(r=>r.time))].sort().reverse();const latest=times.find(t=>['Male','Female'].every(sex=>q5.some(r=>r.time===t&&r.sex===sex)));byId('gender-reading').textContent=latest?`${latest} Q5의 고용지수는 남성 ${q5.find(r=>r.time===latest&&r.sex==='Male').index.toFixed(1)}, 여성 ${q5.find(r=>r.time===latest&&r.sex==='Female').index.toFixed(1)}입니다. 각각 자기 집단의 2022년 11월과 비교한 값이며, 인구·직업 구성을 통제한 성별 효과는 아닙니다.`:'선택한 조건에서 Q5의 남녀를 같은 시점에 비교할 표시 요건이 충족되지 않습니다. 각 패널의 결측과 수치 보기를 확인해 주세요.';const ys=[...rows,...totals].filter(r=>r.index!=null).map(r=>r.index);const range=ys.length?{min:Math.floor((Math.min(...ys)-2)/5)*5,max:Math.ceil((Math.max(...ys)+2)/5)*5}:null;for(const q of [...Q,'all']){const data=(q==='all'?totals:rows.filter(r=>r.line===q)).map(r=>({...r,series:r.sex}));render('gender-q'+(q==='all'?'all':q.slice(1)),data,['Male','Female'],k=>sexNames[k],false,range,true);}}
+ function genderPanels(){const slug=val('gender-age').replaceAll('–','-').replace('+','plus').toLowerCase();byId('gender-figure-downloads').hidden=true;byId('gender-png').href='figures/sex-by-quintile-'+slug+'.png';byId('gender-pdf').href='figures/sex-by-quintile-'+slug+'.pdf';const filter=r=>r.scope===val('gender-ind')&&r.agegroup===val('gender-age')&&r.frequency===val('gender-freq')&&r.sex!=='All';const rows=res.filter(r=>r.kind==='exposure'&&filter(r));const totals=genderTotals.filter(filter);const q5=rows.filter(r=>r.line==='Q5'&&r.index!=null),times=[...new Set(q5.map(r=>r.time))].sort().reverse();const latest=times.find(t=>['Male','Female'].every(sex=>q5.some(r=>r.time===t&&r.sex===sex)));byId('gender-reading').textContent='이 과거 반기조사 자료의 지수는 2022년 4·10월 평균 기준입니다. 11월 관측값이 없어 현재 그래프는 표시하지 않습니다.';const ys=[...rows,...totals].filter(r=>r.index!=null).map(r=>r.index);const range=ys.length?{min:Math.floor((Math.min(...ys)-2)/5)*5,max:Math.ceil((Math.max(...ys)+2)/5)*5}:null;for(const q of [...Q,'all']){const data=(q==='all'?totals:rows.filter(r=>r.line===q)).map(r=>({...r,series:r.sex}));render('gender-q'+(q==='all'?'all':q.slice(1)),data,['Male','Female'],k=>sexNames[k],false,range,true);}}
  function administrativePanel(kind){const sourceKind=kind==='industry62'?'software':kind;const all=administrative.filter(r=>r.kind===sourceKind&&r.sex===val(kind+'-sex')&&r.frequency===val(kind+'-freq'));const allowed=val(kind+'-range')==='young'?['20~24세 이하','25~29세 이하','30~34세 이하','35~39세 이하','40~44세 이하','45~49세 이하']:['50~54세 이하','55~59세 이하','60~64세 이하','65~69세 이하','70세 이상'];render(kind,all.filter(r=>allowed.includes(r.age_group)).map(r=>({...r,series:r.age_group})),allowed,k=>k.replace('세 이하','세'));}
  render('overall',res.filter(r=>r.kind==='exposure'&&r.scope==='All'&&r.agegroup==='All'&&r.sex==='All'&&r.frequency==='wave').map(r=>({...r,series:r.line})),Q,k=>k);
  genderPanels();document.querySelectorAll('select[id^="gender-"]').forEach(s=>s.addEventListener('change',genderPanels));
@@ -76,7 +85,7 @@ Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fet
  mon:()=>render('mon',monthly.filter(r=>meta.ages.includes(r.agegroup)&&r.sex===val('mon-sex')&&r.frequency===val('mon-freq')).map(r=>({...r,series:r.agegroup})),meta.ages,k=>k+'세')};
  for(const [id,fn] of Object.entries(renderers)){fn();document.querySelectorAll('select[id^="'+id+'-"]').forEach(s=>s.addEventListener('change',fn));}
  document.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)for(const c of Object.values(charts))c.resize();}));
-}).catch(err=>{const p=document.createElement('p');p.className='note';p.textContent='인터랙티브 자료를 불러오지 못했습니다. 정적 그림과 CSV를 이용해 주세요. '+err.message;byId('results').prepend(p);console.error(err);});
+}).catch(err=>{const p=document.createElement('p');p.className='note';p.textContent='인터랙티브 자료를 불러오지 못했습니다. 새로고침하거나 현행 집계 CSV를 확인해 주세요. '+err.message;byId('results').prepend(p);console.error(err);});
 
 // Monthly administrative stocks. No occupation-to-THAIE assignment is inferred here.
 (async()=>{
@@ -105,19 +114,21 @@ Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fet
  if(!response.ok)throw Error('월별 분위별 자료 로드 실패');
  const source=await response.json();
  options('mq-age',source.ages.map(a=>[a.id,a.label]),source.ages[0].id);
+ options('mq-mode',[['observed','관측 고용지수'],['standardized','기준월 직종 구성 고정 지수']],'observed');
  function draw(){
   const age=val('mq-age'),meta=source.ages.find(a=>a.id===age);
-  const rows=source.rows.filter(r=>r.age===age);
+  const standardized=val('mq-mode')==='standardized';
+  const rows=source.rows.filter(r=>r.age===age).map(r=>({...r,index:standardized?r.standardized_index:r.index}));
   const values=rows.filter(r=>r.index!==null).map(r=>r.index);
   const range={min:Math.floor((Math.min(100,...values)-3)/5)*5,max:Math.ceil((Math.max(100,...values)+3)/5)*5};
-  byId('mq-coverage').textContent=meta.label+' · 남녀 동일 '+meta.occupations+'개 직종을 35개 관측월에 고정했습니다. 2022년 11월 원표에 관측된 해당 연령 피보험자 대비 포함 비중은 남성 '+meta.coverage.Male.toFixed(1)+'%, 여성 '+meta.coverage.Female.toFixed(1)+'%입니다.';
+  byId('mq-coverage').textContent=meta.label+' · 남녀 동일 '+meta.occupations+'개 직종을 35개 관측월에 고정했습니다. 2022년 11월 일반직종 원표(분류불능 포함) 대비 포함 비중은 남성 '+meta.coverage.Male.toFixed(1)+'%, 여성 '+meta.coverage.Female.toFixed(1)+'%입니다.';
   for(const group of ['Q1','Q2','Q3','Q4','Q5','All']){
-   const selected=rows.filter(r=>r.group===group).map(r=>({...r,series:r.sex}));
-   render('mq-'+group.toLowerCase(),selected,['Male','Female'],s=>sexNames[s],false,range,true);
+   const selected=rows.filter(r=>r.group===group).map(r=>standardized?{time:r.time,series:r.sex,index:r.standardized_index}:{...r,series:r.sex});
+   render('mq-'+group.toLowerCase(),selected,['Male','Female'],s=>sexNames[s],false,range,true,standardized?'직종 구성 고정 지수':'고용지수');
    byId('mq-'+group.toLowerCase()+'-count').textContent=group==='All'?'동일한 포함 직종 전체':meta.cohort_counts[group]+'개 직종';
   }
  }
- draw();byId('mq-age').addEventListener('change',draw);
+ draw();byId('mq-age').addEventListener('change',draw);byId('mq-mode').addEventListener('change',draw);
 })().catch(error=>{
  const holder=byId('mq-coverage');if(holder)holder.textContent=error.message;
 });
