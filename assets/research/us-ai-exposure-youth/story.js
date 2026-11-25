@@ -34,12 +34,22 @@
   };
   function points(row) {
     const i = axes.indexOf(state.outcome) + 1;
-    return row.points.map((p) => ({
-      date: p[0],
-      value: p[i] !== null && p[i + 3] >= 30 ? p[i] : null,
-      n: p[i + 3],
-    }));
+    const result = row.points.map((p, j, source) => {
+      const observed = p[i] !== null && p[i+3] >= 30;
+      if (!observed && p[0] === "2025-10-01") {
+        const before = source.find(v => v[0] === "2025-09-01"), after = source.find(v => v[0] === "2025-11-01");
+        if (before && after && before[i] !== null && after[i] !== null && before[i+3] >= 30 && after[i+3] >= 30)
+          return {date:p[0], value:(before[i]+after[i])/2, n:null, estimated:true};
+      }
+      return {date:p[0], value:observed ? p[i] : null, n:p[i+3], estimated:false};
+    });
+    {
+      const base = result.find(p => p.date === "2022-11-01");
+      return result.filter(p => p.date >= "2022-11-01").map(p => ({...p, value:base && base.value > 0 && p.value !== null ? p.value/base.value*100 : null}));
+    }
+    return result;
   }
+
   function rawRows(age, sex = "All") {
     const family =
       state.comparison === "quintiles" ? data.cps_exposure : data.cps_contrast;
@@ -58,17 +68,11 @@
   }
   function change(row) {
     if (!row) return null;
-    const valid = points(row).filter((p) => p.value !== null),
-      base = valid.filter((p) => /^2022-0[1-9]-/.test(p.date)),
-      end = valid.filter((p) => /^2026-0[1-9]-/.test(p.date));
-    if (base.length !== 9 || end.length !== 9) return null;
-    return (
-      100 *
-      (end.reduce((a, p) => a + p.value, 0) /
-        base.reduce((a, p) => a + p.value, 0) -
-        1)
-    );
+    const valid = points(row).filter(p => p.value !== null && !p.estimated);
+    const base = valid.find(p => p.date === "2022-11-01"), last = valid.find(p => p.date === "2026-10-01");
+    return base && last ? (last.value/base.value-1)*100 : null;
   }
+
   const pct = (v) =>
     v === null ? "unavailable" : `${v >= 0 ? "+" : ""}${v.toFixed(1)}%`;
   function narrative(age, sex = "All") {
@@ -79,7 +83,7 @@
       b = change(rows.find((r) => r.band === "Q1–Q4"));
     if (a === null || b === null)
       return "The selected monthly cells do not support a complete matched-period comparison. Missing values are not zero employment.";
-    return `Across January–September 2022 and the same months in 2026, Q5 ${names[state.outcome]} changed ${pct(a)}, compared with ${pct(b)} in Q1–Q4. These are descriptive headcounts, not a causal estimate.`;
+    return `From November 2022 to October 2026, Q5 ${names[state.outcome]} changed ${pct(a)}, compared with ${pct(b)} in Q1–Q4. These are descriptive headcounts, not a causal estimate.`;
   }
   function legend(box, rows) {
     const leg = document.createElement("div");
@@ -119,7 +123,7 @@
       ),
       height = 450,
       m = { l: 64, r: twin ? 95 : 175, t: 65, b: 65 };
-    const dates = rows.flatMap((r) => r.points.map((p) => Date.parse(p[0]))),
+    const dates = rows.flatMap((r) => points(r).map((p) => Date.parse(p.date))),
       xmin = Math.min(...dates),
       xmax = Math.max(...dates),
       values = good.map((p) => p.value);
@@ -144,8 +148,8 @@
         "desc",
         {},
         rows.some((r) => r.isQ5)
-          ? "Our CPS reconstruction. Each curve uses its own 2022 monthly mean of 100. Q5 is the warm-red line; all quintile lines have equal width; other exposure groups use muted colors. Gaps are unavailable or low-support months."
-          : "Our CPS reconstruction. Exposure is held fixed in this view; muted colors identify age groups. Each curve uses its own 2022 monthly mean of100.",
+          ? "Our CPS reconstruction. Each curve uses its own November 2022 baseline of 100. Q5 is the warm-red line; all quintile lines have equal width; other exposure groups use muted colors. Gaps are unavailable or low-support months."
+          : "Our CPS reconstruction. Exposure is held fixed in this view; muted colors identify age groups. Each curve uses its own November 2022 baseline of 100.",
       ),
     );
     svg.append(el("rect", { x: 0, y: 0, width, height, fill: "white" }));
@@ -187,7 +191,7 @@
           "stroke-width": 0.9,
         }),
       );
-    const months = [...new Set(rows.flatMap(r => r.points.map(p => p[0])))].sort();
+    const months = [...new Set(rows.flatMap(r => points(r).map(p => p.date)))].sort();
     const labelStep = Math.max(1, Math.ceil(months.length / Math.max(2, Math.floor((width-m.l-m.r)/65))));
     months.forEach((date, i) => {
       const tick = el("line", {x1:x(date), x2:x(date), y1:height-m.b, y2:height-m.b+4, stroke:"#aeb4b9", "stroke-width":0.7});
@@ -258,7 +262,7 @@
           "font-size": 12,
           "font-family": "Arial,sans-serif",
         },
-        "Employment index · 2022 mean = 100",
+        "Employment index · November 2022 = 100",
       ),
     );
     // Shade only matched, supported months; preserve all missing-month gaps.
@@ -276,7 +280,7 @@
       };
       for (const a of left) {
         const b = right.get(a.date);
-        if (a.value === null || !b || b.value === null) { drawBand(); continue; }
+        if (a.value === null || a.estimated || !b || b.value === null || b.estimated) { drawBand(); continue; }
         if (segment.length) {
           const prior = new Date(segment.at(-1)[0].date), now = new Date(a.date);
           if ((now.getUTCFullYear()-prior.getUTCFullYear())*12+now.getUTCMonth()-prior.getUTCMonth() !== 1) drawBand();
@@ -292,7 +296,7 @@
       let d = "",
         active = false;
       for (const p of ps) {
-        if (p.value === null) {
+        if (p.value === null || p.estimated) {
           active = false;
           continue;
         }
@@ -322,6 +326,13 @@
           ...(r.context ? { "stroke-dasharray": "4 5" } : {}),
         }),
       );
+      const estimate = ps.find(p => p.estimated);
+      if (estimate) {
+        const before = ps.find(p => p.date === "2025-09-01"), after = ps.find(p => p.date === "2025-11-01");
+        const bridge = `M${x(before.date)},${y(before.value)} L${x(estimate.date)},${y(estimate.value)} L${x(after.date)},${y(after.value)}`;
+        svg.append(el("path", {d:bridge, fill:"none", stroke:"white", "stroke-width":lw+1.9}));
+        svg.append(el("path", {d:bridge, fill:"none", stroke:r.color, "stroke-width":lw, "stroke-dasharray":"6 5", "data-role":"interpolated-October-2025"}));
+      }
       const valid = ps.filter((p) => p.value !== null);
       if (valid.length) {
         const last = valid.at(-1);
@@ -331,20 +342,8 @@
           target: y(last.value),
           actual: y(last.value),
         });
-        if (r.isQ5)
-          svg.append(
-            el("circle", {
-              cx: x(last.date),
-              cy: y(last.value),
-              r: 4.3,
-              fill: r.color,
-              stroke: "white",
-              "stroke-width": 1.2,
-            }),
-          );
       }
       ps.filter((p) => p.value !== null).forEach((p) => {
-        svg.append(el("circle", {cx:x(p.date), cy:y(p.value), r:1.7, fill:r.color, stroke:"white", "stroke-width":0.45, "data-role":"monthly-observation"}));
         const c = el("circle", {
           cx: x(p.date),
           cy: y(p.value),
@@ -355,7 +354,7 @@
           el(
             "title",
             {},
-            `${r.label} · ${p.date.slice(0, 7)} · ${p.value.toFixed(2)} · unweighted n=${Math.round(p.n)}`,
+            `${r.label} · ${p.date.slice(0, 7)} · ${p.value.toFixed(2)} · ${p.estimated ? "interpolated estimate; no observed sample" : "unweighted n="+Math.round(p.n)}`,
           ),
         );
         svg.append(c);
@@ -511,7 +510,7 @@
         );
       $("sex-reading").textContent =
         a !== null && b !== null
-          ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men in matched January–September comparisons. Each series has its own baseline; this descriptive comparison does not establish a causal sex difference.`
+          ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men from November 2022 to October 2026. The plotted series use November 2022 = 100 and start in November 2022; this comparison does not establish a causal sex difference.`
           : "The selected cells do not support a complete matched-period comparison. All six panels use the same vertical scale.";
     }
   }
@@ -528,16 +527,16 @@
       .querySelectorAll(".story-card[open][data-story]")
       .forEach((card) => render(card.dataset.story));
     $("story-status").textContent =
-      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · January2020–October2026. The October2025 gap is not interpolated.`;
+      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · November 2022–October 2026. October 2025 is interpolated between September and November and shown as dashed lines; regressions use observed months.`;
   }
   function csv(id) {
     const plottedChart = plotted.get(id);
     if (!plottedChart) return;
-    const lines = ["series,date,index,unweighted_n"];
+    const lines = ["series,date,index,unweighted_n,status"];
     for (const r of plottedChart.rows)
       for (const p of points(r))
         lines.push(
-          [r.label, p.date, p.value ?? "", p.n ?? ""]
+          [r.label, p.date, p.value ?? "", p.n ?? "", p.estimated ? "interpolated" : "observed"]
             .map((v) => '"' + String(v).replaceAll('"', '""') + '"')
             .join(","),
         );
@@ -561,7 +560,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=monthly-observation-axis-20261125")
+  fetch("data/monthly.json?v=all-nov2022-base-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();
