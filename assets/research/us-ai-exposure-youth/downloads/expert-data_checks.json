@@ -1,0 +1,95 @@
+{
+  "raw_cell_checks": [
+    {
+      "month": "2018-12",
+      "all_age_cell_max_difference": 0.0,
+      "FT_vs_PRWKSTAT_mismatch": 0,
+      "respondents": 79984
+    },
+    {
+      "month": "2019-10",
+      "all_age_cell_max_difference": 0.0,
+      "FT_vs_PRWKSTAT_mismatch": 0,
+      "respondents": 79591
+    },
+    {
+      "month": "2020-01",
+      "all_age_cell_max_difference": 0.0,
+      "FT_vs_PRWKSTAT_mismatch": 0,
+      "respondents": 52847
+    },
+    {
+      "month": "2022-11",
+      "all_age_cell_max_difference": 0.0,
+      "FT_vs_PRWKSTAT_mismatch": 0,
+      "respondents": 44433
+    },
+    {
+      "month": "2026-10",
+      "all_age_cell_max_difference": 0.0,
+      "FT_vs_PRWKSTAT_mismatch": 0,
+      "respondents": 40389
+    }
+  ],
+  "quintile_cutpoints_reproduced": [
+    0.1015269035618936,
+    0.1809314079772768,
+    0.2259366348716715,
+    0.2601817713872521
+  ],
+  "annual_exposure_coverage": {
+    "2017": {
+      "min": 0.9777717340438002,
+      "mean": 0.9830996082635295,
+      "max": 0.9881849408519519
+    },
+    "2018": {
+      "min": 0.9790364248300499,
+      "mean": 0.9835097576544314,
+      "max": 0.9875336610145612
+    },
+    "2019": {
+      "min": 0.9785657406083373,
+      "mean": 0.9830992879837885,
+      "max": 0.9876508250078532
+    },
+    "2020": {
+      "min": 0.9737837588550661,
+      "mean": 0.9815099814350384,
+      "max": 0.9858669540143976
+    },
+    "2021": {
+      "min": 0.9755900340337107,
+      "mean": 0.9805110716256186,
+      "max": 0.9857593099252724
+    },
+    "2022": {
+      "min": 0.9746668340354806,
+      "mean": 0.9810159672968032,
+      "max": 0.9871674706201727
+    },
+    "2023": {
+      "min": 0.9746846303355801,
+      "mean": 0.9823293474384537,
+      "max": 0.985972988355749
+    },
+    "2024": {
+      "min": 0.974394742733575,
+      "mean": 0.9797392636941391,
+      "max": 0.9843533727754887
+    },
+    "2025": {
+      "min": 0.9736063933277945,
+      "mean": 0.980504137763364,
+      "max": 0.9854580262173528
+    },
+    "2026": {
+      "min": 0.9725149084447609,
+      "mean": 0.9827220579817075,
+      "max": 0.9887354806937827
+    }
+  },
+  "crosswalk_split_codes": 56,
+  "independent_parser": false,
+  "scope": "Parser rerun with separate PRWKSTAT definition and aggregation checks; not independent official source verification"
+}

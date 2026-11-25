@@ -568,16 +568,79 @@
     }
   ],
   "exposure_mapping_unique_and_frozen": true,
+  "baseline_weights_and_quintile_thresholds_reconstructed": true,
+  "THAIE_cutpoints": [
+    0.1015269035618936,
+    0.1809314079772768,
+    0.2259366348716715,
+    0.2601817713872521
+  ],
+  "score_vintage": "Retrospective task and capability scores; 2019 employment weights only are historical",
+  "audit_scope": "Hash identity plus same-parser regeneration and independent PRWKSTAT definition; not an independent parser or live official-source verification",
   "FT_PT_sum_identity": true,
   "duplicate_cells": false,
   "fresh_endpoint_reparse": [
     {
+      "month": "2018-12",
+      "age_groups": 6,
+      "max_weighted_count_difference": 0.0,
+      "usual_FT_vs_PRWKSTAT_mismatches": 0
+    },
+    {
+      "month": "2019-10",
+      "age_groups": 6,
+      "max_weighted_count_difference": 0.0,
+      "usual_FT_vs_PRWKSTAT_mismatches": 0
+    },
+    {
+      "month": "2020-01",
+      "age_groups": 6,
+      "max_weighted_count_difference": 0.0,
+      "usual_FT_vs_PRWKSTAT_mismatches": 0
+    },
+    {
       "month": "2022-11",
-      "max_weighted_count_difference": 0.0
+      "age_groups": 6,
+      "max_weighted_count_difference": 0.0,
+      "usual_FT_vs_PRWKSTAT_mismatches": 0
     },
     {
       "month": "2026-10",
-      "max_weighted_count_difference": 0.0
+      "age_groups": 6,
+      "max_weighted_count_difference": 0.0,
+      "usual_FT_vs_PRWKSTAT_mismatches": 0
+    }
+  ],
+  "expanded_five_month_all_six_age_reparse": [
+    {
+      "month": "2018-12",
+      "age_groups": 6,
+      "max_weighted_count_difference": 0.0,
+      "usual_FT_vs_PRWKSTAT_mismatches": 0
+    },
+    {
+      "month": "2019-10",
+      "age_groups": 6,
+      "max_weighted_count_difference": 0.0,
+      "usual_FT_vs_PRWKSTAT_mismatches": 0
+    },
+    {
+      "month": "2020-01",
+      "age_groups": 6,
+      "max_weighted_count_difference": 0.0,
+      "usual_FT_vs_PRWKSTAT_mismatches": 0
+    },
+    {
+      "month": "2022-11",
+      "age_groups": 6,
+      "max_weighted_count_difference": 0.0,
+      "usual_FT_vs_PRWKSTAT_mismatches": 0
+    },
+    {
+      "month": "2026-10",
+      "age_groups": 6,
+      "max_weighted_count_difference": 0.0,
+      "usual_FT_vs_PRWKSTAT_mismatches": 0
     }
   ],
   "interpolated_month_absent": true

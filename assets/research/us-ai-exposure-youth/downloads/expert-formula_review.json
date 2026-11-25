@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "tasks": 19265,
+  "onet": 923,
+  "soc": 798,
+  "census_complete": 547,
+  "task_label_id_alignment": true,
+  "h50_minutes": 203.012577,
+  "h80_minutes": 38.312431,
+  "kappa_per_log2": 0.5762577283029736,
+  "completion_at_h50_h80": [
+    0.5,
+    0.8
+  ],
+  "completion_probability_max_error": 2.7755575615628914e-16,
+  "duration_log_prediction_max_error": 8.881784197001252e-16,
+  "score_reproduction_max_abs_difference": {
+    "E": 9.71445146547012e-17,
+    "THAIE": 1.1102230246251565e-16,
+    "TIME": 9.71445146547012e-17,
+    "ld": 8.881784197001252e-16,
+    "TIME_SHARE": 1.1102230246251565e-16
+  },
+  "effective_task_weight_sum_max_error": 0.0,
+  "unmatched_soc_links_excluded_by_mean": 69,
+  "duration_minutes_range": [
+    21.26790285273503,
+    817.9803943235241
+  ],
+  "predicted_content_range": [
+    0.0,
+    1.0
+  ],
+  "clipped_content_predictions": 2131,
+  "duration_training_labels": 5896,
+  "formula_in_actual_submitted_tex": true,
+  "submitted_zip": "/Users/deep1003/Library/Mobile Documents/com~apple~CloudDocs/data3/Humanities/26_HSSC_SUBMITTED_8e5cae5c/01_submitted_files/THAIE_manuscript_review.zip",
+  "submitted_tex_members": [
+    "main.tex"
+  ],
+  "monotonicity": "Verified decreasing in duration and increasing in horizon at fixed positive slope; no claim all distinct model-specific curves are ordered",
+  "unverified": [
+    "External calibration/transfer of completion curve to workplace domains",
+    "Human task durations are model-based estimates, not measured production time",
+    "Exposure predictions are fitted on the rating sample, not out-of-sample outcome validation",
+    "No bootstrap propagation of content-duration-horizon-linkage uncertainty",
+    "Equal task and hierarchical occupation weights are a modeling choice, not measured task-time shares",
+    "Current American study estimand/quintile definition differs from Korean submitted empirical design"
+  ],
+  "SOC_link_coverage": {
+    "total_links": 867,
+    "census_occupations": 568,
+    "entirely_unmatched_occupations": 21,
+    "partially_covered_occupations": 31,
+    "minimum_fraction_among_retained": 0.5,
+    "retained_below_80pct": 22
+  }
+}

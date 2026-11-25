@@ -147,7 +147,13 @@
       el(
         "desc",
         {},
-        rows.some((r) => r.isQ5)
+        rows.every((r) => r.sexLabel)
+          ? "Women and men within the selected age and exposure group. Each supported curve uses its own November 2022 baseline of 100. Gray shading marks a descriptive index gap, not uncertainty or a causal sex effect."
+          : rows.every((r) => r.sexLabel)
+          ? "Women and men within the selected age and exposure group. Each supported curve uses its own November 2022 baseline of 100. Gray shading marks a descriptive index gap, not uncertainty or a causal sex effect."
+          : rows.every((r) => r.sexLabel)
+          ? "Women and men within the selected age and exposure group. Each supported curve uses its own November 2022 baseline of 100. Gray shading marks a descriptive index gap, not uncertainty or a causal sex effect."
+          : rows.some((r) => r.isQ5)
           ? "Our CPS reconstruction. Each curve uses its own November 2022 baseline of 100. Q5 is the warm-red line; all quintile lines have equal width; other exposure groups use muted colors. Gaps are unavailable or low-support months."
           : "Our CPS reconstruction. Occupation is held fixed in this view; the line shows the selected age group. Each curve uses its own November 2022 baseline of 100.",
       ),
@@ -536,7 +542,7 @@
     for (const r of plottedChart.rows)
       for (const p of points(r))
         lines.push(
-          [r.label, p.date, p.value ?? "", p.n ?? "", p.estimated ? "interpolated" : "observed"]
+          [r.label, p.date, p.value ?? "", p.n ?? "", p.estimated ? "interpolated" : p.value === null ? "unavailable" : "observed"]
             .map((v) => '"' + String(v).replaceAll('"', '""') + '"')
             .join(","),
         );
