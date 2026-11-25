@@ -1,7 +1,8 @@
 /* Official European aggregate data and our own THAIE scores only. No ADP/Stanford data. */
 (() => {
   'use strict';
-  const palette=['#6f9890','#8193af','#a18aa6','#a4a06b','#b4434c','#b8b0a7'];
+  const palette=['#bec1c4','#e0e2e4','#f3d4d6','#e6a5aa','#b4434c','#b8b0a7'];
+  const quintileColors={Q1:'#bec1c4',Q2:'#e0e2e4',Q3:'#f3d4d6',Q4:'#e6a5aa',Q5:'#b4434c'};
   const agePalette=['#9e1b1b','#587b99','#ef5435','#e7a000','#431b1b','#b4a494'];
   const cached=new Map(); let metadata, redrawSoftware;
   const ns='http://www.w3.org/2000/svg';
@@ -9,7 +10,7 @@
   const make=(tag,attrs={},text)=>{const n=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(text!==undefined)n.textContent=text;return n;};
   const number=v=>v!==null&&Number.isFinite(v);
   const fmt=v=>number(v)?v.toLocaleString('en-GB',{maximumFractionDigits:2}):'Unavailable';
-  async function load(name){if(cached.has(name))return cached.get(name);const response=await fetch(`data/${name}.json?v=20261125-birdview-v2`);if(!response.ok)throw Error(`Data download failed (${response.status})`);const d=await response.json();d.records=(d.rows||[]).map(row=>Object.fromEntries(d.columns.map((k,i)=>[k,row[i]])));cached.set(name,d);return d;}
+  async function load(name){if(cached.has(name))return cached.get(name);const response=await fetch(`data/${name}.json?v=20261125-quintile-red-v1`);if(!response.ok)throw Error(`Data download failed (${response.status})`);const d=await response.json();d.records=(d.rows||[]).map(row=>Object.fromEntries(d.columns.map((k,i)=>[k,row[i]])));cached.set(name,d);return d;}
   function label(geo){return (metadata.regions_europe||{})[geo]||metadata.regions_sweden[geo]||metadata.regions_uk[geo]||metadata.regions_finland[geo]||metadata.country_labels[geo]||({'SE':'Sweden, 21 counties grouped by regional exposure','00':'Sweden, national occupation counts'})[geo]||geo;}
   function select(title,options,value){const box=document.createElement('div');box.className='control';const lab=document.createElement('label');lab.textContent=title;const el=document.createElement('select');el.setAttribute('aria-label',title);options.forEach(([v,t])=>el.add(new Option(t,v)));el.value=value;box.append(lab,el);return {box,el};}
   function time(t){if(t.length===7){const [y,m]=t.split('-').map(Number);return y+(m-1)/12;}return Number(t);}
@@ -33,7 +34,7 @@
     const event=2022+11/12;if(event>=xmin&&event<=xmax){svg.append(make('line',{x1:x(event),x2:x(event),y1:margin.top,y2:margin.top+ih,stroke:'#777','stroke-dasharray':'3 3'}));svg.append(make('text',{x:x(event)-5,y:margin.top+8,transform:`rotate(-90 ${x(event)-5} ${margin.top+8})`,'text-anchor':'end','font-size':10,fill:'#555'},'30 Nov 2022'));}
     svg.append(make('text',{x:15,y:margin.top+ih/2,transform:`rotate(-90 15 ${margin.top+ih/2})`,'text-anchor':'middle','font-size':12,fill:'#555'},'Employment index (2022 baseline = 100)'));
     const groups=[...new Set(rows.map(r=>r.series))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));const endings=[];
-    groups.forEach((name,i)=>{const values=rows.filter(r=>r.series===name).sort((a,b)=>time(a.time)-time(b.time));let path='',active=false;for(const r of values){if(!number(r.index)){active=false;continue;}path+=(active?' L':' M')+x(time(r.time)).toFixed(2)+','+y(r.index).toFixed(2);active=true;}const isQ5=name==='Q5',isQuintile=/^Q[1-5]$/.test(name);const color=isQ5?'#b4434c':(options.ages?agePalette:palette)[i%palette.length];const opacity=isQuintile&&!isQ5?.82:1;const lineWidth=isQ5?4.6:isQuintile?2.6:2.8;svg.append(make('path',{'class':'line-halo',d:path,fill:'none',stroke:'#ffffff','stroke-width':lineWidth+2,'stroke-linejoin':'round','stroke-linecap':'round','aria-hidden':'true'}));svg.append(make('path',{'data-series':name,d:path,fill:'none',stroke:color,'stroke-width':lineWidth,opacity,'stroke-linejoin':'round','stroke-linecap':'round'}));
+    groups.forEach((name,i)=>{const values=rows.filter(r=>r.series===name).sort((a,b)=>time(a.time)-time(b.time));let path='',active=false;for(const r of values){if(!number(r.index)){active=false;continue;}path+=(active?' L':' M')+x(time(r.time)).toFixed(2)+','+y(r.index).toFixed(2);active=true;}const isQ5=name==='Q5',isQuintile=/^Q[1-5]$/.test(name);const color=isQuintile?quintileColors[name]:(options.ages?agePalette:palette)[i%palette.length];const opacity=1;const lineWidth=isQ5?4.6:isQuintile?2.6:2.8;svg.append(make('path',{'class':'line-halo',d:path,fill:'none',stroke:'#ffffff','stroke-width':lineWidth+2,'stroke-linejoin':'round','stroke-linecap':'round','aria-hidden':'true'}));svg.append(make('path',{'data-series':name,d:path,fill:'none',stroke:color,'stroke-width':lineWidth,opacity,'stroke-linejoin':'round','stroke-linecap':'round'}));
       values.filter(r=>number(r.index)).forEach(r=>{if(options.points||values.length<15)svg.append(make('circle',{cx:x(time(r.time)),cy:y(r.index),r:isQ5?3.1:2.1,fill:color,opacity,stroke:'#ffffff','stroke-width':1}));});const last=values.filter(r=>number(r.index)).at(-1);if(last)endings.push({name,color,last,y:y(last.index)});});
     endings.sort((a,b)=>a.y-b.y);endings.forEach((e,i)=>{e.labelY=Math.max(e.y,i?endings[i-1].labelY+17:margin.top+10);});if(endings.length&&endings.at(-1).labelY>height-margin.bottom){const shift=endings.at(-1).labelY-(height-margin.bottom);endings.forEach(e=>e.labelY-=shift);}
     endings.forEach(e=>{const px=x(time(e.last.time));svg.append(make('line',{x1:px+3,x2:width-margin.right+9,y1:e.y,y2:e.labelY,stroke:e.color,'stroke-width':.8}));let text=e.name;if(text==='Q1')text=narrow?'Q1 (least)':'Q1 (least exposed)';if(text==='Q5')text=narrow?'Q5 (most)':'Q5 (most exposed)';if(narrow&&text.length>18)text=text.slice(0,17)+'…';svg.append(make('text',{x:width-margin.right+13,y:e.labelY+4,'font-size':12,fill:e.color,'font-weight':e.name==='Q5'?750:400,opacity:/^Q[1-4]$/.test(e.name)?.95:1},text));});
@@ -79,7 +80,7 @@
   }
   let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{document.querySelectorAll('.explorer').forEach(h=>{if(h.redrawCharts&&h.closest('details').open)h.redrawCharts();});if(redrawSoftware&&$('software-results').open)redrawSoftware();},120);});
   document.addEventListener('DOMContentLoaded',async()=>{
-    try{metadata=await (await fetch('data/metadata.json?v=20261125-birdview-v2')).json();
+    try{metadata=await (await fetch('data/metadata.json?v=20261125-quintile-red-v1')).json();
       document.querySelectorAll('.explorer').forEach(host=>{const detail=host.closest('details');const init=()=>{if(!host.dataset.loaded){host.dataset.loaded='true';explorer(host,host.dataset.dataset);}};detail.addEventListener('toggle',()=>{if(detail.open){init();if(host.redrawCharts)host.redrawCharts();}});if(detail.open)init();});
       const sd=$('software-results');if(sd.open&&!sd.dataset.loaded){sd.dataset.loaded='true';software().catch(console.error);}sd.addEventListener('toggle',()=>{if(sd.open&&!sd.dataset.loaded){sd.dataset.loaded='true';software().catch(console.error);}});
       document.querySelectorAll('[data-open]').forEach(button=>button.onclick=()=>{const detail=$(button.dataset.open);detail.open=true;detail.scrollIntoView({behavior:'smooth',block:'start'});});

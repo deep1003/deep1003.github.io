@@ -54,8 +54,17 @@
   "no_new_employment_imputation_or_monthly_interpolation": true,
   "passed": true,
   "quintile_style": {
-    "Q5": "#b4434c; width 4.6; white halo width 6.6",
-    "Q1_Q4": "muted teal, blue-grey, mauve and olive; width 2.6; white halo width 4.6; opacity 0.82"
+    "colors": {
+      "Q1": "#bec1c4",
+      "Q2": "#e0e2e4",
+      "Q3": "#f3d4d6",
+      "Q4": "#e6a5aa",
+      "Q5": "#b4434c"
+    },
+    "Q5_width": 4.6,
+    "other_width": 2.6,
+    "white_halo_extension_each_side": 1,
+    "keyed_by_quintile_not_display_order": true
   },
   "UK_monthly_RTI": {
     "rows": 18614,
