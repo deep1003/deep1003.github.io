@@ -68,7 +68,7 @@ Promise.all(['meta','res','monthly','administrative'].map(n=>fetch('data/'+n+'.j
  const response=await fetch('data/monthly-occupations/manifest.json');if(!response.ok)throw Error('월별 직종 목록을 불러오지 못했습니다.');const manifest=await response.json();
  const software=manifest.find(o=>o.label==='소프트웨어 개발자');const cache=new Map();
  const allOptions=manifest.map(o=>[o.id,o.label==='총계'?'전체 피보험자':o.label]);const crossOptions=manifest.filter(o=>o.cross_end).map(o=>[o.id,o.label]);
- const designer=manifest.find(o=>o.label==='디자이너'),grand=manifest.find(o=>o.label==='총계');options('m-total-occ',allOptions,grand.id);options('m-age-occ',crossOptions,designer.id);options('m-sex-occ',crossOptions,designer.id);
+ options('m-total-occ',allOptions,software.id);options('m-age-occ',crossOptions,software.id);options('m-sex-occ',crossOptions,software.id);
  const young=['20~24세 이하','25~29세 이하','30~34세 이하','35~39세 이하','40~44세 이하','45~49세 이하'];const older=['50~54세 이하','55~59세 이하','60~64세 이하','65~69세 이하','70세 이상'];
  options('m-sex-age',[...young,...older].map(a=>[a,a.replace('세 이하','세')]),young[0]);
  async function load(id){if(!cache.has(id))cache.set(id,fetch('data/monthly-occupations/'+id+'.json').then(r=>{if(!r.ok)throw Error('월별 직종 자료 로드 실패');return r.json();}).then(a=>a.map(r=>({time:r[0],age:r[1],sex:r[2],index:r[3],employment:r[4]}))));return cache.get(id);}
