@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "expected_DID_models": 28,
+  "actual_DID_models": 28,
+  "expected_event_models": 12,
+  "actual_event_models": 12,
+  "all_converged": true,
+  "max_target_score": 3.654746297820921e-07,
+  "max_FE_score": 9.808389897408073e-07,
+  "primary_corrected_significant": 0,
+  "no_interpolation_in_regressions": true,
+  "transition_month_excluded": true
+}
