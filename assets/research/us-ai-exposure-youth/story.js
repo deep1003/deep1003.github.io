@@ -45,7 +45,7 @@
     });
     {
       const base = result.find(p => p.date === "2022-11-01");
-      return result.filter(p => p.date >= "2022-11-01").map(p => ({...p, value:base && base.value > 0 && p.value !== null ? p.value/base.value*100 : null}));
+      return result.filter(p => p.date >= "2022-01-01").map(p => ({...p, value:base && base.value > 0 && p.value !== null ? p.value/base.value*100 : null}));
     }
     return result;
   }
@@ -149,7 +149,7 @@
         {},
         rows.some((r) => r.isQ5)
           ? "Our CPS reconstruction. Each curve uses its own November 2022 baseline of 100. Q5 is the warm-red line; all quintile lines have equal width; other exposure groups use muted colors. Gaps are unavailable or low-support months."
-          : "Our CPS reconstruction. Exposure is held fixed in this view; muted colors identify age groups. Each curve uses its own November 2022 baseline of 100.",
+          : "Our CPS reconstruction. Occupation is held fixed in this view; the line shows the selected age group. Each curve uses its own November 2022 baseline of 100.",
       ),
     );
     svg.append(el("rect", { x: 0, y: 0, width, height, fill: "white" }));
@@ -443,15 +443,15 @@
           (r) =>
             r.scope === scope &&
             r.sex === "All" &&
-            data.metadata.ages.includes(r.age),
+            r.age === state.age,
         )
         .map((r) => ({
           ...r,
-          label: "Ages " + r.age,
-          color: ageColors[data.metadata.ages.indexOf(r.age)],
+          label: r.age === "All ages (16+)" ? r.age : "Ages " + r.age,
+          color: colors[4],
           isQ5: false,
         }));
-      chart("chart-occupation", rows, label + " by age");
+      chart("chart-occupation", rows, `${label} · ${state.age === "All ages (16+)" ? state.age : "ages " + state.age}`);
       const record = data.metadata.occupation_quintiles.find(
         (r) => String(r.occ) === scope,
       );
@@ -459,8 +459,8 @@
         ? "Mixed THAIE exposure"
         : "THAIE Q" + record.THAIE_q;
       $("occupation-reading").textContent = family
-        ? "This broad family contains multiple detailed occupations. The age chart holds the family fixed; the optional panel below compares its available exposure groups."
-        : `${label} is assigned to THAIE Q${record.THAIE_q} in our method. This chart holds the occupation fixed, so color identifies age rather than five within-occupation exposure groups.`;
+        ? "This broad family contains multiple detailed occupations. The chart shows the selected age group; the optional panel below compares available exposure groups."
+        : `${label} is assigned to THAIE Q${record.THAIE_q} in our method. This chart holds the occupation fixed and displays the selected age group (${state.age}). Use the age buttons to switch the plotted series.`;
       $("computer-wrap").hidden = !family;
       if (family) {
         const source =
@@ -510,7 +510,7 @@
         );
       $("sex-reading").textContent =
         a !== null && b !== null
-          ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men from November 2022 to October 2026. The plotted series use November 2022 = 100 and start in November 2022; this comparison does not establish a causal sex difference.`
+          ? `Within Q5, ${names[state.outcome]} changed ${pct(a)} for women and ${pct(b)} for men from November 2022 to October 2026. The plotted series use November 2022 = 100 and start in January 2022; this comparison does not establish a causal sex difference.`
           : "The selected cells do not support a complete matched-period comparison. All six panels use the same vertical scale.";
     }
   }
@@ -527,7 +527,7 @@
       .querySelectorAll(".story-card[open][data-story]")
       .forEach((card) => render(card.dataset.story));
     $("story-status").textContent =
-      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · November 2022–October 2026. October 2025 is interpolated between September and November and shown as dashed lines; regressions use observed months.`;
+      `Our CPS reconstruction · THAIE only · ${state.outcome === "FT" ? "Full-time" : state.outcome === "PT" ? "Part-time" : "Total employment"} · January 2022–October 2026. October 2025 is interpolated between September and November and shown as dashed lines; regressions use observed months.`;
   }
   function csv(id) {
     const plottedChart = plotted.get(id);
@@ -560,7 +560,7 @@
         id + ".svg",
       );
   }
-  fetch("data/monthly.json?v=all-nov2022-base-20261125")
+  fetch("data/monthly.json?v=occupation-age-filter-20261125")
     .then((r) => {
       if (!r.ok) throw new Error("CPS data unavailable");
       return r.json();

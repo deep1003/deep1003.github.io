@@ -1,4 +1,18 @@
 'use strict';
+
+function novemberIndex(rows) {
+ const bases=new Map();
+ for(const r of rows) if(String(r.time).slice(0,7)==='2022-11') {
+  const v=Number.isFinite(r.employment)?r.employment:Number.isFinite(r.count)?r.count:r.index;
+  if(Number.isFinite(v)&&v>0) bases.set(r.series,v);
+ }
+ return rows.filter(r=>/^202[2-9]-\d{2}/.test(String(r.time))).map(r=>{
+  const v=Number.isFinite(r.employment)?r.employment:Number.isFinite(r.count)?r.count:r.index;
+  const b=bases.get(r.series);
+  return {...r,index:b&&Number.isFinite(v)?100*v/b:null};
+ });
+}
+
 const colors=['#B7BABE','#D9DBDE','#F2D9DC','#DF9DA4','#C34E58','#7C8397'];
 const ageColors=['#6F62A3','#3C929D','#7F9C73','#B19264','#6685AF','#89939A'];
 const focusColor='#C34E58';
@@ -7,13 +21,13 @@ const sexNames={All:'전체',Male:'남성',Female:'여성'};
 const charts={};
 const whiteOutline={id:'whiteOutline',beforeDatasetDraw(chart,args){
  const d=chart.data.datasets[args.index],line=args.meta.dataset;
- if(!line||d.label==='2022년 평균 100')return;
+ if(!line||d.label==='2022년 11월 100')return;
  const o=line.options,colour=o.borderColor,width=o.borderWidth;
  try{o.borderColor='#ffffff';o.borderWidth=width+2.0;line.draw(chart.ctx,chart.chartArea,0,line.points.length);}finally{o.borderColor=colour;o.borderWidth=width;}
 }};
 const endLabels={id:'endLabels',afterDatasetsDraw(chart){
  const ctx=chart.ctx,area=chart.chartArea,labels=[];
- chart.data.datasets.forEach((d,i)=>{if(d.label==='2022년 평균 100'||!chart.isDatasetVisible(i))return;
+ chart.data.datasets.forEach((d,i)=>{if(d.label==='2022년 11월 100'||!chart.isDatasetVisible(i))return;
  let n=d.data.length-1;while(n>=0&&d.data[n]==null)n--;if(n<0)return;
  const p=chart.getDatasetMeta(i).data[n];if(p&&!p.skip)labels.push({x:p.x,y:p.y,target:p.y,text:d.label,colour:d.borderColor,focus:d.borderWidth>3});});
  labels.sort((a,b)=>a.y-b.y);const gap=23;
@@ -28,11 +42,12 @@ const byId=id=>document.getElementById(id);
 function options(id,items,value){const s=byId(id);for(const [v,t] of items){const o=document.createElement('option');o.value=v;o.textContent=t;s.append(o);}s.value=value;}
 function val(id){return byId(id).value;}
 function render(id,rows,keys,labelFn,focusGroup=false,yRange=null,sexComparison=false){
- const holder=byId(id+'-chart'); if(charts[id])charts[id].destroy();holder.replaceChildren();const canvas=document.createElement('canvas');canvas.setAttribute('aria-label','고용지수 2022년 평균 100');canvas.setAttribute('role','img');holder.append(canvas);
- const times=[...new Set(rows.map(r=>r.time))].sort();const datasets=keys.map((k,i)=>({label:labelFn(k),data:times.map(t=>{const r=rows.find(r=>r.time===t&&r.series===k);return r&&r.index!==null?r.index:null;}),borderColor:sexComparison?(k==='Male'?'#C64F5A':'#577C96'):(k==='Q5'||focusGroup?focusColor:(String(k).startsWith('Q')?colors[i%colors.length]:ageColors[i%ageColors.length])),backgroundColor:sexComparison?(k==='Male'?'#C64F5A':'#577C96'):(k==='Q5'||focusGroup?focusColor:(String(k).startsWith('Q')?colors[i%colors.length]:ageColors[i%ageColors.length])),pointRadius:times.length>30?0:2.5,borderWidth:3.4,borderDash:focusGroup?lineDashes[i%lineDashes.length]:[],order:sexComparison?0:(k==='Q5'||focusGroup?0:2),fill:sexComparison&&i===1?{target:0,above:"#71818b16",below:"#71818b16"}:false,spanGaps:false}));
- datasets.push({label:'2022년 평균 100',data:times.map(()=>100),borderColor:'#99a7ae',borderDash:[4,4],pointRadius:0,borderWidth:0.8,order:4});
- charts[id]=new Chart(canvas,{type:'line',data:{labels:times,datasets},plugins:[whiteOutline,endLabels],options:{layout:{padding:{right:sexComparison?65:155,top:16}},animation:false,responsive:true,maintainAspectRatio:false,interaction:{mode:'nearest',intersect:false},plugins:{legend:{display:false},tooltip:{mode:'nearest',intersect:false,filter:ctx=>ctx.dataset.label!=='2022년 평균 100',backgroundColor:'rgba(255,255,255,0.96)',titleColor:'#667580',bodyColor:'#263b47',borderColor:'#dce3e7',borderWidth:1,cornerRadius:4,padding:7,displayColors:false,caretSize:3,caretPadding:9,titleFont:{size:10,weight:'normal'},bodyFont:{size:11},callbacks:{label:ctx=>ctx.dataset.label+' · '+Number(ctx.parsed.y).toFixed(1)}}},scales:{y:{...(yRange||{}),grid:{color:'#e9edf0'},title:{display:true,text:'고용지수 · 2022년 평균 = 100'}},x:{grid:{display:false},ticks:{autoSkip:times.length!==12,maxTicksLimit:times.length===12?12:10,maxRotation:times.length===12?(sexComparison?65:30):0,minRotation:times.length===12?(sexComparison?65:30):0,font:{size:sexComparison?8:11}},title:{display:true,text:String(times[0]||'').length===7?'실제 조사연월':'연도'}}}}});
- if(!rows.some(r=>r.index!=null)){charts[id].destroy();delete charts[id];holder.replaceChildren();const message=document.createElement('p');message.className='note';message.textContent='선택한 조건은 표본 수 또는 2022년 기준기간의 표시 요건을 충족하지 않아 그래프를 표시하지 않습니다. 결측을 0으로 대체하지 않았습니다.';holder.append(message);}
+ rows=novemberIndex(rows);
+ const holder=byId(id+'-chart'); if(charts[id])charts[id].destroy();holder.replaceChildren();const canvas=document.createElement('canvas');canvas.setAttribute('aria-label','고용지수 2022년 11월 100');canvas.setAttribute('role','img');holder.append(canvas);
+ const times=[...new Set(rows.map(r=>r.time))].sort();const datasets=keys.map((k,i)=>({label:labelFn(k),data:times.map(t=>{const r=rows.find(r=>r.time===t&&r.series===k);return r&&r.index!==null?r.index:null;}),borderColor:sexComparison?(k==='Male'?'#C64F5A':'#577C96'):(k==='Q5'||focusGroup?focusColor:(String(k).startsWith('Q')?colors[i%colors.length]:ageColors[i%ageColors.length])),backgroundColor:sexComparison?(k==='Male'?'#C64F5A':'#577C96'):(k==='Q5'||focusGroup?focusColor:(String(k).startsWith('Q')?colors[i%colors.length]:ageColors[i%ageColors.length])),pointRadius:0,pointHoverRadius:0,pointHitRadius:8,borderWidth:3.4,borderDash:focusGroup?lineDashes[i%lineDashes.length]:[],order:sexComparison?0:(k==='Q5'||focusGroup?0:2),fill:sexComparison&&i===1?{target:0,above:"#71818b16",below:"#71818b16"}:false,spanGaps:false}));
+ datasets.push({label:'2022년 11월 100',data:times.map(()=>100),borderColor:'#99a7ae',borderDash:[4,4],pointRadius:0,borderWidth:0.8,order:4});
+ charts[id]=new Chart(canvas,{type:'line',data:{labels:times,datasets},plugins:[whiteOutline,endLabels],options:{layout:{padding:{right:sexComparison?65:155,top:16}},animation:false,responsive:true,maintainAspectRatio:false,interaction:{mode:'nearest',intersect:false},plugins:{legend:{display:false},tooltip:{mode:'nearest',intersect:false,filter:ctx=>ctx.dataset.label!=='2022년 11월 100',backgroundColor:'rgba(255,255,255,0.96)',titleColor:'#667580',bodyColor:'#263b47',borderColor:'#dce3e7',borderWidth:1,cornerRadius:4,padding:7,displayColors:false,caretSize:3,caretPadding:9,titleFont:{size:10,weight:'normal'},bodyFont:{size:11},callbacks:{label:ctx=>ctx.dataset.label+' · '+Number(ctx.parsed.y).toFixed(1)}}},scales:{y:{...(yRange||{}),grid:{color:'#e9edf0'},title:{display:true,text:'고용지수 · 2022년 11월 = 100'}},x:{grid:{display:false},ticks:{autoSkip:times.length!==12,maxTicksLimit:times.length===12?12:10,maxRotation:times.length===12?(sexComparison?65:30):0,minRotation:times.length===12?(sexComparison?65:30):0,font:{size:sexComparison?8:11}},title:{display:true,text:String(times[0]||'').length===7?'실제 조사연월':'연도'}}}}});
+ if(!rows.some(r=>r.index!=null)){charts[id].destroy();delete charts[id];holder.replaceChildren();const message=document.createElement('p');message.className='note';message.textContent='실제 2022년 11월 기준값이 없어 이 그래프는 표시하지 않습니다.';holder.append(message);}
  const wrap=byId(id+'-table');wrap.replaceChildren();const table=document.createElement('table');const cap=document.createElement('caption');cap.textContent='지수 · 빈칸은 표본 또는 기준기간 부족으로 미표시';table.append(cap);const thead=table.createTHead();let tr=thead.insertRow();for(const text of ['시점',...keys.map(labelFn)]){const th=document.createElement('th');th.textContent=text;tr.append(th);}const body=table.createTBody();for(const t of times){tr=body.insertRow();tr.insertCell().textContent=t;for(const k of keys){const r=rows.find(r=>r.time===t&&r.series===k);tr.insertCell().textContent=r&&r.index!=null?r.index.toFixed(1):'';}}wrap.append(table);
 }
 Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fetch('data/'+n+'.json').then(r=>{if(!r.ok)throw Error('자료 로드 실패');return r.json();}))).then(([meta,res,monthly,administrative,genderTotals])=>{
@@ -46,8 +61,8 @@ Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fet
  options('gender-age',ages,'22–25');options('gender-ind',inds,'All');options('gender-freq',freq,'wave');
  for(const kind of ['software','industry62']){options(kind+'-sex',sexes,'All');options(kind+'-freq',[['monthly','월별 · 실제 관측'],['annual','연도별 · 완료연도 12개월 평균']],'monthly');}
  const Q=['Q1','Q2','Q3','Q4','Q5'];
- function genderPanels(){const slug=val('gender-age').replaceAll('–','-').replace('+','plus').toLowerCase();byId('gender-figure-downloads').hidden=val('gender-ind')!=='All';byId('gender-png').href='figures/sex-by-quintile-'+slug+'.png';byId('gender-pdf').href='figures/sex-by-quintile-'+slug+'.pdf';const filter=r=>r.scope===val('gender-ind')&&r.agegroup===val('gender-age')&&r.frequency===val('gender-freq')&&r.sex!=='All';const rows=res.filter(r=>r.kind==='exposure'&&filter(r));const totals=genderTotals.filter(filter);const q5=rows.filter(r=>r.line==='Q5'&&r.index!=null),times=[...new Set(q5.map(r=>r.time))].sort().reverse();const latest=times.find(t=>['Male','Female'].every(sex=>q5.some(r=>r.time===t&&r.sex===sex)));byId('gender-reading').textContent=latest?`${latest} Q5의 고용지수는 남성 ${q5.find(r=>r.time===latest&&r.sex==='Male').index.toFixed(1)}, 여성 ${q5.find(r=>r.time===latest&&r.sex==='Female').index.toFixed(1)}입니다. 각각 자기 집단의 2022년 평균과 비교한 값이며, 인구·직업 구성을 통제한 성별 효과는 아닙니다.`:'선택한 조건에서 Q5의 남녀를 같은 시점에 비교할 표시 요건이 충족되지 않습니다. 각 패널의 결측과 수치 보기를 확인해 주세요.';const ys=[...rows,...totals].filter(r=>r.index!=null).map(r=>r.index);const range=ys.length?{min:Math.floor((Math.min(...ys)-2)/5)*5,max:Math.ceil((Math.max(...ys)+2)/5)*5}:null;for(const q of [...Q,'all']){const data=(q==='all'?totals:rows.filter(r=>r.line===q)).map(r=>({...r,series:r.sex}));render('gender-q'+(q==='all'?'all':q.slice(1)),data,['Male','Female'],k=>sexNames[k],false,range,true);}}
- function administrativePanel(kind){if(kind==='industry62')return;const all=administrative.filter(r=>r.kind===kind&&r.sex===val(kind+'-sex')&&r.frequency===val(kind+'-freq'));const allowed=val(kind+'-range')==='young'?['20~24세 이하','25~29세 이하','30~34세 이하','35~39세 이하','40~44세 이하','45~49세 이하']:['50~54세 이하','55~59세 이하','60~64세 이하','65~69세 이하','70세 이상'];render(kind,all.filter(r=>allowed.includes(r.age_group)).map(r=>({...r,series:r.age_group})),allowed,k=>k.replace('세 이하','세'));}
+ function genderPanels(){const slug=val('gender-age').replaceAll('–','-').replace('+','plus').toLowerCase();byId('gender-figure-downloads').hidden=true;byId('gender-png').href='figures/sex-by-quintile-'+slug+'.png';byId('gender-pdf').href='figures/sex-by-quintile-'+slug+'.pdf';const filter=r=>r.scope===val('gender-ind')&&r.agegroup===val('gender-age')&&r.frequency===val('gender-freq')&&r.sex!=='All';const rows=res.filter(r=>r.kind==='exposure'&&filter(r));const totals=genderTotals.filter(filter);const q5=rows.filter(r=>r.line==='Q5'&&r.index!=null),times=[...new Set(q5.map(r=>r.time))].sort().reverse();const latest=times.find(t=>['Male','Female'].every(sex=>q5.some(r=>r.time===t&&r.sex===sex)));byId('gender-reading').textContent=latest?`${latest} Q5의 고용지수는 남성 ${q5.find(r=>r.time===latest&&r.sex==='Male').index.toFixed(1)}, 여성 ${q5.find(r=>r.time===latest&&r.sex==='Female').index.toFixed(1)}입니다. 각각 자기 집단의 2022년 11월과 비교한 값이며, 인구·직업 구성을 통제한 성별 효과는 아닙니다.`:'선택한 조건에서 Q5의 남녀를 같은 시점에 비교할 표시 요건이 충족되지 않습니다. 각 패널의 결측과 수치 보기를 확인해 주세요.';const ys=[...rows,...totals].filter(r=>r.index!=null).map(r=>r.index);const range=ys.length?{min:Math.floor((Math.min(...ys)-2)/5)*5,max:Math.ceil((Math.max(...ys)+2)/5)*5}:null;for(const q of [...Q,'all']){const data=(q==='all'?totals:rows.filter(r=>r.line===q)).map(r=>({...r,series:r.sex}));render('gender-q'+(q==='all'?'all':q.slice(1)),data,['Male','Female'],k=>sexNames[k],false,range,true);}}
+ function administrativePanel(kind){const sourceKind=kind==='industry62'?'software':kind;const all=administrative.filter(r=>r.kind===sourceKind&&r.sex===val(kind+'-sex')&&r.frequency===val(kind+'-freq'));const allowed=val(kind+'-range')==='young'?['20~24세 이하','25~29세 이하','30~34세 이하','35~39세 이하','40~44세 이하','45~49세 이하']:['50~54세 이하','55~59세 이하','60~64세 이하','65~69세 이하','70세 이상'];render(kind,all.filter(r=>allowed.includes(r.age_group)).map(r=>({...r,series:r.age_group})),allowed,k=>k.replace('세 이하','세'));}
  render('overall',res.filter(r=>r.kind==='exposure'&&r.scope==='All'&&r.agegroup==='All'&&r.sex==='All'&&r.frequency==='wave').map(r=>({...r,series:r.line})),Q,k=>k);
  genderPanels();document.querySelectorAll('select[id^="gender-"]').forEach(s=>s.addEventListener('change',genderPanels));
  for(const kind of ['software','industry62']){administrativePanel(kind);document.querySelectorAll('select[id^="'+kind+'-"]').forEach(s=>s.addEventListener('change',()=>administrativePanel(kind)));}
@@ -77,7 +92,7 @@ Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fet
  if(id==='m-total'){keys=['전체 연령'];rows=data.filter(r=>r.age==='All'&&r.sex==='All').map(r=>({...r,series:keys[0]}));start=meta.all_start;end=meta.all_end;}
  else if(id==='m-age'){keys=val(id+'-range')==='young'?young:older;rows=data.filter(r=>keys.includes(r.age)&&r.sex===val(id+'-sex')).map(r=>({...r,series:r.age}));start=meta.cross_start;end=meta.cross_end;}
  else{keys=['Female','Male'];rows=data.filter(r=>r.age===val('m-sex-age')&&keys.includes(r.sex)).map(r=>({...r,series:r.sex}));start=meta.cross_start;end=meta.cross_end;}
- byId(id+'-info').textContent='고용행정통계 · '+meta.label+' · '+start+'–'+end+' · 월말 피보험자 · 2022년 12개월 평균 = 100 · 계절조정 전';
+ byId(id+'-info').textContent='고용행정통계 · '+meta.label+' · '+(start<'2022-01'?'2022-01':start)+'–'+end+' · 월말 피보험자 · 2022년 11월 = 100 · 계절조정 전';
  render(id,fillMonths(rows,keys,start,end),keys,k=>sexNames[k]||k.replace('세 이하','세'));
  }
  for(const id of ['m-total','m-age','m-sex']){await panel(id);document.querySelectorAll('select[id^="'+id+'-"]').forEach(s=>s.addEventListener('change',()=>panel(id).catch(showError)));}
