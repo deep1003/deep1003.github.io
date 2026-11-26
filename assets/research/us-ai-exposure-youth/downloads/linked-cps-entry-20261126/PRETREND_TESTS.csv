@@ -1,0 +1,13 @@
+metric,spec,covariance,terms,rank,covariance_positive,p_value
+relative_pct,main,state_quarter,4,4,False,
+relative_pct,main,state,4,4,True,0.38575437789907674
+relative_pct,main,state_year,4,4,False,
+relative_pct,extended_pre,state_quarter,12,12,False,
+relative_pct,extended_pre,state,12,12,True,0.45777806992996717
+relative_pct,extended_pre,state_year,12,12,False,
+absolute_pp,main,state_quarter,4,4,False,
+absolute_pp,main,state,4,4,True,0.11539015219250406
+absolute_pp,main,state_year,4,4,False,
+absolute_pp,extended_pre,state_quarter,12,12,False,
+absolute_pp,extended_pre,state,12,12,True,0.010952837580971968
+absolute_pp,extended_pre,state_year,12,12,False,

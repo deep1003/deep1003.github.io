@@ -1,0 +1,784 @@
+[
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "origin",
+    "spec": "main",
+    "event": false,
+    "support": {
+      "initial_rows": 119158,
+      "retained_rows": 64092,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 58856,
+      "date_count": 90,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 4583
+    },
+    "fit": {
+      "rows": 64092,
+      "FE_rank": 3875,
+      "parameters": 9,
+      "iterations": 10,
+      "maximum_score": 4.6050575047248596e-11,
+      "condition_number": 16.323944614667298,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "main",
+    "event": false,
+    "support": {
+      "initial_rows": 119158,
+      "retained_rows": 64092,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 58856,
+      "date_count": 90,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 4583
+    },
+    "fit": {
+      "rows": 64092,
+      "FE_rank": 3875,
+      "parameters": 9,
+      "iterations": 10,
+      "maximum_score": 9.044621601084451e-11,
+      "condition_number": 16.483968182077398,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "trim99",
+    "spec": "main",
+    "event": false,
+    "support": {
+      "initial_rows": 119158,
+      "retained_rows": 64092,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 58856,
+      "date_count": 90,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 4583
+    },
+    "fit": {
+      "rows": 64092,
+      "FE_rank": 3875,
+      "parameters": 9,
+      "iterations": 10,
+      "maximum_score": 8.322524641017973e-11,
+      "condition_number": 16.479644277770394,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "calibrated",
+    "spec": "main",
+    "event": false,
+    "support": {
+      "initial_rows": 119158,
+      "retained_rows": 64092,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 58856,
+      "date_count": 90,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 4583
+    },
+    "fit": {
+      "rows": 64092,
+      "FE_rank": 3875,
+      "parameters": 9,
+      "iterations": 10,
+      "maximum_score": 6.307716295567787e-10,
+      "condition_number": 16.533728678100992,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "no_industry",
+    "event": false,
+    "support": {
+      "initial_rows": 9166,
+      "retained_rows": 5764,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 2304,
+      "date_count": 90,
+      "states": 51,
+      "industries": 1,
+      "risk_state_months": 4583
+    },
+    "fit": {
+      "rows": 5764,
+      "FE_rank": 2945,
+      "parameters": 9,
+      "iterations": 7,
+      "maximum_score": 1.0568076624917211e-07,
+      "condition_number": 16.56734502265857,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "no_covid_controls",
+    "event": false,
+    "support": {
+      "initial_rows": 119158,
+      "retained_rows": 64092,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 58856,
+      "date_count": 90,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 4583
+    },
+    "fit": {
+      "rows": 64092,
+      "FE_rank": 3875,
+      "parameters": 1,
+      "iterations": 10,
+      "maximum_score": 8.757463987011272e-11,
+      "condition_number": 1.0,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "trend",
+    "event": false,
+    "support": {
+      "initial_rows": 119158,
+      "retained_rows": 64092,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 58856,
+      "date_count": 90,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 4583
+    },
+    "fit": {
+      "rows": 64092,
+      "FE_rank": 3875,
+      "parameters": 10,
+      "iterations": 10,
+      "maximum_score": 8.946286923315475e-11,
+      "condition_number": 340.6100305928187,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "exclude_covid",
+    "event": false,
+    "support": {
+      "initial_rows": 87334,
+      "retained_rows": 44730,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 41144,
+      "date_count": 66,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 3359
+    },
+    "fit": {
+      "rows": 44730,
+      "FE_rank": 2774,
+      "parameters": 1,
+      "iterations": 9,
+      "maximum_score": 2.1423920524762015e-07,
+      "condition_number": 1.0,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "recovery_2022",
+    "event": false,
+    "support": {
+      "initial_rows": 119158,
+      "retained_rows": 64092,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 58856,
+      "date_count": 90,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 4583
+    },
+    "fit": {
+      "rows": 64092,
+      "FE_rank": 3875,
+      "parameters": 12,
+      "iterations": 10,
+      "maximum_score": 9.256951939705415e-11,
+      "condition_number": 29.22242667989617,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "extended_pre",
+    "event": false,
+    "support": {
+      "initial_rows": 149630,
+      "retained_rows": 83994,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 76989,
+      "date_count": 113,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 5755
+    },
+    "fit": {
+      "rows": 83994,
+      "FE_rank": 4963,
+      "parameters": 9,
+      "iterations": 9,
+      "maximum_score": 5.70519309875597e-07,
+      "condition_number": 12.836222023351539,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "no_bridge",
+    "event": false,
+    "support": {
+      "initial_rows": 101920,
+      "retained_rows": 53259,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 48905,
+      "date_count": 77,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 3920
+    },
+    "fit": {
+      "rows": 53259,
+      "FE_rank": 3290,
+      "parameters": 9,
+      "iterations": 8,
+      "maximum_score": 6.933526417590707e-08,
+      "condition_number": 26.594856801510243,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "matched_missing",
+    "event": false,
+    "support": {
+      "initial_rows": 116506,
+      "retained_rows": 62832,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 57710,
+      "date_count": 88,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 4481
+    },
+    "fit": {
+      "rows": 62832,
+      "FE_rank": 3794,
+      "parameters": 9,
+      "iterations": 10,
+      "maximum_score": 7.843635341213829e-11,
+      "condition_number": 28.587560319899065,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "first_post_Dec22",
+    "event": false,
+    "support": {
+      "initial_rows": 120484,
+      "retained_rows": 64542,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 59253,
+      "date_count": 91,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 4634
+    },
+    "fit": {
+      "rows": 64542,
+      "FE_rank": 3908,
+      "parameters": 9,
+      "iterations": 10,
+      "maximum_score": 9.8328819201222e-11,
+      "condition_number": 16.675510161829234,
+      "poisson": true
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "main",
+    "event": true,
+    "support": {
+      "initial_rows": 119158,
+      "retained_rows": 64092,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 58856,
+      "date_count": 90,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 4583
+    },
+    "fit": {
+      "rows": 64092,
+      "FE_rank": 3875,
+      "parameters": 28,
+      "iterations": 10,
+      "maximum_score": 9.249448943712086e-11,
+      "condition_number": 45.91291797634811,
+      "poisson": true
+    },
+    "post_joint": {
+      "terms": 16,
+      "rank": 16,
+      "covariance_positive": false,
+      "p_value": NaN
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "relative_pct",
+    "method": "ipw",
+    "spec": "extended_pre",
+    "event": true,
+    "support": {
+      "initial_rows": 149630,
+      "retained_rows": 83994,
+      "entry_weight_retention": 1.0,
+      "zero_cells": 76989,
+      "date_count": 113,
+      "states": 51,
+      "industries": 13,
+      "risk_state_months": 5755
+    },
+    "fit": {
+      "rows": 83994,
+      "FE_rank": 4963,
+      "parameters": 36,
+      "iterations": 9,
+      "maximum_score": 5.710453735588269e-07,
+      "condition_number": 56.91780078602929,
+      "poisson": true
+    },
+    "post_joint": {
+      "terms": 16,
+      "rank": 16,
+      "covariance_positive": false,
+      "p_value": NaN
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "origin",
+    "spec": "main",
+    "event": false,
+    "support": {
+      "risk_pairs": 70229,
+      "dates": 90,
+      "weighted_risk": 279945589.8413,
+      "Q5_fractional_entries": 1048.0325,
+      "Q14_fractional_entries": 4814.1247
+    },
+    "fit": {
+      "rows": 70229,
+      "FE_rank": 80,
+      "parameters": 9,
+      "iterations": 1,
+      "maximum_score": 1.0390976967755705e-10,
+      "condition_number": 17.37279283164934,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "main",
+    "event": false,
+    "support": {
+      "risk_pairs": 70229,
+      "dates": 90,
+      "weighted_risk": 329545774.27344704,
+      "Q5_fractional_entries": 1048.0325,
+      "Q14_fractional_entries": 4814.1247
+    },
+    "fit": {
+      "rows": 70229,
+      "FE_rank": 80,
+      "parameters": 9,
+      "iterations": 1,
+      "maximum_score": 1.9349499780219048e-10,
+      "condition_number": 17.533508766673563,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "trim99",
+    "spec": "main",
+    "event": false,
+    "support": {
+      "risk_pairs": 70229,
+      "dates": 90,
+      "weighted_risk": 327981572.63303614,
+      "Q5_fractional_entries": 1048.0325,
+      "Q14_fractional_entries": 4814.1247
+    },
+    "fit": {
+      "rows": 70229,
+      "FE_rank": 80,
+      "parameters": 9,
+      "iterations": 1,
+      "maximum_score": 8.822098607197404e-11,
+      "condition_number": 17.52961572091924,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "calibrated",
+    "spec": "main",
+    "event": false,
+    "support": {
+      "risk_pairs": 70229,
+      "dates": 90,
+      "weighted_risk": 328850310.3417,
+      "Q5_fractional_entries": 1048.0325,
+      "Q14_fractional_entries": 4814.1247
+    },
+    "fit": {
+      "rows": 70229,
+      "FE_rank": 80,
+      "parameters": 9,
+      "iterations": 1,
+      "maximum_score": 8.094502845779061e-11,
+      "condition_number": 17.518522628127258,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "no_industry",
+    "event": false,
+    "support": {
+      "risk_pairs": 70229,
+      "dates": 90,
+      "weighted_risk": 329545774.27344704,
+      "Q5_fractional_entries": 1048.0325,
+      "Q14_fractional_entries": 4814.1247
+    },
+    "fit": {
+      "rows": 70229,
+      "FE_rank": 66,
+      "parameters": 9,
+      "iterations": 1,
+      "maximum_score": 1.3574208423960954e-10,
+      "condition_number": 17.535333307080474,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "no_covid_controls",
+    "event": false,
+    "support": {
+      "risk_pairs": 70229,
+      "dates": 90,
+      "weighted_risk": 329545774.27344704,
+      "Q5_fractional_entries": 1048.0325,
+      "Q14_fractional_entries": 4814.1247
+    },
+    "fit": {
+      "rows": 70229,
+      "FE_rank": 80,
+      "parameters": 1,
+      "iterations": 1,
+      "maximum_score": 9.890754881780595e-12,
+      "condition_number": 1.0,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "trend",
+    "event": false,
+    "support": {
+      "risk_pairs": 70229,
+      "dates": 90,
+      "weighted_risk": 329545774.27344704,
+      "Q5_fractional_entries": 1048.0325,
+      "Q14_fractional_entries": 4814.1247
+    },
+    "fit": {
+      "rows": 70229,
+      "FE_rank": 80,
+      "parameters": 10,
+      "iterations": 1,
+      "maximum_score": 3.292370820418e-10,
+      "condition_number": 374.07692009941667,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "exclude_covid",
+    "event": false,
+    "support": {
+      "risk_pairs": 49274,
+      "dates": 66,
+      "weighted_risk": 235136557.85125387,
+      "Q5_fractional_entries": 690.0325,
+      "Q14_fractional_entries": 3283.1247000000003
+    },
+    "fit": {
+      "rows": 49274,
+      "FE_rank": 80,
+      "parameters": 1,
+      "iterations": 1,
+      "maximum_score": 1.1823431123048067e-11,
+      "condition_number": 1.0,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "recovery_2022",
+    "event": false,
+    "support": {
+      "risk_pairs": 70229,
+      "dates": 90,
+      "weighted_risk": 329545774.27344704,
+      "Q5_fractional_entries": 1048.0325,
+      "Q14_fractional_entries": 4814.1247
+    },
+    "fit": {
+      "rows": 70229,
+      "FE_rank": 80,
+      "parameters": 12,
+      "iterations": 1,
+      "maximum_score": 1.3960743672214448e-10,
+      "condition_number": 31.31627545265953,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "extended_pre",
+    "event": false,
+    "support": {
+      "risk_pairs": 94385,
+      "dates": 113,
+      "weighted_risk": 412534733.3084263,
+      "Q5_fractional_entries": 1389.0230999999999,
+      "Q14_fractional_entries": 6446.475
+    },
+    "fit": {
+      "rows": 94385,
+      "FE_rank": 80,
+      "parameters": 9,
+      "iterations": 1,
+      "maximum_score": 1.0663825378287584e-10,
+      "condition_number": 14.17378883039393,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "no_bridge",
+    "event": false,
+    "support": {
+      "risk_pairs": 58670,
+      "dates": 77,
+      "weighted_risk": 285733102.3885559,
+      "Q5_fractional_entries": 860.0,
+      "Q14_fractional_entries": 4029.0
+    },
+    "fit": {
+      "rows": 58670,
+      "FE_rank": 80,
+      "parameters": 9,
+      "iterations": 1,
+      "maximum_score": 6.866684998385608e-11,
+      "condition_number": 26.891152698629778,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "matched_missing",
+    "event": false,
+    "support": {
+      "risk_pairs": 68662,
+      "dates": 88,
+      "weighted_risk": 322603184.8898063,
+      "Q5_fractional_entries": 1018.0325,
+      "Q14_fractional_entries": 4718.1247
+    },
+    "fit": {
+      "rows": 68662,
+      "FE_rank": 80,
+      "parameters": 9,
+      "iterations": 1,
+      "maximum_score": 1.4290435501607135e-10,
+      "condition_number": 31.002094643661348,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "first_post_Dec22",
+    "event": false,
+    "support": {
+      "risk_pairs": 70976,
+      "dates": 91,
+      "weighted_risk": 333080508.0833887,
+      "Q5_fractional_entries": 1060.0325,
+      "Q14_fractional_entries": 4862.1247
+    },
+    "fit": {
+      "rows": 70976,
+      "FE_rank": 80,
+      "parameters": 9,
+      "iterations": 1,
+      "maximum_score": 1.4711076801177114e-10,
+      "condition_number": 17.664685506641774,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "demographics",
+    "event": false,
+    "support": {
+      "risk_pairs": 70229,
+      "dates": 90,
+      "weighted_risk": 329545774.27344704,
+      "Q5_fractional_entries": 1048.0325,
+      "Q14_fractional_entries": 4814.1247
+    },
+    "fit": {
+      "rows": 70229,
+      "FE_rank": 121,
+      "parameters": 9,
+      "iterations": 1,
+      "maximum_score": 9.958966984413564e-11,
+      "condition_number": 17.43562414799969,
+      "poisson": false
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "main",
+    "event": true,
+    "support": {
+      "risk_pairs": 70229,
+      "dates": 90,
+      "weighted_risk": 329545774.27344704,
+      "Q5_fractional_entries": 1048.0325,
+      "Q14_fractional_entries": 4814.1247
+    },
+    "fit": {
+      "rows": 70229,
+      "FE_rank": 80,
+      "parameters": 28,
+      "iterations": 1,
+      "maximum_score": 2.653450792422518e-10,
+      "condition_number": 34.64370564834565,
+      "poisson": false
+    },
+    "post_joint": {
+      "terms": 16,
+      "rank": 16,
+      "covariance_positive": false,
+      "p_value": NaN
+    }
+  },
+  {
+    "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+    "metric": "absolute_pp",
+    "method": "ipw",
+    "spec": "extended_pre",
+    "event": true,
+    "support": {
+      "risk_pairs": 94385,
+      "dates": 113,
+      "weighted_risk": 412534733.3084263,
+      "Q5_fractional_entries": 1389.0230999999999,
+      "Q14_fractional_entries": 6446.475
+    },
+    "fit": {
+      "rows": 94385,
+      "FE_rank": 80,
+      "parameters": 36,
+      "iterations": 1,
+      "maximum_score": 9.914002951916245e-11,
+      "condition_number": 43.127930452352246,
+      "poisson": false
+    },
+    "post_joint": {
+      "terms": 16,
+      "rank": 16,
+      "covariance_positive": false,
+      "p_value": NaN
+    }
+  }
+]
