@@ -1,0 +1,13 @@
+product,age,high_industry,outcome,pre_mean,post_mean,change_pct,warning
+qwi,22–24,False,HirN_per_beginning_job,0.2902261586924042,0.2435715862981207,-16.07524718119233,available cells; regression uses outcome-specific balanced support
+qwi,22–24,False,HirA_per_beginning_job,0.32256161960642604,0.2698476739745111,-16.342287001235277,available cells; regression uses outcome-specific balanced support
+qwi,22–24,False,Sep_per_beginning_job,0.319536068811816,0.2633955292711044,-17.56939044454928,available cells; regression uses outcome-specific balanced support
+qwi,22–24,True,HirN_per_beginning_job,0.391825351038237,0.30745721553151606,-21.532076799820878,available cells; regression uses outcome-specific balanced support
+qwi,22–24,True,HirA_per_beginning_job,0.43018057268316107,0.33969001900284956,-21.035481243584677,available cells; regression uses outcome-specific balanced support
+qwi,22–24,True,Sep_per_beginning_job,0.3839029342239275,0.30294154812334584,-21.089025085012125,available cells; regression uses outcome-specific balanced support
+qwi,35–64,False,HirN_per_beginning_job,0.11166775214531927,0.1040087380912813,-6.858751883955605,available cells; regression uses outcome-specific balanced support
+qwi,35–64,False,HirA_per_beginning_job,0.1322320369687607,0.12072528867942252,-8.701936802241516,available cells; regression uses outcome-specific balanced support
+qwi,35–64,False,Sep_per_beginning_job,0.1359904624469658,0.12217375807590436,-10.160053964409265,available cells; regression uses outcome-specific balanced support
+qwi,35–64,True,HirN_per_beginning_job,0.12896310133210762,0.10852398132755804,-15.848812407135327,available cells; regression uses outcome-specific balanced support
+qwi,35–64,True,HirA_per_beginning_job,0.15123704350283307,0.12803600773127702,-15.340841922185177,available cells; regression uses outcome-specific balanced support
+qwi,35–64,True,Sep_per_beginning_job,0.1523673959892454,0.13372404851645672,-12.2357853212275,available cells; regression uses outcome-specific balanced support

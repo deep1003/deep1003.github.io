@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "adjacent_pairs": 79,
+  "periods": "pre through destinationOct2022; post originDec2022 onward; transition pairs excluded",
+  "no_interpolation": true,
+  "IPW": "cross-fitted household folds yearly, probability clipping.05/.995,99th inverse probability trimming sensitivity",
+  "variance": "descriptive, no independent-person or causal claim; within-year unique counts not summed as unique persons"
+}

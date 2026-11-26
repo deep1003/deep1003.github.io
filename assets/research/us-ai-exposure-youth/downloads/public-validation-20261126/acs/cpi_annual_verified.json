@@ -1,0 +1,14 @@
+{
+  "source": "https://api.bls.gov/publicAPI/v2/timeseries/data/CUUR0000SA0?startyear=2017&endyear=2024&annualaverage=true",
+  "series": "CUUR0000SA0",
+  "annual_CPI_U": {
+    "2024": 313.689,
+    "2023": 304.702,
+    "2022": 292.655,
+    "2021": 270.97,
+    "2020": 258.811,
+    "2019": 255.657,
+    "2018": 251.107,
+    "2017": 245.12
+  }
+}

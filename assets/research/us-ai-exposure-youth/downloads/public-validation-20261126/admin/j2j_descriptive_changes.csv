@@ -1,0 +1,13 @@
+product,age,high_industry,outcome,pre_mean,post_mean,change_pct,warning
+j2j,22–24,False,NEHire_per_beginning_job,0.1220349190205099,0.10731751412320255,-12.05999480757951,available cells; regression uses outcome-specific balanced support
+j2j,22–24,False,ENSep_per_beginning_job,0.11173764073248638,0.09507334860588981,-14.913767659094324,available cells; regression uses outcome-specific balanced support
+j2j,22–24,False,J2JHire_per_beginning_job,0.11219663362283304,0.09964898427279877,-11.183623737067915,available cells; regression uses outcome-specific balanced support
+j2j,22–24,True,NEHire_per_beginning_job,0.15187797276592946,0.13140018825014746,-13.483050993406298,available cells; regression uses outcome-specific balanced support
+j2j,22–24,True,ENSep_per_beginning_job,0.1155572420038027,0.09942449112152091,-13.960830669315305,available cells; regression uses outcome-specific balanced support
+j2j,22–24,True,J2JHire_per_beginning_job,0.14552335450572954,0.12016913365762658,-17.422784771708045,available cells; regression uses outcome-specific balanced support
+j2j,35–64,False,NEHire_per_beginning_job,0.04525026024160595,0.042953201980644534,-5.076342652388455,available cells; regression uses outcome-specific balanced support
+j2j,35–64,False,ENSep_per_beginning_job,0.04955035543196007,0.04442440851197751,-10.34492462323755,available cells; regression uses outcome-specific balanced support
+j2j,35–64,False,J2JHire_per_beginning_job,0.036098534320537445,0.03589605153078122,-0.5609169279790494,available cells; regression uses outcome-specific balanced support
+j2j,35–64,True,NEHire_per_beginning_job,0.049434914496923776,0.04389766526099471,-11.20108994276432,available cells; regression uses outcome-specific balanced support
+j2j,35–64,True,ENSep_per_beginning_job,0.05036243341798471,0.04640861971353623,-7.850720142201373,available cells; regression uses outcome-specific balanced support
+j2j,35–64,True,J2JHire_per_beginning_job,0.048922095841854335,0.04222804724625328,-13.683078127397174,available cells; regression uses outcome-specific balanced support

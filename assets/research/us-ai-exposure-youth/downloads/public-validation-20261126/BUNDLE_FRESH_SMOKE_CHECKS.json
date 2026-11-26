@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "module_checks": {
+    "state/VALIDATION.json": {
+      "passed": true,
+      "sha256": "373929da98530da6feadca91a9c7b788cb48d477443250e412f7fcc1a0a702c1"
+    },
+    "state/FRESH_SMOKE_CHECKS.json": {
+      "passed": true,
+      "sha256": "814ec8980b13e35c43947dd768a24c691afb9277fc68b6f414a4b6583838e13c"
+    },
+    "acs/acs_validation_checks.json": {
+      "passed": true,
+      "sha256": "c770d772be4b8dbbd3aae9d0b6103a427d2ea494c6f0022064f72d00829a3fd1"
+    },
+    "acs/acs_pooled_validation_checks.json": {
+      "passed": true,
+      "sha256": "c38e7be0c3e2a6e065bbc6b1bf6813c309be12997560dfd6b843811d4cd970f8"
+    },
+    "admin/validation_checks.json": {
+      "passed": true,
+      "sha256": "84100c05298488370671414aae961501d52486993bbc9c8db0a0dbcfd975d825"
+    },
+    "admin/extended_pre_checks.json": {
+      "passed": true,
+      "sha256": "76c9c003c3272df2a2940594d68191d15a8882e6b8a72900e3eb4fd84a46be26"
+    },
+    "longitudinal/longitudinal_final_checks.json": {
+      "passed": true,
+      "sha256": "ceced01efe886d6a392ac107649eba5de6b09e4d8335d47518abf226a417f4f2"
+    },
+    "longitudinal/cps_entry_validation.json": {
+      "passed": true,
+      "sha256": "17b08935d072fd058c2efddd89ad497bacbd5a2ed3f4329095e5944a8c1e47fb"
+    }
+  },
+  "state_rows": 2496,
+  "admin_primary_contrasts": 24,
+  "image_files_validated_without_display": true,
+  "figures_displayed": 0
+}

@@ -1,0 +1,32 @@
+{
+  "Holm_max_difference_vs_statsmodels": 1.4432899320127035e-15,
+  "finite_difference_log_ratio_elasticities": [
+    -1.0000000000287554,
+    1.0000000000398577,
+    1.0000000000287554,
+    -1.0000000000287557
+  ],
+  "expected_elasticities": [
+    -1,
+    1,
+    1,
+    -1
+  ],
+  "matched_source": "actual pooled monthly totals",
+  "figures_displayed": false,
+  "Holm_family_checks": {
+    "national_descriptive_contrasts": {
+      "planned_tests": 9,
+      "estimable_tests": 9,
+      "virtual_p1_tests": 0
+    },
+    "state_descriptive_contrasts": {
+      "planned_tests": 459,
+      "estimable_tests": 416,
+      "virtual_p1_tests": 43
+    }
+  },
+  "cache_hashes_independently_verified": 117,
+  "zero_or_sparse_contrast_SEs_withheld": 40,
+  "fresh_monthly_validator_pass": true
+}

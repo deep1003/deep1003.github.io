@@ -1,0 +1,709 @@
+{
+  "passed": true,
+  "months": 117,
+  "monthly_checks": [
+    {
+      "date": "2017-01",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2017-02",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2017-03",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2017-04",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2017-05",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2017-06",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2017-07",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 8.731149137020111e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2017-08",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2017-09",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2017-10",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2017-11",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2017-12",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2018-01",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2018-02",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2018-03",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2018-04",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2018-05",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2018-06",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2018-07",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2018-08",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2018-09",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2018-10",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2018-11",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2018-12",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 2.3283064365386963e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2019-01",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 2.3283064365386963e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2019-02",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2019-03",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2019-04",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2019-05",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2019-06",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 2.3283064365386963e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2019-07",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2019-08",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 2.3283064365386963e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2019-09",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 1.862645149230957e-09
+    },
+    {
+      "date": "2019-10",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2019-11",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2019-12",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2020-01",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2020-02",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2020-03",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2020-04",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2020-05",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2020-06",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2020-07",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 1.862645149230957e-09
+    },
+    {
+      "date": "2020-08",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2020-09",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2020-10",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2020-11",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2020-12",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-01",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-02",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-03",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-04",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-05",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-06",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-07",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-08",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.7462298274040222e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-09",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 1.862645149230957e-09
+    },
+    {
+      "date": "2021-10",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-11",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2021-12",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 1.862645149230957e-09
+    },
+    {
+      "date": "2022-01",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2022-02",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 1.862645149230957e-09
+    },
+    {
+      "date": "2022-03",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2022-04",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2022-05",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 2.9103830456733704e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2022-06",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2022-07",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2022-08",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2022-09",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2022-10",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 1.862645149230957e-09
+    },
+    {
+      "date": "2022-11",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2022-12",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 2.3283064365386963e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2023-01",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2023-02",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2023-03",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2023-04",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2023-05",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2023-06",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2023-07",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2023-08",
+      "state_numerator_max_difference": 5.820766091346741e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2023-09",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 2.3283064365386963e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2023-10",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2023-11",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2023-12",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-01",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-02",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-03",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-04",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-05",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-06",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-07",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-08",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-09",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2024-10",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-11",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2024-12",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2025-01",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2025-02",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2025-03",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2025-04",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 2.3283064365386963e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2025-05",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2025-06",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2025-07",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2025-08",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2025-09",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2025-11",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 5.820766091346741e-11,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2025-12",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2026-01",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2026-02",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2026-03",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2026-04",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2026-05",
+      "state_numerator_max_difference": 1.4551915228366852e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2026-06",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 3.725290298461914e-09
+    },
+    {
+      "date": "2026-07",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2026-08",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2026-09",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    },
+    {
+      "date": "2026-10",
+      "state_numerator_max_difference": 2.9103830456733704e-11,
+      "lower_band_numerator_max_difference": 1.1641532182693481e-10,
+      "national_population_difference": 0.0
+    }
+  ],
+  "images_rendered": 0
+}

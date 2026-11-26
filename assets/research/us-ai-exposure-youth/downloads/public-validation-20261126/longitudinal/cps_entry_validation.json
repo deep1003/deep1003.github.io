@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "years": [
+    {
+      "year": 2020,
+      "linked_jobless_pairs": 281210,
+      "age25_to26_pairs": 179,
+      "age25_to26_employment_entries": 23,
+      "destination_rows_matched": true
+    },
+    {
+      "year": 2021,
+      "linked_jobless_pairs": 304902,
+      "age25_to26_pairs": 197,
+      "age25_to26_employment_entries": 29,
+      "destination_rows_matched": true
+    },
+    {
+      "year": 2022,
+      "linked_jobless_pairs": 283751,
+      "age25_to26_pairs": 163,
+      "age25_to26_employment_entries": 20,
+      "destination_rows_matched": true
+    },
+    {
+      "year": 2023,
+      "linked_jobless_pairs": 277716,
+      "age25_to26_pairs": 153,
+      "age25_to26_employment_entries": 21,
+      "destination_rows_matched": true
+    },
+    {
+      "year": 2024,
+      "linked_jobless_pairs": 277978,
+      "age25_to26_pairs": 168,
+      "age25_to26_employment_entries": 19,
+      "destination_rows_matched": true
+    },
+    {
+      "year": 2025,
+      "linked_jobless_pairs": 224078,
+      "age25_to26_pairs": 132,
+      "age25_to26_employment_entries": 14,
+      "destination_rows_matched": true
+    },
+    {
+      "year": 2026,
+      "linked_jobless_pairs": 220393,
+      "age25_to26_pairs": 108,
+      "age25_to26_employment_entries": 16,
+      "destination_rows_matched": true
+    }
+  ],
+  "adaptation_table_sha_unchanged": true,
+  "shared_response_weights": true,
+  "destination_THAIE_is_outcome_not_treatment": true,
+  "age_at_origin": true,
+  "first_job_not_identified": true,
+  "no_causal_or_independent_person_inference": true,
+  "plots_displayed": false
+}
