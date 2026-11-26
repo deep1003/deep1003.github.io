@@ -64,6 +64,7 @@
    <div class="takeaway">
     <p>
      Young workers in the highest THAIE quintile exhibit weaker relative full-time employment in long-window comparisons. Rotation and occupation-code checks preserve that pattern, but a shorter matched window is inconclusive. Neither a specific worker-transition pathway nor an AI causal effect is established.
+     Current data primarily address employment stocks and realized transitions; offered-quality and causal questions remain open.
     </p>
    </div>
   </div>
@@ -201,14 +202,18 @@
     <p>
      Does weaker full-time employment among young workers in highly AI-exposed fields reflect fewer hiring opportunities, poorer offered job quality, or both? Who experiences these changes? We distinguish employment stocks from individual entry, exit, schedule changes, occupation movements, and aging. Ages 22–25 are the focal group; broader age comparisons remain available in the descriptive explorer and archived models.
     </p>
+    <p id="offered-quality-scope">
+     The present primary analysis addresses employment stocks and realized worker transitions. Offered job quality remains exploratory because the historical posting corpus is incomplete and comparable pay, benefits, training and contract-duration outcomes are not jointly identified. The core question is broader than the evidence currently available.
+    </p>
     <h3>
      Abstract
     </h3>
     <p>
-     We combine independently reconstructed monthly CPS employment, annual ACS validation, linked CPS transitions, SIPP histories, and public administrative hiring data using frozen THAIE occupational exposure. ACS pooled comparisons show a 7.41% relative decline in the full-time-hours proxy for ages 22–25 in Q5 versus Q1–Q4, while Q5’s own absolute full-time count change is imprecise. CPS long-window current full-time comparisons show approximately 9% relative weakness after rotation and occupation-code checks. A shorter matched 22-month comparison yields −4.23% with a diagnostic interval spanning zero. Controlled entry DID does not establish a greater Q5 entry decline. Stock–flow accounting and response-adjusted pathway contrasts do not isolate an entry, exit, schedule, occupation, or aging mechanism. Survey reconciliation remains substantial; forcing endpoint margins to agree does not identify missing behavior. The evidence documents relative employment weakness, with sensitivity to period and design, rather than an established AI causal effect or individual downgrading into contingent work.
+     We combine independently reconstructed monthly CPS employment, annual ACS validation, linked CPS transitions, SIPP histories, and public administrative hiring data using frozen THAIE occupational exposure. ACS pooled comparisons show a 7.41% relative decline in the full-time-hours proxy for ages 22–25 in Q5 versus Q1–Q4, while Q5’s own absolute full-time count change is imprecise. CPS long-window current full-time comparisons show approximately 9% relative weakness after rotation and occupation-code checks. A shorter matched 22-month comparison yields −4.23% with a state-resampling range including zero. Controlled entry DID does not establish a greater Q5 entry decline. Stock–flow accounting and response-adjusted pathway contrasts do not isolate an entry, exit, schedule, occupation, or aging mechanism. Survey reconciliation remains substantial; forcing endpoint margins to agree does not identify missing behavior. The evidence documents relative employment weakness, with sensitivity to period and design, rather than an established AI causal effect or individual downgrading into contingent work.
+     Offered-quality analysis remains exploratory because historical posting coverage is incomplete.
     </p>
     <p>
-     The contribution is a measurement-conscious comparison of employment quantities and adjustment pathways, including an explicit audit of why survey flows and stocks differ. The analysis is a working research record, not a preregistered causal experiment. Earlier exploratory specifications are preserved separately.
+     The incremental contribution is public-survey triangulation and measurement-sensitivity analysis under an alternative frozen THAIE classification, together with within-CPS coverage and weighting reconciliation. Relative youth weakness, hiring-margin analysis and stock-consistent flow methods already exist in the literature; we do not claim their first discovery or superior predictive validity of THAIE. The analysis is a working research record, not a preregistered causal experiment. Earlier exploratory specifications are preserved separately.
     </p>
    </section>
    <section id="related-work">
@@ -244,17 +249,17 @@
          </a>
          <br/>
          <small>
-          Working paper; August 12 revision; institutional primary abstract
+          Working paper; August 2026 revision; primary PDF abstract and introduction verified
          </small>
         </td>
         <td>
-         ADP payroll through June 2026; occupation exposure; ages 22–25
+         ADP payroll through June 2026; ages 22–25; two highest exposure quintiles versus three lowest; hiring and separation flows
         </td>
         <td>
-         Reports a 19% relative employment shortfall among exposed early-career workers, without economy-wide displacement.
+         Reports a 19% kept-pace employment shortfall together with payroll-flow evidence of reduced hiring rather than increased separations.
         </td>
         <td>
-         A stock comparison motivates the question; it does not by itself identify entry, downgrading, or our CPS estimand.
+         Exposure, payroll sample, period and Q4–Q5/Q1–Q3 contrast differ from our Q5/Q1–Q4. The authors characterize their evidence as descriptive, not causal.
         </td>
        </tr>
        <tr>
@@ -368,13 +373,13 @@
          </small>
         </td>
         <td>
-         CPS; ages 20–24 versus 25–55; entry and exit comparisons
+         CPS; ages 20–24 versus 25–55; exposure tertiles and entrant/job-finding comparisons
         </td>
         <td>
          Highlights reduced inflows from nonparticipation rather than increased layoffs in young exposed occupations.
         </td>
         <td>
-         Different age band, exposure measure and risk set; explicitly uncertain causality. Our controlled entry test does not reproduce a resolved extra Q5 decline.
+         Our different ages, exposure contrast and U+N risk set yield an imprecise Q5-specific contrast. This is not a direct replication or refutation of their entrant-flow result.
         </td>
        </tr>
        <tr>
@@ -890,10 +895,10 @@
           </code>
          </td>
          <td>
-          Age — Exact age under the relevant year schema
+          Age — Recorded public-use age under year-specific schemas
          </td>
          <td>
-          Core 22–25; accounting origin 21–26; six chart groups retained
+          Age perturbation may alter age bins or link validation; recorded boundary movements are not verified birthdays
          </td>
         </tr>
         <tr>
@@ -1602,6 +1607,7 @@
       Detailed entry specification
      </a>
      is retained with all tested variants.
+     Destination-industry conditioning changes the estimand to within-industry entry allocation and can absorb sectoral reallocation. The no-industry sensitivity is reported separately; it is not interchangeable with the additive paired-risk-set model or an identified total hiring effect.
     </p>
     <h3>
      Linkage, response adjustment and exact stock–flow accounting
@@ -1610,7 +1616,7 @@
      Linkage requires unique HRHHID/HRHHID2/PULINENO, adjacent observed calendar months, expected next rotation, stable recorded sex/race/state, and age progression of zero or one year. The accounting domain expands origin ages to 21–26 so aging into 22 and out after 25 can be observed. Among 616,549 eligible records, 538,185 validate. These are repeated transition opportunities. Missing links are not economic exits.
     </p>
     <p>
-     Destination-year response models use household-disjoint cross-fitting and origin state, exact age, demographics, education, employment/schedule status, industry, enrollment, season and rotation. Primary weights apply inverse 0.75 planned overlap and inverse predicted match probability to the origin composite weight. Trimming and origin-margin entropy calibration are sensitivities. Such corrections assume selection is ignorable conditional on measured predictors; they do not recover nonignorable missing outcomes or movers.
+     Destination-year response models use household-disjoint cross-fitting and origin state, recorded age, demographics, education, employment/schedule status, industry, enrollment, season and rotation. Primary weights apply inverse 0.75 planned overlap and inverse predicted match probability to the origin composite weight. Trimming and origin-margin entropy calibration are sensitivities. Such corrections assume selection is ignorable conditional on measured predictors; they do not recover nonignorable missing outcomes or movers.
     </p>
     <p>
      Each observed change is partitioned into nonemployment entry/exit, FT/PT switches, recorded occupation-band movement, age-boundary movement, mapping coverage and the January 2020 code boundary. Survey-weight changes and unmatched endpoint stocks remain explicit. Exact telescoping and log-mean accounting reconcile period means, not causal mechanisms. We compare age-first with symmetric age allocation. Occupation changes need not be verified employer/job changes. Equal-calendar-month flow contrasts are normalized per 100 origin FT workers, not per nonemployed risk person.
@@ -1643,13 +1649,34 @@
     <p>
      ACS pointwise intervals use 80 person replicates with an independent annual-block approximation. The four-year SIPP marginal transition analysis alone uses its matching 240 Fay replicates; sparse domains are withheld. QWI/J2J models use 12 broad-industry clusters and 24-test Holm adjustment; three treated industries constrain inference. Stock–flow and residual diagnostics use 999 common state-bootstrap draws conditional on fitted weights and frozen mapping. These do not reproduce full CPS survey-design variance, first-stage propensity/calibration uncertainty, historical bridge error, or all common occupational shocks. A significant descriptive comparison is not an identified AI effect; a wide interval crossing zero is not proof of no effect.
     </p>
+    <h3 id="public-use-age-review">
+     Recorded age and disclosure protection
+    </h3>
+    <p>
+     <a href="https://www.bls.gov/cps/data/public-use-file.htm">
+      BLS public-use documentation
+     </a>
+     records age perturbation since January 2011. Our CPS age groups and age-progression checks use released recorded age, not verified birth dates. The strict progression rule rejects 4,780 candidate links. We cannot attribute all rejections to perturbation, and the resulting selection effect has not been quantified. Recorded 21→22 and 25→26 changes are therefore recorded age-bin movements, not verified birthdays or exact chronological cohort transitions. Privacy protection and weighting also prevent exact reproduction of internal BLS estimates.
+    </p>
+    <p>
+     <strong>
+      State-resampling scope.
+     </strong>
+     The 51 states/DC are the complete geographic universe, not sampled CPS primary sampling units. Resampling states with fixed fitted weights is a geographic/model diagnostic under an implicit superpopulation assumption. It does not supply nominal 95% CPS sampling coverage, propagate first-stage fitting uncertainty, or resample common occupation/time shocks. A range excluding zero must not be described as establishing national statistical significance.
+    </p>
+    <p>
+     <strong>
+      Flow allocation and coding scope.
+     </strong>
+     The age-first accounting assigns simultaneous age and job changes to recorded age-bin movement. Among remaining target-age workers, schedule changes take precedence over occupation changes. Only continuing FT workers in the target age band contribute to the January 2020 FT classification term. Simultaneous coding changes associated with entry, exit, schedule switching or age-bin movement can enter those other channels. Thus +0.840 log points is a narrow bookkeeping component, not the total effect of code changes. The symmetric-age sensitivity changes age allocation only; a separate schedule-first versus occupation-first comparison was not estimated.
+    </p>
    </section>
    <section id="results">
     <h2>
      Results
     </h2>
     <p>
-     Results are organized by evidential strength and estimand. Statistically resolved descriptive differences are separated from specification-sensitive regressions, imprecise pathway contrasts, and exploratory data. This organization does not select only favorable p-values.
+     Results are organized by evidential strength and estimand. Descriptive stock comparisons are separated from controlled-model inference, geographic resampling diagnostics, and exploratory data. This organization does not select only favorable p-values.
     </p>
     <details class="result" id="principal-results" open="">
      <summary>
@@ -1728,7 +1755,7 @@
            −9.31%
           </td>
           <td>
-           Conditional state-bootstrap [−13.88, −5.34]
+           Central 95% state-resampling range [−13.88, −5.34]
           </td>
           <td>
            Relative stock weakness; period and inference assumptions matter
@@ -1745,7 +1772,7 @@
            Raw p=.069; 12-test Holm p=.756
           </td>
           <td>
-           The adjusted contrast is not conventionally significant after correction
+           Not conventionally significant even before correction; common-support sample also differs from the raw ratio
           </td>
          </tr>
          <tr>
@@ -1762,11 +1789,25 @@
            Additional Q5 entry decline is not established; sizable harm remains compatible with the interval
           </td>
          </tr>
+         <tr>
+          <td>
+           Controlled linked-CPS additive co-primary entry contrast
+          </td>
+          <td>
+           +0.962 pp
+          </td>
+          <td>
+           Working 95% interval [+0.259, +1.665]; raw p=.0089; two-test Holm p=.0179
+          </td>
+          <td>
+           Change in P(Q5 FT entry) minus P(Q1–Q4 FT entry), not Q5 employment growth; trend/recovery variants are inconclusive
+          </td>
+         </tr>
         </tbody>
        </table>
       </div>
       <p>
-       Relative weakness can arise when Q5 grows more slowly than the comparison group. Neither the relative ratio nor its statistical resolution counts AI-displaced workers. The ACS salary and hours proxies, CPS usual FT status and public administrative jobs are reported separately rather than pooled into a common causal estimate.
+       Relative weakness can arise when Q5 grows more slowly than the comparison group. Neither the relative ratio nor its diagnostic range counts AI-displaced workers. The ACS salary and hours proxies, CPS usual FT status and public administrative jobs are reported separately rather than pooled into a common causal estimate.
       </p>
       <p>
        <a href="downloads/public-validation-20261126/acs/acs_pooled_relative_changes.csv">
@@ -1780,6 +1821,19 @@
        <a href="downloads/residual-audit-20261126/STOCK_SENSITIVITIES.csv">
         CPS descriptive stock sensitivities
        </a>
+      </p>
+      <p id="review-headline-scope">
+       <strong>
+        Scope of inference.
+       </strong>
+       ACS replicate-based comparisons describe annual stocks and hours proxies; they do not validate the timing of a November 2022 break, parallel trends, the CPS current-schedule definition, or an AI effect. In the CPS long-window point estimates, Q5’s own full-time headcount changes −0.97%, while Q1–Q4 rises 9.20%, producing the −9.31% relative contrast. The ratio’s diagnostic range must not be attached to either own-group change.
+      </p>
+      <p>
+       The raw stock comparison and the −6.60% controlled stock model differ in sample support as well as specification. The model uses common supported occupation–industry FT/PT rows; the raw ratio covers the broader mapped stock universe. See the
+       <a href="downloads/symmetric-FT-only-support.csv">
+        FT-only support sensitivity
+       </a>
+       . The two co-primary entry models also have different scales and conditioning, so neither is a substitute for the other.
       </p>
      </div>
     </details>
@@ -1802,7 +1856,7 @@
            Relative FT change, Q5/Q1–Q4
           </th>
           <th>
-           Conditional 95% interval
+           Central 95% state-resampling range
           </th>
          </tr>
         </thead>
@@ -1868,7 +1922,7 @@
       <figure>
        <img alt="Five CPS stock sensitivities show long-window weakness near nine percent; the shorter-window interval crosses zero." loading="lazy" src="figures/STOCK_RESIDUAL_SENSITIVITY.png"/>
        <figcaption>
-        Conditional state-bootstrap diagnostics. The shorter window changes both the reference period and precision.
+        Geographic state-resampling diagnostics, not CPS survey-design confidence intervals. The shorter window changes the reference period and observed sample.
         <a href="figures/STOCK_RESIDUAL_SENSITIVITY.pdf">
          PDF
         </a>
@@ -1879,16 +1933,16 @@
        The survey residual is not an observed economic exit
       </h3>
       <p>
-       The exact integrated residual contains −34.37 additive log points from scheduled rotation replacement, +19.69 from eligible-but-unlinked endpoints, −2.51 from planned-overlap expansion, −3.69 from additional response correction, and −1.72 from observed matched-weight change. These offset to −22.60 log points. They are bookkeeping contributions, not causal percentages or independent shares of employment loss. The January 2020 code-boundary term is already separate, at +0.84 log points.
+       The exact integrated residual contains −34.37 additive log points from scheduled rotation replacement, +19.69 from eligible-but-unlinked endpoints, −2.51 from planned-overlap expansion, −3.69 from additional response correction, and −1.72 from observed matched-weight change. These offset to −22.60 log points. They are bookkeeping contributions, not causal percentages or independent shares of employment loss. The separately recorded January 2020 term is +0.84 log points only for continuing FT workers remaining in the target age band. It does not isolate all coding effects; simultaneous entry, schedule and age-bin changes are allocated elsewhere.
       </p>
       <p>
-       Origin-only calibration reduces Q5’s mean absolute monthly national reconciliation from approximately 60,914 to 57,990 persons, or 4.8%. The dual-endpoint diagnostic reduces it below 0.002 persons per pair/group by matching observed margins. That near-zero result is guaranteed by the constraint; it does not recover missing worker transitions. No tested individual pathway becomes statistically resolved under these adjustments.
+       Origin-only calibration reduces Q5’s mean absolute monthly national reconciliation from approximately 60,914 to 57,990 persons, or 4.8%. The dual-endpoint diagnostic reduces it below 0.002 persons per pair/group by matching observed margins. That near-zero result is guaranteed by the constraint; it does not recover missing worker transitions. Under the tested weighting conventions, none of the selected stock-normalized descriptive pathway contrasts has a state-resampling range excluding zero. These are not controlled transition-probability tests.
       </p>
       <p>
        <strong>
         Inference.
        </strong>
-       Long-window relative weakness withstands these rotation and code diagnostics. Statistical resolution is not invariant to period choice. Neither the residual audit nor the stock comparison establishes an AI causal effect.
+       Long-window point estimates of relative weakness persist under these rotation and code diagnostics. The shorter-window point estimate is smaller and its geographic resampling range includes zero. This is not a formal test of national statistical significance or of the difference between window estimates. Neither the residual audit nor the stock comparison establishes an AI causal effect.
       </p>
       <p>
        <a href="downloads/residual-audit-20261126/RESIDUAL_AUDIT_REPORT_EN.md">
@@ -2197,6 +2251,12 @@
         Input and model validation
        </a>
       </p>
+      <p id="review-entry-estimands">
+       <strong>
+        Co-primary estimands and specification sensitivity.
+       </strong>
+       The primary additive paired-entry contrast is +0.962 pp, with working interval [+0.259, +1.665] and two-test Holm p=.0179. It becomes +0.794 pp (p=.209) with a differential trend and +0.457 pp (p=.281) with 2022 recovery controls. It does not show Q5 employment itself increased. The proportional PPML conditions on destination-industry×date and destination-industry×group effects. Because destination industry is part of the realized outcome, this estimates within-industry relative entry allocation and can absorb sectoral reallocation. Removing destination-industry conditioning gives +1.04% [−24.82, +35.79], p=.944, a separately reported exploratory sensitivity, not a total causal hiring effect.
+      </p>
      </div>
     </details>
     <details class="result" id="linked-cps-stock-flow">
@@ -2235,7 +2295,7 @@
            Q5 minus Q1–Q4 change, pp
           </th>
           <th>
-           Conditional 95% diagnostic interval
+           Central 95% state-resampling diagnostic range
           </th>
          </tr>
         </thead>
@@ -2286,7 +2346,7 @@
          </tr>
          <tr>
           <td>
-           Net movement into/out of ages 22–25
+           Net recorded age-bin movement into/out of ages 22–25
           </td>
           <td>
            −0.175
@@ -2299,9 +2359,9 @@
        </table>
       </div>
       <figure>
-       <img alt="Five signed flow-intensity contrasts between Q5 and Q1–Q4; every conditional interval crosses zero." loading="lazy" src="figures/FLOW_CHANNEL_COMPARISON.png"/>
+       <img alt="Five stock-normalized descriptive pathway contrasts; all central state-resampling ranges include zero." loading="lazy" src="figures/FLOW_CHANNEL_COMPARISON.png"/>
        <figcaption>
-        Equal calendar-month weights. Intervals use 999 common state-bootstrap draws, conditional on fitted response weights and frozen occupation mapping. They do not recover full CPS survey-design or causal uncertainty.
+        Equal calendar-month weights. Central 95% state-resampling ranges are geographic diagnostics conditional on fitted weights and mapping, not CPS sampling confidence intervals or controlled mechanism tests.
         <a href="figures/FLOW_CHANNEL_COMPARISON.pdf">
          PDF
         </a>
@@ -2311,7 +2371,7 @@
        Exact arithmetic does not eliminate survey uncertainty
       </h3>
       <p>
-       Across 115 observed adjacent-month pairs, 538,185 linked origin-age-21–26 person-transition records allow age-boundary movements to be separated from entry, exit, schedule changes, and recorded occupation changes. These are repeated records, not distinct people. Every monthly and period-mean accounting identity passes numerical checks. However, a sizable survey/coverage reconciliation term remains after matched flows and observed weight changes. In the primary integrated decomposition it contributes −22.60 additive log points, offset by other components, against a total relative change of −9.775 log points (−9.31%). This residual is not an economic exit, migration estimate, or AI displacement measure. Large offsetting contributions cannot be interpreted as causal shares.
+       Across 115 observed adjacent-month pairs, 538,185 linked origin-age-21–26 person-transition records allow recorded age-bin movements to be allocated separately from entry, exit, schedule changes, and recorded occupation changes; they do not verify chronological aging. These are repeated records, not distinct people. Every monthly and period-mean accounting identity passes numerical checks. However, a sizable survey/coverage reconciliation term remains after matched flows and observed weight changes. In the primary integrated decomposition it contributes −22.60 additive log points, offset by other components, against a total relative change of −9.775 log points (−9.31%). This residual is not an economic exit, migration estimate, or AI displacement measure. Large offsetting contributions cannot be interpreted as causal shares.
       </p>
       <p>
        Four weighting methods—design-only, inverse-response weighting, trimmed inverse-response weighting, and calibration to origin-only margins—and two age-boundary allocations are retained. Calibration does not force destination stocks to match. Conditional-ignorability assumptions, unobserved attrition, movers, occupation recoding, and historical mapping uncertainty remain limitations. The missing October 2025 survey is not imputed or bridged with individual transitions. The ACS-calendar flow sensitivity has 35 pre-period flow months because December 2016 was outside the verified cache, although all 36 pre-period stock months are retained.
@@ -2344,7 +2404,10 @@
        <a href="#residual-robustness">
         residual audit
        </a>
-       separates the coverage and weighting terms. Origin calibration, dual-margin calibration and symmetric common weights all leave the five pathway intervals spanning zero. The constrained diagnostic is not evidence that missing transitions are known.
+       separates the coverage and weighting terms. Under these selected weighting conventions, the five stock-normalized pathway diagnostic ranges include zero. This is not a controlled mechanism test. The constrained diagnostic does not establish robustness to unknown missing behavior or recover missing transitions.
+      </p>
+      <p id="review-pathway-scope">
+       The displayed pathway quantities are stock-normalized descriptive intensities. In particular, FT employment is not the population at risk of entering from nonemployment, and the denominator can change with the employment stock. Ranges crossing zero do not establish that a pathway is absent or quantify how much of the stock gap it can explain. Dual-endpoint calibration selects one weighting convention consistent with observed margins; other allocations of missing outcomes remain unidentified. Fixed-weight state resampling does not reimpose its national calibration constraints in each draw.
       </p>
      </div>
     </details>
@@ -2509,7 +2572,7 @@
          Hold age fixed before comparing exposure
         </h3>
         <span class="summary-note">
-         Select one of the six exact age groups. Quintile assignments remain unchanged.
+         Select one of the six recorded-age groups. Quintile assignments remain unchanged.
         </span>
        </summary>
        <div class="story-body">
@@ -2776,6 +2839,32 @@
       </details>
      </div>
     </div>
+    <details class="result" id="specialist-review">
+     <summary>
+      Specialist review and interpretation amendments
+     </summary>
+     <div class="result-body">
+      <p>
+       Three independent AI-agent audits examined data/calculations, statistical inference, and literature/contribution. The authoring agent checked their findings against code, saved results and primary sources. No headline arithmetic mismatch was found. Fourteen interpretive and scope corrections are recorded; this is a methodological audit, not external journal peer review.
+      </p>
+      <p>
+       The current contribution is an incremental descriptive and measurement-sensitivity exercise. National sampling significance, unknown missing-outcome mechanisms, a new causal pathway, and superior THAIE predictive validity remain unestablished. Earlier downloadable reports preserve their computation-time wording; this addendum governs current interpretation of state-resampling ranges, released age and coding components.
+      </p>
+      <p>
+       <a href="downloads/specialist-review-20261126/REVIEW_REPORT_EN.html">
+        Full review and corrections
+       </a>
+       ·
+       <a href="downloads/specialist-review-20261126/REVIEW_ISSUES.csv">
+        Issue register
+       </a>
+       ·
+       <a href="downloads/specialist-review-20261126/INDEPENDENT_STOCK_CHECK.csv">
+        Independent own-group/relative arithmetic
+       </a>
+      </p>
+     </div>
+    </details>
     <details class="result" id="analytical-appendix">
      <summary>
       Analytical appendix and earlier specifications
@@ -4292,7 +4381,7 @@
       <strong>
        Core conclusion.
       </strong>
-      Relative young-worker full-time employment weakness is the most defensible finding. Its magnitude and statistical resolution depend on the period and model. A specific adjustment pathway and an AI causal effect remain unestablished.
+      Relative young-worker full-time employment weakness is the most defensible finding. Its magnitude depends on the period and model; CPS geographic resampling ranges do not establish national sampling significance. A specific adjustment pathway and an AI causal effect remain unestablished.
      </p>
     </div>
     <h3 id="discussion-supported-claims">
@@ -4304,6 +4393,7 @@
       Brynjolfsson, Chandar, and Chen
      </a>
      .
+     ACS validates a descriptive annual pattern only; it does not date a November 2022 break or validate CPS schedule measures.
     </p>
     <p>
      The distinction also appears in
@@ -4311,6 +4401,7 @@
       Chandar and Klein Teeselink’s November 2026 study
      </a>
      , where a declining junior employment share mainly accompanies senior growth rather than a statistically clear fall in junior headcount. Our data do not identify seniority or actual firm adoption, so this is an interpretive comparison rather than a common causal estimate.
+     The Canaries comparison also analyzes payroll hiring/separation flows and uses its two highest versus three lowest exposure quintiles; our contrast is not a direct replication.
     </p>
     <h3 id="discussion-stocks-flows">
      2. Hiring and individual downgrading are unresolved mechanisms
@@ -4319,6 +4410,7 @@
      Employment stocks combine entry, exits, schedules, occupations, aging and population composition. The controlled linked-CPS proportional entry estimate is imprecise and does not establish extra Q5 entry weakness. The additive estimate is positive and initially significant, but loses conventional significance with a differential trend or 2022 recovery terms. We therefore do not interpret it as protection from AI. This differs from claiming that the research has established no effect.
     </p>
     <p>
+     The accounting-pathway contrasts are stock-normalized descriptive comparisons, not controlled transition-probability tests.
      After aligned accounting and residual-reduction diagnostics, all tested entry, exit, FT/PT, occupation-band and age-boundary contrasts retain intervals crossing zero. Descriptive FT→PT stability and a declining ACS PT stock do not establish that no worker experienced harm, but neither supports a broad claim of increased part-time displacement. SIPP’s small youth Q5 cohort and limited contract variables cannot establish permanent-to-fixed-term downgrading.
      <a href="https://www.brookings.edu/articles/still-waters-rapid-currents-early-labor-market-transformation-under-generative-ai/">
       Humlum and Vestergaard
@@ -4333,7 +4425,7 @@
      3. Robustness narrows, rather than removes, uncertainty
     </h3>
     <p>
-     Rotation standardization and unambiguous occupation-code support preserve approximately 9% long-window relative weakness. A matched 22-month comparison is −4.23% with a conditional interval from −10.91% to +1.53%. The shorter comparison therefore weakens statistical resolution. The adjusted stock model and multiplicity corrections are also less conclusive than descriptive pooled ratios. Neither a favorable pretrend p-value nor a significant descriptive contrast resolves differential COVID recovery, industry/occupation demand, cohort composition or unobserved adoption.
+     Rotation standardization and unambiguous occupation-code support preserve approximately 9% long-window relative weakness. A matched 22-month comparison is −4.23%, with a central state-resampling range from −10.91% to +1.53%. Its point estimate is smaller and that diagnostic range includes zero; we have not tested whether the two window estimates differ. These geographic diagnostics do not establish national statistical significance. The adjusted stock model and multiplicity corrections are also less conclusive than descriptive pooled ratios. Neither a favorable pretrend p-value nor a significant descriptive contrast resolves differential COVID recovery, industry/occupation demand, cohort composition or unobserved adoption.
     </p>
     <p id="discussion-stock-flow-limits">
      The large survey reconciliation is explicitly separated into scheduled rotation, unlinked endpoints and weighting terms. Origin-margin calibration reduces the mean absolute Q5 residual only modestly. Dual-endpoint calibration makes national margins agree by construction; it is not proof that unobserved transitions were correctly recovered. Nonignorable attrition, movers, response misclassification, source vintage and crosswalk uncertainty remain. Conditional bootstrap intervals do not reproduce complete CPS design-based or causal uncertainty.
@@ -4341,6 +4433,7 @@
       Frazis et al.
      </a>
      provide the methodological background for distinguishing stock consistency from observed transition validity.
+     Released recorded age is perturbed, so age-bin movements are not verified birthdays. The narrow 2020 classification term also depends on the age-first and schedule-first allocation order.
     </p>
     <p>
      The
@@ -4353,7 +4446,7 @@
      4. Academic contribution, policy relevance and the next identification step
     </h3>
     <p>
-     The paper can contribute a transparent public-data finding of relative early-career employment weakness and a demonstrated limit to attributing that stock pattern to a worker-level pathway. This contribution rests on explicit denominators, harmonized within-source comparisons, source-specific inference and reproducible negative/inconclusive checks. It does not rest on selecting the smallest p-value or declaring THAIE superior from one specification. Age 22–25 is the focal analysis band, not an identified biological or career threshold.
+     This is an incremental public-survey triangulation and measurement-sensitivity exercise under an alternative frozen exposure classification. Its within-CPS reconciliation audit documents how coverage and weighting conventions affect accounting. The available linked sample does not resolve which pathway accounts for the relative stock difference; limited precision does not demonstrate that pathways generally cannot explain it. No new causal mechanism, first finding of youth weakness, or superior predictive validity of THAIE is established. Stronger novelty would require aligned exposure-measure benchmarking or credible adoption identification.
     </p>
     <p>
      For policy, the evidence motivates monitoring entry pathways, hours, involuntary part-time work and access to training, while avoiding AI-displacement counts unsupported by the design. The graduate results in
@@ -4396,6 +4489,15 @@
     <h2>
      Data and code
     </h2>
+    <p>
+     <a href="downloads/specialist-review-20261126/REVIEW_REPORT_EN.html">
+      Latest specialist-review interpretation addendum
+     </a>
+     ·
+     <a href="downloads/specialist-review-20261126/REVIEW_ISSUES.csv">
+      Applied corrections and remaining research requirements
+     </a>
+    </p>
     <div id="paper-materials">
      <h3>
       Current methods, data inventory and literature
