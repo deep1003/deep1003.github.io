@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-26",
+  "source": "https://eis.work24.go.kr/eisps/rpt/reptDtl.do?menuId=020020020",
+  "source_sha256": "bb381d6ab142588a2efe8dfc7f03019d63ba304c9b5d3aef6603c9add86c1d49",
+  "source_rows": 290578,
+  "source_months": 84,
+  "source_span": [
+    "2019-11",
+    "2026-10"
+  ],
+  "analysis_window": [
+    "2019-11 through 2022-10",
+    "2022-12 through 2025-11"
+  ],
+  "transition_omitted": "2022-11",
+  "occupations": 105,
+  "q5_occupations": 20,
+  "controls": 85,
+  "observations_each_age_sex": 7560,
+  "raw_not_redistributed": true,
+  "papers_checked": [
+    {
+      "title": "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence",
+      "version": "2026년 8월 워킹페이퍼",
+      "url": "https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf"
+    },
+    {
+      "title": "Labor market impacts of AI: A new measure and early evidence",
+      "version": "2026년 3월 5일 연구보고서",
+      "url": "https://www.anthropic.com/research/labor-market-impacts"
+    },
+    {
+      "title": "Still Waters, Rapid Currents: Early Labor Market Transformation under Generative AI",
+      "version": "2026년 3월 개정, RFBerlin Discussion Paper 078/26",
+      "url": "https://www.rfberlin.com/wp-content/uploads/2026/03/26078.pdf"
+    },
+    {
+      "title": "Generative AI at Work",
+      "version": "Quarterly Journal of Economics, 140(2), 889–942",
+      "url": "https://academic.oup.com/qje/article/140/2/889/7990658"
+    },
+    {
+      "title": "GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models",
+      "version": "arXiv:2303.10130, 2023년 8월 개정",
+      "url": "https://arxiv.org/abs/2303.10130"
+    },
+    {
+      "title": "Pretest with Caution: Event-Study Estimates after Testing for Parallel Trends",
+      "version": "American Economic Review: Insights, 4(3), 305–322",
+      "url": "https://www.aeaweb.org/articles?id=10.1257/aeri.20210236"
+    }
+  ]
+}
