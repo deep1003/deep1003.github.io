@@ -1,0 +1,16 @@
+{
+  "source_months": 84,
+  "display_months": 58,
+  "baseline": "2022-11",
+  "display_start": "2022-01",
+  "end": "2026-10",
+  "overlap_rows": 4620,
+  "overlap_max_error": {
+    "employment": 0.0,
+    "index": 0.0,
+    "standardized_index": 0.0
+  },
+  "colors_styles_unchanged": true,
+  "industry_four_way_status": "Public OLAP rejects four analytical dimensions; separate lower-dimensional tables do not identify the joint distribution",
+  "inference_rerun": false
+}
