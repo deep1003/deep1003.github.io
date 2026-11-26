@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "signature": "364bd174ac95cf54337072e07ac79cd67e0215a56aeef01d787498dcce2b7bfb",
+  "fits_verified": 31,
+  "primary_contrasts": 2,
+  "primary_pre_observed_months": 46,
+  "primary_post_observed_months": 44,
+  "valid_state_cluster_event_coefficients": 96,
+  "invalid_two_way_pretrend_tests_withheld": true,
+  "calibration_missing_cells_disclosed": true,
+  "raw_microdata_not_in_archive": true,
+  "figures_displayed": 0,
+  "independent_numerical_checks": {
+    "passed": true,
+    "adjacent_pair_count": 115,
+    "risk_pairs": 95862,
+    "raw_cache_hashes_verified": 117,
+    "figures_displayed": 0,
+    "ppml_reference_rows": 782,
+    "ppml_explicit_dummy_beta_max_difference": 2.6352253712502716e-12,
+    "ppml_two_way_covariance_max_difference": 5.189093599256012e-10,
+    "linear_explicit_dummy_beta_max_difference": 9.375833442959447e-14,
+    "expected_fractional_allocations_preserve_counts": true,
+    "October2025_not_imputed": true,
+    "November2025_not_bridged": true
+  }
+}
