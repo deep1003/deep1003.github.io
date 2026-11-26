@@ -110,7 +110,7 @@ Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fet
 
 // Monthly THAIE quintiles, using allocation-free official linkage and fixed cohorts.
 (async()=>{
- const response=await fetch('data/monthly-quintile-sex.json?v=20261125-v1');
+ const response=await fetch('data/monthly-quintile-sex.json?v=20261126-84months');
  if(!response.ok)throw Error('월별 분위별 자료 로드 실패');
  const source=await response.json();
  options('mq-age',source.ages.map(a=>[a.id,a.label]),source.ages[0].id);
@@ -121,7 +121,7 @@ Promise.all(['meta','res','monthly','administrative','gender-totals'].map(n=>fet
   const rows=source.rows.filter(r=>r.age===age).map(r=>({...r,index:standardized?r.standardized_index:r.index}));
   const values=rows.filter(r=>r.index!==null).map(r=>r.index);
   const range={min:Math.floor((Math.min(100,...values)-3)/5)*5,max:Math.ceil((Math.max(100,...values)+3)/5)*5};
-  byId('mq-coverage').textContent=meta.label+' · 남녀 동일 '+meta.occupations+'개 직종을 35개 관측월에 고정했습니다. 2022년 11월 일반직종 원표(분류불능 포함) 대비 포함 비중은 남성 '+meta.coverage.Male.toFixed(1)+'%, 여성 '+meta.coverage.Female.toFixed(1)+'%입니다.';
+  byId('mq-coverage').textContent=meta.label+' · 남녀 동일 '+meta.occupations+'개 직종을 58개 관측월에 고정했습니다. 2022년 11월 일반직종 원표(분류불능 포함) 대비 포함 비중은 남성 '+meta.coverage.Male.toFixed(1)+'%, 여성 '+meta.coverage.Female.toFixed(1)+'%입니다.';
   for(const group of ['Q1','Q2','Q3','Q4','Q5','All']){
    const selected=rows.filter(r=>r.group===group).map(r=>standardized?{time:r.time,series:r.sex,index:r.standardized_index}:{...r,series:r.sex});
    render('mq-'+group.toLowerCase(),selected,['Male','Female'],s=>sexNames[s],false,range,true,standardized?'직종 구성 고정 지수':'고용지수');
