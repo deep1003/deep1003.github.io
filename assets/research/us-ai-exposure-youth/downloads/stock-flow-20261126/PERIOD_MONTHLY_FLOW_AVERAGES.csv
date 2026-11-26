@@ -1,0 +1,1025 @@
+period,window,measure,band,method,ordering,component,flow_months,monthly_persons
+ACS_calendar,pre,E,q14,calibrated,age_first,Nonemployment entry,35,554957.3486090053
+ACS_calendar,pre,E,q14,calibrated,age_first,Nonemployment exit,35,-545739.1012283745
+ACS_calendar,pre,E,q14,calibrated,age_first,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q14,calibrated,age_first,Recorded occupation balance,35,-16161.173718523423
+ACS_calendar,pre,E,q14,calibrated,age_first,Age-boundary balance,35,-42202.03600383544
+ACS_calendar,pre,E,q14,calibrated,age_first,Mapping coverage,35,-3242.1451215754987
+ACS_calendar,pre,E,q14,calibrated,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q14,calibrated,age_first,Survey/coverage reconciliation,35,56570.55820102416
+ACS_calendar,pre,E,q14,calibrated,symmetric_age,Nonemployment entry,35,570392.198966939
+ACS_calendar,pre,E,q14,calibrated,symmetric_age,Nonemployment exit,35,-558921.0952499899
+ACS_calendar,pre,E,q14,calibrated,symmetric_age,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q14,calibrated,symmetric_age,Recorded occupation balance,35,-15983.731596441852
+ACS_calendar,pre,E,q14,calibrated,symmetric_age,Age-boundary balance,35,-44556.69725705296
+ACS_calendar,pre,E,q14,calibrated,symmetric_age,Mapping coverage,35,-3317.7823267579165
+ACS_calendar,pre,E,q14,calibrated,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q14,calibrated,symmetric_age,Survey/coverage reconciliation,35,56570.55820102416
+ACS_calendar,pre,E,q14,design_only,age_first,Nonemployment entry,35,490756.71730462974
+ACS_calendar,pre,E,q14,design_only,age_first,Nonemployment exit,35,-488669.37631740805
+ACS_calendar,pre,E,q14,design_only,age_first,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q14,design_only,age_first,Recorded occupation balance,35,-14719.770988345525
+ACS_calendar,pre,E,q14,design_only,age_first,Age-boundary balance,35,-38234.42669387694
+ACS_calendar,pre,E,q14,design_only,age_first,Mapping coverage,35,-2703.8753299950477
+ACS_calendar,pre,E,q14,design_only,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q14,design_only,age_first,Survey/coverage reconciliation,35,57754.18276271637
+ACS_calendar,pre,E,q14,design_only,symmetric_age,Nonemployment entry,35,504510.487098592
+ACS_calendar,pre,E,q14,design_only,symmetric_age,Nonemployment exit,35,-500469.04565167415
+ACS_calendar,pre,E,q14,design_only,symmetric_age,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q14,design_only,symmetric_age,Recorded occupation balance,35,-14497.249303071629
+ACS_calendar,pre,E,q14,design_only,symmetric_age,Age-boundary balance,35,-40344.66885984686
+ACS_calendar,pre,E,q14,design_only,symmetric_age,Mapping coverage,35,-2770.255308995238
+ACS_calendar,pre,E,q14,design_only,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q14,design_only,symmetric_age,Survey/coverage reconciliation,35,57754.18276271637
+ACS_calendar,pre,E,q14,ipw,age_first,Nonemployment entry,35,558329.4033028542
+ACS_calendar,pre,E,q14,ipw,age_first,Nonemployment exit,35,-546831.2720054318
+ACS_calendar,pre,E,q14,ipw,age_first,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q14,ipw,age_first,Recorded occupation balance,35,-16696.187824668435
+ACS_calendar,pre,E,q14,ipw,age_first,Age-boundary balance,35,-42265.011321457045
+ACS_calendar,pre,E,q14,ipw,age_first,Mapping coverage,35,-3089.4431143757074
+ACS_calendar,pre,E,q14,ipw,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q14,ipw,age_first,Survey/coverage reconciliation,35,54735.96170079951
+ACS_calendar,pre,E,q14,ipw,symmetric_age,Nonemployment entry,35,573946.6194074091
+ACS_calendar,pre,E,q14,ipw,symmetric_age,Nonemployment exit,35,-560052.6194170807
+ACS_calendar,pre,E,q14,ipw,symmetric_age,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q14,ipw,symmetric_age,Recorded occupation balance,35,-16466.05175913997
+ACS_calendar,pre,E,q14,ipw,symmetric_age,Age-boundary balance,35,-44824.891307813814
+ACS_calendar,pre,E,q14,ipw,symmetric_age,Mapping coverage,35,-3155.567886453636
+ACS_calendar,pre,E,q14,ipw,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q14,ipw,symmetric_age,Survey/coverage reconciliation,35,54735.96170079951
+ACS_calendar,pre,E,q14,trim99,age_first,Nonemployment entry,35,557857.3690263578
+ACS_calendar,pre,E,q14,trim99,age_first,Nonemployment exit,35,-546702.7961052448
+ACS_calendar,pre,E,q14,trim99,age_first,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q14,trim99,age_first,Recorded occupation balance,35,-16679.16928924869
+ACS_calendar,pre,E,q14,trim99,age_first,Age-boundary balance,35,-42179.62514079461
+ACS_calendar,pre,E,q14,trim99,age_first,Mapping coverage,35,-3089.12893601625
+ACS_calendar,pre,E,q14,trim99,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q14,trim99,age_first,Survey/coverage reconciliation,35,54976.80118266716
+ACS_calendar,pre,E,q14,trim99,symmetric_age,Nonemployment entry,35,573467.2398533287
+ACS_calendar,pre,E,q14,trim99,symmetric_age,Nonemployment exit,35,-559923.5522658225
+ACS_calendar,pre,E,q14,trim99,symmetric_age,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q14,trim99,symmetric_age,Recorded occupation balance,35,-16449.033223720253
+ACS_calendar,pre,E,q14,trim99,symmetric_age,Age-boundary balance,35,-44732.75110063821
+ACS_calendar,pre,E,q14,trim99,symmetric_age,Mapping coverage,35,-3155.2537080941793
+ACS_calendar,pre,E,q14,trim99,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q14,trim99,symmetric_age,Survey/coverage reconciliation,35,54976.80118266716
+ACS_calendar,pre,E,q5,calibrated,age_first,Nonemployment entry,35,115133.86126603598
+ACS_calendar,pre,E,q5,calibrated,age_first,Nonemployment exit,35,-105492.80870977847
+ACS_calendar,pre,E,q5,calibrated,age_first,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q5,calibrated,age_first,Recorded occupation balance,35,16161.173718523423
+ACS_calendar,pre,E,q5,calibrated,age_first,Age-boundary balance,35,-20223.745997058366
+ACS_calendar,pre,E,q5,calibrated,age_first,Mapping coverage,35,-184.93465644054308
+ACS_calendar,pre,E,q5,calibrated,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q5,calibrated,age_first,Survey/coverage reconciliation,35,-13794.348002239421
+ACS_calendar,pre,E,q5,calibrated,symmetric_age,Nonemployment entry,35,117497.95424567664
+ACS_calendar,pre,E,q5,calibrated,symmetric_age,Nonemployment exit,35,-107697.73701011352
+ACS_calendar,pre,E,q5,calibrated,symmetric_age,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q5,calibrated,symmetric_age,Recorded occupation balance,35,15983.731596441852
+ACS_calendar,pre,E,q5,calibrated,symmetric_age,Age-boundary balance,35,-20144.022395437052
+ACS_calendar,pre,E,q5,calibrated,symmetric_age,Mapping coverage,35,-246.38081528594043
+ACS_calendar,pre,E,q5,calibrated,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q5,calibrated,symmetric_age,Survey/coverage reconciliation,35,-13794.348002239421
+ACS_calendar,pre,E,q5,design_only,age_first,Nonemployment entry,35,101951.94856685639
+ACS_calendar,pre,E,q5,design_only,age_first,Nonemployment exit,35,-94370.60721756381
+ACS_calendar,pre,E,q5,design_only,age_first,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q5,design_only,age_first,Recorded occupation balance,35,14719.770988345525
+ACS_calendar,pre,E,q5,design_only,age_first,Age-boundary balance,35,-17831.971979163805
+ACS_calendar,pre,E,q5,design_only,age_first,Mapping coverage,35,-449.57465853790484
+ACS_calendar,pre,E,q5,design_only,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q5,design_only,age_first,Survey/coverage reconciliation,35,-12420.368080893812
+ACS_calendar,pre,E,q5,design_only,symmetric_age,Nonemployment entry,35,104012.24552722552
+ACS_calendar,pre,E,q5,design_only,symmetric_age,Nonemployment exit,35,-96326.73934196723
+ACS_calendar,pre,E,q5,design_only,symmetric_age,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q5,design_only,symmetric_age,Recorded occupation balance,35,14497.249303071629
+ACS_calendar,pre,E,q5,design_only,symmetric_age,Age-boundary balance,35,-17656.74768158895
+ACS_calendar,pre,E,q5,design_only,symmetric_age,Mapping coverage,35,-506.4421068045714
+ACS_calendar,pre,E,q5,design_only,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q5,design_only,symmetric_age,Survey/coverage reconciliation,35,-12420.368080893812
+ACS_calendar,pre,E,q5,ipw,age_first,Nonemployment entry,35,115612.2023928258
+ACS_calendar,pre,E,q5,ipw,age_first,Nonemployment exit,35,-105415.40027180941
+ACS_calendar,pre,E,q5,ipw,age_first,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q5,ipw,age_first,Recorded occupation balance,35,16696.187824668435
+ACS_calendar,pre,E,q5,ipw,age_first,Age-boundary balance,35,-19756.74801752282
+ACS_calendar,pre,E,q5,ipw,age_first,Mapping coverage,35,-465.21395966870756
+ACS_calendar,pre,E,q5,ipw,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q5,ipw,age_first,Survey/coverage reconciliation,35,-15071.830349450733
+ACS_calendar,pre,E,q5,ipw,symmetric_age,Nonemployment entry,35,117955.25817842569
+ACS_calendar,pre,E,q5,ipw,symmetric_age,Nonemployment exit,35,-107605.63217260738
+ACS_calendar,pre,E,q5,ipw,symmetric_age,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q5,ipw,symmetric_age,Recorded occupation balance,35,16466.05175913997
+ACS_calendar,pre,E,q5,ipw,symmetric_age,Age-boundary balance,35,-19616.06993970574
+ACS_calendar,pre,E,q5,ipw,symmetric_age,Mapping coverage,35,-528.5798567592096
+ACS_calendar,pre,E,q5,ipw,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q5,ipw,symmetric_age,Survey/coverage reconciliation,35,-15071.830349450733
+ACS_calendar,pre,E,q5,trim99,age_first,Nonemployment entry,35,115589.43542595797
+ACS_calendar,pre,E,q5,trim99,age_first,Nonemployment exit,35,-105399.77533151995
+ACS_calendar,pre,E,q5,trim99,age_first,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q5,trim99,age_first,Recorded occupation balance,35,16679.16928924869
+ACS_calendar,pre,E,q5,trim99,age_first,Age-boundary balance,35,-19753.134302253828
+ACS_calendar,pre,E,q5,trim99,age_first,Mapping coverage,35,-465.94257965130845
+ACS_calendar,pre,E,q5,trim99,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q5,trim99,age_first,Survey/coverage reconciliation,35,-15050.554882739047
+ACS_calendar,pre,E,q5,trim99,symmetric_age,Nonemployment entry,35,117931.97802354224
+ACS_calendar,pre,E,q5,trim99,symmetric_age,Nonemployment exit,35,-107589.84225386614
+ACS_calendar,pre,E,q5,trim99,symmetric_age,Full-/part-time balance,35,0.0
+ACS_calendar,pre,E,q5,trim99,symmetric_age,Recorded occupation balance,35,16449.033223720253
+ACS_calendar,pre,E,q5,trim99,symmetric_age,Age-boundary balance,35,-19612.10801487293
+ACS_calendar,pre,E,q5,trim99,symmetric_age,Mapping coverage,35,-529.3084767418108
+ACS_calendar,pre,E,q5,trim99,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,E,q5,trim99,symmetric_age,Survey/coverage reconciliation,35,-15050.554882739047
+ACS_calendar,pre,FT,q14,calibrated,age_first,Nonemployment entry,35,311814.4005506097
+ACS_calendar,pre,FT,q14,calibrated,age_first,Nonemployment exit,35,-309847.06680346397
+ACS_calendar,pre,FT,q14,calibrated,age_first,Full-/part-time balance,35,51477.50542819715
+ACS_calendar,pre,FT,q14,calibrated,age_first,Recorded occupation balance,35,-10790.934421198966
+ACS_calendar,pre,FT,q14,calibrated,age_first,Age-boundary balance,35,-75875.91228150437
+ACS_calendar,pre,FT,q14,calibrated,age_first,Mapping coverage,35,-1708.9890160550497
+ACS_calendar,pre,FT,q14,calibrated,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q14,calibrated,age_first,Survey/coverage reconciliation,35,49199.609695287225
+ACS_calendar,pre,FT,q14,calibrated,symmetric_age,Nonemployment entry,35,320186.03894860006
+ACS_calendar,pre,FT,q14,calibrated,symmetric_age,Nonemployment exit,35,-317248.9754328021
+ACS_calendar,pre,FT,q14,calibrated,symmetric_age,Full-/part-time balance,35,52016.791158653796
+ACS_calendar,pre,FT,q14,calibrated,symmetric_age,Recorded occupation balance,35,-10875.03611032787
+ACS_calendar,pre,FT,q14,calibrated,symmetric_age,Age-boundary balance,35,-77060.0580922358
+ACS_calendar,pre,FT,q14,calibrated,symmetric_age,Mapping coverage,35,-1949.7570153036168
+ACS_calendar,pre,FT,q14,calibrated,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q14,calibrated,symmetric_age,Survey/coverage reconciliation,35,49199.609695287225
+ACS_calendar,pre,FT,q14,design_only,age_first,Nonemployment entry,35,275955.49480832304
+ACS_calendar,pre,FT,q14,design_only,age_first,Nonemployment exit,35,-275811.6996754
+ACS_calendar,pre,FT,q14,design_only,age_first,Full-/part-time balance,35,50245.89809124876
+ACS_calendar,pre,FT,q14,design_only,age_first,Recorded occupation balance,35,-10019.409978364565
+ACS_calendar,pre,FT,q14,design_only,age_first,Age-boundary balance,35,-68753.20067105943
+ACS_calendar,pre,FT,q14,design_only,age_first,Mapping coverage,35,-1331.2233406156192
+ACS_calendar,pre,FT,q14,design_only,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q14,design_only,age_first,Survey/coverage reconciliation,35,43982.753917739516
+ACS_calendar,pre,FT,q14,design_only,symmetric_age,Nonemployment entry,35,283434.87663574686
+ACS_calendar,pre,FT,q14,design_only,symmetric_age,Nonemployment exit,35,-282345.50746519794
+ACS_calendar,pre,FT,q14,design_only,symmetric_age,Full-/part-time balance,35,50939.70347759675
+ACS_calendar,pre,FT,q14,design_only,symmetric_age,Recorded occupation balance,35,-10097.319571039625
+ACS_calendar,pre,FT,q14,design_only,symmetric_age,Age-boundary balance,35,-70091.55541052819
+ACS_calendar,pre,FT,q14,design_only,symmetric_age,Mapping coverage,35,-1554.3384324457145
+ACS_calendar,pre,FT,q14,design_only,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q14,design_only,symmetric_age,Survey/coverage reconciliation,35,43982.753917739516
+ACS_calendar,pre,FT,q14,ipw,age_first,Nonemployment entry,35,314346.6487335726
+ACS_calendar,pre,FT,q14,ipw,age_first,Nonemployment exit,35,-310674.50858130166
+ACS_calendar,pre,FT,q14,ipw,age_first,Full-/part-time balance,35,50091.234155370796
+ACS_calendar,pre,FT,q14,ipw,age_first,Recorded occupation balance,35,-11308.109987099873
+ACS_calendar,pre,FT,q14,ipw,age_first,Age-boundary balance,35,-76496.95348838317
+ACS_calendar,pre,FT,q14,ipw,age_first,Mapping coverage,35,-1581.6864191216507
+ACS_calendar,pre,FT,q14,ipw,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q14,ipw,age_first,Survey/coverage reconciliation,35,49891.98873883472
+ACS_calendar,pre,FT,q14,ipw,symmetric_age,Nonemployment entry,35,322886.3640108252
+ACS_calendar,pre,FT,q14,ipw,symmetric_age,Nonemployment exit,35,-318052.5247401163
+ACS_calendar,pre,FT,q14,ipw,symmetric_age,Full-/part-time balance,35,50657.20014990738
+ACS_calendar,pre,FT,q14,ipw,symmetric_age,Recorded occupation balance,35,-11402.70703789714
+ACS_calendar,pre,FT,q14,ipw,symmetric_age,Age-boundary balance,35,-77890.11859778537
+ACS_calendar,pre,FT,q14,ipw,symmetric_age,Mapping coverage,35,-1821.589371896762
+ACS_calendar,pre,FT,q14,ipw,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q14,ipw,symmetric_age,Survey/coverage reconciliation,35,49891.98873883472
+ACS_calendar,pre,FT,q14,trim99,age_first,Nonemployment entry,35,314021.9977548376
+ACS_calendar,pre,FT,q14,trim99,age_first,Nonemployment exit,35,-310557.8781832682
+ACS_calendar,pre,FT,q14,trim99,age_first,Full-/part-time balance,35,50121.91194750712
+ACS_calendar,pre,FT,q14,trim99,age_first,Recorded occupation balance,35,-11291.200269772788
+ACS_calendar,pre,FT,q14,trim99,age_first,Age-boundary balance,35,-76406.57224326572
+ACS_calendar,pre,FT,q14,trim99,age_first,Mapping coverage,35,-1581.113021906702
+ACS_calendar,pre,FT,q14,trim99,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q14,trim99,age_first,Survey/coverage reconciliation,35,49961.4671677403
+ACS_calendar,pre,FT,q14,trim99,symmetric_age,Nonemployment entry,35,322556.00322554813
+ACS_calendar,pre,FT,q14,trim99,symmetric_age,Nonemployment exit,35,-317935.51210368617
+ACS_calendar,pre,FT,q14,trim99,symmetric_age,Full-/part-time balance,35,50688.2711347093
+ACS_calendar,pre,FT,q14,trim99,symmetric_age,Recorded occupation balance,35,-11385.79732057007
+ACS_calendar,pre,FT,q14,trim99,symmetric_age,Age-boundary balance,35,-77794.80297718795
+ACS_calendar,pre,FT,q14,trim99,symmetric_age,Mapping coverage,35,-1821.0159746818133
+ACS_calendar,pre,FT,q14,trim99,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q14,trim99,symmetric_age,Survey/coverage reconciliation,35,49961.4671677403
+ACS_calendar,pre,FT,q5,calibrated,age_first,Nonemployment entry,35,68888.92063001626
+ACS_calendar,pre,FT,q5,calibrated,age_first,Nonemployment exit,35,-66278.69081932766
+ACS_calendar,pre,FT,q5,calibrated,age_first,Full-/part-time balance,35,21437.60641182342
+ACS_calendar,pre,FT,q5,calibrated,age_first,Recorded occupation balance,35,10790.934421198966
+ACS_calendar,pre,FT,q5,calibrated,age_first,Age-boundary balance,35,-27852.344554242856
+ACS_calendar,pre,FT,q5,calibrated,age_first,Mapping coverage,35,1128.5941275258285
+ACS_calendar,pre,FT,q5,calibrated,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q5,calibrated,age_first,Survey/coverage reconciliation,35,-13064.007390133385
+ACS_calendar,pre,FT,q5,calibrated,symmetric_age,Nonemployment entry,35,70124.39185284678
+ACS_calendar,pre,FT,q5,calibrated,symmetric_age,Nonemployment exit,35,-67327.43404704798
+ACS_calendar,pre,FT,q5,calibrated,symmetric_age,Full-/part-time balance,35,21800.5670797301
+ACS_calendar,pre,FT,q5,calibrated,symmetric_age,Recorded occupation balance,35,10875.036110327885
+ACS_calendar,pre,FT,q5,calibrated,symmetric_age,Age-boundary balance,35,-28537.96130331581
+ACS_calendar,pre,FT,q5,calibrated,symmetric_age,Mapping coverage,35,1180.420524452981
+ACS_calendar,pre,FT,q5,calibrated,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q5,calibrated,symmetric_age,Survey/coverage reconciliation,35,-13064.007390133387
+ACS_calendar,pre,FT,q5,design_only,age_first,Nonemployment entry,35,60910.554159534106
+ACS_calendar,pre,FT,q5,design_only,age_first,Nonemployment exit,35,-58897.93887369257
+ACS_calendar,pre,FT,q5,design_only,age_first,Full-/part-time balance,35,19350.580070396958
+ACS_calendar,pre,FT,q5,design_only,age_first,Recorded occupation balance,35,10019.40997836458
+ACS_calendar,pre,FT,q5,design_only,age_first,Age-boundary balance,35,-24913.069333043804
+ACS_calendar,pre,FT,q5,design_only,age_first,Mapping coverage,35,748.6219182659047
+ACS_calendar,pre,FT,q5,design_only,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q5,design_only,age_first,Survey/coverage reconciliation,35,-12167.145092964569
+ACS_calendar,pre,FT,q5,design_only,symmetric_age,Nonemployment entry,35,61990.49217880705
+ACS_calendar,pre,FT,q5,design_only,symmetric_age,Nonemployment exit,35,-59860.07998812172
+ACS_calendar,pre,FT,q5,design_only,symmetric_age,Full-/part-time balance,35,19675.759268630092
+ACS_calendar,pre,FT,q5,design_only,symmetric_age,Recorded occupation balance,35,10097.319571039625
+ACS_calendar,pre,FT,q5,design_only,symmetric_age,Age-boundary balance,35,-25468.516991378663
+ACS_calendar,pre,FT,q5,design_only,symmetric_age,Mapping coverage,35,783.1838808487619
+ACS_calendar,pre,FT,q5,design_only,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q5,design_only,symmetric_age,Survey/coverage reconciliation,35,-12167.145092964569
+ACS_calendar,pre,FT,q5,ipw,age_first,Nonemployment entry,35,69160.94605909588
+ACS_calendar,pre,FT,q5,ipw,age_first,Nonemployment exit,35,-66155.03284382439
+ACS_calendar,pre,FT,q5,ipw,age_first,Full-/part-time balance,35,20288.479026471934
+ACS_calendar,pre,FT,q5,ipw,age_first,Recorded occupation balance,35,11308.109987099873
+ACS_calendar,pre,FT,q5,ipw,age_first,Age-boundary balance,35,-27597.148562457423
+ACS_calendar,pre,FT,q5,ipw,age_first,Mapping coverage,35,879.62050625081
+ACS_calendar,pre,FT,q5,ipw,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q5,ipw,age_first,Survey/coverage reconciliation,35,-12833.961345776099
+ACS_calendar,pre,FT,q5,ipw,symmetric_age,Nonemployment entry,35,70401.59427383322
+ACS_calendar,pre,FT,q5,ipw,symmetric_age,Nonemployment exit,35,-67221.39660905639
+ACS_calendar,pre,FT,q5,ipw,symmetric_age,Full-/part-time balance,35,20659.305110426896
+ACS_calendar,pre,FT,q5,ipw,symmetric_age,Recorded occupation balance,35,11402.70703789714
+ACS_calendar,pre,FT,q5,ipw,symmetric_age,Age-boundary balance,35,-28272.204201434433
+ACS_calendar,pre,FT,q5,ipw,symmetric_age,Mapping coverage,35,914.9685609702689
+ACS_calendar,pre,FT,q5,ipw,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q5,ipw,symmetric_age,Survey/coverage reconciliation,35,-12833.961345776099
+ACS_calendar,pre,FT,q5,trim99,age_first,Nonemployment entry,35,69139.2227943294
+ACS_calendar,pre,FT,q5,trim99,age_first,Nonemployment exit,35,-66143.3693288758
+ACS_calendar,pre,FT,q5,trim99,age_first,Full-/part-time balance,35,20288.810090684347
+ACS_calendar,pre,FT,q5,trim99,age_first,Recorded occupation balance,35,11291.200269772788
+ACS_calendar,pre,FT,q5,trim99,age_first,Age-boundary balance,35,-27593.534847188428
+ACS_calendar,pre,FT,q5,trim99,age_first,Mapping coverage,35,878.891886268209
+ACS_calendar,pre,FT,q5,trim99,age_first,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q5,trim99,age_first,Survey/coverage reconciliation,35,-12810.208038129955
+ACS_calendar,pre,FT,q5,trim99,symmetric_age,Nonemployment entry,35,70379.35782105109
+ACS_calendar,pre,FT,q5,trim99,symmetric_age,Nonemployment exit,35,-67209.56811565599
+ACS_calendar,pre,FT,q5,trim99,symmetric_age,Full-/part-time balance,35,20659.63617463931
+ACS_calendar,pre,FT,q5,trim99,symmetric_age,Recorded occupation balance,35,11385.79732057007
+ACS_calendar,pre,FT,q5,trim99,symmetric_age,Age-boundary balance,35,-28268.242276601613
+ACS_calendar,pre,FT,q5,trim99,symmetric_age,Mapping coverage,35,914.2399409876678
+ACS_calendar,pre,FT,q5,trim99,symmetric_age,2020 classification boundary,35,0.0
+ACS_calendar,pre,FT,q5,trim99,symmetric_age,Survey/coverage reconciliation,35,-12810.208038129955
+ACS_calendar,post,E,q14,calibrated,age_first,Nonemployment entry,24,537106.2588614932
+ACS_calendar,post,E,q14,calibrated,age_first,Nonemployment exit,24,-520091.4411212115
+ACS_calendar,post,E,q14,calibrated,age_first,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q14,calibrated,age_first,Recorded occupation balance,24,-924.3154753054987
+ACS_calendar,post,E,q14,calibrated,age_first,Age-boundary balance,24,-13780.033944454626
+ACS_calendar,post,E,q14,calibrated,age_first,Mapping coverage,24,-3334.229902118885
+ACS_calendar,post,E,q14,calibrated,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q14,calibrated,age_first,Survey/coverage reconciliation,24,-3874.096210069334
+ACS_calendar,post,E,q14,calibrated,symmetric_age,Nonemployment entry,24,549729.072649619
+ACS_calendar,post,E,q14,calibrated,symmetric_age,Nonemployment exit,24,-531095.7920750929
+ACS_calendar,post,E,q14,calibrated,symmetric_age,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q14,calibrated,symmetric_age,Recorded occupation balance,24,-870.7833033503994
+ACS_calendar,post,E,q14,calibrated,symmetric_age,Age-boundary balance,24,-15385.021498411777
+ACS_calendar,post,E,q14,calibrated,symmetric_age,Mapping coverage,24,-3401.2373543611407
+ACS_calendar,post,E,q14,calibrated,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q14,calibrated,symmetric_age,Survey/coverage reconciliation,24,-3874.096210069336
+ACS_calendar,post,E,q14,design_only,age_first,Nonemployment entry,24,453039.0056277778
+ACS_calendar,post,E,q14,design_only,age_first,Nonemployment exit,24,-446058.70293333335
+ACS_calendar,post,E,q14,design_only,age_first,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q14,design_only,age_first,Recorded occupation balance,24,-1627.6346777777944
+ACS_calendar,post,E,q14,design_only,age_first,Age-boundary balance,24,-9352.06432777777
+ACS_calendar,post,E,q14,design_only,age_first,Mapping coverage,24,-2062.744938888889
+ACS_calendar,post,E,q14,design_only,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q14,design_only,age_first,Survey/coverage reconciliation,24,1164.283458333346
+ACS_calendar,post,E,q14,design_only,symmetric_age,Nonemployment entry,24,463967.07170277776
+ACS_calendar,post,E,q14,design_only,symmetric_age,Nonemployment exit,24,-455611.7097833333
+ACS_calendar,post,E,q14,design_only,symmetric_age,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q14,design_only,symmetric_age,Recorded occupation balance,24,-1658.5896944444394
+ACS_calendar,post,E,q14,design_only,symmetric_age,Age-boundary balance,24,-10645.309380555525
+ACS_calendar,post,E,q14,design_only,symmetric_age,Mapping coverage,24,-2113.604094444445
+ACS_calendar,post,E,q14,design_only,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q14,design_only,symmetric_age,Survey/coverage reconciliation,24,1164.2834583333388
+ACS_calendar,post,E,q14,ipw,age_first,Nonemployment entry,24,539787.8210384358
+ACS_calendar,post,E,q14,ipw,age_first,Nonemployment exit,24,-521774.92621162627
+ACS_calendar,post,E,q14,ipw,age_first,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q14,ipw,age_first,Recorded occupation balance,24,-1697.9560486926493
+ACS_calendar,post,E,q14,ipw,age_first,Age-boundary balance,24,-12749.020917098736
+ACS_calendar,post,E,q14,ipw,age_first,Mapping coverage,24,-2566.0642439401167
+ACS_calendar,post,E,q14,ipw,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q14,ipw,age_first,Survey/coverage reconciliation,24,-5897.711408744641
+ACS_calendar,post,E,q14,ipw,symmetric_age,Nonemployment entry,24,552706.4770331967
+ACS_calendar,post,E,q14,ipw,symmetric_age,Nonemployment exit,24,-532991.7392150311
+ACS_calendar,post,E,q14,ipw,symmetric_age,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q14,ipw,symmetric_age,Recorded occupation balance,24,-1747.6956103691336
+ACS_calendar,post,E,q14,ipw,symmetric_age,Age-boundary balance,24,-14342.567263590754
+ACS_calendar,post,E,q14,ipw,symmetric_age,Mapping coverage,24,-2624.621327127674
+ACS_calendar,post,E,q14,ipw,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q14,ipw,symmetric_age,Survey/coverage reconciliation,24,-5897.711408744646
+ACS_calendar,post,E,q14,trim99,age_first,Nonemployment entry,24,537922.2981589764
+ACS_calendar,post,E,q14,trim99,age_first,Nonemployment exit,24,-521444.0861056019
+ACS_calendar,post,E,q14,trim99,age_first,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q14,trim99,age_first,Recorded occupation balance,24,-1616.534862503453
+ACS_calendar,post,E,q14,trim99,age_first,Age-boundary balance,24,-12565.703009809105
+ACS_calendar,post,E,q14,trim99,age_first,Mapping coverage,24,-2602.3323425995954
+ACS_calendar,post,E,q14,trim99,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q14,trim99,age_first,Survey/coverage reconciliation,24,-4591.499630128963
+ACS_calendar,post,E,q14,trim99,symmetric_age,Nonemployment entry,24,550829.5308048859
+ACS_calendar,post,E,q14,trim99,symmetric_age,Nonemployment exit,24,-532658.9898434158
+ACS_calendar,post,E,q14,trim99,symmetric_age,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q14,trim99,symmetric_age,Recorded occupation balance,24,-1666.2744241799228
+ACS_calendar,post,E,q14,trim99,symmetric_age,Age-boundary balance,24,-14149.735273040773
+ACS_calendar,post,E,q14,trim99,symmetric_age,Mapping coverage,24,-2660.889425787153
+ACS_calendar,post,E,q14,trim99,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q14,trim99,symmetric_age,Survey/coverage reconciliation,24,-4591.499630128965
+ACS_calendar,post,E,q5,calibrated,age_first,Nonemployment entry,24,105800.92049743055
+ACS_calendar,post,E,q5,calibrated,age_first,Nonemployment exit,24,-94033.784977252
+ACS_calendar,post,E,q5,calibrated,age_first,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q5,calibrated,age_first,Recorded occupation balance,24,924.3154753054987
+ACS_calendar,post,E,q5,calibrated,age_first,Age-boundary balance,24,-18176.589621382343
+ACS_calendar,post,E,q5,calibrated,age_first,Mapping coverage,24,716.4800755223247
+ACS_calendar,post,E,q5,calibrated,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q5,calibrated,age_first,Survey/coverage reconciliation,24,3991.3792128759496
+ACS_calendar,post,E,q5,calibrated,symmetric_age,Nonemployment entry,24,107016.59038359407
+ACS_calendar,post,E,q5,calibrated,symmetric_age,Nonemployment exit,24,-95430.25823706595
+ACS_calendar,post,E,q5,calibrated,symmetric_age,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q5,calibrated,symmetric_age,Recorded occupation balance,24,870.7833033503994
+ACS_calendar,post,E,q5,calibrated,symmetric_age,Age-boundary balance,24,-17006.485846046664
+ACS_calendar,post,E,q5,calibrated,symmetric_age,Mapping coverage,24,-219.28815420779355
+ACS_calendar,post,E,q5,calibrated,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q5,calibrated,symmetric_age,Survey/coverage reconciliation,24,3991.3792128759496
+ACS_calendar,post,E,q5,design_only,age_first,Nonemployment entry,24,90714.16267222223
+ACS_calendar,post,E,q5,design_only,age_first,Nonemployment exit,24,-80275.47033888889
+ACS_calendar,post,E,q5,design_only,age_first,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q5,design_only,age_first,Recorded occupation balance,24,1627.6346777777944
+ACS_calendar,post,E,q5,design_only,age_first,Age-boundary balance,24,-15714.350700000003
+ACS_calendar,post,E,q5,design_only,age_first,Mapping coverage,24,739.2864944444442
+ACS_calendar,post,E,q5,design_only,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q5,design_only,age_first,Survey/coverage reconciliation,24,2131.4578569444457
+ACS_calendar,post,E,q5,design_only,symmetric_age,Nonemployment entry,24,91763.7773611111
+ACS_calendar,post,E,q5,design_only,symmetric_age,Nonemployment exit,24,-81420.41785555556
+ACS_calendar,post,E,q5,design_only,symmetric_age,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q5,design_only,symmetric_age,Recorded occupation balance,24,1658.5896944444394
+ACS_calendar,post,E,q5,design_only,symmetric_age,Age-boundary balance,24,-14849.899122222218
+ACS_calendar,post,E,q5,design_only,symmetric_age,Mapping coverage,24,-60.78727222222248
+ACS_calendar,post,E,q5,design_only,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q5,design_only,symmetric_age,Survey/coverage reconciliation,24,2131.4578569444457
+ACS_calendar,post,E,q5,ipw,age_first,Nonemployment entry,24,107215.449997432
+ACS_calendar,post,E,q5,ipw,age_first,Nonemployment exit,24,-92703.50681487884
+ACS_calendar,post,E,q5,ipw,age_first,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q5,ipw,age_first,Recorded occupation balance,24,1697.9560486926493
+ACS_calendar,post,E,q5,ipw,age_first,Age-boundary balance,24,-18368.499434396494
+ACS_calendar,post,E,q5,ipw,age_first,Mapping coverage,24,729.5070488353552
+ACS_calendar,post,E,q5,ipw,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q5,ipw,age_first,Survey/coverage reconciliation,24,651.8138168153355
+ACS_calendar,post,E,q5,ipw,symmetric_age,Nonemployment entry,24,108446.84599194449
+ACS_calendar,post,E,q5,ipw,symmetric_age,Nonemployment exit,24,-94034.96207835092
+ACS_calendar,post,E,q5,ipw,symmetric_age,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q5,ipw,symmetric_age,Recorded occupation balance,24,1747.6956103691336
+ACS_calendar,post,E,q5,ipw,symmetric_age,Age-boundary balance,24,-17346.77141966467
+ACS_calendar,post,E,q5,ipw,symmetric_age,Mapping coverage,24,-241.90125861337728
+ACS_calendar,post,E,q5,ipw,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q5,ipw,symmetric_age,Survey/coverage reconciliation,24,651.8138168153355
+ACS_calendar,post,E,q5,trim99,age_first,Nonemployment entry,24,107167.99391827118
+ACS_calendar,post,E,q5,trim99,age_first,Nonemployment exit,24,-92682.39254757173
+ACS_calendar,post,E,q5,trim99,age_first,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q5,trim99,age_first,Recorded occupation balance,24,1616.534862503453
+ACS_calendar,post,E,q5,trim99,age_first,Age-boundary balance,24,-18369.057168703665
+ACS_calendar,post,E,q5,trim99,age_first,Mapping coverage,24,729.5070488353555
+ACS_calendar,post,E,q5,trim99,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q5,trim99,age_first,Survey/coverage reconciliation,24,760.1345491654029
+ACS_calendar,post,E,q5,trim99,symmetric_age,Nonemployment entry,24,108399.1110456301
+ACS_calendar,post,E,q5,trim99,symmetric_age,Nonemployment exit,24,-94013.84781104379
+ACS_calendar,post,E,q5,trim99,symmetric_age,Full-/part-time balance,24,0.0
+ACS_calendar,post,E,q5,trim99,symmetric_age,Recorded occupation balance,24,1666.2744241799228
+ACS_calendar,post,E,q5,trim99,symmetric_age,Age-boundary balance,24,-17347.050286818252
+ACS_calendar,post,E,q5,trim99,symmetric_age,Mapping coverage,24,-241.90125861337734
+ACS_calendar,post,E,q5,trim99,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,E,q5,trim99,symmetric_age,Survey/coverage reconciliation,24,760.1345491654029
+ACS_calendar,post,FT,q14,calibrated,age_first,Nonemployment entry,24,309394.6799288537
+ACS_calendar,post,FT,q14,calibrated,age_first,Nonemployment exit,24,-307621.0508669232
+ACS_calendar,post,FT,q14,calibrated,age_first,Full-/part-time balance,24,58494.85771775356
+ACS_calendar,post,FT,q14,calibrated,age_first,Recorded occupation balance,24,-4927.296710403607
+ACS_calendar,post,FT,q14,calibrated,age_first,Age-boundary balance,24,-57148.055982948004
+ACS_calendar,post,FT,q14,calibrated,age_first,Mapping coverage,24,-3243.8556845340786
+ACS_calendar,post,FT,q14,calibrated,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q14,calibrated,age_first,Survey/coverage reconciliation,24,-3531.1006184649923
+ACS_calendar,post,FT,q14,calibrated,symmetric_age,Nonemployment entry,24,315486.5760225673
+ACS_calendar,post,FT,q14,calibrated,symmetric_age,Nonemployment exit,24,-312831.2787069399
+ACS_calendar,post,FT,q14,calibrated,symmetric_age,Full-/part-time balance,24,59897.3691655079
+ACS_calendar,post,FT,q14,calibrated,symmetric_age,Recorded occupation balance,24,-4775.77268840847
+ACS_calendar,post,FT,q14,calibrated,symmetric_age,Age-boundary balance,24,-59479.19331429749
+ACS_calendar,post,FT,q14,calibrated,symmetric_age,Mapping coverage,24,-3348.422076631025
+ACS_calendar,post,FT,q14,calibrated,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q14,calibrated,symmetric_age,Survey/coverage reconciliation,24,-3531.100618464996
+ACS_calendar,post,FT,q14,design_only,age_first,Nonemployment entry,24,259814.6531888889
+ACS_calendar,post,FT,q14,design_only,age_first,Nonemployment exit,24,-262659.19136666664
+ACS_calendar,post,FT,q14,design_only,age_first,Full-/part-time balance,24,52462.82245555561
+ACS_calendar,post,FT,q14,design_only,age_first,Recorded occupation balance,24,-4978.01663888889
+ACS_calendar,post,FT,q14,design_only,age_first,Age-boundary balance,24,-48388.46031111111
+ACS_calendar,post,FT,q14,design_only,age_first,Mapping coverage,24,-2551.94915
+ACS_calendar,post,FT,q14,design_only,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q14,design_only,age_first,Survey/coverage reconciliation,24,-2281.6803944444437
+ACS_calendar,post,FT,q14,design_only,symmetric_age,Nonemployment entry,24,265016.58104444447
+ACS_calendar,post,FT,q14,design_only,symmetric_age,Nonemployment exit,24,-267053.3408361111
+ACS_calendar,post,FT,q14,design_only,symmetric_age,Full-/part-time balance,24,54035.84106388892
+ACS_calendar,post,FT,q14,design_only,symmetric_age,Recorded occupation balance,24,-4839.830775000009
+ACS_calendar,post,FT,q14,design_only,symmetric_age,Age-boundary balance,24,-50829.38633611113
+ACS_calendar,post,FT,q14,design_only,symmetric_age,Mapping coverage,24,-2630.0059833333335
+ACS_calendar,post,FT,q14,design_only,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q14,design_only,symmetric_age,Survey/coverage reconciliation,24,-2281.68039444444
+ACS_calendar,post,FT,q14,ipw,age_first,Nonemployment entry,24,310423.0248573989
+ACS_calendar,post,FT,q14,ipw,age_first,Nonemployment exit,24,-309183.60233448853
+ACS_calendar,post,FT,q14,ipw,age_first,Full-/part-time balance,24,53603.43138126179
+ACS_calendar,post,FT,q14,ipw,age_first,Recorded occupation balance,24,-5511.40960295363
+ACS_calendar,post,FT,q14,ipw,age_first,Age-boundary balance,24,-57439.922545655805
+ACS_calendar,post,FT,q14,ipw,age_first,Mapping coverage,24,-3152.9633660503896
+ACS_calendar,post,FT,q14,ipw,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q14,ipw,age_first,Survey/coverage reconciliation,24,2679.619393821029
+ACS_calendar,post,FT,q14,ipw,symmetric_age,Nonemployment entry,24,316580.2431135104
+ACS_calendar,post,FT,q14,ipw,symmetric_age,Nonemployment exit,24,-314432.5866953034
+ACS_calendar,post,FT,q14,ipw,symmetric_age,Full-/part-time balance,24,55215.17074110679
+ACS_calendar,post,FT,q14,ipw,symmetric_age,Recorded occupation balance,24,-5367.327292549802
+ACS_calendar,post,FT,q14,ipw,symmetric_age,Age-boundary balance,24,-60012.178796164924
+ACS_calendar,post,FT,q14,ipw,symmetric_age,Mapping coverage,24,-3244.7626810867314
+ACS_calendar,post,FT,q14,ipw,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q14,ipw,symmetric_age,Survey/coverage reconciliation,24,2679.619393821027
+ACS_calendar,post,FT,q14,trim99,age_first,Nonemployment entry,24,308839.90906012006
+ACS_calendar,post,FT,q14,trim99,age_first,Nonemployment exit,24,-308897.4558829959
+ACS_calendar,post,FT,q14,trim99,age_first,Full-/part-time balance,24,53725.3223244978
+ACS_calendar,post,FT,q14,trim99,age_first,Recorded occupation balance,24,-5429.9629913885
+ACS_calendar,post,FT,q14,trim99,age_first,Age-boundary balance,24,-57156.556022410296
+ACS_calendar,post,FT,q14,trim99,age_first,Mapping coverage,24,-3152.96336605039
+ACS_calendar,post,FT,q14,trim99,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q14,trim99,age_first,Survey/coverage reconciliation,24,3489.884661560651
+ACS_calendar,post,FT,q14,trim99,symmetric_age,Nonemployment entry,24,314997.1273162315
+ACS_calendar,post,FT,q14,trim99,symmetric_age,Nonemployment exit,24,-314144.53097821964
+ACS_calendar,post,FT,q14,trim99,symmetric_age,Full-/part-time balance,24,55408.799960454344
+ACS_calendar,post,FT,q14,trim99,symmetric_age,Recorded occupation balance,24,-5285.880680984628
+ACS_calendar,post,FT,q14,trim99,symmetric_age,Age-boundary balance,24,-59802.45981462214
+ACS_calendar,post,FT,q14,trim99,symmetric_age,Mapping coverage,24,-3244.762681086732
+ACS_calendar,post,FT,q14,trim99,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q14,trim99,symmetric_age,Survey/coverage reconciliation,24,3489.8846615606435
+ACS_calendar,post,FT,q5,calibrated,age_first,Nonemployment entry,24,63501.219721302914
+ACS_calendar,post,FT,q5,calibrated,age_first,Nonemployment exit,24,-59676.28000278337
+ACS_calendar,post,FT,q5,calibrated,age_first,Full-/part-time balance,24,12712.076924256857
+ACS_calendar,post,FT,q5,calibrated,age_first,Recorded occupation balance,24,4927.296710403607
+ACS_calendar,post,FT,q5,calibrated,age_first,Age-boundary balance,24,-27925.897358403578
+ACS_calendar,post,FT,q5,calibrated,age_first,Mapping coverage,24,-1746.9341024710811
+ACS_calendar,post,FT,q5,calibrated,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q5,calibrated,age_first,Survey/coverage reconciliation,24,5147.291449361357
+ACS_calendar,post,FT,q5,calibrated,symmetric_age,Nonemployment entry,24,64198.946897127666
+ACS_calendar,post,FT,q5,calibrated,symmetric_age,Nonemployment exit,24,-60345.16180518869
+ACS_calendar,post,FT,q5,calibrated,symmetric_age,Full-/part-time balance,24,13879.074310284894
+ACS_calendar,post,FT,q5,calibrated,symmetric_age,Recorded occupation balance,24,4775.77268840847
+ACS_calendar,post,FT,q5,calibrated,symmetric_age,Age-boundary balance,24,-28405.757193719932
+ACS_calendar,post,FT,q5,calibrated,symmetric_age,Mapping coverage,24,-2311.3930046071055
+ACS_calendar,post,FT,q5,calibrated,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q5,calibrated,symmetric_age,Survey/coverage reconciliation,24,5147.291449361355
+ACS_calendar,post,FT,q5,design_only,age_first,Nonemployment entry,24,54756.84232777778
+ACS_calendar,post,FT,q5,design_only,age_first,Nonemployment exit,24,-50447.199377777775
+ACS_calendar,post,FT,q5,design_only,age_first,Full-/part-time balance,24,10940.196172222226
+ACS_calendar,post,FT,q5,design_only,age_first,Recorded occupation balance,24,4978.01663888889
+ACS_calendar,post,FT,q5,design_only,age_first,Age-boundary balance,24,-24343.43377777778
+ACS_calendar,post,FT,q5,design_only,age_first,Mapping coverage,24,-1453.7476611111113
+ACS_calendar,post,FT,q5,design_only,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q5,design_only,age_first,Survey/coverage reconciliation,24,2508.099019444441
+ACS_calendar,post,FT,q5,design_only,symmetric_age,Nonemployment entry,24,55377.01627777778
+ACS_calendar,post,FT,q5,design_only,symmetric_age,Nonemployment exit,24,-51000.82071111111
+ACS_calendar,post,FT,q5,design_only,symmetric_age,Full-/part-time balance,24,12055.796850000006
+ACS_calendar,post,FT,q5,design_only,symmetric_age,Recorded occupation balance,24,4839.830775000009
+ACS_calendar,post,FT,q5,design_only,symmetric_age,Age-boundary balance,24,-24933.37571111111
+ACS_calendar,post,FT,q5,design_only,symmetric_age,Mapping coverage,24,-1907.7731583333334
+ACS_calendar,post,FT,q5,design_only,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q5,design_only,symmetric_age,Survey/coverage reconciliation,24,2508.099019444441
+ACS_calendar,post,FT,q5,ipw,age_first,Nonemployment entry,24,64805.42456931698
+ACS_calendar,post,FT,q5,ipw,age_first,Nonemployment exit,24,-58649.7010841675
+ACS_calendar,post,FT,q5,ipw,age_first,Full-/part-time balance,24,11701.103984570094
+ACS_calendar,post,FT,q5,ipw,age_first,Recorded occupation balance,24,5511.40960295363
+ACS_calendar,post,FT,q5,ipw,age_first,Age-boundary balance,24,-28251.487936637426
+ACS_calendar,post,FT,q5,ipw,age_first,Mapping coverage,24,-1730.1607421844258
+ACS_calendar,post,FT,q5,ipw,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q5,ipw,age_first,Survey/coverage reconciliation,24,3552.1849478153026
+ACS_calendar,post,FT,q5,ipw,symmetric_age,Nonemployment entry,24,65529.27890913841
+ACS_calendar,post,FT,q5,ipw,symmetric_age,Nonemployment exit,24,-59307.600739516354
+ACS_calendar,post,FT,q5,ipw,symmetric_age,Full-/part-time balance,24,12914.591362287552
+ACS_calendar,post,FT,q5,ipw,symmetric_age,Recorded occupation balance,24,5367.327292549802
+ACS_calendar,post,FT,q5,ipw,symmetric_age,Age-boundary balance,24,-28807.572138398147
+ACS_calendar,post,FT,q5,ipw,symmetric_age,Mapping coverage,24,-2309.4362922098635
+ACS_calendar,post,FT,q5,ipw,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q5,ipw,symmetric_age,Survey/coverage reconciliation,24,3552.1849478153
+ACS_calendar,post,FT,q5,trim99,age_first,Nonemployment entry,24,64801.386070731125
+ACS_calendar,post,FT,q5,trim99,age_first,Nonemployment exit,24,-58628.58681686038
+ACS_calendar,post,FT,q5,trim99,age_first,Full-/part-time balance,24,11703.429592980094
+ACS_calendar,post,FT,q5,trim99,age_first,Recorded occupation balance,24,5429.9629913885
+ACS_calendar,post,FT,q5,trim99,age_first,Age-boundary balance,24,-28251.487936637426
+ACS_calendar,post,FT,q5,trim99,age_first,Mapping coverage,24,-1730.1607421844258
+ACS_calendar,post,FT,q5,trim99,age_first,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q5,trim99,age_first,Survey/coverage reconciliation,24,3614.23018224917
+ACS_calendar,post,FT,q5,trim99,symmetric_age,Nonemployment entry,24,65525.240410552564
+ACS_calendar,post,FT,q5,trim99,symmetric_age,Nonemployment exit,24,-59286.48647220922
+ACS_calendar,post,FT,q5,trim99,symmetric_age,Full-/part-time balance,24,12916.916970697537
+ACS_calendar,post,FT,q5,trim99,symmetric_age,Recorded occupation balance,24,5285.880680984628
+ACS_calendar,post,FT,q5,trim99,symmetric_age,Age-boundary balance,24,-28807.572138398147
+ACS_calendar,post,FT,q5,trim99,symmetric_age,Mapping coverage,24,-2309.436292209864
+ACS_calendar,post,FT,q5,trim99,symmetric_age,2020 classification boundary,24,0.0
+ACS_calendar,post,FT,q5,trim99,symmetric_age,Survey/coverage reconciliation,24,3614.2301822491672
+DID_calendar,pre,E,q14,calibrated,age_first,Nonemployment entry,46,600494.3937486438
+DID_calendar,pre,E,q14,calibrated,age_first,Nonemployment exit,46,-609960.377174054
+DID_calendar,pre,E,q14,calibrated,age_first,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q14,calibrated,age_first,Recorded occupation balance,46,-2878.2737149831664
+DID_calendar,pre,E,q14,calibrated,age_first,Age-boundary balance,46,-31138.21306206929
+DID_calendar,pre,E,q14,calibrated,age_first,Mapping coverage,46,-1123.895094101096
+DID_calendar,pre,E,q14,calibrated,age_first,2020 classification boundary,46,18.334657390849294
+DID_calendar,pre,E,q14,calibrated,age_first,Survey/coverage reconciliation,46,40203.551767330326
+DID_calendar,pre,E,q14,calibrated,symmetric_age,Nonemployment entry,46,614991.1899285906
+DID_calendar,pre,E,q14,calibrated,symmetric_age,Nonemployment exit,46,-625792.1662978303
+DID_calendar,pre,E,q14,calibrated,symmetric_age,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q14,calibrated,symmetric_age,Recorded occupation balance,46,-2561.8775319085835
+DID_calendar,pre,E,q14,calibrated,symmetric_age,Age-boundary balance,46,-30415.8848997615
+DID_calendar,pre,E,q14,calibrated,symmetric_age,Mapping coverage,46,-808.0686913663621
+DID_calendar,pre,E,q14,calibrated,symmetric_age,2020 classification boundary,46,-1.223146896658838
+DID_calendar,pre,E,q14,calibrated,symmetric_age,Survey/coverage reconciliation,46,40203.551767330326
+DID_calendar,pre,E,q14,design_only,age_first,Nonemployment entry,46,513401.4303713542
+DID_calendar,pre,E,q14,design_only,age_first,Nonemployment exit,46,-528187.0888215412
+DID_calendar,pre,E,q14,design_only,age_first,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q14,design_only,age_first,Recorded occupation balance,46,-2441.3680116553587
+DID_calendar,pre,E,q14,design_only,age_first,Age-boundary balance,46,-28318.93041632147
+DID_calendar,pre,E,q14,design_only,age_first,Mapping coverage,46,-602.6461993026087
+DID_calendar,pre,E,q14,design_only,age_first,2020 classification boundary,46,-91.51649979594151
+DID_calendar,pre,E,q14,design_only,age_first,Survey/coverage reconciliation,46,41855.64070541973
+DID_calendar,pre,E,q14,design_only,symmetric_age,Nonemployment entry,46,526171.4180348577
+DID_calendar,pre,E,q14,design_only,symmetric_age,Nonemployment exit,46,-542066.7829837508
+DID_calendar,pre,E,q14,design_only,symmetric_age,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q14,design_only,symmetric_age,Recorded occupation balance,46,-2133.0583850353723
+DID_calendar,pre,E,q14,design_only,symmetric_age,Age-boundary balance,46,-27778.66557783261
+DID_calendar,pre,E,q14,design_only,symmetric_age,Mapping coverage,46,-317.17801703014493
+DID_calendar,pre,E,q14,design_only,symmetric_age,2020 classification boundary,46,-115.85264847101402
+DID_calendar,pre,E,q14,design_only,symmetric_age,Survey/coverage reconciliation,46,41855.64070541973
+DID_calendar,pre,E,q14,ipw,age_first,Nonemployment entry,46,601324.5409774557
+DID_calendar,pre,E,q14,ipw,age_first,Nonemployment exit,46,-609259.0354604431
+DID_calendar,pre,E,q14,ipw,age_first,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q14,ipw,age_first,Recorded occupation balance,46,-2207.3511485781783
+DID_calendar,pre,E,q14,ipw,age_first,Age-boundary balance,46,-32046.0480053059
+DID_calendar,pre,E,q14,ipw,age_first,Mapping coverage,46,-733.0811588313413
+DID_calendar,pre,E,q14,ipw,age_first,2020 classification boundary,46,-129.26950367944693
+DID_calendar,pre,E,q14,ipw,age_first,Survey/coverage reconciliation,46,38665.76542753968
+DID_calendar,pre,E,q14,ipw,symmetric_age,Nonemployment entry,46,616138.1681790054
+DID_calendar,pre,E,q14,ipw,symmetric_age,Nonemployment exit,46,-625196.0769842041
+DID_calendar,pre,E,q14,ipw,symmetric_age,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q14,ipw,symmetric_age,Recorded occupation balance,46,-1852.3367040931917
+DID_calendar,pre,E,q14,ipw,symmetric_age,Age-boundary balance,46,-31616.134549226466
+DID_calendar,pre,E,q14,ipw,symmetric_age,Mapping coverage,46,-365.63658056716775
+DID_calendar,pre,E,q14,ipw,symmetric_age,2020 classification boundary,46,-158.2276602966511
+DID_calendar,pre,E,q14,ipw,symmetric_age,Survey/coverage reconciliation,46,38665.76542753968
+DID_calendar,pre,E,q14,trim99,age_first,Nonemployment entry,46,600482.7217939704
+DID_calendar,pre,E,q14,trim99,age_first,Nonemployment exit,46,-608949.7465889517
+DID_calendar,pre,E,q14,trim99,age_first,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q14,trim99,age_first,Recorded occupation balance,46,-2219.5304236986995
+DID_calendar,pre,E,q14,trim99,age_first,Age-boundary balance,46,-32015.106735458918
+DID_calendar,pre,E,q14,trim99,age_first,Mapping coverage,46,-702.2831785164634
+DID_calendar,pre,E,q14,trim99,age_first,2020 classification boundary,46,-129.26950367944676
+DID_calendar,pre,E,q14,trim99,age_first,Survey/coverage reconciliation,46,39148.73576449219
+DID_calendar,pre,E,q14,trim99,symmetric_age,Nonemployment entry,46,615294.2023098678
+DID_calendar,pre,E,q14,trim99,symmetric_age,Nonemployment exit,46,-624886.6855259328
+DID_calendar,pre,E,q14,trim99,symmetric_age,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q14,trim99,symmetric_age,Recorded occupation balance,46,-1864.5159792137274
+DID_calendar,pre,E,q14,trim99,symmetric_age,Age-boundary balance,46,-31583.1491805072
+DID_calendar,pre,E,q14,trim99,symmetric_age,Mapping coverage,46,-334.83860025229006
+DID_calendar,pre,E,q14,trim99,symmetric_age,2020 classification boundary,46,-158.22766029665098
+DID_calendar,pre,E,q14,trim99,symmetric_age,Survey/coverage reconciliation,46,39148.73576449219
+DID_calendar,pre,E,q5,calibrated,age_first,Nonemployment entry,46,128258.32951382687
+DID_calendar,pre,E,q5,calibrated,age_first,Nonemployment exit,46,-112813.29676196961
+DID_calendar,pre,E,q5,calibrated,age_first,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q5,calibrated,age_first,Recorded occupation balance,46,2878.2737149831664
+DID_calendar,pre,E,q5,calibrated,age_first,Age-boundary balance,46,-19700.4606900007
+DID_calendar,pre,E,q5,calibrated,age_first,Mapping coverage,46,-26.182708789557715
+DID_calendar,pre,E,q5,calibrated,age_first,2020 classification boundary,46,19.24355942124546
+DID_calendar,pre,E,q5,calibrated,age_first,Survey/coverage reconciliation,46,1391.6701691124981
+DID_calendar,pre,E,q5,calibrated,symmetric_age,Nonemployment entry,46,130707.48864848478
+DID_calendar,pre,E,q5,calibrated,symmetric_age,Nonemployment exit,46,-116123.7361481537
+DID_calendar,pre,E,q5,calibrated,symmetric_age,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q5,calibrated,symmetric_age,Recorded occupation balance,46,2561.8775319085835
+DID_calendar,pre,E,q5,calibrated,symmetric_age,Age-boundary balance,46,-18583.30197786253
+DID_calendar,pre,E,q5,calibrated,symmetric_age,Mapping coverage,46,22.804218235261843
+DID_calendar,pre,E,q5,calibrated,symmetric_age,2020 classification boundary,46,30.77435485897825
+DID_calendar,pre,E,q5,calibrated,symmetric_age,Survey/coverage reconciliation,46,1391.6701691124981
+DID_calendar,pre,E,q5,design_only,age_first,Nonemployment entry,46,109675.11544836435
+DID_calendar,pre,E,q5,design_only,age_first,Nonemployment exit,46,-98443.75057508638
+DID_calendar,pre,E,q5,design_only,age_first,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q5,design_only,age_first,Recorded occupation balance,46,2441.3680116553587
+DID_calendar,pre,E,q5,design_only,age_first,Age-boundary balance,46,-17149.07638612696
+DID_calendar,pre,E,q5,design_only,age_first,Mapping coverage,46,21.682862116231732
+DID_calendar,pre,E,q5,design_only,age_first,2020 classification boundary,46,163.59106781797107
+DID_calendar,pre,E,q5,design_only,age_first,Survey/coverage reconciliation,46,3298.646367843332
+DID_calendar,pre,E,q5,design_only,symmetric_age,Nonemployment entry,46,111753.5541240745
+DID_calendar,pre,E,q5,design_only,symmetric_age,Nonemployment exit,46,-101310.02560273174
+DID_calendar,pre,E,q5,design_only,symmetric_age,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q5,design_only,symmetric_age,Recorded occupation balance,46,2133.0583850353723
+DID_calendar,pre,E,q5,design_only,symmetric_age,Age-boundary balance,46,-16102.214124250437
+DID_calendar,pre,E,q5,design_only,symmetric_age,Mapping coverage,46,54.061479948115924
+DID_calendar,pre,E,q5,design_only,symmetric_age,2020 classification boundary,46,180.4961666647827
+DID_calendar,pre,E,q5,design_only,symmetric_age,Survey/coverage reconciliation,46,3298.646367843332
+DID_calendar,pre,E,q5,ipw,age_first,Nonemployment entry,46,127995.05088015913
+DID_calendar,pre,E,q5,ipw,age_first,Nonemployment exit,46,-112862.20702113179
+DID_calendar,pre,E,q5,ipw,age_first,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q5,ipw,age_first,Recorded occupation balance,46,2207.3511485781783
+DID_calendar,pre,E,q5,ipw,age_first,Age-boundary balance,46,-19578.374991997007
+DID_calendar,pre,E,q5,ipw,age_first,Mapping coverage,46,83.5934400407291
+DID_calendar,pre,E,q5,ipw,age_first,2020 classification boundary,46,222.25674864807624
+DID_calendar,pre,E,q5,ipw,age_first,Survey/coverage reconciliation,46,1939.9065922865993
+DID_calendar,pre,E,q5,ipw,symmetric_age,Nonemployment entry,46,130440.30349515626
+DID_calendar,pre,E,q5,ipw,symmetric_age,Nonemployment exit,46,-116135.66777349664
+DID_calendar,pre,E,q5,ipw,symmetric_age,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q5,ipw,symmetric_age,Recorded occupation balance,46,1852.3367040931917
+DID_calendar,pre,E,q5,ipw,symmetric_age,Age-boundary balance,46,-18455.31722100255
+DID_calendar,pre,E,q5,ipw,symmetric_age,Mapping coverage,46,123.38978016355573
+DID_calendar,pre,E,q5,ipw,symmetric_age,2020 classification boundary,46,242.625219383498
+DID_calendar,pre,E,q5,ipw,symmetric_age,Survey/coverage reconciliation,46,1939.9065922865993
+DID_calendar,pre,E,q5,trim99,age_first,Nonemployment entry,46,127898.95542134516
+DID_calendar,pre,E,q5,trim99,age_first,Nonemployment exit,46,-112794.76103012825
+DID_calendar,pre,E,q5,trim99,age_first,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q5,trim99,age_first,Recorded occupation balance,46,2219.5304236986995
+DID_calendar,pre,E,q5,trim99,age_first,Age-boundary balance,46,-19577.843568642085
+DID_calendar,pre,E,q5,trim99,age_first,Mapping coverage,46,83.5934400407291
+DID_calendar,pre,E,q5,trim99,age_first,2020 classification boundary,46,222.2567486480762
+DID_calendar,pre,E,q5,trim99,age_first,Survey/coverage reconciliation,46,1955.8453616215666
+DID_calendar,pre,E,q5,trim99,symmetric_age,Nonemployment entry,46,130338.28973639564
+DID_calendar,pre,E,q5,trim99,symmetric_age,Nonemployment exit,46,-116068.22178249308
+DID_calendar,pre,E,q5,trim99,symmetric_age,Full-/part-time balance,46,0.0
+DID_calendar,pre,E,q5,trim99,symmetric_age,Recorded occupation balance,46,1864.5159792137274
+DID_calendar,pre,E,q5,trim99,symmetric_age,Age-boundary balance,46,-18448.867497700972
+DID_calendar,pre,E,q5,trim99,symmetric_age,Mapping coverage,46,123.38978016355588
+DID_calendar,pre,E,q5,trim99,symmetric_age,2020 classification boundary,46,242.62521938349792
+DID_calendar,pre,E,q5,trim99,symmetric_age,Survey/coverage reconciliation,46,1955.8453616215666
+DID_calendar,pre,FT,q14,calibrated,age_first,Nonemployment entry,46,347281.1180764222
+DID_calendar,pre,FT,q14,calibrated,age_first,Nonemployment exit,46,-353434.82154140633
+DID_calendar,pre,FT,q14,calibrated,age_first,Full-/part-time balance,46,29312.633895959007
+DID_calendar,pre,FT,q14,calibrated,age_first,Recorded occupation balance,46,-4323.333189936355
+DID_calendar,pre,FT,q14,calibrated,age_first,Age-boundary balance,46,-64407.026887183485
+DID_calendar,pre,FT,q14,calibrated,age_first,Mapping coverage,46,-505.20620110452967
+DID_calendar,pre,FT,q14,calibrated,age_first,2020 classification boundary,46,-1071.8135820511147
+DID_calendar,pre,FT,q14,calibrated,age_first,Survey/coverage reconciliation,46,45783.50436836388
+DID_calendar,pre,FT,q14,calibrated,symmetric_age,Nonemployment entry,46,355184.961822132
+DID_calendar,pre,FT,q14,calibrated,symmetric_age,Nonemployment exit,46,-363220.11626530334
+DID_calendar,pre,FT,q14,calibrated,symmetric_age,Full-/part-time balance,46,30216.52988339064
+DID_calendar,pre,FT,q14,calibrated,symmetric_age,Recorded occupation balance,46,-3832.506138344921
+DID_calendar,pre,FT,q14,calibrated,symmetric_age,Age-boundary balance,46,-63860.07424665088
+DID_calendar,pre,FT,q14,calibrated,symmetric_age,Mapping coverage,46,-517.6333691956232
+DID_calendar,pre,FT,q14,calibrated,symmetric_age,2020 classification boundary,46,-1119.6111153284742
+DID_calendar,pre,FT,q14,calibrated,symmetric_age,Survey/coverage reconciliation,46,45783.50436836388
+DID_calendar,pre,FT,q14,design_only,age_first,Nonemployment entry,46,295635.23657171975
+DID_calendar,pre,FT,q14,design_only,age_first,Nonemployment exit,46,-304836.22144416434
+DID_calendar,pre,FT,q14,design_only,age_first,Full-/part-time balance,46,31808.565901269845
+DID_calendar,pre,FT,q14,design_only,age_first,Recorded occupation balance,46,-4679.893579171578
+DID_calendar,pre,FT,q14,design_only,age_first,Age-boundary balance,46,-57321.25233089419
+DID_calendar,pre,FT,q14,design_only,age_first,Mapping coverage,46,-160.95331187014503
+DID_calendar,pre,FT,q14,design_only,age_first,2020 classification boundary,46,-900.7317483501445
+DID_calendar,pre,FT,q14,design_only,age_first,Survey/coverage reconciliation,46,39090.30488052413
+DID_calendar,pre,FT,q14,design_only,symmetric_age,Nonemployment entry,46,302615.5107729043
+DID_calendar,pre,FT,q14,design_only,symmetric_age,Nonemployment exit,46,-313323.6931614465
+DID_calendar,pre,FT,q14,design_only,symmetric_age,Full-/part-time balance,46,32720.254574422434
+DID_calendar,pre,FT,q14,design_only,symmetric_age,Recorded occupation balance,46,-4304.0713076240645
+DID_calendar,pre,FT,q14,design_only,symmetric_age,Age-boundary balance,46,-57063.53419420637
+DID_calendar,pre,FT,q14,design_only,symmetric_age,Mapping coverage,46,-152.65092636289873
+DID_calendar,pre,FT,q14,design_only,symmetric_age,2020 classification boundary,46,-947.0656991478256
+DID_calendar,pre,FT,q14,design_only,symmetric_age,Survey/coverage reconciliation,46,39090.30488052413
+DID_calendar,pre,FT,q14,ipw,age_first,Nonemployment entry,46,347334.88750681415
+DID_calendar,pre,FT,q14,ipw,age_first,Nonemployment exit,46,-353929.8019546484
+DID_calendar,pre,FT,q14,ipw,age_first,Full-/part-time balance,46,29457.344052561268
+DID_calendar,pre,FT,q14,ipw,age_first,Recorded occupation balance,46,-4707.775646042763
+DID_calendar,pre,FT,q14,ipw,age_first,Age-boundary balance,46,-65279.17810564133
+DID_calendar,pre,FT,q14,ipw,age_first,Mapping coverage,46,-144.78915546905964
+DID_calendar,pre,FT,q14,ipw,age_first,2020 classification boundary,46,-1068.5640160492137
+DID_calendar,pre,FT,q14,ipw,age_first,Survey/coverage reconciliation,46,46972.932257538574
+DID_calendar,pre,FT,q14,ipw,symmetric_age,Nonemployment entry,46,355447.20114781905
+DID_calendar,pre,FT,q14,ipw,symmetric_age,Nonemployment exit,46,-363730.17606643593
+DID_calendar,pre,FT,q14,ipw,symmetric_age,Full-/part-time balance,46,30307.196773349948
+DID_calendar,pre,FT,q14,ipw,symmetric_age,Recorded occupation balance,46,-4236.027669708681
+DID_calendar,pre,FT,q14,ipw,symmetric_age,Age-boundary balance,46,-64886.330031542486
+DID_calendar,pre,FT,q14,ipw,symmetric_age,Mapping coverage,46,-118.28012289033691
+DID_calendar,pre,FT,q14,ipw,symmetric_age,2020 classification boundary,46,-1121.4613490668517
+DID_calendar,pre,FT,q14,ipw,symmetric_age,Survey/coverage reconciliation,46,46972.932257538574
+DID_calendar,pre,FT,q14,trim99,age_first,Nonemployment entry,46,346745.9346863191
+DID_calendar,pre,FT,q14,trim99,age_first,Nonemployment exit,46,-353703.50174312724
+DID_calendar,pre,FT,q14,trim99,age_first,Full-/part-time balance,46,30084.318190048565
+DID_calendar,pre,FT,q14,trim99,age_first,Recorded occupation balance,46,-4719.352353378403
+DID_calendar,pre,FT,q14,trim99,age_first,Age-boundary balance,46,-65223.93056810308
+DID_calendar,pre,FT,q14,trim99,age_first,Mapping coverage,46,-113.99117515418196
+DID_calendar,pre,FT,q14,trim99,age_first,2020 classification boundary,46,-1068.5640160492137
+DID_calendar,pre,FT,q14,trim99,age_first,Survey/coverage reconciliation,46,46634.141918507696
+DID_calendar,pre,FT,q14,trim99,symmetric_age,Nonemployment entry,46,354857.34602181223
+DID_calendar,pre,FT,q14,trim99,symmetric_age,Nonemployment exit,46,-363503.77326813474
+DID_calendar,pre,FT,q14,trim99,symmetric_age,Full-/part-time balance,46,30937.346509563504
+DID_calendar,pre,FT,q14,trim99,symmetric_age,Recorded occupation balance,46,-4247.604377044292
+DID_calendar,pre,FT,q14,trim99,symmetric_age,Age-boundary balance,46,-64833.45837399883
+DID_calendar,pre,FT,q14,trim99,symmetric_age,Mapping coverage,46,-87.48214257545924
+DID_calendar,pre,FT,q14,trim99,symmetric_age,2020 classification boundary,46,-1121.4613490668514
+DID_calendar,pre,FT,q14,trim99,symmetric_age,Survey/coverage reconciliation,46,46634.141918507696
+DID_calendar,pre,FT,q5,calibrated,age_first,Nonemployment entry,46,81003.9954195371
+DID_calendar,pre,FT,q5,calibrated,age_first,Nonemployment exit,46,-71313.04555265434
+DID_calendar,pre,FT,q5,calibrated,age_first,Full-/part-time balance,46,9916.416688077457
+DID_calendar,pre,FT,q5,calibrated,age_first,Recorded occupation balance,46,4323.333189936355
+DID_calendar,pre,FT,q5,calibrated,age_first,Age-boundary balance,46,-24638.887463258518
+DID_calendar,pre,FT,q5,calibrated,age_first,Mapping coverage,46,954.1453491205789
+DID_calendar,pre,FT,q5,calibrated,age_first,2020 classification boundary,46,1027.38367950698
+DID_calendar,pre,FT,q5,calibrated,age_first,Survey/coverage reconciliation,46,-1561.018040343908
+DID_calendar,pre,FT,q5,calibrated,symmetric_age,Nonemployment entry,46,82771.69582679957
+DID_calendar,pre,FT,q5,calibrated,symmetric_age,Nonemployment exit,46,-73367.05919868416
+DID_calendar,pre,FT,q5,calibrated,symmetric_age,Full-/part-time balance,46,10575.477548702009
+DID_calendar,pre,FT,q5,calibrated,symmetric_age,Recorded occupation balance,46,3832.506138344921
+DID_calendar,pre,FT,q5,calibrated,symmetric_age,Age-boundary balance,46,-24592.404217149815
+DID_calendar,pre,FT,q5,calibrated,symmetric_age,Mapping coverage,46,1000.6190031393395
+DID_calendar,pre,FT,q5,calibrated,symmetric_age,2020 classification boundary,46,1052.5062091138016
+DID_calendar,pre,FT,q5,calibrated,symmetric_age,Survey/coverage reconciliation,46,-1561.018040343908
+DID_calendar,pre,FT,q5,design_only,age_first,Nonemployment entry,46,69222.83932840638
+DID_calendar,pre,FT,q5,design_only,age_first,Nonemployment exit,46,-61695.299657404634
+DID_calendar,pre,FT,q5,design_only,age_first,Full-/part-time balance,46,9354.028639208693
+DID_calendar,pre,FT,q5,design_only,age_first,Recorded occupation balance,46,4679.893579171578
+DID_calendar,pre,FT,q5,design_only,age_first,Age-boundary balance,46,-21501.094095340868
+DID_calendar,pre,FT,q5,design_only,age_first,Mapping coverage,46,922.1327694727536
+DID_calendar,pre,FT,q5,design_only,age_first,2020 classification boundary,46,897.0150094005796
+DID_calendar,pre,FT,q5,design_only,age_first,Survey/coverage reconciliation,46,-2167.192302992753
+DID_calendar,pre,FT,q5,design_only,symmetric_age,Nonemployment entry,46,70708.51416788464
+DID_calendar,pre,FT,q5,design_only,symmetric_age,Nonemployment exit,46,-63458.03499519493
+DID_calendar,pre,FT,q5,design_only,symmetric_age,Full-/part-time balance,46,9946.06745704059
+DID_calendar,pre,FT,q5,design_only,symmetric_age,Recorded occupation balance,46,4304.0713076240645
+DID_calendar,pre,FT,q5,design_only,symmetric_age,Age-boundary balance,46,-21495.40634982058
+DID_calendar,pre,FT,q5,design_only,symmetric_age,Mapping coverage,46,952.0978317915942
+DID_calendar,pre,FT,q5,design_only,symmetric_age,2020 classification boundary,46,922.2061535891305
+DID_calendar,pre,FT,q5,design_only,symmetric_age,Survey/coverage reconciliation,46,-2167.192302992753
+DID_calendar,pre,FT,q5,ipw,age_first,Nonemployment entry,46,80828.14904467552
+DID_calendar,pre,FT,q5,ipw,age_first,Nonemployment exit,46,-71181.9664495746
+DID_calendar,pre,FT,q5,ipw,age_first,Full-/part-time balance,46,9730.910822912832
+DID_calendar,pre,FT,q5,ipw,age_first,Recorded occupation balance,46,4707.775646042763
+DID_calendar,pre,FT,q5,ipw,age_first,Age-boundary balance,46,-24489.310646375136
+DID_calendar,pre,FT,q5,ipw,age_first,Mapping coverage,46,1113.6737747338018
+DID_calendar,pre,FT,q5,ipw,age_first,2020 classification boundary,46,1054.712929769743
+DID_calendar,pre,FT,q5,ipw,age_first,Survey/coverage reconciliation,46,-2051.6218522632043
+DID_calendar,pre,FT,q5,ipw,symmetric_age,Nonemployment entry,46,82595.52580099984
+DID_calendar,pre,FT,q5,ipw,symmetric_age,Nonemployment exit,46,-73216.37761543032
+DID_calendar,pre,FT,q5,ipw,symmetric_age,Full-/part-time balance,46,10402.42259533194
+DID_calendar,pre,FT,q5,ipw,symmetric_age,Recorded occupation balance,46,4236.027669708681
+DID_calendar,pre,FT,q5,ipw,symmetric_age,Age-boundary balance,46,-24488.24820709107
+DID_calendar,pre,FT,q5,ipw,symmetric_age,Mapping coverage,46,1150.7060479006343
+DID_calendar,pre,FT,q5,ipw,symmetric_age,2020 classification boundary,46,1083.8888307652771
+DID_calendar,pre,FT,q5,ipw,symmetric_age,Survey/coverage reconciliation,46,-2051.6218522632043
+DID_calendar,pre,FT,q5,trim99,age_first,Nonemployment entry,46,80774.08182916674
+DID_calendar,pre,FT,q5,trim99,age_first,Nonemployment exit,46,-71126.45479962017
+DID_calendar,pre,FT,q5,trim99,age_first,Full-/part-time balance,46,9746.749299562114
+DID_calendar,pre,FT,q5,trim99,age_first,Recorded occupation balance,46,4719.352353378403
+DID_calendar,pre,FT,q5,trim99,age_first,Age-boundary balance,46,-24488.779223020207
+DID_calendar,pre,FT,q5,trim99,age_first,Mapping coverage,46,1113.6737747338018
+DID_calendar,pre,FT,q5,trim99,age_first,2020 classification boundary,46,1054.712929769743
+DID_calendar,pre,FT,q5,trim99,age_first,Survey/coverage reconciliation,46,-2081.012894048672
+DID_calendar,pre,FT,q5,trim99,symmetric_age,Nonemployment entry,46,82535.54028554437
+DID_calendar,pre,FT,q5,trim99,symmetric_age,Nonemployment exit,46,-73160.8659654759
+DID_calendar,pre,FT,q5,trim99,symmetric_age,Full-/part-time balance,46,10418.261071981222
+DID_calendar,pre,FT,q5,trim99,symmetric_age,Recorded occupation balance,46,4247.604377044292
+DID_calendar,pre,FT,q5,trim99,symmetric_age,Age-boundary balance,46,-24481.7984837895
+DID_calendar,pre,FT,q5,trim99,symmetric_age,Mapping coverage,46,1150.706047900634
+DID_calendar,pre,FT,q5,trim99,symmetric_age,2020 classification boundary,46,1083.8888307652771
+DID_calendar,pre,FT,q5,trim99,symmetric_age,Survey/coverage reconciliation,46,-2081.012894048672
+DID_calendar,post,E,q14,calibrated,age_first,Nonemployment entry,44,545165.3999532582
+DID_calendar,post,E,q14,calibrated,age_first,Nonemployment exit,44,-531272.4070117711
+DID_calendar,post,E,q14,calibrated,age_first,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q14,calibrated,age_first,Recorded occupation balance,44,-8620.47795598663
+DID_calendar,post,E,q14,calibrated,age_first,Age-boundary balance,44,-23846.78691804016
+DID_calendar,post,E,q14,calibrated,age_first,Mapping coverage,44,-631.1785812493238
+DID_calendar,post,E,q14,calibrated,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,E,q14,calibrated,age_first,Survey/coverage reconciliation,44,35012.824547879754
+DID_calendar,post,E,q14,calibrated,symmetric_age,Nonemployment entry,44,557397.5334980702
+DID_calendar,post,E,q14,calibrated,symmetric_age,Nonemployment exit,44,-543253.0439877437
+DID_calendar,post,E,q14,calibrated,symmetric_age,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q14,calibrated,symmetric_age,Recorded occupation balance,44,-8815.991271459177
+DID_calendar,post,E,q14,calibrated,symmetric_age,Age-boundary balance,44,-24001.960093962232
+DID_calendar,post,E,q14,calibrated,symmetric_age,Mapping coverage,44,-531.9886586939617
+DID_calendar,post,E,q14,calibrated,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,E,q14,calibrated,symmetric_age,Survey/coverage reconciliation,44,35012.824547879754
+DID_calendar,post,E,q14,design_only,age_first,Nonemployment entry,44,458552.7330363637
+DID_calendar,post,E,q14,design_only,age_first,Nonemployment exit,44,-453251.1442606061
+DID_calendar,post,E,q14,design_only,age_first,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q14,design_only,age_first,Recorded occupation balance,44,-7324.5966212121275
+DID_calendar,post,E,q14,design_only,age_first,Age-boundary balance,44,-18240.771193939407
+DID_calendar,post,E,q14,design_only,age_first,Mapping coverage,44,210.87721212121198
+DID_calendar,post,E,q14,design_only,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,E,q14,design_only,age_first,Survey/coverage reconciliation,44,35860.27586136365
+DID_calendar,post,E,q14,design_only,symmetric_age,Nonemployment entry,44,469105.88130151515
+DID_calendar,post,E,q14,design_only,symmetric_age,Nonemployment exit,44,-463591.28697424236
+DID_calendar,post,E,q14,design_only,symmetric_age,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q14,design_only,symmetric_age,Recorded occupation balance,44,-7513.855450000003
+DID_calendar,post,E,q14,design_only,symmetric_age,Age-boundary balance,44,-18361.343322727247
+DID_calendar,post,E,q14,design_only,symmetric_age,Mapping coverage,44,307.7026181818179
+DID_calendar,post,E,q14,design_only,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,E,q14,design_only,symmetric_age,Survey/coverage reconciliation,44,35860.27586136365
+DID_calendar,post,E,q14,ipw,age_first,Nonemployment entry,44,547514.5761289522
+DID_calendar,post,E,q14,ipw,age_first,Nonemployment exit,44,-532044.806747391
+DID_calendar,post,E,q14,ipw,age_first,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q14,ipw,age_first,Recorded occupation balance,44,-8859.816578555066
+DID_calendar,post,E,q14,ipw,age_first,Age-boundary balance,44,-22215.508600720117
+DID_calendar,post,E,q14,ipw,age_first,Mapping coverage,44,138.98722264917504
+DID_calendar,post,E,q14,ipw,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,E,q14,ipw,age_first,Survey/coverage reconciliation,44,31273.942609155718
+DID_calendar,post,E,q14,ipw,symmetric_age,Nonemployment entry,44,560053.8436293622
+DID_calendar,post,E,q14,ipw,symmetric_age,Nonemployment exit,44,-544270.7223838359
+DID_calendar,post,E,q14,ipw,symmetric_age,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q14,ipw,symmetric_age,Recorded occupation balance,44,-9095.163881389453
+DID_calendar,post,E,q14,ipw,symmetric_age,Age-boundary balance,44,-22403.3019923064
+DID_calendar,post,E,q14,ipw,symmetric_age,Mapping coverage,44,248.77605310477395
+DID_calendar,post,E,q14,ipw,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,E,q14,ipw,symmetric_age,Survey/coverage reconciliation,44,31273.942609155718
+DID_calendar,post,E,q14,trim99,age_first,Nonemployment entry,44,545492.2568203115
+DID_calendar,post,E,q14,trim99,age_first,Nonemployment exit,44,-531571.2457887848
+DID_calendar,post,E,q14,trim99,age_first,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q14,trim99,age_first,Recorded occupation balance,44,-8758.09230708101
+DID_calendar,post,E,q14,trim99,age_first,Age-boundary balance,44,-22182.282948853797
+DID_calendar,post,E,q14,trim99,age_first,Mapping coverage,44,119.20462338036832
+DID_calendar,post,E,q14,trim99,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,E,q14,trim99,age_first,Survey/coverage reconciliation,44,32707.53363511872
+DID_calendar,post,E,q14,trim99,symmetric_age,Nonemployment entry,44,558008.0618919465
+DID_calendar,post,E,q14,trim99,symmetric_age,Nonemployment exit,44,-543784.8006879671
+DID_calendar,post,E,q14,trim99,symmetric_age,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q14,trim99,symmetric_age,Recorded occupation balance,44,-8993.439609915382
+DID_calendar,post,E,q14,trim99,symmetric_age,Age-boundary balance,44,-22358.974648927804
+DID_calendar,post,E,q14,trim99,symmetric_age,Mapping coverage,44,228.99345383596722
+DID_calendar,post,E,q14,trim99,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,E,q14,trim99,symmetric_age,Survey/coverage reconciliation,44,32707.53363511872
+DID_calendar,post,E,q5,calibrated,age_first,Nonemployment entry,44,103871.3474508767
+DID_calendar,post,E,q5,calibrated,age_first,Nonemployment exit,44,-95080.80949152741
+DID_calendar,post,E,q5,calibrated,age_first,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q5,calibrated,age_first,Recorded occupation balance,44,8620.47795598663
+DID_calendar,post,E,q5,calibrated,age_first,Age-boundary balance,44,-16932.010487464882
+DID_calendar,post,E,q5,calibrated,age_first,Mapping coverage,44,752.3161570466959
+DID_calendar,post,E,q5,calibrated,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,E,q5,calibrated,age_first,Survey/coverage reconciliation,44,-4900.849530372265
+DID_calendar,post,E,q5,calibrated,symmetric_age,Nonemployment entry,44,105332.07865611615
+DID_calendar,post,E,q5,calibrated,symmetric_age,Nonemployment exit,44,-96811.08495090307
+DID_calendar,post,E,q5,calibrated,symmetric_age,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q5,calibrated,symmetric_age,Recorded occupation balance,44,8815.991271459177
+DID_calendar,post,E,q5,calibrated,symmetric_age,Age-boundary balance,44,-16508.214938010336
+DID_calendar,post,E,q5,calibrated,symmetric_age,Mapping coverage,44,402.55154625580343
+DID_calendar,post,E,q5,calibrated,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,E,q5,calibrated,symmetric_age,Survey/coverage reconciliation,44,-4900.849530372265
+DID_calendar,post,E,q5,design_only,age_first,Nonemployment entry,44,88265.77007878789
+DID_calendar,post,E,q5,design_only,age_first,Nonemployment exit,44,-81356.88701212121
+DID_calendar,post,E,q5,design_only,age_first,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q5,design_only,age_first,Recorded occupation balance,44,7324.5966212121275
+DID_calendar,post,E,q5,design_only,age_first,Age-boundary balance,44,-14168.365151515154
+DID_calendar,post,E,q5,design_only,age_first,Mapping coverage,44,939.9920333333331
+DID_calendar,post,E,q5,design_only,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,E,q5,design_only,age_first,Survey/coverage reconciliation,44,-4674.634515151518
+DID_calendar,post,E,q5,design_only,symmetric_age,Nonemployment entry,44,89513.13088636362
+DID_calendar,post,E,q5,design_only,symmetric_age,Nonemployment exit,44,-82810.19741969697
+DID_calendar,post,E,q5,design_only,symmetric_age,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q5,design_only,symmetric_age,Recorded occupation balance,44,7513.855450000003
+DID_calendar,post,E,q5,design_only,symmetric_age,Age-boundary balance,44,-13856.14419090909
+DID_calendar,post,E,q5,design_only,symmetric_age,Mapping coverage,44,644.4618439393936
+DID_calendar,post,E,q5,design_only,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,E,q5,design_only,symmetric_age,Survey/coverage reconciliation,44,-4674.634515151518
+DID_calendar,post,E,q5,ipw,age_first,Nonemployment entry,44,104510.76351165929
+DID_calendar,post,E,q5,ipw,age_first,Nonemployment exit,44,-94324.82985495272
+DID_calendar,post,E,q5,ipw,age_first,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q5,ipw,age_first,Recorded occupation balance,44,8859.816578555066
+DID_calendar,post,E,q5,ipw,age_first,Age-boundary balance,44,-16606.177099149383
+DID_calendar,post,E,q5,ipw,age_first,Mapping coverage,44,1037.1212086591222
+DID_calendar,post,E,q5,ipw,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,E,q5,ipw,age_first,Survey/coverage reconciliation,44,-7146.222290225922
+DID_calendar,post,E,q5,ipw,symmetric_age,Nonemployment entry,44,105983.7059553943
+DID_calendar,post,E,q5,ipw,symmetric_age,Nonemployment exit,44,-96035.82330292951
+DID_calendar,post,E,q5,ipw,symmetric_age,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q5,ipw,symmetric_age,Recorded occupation balance,44,9095.163881389453
+DID_calendar,post,E,q5,ipw,symmetric_age,Age-boundary balance,44,-16241.751547868698
+DID_calendar,post,E,q5,ipw,symmetric_age,Mapping coverage,44,675.3993587858521
+DID_calendar,post,E,q5,ipw,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,E,q5,ipw,symmetric_age,Survey/coverage reconciliation,44,-7146.22229022592
+DID_calendar,post,E,q5,trim99,age_first,Nonemployment entry,44,104481.93557701983
+DID_calendar,post,E,q5,trim99,age_first,Nonemployment exit,44,-94313.31298187611
+DID_calendar,post,E,q5,trim99,age_first,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q5,trim99,age_first,Recorded occupation balance,44,8758.09230708101
+DID_calendar,post,E,q5,trim99,age_first,Age-boundary balance,44,-16641.174874933015
+DID_calendar,post,E,q5,trim99,age_first,Mapping coverage,44,1034.451615476363
+DID_calendar,post,E,q5,trim99,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,E,q5,trim99,age_first,Survey/coverage reconciliation,44,-6989.519588222632
+DID_calendar,post,E,q5,trim99,symmetric_age,Nonemployment entry,44,105954.72591139833
+DID_calendar,post,E,q5,trim99,symmetric_age,Nonemployment exit,44,-96024.30642985289
+DID_calendar,post,E,q5,trim99,symmetric_age,Full-/part-time balance,44,0.0
+DID_calendar,post,E,q5,trim99,symmetric_age,Recorded occupation balance,44,8993.439609915382
+DID_calendar,post,E,q5,trim99,symmetric_age,Age-boundary balance,44,-16276.597214295827
+DID_calendar,post,E,q5,trim99,symmetric_age,Mapping coverage,44,672.7297656030925
+DID_calendar,post,E,q5,trim99,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,E,q5,trim99,symmetric_age,Survey/coverage reconciliation,44,-6989.519588222632
+DID_calendar,post,FT,q14,calibrated,age_first,Nonemployment entry,44,297653.1707252513
+DID_calendar,post,FT,q14,calibrated,age_first,Nonemployment exit,44,-307228.4974887172
+DID_calendar,post,FT,q14,calibrated,age_first,Full-/part-time balance,44,45537.013382231235
+DID_calendar,post,FT,q14,calibrated,age_first,Recorded occupation balance,44,-5125.890406579332
+DID_calendar,post,FT,q14,calibrated,age_first,Age-boundary balance,44,-57344.50841922178
+DID_calendar,post,FT,q14,calibrated,age_first,Mapping coverage,44,498.2188259812419
+DID_calendar,post,FT,q14,calibrated,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q14,calibrated,age_first,Survey/coverage reconciliation,44,30859.386144690816
+DID_calendar,post,FT,q14,calibrated,symmetric_age,Nonemployment entry,44,303591.11541055015
+DID_calendar,post,FT,q14,calibrated,symmetric_age,Nonemployment exit,44,-312587.0974366668
+DID_calendar,post,FT,q14,calibrated,symmetric_age,Full-/part-time balance,44,46783.53707040375
+DID_calendar,post,FT,q14,calibrated,symmetric_age,Recorded occupation balance,44,-5018.909660337478
+DID_calendar,post,FT,q14,calibrated,symmetric_age,Age-boundary balance,44,-59170.84383662624
+DID_calendar,post,FT,q14,calibrated,symmetric_age,Mapping coverage,44,391.7050716221767
+DID_calendar,post,FT,q14,calibrated,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q14,calibrated,symmetric_age,Survey/coverage reconciliation,44,30859.386144690816
+DID_calendar,post,FT,q14,design_only,age_first,Nonemployment entry,44,249746.3731757576
+DID_calendar,post,FT,q14,design_only,age_first,Nonemployment exit,44,-260675.42221212122
+DID_calendar,post,FT,q14,design_only,age_first,Full-/part-time balance,44,44485.65373333334
+DID_calendar,post,FT,q14,design_only,age_first,Recorded occupation balance,44,-4311.836884848482
+DID_calendar,post,FT,q14,design_only,age_first,Age-boundary balance,44,-47877.30513333333
+DID_calendar,post,FT,q14,design_only,age_first,Mapping coverage,44,759.9396636363635
+DID_calendar,post,FT,q14,design_only,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q14,design_only,age_first,Survey/coverage reconciliation,44,22721.49042121212
+DID_calendar,post,FT,q14,design_only,symmetric_age,Nonemployment entry,44,254829.09497121215
+DID_calendar,post,FT,q14,design_only,symmetric_age,Nonemployment exit,44,-265189.20219545456
+DID_calendar,post,FT,q14,design_only,symmetric_age,Full-/part-time balance,44,46007.097734848445
+DID_calendar,post,FT,q14,design_only,symmetric_age,Recorded occupation balance,44,-4208.2450560606085
+DID_calendar,post,FT,q14,design_only,symmetric_age,Age-boundary balance,44,-49992.404009090926
+DID_calendar,post,FT,q14,design_only,symmetric_age,Mapping coverage,44,681.0608969696968
+DID_calendar,post,FT,q14,design_only,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q14,design_only,symmetric_age,Survey/coverage reconciliation,44,22721.49042121212
+DID_calendar,post,FT,q14,ipw,age_first,Nonemployment entry,44,298156.9330665963
+DID_calendar,post,FT,q14,ipw,age_first,Nonemployment exit,44,-308034.9140255306
+DID_calendar,post,FT,q14,ipw,age_first,Full-/part-time balance,44,43622.45377031714
+DID_calendar,post,FT,q14,ipw,age_first,Recorded occupation balance,44,-5091.709991604061
+DID_calendar,post,FT,q14,ipw,age_first,Age-boundary balance,44,-56572.35438546956
+DID_calendar,post,FT,q14,ipw,age_first,Mapping coverage,44,783.1049141590555
+DID_calendar,post,FT,q14,ipw,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q14,ipw,age_first,Survey/coverage reconciliation,44,31985.379415168125
+DID_calendar,post,FT,q14,ipw,symmetric_age,Nonemployment entry,44,304201.29015480325
+DID_calendar,post,FT,q14,ipw,symmetric_age,Nonemployment exit,44,-313478.45327035437
+DID_calendar,post,FT,q14,ipw,symmetric_age,Full-/part-time balance,44,45202.29574510531
+DID_calendar,post,FT,q14,ipw,symmetric_age,Recorded occupation balance,44,-4986.5155075850635
+DID_calendar,post,FT,q14,ipw,symmetric_age,Age-boundary balance,44,-58759.150381355736
+DID_calendar,post,FT,q14,ipw,symmetric_age,Mapping coverage,44,684.046607854884
+DID_calendar,post,FT,q14,ipw,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q14,ipw,symmetric_age,Survey/coverage reconciliation,44,31985.379415168125
+DID_calendar,post,FT,q14,trim99,age_first,Nonemployment entry,44,296719.17599705077
+DID_calendar,post,FT,q14,trim99,age_first,Nonemployment exit,44,-307686.76013028
+DID_calendar,post,FT,q14,trim99,age_first,Full-/part-time balance,44,43677.79243290075
+DID_calendar,post,FT,q14,trim99,age_first,Recorded occupation balance,44,-5002.109197461235
+DID_calendar,post,FT,q14,trim99,age_first,Age-boundary balance,44,-56470.24094475807
+DID_calendar,post,FT,q14,trim99,age_first,Mapping coverage,44,783.1049141590553
+DID_calendar,post,FT,q14,trim99,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q14,trim99,age_first,Survey/coverage reconciliation,44,32827.929692025034
+DID_calendar,post,FT,q14,trim99,symmetric_age,Nonemployment entry,44,302755.71762121894
+DID_calendar,post,FT,q14,trim99,symmetric_age,Nonemployment exit,44,-313117.9386378411
+DID_calendar,post,FT,q14,trim99,symmetric_age,Full-/part-time balance,44,45285.68407410168
+DID_calendar,post,FT,q14,trim99,symmetric_age,Recorded occupation balance,44,-4896.914713442238
+DID_calendar,post,FT,q14,trim99,symmetric_age,Age-boundary balance,44,-58689.63188028085
+DID_calendar,post,FT,q14,trim99,symmetric_age,Mapping coverage,44,684.0466078548837
+DID_calendar,post,FT,q14,trim99,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q14,trim99,symmetric_age,Survey/coverage reconciliation,44,32827.92969202502
+DID_calendar,post,FT,q5,calibrated,age_first,Nonemployment entry,44,61713.252775211455
+DID_calendar,post,FT,q5,calibrated,age_first,Nonemployment exit,44,-58011.570244983435
+DID_calendar,post,FT,q5,calibrated,age_first,Full-/part-time balance,44,14928.93940759734
+DID_calendar,post,FT,q5,calibrated,age_first,Recorded occupation balance,44,5125.890406579332
+DID_calendar,post,FT,q5,calibrated,age_first,Age-boundary balance,44,-22938.160555491613
+DID_calendar,post,FT,q5,calibrated,age_first,Mapping coverage,44,-211.96164201915127
+DID_calendar,post,FT,q5,calibrated,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q5,calibrated,age_first,Survey/coverage reconciliation,44,-2224.129494621187
+DID_calendar,post,FT,q5,calibrated,symmetric_age,Nonemployment entry,44,62793.426525446856
+DID_calendar,post,FT,q5,calibrated,symmetric_age,Nonemployment exit,44,-58972.19129620382
+DID_calendar,post,FT,q5,calibrated,symmetric_age,Full-/part-time balance,44,16102.501377826105
+DID_calendar,post,FT,q5,calibrated,symmetric_age,Recorded occupation balance,44,5018.909660337478
+DID_calendar,post,FT,q5,calibrated,symmetric_age,Age-boundary balance,44,-23816.407804601167
+DID_calendar,post,FT,q5,calibrated,symmetric_age,Mapping coverage,44,-519.8483159115282
+DID_calendar,post,FT,q5,calibrated,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q5,calibrated,symmetric_age,Survey/coverage reconciliation,44,-2224.1294946211874
+DID_calendar,post,FT,q5,design_only,age_first,Nonemployment entry,44,52580.473845454544
+DID_calendar,post,FT,q5,design_only,age_first,Nonemployment exit,44,-49258.009342424244
+DID_calendar,post,FT,q5,design_only,age_first,Full-/part-time balance,44,13979.784475757573
+DID_calendar,post,FT,q5,design_only,age_first,Recorded occupation balance,44,4311.836884848482
+DID_calendar,post,FT,q5,design_only,age_first,Age-boundary balance,44,-19383.781378787877
+DID_calendar,post,FT,q5,design_only,age_first,Mapping coverage,44,-23.75426969696981
+DID_calendar,post,FT,q5,design_only,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q5,design_only,age_first,Survey/coverage reconciliation,44,-3824.2895628787883
+DID_calendar,post,FT,q5,design_only,symmetric_age,Nonemployment entry,44,53509.09901818182
+DID_calendar,post,FT,q5,design_only,symmetric_age,Nonemployment exit,44,-50025.66901969697
+DID_calendar,post,FT,q5,design_only,symmetric_age,Full-/part-time balance,44,15065.91166666666
+DID_calendar,post,FT,q5,design_only,symmetric_age,Recorded occupation balance,44,4208.2450560606085
+DID_calendar,post,FT,q5,design_only,symmetric_age,Age-boundary balance,44,-20279.63196515152
+DID_calendar,post,FT,q5,design_only,symmetric_age,Mapping coverage,44,-271.404540909091
+DID_calendar,post,FT,q5,design_only,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q5,design_only,symmetric_age,Survey/coverage reconciliation,44,-3824.289562878789
+DID_calendar,post,FT,q5,ipw,age_first,Nonemployment entry,44,62387.69845519724
+DID_calendar,post,FT,q5,ipw,age_first,Nonemployment exit,44,-57527.56560923897
+DID_calendar,post,FT,q5,ipw,age_first,Full-/part-time balance,44,15170.005070344123
+DID_calendar,post,FT,q5,ipw,age_first,Recorded occupation balance,44,5091.709991604061
+DID_calendar,post,FT,q5,ipw,age_first,Age-boundary balance,44,-22512.900483621932
+DID_calendar,post,FT,q5,ipw,age_first,Mapping coverage,44,-103.48049898506547
+DID_calendar,post,FT,q5,ipw,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q5,ipw,age_first,Survey/coverage reconciliation,44,-4123.206273026729
+DID_calendar,post,FT,q5,ipw,symmetric_age,Nonemployment entry,44,63486.542264895244
+DID_calendar,post,FT,q5,ipw,symmetric_age,Nonemployment exit,44,-58466.538893041245
+DID_calendar,post,FT,q5,ipw,symmetric_age,Full-/part-time balance,44,16369.851392088865
+DID_calendar,post,FT,q5,ipw,symmetric_age,Recorded occupation balance,44,4986.5155075850635
+DID_calendar,post,FT,q5,ipw,symmetric_age,Age-boundary balance,44,-23451.45436541135
+DID_calendar,post,FT,q5,ipw,symmetric_age,Mapping coverage,44,-419.4489808171225
+DID_calendar,post,FT,q5,ipw,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q5,ipw,symmetric_age,Survey/coverage reconciliation,44,-4123.20627302673
+DID_calendar,post,FT,q5,trim99,age_first,Nonemployment entry,44,62385.49563778678
+DID_calendar,post,FT,q5,trim99,age_first,Nonemployment exit,44,-57516.04873616235
+DID_calendar,post,FT,q5,trim99,age_first,Full-/part-time balance,44,15218.8815542691
+DID_calendar,post,FT,q5,trim99,age_first,Recorded occupation balance,44,5002.109197461235
+DID_calendar,post,FT,q5,trim99,age_first,Age-boundary balance,44,-22537.648441780962
+DID_calendar,post,FT,q5,trim99,age_first,Mapping coverage,44,-103.48049898506555
+DID_calendar,post,FT,q5,trim99,age_first,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q5,trim99,age_first,Survey/coverage reconciliation,44,-4067.048060316003
+DID_calendar,post,FT,q5,trim99,symmetric_age,Nonemployment entry,44,63484.33944748479
+DID_calendar,post,FT,q5,trim99,symmetric_age,Nonemployment exit,44,-58455.02201996463
+DID_calendar,post,FT,q5,trim99,symmetric_age,Full-/part-time balance,44,16423.70067546962
+DID_calendar,post,FT,q5,trim99,symmetric_age,Recorded occupation balance,44,4896.914713442238
+DID_calendar,post,FT,q5,trim99,symmetric_age,Age-boundary balance,44,-23481.175123026183
+DID_calendar,post,FT,q5,trim99,symmetric_age,Mapping coverage,44,-419.4489808171225
+DID_calendar,post,FT,q5,trim99,symmetric_age,2020 classification boundary,44,0.0
+DID_calendar,post,FT,q5,trim99,symmetric_age,Survey/coverage reconciliation,44,-4067.048060316004
