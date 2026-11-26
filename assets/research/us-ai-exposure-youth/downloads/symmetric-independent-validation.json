@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "N": 2139,
+  "occupations": 6,
+  "coefficient_max_difference": 4.718447854656915e-15,
+  "exact_explicit_dummy_FE_rank": 446,
+  "absorbed_FE_degrees_convention": 449,
+  "reference_SE_adjustment_factor": 1.0008919282284483,
+  "raw_reference_SE": [
+    0.056664260435251544,
+    0.1629468121596723,
+    0.27619203632141337,
+    0.08926235402418296,
+    0.10077685945171419,
+    0.20977931519615275,
+    0.06870071968278901,
+    0.11113526839326682,
+    0.11191080474396062
+  ],
+  "absorbed_model_SE": [
+    0.0567148008886584,
+    0.16309214902105984,
+    0.27643837979509395,
+    0.08934196963746138,
+    0.10086674517744115,
+    0.20996642328901646,
+    0.06876199579397967,
+    0.1112343930763008,
+    0.11201062114978165
+  ],
+  "harmonized_reference_SE": [
+    0.05671480088867789,
+    0.16309214902117317,
+    0.27643837979508107,
+    0.08934196963747487,
+    0.10086674517743355,
+    0.20996642328912077,
+    0.06876199579398881,
+    0.11123439307632295,
+    0.11201062114978012
+  ],
+  "raw_SE_max_difference": 0.00024634347368057696,
+  "verification_scope": "Coefficients and score sandwich agree; finite sample rank conventions are harmonized explicitly, not independently validated.",
+  "SE_max_difference": 1.1332601523861285e-13,
+  "figures_displayed": false
+}

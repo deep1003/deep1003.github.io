@@ -1,0 +1,6 @@
+{
+  "state_intervals_valid": true,
+  "coefficient_identity_verified": true,
+  "reason": "State-plus-quarter covariance is indefinite for some event contrasts and all full pretrend blocks. Invalid two-way intervals/tests are not repaired or used. State-cluster intervals are a separately labeled conditional diagnostic, not full survey or global-shock inference.",
+  "figures_displayed": 0
+}

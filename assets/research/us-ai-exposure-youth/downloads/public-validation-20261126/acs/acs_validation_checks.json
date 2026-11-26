@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "years": [
+    2019,
+    2024
+  ],
+  "states_and_DC": 51,
+  "national_plus_state_geographies": 52,
+  "employment_rows": 2496,
+  "earnings_rows": 624,
+  "endpoint_rows": 468,
+  "all_51_states_present_each_year": true,
+  "national_equals_state_sum": true,
+  "replicate_variance": "4/80 sum squared deviations, 80 supplied person replicates",
+  "endpoint_variance": "independent-year replicate-block approximation; pointwise normal intervals",
+  "main_causal_DID": false
+}

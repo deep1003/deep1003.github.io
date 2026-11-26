@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "years": [
+    2017,
+    2018,
+    2019,
+    2023,
+    2024
+  ],
+  "pre_years": [
+    2017,
+    2018,
+    2019
+  ],
+  "post_years": [
+    2023,
+    2024
+  ],
+  "annual_employment_rows": 6240,
+  "pooled_employment_rows": 2496,
+  "pooled_change_rows": 468,
+  "pooled_salary_mean_rows": 312,
+  "geographies_each_year": 52,
+  "national_equals_states": true,
+  "2017_assignment": "Expected fractional exposure contributions; not imputed individual new codes",
+  "post_pool_has_only_two_years": true,
+  "causal_DID": false
+}

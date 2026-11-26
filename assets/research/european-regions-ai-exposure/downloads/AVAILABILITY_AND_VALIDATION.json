@@ -1,0 +1,108 @@
+{
+  "python_and_javascript_syntax": true,
+  "our_THAIE_score_sha256": "c94e8383ae267878ee9c12ed63b8e85cf3522c6f79d3443a9ef327746fd3b031",
+  "all_indices_use_our_THAIE_rankings": true,
+  "eu1": {
+    "plotted_rows": 11484,
+    "geographies": 35,
+    "frequency": "annual"
+  },
+  "eu2": {
+    "plotted_rows": 3132,
+    "geographies": 35,
+    "frequency": "annual"
+  },
+  "se_annual": {
+    "plotted_rows": 11550,
+    "geographies": 22,
+    "frequency": "annual"
+  },
+  "se_monthly": {
+    "plotted_rows": 43680,
+    "geographies": 22,
+    "frequency": "monthly"
+  },
+  "software": {
+    "plotted_rows": 3923,
+    "geographies": 137,
+    "frequency": "annual"
+  },
+  "nuts2": {
+    "plotted_rows": 62208,
+    "geographies": 236,
+    "frequency": "annual",
+    "age_groups": 12,
+    "common_regions": 208,
+    "countries": 27,
+    "cohort_years": "2020\u20132025",
+    "same_regions_for_all_ages": true,
+    "sex_categories": [
+      "T",
+      "F",
+      "M"
+    ],
+    "default_age": "15+",
+    "regional_and_country_subsets": true
+  },
+  "monthly_quintile_counts_independently_reconciled_to_SCB": true,
+  "UK_published_totals_and_classification_break_preserved": true,
+  "software_outcomes_annual_only": true,
+  "monthly_regional_exposure_is_21_counties_not_software_employment": true,
+  "local_links_and_initially_folded_results": 15,
+  "no_new_employment_imputation_or_monthly_interpolation": true,
+  "passed": true,
+  "quintile_style": {
+    "colors": {
+      "Q1": "#bec1c4",
+      "Q2": "#e0e2e4",
+      "Q3": "#f3d4d6",
+      "Q4": "#e6a5aa",
+      "Q5": "#b4434c"
+    },
+    "Q5_width": 3.4,
+    "other_width": 3.4,
+    "white_halo_extension_each_side": 1,
+    "keyed_by_quintile_not_display_order": true,
+    "equal_marker_radius": 2.5,
+    "endpoint_labels": "Quintile 1 (least exposed) through Quintile 5 (most exposed), wrapped"
+  },
+  "UK_monthly_RTI": {
+    "rows": 18614,
+    "missing": 0,
+    "geography_counts": {
+      "NUTS2": 41,
+      "NUTS3": 179,
+      "UK_AGE": 1
+    },
+    "period_start": "2020-01",
+    "period_end": "2026-10",
+    "occupation_available": false,
+    "age_x_NUTS2_available": false,
+    "baseline": "November 2022 = 100",
+    "seasonally_adjusted": true
+  },
+  "monthly_Europe_all_NUTS2_available": false,
+  "current_display_index": {
+    "start": "2022",
+    "annual": "source-consistent 2022 annual value=100",
+    "monthly": "observed November2022=100",
+    "quarterly": "Q4 2022=100",
+    "European_core": "208 NUTS2 regions in27 EU countries",
+    "Sweden": "supplementary case"
+  },
+  "European_annual_restored": true,
+  "audit_date": "2026-11-25",
+  "expert_audit": "EXPERT_AUDIT.md",
+  "regional_exposure_quality": "Conditional on disclosed and mapped occupations; actual population coverage and boundary vintage unresolved",
+  "monthly_baseline": "November 2022 = 100",
+  "annual_baseline": "2022 annual value = 100",
+  "quarterly_baseline": "2022 Q4 = 100",
+  "reproduction_scope": "Current data and rendering snapshot with portable validator, not full upstream acquisition reconstruction",
+  "regional_cohorts": {
+    "descriptive_all": 208,
+    "descriptive_min50": 135,
+    "DID_all": 203,
+    "DID_min50": 107
+  },
+  "ONS_exact_age_supplement_scope": "Acquired 2025 ITL1 cross-sectional supplement; not a longitudinal monthly NUTS2 occupation-age-sex panel. Do not infer monthly requested-age series."
+}

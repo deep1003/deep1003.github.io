@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "full_weight_max_absolute_rounding_difference": 1.0000017937272787e-05,
+  "full_weight_used": "REPWGT0",
+  "replicates": 240,
+  "Fay_rho": 0.5,
+  "variance_factor": 0.016666666666666666,
+  "rows": 24,
+  "sparse_intervals_suppressed": 5,
+  "source": "https://www2.census.gov/programs-surveys/sipp/tech-documentation/source-accuracy-statements/2025/SIPP-2025-SA.pdf",
+  "local_source_lines": "SIPP-2025-SA.txt1273-1275,1310,1358",
+  "not_AI_effect_inference": true
+}

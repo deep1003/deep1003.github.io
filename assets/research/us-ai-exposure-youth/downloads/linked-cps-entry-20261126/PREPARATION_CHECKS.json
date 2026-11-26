@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "adjacent_pairs": 115,
+  "youth_risk_pairs": 95862,
+  "first_date": "2017-02-01",
+  "last_date": "2026-10-01",
+  "source_manifest_sha256": "cd6981b145b5137cdf6119f4ee4327f435d0a1a14dd52c09f9457d686b537c4a",
+  "frozen_THAIE_sha256": "38e893df73d98db4914d7f99e85a16fae01e9611f35275df020cecffc899ae20",
+  "bridge_sha256": "f386a574e73c9c168d57f14c77b42d38ca3e7fecf594e863b37710a4d1e0709c",
+  "raw_caches_hash_verified": true,
+  "no_imputed_persons": true,
+  "no_missing_month_bridge": true,
+  "destination_exposure_is_outcome": true,
+  "calibration_matches_observed_origin_margins": true,
+  "propensity_covariates": [
+    "GESTFIPS",
+    "agegroup",
+    "PESEX",
+    "PTDTRACE",
+    "PEHSPNON",
+    "PEEDUCA",
+    "PEMLR",
+    "HRMIS",
+    "HRMONTH",
+    "PRMJIND1",
+    "PESCHENR"
+  ],
+  "private_microdata_published": false,
+  "figures_displayed": 0
+}

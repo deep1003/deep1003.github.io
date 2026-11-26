@@ -1,0 +1,19 @@
+{
+  "source_sha256": "3fbba54d0f2cb034dedea674ba27f204fe158ba3a243b0892a30164401e5d62b",
+  "grid_valid_months": 59,
+  "grid_last": "2024-11",
+  "quarantined_original_rows": 3390,
+  "duplicate_keys_after_quarantine": 0,
+  "three_metric_grand_total_reconciliation": true,
+  "software_cross_months": 82,
+  "other_cross_months": 59,
+  "baseline": "12 observed months in 2022 with positive mean; otherwise null",
+  "missing": "No zero filling; all-sex sums require two observed sexes",
+  "older_clean_filename_correction": "36/occ_age5_sex_202001_202411_VALIDATED.csv actually retained December due date parsing. It was not used for published graphs. Superseded here by explicit parsed-date exclusion.",
+  "monthly_thaie": "Pending verified KECO2025 to manuscript KSCO linkage",
+  "published_categories_including_grand_total": 142,
+  "categories_with_age_sex": 135,
+  "delivered_series_baselines_checked": 5062,
+  "normalized_rows_including_derived_cells": 315530,
+  "original_grid_valid_rows": 199568
+}

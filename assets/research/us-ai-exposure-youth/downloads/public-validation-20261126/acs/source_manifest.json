@@ -1,0 +1,122 @@
+[
+  {
+    "year": 2017,
+    "url": "https://www2.census.gov/programs-surveys/acs/data/pums/2017/1-Year/csv_pus.zip",
+    "path": "/Users/deep1003/Documents/Codex/2026-11-22/codex-america/work/us_public_validation_20261126/acs/raw/acs_2017_person_us.zip",
+    "sha256": "a6c8898f72fba21a6da17e7c4942fc5354626659bb062a4bdc094ca94e473ee5",
+    "bytes": 628817174,
+    "retrieved_utc": "2026-11-26T03:00:23.494819+00:00",
+    "etag": null,
+    "last_modified": "Tue, 02 Oct 2018 22:00:24 GMT",
+    "members": [
+      {
+        "name": "psam_pusa.csv",
+        "uncompressed_bytes": 1557409099
+      },
+      {
+        "name": "psam_pusb.csv",
+        "uncompressed_bytes": 1474291038
+      },
+      {
+        "name": "ACS2017_PUMS_README.pdf",
+        "uncompressed_bytes": 109514
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "url": "https://www2.census.gov/programs-surveys/acs/data/pums/2018/1-Year/csv_pus.zip",
+    "path": "/Users/deep1003/Documents/Codex/2026-11-22/codex-america/work/us_public_validation_20261126/acs/raw/acs_2018_person_us.zip",
+    "sha256": "73fba8988d84f6425966fa14ab26af6ab40ebc0f0e16156b0dada39322349243",
+    "bytes": 562224936,
+    "retrieved_utc": "2026-11-26T02:59:47.163872+00:00",
+    "etag": null,
+    "last_modified": "Thu, 31 Oct 2019 19:02:10 GMT",
+    "members": [
+      {
+        "name": "psam_pusa.csv",
+        "uncompressed_bytes": 1156639846
+      },
+      {
+        "name": "psam_pusb.csv",
+        "uncompressed_bytes": 1097026010
+      },
+      {
+        "name": "ACS2018_PUMS_README.pdf",
+        "uncompressed_bytes": 247023
+      }
+    ]
+  },
+  {
+    "year": 2019,
+    "url": "https://www2.census.gov/programs-surveys/acs/data/pums/2019/1-Year/csv_pus.zip",
+    "path": "/Users/deep1003/Documents/Codex/2026-11-22/codex-america/work/us_public_validation_20261126/acs/raw/acs_2019_person_us.zip",
+    "sha256": "18e4ece4cc24781c01e8046c2d5afbabeb1f15452ddec43f60fdf3b1f6e67b92",
+    "bytes": 567851237,
+    "retrieved_utc": "2026-11-26T02:42:43.412361+00:00",
+    "etag": null,
+    "last_modified": "Thu, 15 Oct 2020 11:45:17 GMT",
+    "members": [
+      {
+        "name": "psam_pusa.csv",
+        "uncompressed_bytes": 1169745409
+      },
+      {
+        "name": "psam_pusb.csv",
+        "uncompressed_bytes": 1112807189
+      },
+      {
+        "name": "ACS2019_PUMS_README.pdf",
+        "uncompressed_bytes": 220662
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "url": "https://www2.census.gov/programs-surveys/acs/data/pums/2023/1-Year/csv_pus.zip",
+    "path": "/Users/deep1003/Documents/Codex/2026-11-22/codex-america/work/us_public_validation_20261126/acs/raw/acs_2023_person_us.zip",
+    "sha256": "98b6ecb14b4830d1f2b54c265a5bd997828415c2dab14e17369c40e98b78d9d4",
+    "bytes": 597292173,
+    "retrieved_utc": "2026-11-26T02:59:20.756666+00:00",
+    "etag": null,
+    "last_modified": "Tue, 10 Sep 2024 17:39:56 GMT",
+    "members": [
+      {
+        "name": "psam_pusa.csv",
+        "uncompressed_bytes": 1219778391
+      },
+      {
+        "name": "psam_pusb.csv",
+        "uncompressed_bytes": 1176135954
+      },
+      {
+        "name": "ACS2023_PUMS_README.pdf",
+        "uncompressed_bytes": 264187
+      }
+    ]
+  },
+  {
+    "year": 2024,
+    "url": "https://www2.census.gov/programs-surveys/acs/data/pums/2024/1-Year/csv_pus.zip",
+    "path": "/Users/deep1003/Documents/Codex/2026-11-22/codex-america/work/us_public_validation_20261126/acs/raw/acs_2024_person_us.zip",
+    "sha256": "afdc6d90c6e2f0bab365ed32d95ba4c4d8ac651162f46ac7861295b2dc469894",
+    "bytes": 602847146,
+    "retrieved_utc": "2026-11-26T02:42:22.000865+00:00",
+    "etag": null,
+    "last_modified": "Thu, 04 Dec 2025 12:00:14 GMT",
+    "members": [
+      {
+        "name": "psam_pusa.csv",
+        "uncompressed_bytes": 1226543489
+      },
+      {
+        "name": "psam_pusb.csv",
+        "uncompressed_bytes": 1178924624
+      },
+      {
+        "name": "ACS2024_PUMS_README.pdf",
+        "uncompressed_bytes": 103658
+      }
+    ]
+  }
+]

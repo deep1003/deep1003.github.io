@@ -1,0 +1,106 @@
+{
+  "monthly_benchmark_tests": 84,
+  "monthly_within_rounding": 84,
+  "monthly_unrounded_count_max_gap": 490.3525000065565,
+  "state_age_comparisons": 152,
+  "state_comparisons_summary": {
+    "16+": {
+      "states": 51,
+      "max_P_gap_people": 413147.33689999953,
+      "max_E_gap_people": 242823.04078333452,
+      "max_E_gap_pct": 2.2002728945147716,
+      "max_UR_gap_pp": 0.04562984193364983,
+      "E_within_rounding": 2
+    },
+    "20\u201324": {
+      "states": 50,
+      "max_P_gap_people": 26216.986349999905,
+      "max_E_gap_people": 17989.281008333317,
+      "max_E_gap_pct": 4.588027421383663,
+      "max_UR_gap_pp": 0.6833168991665337,
+      "E_within_rounding": 12
+    },
+    "25\u201334": {
+      "states": 51,
+      "max_P_gap_people": 84352.65393333323,
+      "max_E_gap_people": 66987.20102499984,
+      "max_E_gap_pct": 2.4286202736686433,
+      "max_UR_gap_pp": 0.3407962445947623,
+      "E_within_rounding": 8
+    }
+  },
+  "raw_files_verified": [
+    {
+      "year": 2024,
+      "month": 1,
+      "raw_sha256": "3429f6f1265c3a5e6a72d18fa134e5adc670084f0454a117f09d7bd45ee51e54"
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "raw_sha256": "69855648c50cdadbd1cf35749435d2a35de7fa2727b58d5769d757b9026e81bd"
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "raw_sha256": "31da6ab601f9ce58abc4bba6016e449a3f571d7e43e15ef38477a4499fb53ef1"
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "raw_sha256": "448814c2a60227247b52c34971884b89724dfe5ada7c7dc2fde037725c3afa1e"
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "raw_sha256": "61ef229a58bf6d51ff513a513c64c03777512b95c9347ed245d05dd8662cf2c8"
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "raw_sha256": "026df8110d6dfd24722cbc4281b926b0632d595ee55a2a5282a2bf8fe3977721"
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "raw_sha256": "b1e0e8d1e7249724c92c4a774119296dd153e999cac59669b420e1a6cba5cb2d"
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "raw_sha256": "34b2d654d55d4d7ef8ec876f55886c83092aafb9695dfd468b1a7b1301263297"
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "raw_sha256": "1a3b4e107e03530577bfb3dba62b48ee7733eac68ef2f3f24f92024711aa2aa6"
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "raw_sha256": "cbc31df91a90aa6246c145f7ed4c6144e72519b48365c2b7568626b81b1fdf76"
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "raw_sha256": "52da422e5971e4b942088a6c7cad92ef47daaa59dfadb0e91c0a0e79c3b07841"
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "raw_sha256": "204c4044957f68c34f507130d2c93c664451618fd02ae8821ef6807d76ec63d5"
+    }
+  ],
+  "source_urls": [
+    "https://www.bls.gov/news.release/empsit.t01.htm",
+    "https://www.bls.gov/lau/table14full24.htm"
+  ],
+  "plots_displayed": false,
+  "state_population_control_diagnostic": {
+    "max_original_E_relative_gap_pct": 2.2002728945147716,
+    "max_gap_after_state_population_alignment_pct": 0.24989652282870756,
+    "median_gap_after_state_population_alignment_pct": 0.010446394260510417,
+    "max_original_EPR_gap_pp": 0.05022294673257477,
+    "interpretation": "A population-level alignment diagnostic, not a valid age- or occupation-specific correction. Detailed-age residuals are not fully reconciled."
+  }
+}

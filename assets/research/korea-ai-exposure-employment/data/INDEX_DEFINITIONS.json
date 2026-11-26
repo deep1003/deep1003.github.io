@@ -1,0 +1,6 @@
+{
+  "current_monthly": "employment / own observed November2022 employment * 100; missing or nonpositive baseline gives null",
+  "annual": "No November observation. Annual index is null and not offered as current chart view.",
+  "archived_res": "res.json, gender-totals.json and res-employment-indices.csv retain historical 2022 April/October mean indices. Their graphs are hidden and exports labeled archive.",
+  "standardized": "Common pooled-sex November2022 occupation weights applied to within-occupation sex-specific growth ratios; not an observed headcount index."
+}

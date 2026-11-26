@@ -1,0 +1,44 @@
+[
+  {
+    "cohort_years": 2,
+    "official_weight_people": 18207,
+    "matched_reference_people": 18207,
+    "baseline_mapped_workers": 8594,
+    "baseline_youth": 534,
+    "eligible_adjacent_pairs": 120261,
+    "reference_years": [
+      2023,
+      2024
+    ],
+    "employment_missing_hours": 136
+  },
+  {
+    "cohort_years": 3,
+    "official_weight_people": 10717,
+    "matched_reference_people": 10717,
+    "baseline_mapped_workers": 5024,
+    "baseline_youth": 304,
+    "eligible_adjacent_pairs": 130593,
+    "reference_years": [
+      2022,
+      2023,
+      2024
+    ],
+    "employment_missing_hours": 164
+  },
+  {
+    "cohort_years": 4,
+    "official_weight_people": 6122,
+    "matched_reference_people": 6122,
+    "baseline_mapped_workers": 2847,
+    "baseline_youth": 164,
+    "eligible_adjacent_pairs": 108179,
+    "reference_years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "employment_missing_hours": 157
+  }
+]

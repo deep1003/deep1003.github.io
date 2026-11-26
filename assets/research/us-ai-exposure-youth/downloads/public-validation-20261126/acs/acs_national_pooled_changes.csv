@@ -1,0 +1,10 @@
+state,age,outcome,contrast,estimate,variance_status,SE,CI95_low,CI95_high,inference
+0,22–25,employed,Q5_pool_change_pct,-3.790047117681627,independent_year_block_SDR,0.7673851428245042,-5.294121997617656,-2.2859722377455993,Pointwise normal95%; independent annual replicate-block approximation
+0,22–25,employed,Q1–Q4_pool_change_pct,4.48436325053061,independent_year_block_SDR,0.364667730056993,3.7696144996189034,5.199112001442316,Pointwise normal95%; independent annual replicate-block approximation
+0,22–25,employed,Q5_vs_Q1_4_relative_pool_change_pct,-7.919281039567627,independent_year_block_SDR,0.812180624877871,-9.511155064328252,-6.327407014807,Pointwise normal95%; independent annual replicate-block approximation
+0,22–25,FT_proxy,Q5_pool_change_pct,-1.2368862752978105,independent_year_block_SDR,0.9037657007411476,-3.0082670487504597,0.5344944981548387,Pointwise normal95%; independent annual replicate-block approximation
+0,22–25,FT_proxy,Q1–Q4_pool_change_pct,6.663877117205774,independent_year_block_SDR,0.4788679056360684,5.72529602215908,7.602458212252468,Pointwise normal95%; independent annual replicate-block approximation
+0,22–25,FT_proxy,Q5_vs_Q1_4_relative_pool_change_pct,-7.407159392698581,independent_year_block_SDR,0.9460171311738228,-9.261352969799274,-5.552965815597888,Pointwise normal95%; independent annual replicate-block approximation
+0,22–25,PT_proxy,Q5_pool_change_pct,-11.750209336961126,independent_year_block_SDR,1.541390385533118,-14.771334492606035,-8.729084181316214,Pointwise normal95%; independent annual replicate-block approximation
+0,22–25,PT_proxy,Q1–Q4_pool_change_pct,-0.5518559326860739,independent_year_block_SDR,0.6815160471014213,-1.8876273850048595,0.7839155196327119,Pointwise normal95%; independent annual replicate-block approximation
+0,22–25,PT_proxy,Q5_vs_Q1_4_relative_pool_change_pct,-11.260495114614876,independent_year_block_SDR,1.6941077637247304,-14.580946331515348,-7.940043897714405,Pointwise normal95%; independent annual replicate-block approximation

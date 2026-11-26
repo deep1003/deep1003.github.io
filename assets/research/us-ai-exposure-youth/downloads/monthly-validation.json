@@ -1,0 +1,10 @@
+{
+  "source": "Independent official CPS aggregation only",
+  "no_external_payroll_inputs": true,
+  "CPS_overlap_2020_2026_matches": true,
+  "descriptive_months": 81,
+  "monthly_regression_period": "2017-01 through 2026-10",
+  "missing_month": "2025-10",
+  "baseline_2022_months": 12,
+  "frozen_THAIE_quintiles": true
+}

@@ -1,0 +1,9 @@
+model,family,tests,adjusted_p,rule,estimate_pct,ci_low_pct,ci_high_pct,interval
+Current reference,Current raw,1,0.02523888286317392,Unadjusted,-9.025767888543772,-16.255137175688557,-1.1723151826995408,Marginal95%
+Current reference,Current two-outcome family,2,0.05047776572634784,Holm,-9.025767888543772,-17.249818656720592,0.015622611578456048,Bonferroni simultaneous 95%
+Current reference,Current six-age primary family,12,0.2791594593004453,Holm,-9.025767888543772,-19.419956272231907,2.709188595501781,Bonferroni simultaneous 95%
+Current reference,Current full sensitivity family,60,1.0,Holm,-9.025767888543772,-21.045957785692757,4.824410203146829,Bonferroni simultaneous 95%
+Legacy state-clustered,Legacy raw,1,0.0004343694807263524,Unadjusted,-8.763586837420627,,,
+Legacy state-clustered,Legacy actual two-outcome family,2,0.0008687389614527031,Holm,-8.763586837420627,,,
+Legacy state-clustered,Legacy actual 36-specification family,36,0.01389982338324325,Holm,-8.763586837420627,,,
+Legacy state-clustered,Legacy 12-test upper bound,12,0.0052124337687162285,Bonferroni bound; not a fabricated Holm family,-8.763586837420627,,,

@@ -1,0 +1,4 @@
+state,age,outcome,pre_year,post_year,Q5_pre_n,Q5_post_n,inference,contrast,estimate_pct,SE_pct,CI95_low_pct,CI95_high_pct,95% CI
+0,22–25,employed,2019,2024,20168,19668,Pointwise 95% normal interval; independent-year replicate-block approximation; descriptive,Q5_vs_Q1_4_relative_endpoint_change,-6.24%,1.3078275938556867,-8.799732741390677,-3.673048573476387,"[-8.80, -3.67]"
+0,22–25,FT_proxy,2019,2024,15199,14933,Pointwise 95% normal interval; independent-year replicate-block approximation; descriptive,Q5_vs_Q1_4_relative_endpoint_change,-5.25%,1.503742496834958,-8.199723705247422,-2.305053117654386,"[-8.20, -2.31]"
+0,22–25,PT_proxy,2019,2024,4969,4735,Pointwise 95% normal interval; independent-year replicate-block approximation; descriptive,Q5_vs_Q1_4_relative_endpoint_change,-9.96%,2.65249147438034,-15.15575348398314,-4.757986904412209,"[-15.16, -4.76]"

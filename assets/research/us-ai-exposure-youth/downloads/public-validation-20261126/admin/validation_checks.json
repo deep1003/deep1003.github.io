@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "source_files": 102,
+  "all_hashes_match": true,
+  "no_allindustry_or_supersector_doublecounts": true,
+  "missing_or_suppressed_never_zero": true,
+  "youth_age": "22\u201324, not22\u201325",
+  "older_age": "35\u201364, not40+",
+  "transition_quarter_excluded": "2022Q4",
+  "QWI_prequarters": 12,
+  "QWI_postquarters": 12,
+  "J2J_prequarters": 12,
+  "J2J_postquarters": 11,
+  "no_graphs_displayed": true,
+  "records": 920
+}
