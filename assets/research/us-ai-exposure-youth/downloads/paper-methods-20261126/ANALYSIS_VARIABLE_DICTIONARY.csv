@@ -2,7 +2,7 @@ dataset,fields,role,definition,processing_or_limit,analysis_module
 CPS,HRHHID; HRHHID2; PULINENO,Linkage,Household and person keys,"Unique month-key; expected rotation, sex/race/state and age progression validated",Entry DID; stock–flow; residual audit
 CPS,HRYEAR4; HRMONTH; HRMIS,Timing/design,"Year, month and month-in-sample",Only adjacent observed months; origin MIS 1/2/3/5/6/7 eligible; 4/8 rotate out and 1/5 rotate in,All monthly modules
 CPS,GESTFIPS; PRPERTYP,Universe/geography,State and person type,Civilian noninstitutional adult universe; state-coded maps use all 50 states/DC,Stocks; maps; fixed effects
-CPS,PRTAGE; PEAGE,Age,Exact age under the relevant year schema,Core 22–25; accounting origin 21–26; six chart groups retained,Stocks; entry risk sets; aging
+CPS,PRTAGE; PEAGE,Age,Recorded public-use age under year-specific schemas,Age perturbation may alter age bins or link validation; recorded boundary movements are not verified birthdays,Stocks; entry risk sets; aging
 CPS,PEMLR,Outcome,Labor-force status,Employment 1/2; unemployment 3/4; nonparticipation 5–7,All employment modules
 CPS,PRFTLF,Outcome,Current usual FT/PT classification,"Employed FT=1, PT=2; no permanent-contract inference",Stocks; entry; schedule flows
 CPS,PEHRUSLT; PRWKSTAT,Auxiliary outcomes,Usual weekly hours and labor-force/hours classification,Usual economic PT and economic short-hours are distinct; PRWKSTAT 3/6 in the retained short-hours module,Hours and incumbent adaptation
