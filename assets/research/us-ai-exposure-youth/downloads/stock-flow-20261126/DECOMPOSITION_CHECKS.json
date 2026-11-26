@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "max_period_state_closure_error": 9.313225746154785e-10,
+  "bootstrap_draws": 999,
+  "bootstrap_scope": "Conditional on fitted response weights and frozen mapping; state resampling, not official CPS design inference",
+  "min_propensity": 0.3654860282354213,
+  "max_calibration_multiplier": 3.913226532658912,
+  "min_calibration_multiplier": 0.5461888607636811,
+  "figures_displayed": 0
+}
