@@ -1,0 +1,61 @@
+{
+  "reference": "https://github.com/ChenLiu-1996/figures4papers",
+  "commit": "daa2833f03878454cb9b6ad3f9ecb68acad36ade",
+  "license": "CC BY-NC 4.0",
+  "implementation": "Original code using design references; existing data and numerical ranges unchanged",
+  "figures": [
+    {
+      "figure": "STOCK_RESIDUAL_SENSITIVITY",
+      "source": "outputs/US_Residual_Audit_20261126/STOCK_SENSITIVITIES.csv",
+      "source_sha256": "9f8abbb0e84c892bdf267932ea57b27b718a14268c2ec8b00c1ecf8889832576",
+      "values": [
+        -9.312393251580811,
+        -9.312222367990246,
+        -9.022574813655623,
+        -9.150129236929692,
+        -4.233666986876829
+      ],
+      "low": [
+        -13.877364646333143,
+        -13.686577882545436,
+        -13.61209163529606,
+        -13.328312879546315,
+        -10.909766804780691
+      ],
+      "high": [
+        -5.343580493005481,
+        -5.433080898381722,
+        -4.7651590515594355,
+        -5.14551025919616,
+        1.5266384845772123
+      ]
+    },
+    {
+      "figure": "FLOW_CHANNEL_COMPARISON",
+      "source": "outputs/US_Stock_Flow_20261126/SEASON_BALANCED_FLOW_INTENSITIES.csv",
+      "source_sha256": "13542159de81f5ae9918d5609dbe99a3f62905c1e9c98861fea0bf1e462ffb72",
+      "values": [
+        0.0972324500642667,
+        -0.3785347415896796,
+        0.0594026703030488,
+        -0.0923717826767127,
+        -0.1748086438959895
+      ],
+      "low": [
+        -0.3389473070492739,
+        -0.982702155463977,
+        -0.71923279005742,
+        -1.0720835872002554,
+        -0.7125481481445011
+      ],
+      "high": [
+        0.6323297969388031,
+        0.2325771157737312,
+        0.8556017170054977,
+        0.8367911090268159,
+        0.4382677666697512
+      ]
+    }
+  ],
+  "figures_emitted_during_smokes": 0
+}
